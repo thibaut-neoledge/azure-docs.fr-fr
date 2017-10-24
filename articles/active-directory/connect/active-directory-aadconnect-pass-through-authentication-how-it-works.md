@@ -12,18 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/29/2017
 ms.author: billmath
+ms.openlocfilehash: 9ded5e0199f5ca48e2a00d2afee0e4c13b3a3460
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 9507a718ba982eb8b3381a6ef70156f075729161
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Authentification directe Azure Active Directory : immersion technique
-L’article suivant est une vue d’ensemble du fonctionnement de l’authentification directe Azure AD.  Pour en savoir plus sur la sécurité et accéder à d’autres détails techniques, consultez la section de [**présentation approfondie des fonctions de sécurité de l’authentification directe Azure AD.**](active-directory-aadconnect-pta-security-deep-dive.md)
+L’article suivant est une vue d’ensemble du fonctionnement de l’authentification directe Azure AD.  Pour en savoir plus sur la sécurité et accéder à d’autres détails techniques, consultez l’article [**Présentation approfondie des fonctions de sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Comment l’authentification directe Azure Active Directory fonctionne-t-elle ?
 
@@ -46,11 +44,11 @@ Le schéma suivant illustre les composants et les étapes impliqués dans ce pro
 ![Authentification directe](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) :découvrez les scénarios pris en charge et ceux qui ne le sont pas.
+- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
-- [**Forum aux questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
+- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [**Questions fréquentes (FAQ)**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
+- [**Immersion dans la sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
 - [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
-- [**Présentation approfondie de sécurité**](active-directory-aadconnect-pta-security-deep-dive.md) : informations techniques supplémentaires sur l’authentification directe Azure AD.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
-
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.

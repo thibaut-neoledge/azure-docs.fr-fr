@@ -1,6 +1,6 @@
 ---
 title: "Bien démarrer avec Azure Active Directory Domain Services | Microsoft Docs"
-description: "Activer Azure Active Directory Domain Services à l’aide du portail Azure (préversion)"
+description: "Activer Azure Active Directory Domain Services à l’aide du portail Azure"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 32d51f883ad92b5be6b1f455dfb1a865748f3102
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure (préversion)
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 
 
 ## <a name="task-3-configure-administrative-group"></a>Tâche 3 : configurer le groupe d’administration
@@ -57,11 +56,11 @@ Le processus d’approvisionnement de votre domaine managé peut prendre jusqu�
 
     ![Rechercher le domaine managé en cours d’approvisionnement](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Pour plus d’informations sur le domaine, cliquez sur le nom du domaine managé (par exemple, « contoso100.com »).
+2. Pour plus d’informations sur le domaine, cliquez sur le nom du domaine géré (par exemple, « contoso100.com »).
 
     ![Domain Services - État d’approvisionnement](./media/getting-started/domain-services-provisioning-state.png)
 
-3. L’onglet **Vue d’ensemble** montre que le domaine est actuellement en cours d’approvisionnement. Vous ne pouvez pas configurer le domaine managé tant qu’il n’est pas entièrement approvisionné. L’approvisionnement complet de votre domaine managé peut prendre jusqu’à une heure.
+3. L’onglet **Vue d’ensemble** montre que le domaine géré est actuellement en cours d’approvisionnement. Vous ne pouvez pas configurer le domaine managé tant qu’il n’est pas entièrement approvisionné. L’approvisionnement complet de votre domaine managé peut prendre jusqu’à une heure.
 
     ![Domain Services - Onglet Vue d’ensemble durant l’approvisionnement ](./media/getting-started/domain-services-provisioning-state-details.png)
 
@@ -74,6 +73,9 @@ Le processus d’approvisionnement de votre domaine managé peut prendre jusqu�
     ![Domain Services - Onglet Propriétés après un approvisionnement complet](./media/getting-started/domain-services-provisioned-properties.png)
 
 
+## <a name="need-help"></a>Vous avez besoin d’aide ?
+L’approvisionnement de votre domaine géré peut prendre une ou deux heures pour chaque contrôleur de domaine. Si votre déploiement a échoué ou est bloqué à l’état « En attente » pendant plusieurs heures, n’hésitez pas à [contactez l’équipe de produit pour obtenir de l’aide](active-directory-ds-contact-us.md).
+
+
 ## <a name="next-step"></a>Étape suivante
 [Tâche 4 : Mettre à jour les paramètres DNS pour le réseau virtuel Azure](active-directory-ds-getting-started-dns.md)
-

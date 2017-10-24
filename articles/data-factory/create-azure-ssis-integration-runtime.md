@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
+ms.openlocfilehash: be9ffaac1f25068f1ad575c14ffb6666752159d0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: b9ab20b6edbc0ab913690a5fcac181cd2d66e3b3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory
 Cet article explique pas à pas comment configurer un runtime d’intégration Azure-SSIS dans Azure Data Factory. Vous pouvez ensuite utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer des packages SQL Server Integration Services (SSIS) sur ce runtime dans Azure.
 
@@ -34,7 +32,7 @@ Pour obtenir des informations conceptuelles sur la jonction d’une IR Azure SSI
 ## <a name="prerequisites"></a>Composants requis
 
 - **Abonnement Azure**. Si vous ne disposez d’aucun abonnement, vous pouvez créer un compte d’[essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
-- Un **serveur de base de données SQL Azure** ou une **instance gérée SQL Server (préversion privée) (préversion privée étendue)**. Si vous n’avez pas encore de serveur de base de données, créez-en un dans le portail Azure avant de commencer. Ce serveur héberge la base de données du catalogue SSIS (SSISDB). Nous vous recommandons de créer le serveur de base de données dans la même région Azure que le runtime d’intégration. Cette configuration permet au runtime d’intégration d’écrire des journaux d’exécution dans SSISDB sans dépasser les régions Azure. 
+- Un **serveur de base de données SQL Azure** ou une **instance gérée SQL Server (préversion privée) (préversion privée étendue)**. Si vous n’avez pas encore de serveur de base de données, créez-en un dans le portail Azure avant de commencer. Ce serveur héberge la base de données du catalogue SSIS (SSISDB). Nous vous recommandons de créer le serveur de base de données dans la même région Azure que le runtime d’intégration. Cette configuration permet au runtime d’intégration d’écrire des journaux d’exécution dans SSISDB sans dépasser les régions Azure. Notez le niveau tarifaire de votre serveur SQL Azure. Pour obtenir la liste des niveaux tarifaires pris en charge pour Azure SQL Database, consultez [Limites de ressources pour SQL Database](../sql-database/sql-database-resource-limits.md).
 - **Réseau virtuel (VNet) Classic (facultatif)**. Vous devez disposer d’un réseau virtuel (VNet) Azure si au moins une des conditions suivantes est vraie :
     - Vous hébergez la base de données du catalogue SSIS sur une instance SQL Server gérée (préversion privée) qui fait partie d’un réseau virtuel.
     - Vous souhaitez vous connecter à des magasins de données sur site à partir de packages SSIS en cours d’exécution sur un runtime d’intégration Azure-SSIS.
@@ -64,8 +62,8 @@ $SSISDBServerAdminUserName = "[your server admin username]"
 $SSISDBServerAdminPassword = "[your server admin password]"
 
 # Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
-# This parameter applies only to Azure SQL Database. 
-$SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. S3. Remove the variable for Azure SQL Managed Instance (private preview)]"
+# This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
+$SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
 ## Remove these two variables if you are using Azure SQL Database. 
 ## These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
@@ -143,6 +141,7 @@ Exécutez la commande suivante pour créer un runtime d’intégration Azure-SSI
 
 Si vous utilisez **Azure SQL Database** pour héberger la base de données SSISDB (catalogue SSIS) : 
 
+
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
 $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
@@ -160,7 +159,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode
 ```
 
-Vous n’avez pas besoin de valider des valeurs pour VNetId et Subnet, sauf si vous avez besoin d’un accès aux données locales, autrement dit, si vous avez des sources de données/destinations de données locales dans vos packages SSIS. Vous devez valider la valeur du paramètre CatalogPricingTier. 
+Vous n’avez pas besoin de valider des valeurs pour VNetId et Subnet, sauf si vous avez besoin d’un accès aux données locales, autrement dit, si vous avez des sources de données/destinations de données locales dans vos packages SSIS. Vous devez valider la valeur du paramètre CatalogPricingTier. Pour obtenir la liste des niveaux tarifaires pris en charge pour Azure SQL Database, consultez [Limites de ressources pour SQL Database](../sql-database/sql-database-resource-limits.md).
 
 Si vous utilisez **Azure SQL Managed Instance (préversion privée)** pour héberger la base de données SSISDB :
 

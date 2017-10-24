@@ -12,23 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 10/06/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fdf22ff85a3a76be5de50632c4948df44c2312df
-ms.openlocfilehash: b8731e1fe48b7d809b113eb5273e3962542b8f34
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: d6d65480c53f905b393409dfdd9952618ab6cb64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Ajouter des actions à des règles d’alerte dans Log Analytics
 Lorsqu’une [alerte est créée dans Log Analytics](log-analytics-alerts.md), vous avez la possibilité de [configurer la règle d’alerte](log-analytics-alerts.md) pour effectuer une ou plusieurs actions.  Cet article décrit les différentes actions possibles et explique la configuration associée à chacune.
 
 | Action | Description |
 |:--|:--|
-| [E-mail](#email-actions) |    Envoyez un e-mail avec les détails de l’alerte à un ou plusieurs destinataires. |
+| [E-mail](#email-actions) | Envoyez un e-mail avec les détails de l’alerte à un ou plusieurs destinataires. |
 | [Webhook](#webhook-actions) | Appelez un processus externe par le biais d’une simple requête HTTP POST. |
 | [Runbook](#runbook-actions) | Démarrez un runbook dans Azure Automation. |
 
@@ -58,19 +56,22 @@ Les propriétés requises par les actions webhook sont décrites dans le tableau
 
 Les webhooks incluent une URL et une charge utile au format JSON qui correspond aux données envoyées au service externe.  Par défaut, la charge utile comprend les valeurs du tableau suivant.  Vous pouvez choisir de remplacer cette charge utile par une charge utile personnalisée de votre choix.  Dans ce cas, vous pouvez reprendre les variables de chacun des paramètres indiquées dans le tableau pour inclure les valeurs correspondantes dans votre charge utile personnalisée.
 
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), alors la charge utile du Webhook a changé.  Vous trouverez les détails du format sur la page [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).  La section [Exemples](#sample-payload) ci-dessous présente un exemple.
+
 | Paramètre | Variable | Description |
 |:--- |:--- |:--- |
-| AlertRuleName |#AlertRuleName |Nom de la règle d’alerte. |
+| AlertRuleName |#alertrulename |Nom de la règle d’alerte. |
 | AlertThresholdOperator |#thresholdoperator |Opérateur de seuil de la règle d’alerte.  *Supérieur à* ou *Inférieur à*. |
 | AlertThresholdValue |#thresholdvalue |Valeur de seuil de la règle d’alerte. |
-| LinkToSearchResults |#LinkToSearchResults |Lien vers la recherche de journal Log Analytics qui retourne les enregistrements de la requête ayant créé l’alerte. |
+| LinkToSearchResults |#linktosearchresults |Lien vers la recherche dans les journaux Log Analytics qui retourne les enregistrements de la requête ayant créé l’alerte. |
 | ResultCount |#searchresultcount |Nombre d’enregistrements dans les résultats de recherche. |
-| SearchIntervalEndtimeUtc |#SearchIntervalEndtimeUtc |Heure de fin de la requête au format UTC. |
+| SearchIntervalEndtimeUtc |#searchintervalendtimeutc |Heure de fin de la requête au format UTC. |
 | SearchIntervalInSeconds |#searchinterval |Fenêtre de temps de la règle d’alerte. |
-| SearchIntervalStartTimeUtc |#SearchIntervalStartTimeUtc |Heure de début de la requête au format UTC. |
-| SearchQuery |#SearchQuery |Requête de recherche de journal utilisée par la règle d’alerte. |
+| SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Heure de début de la requête au format UTC. |
+| SearchQuery |#searchquery |Requête de recherche de journal utilisée par la règle d’alerte. |
 | SearchResults |Voir ci-dessous |Enregistrements retournés par la requête au format JSON.  Le jeu de résultats est limité aux 5 000 premiers enregistrements. |
-| WorkspaceID |#WorkspaceID |ID de votre espace de travail OMS. |
+| WorkspaceID |#workspaceid |ID de votre espace de travail OMS. |
 
 Par exemple, vous pouvez spécifier la charge utile personnalisée suivante qui inclut un paramètre unique appelé *text*.  Le service appelé par ce webhook s’attendrait à recevoir ce paramètre.
 
@@ -98,6 +99,7 @@ Par exemple, pour créer une charge utile personnalisée qui inclut uniquement l
 
 Pour étudier un exemple complet de création d’une règle d’alerte avec un webhook pour démarrer un service externe, consultez [Créer une action d’alerte webhook dans OMS Log Analytics pour envoyer un message à Slack](log-analytics-alerts-webhooks.md).
 
+
 ## <a name="runbook-actions"></a>Actions de runbook
 Les actions de runbook démarrent un runbook dans Azure Automation.  Ce type d’action suppose que la [solution Automation](log-analytics-add-solutions.md) est installée et configurée dans votre espace de travail OMS.  Vous pouvez effectuer votre choix parmi les runbooks disponibles dans le compte Automation que vous avez configuré dans la solution Automation.
 
@@ -111,6 +113,9 @@ Les propriétés requises par les actions runbook sont décrites dans le tableau
 Les actions de runbook démarrent le runbook en utilisant un [webhook](../automation/automation-webhooks.md).  Quand vous créez la règle d’alerte, elle crée automatiquement un webhook pour le runbook sous le nom **Correction d’alerte OMS** suivi d’un GUID.  
 
 Vous ne pouvez pas compléter directement tous les paramètres du runbook, mais le [paramètre $WebhookData](../automation/automation-webhooks.md) inclut les détails de l’alerte, dont les résultats de la recherche de journal qui l’a créée.  Le runbook doit définir **$WebhookData** en tant que paramètre pour pouvoir accéder aux propriétés de l’alerte.  Les données d’alerte sont disponibles au format json dans une propriété unique appelée **SearchResults** dans la propriété **RequestBody** du **$WebhookData**.  Les propriétés sont répertoriées dans le tableau suivant.
+
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), alors la charge utile du runbook a changé.  Vous trouverez les détails du format sur la page [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).  La section [Exemples](#sample-payload) ci-dessous présente un exemple.
 
 | Nœud | Description |
 |:--- |:--- |
@@ -146,6 +151,418 @@ Par exemple, le runbook suivant extrait les enregistrements retournés par la re
             $Value     = $Record.CounterValue
         }
     }
+
+
+## <a name="sample-payload"></a>Exemple de charge utile
+Cette section présente un exemple de charge utile pour les actions de Webhook et de runbook dans [un espace de travail Log Analytics hérité et un autre mis à niveau](log-analytics-log-search-upgrade.md).
+
+### <a name="webhook-actions"></a>Actions de webhook
+
+#### <a name="legacy-workspace"></a>Espace de travail hérité
+Voici un exemple de charge utile pour une action de Webhook dans un espace de travail hérité.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "WebhookAlert",
+    "SearchQuery": "Type=Usage",
+    "SearchResult": {
+        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
+        "__metadata": {
+        "resultType": "raw",
+        "total": 1,
+        "top": 2147483647,
+        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
+        "CoreSummaries": [
+            {
+            "Status": "Successful",
+            "NumberOfDocuments": 135000000
+            }
+        ],
+        "Status": "Successful",
+        "NumberOfDocuments": 135000000,
+        "StartTime": "2017-09-27T10:30:38.9453282Z",
+        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
+        "ETag": "636421050440907473",
+        "sort": [
+            {
+            "name": "TimeGenerated",
+            "order": "desc"
+            }
+        ],
+        "requestTime": 361
+        },
+        "value": [
+        {
+            "Computer": "-",
+            "SourceSystem": "OMS",
+            "TimeGenerated": "2017-09-26T13:59:59Z",
+            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
+            "DataType": "Operation",
+            "StartTime": "2017-09-26T13:00:00Z",
+            "EndTime": "2017-09-26T13:59:59Z",
+            "Solution": "LogManagement",
+            "BatchesWithinSla": 8,
+            "BatchesOutsideSla": 0,
+            "BatchesCapped": 0,
+            "TotalBatches": 8,
+            "AvgLatencyInSeconds": 0.0,
+            "Quantity": 0.002502,
+            "QuantityUnit": "MBytes",
+            "IsBillable": false,
+            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
+            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
+            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
+            "Type": "Usage",
+            "MG": "00000000-0000-0000-0000-000000000000",
+            "__metadata": {
+            "Type": "Usage",
+            "TimeGenerated": "2017-09-26T13:59:59Z"
+            }
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
+    "Description": null,
+    "Severity": "Low"
+    }
+
+
+#### <a name="upgraded-workspace"></a>Espace de travail mis à niveau
+Voici un exemple de charge utile pour une action de Webhook dans un espace de travail mis à niveau.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "WebhookAlert",
+    "SearchQuery": "Usage",
+    "SearchResult": {
+        "tables": [
+        {
+            "name": "PrimaryResult",
+            "columns": [
+            {
+                "name": "TenantId",
+                "type": "string"
+            },
+            {
+                "name": "Computer",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            },
+            {
+                "name": "SourceSystem",
+                "type": "string"
+            },
+            {
+                "name": "StartTime",
+                "type": "datetime"
+            },
+            {
+                "name": "EndTime",
+                "type": "datetime"
+            },
+            {
+                "name": "ResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "LinkedResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "DataType",
+                "type": "string"
+            },
+            {
+                "name": "Solution",
+                "type": "string"
+            },
+            {
+                "name": "BatchesWithinSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesOutsideSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesCapped",
+                "type": "long"
+            },
+            {
+                "name": "TotalBatches",
+                "type": "long"
+            },
+            {
+                "name": "AvgLatencyInSeconds",
+                "type": "real"
+            },
+            {
+                "name": "Quantity",
+                "type": "real"
+            },
+            {
+                "name": "QuantityUnit",
+                "type": "string"
+            },
+            {
+                "name": "IsBillable",
+                "type": "bool"
+            },
+            {
+                "name": "MeterId",
+                "type": "string"
+            },
+            {
+                "name": "LinkedMeterId",
+                "type": "string"
+            },
+            {
+                "name": "Type",
+                "type": "string"
+            }
+            ],
+            "rows": [
+            [
+                "workspaceID",
+                "-",
+                "2017-09-26T13:59:59Z",
+                "OMS",
+                "2017-09-26T13:00:00Z",
+                "2017-09-26T13:59:59Z",
+                "/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
+                null,
+                "Operation",
+                "LogManagement",
+                8,
+                0,
+                0,
+                8,
+                0,
+                0.002502,
+                "MBytes",
+                false,
+                "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "00000000-0000-0000-0000-000000000000",
+                "Usage"
+            ]
+            ]
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "Low"
+    }
+
+
+### <a name="runbooks"></a>Runbooks
+
+#### <a name="legacy-workspace"></a>Espace de travail hérité
+Voici un exemple de charge utile pour une action de runbook dans un espace de travail hérité.
+
+    {
+        "SearchResults": {
+            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
+            "__metadata": {
+                "resultType": "raw",
+                "total": 1,
+                "top": 2147483647,
+                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
+                "CoreSummaries": [{
+                    "Status": "Successful",
+                    "NumberOfDocuments": 135000000
+                }],
+                "Status": "Successful",
+                "NumberOfDocuments": 135000000,
+                "StartTime": "2017-09-27T10:51:43.3075124Z",
+                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
+                "ETag": "636421063111002092",
+                "sort": [{
+                    "name": "TimeGenerated",
+                    "order": "desc"
+                }],
+                "requestTime": 511
+            },
+            "value": [{
+                "Computer": "-",
+                "SourceSystem": "OMS",
+                "TimeGenerated": "2017-09-26T13:59:59Z",
+                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
+                "DataType": "Operation",
+                "StartTime": "2017-09-26T13:00:00Z",
+                "EndTime": "2017-09-26T13:59:59Z",
+                "Solution": "LogManagement",
+                "BatchesWithinSla": 8,
+                "BatchesOutsideSla": 0,
+                "BatchesCapped": 0,
+                "TotalBatches": 8,
+                "AvgLatencyInSeconds": 0.0,
+                "Quantity": 0.002502,
+                "QuantityUnit": "MBytes",
+                "IsBillable": false,
+                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
+                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
+                "Type": "Usage",
+                "MG": "00000000-0000-0000-0000-000000000000",
+                "__metadata": {
+                    "Type": "Usage",
+                    "TimeGenerated": "2017-09-26T13:59:59Z"
+                }
+            }]
+        }
+    }
+
+#### <a name="upgraded-workspace"></a>Espace de travail mis à niveau
+Voici un exemple de charge utile pour une action de runbook dans un espace de travail mis à niveau.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "AutomationAlert",
+    "SearchQuery": "Usage",
+    "SearchResult": {
+        "tables": [
+        {
+            "name": "PrimaryResult",
+            "columns": [
+            {
+                "name": "TenantId",
+                "type": "string"
+            },
+            {
+                "name": "Computer",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            },
+            {
+                "name": "SourceSystem",
+                "type": "string"
+            },
+            {
+                "name": "StartTime",
+                "type": "datetime"
+            },
+            {
+                "name": "EndTime",
+                "type": "datetime"
+            },
+            {
+                "name": "ResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "LinkedResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "DataType",
+                "type": "string"
+            },
+            {
+                "name": "Solution",
+                "type": "string"
+            },
+            {
+                "name": "BatchesWithinSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesOutsideSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesCapped",
+                "type": "long"
+            },
+            {
+                "name": "TotalBatches",
+                "type": "long"
+            },
+            {
+                "name": "AvgLatencyInSeconds",
+                "type": "real"
+            },
+            {
+                "name": "Quantity",
+                "type": "real"
+            },
+            {
+                "name": "QuantityUnit",
+                "type": "string"
+            },
+            {
+                "name": "IsBillable",
+                "type": "bool"
+            },
+            {
+                "name": "MeterId",
+                "type": "string"
+            },
+            {
+                "name": "LinkedMeterId",
+                "type": "string"
+            },
+            {
+                "name": "Type",
+                "type": "string"
+            }
+            ],
+            "rows": [
+            [
+                "861bd466-5400-44be-9552-5ba40823c3aa",
+                "-",
+                "2017-09-26T13:59:59Z",
+                "OMS",
+                "2017-09-26T13:00:00Z",
+                "2017-09-26T13:59:59Z",
+            "/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
+                null,
+                "Operation",
+                "LogManagement",
+                8,
+                0,
+                0,
+                8,
+                0,
+                0.002502,
+                "MBytes",
+                false,
+                "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "00000000-0000-0000-0000-000000000000",
+                "Usage"
+            ]
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "Critical"
+    }
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -5,17 +5,15 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/10/2017
 ms.author: victorh
 keywords: 
+ms.openlocfilehash: 0a5a783751e4f0fa9f5fb43b22fa221dd9bf3444
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bf41e2458ade0bc770eb0f9cd327f752e08358a9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-stack-datacenter-integration---dns"></a>Intégration au centre de données Azure Stack - DNS
 
 *S’applique à : systèmes intégrés Azure Stack*
@@ -50,7 +48,7 @@ Afin d’utiliser cet exemple d’espace de noms DNS pour un déploiement d’Az
 - Le domaine enfant `cloud.fabrikam.com` existe sous la zone `fabrikam.com`.
 - Les serveurs DNS qui hébergent les zones `fabrikam.com` et `cloud.fabrikam.com` sont accessibles depuis le déploiement d’Azure Stack.
 
-Afin de résoudre les noms DNS pour les points de terminaison Azure Stack et les instances en dehors d’Azure Stack, vous devez intégrer les serveurs DNS qui hébergent la zone DNS externe pour Azure Stack aux serveurs DNS qui hébergent la zone parent que vous souhaitez utiliser.
+Afin de résoudre les noms DNS pour les points de terminaison Azure Stack et les instances en dehors d’Azure Stack, vous devez intégrer les serveurs DNS qui hébergent la zone DNS externe pour Azure Stack aux serveurs DNS qui hébergent la zone parente que vous souhaitez utiliser.
 
 
 ## <a name="resolution-and-delegation"></a>Résolution et délégation
@@ -68,9 +66,14 @@ Azure Stack comprend à la fois des serveurs DNS faisant autorité et des serveu
 
 Afin de résoudre les noms DNS pour les points de terminaison en dehors d’Azure Stack (par exemple : www.bing.com), vous devez fournir des serveurs DNS qu’Azure Stack peut utiliser pour transférer les requêtes DNS pour lesquelles Azure Stack ne fait pas autorité. Pour le déploiement, les serveurs DNS vers lesquels Azure Stack transfère les requêtes sont requis dans la feuille de calcul de déploiement (dans le champ du redirecteur DNS). Indiquez au moins deux serveurs dans ce champ à des fins de tolérance de panne. En l’absence de ces valeurs, le déploiement d’Azure Stack échoue.
 
-### <a name="adding-dns-forwarding-servers-after-deployment"></a>Ajout de serveurs de transfert DNS après le déploiement
+### <a name="configure-conditional-dns-forwarding"></a>Configurer la redirection DNS conditionnelle
 
-Si vous-même ou votre ISP mettez à jour votre infrastructure DNS, vous souhaiterez peut-être inscrire d’autres serveurs DNS. Pour ajouter des serveurs DNS afin de transférer les requêtes récursives, vous devez utiliser le point de terminaison privilégié.
+> [!IMPORTANT]
+> Cela s’applique uniquement à un déploiement AD FS.
+
+Pour activer la résolution de noms de votre infrastructure DNS existante, configurez le transfert conditionnel.
+
+Pour ajouter un redirecteur conditionnel, vous devez utiliser le point de terminaison privilégié.
 
 Pour cette procédure, utilisez un ordinateur de votre réseau de centre de données qui peut communiquer avec le point de terminaison privilégié dans Azure Stack.
 
@@ -84,10 +87,8 @@ Pour cette procédure, utilisez un ordinateur de votre réseau de centre de donn
 2. Une fois connecté au point de terminaison privilégié, exécutez la commande PowerShell suivante. Remplacez les exemples de valeur fournis par votre nom de domaine et les adresses IP des serveurs DNS que vous souhaitez utiliser.
 
    ```
-   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses “192.168.1.1”,”192.168.1.2”
+   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
-
-Une fois que vous avez exécuté cette commande, les services Azure Stack et les machines virtuelles utilisateur qui utilisent le système DNS Azure Stack sont en mesure de résoudre les noms des points de terminaison Azure Stack tels que les points de terminaisons de portail et d’API, ainsi que les adresses IP publiques qui ont une étiquette de nom DNS.
 
 ## <a name="resolving-azure-stack-dns-names-from-outside-azure-stack"></a>Résolution des noms DNS Azure Stack en dehors d’Azure Stack
 Ce sont les serveurs faisant autorité qui hébergent les informations des zones DNS externes et toutes les zones créées par l’utilisateur. Effectuez une intégration à ces serveurs afin que la délégation de zone ou le transfert conditionnel puisse résoudre les noms DNS Azure Stack en dehors d’Azure Stack.
@@ -140,4 +141,3 @@ La plupart des bureaux d’enregistrement DNS requièrent que vous fournissiez a
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Intégration au centre de données Azure Stack : publier des points de terminaison](azure-stack-integrate-endpoints.md)
-

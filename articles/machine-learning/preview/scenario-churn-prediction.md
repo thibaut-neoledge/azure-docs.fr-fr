@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
+ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 55298a7ff96bd9662310fa6b5d1764370f500be5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Prédiction de l’attrition des clients à l’aide d’Azure Machine Learning
 
 En moyenne, la rétention des clients existants coûte cinq fois moins cher que la recherche de nouveaux clients. Cela explique pourquoi les responsables marketing cherchent souvent à évaluer la probabilité d’attrition de leurs clients et à mettre en place des actions appropriées pour minimiser le taux d’attrition.
@@ -56,7 +54,7 @@ Voici quelques facteurs qui contribuent à l’attrition des clients dans le sec
 
 Dans cette solution, nous allons utiliser un exemple concret de création d’un modèle prédictif de l’attrition des clients pour les entreprises de télécommunications.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles)
 
@@ -68,7 +66,7 @@ Dans cette solution, nous allons utiliser un exemple concret de création d’un
 
 ## <a name="create-a-new-workbench-project"></a>Créer un projet Workbench
 
-Créez un projet en utilisant cet exemple comme modèle :
+Créez un projet en utilisant cet exemple comme modèle :
 1.  Ouvrez Azure Machine Learning Workbench
 2.  Dans la page **Projets**, cliquez sur le signe **+**, puis sélectionnez **Nouveau projet**
 3.  Dans le volet **Créer un projet**, entrez les informations relatives à votre nouveau projet
@@ -77,7 +75,7 @@ Créez un projet en utilisant cet exemple comme modèle :
 
 ## <a name="data-description"></a>Description des données
 
-Le jeu de données utilisé dans la solution provient du SIDKDD 2009. Il s’agit du fichier `CATelcoCustomerChurnTrainingSample.csv` situé dans le dossier [`Data`](https://github.com/mezmicrosoft/MachineLearningSamples-ChurnPrediction/tree/master/Data). Le jeu de données contient des données bruyantes hétérogènes (variables catégorielles/numériques) provenant de l’entreprise de télécommunications française Orange et rendues anonymes.
+Le jeu de données utilisé dans la solution provient du SIDKDD 2009. Il s’agit du fichier `CATelcoCustomerChurnTrainingSample.csv` situé dans le dossier [`data`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/tree/master/data). Le jeu de données contient des données bruyantes hétérogènes (variables catégorielles/numériques) provenant de l’entreprise de télécommunications française Orange et rendues anonymes.
 
 Les variables capturent diverses informations sur les clients, notamment des données démographiques, des statistiques sur les appels (par exemple, la durée moyenne et le taux d’échec des appels), des informations sur les contrats et des statistiques sur les réclamations. La variable de l’attrition (churn) est binaire (0 : pas d’attrition, 1 : attrition).
 
@@ -85,27 +83,24 @@ Les variables capturent diverses informations sur les clients, notamment des don
 
 La structure des dossiers est la suivante :
 
-__Code__ : contient tout le code associé à la prédiction de l’attrition à l’aide d’Azure Machine Learning Workbench
+__data__ : contient le jeu de données utilisé dans la solution.  
 
-__Data__ : contient le jeu de données utilisé dans la solution  
-
-__Labs__ : contient tous les ateliers pratiques
+__docs__ : contient tous les labos pratiques.
 
 Pour mener à bien la solution, vous devez effectuer les exercices pratiques dans l’ordre suivant :
-1. Préparation des données : les fichiers associés à cette tâche sont `CATelcoCustomerChurnTrainingSample.dprep`, `CATelcoCustomerChurnTrainingSample.dconn` et `CATelcoCustomerChurnTrainingSample.csv` (dans le dossier Code)
-2. Modélisation et évaluation : le fichier principal associé à cette tâche est `CATelcoCustomerChurnModeling.py` (dans le dossier Code)
-3. Modélisation et évaluation dans Docker : le fichier principal associé à cette tâche est `CATelcoCustomerChurnModelingDocker.py` (dans le dossier Code)
+1. Préparation des données : le principal fichier associé à cette tâche dans le dossier data est `CATelcoCustomerChurnTrainingSample.csv`.
+2. Modélisation et évaluation : le principal fichier associé à cette tâche dans le dossier racine est `CATelcoCustomerChurnModeling.py`.
+3. Modélisation et évaluation dans Docker : le principal fichier associé à cette tâche dans le dossier racine est `CATelcoCustomerChurnModelingDocker.py`.
 4. Opérationnalisation : les fichiers principaux associés au déploiement sont le modèle (`model.pkl`) et `churn_schema_gen.py`
 
 | Ordre| Nom de fichier | Fichiers associés |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/DataPreparation.md) | 'Data/CATelcoCustomerChurnTrainingSample.csv' |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluation.md) | 'Code/CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluationDocker.md) | 'Code/CATelcoCustomerChurnModelingDocker.py' |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/Operationalization.md) | 'Code/model.pkl'<br>'Code/churn_schema_gen.py' |
+| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | « data/CATelcoCustomerChurnTrainingSample.csv » |
+| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | « CATelcoCustomerChurnModeling.py » |
+| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | « CATelcoCustomerChurnModelingDocker.py » |
+| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | « model.pkl »<br>« churn_schema_gen.py » |
 
 Effectuez les labs dans l’ordre indiqué ci-dessus.
 
 ## <a name="conclusion"></a>Conclusion
 Ce scénario concret vous a montré comment effectuer la prédiction de l’attrition à l’aide d’Azure Machine Learning Workbench. Nous avons d’abord nettoyé les données pour traiter les données hétérogènes bruyantes, puis effectué l’ingénierie des caractéristiques à l’aide des outils de préparation des données. Ensuite, nous avons utilisé des outils d’apprentissage automatique open source pour créer et évaluer un modèle de classification. Enfin, nous avons utilisé un conteneur docker local pour déployer le modèle et le rendre opérationnel en production.
-

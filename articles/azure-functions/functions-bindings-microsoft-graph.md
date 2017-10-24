@@ -11,14 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
+ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0eb0ac63c7dbb9d6cbba093937231e93670529e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-microsoft-graph-bindings"></a>Liaisons Microsoft Graph dans Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
@@ -45,7 +43,11 @@ Les liaisons Microsoft Graph sont disponibles via des _extensions de liaison_. L
 
 ### <a name="enabling-functions-20-preview"></a>Activation de la préversion d’Azure Functions 2.0
 
-Les extensions de liaison sont disponibles uniquement pour la préversion d’Azure Functions 2.0. Pour activer Functions 2.0, définissez le paramètre d’application `FUNCTIONS_EXTENSION_VERSION` sur « bêta ».  Pour savoir comment configurer les paramètres d’application, voir [Paramètres de l’application dans Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings).
+Les extensions de liaison sont disponibles uniquement pour la préversion d’Azure Functions 2.0. 
+
+[!INCLUDE [functions-set-runtime-version](../../includes/functions-set-runtime-version.md)]
+
+Pour en savoir plus, voir [Comment cibler des versions du runtime Azure Functions](functions-versions.md).
 
 ### <a name="installing-the-extension"></a>Installation de l’extension
 
@@ -204,7 +206,7 @@ La liaison prend en charge les propriétés suivantes :
 |**userToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
 |**path**|Obligatoire : chemin d’accès au classeur Excel sur OneDrive.|
 |**worksheetName**|La feuille de calcul dans laquelle se trouve le tableau.|
-|**tableName**|Nom du tableau. Si non spécifié, le contenu de la feuille de calcul est utilisé.|
+|**tableName**|Nom de la table. Si non spécifié, le contenu de la feuille de calcul est utilisé.|
 
 <a name="excel-input-code"></a>
 ### <a name="using-an-excel-table-input-binding-from-code"></a>Utilisation d’une liaison d’entrée de tableau Excel à partir du code
@@ -1060,4 +1062,3 @@ public class UserSubscription {
 
 [déclencheur HTTP]: functions-bindings-http-webhook.md
 [Utilisation de webhooks dans Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
-

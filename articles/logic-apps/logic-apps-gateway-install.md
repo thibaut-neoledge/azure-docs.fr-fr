@@ -13,14 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/13/2017
-ms.author: LADocs; dimazaid; estfan
+ms.date: 09/14/2017
+ms.author: LADocs; millopis; estfan
+ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 34e68ae7d35019848b35c785a2715ec458dc6e73
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installer la passerelle de données locale pour Azure Logic Apps
 
@@ -52,6 +51,7 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 *   [Passerelle de données locale Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 <a name="requirements"></a>
+
 ## <a name="requirements"></a>Configuration requise
 
 **Minimale** :
@@ -75,9 +75,12 @@ Vous ne pouvez pas installer la passerelle sur un contrôleur de domaine.
 
 * N’installez pas la passerelle sur un ordinateur qui s’éteint, passe en mode veille ou ne se connecte pas à Internet, car la passerelle ne peut pas s’exécuter dans de telles circonstances. De même, les performances de la passerelle peuvent être moindres sur un réseau sans fil.
 
-* Pendant l’installation, vous devez vous connecter avec un [compte professionnel ou scolaire](https://docs.microsoft.com/azure/active-directory/sign-up-organization) géré par Azure Active Directory (Azure AD), et non un compte Microsoft. 
+* Pendant l’installation, vous devez vous connecter avec un [compte professionnel ou scolaire](https://docs.microsoft.com/azure/active-directory/sign-up-organization) géré par Azure Active Directory (Azure AD), et non un compte Microsoft.
 
-  Vous devez utiliser le même compte professionnel ou scolaire par la suite dans le portail Azure lorsque vous créez et associez une ressource de passerelle à votre installation de passerelle. Vous sélectionnerez ensuite cette ressource de passerelle lors de la création de la connexion entre votre application logique et la source de données locale. [Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure AD ?](#why-azure-work-school-account)
+  > [!TIP]
+  > Si vous souhaitez utiliser un compte Microsoft qui possède un abonnement Visual Studio avec MSDN, commencez par [créer un répertoire (client) dans Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) avec votre compte Microsoft, ou utilisez le répertoire par défaut. Ajoutez un utilisateur avec un mot de passe au répertoire, puis donnez-lui accès à votre abonnement. Vous pourrez alors vous connecter au cours de l’installation de la passerelle avec ce nom d’utilisateur et ce mot de passe.
+
+  Vous devrez par la suite utiliser le même compte professionnel ou scolaire sur le Portail Azure lorsque vous créerez et associerez une ressource de passerelle à votre installation de passerelle. Vous sélectionnerez ensuite cette ressource de passerelle lors de la création de la connexion entre votre application logique et la source de données locale. [Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure AD ?](#why-azure-work-school-account)
 
   > [!TIP]
   > Si vous avez souscrit une offre Office 365 sans fournir votre adresse de messagerie professionnelle réelle, votre adresse de connexion peut ressembler à ceci : jeff@contoso.onmicrosoft.com. 
@@ -145,10 +148,20 @@ Pour effectuer ces tâches, vous devez disposer de la clé de récupération sp�
 
 4. Fournissez le nom et la clé de récupération de la passerelle que vous souhaitez migrer, restaurer ou contrôler.
 
+<a name="windows-service-account"></a>
+
+## <a name="windows-service-account"></a>Compte de service Windows
+
+La passerelle de données locale fonctionne comme un service Windows ; elle est configurée pour utiliser `NT SERVICE\PBIEgwService` comme informations d’identification pour la connexion au service Windows. Par défaut, la passerelle dispose du droit « Ouvrir une session en tant que service » sur l’ordinateur sur lequel vous installez la passerelle. Pour créer et gérer la passerelle sur le Portail Azure, le compte de service Windows doit avoir au moins les autorisations **Collaborateur**. 
+
+> [!NOTE]
+> Le compte de service Windows diffère du compte utilisé pour la connexion à des sources de données locales, et du compte professionnel ou scolaire Azure utilisé pour se connecter aux services cloud.
+
 <a name="restart-gateway"></a>
+
 ## <a name="restart-the-gateway"></a>Redémarrez la passerelle
 
-La passerelle s’exécute en tant que service Windows. Comme tout autre service Windows, vous pouvez démarrer et arrêter ce service de plusieurs façons. Par exemple, vous pouvez ouvrir une invite de commandes avec des autorisations élevées sur l’ordinateur sur lequel la passerelle s’exécute, puis exécuter l’une des commandes suivantes :
+Comme tout autre service Windows, vous pouvez démarrer et arrêter ce service de plusieurs façons. Par exemple, vous pouvez ouvrir une invite de commandes avec des autorisations élevées sur l’ordinateur sur lequel la passerelle s’exécute, puis exécuter l’une des commandes suivantes :
 
 * Pour arrêter le service, exécutez cette commande :
   
@@ -157,13 +170,6 @@ La passerelle s’exécute en tant que service Windows. Comme tout autre service
 * Pour démarrer le service, exécutez cette commande :
   
     `net start PBIEgwService`
-
-### <a name="windows-service-account"></a>Compte de service Windows
-
-La passerelle de données locale est configurée pour utiliser `NT SERVICE\PBIEgwService` pour les informations d’identification de connexion au service Windows. Par défaut, la passerelle dispose du droit « Ouvrir une session en tant que service » sur l’ordinateur sur lequel vous installez la passerelle.
-
-> [!NOTE]
-> Le compte de service Windows diffère du compte utilisé pour la connexion à des sources de données locales, et du compte professionnel ou scolaire Azure utilisé pour se connecter aux services cloud.
 
 ## <a name="configure-a-firewall-or-proxy"></a>Configuration d’un pare-feu ou d’un proxy
 
@@ -336,4 +342,3 @@ Les journaux de passerelle de gestion des données et PowerBIGateway figurent so
 * [Connexion à des données locales à partir d’applications logiques](../logic-apps/logic-apps-gateway-connection.md)
 * [Fonctionnalités d’intégration d'entreprise](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Connecteurs pour Azure Logic Apps](../connectors/apis-list.md)
-

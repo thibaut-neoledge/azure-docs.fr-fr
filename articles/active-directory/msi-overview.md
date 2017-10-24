@@ -12,16 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 10/03/2017
 ms.author: skwan
+ms.openlocfilehash: 3974c3b0e22e95b8dd4a07a923fbbfc2fe7f8961
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: c18fd5d5b528dfbafa456b3702996b80c3a60a02
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identité du service administré (MSI) pour les ressources Azure
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -44,7 +42,22 @@ Voici un exemple du fonctionnement de l’identité du service administré avec 
 6. L’extension de l’identité de service administré de la machine virtuelle utilise son ID de client et son certificat configurés pour demander un jeton d’accès émanant d’Azure AD.  Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
 7. Votre code envoie le jeton d’accès sur un appel à un service qui prend en charge l’authentification Azure AD.
 
-Chaque service Azure qui prend en charge l’identité du service administré aura sa propre méthode permettant à votre code d’obtenir un jeton d’accès. Consultez les didacticiels pour chaque service, afin de connaître la méthode spécifique pour obtenir un jeton.
+Chaque service Azure qui prend en charge l’identité du service administré a sa propre méthode permettant à votre code d’obtenir un jeton d’accès. Consultez les didacticiels pour chaque service, afin de connaître la méthode spécifique pour obtenir un jeton.
+
+## <a name="try-managed-service-identity"></a>Essayer l’identité du service administré
+
+Essayez un didacticiel d’identité du service administré afin d’en savoir plus sur les scénarios de bout en bout pour l’accès à d’autres ressources Azure :
+<br><br>
+| À partir d’une ressource compatible avec l’identité du service administré | Découvrez comment |
+| ------- | -------- |
+| Machine virtuelle Azure (Windows) | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Windows et Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
+| Machine virtuelle Azure (Linux)   | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-nonaad.md) |
+| Azure App Service  | [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Fonction Azure     | [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Quels services Azure prennent en charge l’identité du service administré ?
 
@@ -54,21 +67,21 @@ Les services Azure qui prennent en charge l’identité du service administré p
 
 Les services Azure suivants prennent en charge l’identité du service administré.
 
-| Service | État | Date |
-| --- | --- | --- |
-| Machines virtuelles Azure | VERSION PRÉLIMINAIRE | Septembre 2017 |
-| Azure App Service | VERSION PRÉLIMINAIRE | Septembre 2017 |
-| Azure Functions | VERSION PRÉLIMINAIRE | Septembre 2017 |
+| Service | État | Date | Configuration | Obtention d’un jeton |
+| ------- | ------ | ---- | --------- | ----------- |
+| Machines virtuelles Azure | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Interface de ligne de commande Azure](msi-qs-configure-cli-windows-vm.md)<br>[Modèles Microsoft Azure Resource Manager](msi-qs-configure-template-windows-vm.md) | [.NET](msi-how-to-get-access-token-using-msi.md#net)<br>[PowerShell](msi-how-to-get-access-token-using-msi.md#azure-powershell-token)<br>[Bash/Curl](msi-how-to-get-access-token-using-msi.md#bashcurl)<br>[REST](msi-how-to-get-access-token-using-msi.md#rest) |
+| Azure App Service | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Functions | VERSION PRÉLIMINAIRE | Septembre 2017 | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Services Azure qui prennent en charge l’authentification Azure AD
 
 Les services suivants prennent en charge l’authentification Azure AD et ont été testés avec les services clients qui utilisent l’identité du service administré.
 
-| Service | ID de ressource | État | Date |
-| --- | --- | --- | --- |
-| Azure Resource Manager | https://management.azure.com/ | Disponible | Septembre 2017 |
-| coffre de clés Azure | https://vault.azure.net/ | Disponible | Septembre 2017 |
-| Azure Data Lake | https://datalake.azure.net/ | Disponible | Septembre 2017 |
+| Service | ID de ressource | État | Date | Attribuer l’accès |
+| ------- | ----------- | ------ | ---- | ------------- |
+| Azure Resource Manager | https://management.azure.com/ | Disponible | Septembre 2017 | [Portail Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Interface de ligne de commande Azure](msi-howto-assign-access-CLI.md) |
+| coffre de clés Azure | https://vault.azure.net/ | Disponible | Septembre 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Disponible | Septembre 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Combien coûte l’identité du service administré ?
 
@@ -81,37 +94,6 @@ Nous sommes à votre écoute !
 * Posez des questions sur Stack Overflow avec la balise [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
 * Soumettez vos demandes de fonctionnalités ou vos commentaires sur le [forum de commentaires Azure AD pour les développeurs](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
-## <a name="try-managed-service-identity"></a>Essayer l’identité du service administré
-
-Essayez un didacticiel d’identité du service administré afin d’en savoir plus sur les scénarios de bout en bout pour l’accès à d’autres ressources Azure :
-
-| À partir d’une ressource compatible avec l’identité du service administré | Découvrez comment |
-| ------- | -------- |
-| Machine virtuelle Azure (Windows) | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-arm.md) |
-|                    | [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-storage.md) |
-|                    | [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Windows et Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
-| Machine virtuelle Azure (Linux)   | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-arm.md) |
-|                    | [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-storage.md) |
-|                    | [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-nonaad.md) |
-| Azure App Service  | [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-| Fonction Azure     | [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-
-Si vous souhaitez simplement apprendre les principes fondamentaux de l’activation de l’identité du service administré sur une ressource Azure :
-
-| Pour une ressource Azure | Activer/désactiver l’identité du service administré avec |
-| ------------------ | ------------------------------------ |
-| Machine virtuelle Azure (Windows) | [Le portail Azure](msi-qs-configure-portal-windows-vm.md) |
-|                    | [PowerShell](msi-qs-configure-powershell-windows-vm.md) |
-|                    | [Interface de ligne de commande Azure](msi-qs-configure-cli-windows-vm.md)|
-|                    | [Modèles Microsoft Azure Resource Manager](msi-qs-configure-template-windows-vm.md) |
-
-Apprenez ensuite à utiliser le contrôle d’accès en fonction du rôle (RBAC) pour permettre à une identité du service administré d’accéder à une autre ressource Azure :
-
-| À partir d’une ressource compatible avec l’identité du service administré | Assigner l’accès à une autre ressource Azure avec |
-| ------------------------ | ---------------------------------------------------------- |
-| Machine virtuelle Azure (Windows) | [Le portail Azure](msi-howto-assign-access-portal.md) |
-|                    | [PowerShell](msi-howto-assign-access-powershell.md) |
-|                    | [interface de ligne de commande Azure](msi-howto-assign-access-CLI.md) |
 
 
 

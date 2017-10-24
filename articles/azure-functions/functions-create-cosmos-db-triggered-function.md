@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 10/02/2017
 ms.author: glenga
 ms.custom: 
+ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 04da2dda961eb2c6bc53f0aed1c0cd12372a2332
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
@@ -66,11 +65,11 @@ Créez ensuite une fonction dans la nouvelle Function App.
     | **Nom de la collection** | Éléments | Nom de la collection à surveiller. |
     | **Créer la collection de baux si elle n’existe pas** | Activé | La collection n’existe pas, vous devez la créer. |
 
-4. Sélectionnez **Nouveau** en regard du libellé **Connexion au compte Azure Cosmos DB** et sélectionnez **+ Créer**. 
+4. Sélectionnez **Nouveau** en regard du libellé **Connexion au compte Azure Cosmos DB**, puis choisissez un compte Cosmos DB existant ou cliquez sur **+ Créer**. 
  
     ![Configurer la connexion au compte Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
-6. Utilisez les paramètres **Nouveau compte** comme spécifié dans le tableau :
+6. Lorsque vous créez un compte Cosmos DB, utilisez les paramètres du **nouveau compte** comme indiqué dans la table.
 
     | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -151,4 +150,3 @@ Vous avez créé une fonction qui s’exécute quand un document est ajouté ou 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Pour en savoir plus sur les déclencheurs de stockage en file d’attente, consultez la page [Liaisons de file d’attente de stockage Azure Functions](functions-bindings-storage-queue.md).
-

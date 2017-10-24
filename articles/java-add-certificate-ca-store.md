@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
+ms.openlocfilehash: b6e1a305e19415ab1c4b4c208dac98ad1e2689c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4f3ec837588c6e959e82108ca25ab4289e40d3f5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>Ajout d'un certificat au magasin de certificats d'autorité de certification Java
 La procédure suivante présente l'ajout d'un certificat d'autorité de certification au magasin de certificats d'autorité de certification Java (cacerts). Prenons comme exemple un certificat d'autorité de certification requis par le service Twilio. Les informations fournies plus loin dans cette rubrique décrivent l’installation d’un certificat d’autorité de certification pour Azure Service Bus. 
@@ -27,7 +26,7 @@ La procédure suivante présente l'ajout d'un certificat d'autorité de certific
 Vous pouvez utiliser keytool pour ajouter le certificat d'autorité de certification avant de compresser le JDK et de l'ajouter au dossier **approot** de votre projet Azure. Vous pouvez également utiliser une tâche de démarrage Azure qui utilise keytool pour ajouter le certificat. Cet exemple part du principe que vous allez ajouter un certificat d'autorité de certification avant de compresser le JDK. Par ailleurs, nous allons utiliser un certificat d'autorité de certification spécifique. Si vous décidiez d'en obtenir un autre et de l'importer dans le magasin cacerts, la procédure serait semblable.
 
 ## <a name="to-add-a-certificate-to-the-cacerts-store"></a>Ajout d'un certificat au magasin cacerts
-1. À l'invite de commandes définie pour le dossier **jdk\jre\lib\security** de votre JDK, exécutez la commande suivante pour afficher les certificats installés :
+1. À une invite de commandes administrateur définie pour le dossier **jdk\jre\lib\security** de votre JDK, exécutez la commande ci-après pour afficher les certificats installés :
    
     `keytool -list -keystore cacerts`
    
@@ -56,5 +55,4 @@ Si vous devez ajouter le certificat racine Baltimore CyberTrust, son numéro de 
 Pour plus d'informations sur les certificats racines utilisés par Azure, consultez [Migration des certificats racines Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
 Pour plus d’informations sur Java, consultez [Azure pour les développeurs Java](/java/azure).
-
 

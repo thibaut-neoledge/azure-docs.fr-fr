@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
 ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="portals-you-will-need"></a>Portails dont vous aurez besoin
 Avant le lancement du processus de publication d’une offre, nous allons vous présenter les différents portails dont vous aurez besoin. Vous trouverez ci-dessous un résumé des portails (Centre de développement, portail de publication Azure et portail Azure) avec lesquels vous pourrez interagir.                                                                            
@@ -35,7 +35,7 @@ La création d’un compte auprès du Centre de développement Microsoft est une
 > 
 
 ### <a name="identityaccount-used"></a>Identité/compte utilisé
-Dans l’idéal, il s’agit d’une liste de distribution ou un groupe de sécurité (par exemple, azurepublishing @*partnercompany*.com). Cette liste de distribution ou ce groupe de sécurité **doit** être enregistré en tant que compte Microsoft.
+Dans l’idéal, il s’agit d’une liste de distribution ou d’un groupe de sécurité (par exemple, azurepublishing@*entreprisepartenaire*.com). Cette liste de distribution ou ce groupe de sécurité **doit** être enregistré en tant que compte Microsoft.
 
 > [!TIP]
 > Nous recommandons l'utilisation d'une liste de distribution ou d'un groupe de sécurité, car elle permet de supprimer la dépendance vis-à-vis de toute personne (même si un compte individuel peut également être utilisé).

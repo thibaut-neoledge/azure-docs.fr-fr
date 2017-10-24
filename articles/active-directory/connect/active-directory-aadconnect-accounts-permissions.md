@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fdd90721b6823c20c1ff27383769bfff24e80eae
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
 L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accès différents :
@@ -64,7 +63,7 @@ Le [compte](#active-directory-account) destiné à la lecture et à l’écritur
 | Toutes les propriétés en lecture/écriture iNetOrgPerson |Importation et Exchange hybride |
 | Toutes les propriétés en lecture/écriture Groupe |Importation et Exchange hybride |
 | Toutes les propriétés en lecture/écriture Contact |Importation et Exchange hybride |
-| Réinitialiser le mot de passe |Préparation pour l’activation de la réécriture du mot de passe |
+| Réinitialiser le mot de passe |Préparation pour l’activation de l’écriture différée du mot de passe |
 
 ## <a name="custom-settings-installation"></a>Installation à l’aide des paramètres personnalisés
 Azure AD Connect 1.1.524.0 ou version ultérieure comprend une option permettant à l’Assistant Azure AD Connect de créer le compte utilisé pour se connecter à Active Directory.  Les versions antérieures nécessitent que le compte soit créé avant l’installation. Les autorisations que vous devez accorder à ce compte se trouvent sous [Créer le compte AD DS](#create-the-ad-ds-account). 
@@ -91,12 +90,16 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Synchronisation de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
 | Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
-| Réécriture du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords-writeback.md) pour les utilisateurs. |
+| Écriture différée du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords-writeback.md) pour les utilisateurs. |
 | Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md). |
 | Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe pour les **groupes Office 365** synchronisés.  Pour plus d’informations, consultez [Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
 ## <a name="upgrade"></a>Mise à niveau
 Lors de la mise à niveau vers une nouvelle version d’Azure AD Connect, vous devez disposer des autorisations suivantes :
+
+>[!IMPORTANT]
+>À partir de la version 1.1.484, Azure AD Connect a introduit un bogue de régression qui nécessite des autorisations d’administrateur système pour mettre à niveau la base de données SQL.  Ce bogue est toujours présent dans la dernière version 1.1.614.  Si vous effectuez une mise à jour vers cette version, vous aurez besoin des autorisations d’administrateur système.  Les autorisations dbo ne sont pas suffisantes.  Si vous tentez de mettre à niveau Azure AD Connect sans avoir les autorisations d’administrateur système, la mise à niveau échoue et Azure AD Connect ne fonctionne plus correctement.  Microsoft en est conscient et recherche actuellement une solution.
+
 
 | Principal | Autorisations requises | Utilisation |
 | --- | --- | --- |
@@ -194,4 +197,3 @@ Pour supprimer des comptes de service AD Azure inutilisés, exécutez l’applet
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](../active-directory-aadconnect.md).
-

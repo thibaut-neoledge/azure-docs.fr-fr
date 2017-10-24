@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Didacticiel : Intégration d’Azure Active Directory à Coupa
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Coupa.  
@@ -142,7 +142,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 **Pour affecter des utilisateurs à Coupa, suivez les étapes ci-dessous :**
 
 1. Dans le portail Azure Classic, créez un compte de test.
-2. Sur la ** Coupa ** page d’intégration d’application, cliquez sur **affecter des utilisateurs**.
+2. Dans la page d’intégration d’applications **Coupa**, cliquez sur **Affecter des utilisateurs**.
    
    ![Affecter des utilisateurs](./media/active-directory-saas-coupa-tutorial/IC791911.png "Affecter des utilisateurs")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.

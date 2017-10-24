@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e9cb2f03600d49123693fcc88742d6fc75d9de16
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: b4f8855fe6480bc58acfbbb53819f6eabe362bdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse
 
@@ -32,9 +31,12 @@ Le didacticiel se compose de quatre leçons :
 3. Sélection des flux de diffusion en continu lisse
 4. Sélection des pistes de diffusion en continu lisse
 
-## <a name="prerequisites"></a>Conditions préalables
-* Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la [version d'évaluation de Windows 8 Entreprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) sur MSDN.
-* Visual Studio 2012 ou Visual Studio Express 2012 (ou une version ultérieure). La version d'évaluation est disponible [ici](http://www.microsoft.com/visualstudio/11/downloads).
+## <a name="prerequisites"></a>Composants requis
+> [!NOTE]
+> Les projets Windows Store version 8.1 et versions antérieures ne sont pas pris en charge dans Visual Studio 2017.  Pour en savoir plus, consultez [Plateforme cible et compatibilité dans Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+
+* Windows 8 32 bits ou 64 bits.
+* Visual Studio versions 2012 à 2015.
 * [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 Vous pouvez télécharger la solution terminée pour chaque leçon sur le site d'exemples de code développeur MSDN (galerie de code) : 
@@ -59,7 +61,7 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 
 **Pour créer un projet Windows Store**
 
-1. Exécutez Visual Studio 2012 ou une version ultérieure.
+1. Exécutez Visual Studio ; les versions 2012 à 2015 sont prises en charge.
 2. Dans le menu **FICHIER**, cliquez sur **Nouveau**, puis sur **Projet**.
 3. Dans la boîte de dialogue Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
 
@@ -975,5 +977,4 @@ Vous avez terminé la leçon 4.  Dans cette leçon, vous avez ajouté la foncti
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-
 

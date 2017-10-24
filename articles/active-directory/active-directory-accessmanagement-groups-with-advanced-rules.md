@@ -12,18 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/02/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
+ms.openlocfilehash: 168829494de33a21df68d3fc5e2a174f435c5ad5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="populate-groups-dynamically-based-on-object-attributes"></a>Alimenter des groupes dynamiquement en fonction d’attributs utilisateur
 Le portail Azure Classic vous permet d’activer des appartenances dynamiques plus complexes basées sur les attributs aux groupes Azure Active Directory (Azure AD).  
 
@@ -266,26 +264,26 @@ Vous pouvez créer un groupe contenant tous les collaborateurs directs d’un re
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Utilisation d’attributs pour créer des règles pour les objets d’appareil
 Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Les attributs d’appareil suivants peuvent être utilisés :
 
-| Propriétés              | Valeurs autorisées                  | Usage                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | Toute valeur de chaîne.                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | Toute valeur de chaîne.                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | Toute valeur de chaîne.                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | Un nom de catégorie d’appareil valide.    | (device.deviceCategory -eq "BYOD")                          |
-| deviceManufacturer      | Toute valeur de chaîne.                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | Toute valeur de chaîne.                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Personnel, Entreprise               | (device.deviceOwnership -eq "Company")                      |
-| domainName              | Toute valeur de chaîne.                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | Toute valeur de chaîne.                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | Toute valeur de chaîne.                | (device.managementType -eq "")                              |
-| organizationalUnit      | Toute valeur de chaîne.                | (device.organizationalUnit -eq "")                          |
-| deviceId                | un deviceId valide                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | un objectId AAD valide            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| Propriétés              | Valeurs autorisées                     | Usage                                                       |
+|-------------------------|------------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                         | (device.accountEnabled -eq true)                            |
+| displayName             | Toute valeur de chaîne.                   | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | Toute valeur de chaîne.                   | (device.deviceOSType -eq "Android")                         |
+| deviceOSVersion         | Toute valeur de chaîne.                   | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | Un nom de catégorie d’appareil valide.       | (device.deviceCategory -eq "BYOD")                          |
+| deviceManufacturer      | Toute valeur de chaîne.                   | (device.deviceManufacturer -eq "Samsung")                   |
+| deviceModel             | Toute valeur de chaîne.                   | (device.deviceModel -eq "iPad Air”)                         |
+| deviceOwnership         | Personnel, Entreprise                  | (device.deviceOwnership -eq "Company")                      |
+| domainName              | Toute valeur de chaîne.                   | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Nom de profil de l’inscription d’appareil Apple.    | (device.enrollmentProfileName -eq "DEP iPhones")       |
+| isRooted                | true false                         | (device.isRooted -eq true)                              |
+| managementType          | « MDM » pour les appareils mobiles, « PC » pour les ordinateurs gérés via l’agent Intune PC    | (device.managementType -eq "MDM")                  |
+| organizationalUnit      | Toute valeur de chaîne correspondant au nom de l’unité d’organisation définie par le Active Directory local | (device.organizationalUnit -eq "US PCs")      |
+| deviceId                | un ID d’appareil Intune valide                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | Un ID d’objet Azure AD valide            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
-> Ces règles d’appareil ne peuvent pas être créées à l’aide de la liste déroulante « règle simple » dans le portail Azure Classic.
+> Les règles d’appareil ne peuvent pas être créées à l’aide de la liste déroulante « règle simple » dans le portail Azure Classic.
 >
 >
 
@@ -310,4 +308,3 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-

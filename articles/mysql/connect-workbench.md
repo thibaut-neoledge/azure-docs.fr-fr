@@ -9,15 +9,13 @@ editor: seanli1988
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/23/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 024db86b8760c8edb8347679eec6c68ceab3cd35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 20a1f31ce42abb924504c4008f85420fc49aec89
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Base de données Azure pour MySQL : Utilisation de MySQL Workbench pour vous connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL en utilisant une application MySQL Workbench. 
 
@@ -38,13 +36,13 @@ Obtenez les informations requises pour vous connecter à la base de données Azu
 
 3. Cliquez sur le nom du serveur.
 
-4. Sélectionnez la page **Propriétés** du serveur. Prenez note du **nom du serveur** et du **nom de connexion d’administrateur du serveur**.
+4. Sélectionnez la page **Propriétés** du serveur, puis notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**.
 
  ![Nom du serveur de base de données Azure pour MySQL](./media/connect-workbench/1-server-properties-name-login.png)
  
 5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
 
-## <a name="connect-to-the-server-using-mysql-workbench"></a>Se connecter au serveur à l’aide de MySQL Workbench 
+## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Se connecter au serveur à l’aide de MySQL Workbench 
 Pour vous connecter au serveur Azure MySQL à l’aide de l’outil d’interface graphique MySQL Workbench :
 
 1.  Lancez l’application MySQL Workbench sur votre ordinateur. 
@@ -66,17 +64,17 @@ Pour vous connecter au serveur Azure MySQL à l’aide de l’outil d’interfac
 
 4.   Cliquez sur **OK** pour enregistrer la connexion. 
 
-5.   Dans la liste de **connexions MySQL**, cliquez sur le nom correspondant à votre serveur et patientez jusqu’à ce que la connexion soit établie.
+5.   Dans la liste de **connexions MySQL**, cliquez sur le nom correspondant à votre serveur puis patientez jusqu’à ce que la connexion soit établie.
 
-6.   Un nouvel onglet SQL s’ouvre avec un éditeur vide où vous pouvez saisir vos requêtes.
-
-    > [!NOTE]
-    > Par défaut, la sécurité de la connexion SSL est requise et appliquée sur votre serveur Azure Database pour MySQL. En général, aucune configuration supplémentaire avec les certificats SSL n’est requise pour MySQL Workbench pour vous connecter à votre serveur. Pour plus d’informations, consultez [Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à Azure Database pour MySQL](./howto-configure-ssl.md).  Si vous souhaitez désactiver le protocole SSL, visitez le portail Azure et cliquez sur la page Sécurité de la connexion pour désactiver le bouton bascule Appliquer une connexion SSL.
+        Un nouvel onglet SQL s’ouvre avec un éditeur vide où vous pouvez saisir vos requêtes.
+    
+        > [!NOTE]
+        > Par défaut, la sécurité de la connexion SSL est requise et appliquée sur votre serveur Azure Database pour MySQL. En général, aucune configuration supplémentaire avec les certificats SSL n’est requise pour MySQL Workbench pour vous connecter à votre serveur. Pour plus d’informations, consultez [Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à Azure Database pour MySQL](./howto-configure-ssl.md).  Si vous souhaitez désactiver le protocole SSL, visitez le portail Azure et cliquez sur la page Sécurité de la connexion pour désactiver le bouton bascule Appliquer une connexion SSL.
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Créer une table, insérer des données, lire les données, mettre à jour des données et supprimer des données
 1. Copiez et collez l’exemple de code SQL dans un onglet SQL vide pour illustrer des exemples de données.
 
-    Ce code crée une base de données vide nommée quickstartdb, puis crée un exemple de table nommée inventory. Il insère des lignes, puis lit les lignes. Il modifie les données avec une instruction de mise à jour et lit de nouveau les lignes. Enfin, il supprime une ligne et lit de nouveau les lignes.
+    Ce code crée une base de données vide nommée quickstartdb, puis crée un exemple de table nommée inventory. Il insère des lignes, puis lit les lignes. Il modifie les données avec une instruction de mise à jour et lit de nouveau les lignes. Enfin, il supprime une ligne puis lit de nouveau les lignes.
     
     ```sql
     -- Create a database
@@ -116,4 +114,3 @@ Vous êtes à présent connecté à la base de données Azure pour MySQL à l’
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./concepts-migrate-import-export.md)
-

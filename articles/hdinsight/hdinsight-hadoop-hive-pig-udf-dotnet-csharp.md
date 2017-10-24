@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: b192b19c27045ab6a98baf382e467a0a74d30861
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 7643050c4ba8929abcf77476970a2f99e992579d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Hive et Pig dans HDInsight
 
@@ -30,7 +29,7 @@ Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows et Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md).
 
-Hive et Pig permettent de transmettre des données vers des applications externes pour le traitement. Ce processus est appelé _diffusion en continu (streaming)_. Lorsque vous utilisez une application .NET, les données sont transmises à l’application sur STDIN et l’application renvoie les résultats sur STDOUT. Pour lire et écrire à partir de STDIN et STDOUT, vous pouvez utiliser `Console.ReadLine()` et `Console.WriteLine()` à partir d’une application console.
+Hive et Pig permettent de transmettre des données vers des applications externes pour le traitement. Ce processus est appelé _diffusion en continu (streaming)_. Lorsque vous utilisez une application .NET, les données sont transmises à l’application sur STDIN, et l’application renvoie les résultats sur STDOUT. Pour lire et écrire à partir de STDIN et STDOUT, vous pouvez utiliser `Console.ReadLine()` et `Console.WriteLine()` à partir d’une application console.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -38,7 +37,7 @@ Hive et Pig permettent de transmettre des données vers des applications externe
 
     * Utilisez n’importe quel IDE souhaité. Nous vous conseillons d’utiliser [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017 ou [Visual Studio Code](https://code.visualstudio.com/). Dans le cadre de ce document, Visual Studio 2017 a été utilisé.
 
-* Permet de télécharger les fichiers .exe dans le cluster et d’exécuter des tâches Pig et Hive. Nous recommandons les outils Data Lake pour Visual Studio, Azure PowerShell et Azure CLI. La procédure décrite dans ce document utilise les outils Data Lake pour Visual Studio pour charger les fichiers et exécuter l’exemple de requête Hive.
+* Permet de télécharger les fichiers .exe dans le cluster et d’exécuter des tâches Pig et Hive. Nous vous recommandons d’utiliser Data Lake Tools pour Visual Studio, Azure PowerShell et Azure CLI. La procédure décrite dans ce document utilise les outils Data Lake pour Visual Studio pour charger les fichiers et exécuter l’exemple de requête Hive.
 
     Pour plus d’informations sur les autres méthodes d’exécution des requêtes Hive et des tâches Pig, consultez les documents suivants :
 
@@ -69,7 +68,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
     > [!IMPORTANT]
     > Si vous utilisez un cluster HDInsight sous Linux, sélectionnez __.NET Framework 4.5__. Pour plus d’informations sur la compatibilité Mono avec les versions de .NET Framework, consultez [Compatibilité Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-2. Remplacez le contenu de **Program.cs** par le code suivant :
+2. Remplacez le contenu de **Program.cs** par le code suivant :
 
     ```csharp
     using System;
@@ -157,7 +156,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
     }
     ```
 
-    Cette application analyse les lignes envoyées à partir de Pig et reformate les lignes qui commencent par `java.lang.Exception`.
+    Ce code analyse les lignes envoyées à partir de Pig et reformate les lignes qui commencent par `java.lang.Exception`.
 
 3. Enregistrez **Program.cs**, puis générez le projet.
 
@@ -270,4 +269,3 @@ Pour connaître d’autres façons d’utiliser Pig et Hive et pour en savoir pl
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
-

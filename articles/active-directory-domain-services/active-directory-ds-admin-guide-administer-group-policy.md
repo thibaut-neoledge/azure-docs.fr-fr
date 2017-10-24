@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/26/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
-ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
-ms.lasthandoff: 01/28/2017
-
-
+ms.openlocfilehash: aad9e07e040bebe9572af1dd4a2f74b8b384f651
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrer la stratégie de groupe sur un domaine géré par les services de domaine Azure Active Directory
 Azure Active Directory Domain Services inclut des objets de stratégie de groupe (GPO) intégrés pour les conteneurs « Utilisateurs AADDC » et « Ordinateurs AADDC ». Vous pouvez personnaliser ces GPO pour configurer la stratégie de groupe sur le domaine géré. De plus, les membres du groupe « AAD DC Administrators » peuvent créer leurs propres unités d’organisation personnalisées dans le domaine géré. Ils peuvent également créer des GPO personnalisés et les lier à ces unités d’organisation personnalisées. Les utilisateurs qui appartiennent au groupe « AAD DC Administrators » bénéficient de privilèges d’administration de stratégie de groupe sur le domaine géré.
@@ -45,11 +44,11 @@ La première tâche consiste à configurer une machine virtuelle Windows Server 
 ## <a name="task-2---install-group-policy-tools-on-the-virtual-machine"></a>Tâche 2 : installer des outils de stratégie de groupe sur la machine virtuelle
 Procédez comme suit pour installer les outils d’administration de stratégie de groupe sur la machine virtuelle jointe au domaine.
 
-1. Accédez au nœud **Virtual Machines** du portail Azure Classic. Sélectionnez la machine virtuelle que vous avez créée dans la tâche 1 et cliquez sur l’option **Connecter** dans la barre de commandes, au bas de la fenêtre.
+1. Accédez au portail Azure. Cliquez sur **Toutes les ressources** dans le panneau gauche. Recherchez et cliquez sur la machine virtuelle que vous avez créée dans la tâche 1.
+2. Cliquez sur le bouton **Connecter** sous l’onglet Vue d’ensemble. Un fichier de protocole Remote Desktop Protocol (.rdp) est créé et téléchargé.
 
     ![Se connecter à une machine virtuelle Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. Le portail Azure Classic vous invite à ouvrir ou à enregistrer un fichier pourvu de l’extension .rdp, qui permet de se connecter à la machine virtuelle. Lorsque le fichier est téléchargé, cliquez dessus.
-3. À l’invite de connexion, utilisez les informations d’identification d’un utilisateur appartenant au groupe « AAD DC Administrators ». Par exemple, nous utilisons 'bob@domainservicespreview.onmicrosoft.com' dans notre cas.
+3. Pour vous connecter à votre machine virtuelle, ouvrez le fichier RDP téléchargé. À l’invite, cliquez sur **Se connecter**. À l’invite de connexion, utilisez les informations d’identification d’un utilisateur appartenant au groupe « AAD DC Administrators ». Par exemple, nous utilisons « bob@domainservicespreview.onmicrosoft.com » dans notre cas. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Cliquez sur Oui ou Continuer pour poursuivre le processus de connexion.
 4. Dans l’écran d’accueil, ouvrez **Gestionnaire de serveur**. Dans le volet central de la fenêtre Gestionnaire de serveur, cliquez sur l’option **Ajouter des rôles et fonctionnalités** .
 
     ![Lancer le gestionnaire de serveur sur la machine virtuelle](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -91,7 +90,7 @@ Il existe deux objets de stratégie de groupe (GPO) intégrés : un pour le cont
 1. Dans la console **Gestion des stratégies de groupe**, cliquez pour développer les nœuds **Forest: contoso100.com** et **Domains** afin d’afficher les stratégies de groupe de votre domaine géré.
 
     ![Objets de stratégie de groupe (GPO) intégrés](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-2. Vous pouvez personnaliser ces GPO intégrés pour configurer des stratégies de groupe sur votre domaine géré. Cliquez avec le bouton droit sur le GPO de votre choix, puis cliquez sur **Modifier...** pour personnaliser le GPO intégré. L’outil Éditeur de la configuration de la stratégie de groupe vous permet de personnaliser le GPO.
+2. Vous pouvez personnaliser ces GPO intégrés pour configurer des stratégies de groupe sur votre domaine géré. Cliquez avec le bouton droit sur le GPO de votre choix, puis cliquez sur **Modifier...**  pour personnaliser le GPO intégré. L’outil Éditeur de la configuration de la stratégie de groupe vous permet de personnaliser le GPO.
 
     ![Modifier un GPO intégré](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 3. Vous pouvez maintenant utiliser la console **Éditeur de gestion de stratégie de groupe** pour modifier les GPO intégrés. Par exemple, la capture d’écran suivante illustre la personnalisation du GPO « Ordinateurs AADDC » intégré.
@@ -127,4 +126,3 @@ Pour plus d’informations sur l’utilisation de la [Console de gestion de stra
 * [Joindre une machine virtuelle Windows Server à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
 * [Console de gestion des stratégies de groupe](https://technet.microsoft.com/library/cc753298.aspx)
-

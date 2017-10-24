@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/28/2017
 ms.author: asgang
+ms.openlocfilehash: b7b03442ba815c86e5defa1018b66f56c0b379df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 468b99002b867768d1ef03ca3ef67946caa4919d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
@@ -81,7 +80,7 @@ Cette erreur peut être levée par le service pour plusieurs raisons. Choisissez
 
 **Code d’erreur** | **Causes possibles** | **Recommandations propres à l’erreur**
 --- | --- | ---
-95265 </br>**Message :** l’installation Push du service de mobilité sur la machine source a réussi mais la machine source requiert un redémarrage afin que certaines modifications système soient prises en compte. <br>| Une version antérieure du service mobilité a déjà été installée sur le serveur.| La réplication de la machine virtuelle se poursuit en toute transparence. M<br> Redémarrez le serveur lors de votre prochaine fenêtre de maintenance afin de tirer profit des nouvelles améliorations du service de mobilité.|
+95265 </br>**Message :** l’installation Push du service de mobilité sur la machine source a réussi mais la machine source requiert un redémarrage afin que certaines modifications système soient prises en compte. <br>| Une version antérieure du service mobilité a déjà été installée sur le serveur.| La réplication de la machine virtuelle se poursuit en toute transparence.<br> Redémarrez le serveur lors de votre prochaine fenêtre de maintenance afin de tirer profit des nouvelles améliorations du service de mobilité.|
 
 
 ## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>Erreur 95224 - Impossible d’activer la protection (EP0883)
@@ -103,4 +102,3 @@ Cette erreur peut être levée par le service pour plusieurs raisons. Choisissez
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Activer la réplication des machines virtuelles VMware](vmware-walkthrough-enable-replication.md)
-

@@ -6,32 +6,30 @@ documentationcenter:
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-ms.assetid: ec586ecd-1b42-459e-b600-fadbb7b80a9b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 09/29/2017
 ms.author: nitinme
+ms.openlocfilehash: 98898675b85d62c97a215f9922f1393001013943
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: f10bc67e4ee814d5aa0accff1a3dc1426b818084
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Authentification d’utilisateur final auprès de Data Lake Store à l’aide d’Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Authentification de service à service](data-lake-store-authenticate-using-active-directory.md)
 > * [Authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md)
+> * [Authentification de service à service](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 > 
 > 
 
-Azure Data Lake Store utilise Azure Active Directory pour l’authentification. Avant de créer une application qui fonctionne avec Azure Data Lake Store ou Azure Data Lake Analytics, vous devez commencer par déterminer comment vous voulez authentifier votre application avec Azure Active Directory (Azure AD). Les deux options principales disponibles sont :
+Azure Data Lake Store utilise Azure Active Directory pour l’authentification. Avant de créer une application qui fonctionne avec Azure Data Lake Store ou Azure Data Lake Analytics, vous devez déterminer la manière dont vous voulez authentifier votre application dans Azure Active Directory (Azure AD). Les deux options principales disponibles sont :
 
 * Authentification de l’utilisateur final (cet article)
-* Authentification de service à service
+* Authentification de service à service (choisissez cette option dans la liste déroulante ci-dessus)
 
 En raison de ces deux options, votre application est fournie avec un jeton OAuth 2.0, qui est attaché à chaque demande adressée à Azure Data Lake Store ou Azure Data Lake Analytics.
 
@@ -48,8 +46,10 @@ Cet article traite de la création d’une **application native Azure AD pour l�
   
     ![Obtenir le domaine AAD](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
+* Votre ID de client Azure. Pour obtenir des instructions pour récupérer l’ID de client, consultez [Obtenir l’ID de client](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+
 ## <a name="end-user-authentication"></a>Authentification de l’utilisateur final
-Il s’agit de l’approche recommandée si vous souhaitez qu’un utilisateur final se connecte à votre application via Azure AD. Votre application est alors en mesure d’accéder aux ressources Azure avec le même niveau d’accès que l’utilisateur final qui s’est connecté. Votre utilisateur final doit fournir ses informations d’identification régulièrement pour que votre application maintienne l’accès.
+Ce mécanisme d’authentification est l’approche recommandée si vous souhaitez qu’un utilisateur final se connecte à votre application via Azure AD. Votre application est alors en mesure d’accéder aux ressources Azure avec le même niveau d’accès que l’utilisateur final qui s’est connecté. Votre utilisateur final doit fournir ses informations d’identification régulièrement pour que votre application maintienne l’accès.
 
 Conséquence de la connexion de l’utilisateur final : votre application reçoit un jeton d’accès et un jeton d’actualisation. Le jeton d’accès est lié à chaque demande adressée au Data Lake Store ou à Data Lake Analytics et, par défaut, il est valide pendant une heure. Le jeton d’actualisation peut être utilisé pour obtenir un nouveau jeton d’accès et, par défaut, il est valide pendant deux semaines au maximum. Vous pouvez utiliser deux approches différentes pour la connexion de l’utilisateur final.
 
@@ -64,8 +64,9 @@ Votre application peut déclencher une fenêtre contextuelle d’autorisation OA
 ### <a name="directly-passing-in-user-credentials"></a>Transmission directe des informations d’identification de l’utilisateur
 Votre application peut fournir directement des informations d’identification de l’utilisateur à Azure AD. Cette méthode fonctionne uniquement avec les comptes d’utilisateur dotés d’ID d’organisation. Elle n’est pas compatible avec les comptes d’utilisateur personnels ou « live ID », notamment ceux se terminant par @outlook.com ou @live.com. En outre, cette méthode n’est pas compatible avec les comptes d’utilisateur qui nécessitent l’authentification à 2 facteurs Azure AD (TFA).
 
-### <a name="what-do-i-need-to-use-this-approach"></a>De quoi ai-je besoin pour utiliser cette approche ?
+### <a name="what-do-i-need-for-this-approach"></a>De quoi ai-je besoin pour cette approche ?
 * Votre nom de domaine Azure AD. Celui-ci est déjà répertorié dans les prérequis de cet article.
+* ID de locataire Azure AD. Celui-ci est déjà répertorié dans les prérequis de cet article.
 * Application native **Azure AD**
 * ID de l’application native Azure AD
 * URI de redirection de l’application native Azure AD
@@ -84,7 +85,7 @@ Si vous suivez les instructions du lien, veillez à sélectionner le type d’ap
 
 Consultez la page [Obtenir l’ID de l’application](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) pour récupérer l’ID de l’application (également appelé « ID client » dans le portail Azure Classic) de l’application native Azure AD.
 
-Pour récupérer l’URI de redirection, suivez les étapes ci-dessous.
+Pour récupérer l’URI de redirection, procédez comme suit.
 
 1. Dans le portail Azure, sélectionnez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis cliquez sur l’application native Azure AD que vous venez de créer.
 
@@ -109,7 +110,7 @@ Pour récupérer l’URI de redirection, suivez les étapes ci-dessous.
  
 4.  Dans le panneau **Ajouter l’accès des API**, cliquez sur **Sélectionner des autorisations**, cochez la case pour accorder un **Accès complet à Data Lake Store**, puis cliquez sur **Sélectionner**.
 
-    ![ID CLIENT](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+    ![ID client](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
     Cliquez sur **Done**.
 
@@ -118,8 +119,8 @@ Pour récupérer l’URI de redirection, suivez les étapes ci-dessous.
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez créé une application native Azure AD et regroupé les informations nécessaires à vos applications clientes créées à l’aide du SDK .NET, du SDK Java, de l’API REST, etc. Vous pouvez à présent passer aux articles suivants qui traitent de l’utilisation de l’application web Azure AD, d’abord pour vous authentifier auprès de Data Lake Store, et ensuite pour effectuer d’autres opérations sur le magasin.
 
-* [Prise en main d'Azure Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
-* [Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
-* [Prise en main d’Azure Data Lake Store à l’aide de l’API REST](data-lake-store-get-started-rest-api.md)
-
+* [Authentification des utilisateurs finaux auprès de Data Lake Store avec le Kit SDK Java](data-lake-store-end-user-authenticate-java-sdk.md)
+* [Authentification des utilisateurs finaux auprès de Data Lake Store avec le Kit SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+* [Authentification des utilisateurs finaux auprès de Data Lake Store avec Python](data-lake-store-end-user-authenticate-python.md)
+* [Authentification des utilisateurs finaux auprès de Data Lake Store avec l’API REST](data-lake-store-end-user-authenticate-rest-api.md)
 

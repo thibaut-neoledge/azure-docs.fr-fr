@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
+ms.openlocfilehash: 96103e7014212ecaa3e4e9238ae3b9c7a851cca9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: e836ccd204ff06e1eb0494cb392e781f29fdf421
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="hostjson-reference-for-azure-functions"></a>Informations de référence sur le fichier host.json pour Azure Functions
 
 Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article répertorie les paramètres qui sont disponibles. Le schéma JSON est indiqué sur la page http://json.schemastore.org/host.
@@ -32,7 +30,7 @@ Les [paramètres d’application](functions-app-settings.md) et le fichier [loca
 
 L’exemple de fichier *host.json* suivant contient toutes les options possibles spécifiées.
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -101,7 +99,7 @@ Les sections suivantes de cet article expliquent chaque propriété de niveau su
 
 Spécifie le nombre d’appels de fonction agrégés lorsque vous [calculez des métriques pour Application Insights](functions-monitoring.md#configure-the-aggregator). 
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -121,7 +119,7 @@ Les appels de fonction sont agrégés lorsque la première des deux limites est
 
 Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](functions-monitoring.md#configure-sampling).
 
-```javascript
+```json
 {
     "applicationInsights": {
         "sampling": {
@@ -141,7 +139,7 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](f
 
 Paramètre de configuration pour les [déclencheurs et liaisons Event Hub](functions-bindings-event-hubs.md).
 
-```javascript
+```json
 {
     "eventHub": {
       "maxBatchSize": 64,
@@ -161,7 +159,7 @@ Paramètre de configuration pour les [déclencheurs et liaisons Event Hub](func
 
 Liste des fonctions que l’hôte de travail exécute.  Un tableau vide désigne l’exécution de toutes les fonctions.  Utilisée uniquement pour une [exécution locale](functions-run-local.md). Dans les applications de fonction, utilisez la propriété *function.json* `disabled` plutôt que cette propriété dans *host.json*.
 
-```javascript
+```json
 {
     "functions": [ "QueueProcessor", "GitHubWebHook" ]
 }
@@ -171,7 +169,7 @@ Liste des fonctions que l’hôte de travail exécute.  Un tableau vide désigne
 
 Indique la durée avant expiration du délai de toutes les fonctions. Dans les plans de consommation, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes. Dans les plans App Service, il n’existe aucune limite et la valeur par défaut est Null, ce qui indique qu’il n’y a pas de durée avant expiration du délai.
 
-```javascript
+```json
 {
     "functionTimeout": "00:05:00"
 }
@@ -181,7 +179,7 @@ Indique la durée avant expiration du délai de toutes les fonctions. Dans les p
 
 Paramètre de configuration pour les [déclencheurs et liaisons http](functions-bindings-http-webhook.md).
 
-```javascript
+```json
 {
     "http": {
         "routePrefix": "api",
@@ -203,7 +201,7 @@ Paramètre de configuration pour les [déclencheurs et liaisons http](functions-
 
 ID unique d’un hôte de travail. Il peut s’agir d’un GUID en minuscules dont les tirets ont été supprimés. Requis lors d’une exécution locale. Lors de l’exécution dans Azure Functions, un ID est généré automatiquement si `id` est omis.
 
-```javascript
+```json
 {
     "id": "9f4ea53c5136457d883d685e57164f08"
 }
@@ -213,7 +211,7 @@ ID unique d’un hôte de travail. Il peut s’agir d’un GUID en minuscules do
 
 Contrôle le filtrage des journaux écrits par un [objet ILogger](functions-monitoring.md#write-logs-in-c-functions) ou par [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
-```javascript
+```json
 {
     "logger": {
         "categoryFilter": {
@@ -238,7 +236,7 @@ Contrôle le filtrage des journaux écrits par un [objet ILogger](functions-moni
 
 Paramètre de configuration pour les [déclencheurs et liaisons de file d’attente de stockage](functions-bindings-storage-queue.md).
 
-```javascript
+```json
 {
     "queues": {
       "maxPollingInterval": 2000,
@@ -262,7 +260,7 @@ Paramètre de configuration pour les [déclencheurs et liaisons de file d’atte
 
 Paramètre de configuration pour les [déclencheurs et liaisons Service Bus](functions-bindings-service-bus.md).
 
-```javascript
+```json
 {
     "serviceBus": {
       "maxConcurrentCalls": 16,
@@ -282,7 +280,7 @@ Paramètre de configuration pour les [déclencheurs et liaisons Service Bus](fu
 
 Paramètres de configuration du comportement de verrouillage Singleton. Pour plus d’informations, consultez l’article sur le [problème de GitHub relatif à la prise en charge de singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
-```javascript
+```json
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -305,7 +303,7 @@ Paramètres de configuration du comportement de verrouillage Singleton. Pour plu
 
 Paramètres de configuration des journaux que vous créez à l’aide d’un objet `TraceWriter`. Consultez les sections relatives à la [journalisation en C#](functions-reference-csharp.md#logging) et à la [journalisation Node.js](functions-reference-node.md#writing-trace-output-to-the-console). 
 
-```javascript
+```json
 {
     "tracing": {
       "consoleLevel": "verbose",
@@ -323,11 +321,26 @@ Paramètres de configuration des journaux que vous créez à l’aide d’un obj
 
 Ensemble de [répertoires de code partagé](functions-reference-csharp.md#watched-directories) dont les modifications doivent être surveillées.  Garantit que lorsque le code contenu dans ces répertoires est modifié, les changements sont récupérés par vos fonctions.
 
-```javascript
+```json
 {
     "watchDirectories": [ "Shared" ]
 }
 ```
+
+## <a name="durabletask"></a>durableTask
+
+Nom du [hub de tâches](durable-functions-task-hubs.md) pour l’extension [Fonctions durables](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub"
+  }
+}
+```
+
+Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquement des lettres et des chiffres. S’il n’est pas spécifié, le nom du hub de tâches par défaut d’une application de fonction est **DurableFunctionsHub**. Pour en savoir plus, consultez la section relative aux [hubs de tâches](durable-functions-task-hubs.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -336,4 +349,3 @@ Ensemble de [répertoires de code partagé](functions-reference-csharp.md#watche
 
 > [!div class="nextstepaction"]
 > [Consultez les paramètres globaux des variables d’environnement](functions-app-settings.md)
-

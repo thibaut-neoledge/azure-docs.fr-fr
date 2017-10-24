@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2017
+ms.date: 10/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: cfdbf35b76b6a7f3cddb2deb35dfc475e0fc600f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0ee2624f45a1de0c23cae4538a38ae3e302eedd3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-policy-overview"></a>Vue d’ensemble des stratégies de ressources
 Les stratégies de ressources permettent d’établir des conventions pour les ressources de votre organisation. En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que toutes les ressources soient marquées. Toutes les ressources enfants héritent des stratégies. Ainsi, si une stratégie est appliquée à un groupe de ressources, elle est applicable à toutes les ressources appartenant à ce groupe de ressources.
@@ -32,11 +31,6 @@ Il y a deux concepts importants à comprendre concernant les stratégies :
 Cette rubrique porte sur la définition de stratégie. Pour plus d’informations sur l’affectation des stratégies, consultez [Utiliser le portail Azure pour attribuer et gérer les stratégies de ressources](resource-manager-policy-portal.md) ou [Attribuer et gérer les stratégies de ressources via un script](resource-manager-policy-create-assign.md).
 
 Les stratégies sont évaluées lors de la création et de la mise à jour des ressources (opérations PUT et PATCH).
-
-> [!NOTE]
-> Actuellement, la stratégie n'évalue pas les types de ressources qui ne prennent pas en charge les balises, le type et l'emplacement, par exemple, le type de ressource Microsoft.Resources/deployments. Cette prise en charge sera ajoutée prochainement. Pour éviter des problèmes de compatibilité descendante, vous devriez spécifier explicitement le type lors de la création de stratégies. Par exemple, une stratégie de balises sans spécification des types est appliquée à tous les types. Dans ce cas, le déploiement d’un modèle risque d’échouer s’il existe une ressource imbriquée ne prenant pas en charge les balises, et le type de ressource du déploiement sera ajouté à l’évaluation de la stratégie. 
-> 
-> 
 
 ## <a name="how-is-it-different-from-rbac"></a>Quelle est la différence avec RBAC ?
 Il existe quelques différences importantes entre la stratégie et le contrôle d’accès en fonction du rôle (RBAC). RBAC porte sur les actions des **utilisateurs** dans différentes étendues. Par exemple, le rôle de contributeur vous est attribué pour un groupe de ressources dans l’étendue de votre choix, ce qui vous permet d’apporter des modifications à ce groupe de ressources. La stratégie se focalise sur les propriétés des **ressources** pendant le déploiement. Par exemple, vous pouvez utiliser des stratégies pour contrôler les types de ressources qui peuvent être approvisionnées. Vous pouvez aussi restreindre les emplacements auxquels les ressources peuvent être approvisionnées. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d'autorisation et de refus. 
@@ -67,6 +61,7 @@ Vous pouvez affecter l’une de ces stratégies par le biais du [portail](resour
 ## <a name="policy-definition-structure"></a>Structure de la définition de stratégie
 Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
 
+* le mode
 * parameters
 * le nom d’affichage
 * description
@@ -79,6 +74,7 @@ L’exemple suivant illustre une stratégie qui limite les emplacements où les 
 ```json
 {
   "properties": {
+    "mode": "all",
     "parameters": {
       "allowedLocations": {
         "type": "array",
@@ -105,6 +101,12 @@ L’exemple suivant illustre une stratégie qui limite les emplacements où les 
   }
 }
 ```
+
+## <a name="mode"></a>Mode
+
+Nous vous recommandons de définir `mode` sur `all`. Quand vous le définissez sur **all**, les groupes de ressources et tous les types de ressource sont évalués pour la stratégie. Le portail utilise **all** pour toutes les stratégies. Si vous utilisez PowerShell ou Azure CLI, vous devez spécifier le paramètre `mode` et le définir sur **all**.
+ 
+Auparavant, la stratégie était uniquement évaluée sur les types de ressource qui prenaient en charge les balises et l’emplacement. Le mode `indexed` fonctionne toujours de la sorte. Si vous utilisez le mode **all**, les stratégies sont également évaluées sur les types de ressource qui ne prennent pas en charge les balises et l’emplacement. Le [sous-réseau de réseau virtuel](https://github.com/Azure/azure-policy-samples/tree/master/samples/Network/enforce-nsg-on-subnet) est un exemple de type récemment ajouté. Les groupes de ressources sont en outre évalués quand mode est défini sur **all**. Par exemple, vous pouvez [appliquer des balises sur un groupe de ressources](https://github.com/Azure/azure-policy-samples/tree/master/samples/ResourceGroup/enforce-resourceGroup-tags). 
 
 ## <a name="parameters"></a>Paramètres
 Les paramètres permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies. Vous définissez une stratégie pour une propriété de ressource (vous limitez par exemple les emplacements où les ressources peuvent être déployées) et incluez des paramètres dans la définition. Ensuite, vous réutilisez cette définition de stratégie pour différents scénarios en transmettant différentes valeurs (vous spécifiez par exemple un ensemble d’emplacements pour un abonnement) au moment de l’affectation de la stratégie.
@@ -210,11 +212,13 @@ Les champs suivants sont pris en charge :
 * alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
 
 ### <a name="effect"></a>Résultat
-La stratégie prend en charge trois types d’effet : `deny`, `audit` et `append`. 
+La stratégie prend en charge cinq types d’effet : `deny`, `audit`, `append`, `AuditIfNotExists` et `DeployIfNotExists`. 
 
 * **deny** génère un événement dans le journal d’audit et fait échouer la requête.
 * **audit** génère un événement d’avertissement dans le journal d’audit, mais ne fait pas échouer la requête.
 * **append** ajoute l’ensemble de champs défini à la requête. 
+* **AuditIfNotExists** active l’audit si une ressource n’existe pas.
+* **DeployIfNotExists** déploie une ressource si elle n’existe pas déjà. Actuellement, cet effet est uniquement pris en charge par le biais de stratégies intégrées.
 
 Pour **append**, vous devez fournir les détails suivants :
 
@@ -229,6 +233,10 @@ Pour **append**, vous devez fournir les détails suivants :
 ```
 
 La valeur peut être une chaîne ou un objet au format JSON. 
+
+Avec **AuditIfNotExists** et **DeployIfNotExists**, vous pouvez évaluer l’existence d’une ressource enfant et appliquer une règle quand cette ressource n’existe pas. Par exemple, vous pouvez exiger qu’un observateur réseau soit déployé pour tous les réseaux virtuels.
+
+Pour obtenir un exemple d’audit quand une extension de machine virtuelle n’est pas déployée, consultez [Auditer des extensions de machine virtuelle](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json).
 
 ## <a name="aliases"></a>Alias
 
@@ -347,20 +355,96 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 | Microsoft.Storage/storageAccounts/sku.name | Définissez le nom de la référence SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Indiquez que seul le trafic https est autorisé vers le service de stockage. |
 
+## <a name="policy-sets"></a>Jeux de stratégies
 
-## <a name="policy-examples"></a>Exemples de stratégies
+Les jeux de stratégies permettent de regrouper des définitions de stratégies associées. Le jeu de stratégies simplifie l’attribution et la gestion, car vous travaillez avec un groupe sous forme d’élément unique. Par exemple, vous pouvez regrouper toutes les stratégies de marquage associées dans un même jeu de stratégies. Au lieu d’attribuer chaque stratégie individuellement, vous appliquez le jeu de stratégies.
+ 
+L’exemple suivant montre comment créer un jeu de stratégies pour gérer deux balises (costCenter et productName). Il utilise deux stratégies intégrées pour appliquer la valeur de balise par défaut et imposer la valeur de balise. Le jeu de stratégies déclare deux paramètres (costCenterValue et productNameValue) pour la réutilisabilité. Il fait référence aux deux définitions de stratégies intégrées plusieurs fois avec des paramètres différents. Pour chaque paramètre, vous pouvez définir soit une valeur fixe, comme indiqué pour tagName, soit un paramètre du jeu de stratégies, comme indiqué pour tagValue.
 
-Les rubriques suivantes contiennent des exemples de stratégies :
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy",
+        "policyType": "Custom",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    },
+    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
+}
+```
 
-* Pour obtenir des exemples de stratégies de balises, consultez [Apply resource policies for tags](resource-manager-policy-tags.md) (Appliquer des stratégies de ressources pour les balises).
-* Pour obtenir des exemples de modèles d’affectation de noms et de texte, consultez [Appliquer des stratégies de ressources pour les noms et le texte](resource-manager-policy-naming-convention.md).
-* Pour obtenir des exemples de stratégies de balises, consultez [Apply resource policies to storage accounts](resource-manager-policy-storage.md) (Appliquer des stratégies de ressources aux comptes de stockage).
-* Pour obtenir des exemples de stratégies de machine virtuelle, consultez [Apply resource policies to Linux VMs](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Linux) et [Apply resource policies to Windows VMs](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Windows).
+Ajoutez un jeu de stratégies avec la commande PowerShell **New-AzureRMPolicySetDefinition**.
 
+Pour les opérations REST, utilisez la version d’API **2017-06-01-preview**, comme indiqué dans l’exemple suivant :
+
+```
+PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicySet?api-version=2017-06-01-preview
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Après avoir défini une règle de stratégie, affectez-la à une étendue. Pour affecter des stratégies via le portail, consultez [Utiliser le portail Azure pour affecter et gérer les stratégies de ressources](resource-manager-policy-portal.md). Pour affecter des stratégies via l’API REST, PowerShell ou Azure CLI, consultez [Affecter et gérer des stratégies via un script](resource-manager-policy-create-assign.md).
+* Pour obtenir des exemples de stratégies, consultez [Dépôt GitHub de stratégies de ressources Azure](https://github.com/Azure/azure-policy-samples).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
 * Le schéma de stratégie est publié à l’adresse [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

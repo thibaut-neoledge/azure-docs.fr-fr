@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
+ms.openlocfilehash: 0456cde7e30e9b25f8baebdcd15e0e029f89d7ff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 39b79dce555ba1b57f48ca2b431c13b1c1e4d90b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -85,6 +84,14 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
   * Dynamics 365 pour le service client
   * Dynamics 365 pour le service après-vente
   * Dynamics 365 pour le service de projet
+* À l’aide de [filtres de routage](#route-filters-for-microsoft-peering), vous pouvez accéder aux mêmes services publics avec l’homologation Microsoft :
+  * Power BI
+  * Dynamics 365 pour la finance et les opérations
+  * La plupart des services Azure, avec quelques exceptions ci-dessous :
+    * CDN
+    * Test de charge Visual Studio Team Services
+    * Multi-Factor Authentication
+    * Traffic Manager
 
 ## <a name="data-and-connections"></a>Données et connexions
 
@@ -115,6 +122,10 @@ Oui. Chaque circuit ExpressRoute dispose d’une paire redondante de connexions 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Vais-je perdre ma connectivité en cas d’échec de l’un de mes liens ExpressRoute ?
 
 Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour prendre en charge la charge de votre réseau. Vous pouvez également créer plusieurs circuits dans un autre emplacement d’homologation pour bénéficier de la tolérance de panne.
+
+## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Comment garantir une haute disponibilité sur un réseau virtuel connecté à ExpressRoute ?
+
+Vous pouvez obtenir une disponibilité élevée en connectant à votre réseau virtuel plusieurs circuits ExpressRoute sur différents emplacements d’homologation. Par exemple, si un site ExpressRoute tombe en panne, la connectivité bascule sur un autre site ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir une connexion plutôt qu’une autre. Voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md) pour plus d’informations sur le poids de connexion.
 
 ### <a name="onep2plink"></a>Si je ne suis pas colocalisé au niveau d’un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ?
 
@@ -162,6 +173,12 @@ Oui. Vous pouvez autoriser jusqu’à 10 autres abonnements Azure à utiliser u
 
 Pour plus d'informations, consultez la page [Partage d'un circuit ExpressRoute entre plusieurs abonnements](expressroute-howto-linkvnet-arm.md).
 
+### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>J’ai plusieurs abonnements Azure associés à différents clients Azure Active Directory ou inscriptions d’Accord Entreprise. Puis-je connecter des réseaux virtuels qui se trouvent dans des clients et des inscriptions distincts à un même circuit ExpressRoute qui ne se trouve pas dans le même client ou la même inscription ?
+
+Oui. Les autorisations ExpressRoute peuvent aller jusqu’aux limites de l’abonnement, du client et de l’inscription sans aucune configuration supplémentaire. 
+
+Pour plus d'informations, consultez la page [Partage d'un circuit ExpressRoute entre plusieurs abonnements](expressroute-howto-linkvnet-arm.md).
+
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>Les réseaux virtuels sont-ils connectés à un même circuit en étant isolés les uns des autres ?
 
 Non. Dans une perspective de routage, l’ensemble des réseaux virtuels liés au même circuit ExpressRoute fait partie du même domaine de routage et ne sont pas isolés les un des autres. Si vous devez isoler des itinéraires, vous devez créer un circuit ExpressRoute distinct.
@@ -178,7 +195,7 @@ Oui. Si vous n’avez pas publié les itinéraires par défaut (0.0.0.0/0) ou le
 
 Oui. Vous pouvez publier des itinéraires par défaut (0.0.0.0/0) pour bloquer la connectivité Internet de toutes les machines virtuelles qui sont déployées au sein d’un réseau virtuel et qui acheminent tout le trafic sortant via le circuit ExpressRoute.
 
-Si vous publiez des itinéraires par défaut, nous forçons le trafic en direction des services offerts via l’homologation publique (tels que le stockage Azure et base de données SQL) vers votre environnement local. Vous devrez configurer votre routeur pour retourner le trafic vers Azure via le chemin d’accès d’homologation publique ou via Internet.
+Si vous publiez des itinéraires par défaut, nous forçons le trafic en direction des services offerts via l’homologation publique (tels que le stockage Azure et base de données SQL) vers votre environnement local. Vous devrez configurer votre routeur pour retourner le trafic vers Azure via le chemin d’accès d’homologation publique ou via Internet. Si vous avez activé un point de terminaison de service (préversion) pour le service, le trafic vers le service n’est pas forcé vers votre site. Le trafic reste dans le réseau principal Azure. Découvrez plus d’informations sur les points de terminaison de service dans [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Les réseaux virtuels liés à un même circuit ExpressRoute peuvent-ils communiquer entre eux ?
 
@@ -344,13 +361,12 @@ Lorsque vous utilisez des filtres de routage, n’importe quel client peut activ
 
 Non, vous n’avez pas besoin d’autorisation pour Dynamics 365. Vous pouvez créer une règle et sélectionner la Communauté Dynamics 365 sans autorisation.
 
-### <a name="i-already-have-microsoft-peering-how-can-i-take-advantage-of-route-filters"></a>J’ai déjà homologation Microsoft, comment puis-je tirer parti des filtres de routage ?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>J’ai activé l’homologation Microsoft avant le 1er août 2017. Comment puis-je tirer parti des filtres de routage ?
 
-Vous pouvez créer un filtre de routage, sélectionnez les services que vous souhaitez utiliser et joindre le filtre à votre homologation Microsoft. Consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-powershell.md)pour obtenir des instructions.
+Votre circuit existant continuera à publier des préfixes pour Office 365 et Dynamics 365. Si vous souhaitez ajouter des publications de préfixes publics Azure sur la même homologation Microsoft, vous pouvez créer un filtre de routage, sélectionner les services que vous souhaitez publier (y compris le(s) service(s) Office 365 dont vous avez besoin et Dynamics 365) et joindre le filtre à votre homologation Microsoft. Consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-powershell.md)pour obtenir des instructions.
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Je dispose de l’homologation Microsoft à un emplacement, maintenant j’essaie de l’activer à un autre emplacement et aucun préfixe ne s’affiche.
 
 * L’homologation Microsoft des circuits ExpressRoute ayant été configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via l’homologation Microsoft, même si les filtres d’itinéraire ne sont pas définis.
 
 * L’homologation Microsoft des circuits ExpressRoute configurés à partir du 1er août 2017 n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage sera joint au circuit. Aucun préfixe par défaut ne s’affichera.
-

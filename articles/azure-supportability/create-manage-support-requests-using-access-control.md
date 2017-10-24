@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support
 
@@ -90,7 +90,7 @@ Vous souhaitez que votre collègue Jean ait la possibilité de créer et de gér
 
     ![Nouvelle demande de support](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Cliquant sur « Tous en charge les demandes » Joe peut afficher la liste des demandes de support créé pour cet abonnement ![cas afficher les détails](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. En cliquant sur « All support requests » (Toutes les demandes de support), Jean peut voir la liste des demandes de support créées pour cet abonnement. ![Vue Détails des cas](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Supprimer l’accès aux demandes de support dans le portail Azure
 

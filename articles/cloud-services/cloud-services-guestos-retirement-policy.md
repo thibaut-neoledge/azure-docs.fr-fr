@@ -1,6 +1,6 @@
 ---
 title: "Guide de prise en charge et de stratégie de suppression pour le SE invité d’Azure | Microsoft Docs"
-description: "Fournit des informations sur les éléments pris en charge par Microsoft en ce qui concerne le SE invité d&quot;Azure utilisé par les services cloud."
+description: "Fournit des informations sur les éléments pris en charge par Microsoft en ce qui concerne le SE invité d'Azure utilisé par les services cloud."
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/26/2017
+ms.date: 9/20/2017
 ms.author: raiye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 488a6e144b16c57c137e60b918ee68c78db1a54f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité d’Azure
 Les informations de cette page concernent le système d'exploitation invité Azure ([SE invité](cloud-services-guestos-update-matrix.md)) pour les rôles Web et de travail Cloud Services (PaaS). Elles ne s'appliquent pas aux machines virtuelles (IaaS).
@@ -38,7 +36,7 @@ Plus de deux familles ou versions peuvent parfois être prises en charge. Les in
 ## <a name="when-a-guest-os-family-or-version-is-retired"></a>Lorsqu'une version ou une famille de systèmes d'exploitation invités est supprimée
 Une nouvelle **famille** de systèmes d'exploitation invités est présentée après la publication d'une nouvelle version officielle du système d'exploitation Windows Server. Chaque fois qu'une nouvelle famille de systèmes d'exploitation invités est présentée, Microsoft retirera la famille des systèmes d'exploitation invités la plus ancienne.
 
-Les nouvelles **versions** de SE invité sont présentées tous les mois environ afin d'intégrer les dernières mises à jour MSRC. En raison des mises à jour mensuelles régulières, une version de SE invité est généralement désactivée 60 jours après sa publication. Cette activité permet de conserver au moins deux versions de système d'exploitation invité pour chaque famille à disposition.
+Les nouvelles **versions** de SE invité sont présentées tous les mois environ afin d'intégrer les dernières mises à jour MSRC. En raison des mises à jour mensuelles régulières, une version de SE invité est généralement désactivée environ 60 jours après sa publication. Cette activité permet de conserver au moins deux versions de système d'exploitation invité pour chaque famille à disposition.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>Processus de suppression d'une famille de SE invités
 Une fois la suppression annoncée, les clients bénéficient d'une période de « transition » de 12 mois avant que la famille la plus ancienne soit officiellement supprimée du service. Ce délai de transition peut être étendu à la discrétion de Microsoft. Les mises à jour seront publiées sur les [versions de système d'exploitation invité d'Azure et la matrice de compatibilité du Kit de développement logiciel (SDK)](cloud-services-guestos-update-matrix.md).
@@ -63,8 +61,8 @@ Un certain temps après « expiration », la version du SE invité obtient le 
 Ces périodes peuvent être allongées à la discrétion de Microsoft pour faciliter les transitions des clients. Toutes les modifications seront communiquées sur les [versions de système d'exploitation invité d'Azure et la matrice de compatibilité du Kit de développement logiciel (SDK)](cloud-services-guestos-update-matrix.md).
 
 ### <a name="notifications-during-retirement"></a>Notifications pendant la suppression
-* **Suppression de famille** <br>Microsoft utilise les billets de blog et la notification du portail. Les clients qui utilisent encore une famille de systèmes d'exploitation invités supprimée sont informés par une communication directe (e-mail, messages sur le portail, appel téléphonique) aux administrateurs de service nommés. Toutes les modifications seront publiées sur cette page et les flux RSS seront mentionnés au début de cette page.
-* **Suppression de version** <br>Toutes les modifications, ainsi que les dates auxquelles elles surviennent, seront publiées sur cette page et les flux RSS seront mentionnés au début de cette page, y compris la publication, la désactivation et l'expiration. Les administrateurs de services recevront des e-mails s'ils ont des déploiements en cours d'exécution sur une version ou une famille de systèmes d'exploitation invités désactivée. La date d'envoi de ces e-mails peut varier. En général, ils sont envoyés au moins un mois avant la désactivation, bien que ce délai ne soit pas officiellement fixé.
+* **Suppression de famille** <br>Microsoft utilise les billets de blog et la notification du portail. Les clients qui utilisent encore une famille de systèmes d'exploitation invités supprimée sont informés par une communication directe (e-mail, messages sur le portail, appel téléphonique) aux administrateurs de service nommés. Toutes les modifications seront publiées sur les [versions de système d'exploitation invité d'Azure et la matrice de compatibilité du Kit de développement logiciel (SDK)](cloud-services-guestos-update-matrix.md).
+* **Suppression de version** <br>Toutes les modifications ainsi que les dates auxquelles elles surviennent seront publiées sur la [matrice de compatibilité du Kit de développement logiciel (SDK) Azure](cloud-services-guestos-update-matrix.md), y compris la publication, la désactivation et l'expiration. Les administrateurs de services recevront des e-mails s'ils ont des déploiements en cours d'exécution sur une version ou une famille de systèmes d'exploitation invités désactivée. La date d'envoi de ces e-mails peut varier. En général, ils sont envoyés au moins un mois avant la désactivation, bien que ce délai ne soit pas officiellement fixé.
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions
 **Atténuation des impacts de la migration**
@@ -81,4 +79,3 @@ Si l’architecture de votre application web dépend de caractéristiques sous-j
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
-

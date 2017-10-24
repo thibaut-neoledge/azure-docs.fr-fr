@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
+ms.openlocfilehash: df49f054b5eb26c3d68f088bc05f5209cf2ebccf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: d7c257553d25694005bced745f793951cc9f8951
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-device-twins-node"></a>Prise en main des représentations d’appareils (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -27,16 +26,16 @@ ms.lasthandoff: 09/08/2017
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
 
 * **AddTagsAndQuery.js**, application Node.js qui ajoute des balises et interroge des représentations d’appareil.
-* **TwinSimulatedDevice.js**, application Node.js qui simule un appareil se connectant à votre IoT Hub avec l’identité d’appareil créée précédemment, et signale son état de connectivité.
+* **TwinSimulatedDevice.js**, application Node.js qui simule un appareil se connectant à votre hub IoT avec l’identité d’appareil créée précédemment, et signale son état de connectivité.
 
 > [!NOTE]
-> L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les Kits de développement logiciel (SDK) IoT que vous pouvez utiliser pour générer des applications pour appareil et des applications principales.
+> L’article [Kits Azure IoT SDK][lnk-hub-sdks] fournit des informations sur les kits Azure IoT SDK que vous pouvez utiliser pour générer des applications pour appareil et des applications principales.
 > 
 > 
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 0.10.x ou ultérieure.
+* Node.js version 4.0.x ou version ultérieure.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -115,7 +114,7 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
    
     Le code précédent exécute deux requêtes : la première sélectionne uniquement les représentations des appareils situés dans l’usine **Redmond43**et la seconde affine la requête pour sélectionner uniquement les appareils qui sont également connectés via un réseau cellulaire.
    
-    Notez que le code précédent, quand il crée l’objet **query**, spécifie un nombre maximal de documents retournés. L’objet **query** contient une propriété booléenne **hasMoreResults** permettant d’appeler les méthodes **nextAsTwin** plusieurs fois afin de récupérer tous les résultats. Une méthode appelée **next** est disponible pour les résultats qui ne sont pas des représentations d’appareil, par exemple, les résultats de requêtes d’agrégation.
+    Quand il crée l’objet **query**, le code précédent spécifie un nombre maximal de documents retournés. L’objet **query** contient une propriété booléenne **hasMoreResults** permettant d’appeler les méthodes **nextAsTwin** plusieurs fois afin de récupérer tous les résultats. Une méthode appelée **next** est disponible pour les résultats qui ne sont pas des jumeaux d’appareils, par exemple, les résultats de requêtes d’agrégation.
 6. Exécutez l’application avec :
    
         node AddTagsAndQuery.js
@@ -124,9 +123,9 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
    
     ![][1]
 
-Dans la section suivante, vous allez créer une application d’appareil qui signale les informations de connectivité et modifie le résultat de la requête de la section précédente.
+Dans la section suivante, vous allez créer une application d’appareil qui transmet les informations de connectivité et modifie le résultat de la requête de la section précédente.
 
-## <a name="create-the-device-app"></a>Créer l’application d’appareil
+## <a name="create-the-device-app"></a>Créer l’application pour appareil
 Dans cette section, vous allez créer une application console Node.js qui se connecte à votre hub en tant que **myDeviceId**, puis met à jour les propriétés signalées de sa représentation d’appareil afin qu’elles contiennent les informations indiquant qu’elle est connectée par le biais d’un réseau cellulaire.
 
 
@@ -226,4 +225,3 @@ Utilisez les ressources suivantes :
 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-

@@ -3,8 +3,8 @@ title: "Configurer des filtres de routage pour l’homologation d’Azure Expres
 description: "Cet article décrit comment configurer des filtres de routage pour l’homologation Microsoft à l’aide du portail Azure."
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: ganesr
+manager: rossort
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2017
-ms.author: ganesr;cherylmc
+ms.date: 09/26/2017
+ms.author: ganesr
+ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: c813dbc0e703c20c869a8f6fc2bb70c2b0e7a807
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="configure-route-filters-for-microsoft-peering"></a>Configurer des filtres de routage pour l’homologation Microsoft
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurer des filtres de routage pour l’homologation Microsoft : portail Azure
+> [!div class="op_single_selector"]
+> * [portail Azure](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
+> 
 
 Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via l’homologation Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
 
-Les services Dynamics 365 services et les services Office 365, comme Exchange Online, SharePoint Online et Skype pour entreprises, sont accessibles via l’homologation Microsoft. Lorsque l’homologation Microsoft est configurée dans un circuit ExpressRoute, tous les préfixes liés à ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
+Les services Dynamics 365 et les services Office 365, comme Exchange Online, SharePoint Online et Skype pour entreprises, et les services Azure, comme le stockage et la base de données SQL, sont accessibles via l’homologation Microsoft. Lorsque l’homologation Microsoft est configurée dans un circuit ExpressRoute, tous les préfixes liés à ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
 
 Si vous avez besoin de connectivité à tous les services, de nombreux préfixes sont publiés via BGP. Cela augmente considérablement la taille des tables de routage gérées par les routeurs au sein de votre réseau. Si vous envisagez d’utiliser uniquement un sous-ensemble des services offerts par le biais de l’homologation de Microsoft, vous pouvez réduire la taille de vos tables de routage de deux manières. Vous pouvez :
 
@@ -73,7 +77,7 @@ Avant de commencer la configuration, assurez-vous que les critères suivants son
  - Vous devez disposer d’une homologation Microsoft active. Suivez les instructions de [création et modification de la configuration d’homologation](expressroute-howto-routing-portal-resource-manager.md).
 
 
-## <a name="prefixes"></a>Étape 1. Obtenir la liste des préfixes et des valeurs de communauté BGP
+## <a name="prefixes"></a>Étape 1 : Obtenir la liste des préfixes et des valeurs de communauté BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obtenir la liste des valeurs de communauté BGP
 
@@ -83,7 +87,7 @@ Les valeurs de communauté BGP associées aux services accessibles via l’homol
 
 Dressez la liste des valeurs de communauté BGP que vous souhaitez utiliser dans le filtre de routage. Par exemple, la valeur de communauté BGP pour les services Dynamics 365 est 12076:5040.
 
-## <a name="filter"></a>Étape 2. Créer un filtre de routage et une règle de filtre
+## <a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
 
 Un filtre de routage ne peut avoir qu’une seule règle, et cette règle doit être de type « Autoriser ». Cette règle peut être associée à une liste des valeurs de communauté BGP.
 
@@ -108,7 +112,7 @@ Vous pouvez sélectionner dans la liste déroulante les services auxquels vous s
 ![Créer un filtre de routage](.\media\how-to-routefilter-portal\AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>Étape 3. Joindre le filtre de routage à un circuit ExpressRoute
+## <a name="attach"></a>Étape 3 : Joindre le filtre de routage à un circuit ExpressRoute
 
 Vous pouvez joindre le filtre de routage à un circuit en cliquant sur le bouton « Ajouter un circuit » et en sélectionnant le circuit ExpressRoute dans la liste déroulante.
 
@@ -118,14 +122,16 @@ Si le fournisseur de connectivité configure l’homologation pour votre circuit
 
 ![Créer un filtre de routage](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
 
-## <a name="getproperties"></a>Obtenir les propriétés d’un filtre de routage
+## <a name="tasks"></a>Tâches courantes
+
+### <a name="getproperties"></a>Obtenir les propriétés d’un filtre de routage
 
 Vous pouvez afficher les propriétés d’un filtre de routage lorsque vous ouvrez la ressource dans le portail.
 
 ![Créer un filtre de routage](.\media\how-to-routefilter-portal\ViewRouteFilter.png)
 
 
-## <a name="updateproperties"></a>Mettre à jour les propriétés d’un filtre de routage
+### <a name="updateproperties"></a>Mettre à jour les propriétés d’un filtre de routage
 
 Vous pouvez mettre à jour la liste des valeurs de communauté BGP jointe à un circuit en sélectionnant le bouton « Gérer la règle ».
 
@@ -135,14 +141,14 @@ Vous pouvez mettre à jour la liste des valeurs de communauté BGP jointe à un 
 ![Créer un filtre de routage](.\media\how-to-routefilter-portal\AddRouteFilterRule.png) 
 
 
-## <a name="detach"></a>Détacher un filtre de routage d’un circuit ExpressRoute
+### <a name="detach"></a>Détacher un filtre de routage d’un circuit ExpressRoute
 
 Pour détacher un circuit du filtre de routage, cliquez avec le bouton droit sur le circuit, puis cliquez sur « dissocier ».
 
 ![Créer un filtre de routage](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
 
 
-## <a name="delete"></a>Supprimer un filtre de routage
+### <a name="delete"></a>Supprimer un filtre de routage
 
 Vous pouvez supprimer un filtre de routage en sélectionnant le bouton Supprimer. 
 
@@ -150,4 +156,4 @@ Vous pouvez supprimer un filtre de routage en sélectionnant le bouton Supprimer
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
+Pour plus d'informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).

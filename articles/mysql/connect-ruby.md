@@ -10,17 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 07/13/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 10f774262015cb19e158a687138b4618ce50063b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: e54f1dccbae060c52f48bfeb277c045b99a91715
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Base de données Azure pour MySQL : Utilisation de Ruby pour vous connecter et interroger des données
-Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL via une application [Ruby](https://www.ruby-lang.org) et le gem [mysql2](https://rubygems.org/gems/mysql2), à partir de plateformes Windows, Ubuntu Linux et Mac. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement à l’aide de Ruby, mais que vous ne savez pas utiliser la base de données Azure pour MySQL.
+Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL via une application [Ruby](https://www.ruby-lang.org) et le gem [mysql2](https://rubygems.org/gems/mysql2), à partir de plateformes Windows, Ubuntu Linux et Mac. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique suppose que vous connaissez les bases du développement à l’aide de Ruby, et que vous ne savez pas utiliser la base de données Azure pour MySQL.
 
 ## <a name="prerequisites"></a>Composants requis
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
@@ -28,7 +26,7 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un
 - [Création d’un serveur Azure Database pour MySQL à l’aide de la CLI Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-ruby"></a>Installer Ruby
-Installez Ruby, Gem et la bibliothèque MySQL2 sur votre propre machine. 
+Installez Ruby, Gem et la bibliothèque MySQL2 sur votre propre ordinateur. 
 
 ### <a name="windows"></a>Windows
 1. Téléchargez et installez la version 2.3 de [Ruby](http://rubyinstaller.org/downloads/).
@@ -57,17 +55,17 @@ Installez Ruby, Gem et la bibliothèque MySQL2 sur votre propre machine.
 Obtenez les informations requises pour vous connecter à la base de données Azure pour MySQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche du Portail Azure, cliquez sur **Toutes les ressources** et recherchez le serveur que vous venez de créer, par exemple **myserver4demo**.
+2. Dans le menu de gauche du Portail Azure, cliquez sur **Toutes les ressources** puis recherchez le serveur que vous venez de créer, par exemple **myserver4demo**.
 3. Cliquez sur le nom du serveur, **myserver4demo**.
-4. Sélectionnez la page **Propriétés** du serveur. Prenez note du **nom du serveur** et du **nom de connexion d’administrateur du serveur**.
+4. Sélectionnez la page **Propriétés** du serveur, puis notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**.
  ![Azure Database pour MySQL - Connexion d’administrateur du serveur](./media/connect-ruby/1_server-properties-name-login.png)
 5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
 
 ## <a name="run-ruby-code"></a>Exécuter le code Ruby 
-1. Collez le code Ruby des sections ci-dessous dans les fichiers textes et enregistrez les fichiers dans un dossier de projet avec l’extension de fichier .rb, tel que `C:\rubymysql\createtable.rb` ou `/home/username/rubymysql/createtable.rb`.
+1. Collez le code Ruby des sections ci-dessous dans les fichiers textes puis enregistrez les fichiers dans un dossier de projet avec l’extension de fichier .rb, tel que `C:\rubymysql\createtable.rb` ou `/home/username/rubymysql/createtable.rb`.
 2. Pour exécuter le code, lancez l’invite de commandes ou l’interpréteur de commandes Bash. Basculez dans votre dossier de projet `cd rubymysql`.
 3. Tapez ensuite la commande Ruby suivie du nom de fichier, tel que `ruby createtable.rb` pour exécuter l’application.
-4. Avec le système d’exploitation Windows, si l’application Ruby n’est pas dans votre variable d’environnement de chemin d’accès, vous devrez peut-être utiliser le chemin d’accès complet pour lancer l’application de nœud, tel que `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`.
+4. Avec le système d’exploitation Windows, si l’application Ruby n’est pas dans votre variable d’environnement de chemin d’accès, vous devrez peut-être utiliser le chemin d’accès complet pour lancer l’application de nœud, tel que `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Se connecter et créer une table
 Utilisez le code suivant pour vous connecter et créer une table à l’aide de l’instruction **CREATE TABLE**, suivie des instructions SQL **INSERT INTO** pour ajouter des lignes à la table.
@@ -117,7 +115,7 @@ end
 ## <a name="read-data"></a>Lire les données
 Utilisez le code suivant pour vous connecter et lire des données à l’aide d’une instruction SQL **SELECT**. 
 
-Le code utilise une classe [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) de méthode .new() pour se connecter à la base de données Azure pour MySQL. Ensuite, il appelle la méthode [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) pour exécuter les commandes SELECT. Ensuite, il appelle la méthode [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) pour fermer la connexion, avant de s’arrêter.
+Le code utilise une méthode [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) class.new() pour se connecter à la base de données Azure pour MySQL. Ensuite, il appelle la méthode [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) pour exécuter les commandes SELECT. Ensuite, il appelle la méthode [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) pour fermer la connexion, avant de s’arrêter.
 
 Remplacez les chaînes `host`, `database`, `username` et `password` par vos propres valeurs. 
 
@@ -229,4 +227,3 @@ end
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./concepts-migrate-import-export.md)
-

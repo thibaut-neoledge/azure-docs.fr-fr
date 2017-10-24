@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
+ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 0b6417b616a9e4e74b5fb8a67e1414ad74e8f258
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transférer des données avec AzCopy sur Linux
 AzCopy sur Linux est un utilitaire en ligne de commande conçu pour copier des données depuis et vers un stockage de fichier et de blob Microsoft Azure en utilisant des commandes simples avec des performances optimales. Vous pouvez copier des données d’un objet vers un autre au sein de votre compte de stockage ou entre des comptes de stockage.
@@ -497,7 +496,7 @@ azcopy \
     --sync-copy
 ```
 
-Pendant la copie depuis le stockage de fichier vers le stockage d'objets Blob, le type d'objet Blob par défaut est l'objet Blob de blocs. L'utilisateur peut spécifier l'option `/BlobType:page` pour modifier le type d'objet Blob de destination.
+Pendant la copie depuis le stockage de fichier vers le stockage d'objets Blob, le type d'objet Blob par défaut est l'objet Blob de blocs. L'utilisateur peut spécifier l'option `--blob-type page` pour modifier le type d'objet Blob de destination. Les types disponibles sont `page | block | append`.
 
 Notez que `--sync-copy` peut générer des coûts de sortie supplémentaires par rapport à la copie asynchrone. L’approche recommandée consiste à utiliser cette option dans une machine virtuelle Azure qui se trouve dans la même région que votre compte de stockage source afin d’éviter les frais de sortie.
 
@@ -691,5 +690,4 @@ Pour plus d’informations sur le stockage Azure et AzCopy, consultez les ressou
 * [AzCopy – Transfer data with re-startable mode and SAS Token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx) (AzCopy : Transfert des données avec mode reprise et jeton SAP)
 * [AzCopy : Utilisation de copie d'objets blob sur plusieurs comptes](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
 

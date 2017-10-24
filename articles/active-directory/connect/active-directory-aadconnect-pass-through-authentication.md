@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: billmath
+ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9fcf2756dee8a19ee3fd6013ccbb427fcef99ae1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
 ## <a name="what-is-azure-active-directory-pass-through-authentication"></a>Qu’est-ce que l’authentification directe Azure Active Directory ?
@@ -36,7 +34,7 @@ Cette fonctionnalité est une alternative à [Synchronisation du hachage de mot 
 
 Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authentification unique transparente](active-directory-aadconnect-sso.md). De cette façon, lorsque vos utilisateurs accèdent à leurs ordinateurs d’entreprise au sein de votre réseau d’entreprise, ils n’ont pas besoin de saisir leurs mots de passe pour se connecter.
 
-## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Avantages clés de l’utilisation de l’authentification directe Azure AD
+## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Avantages clés de utilisation de l’authentification directe Azure AD
 
 - *Une meilleure expérience utilisateur*
   - Les utilisateurs utilisent les mêmes mots de passe pour se connecter aux applications locales et sur le cloud.
@@ -69,10 +67,11 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
-- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) :découvrez les scénarios pris en charge et ceux qui ne le sont pas.
-- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez le mode opératoire de cette fonctionnalité.
+- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
+- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Forum aux questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
+- [**Immersion dans la sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
 - [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.
-

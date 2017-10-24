@@ -15,14 +15,12 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 4eef4f00bb407f97a68d09a39f3e99d1bc325d0e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
 Cet article décrit les composants qui facilitent la protection des utilisateurs et des applications quand vous utilisez le proxy d’application Azure Active Directory.
@@ -187,4 +185,3 @@ Une partie du traitement de l’application peut se produire ici. Si vous avez c
 [Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure AD](application-proxy-network-topology-considerations.md)
 
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)
-

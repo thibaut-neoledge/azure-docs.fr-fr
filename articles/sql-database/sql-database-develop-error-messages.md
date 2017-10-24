@@ -14,14 +14,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/28/2017
 ms.author: sstein
+ms.openlocfilehash: 9f9dfd039b76e4bedfb7f59d042123fa54d6b615
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: bcf5f4027764b6be3880d597cdf85e83eb967169
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
 
@@ -112,7 +111,7 @@ Les erreurs suivantes sont liées à la création et à l’utilisation de pools
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | 1132 |EX_RESOURCE |Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. |Limite de l’espace du pool élastique, en Mo. |Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. |Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître sa limite de stockage, pensez aussi à réduire l’espace de stockage utilisé par les bases de données individuelles qu’il inclut ou à supprimer les bases de données dans ce dernier. |
-| 10929 |EX_USER |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Voir [https://msdn.microsoft.com/library/azure/dn338078.aspx](http://go.microsoft.com/fwlink/?LinkId=267637) pour obtenir de l’aide. Sinon, réessayez plus tard. |Nombre minimal de DTU par base de données ; nombre maximal de DTU par base de données. |Le nombre total de collaborateurs simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître la limite des collaborateurs associés, ou de supprimer des bases de données du pool élastique. |
+| 10929 |EX_USER |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Voir [https://msdn.microsoft.com/library/azure/dn338078.aspx](http://go.microsoft.com/fwlink/?LinkId=267637) pour obtenir de l’aide. Sinon, réessayez plus tard. |Nombre minimal de DTU par base de données ; nombre maximal de DTU par base de données. |Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître la limite des collaborateurs associés, ou de supprimer des bases de données du pool élastique. |
 | 40844 |EX_USER |La base de données '%ls' sur le serveur '%ls' est une base de données présentant l’édition '%ls' dans un pool élastique. Elle ne peut pas présenter de relation de copie continue. |Nom de la base de données, édition de la base de données, nom du serveur |Une commande StartDatabaseCopy est émise pour une base de données non-Premium dans un pool élastique. |Bientôt disponible |
 | 40857 |EX_USER |Pool élastique introuvable pour le serveur : '%ls'. Nom du pool élastique: '%ls'. |Nom du serveur, nom du pool élastique |Le pool élastique spécifié n’existe pas sur le serveur spécifié. |Indiquez un nom de pool élastique valide. |
 | 40858 |EX_USER |Le pool élastique '%ls' existe déjà sur le serveur : '%ls'. |Nom du pool élastique, nom du serveur |Le pool élastique spécifié existe déjà sur le serveur logique spécifié. |Saisissez un nouveau nom pour le pool élastique. |
@@ -180,7 +179,7 @@ Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 | 40607 |16 |Les connexions Windows ne sont pas prises en charge dans cette version de SQL Server. |
 | 40611 |16 |Les serveurs peuvent avoir au maximum 128 règles de pare-feu définies. |
 | 40614 |16 |L'adresse IP de début de la règle de pare-feu ne peut pas dépasser l'adresse IP de fin. |
-| 40615 |16 |Impossible d'ouvrir le serveur '{0}' demandé par la connexion. Le client avec l'adresse IP '{1}' n'est pas autorisé à accéder au serveur.  Pour activer l’accès, utilisez le portail de la base de données SQL ou exécutez l’élément sp_set_firewall_rule sur la base de données master afin de créer une règle de pare-feu pour cette adresse IP ou cette plage d'adresses.  Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. |
+| 40615 |16 |Impossible d'ouvrir le serveur '{0}' demandé par la connexion. Le client avec l'adresse IP '{1}' n'est pas autorisé à accéder au serveur.<br /><br />Pour activer l’accès, utilisez le portail de la base de données SQL Database ou exécutez l’élément sp\_set\_firewall\_rule sur la base de données MASTER, afin de créer une règle de pare-feu pour cette adresse IP ou cette plage d’adresses. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. |
 | 40617 |16 |Le nom de la règle de pare-feu qui commence par (nom de règle) est trop long. La longueur maximale est 128. |
 | 40618 |16 |Le nom de la règle de pare-feu ne peut pas être vide. |
 | 40620 |16 |Échec de la connexion pour l'utilisateur "%.&#x2a;ls". La modification du mot de passe a échoué. La modification du mot de passe lors de la connexion n'est pas prise en charge dans cette version de SQL Server. |
@@ -205,12 +204,12 @@ Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 | 40651 |16 |Impossible de créer le serveur, car l’abonnement (id d’abonnement) est désactivé. |
 | 40652 |16 |Impossible de déplacer ou de créer le serveur. L’abonnement (id d’abonnement) va dépasser le quota du serveur. |
 | 40671 |17 |Échec de la communication entre la passerelle et le service de gestion. Veuillez réessayer ultérieurement. |
-| 40852 |16 |Impossible d’ouvrir la base de données '%.*ls' on server '%.*ls' demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet  -  ’nom de servur’.database.windows.net doit être transformé en ’nom de serveur’.database`secure`.windows.net. |
+| 40852 |16 |Impossible d’ouvrir la base de données '%.\*ls' on server '%.\*ls' demandée par la connexion. L’accès à la base de données est autorisé uniquement à l’aide d’une chaîne de connexion sécurisée. Pour accéder à cette base de données, modifiez vos chaînes de connexion pour y insérer « secure » sur le serveur de nom de domaine complet  -  ’nom de servur’.database.windows.net doit être transformé en ’nom de serveur’.database`secure`.windows.net. |
+| 40914 | 16 | Impossible d’ouvrir le serveur « *[nom-serveur]* » demandé par la connexion. Le client n’est pas autorisé à accéder au serveur.<br /><br />Pour résoudre le problème, envisagez d’ajouter une [règle de réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations DB CRUD simultanées pour un serveur unique (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement. |
 | 45169 |16 |Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [Fonctionnalités Azure SQL Database](sql-database-features.md).
 * En savoir plus sur les [Niveaux de service](sql-database-service-tiers.md).
-
 

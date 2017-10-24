@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13e9b951c46ae1cd16c7f38d5ade8a4f8a156e63
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +40,7 @@ Les valeurs JSON indiquées dans la définition peuvent être littérales. Il pe
 ```
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), voir [Fonctions et variables dans Data Factory V1](v1/data-factory-functions-variables.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), voir [Fonctions et variables dans Data Factory V1](v1/data-factory-functions-variables.md).
 
 
 ## <a name="expressions"></a>Expressions  
@@ -80,7 +79,7 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 |concat|Combine plusieurs chaînes. Par exemple, si le paramètre 1 est `foo,`, l’expression suivante retourne `somevalue-foo-somevalue` : `concat('somevalue-',parameters('parameter1'),'-somevalue')`<br /><br /> **Numéro du paramètre** : 1 ... *n*<br /><br /> **Nom** : chaîne *n*<br /><br /> **Description** : obligatoire. Chaînes à combiner en une seule chaîne.|  
 |substring|Retourne un sous-ensemble de caractères d’une chaîne. Par exemple, l’expression suivante :<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> retourne :<br /><br /> `foo`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne dont la sous-chaîne est extraite.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : index de début<br /><br /> **Description** : obligatoire. Index de début de la sous-chaîne dans le paramètre 1.<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : longueur<br /><br /> **Description** : obligatoire. Longueur de la sous-chaîne.|  
 |replace|Remplace une chaîne par une chaîne donnée. Par exemple, l’expression :<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> retourne :<br /><br /> `the new string`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire.  Si le paramètre 2 figure dans le paramètre 1, chaîne recherchée pour le paramètre 2 et mise à jour avec le paramètre 3.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : ancienne chaîne<br /><br /> **Description** : obligatoire. Chaîne à remplacer par le paramètre 3 quand une correspondance est trouvée dans le paramètre 1<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : nouvelle chaîne<br /><br /> **Description** : obligatoire. Chaîne utilisée pour remplacer la chaîne du paramètre 2 lorsqu’une correspondance est trouvée dans le paramètre 1.|  
-|guid| Génère un GUID (identificateur global unique). Par exemple, la sortie suivante peut être générée `c2ecc88d-88c8-4096-912c-d6f2e2b138ce` :<br /><br /> `guid()`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. Spécificateur de format unique qui indique [comment mettre en forme la valeur de ce GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Le paramètre de format peut être « N », « D », « B », « P » ou « X ». Si aucun format n’est indiqué, « D » est utilisé.|  
+|guid| Génère une chaîne globale unique (guid). Par exemple, la sortie suivante peut être générée `c2ecc88d-88c8-4096-912c-d6f2e2b138ce` :<br /><br /> `guid()`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. Spécificateur de format unique qui indique [comment mettre en forme la valeur de ce GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Le paramètre de format peut être « N », « D », « B », « P » ou « X ». Si aucun format n’est indiqué, « D » est utilisé.|  
 |toLower|Convertit une chaîne en minuscules. Par exemple, ce qui suit retourne `two by two is four` : `toLower('Two by Two is Four')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne à convertir en minuscules. Si un caractère de la chaîne n’a pas d’équivalent minuscule, il est inclus tel quel dans la chaîne retournée.|  
 |toUpper|Convertit une chaîne en majuscules. Par exemple, l’expression suivante retourne `TWO BY TWO IS FOUR` : `toUpper('Two by Two is Four')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne à convertir en majuscules. Si un caractère de la chaîne n’a pas d’équivalent majuscule, il est inclus tel quel dans la chaîne retournée.|  
 |indexof|Recherche l’index d’une valeur contenue dans une chaîne sans tenir compte de la casse. Par exemple, l’expression suivante retourne `7` : `indexof('hello, world.', 'world')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne pouvant contenir la valeur.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Valeur permettant d’en rechercher l’index.|  

@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Manuel d’Azure Active Directory Identity Protection
 Ce manuel vous aide à :
@@ -109,7 +109,7 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 11. Cliquez sur **Save**.
 12. Vous pouvez maintenant tester l’accès conditionnel en fonction des risques en vous connectant à l’aide d’un compte d’utilisateur présentant un niveau de risque élevé. Si le risque de l’utilisateur est défini sur Moyen, votre connexion sera bloquée ou vous serez obligé de changer votre mot de passe, selon la configuration de votre stratégie. 
     <br><br>
-    ![Manuel de](./media/active-directory-identityprotection-playbook/201.png "manuel")
+    ![Manuel](./media/active-directory-identityprotection-playbook/201.png "Manuel")
     <br>
 
 ## <a name="sign-in-risk"></a>Risque à la connexion
@@ -119,7 +119,7 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 2. Accédez à **Identity Protection**.
 3. Dans le panneau principal **d’Azure AD Identity Protection**, cliquez sur **Paramètres**. 
 4. Dans le panneau **Paramètres du portail** panneau, sous **Règles de sécurité**, cliquez sur **Risque à la connexion**.
-5. Sur la ** risque de se connecter ** panneau, sélectionnez **sur** sous **activer règle**. 
+5. Dans le panneau **Risque à la connexion **, sélectionnez **Oui** sous **Activer la règle**. 
 6. Sélectionnez l’une des options suivantes :
    
    a. Pour bloquer l’accès, sélectionnez **Moyen** sous **Bloquer la connexion**

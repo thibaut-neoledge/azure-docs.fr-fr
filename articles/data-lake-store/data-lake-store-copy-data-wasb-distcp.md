@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 12aea210308636677ba2905887ddd24dc5c35238
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 1c9e100b4a0e7781f0782a49835d50492895ded1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Utilisation de l’utilitaire Distcp pour copier des données entre des objets blob Azure Storage et le Data Lake Store
 > [!div class="op_single_selector"]
@@ -29,10 +27,9 @@ ms.lasthandoff: 03/25/2017
 >
 >
 
-Une fois que vous avez créé un cluster HDInsight ayant accès à un compte Data Lake Store, vous pouvez utiliser des outils de l’écosystème Hadoop, comme Distcp, pour copier des données **vers et depuis** un stockage de cluster HDInsight (WASB) dans un compte Data Lake Store. Cet article fournit des instructions sur la procédure à suivre.
+Si vous avez créé un cluster HDInsight ayant accès à Data Lake Store, vous pouvez utiliser des outils de l’écosystème Hadoop, comme Distcp, pour copier des données **vers et depuis** un stockage de cluster HDInsight (WASB) dans un compte Data Lake Store. Cet article fournit des instructions sur l’utilisation de l’outil Distcp.
 
 ## <a name="prerequisites"></a>Composants requis
-Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Store**. Pour savoir comment en créer un, consultez [Prise en main d'Azure Data Lake Store](data-lake-store-get-started-portal.md)
@@ -52,16 +49,19 @@ Un cluster HDInsight est fourni avec l’utilitaire Distcp, que vous pouvez util
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
     Vous devriez obtenir la liste du contenu de l’objet blob de stockage.
+
 3. Là encore, vérifiez si vous pouvez accéder au compte Data Lake Store à partir du cluster. Exécutez la commande suivante :
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net:443/
 
     Vous devriez accéder à une liste des fichiers/dossiers contenus dans le compte Data Lake Store.
+
 4. Utilisez Distcp pour copier des données de WASB vers un compte Data Lake Store.
 
         hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
 
     Cette commande copie le contenu du dossier **/example/data/gutenberg/** de WASB vers le répertoire **/myfolder** du compte Data Lake Store.
+
 5. De la même manière, utilisez Distcp pour copier des données d’un compte Data Lake Store vers WASB.
 
         hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
@@ -70,7 +70,7 @@ Un cluster HDInsight est fourni avec l’utilitaire Distcp, que vous pouvez util
 
 ## <a name="performance-considerations-while-using-distcp"></a>Considérations de performances lors de l’utilisation de DistCp
 
-La granularité la plus basse de DistCp étant un fichier unique, la définition du nombre maximal de copies simultanées est le paramètre le plus important à optimiser par rapport à Data Lake Store. Vous le contrôlez en définissant le paramètre de nombre de mappeurs (‘m’) en ligne de commande. Ce paramètre spécifie le nombre maximal de mappeurs utilisés pour copier les données. La valeur par défaut est 20.
+La granularité la plus basse de DistCp étant un fichier unique, la définition du nombre maximal de copies simultanées est le paramètre le plus important à optimiser par rapport à Data Lake Store. Vous contrôlez le nombre de copies simultanées en définissant le paramètre de nombre de mappeurs (‘m’) en ligne de commande. Ce paramètre spécifie le nombre maximal de mappeurs utilisés pour copier les données. La valeur par défaut est 20.
 
 **Exemple**
 
@@ -88,9 +88,9 @@ Voici quelques conseils à suivre.
 
 **Exemple**
 
-Supposons que vous avez un 4 nœuds D14v2s dans le cluster et que vous essayez de transférer 10 To de données à partir de 10 différents dossiers. Chaque dossier contient différentes quantités de données, et la taille des fichiers dans chaque dossier est différente.
+Supposons que vous avez 4 nœuds D14v2s dans le cluster et que vous essayez de transférer 10 To de données à partir de 10 dossiers différents. Chaque dossier contient différentes quantités de données, et la taille des fichiers dans chaque dossier est différente.
 
-* Total de mémoire YARN : à partir du portail Ambari, vous déterminez que la mémoire YARN est de 96 Go pour un nœud D14. Ainsi, la mémoire YARN totale pour un cluster à 4 nœuds est : 
+* Total de mémoire YARN : à partir du portail Ambari, vous déterminez que la mémoire YARN est de 96 Go pour un nœud D14. Ainsi, la mémoire YARN totale pour un cluster à quatre nœuds est : 
 
         YARN memory = 4 * 96GB = 384GB
 
@@ -102,9 +102,9 @@ Si d’autres applications utilisent de la mémoire, vous pouvez choisir d’uti
 
 ### <a name="copying-large-datasets"></a>Copie de jeux de données volumineux
 
-Lorsque la taille du jeu de données à déplacer est très volumineuse (par exemple > 1 To) ou si vous avez de nombreux dossiers, vous devez envisager d’utiliser plusieurs tâches DistCp. Il n’y a probablement aucun gain de performance, mais cela répartira les tâches. Ainsi, si une tâche échoue, il vous suffit de redémarrer la tâche en question plutôt que l’ensemble complet.
+Lorsque la taille du jeu de données à déplacer est volumineuse (par exemple > 1 To) ou si vous avez de nombreux dossiers, vous devez envisager d’utiliser plusieurs tâches DistCp. Il n’y a probablement aucun gain de performance, mais cela répartit les tâches. Ainsi, si une tâche échoue, il vous suffit de redémarrer la tâche en question plutôt que l’ensemble complet.
 
-### <a name="limitations"></a>Limitations
+### <a name="limitations"></a>Limites
 
 * DistCp tente de créer des mappeurs similaires en taille pour optimiser les performances. L’augmentation du nombre de mappeurs n’améliore pas nécessairement les performances.
 
@@ -112,11 +112,10 @@ Lorsque la taille du jeu de données à déplacer est très volumineuse (par exe
 
 * Si vous avez un petit nombre de fichiers volumineux, vous devez les fractionner en plusieurs segments de fichier de 256 Mo pour avoir un meilleur potentiel de simultanéité. 
  
-* Si vous copiez à partir d’un compte de stockage d’objets Blob Azure, votre tâche de copie peut être limitée sur le côté du stockage d’objets blob. Cela dégradera les performances de votre tâche de copie. Pour en savoir plus sur les limites du stockage Blob Azure, consultez les limites du stockage Azure sur [Abonnement Azure et limites du service](../azure-subscription-service-limits.md).
+* Si vous copiez à partir d’un compte de stockage d’objets Blob Azure, votre tâche de copie peut être limitée sur le côté du stockage d’objets blob. Cela dégrade les performances de votre tâche de copie. Pour en savoir plus sur les limites du stockage Blob Azure, consultez les limites du stockage Azure sur [Abonnement Azure et limites du service](../azure-subscription-service-limits.md).
 
 ## <a name="see-also"></a>Voir aussi
 * [Copier des données d’objets blob Azure Storage vers Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-

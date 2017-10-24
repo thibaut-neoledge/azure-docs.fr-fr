@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 10795d59b019d7c683abfeea611d5909b88891ec
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Utiliser une image Docker personnalisée pour Azure Web App for Containers
 
@@ -529,16 +528,16 @@ La commande fournit deux mots de passe qui peuvent être utilisés avec le nom d
 }
 ```
 
-Maintenant que vous disposez des informations d’identification nécessaires, connectez-vous à Azure Container Registry à l’aide de la commande `docker login`. La connexion nécessite l’URL du registre. Utilisez le format `http://{azure-container-registry-name>.azurecr.io`.
+Maintenant que vous disposez des informations d’identification nécessaires, connectez-vous à Azure Container Registry à l’aide de la commande `docker login`. Le nom du serveur est obligatoire pour se connecter. Utilisez le format `{azure-container-registry-name>.azurecr.io`.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
-Vérifiez que la connexion a réussi. Transférez l’image en utilisant la commande `docker push` et le balisage de l’image avec l’URL complète du registre, suivi du nom et de la balise de l’image.
+Vérifiez que la connexion a réussi. Transférez l’image en utilisant la commande `docker push` et le balisage de l’image avec le nom du registre, suivi du nom et de la balise de l’image.
 
 ```bash
-docker push http://<azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
+docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 Vérifiez que le transfert a correctement ajouté un conteneur au registre en répertoriant les référentiels ACR. 
@@ -623,4 +622,3 @@ La commande fournit un résultat similaire à la chaîne JSON suivante, indiquan
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Forum aux questions sur Azure App Service Web App for Containers](app-service-linux-faq.md)
-

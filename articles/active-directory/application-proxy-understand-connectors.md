@@ -3,7 +3,7 @@ title: "Présentation des connecteurs de proxy d’application Azure AD | Micro
 description: "Couvre les bases sur les connecteurs de proxy d’application Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
-ms.author: kgremban
+ms.date: 10/03/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: fdee5703adc76e750aebd83d4122e7b79244c0e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
 Les connecteurs rendent possible le proxy d’application Azure AD. Ils sont très puissants, simples et faciles à déployer et maintenir. Cet article présente les connecteurs, leur fonctionnement et des suggestions pour optimiser le déploiement. 
@@ -70,6 +68,21 @@ Les groupes de connecteurs facilitent la gestion de déploiements à grande éch
 
 Pour en savoir plus sur les groupes de connecteurs, consultez [Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs](active-directory-application-proxy-connectors-azure-portal.md).
 
+## <a name="capacity-planning"></a>Planification de la capacité 
+
+Alors que les connecteurs équilibreront automatiquement la charge au sein d’un groupe de connecteur, il est également important que vous vous assuriez d’avoir planifié une capacité suffisante entre les connecteurs pour gérer le volume de trafic attendue. En général, plus vous avez d’utilisateurs, plus vous aurez besoin d’une machine disposant de capacités importantes. Voici un tableau donnant un plan du volume pouvant être gérer par différentes machines. Veuillez noter qu’il est entièrement basé sur le nombre attendu de transactions par seconde (TPS) plutôt que sur le nombre d’utilisateurs, étant donné que les modèles d’utilisation varient et ne peuvent être utilisés pour prévoir une charge.  Notez également qu’il y aura des différences en fonction de la taille des réponses et du temps de réponse de l’application principal, une réponse volumineuse et un temps de réponse lent entraînant un TPS maximal plus faible.
+
+|Cœurs|RAM|Latence attendue (MS)-P99|TPS max.|
+| ----- | ----- | ----- | ----- |
+|2|8|325|586|
+|4|16|320|1150|
+|8|32|270|1190|
+|16|64|245|1200*|
+\*Cette machine a une limite de 200 connexions. Pour toutes les autres machines, nous avons utilisé la limite de 200 connexions par défaut.
+ 
+>[!NOTE]
+>La limite de configuration par défaut est 200 (pour 2, 4 et 8 cœurs).  Pendant le test avec 16 cœurs, la limite de connexion est passée à 800. L’utilisation d’une machine utilisant 4, 8 ou 16 cœurs n’entraîne pas de grandes différences au niveau des TPS maximales. La principale différence entre ces machines se situe au niveau de la latence attendue.  
+
 ## <a name="security-and-networking"></a>Sécurité et mise en réseau
 
 Les connecteurs peuvent être installés n’importe où sur le réseau pourvu qu’ils puissent envoyer des requêtes vers le service de proxy d’application. L’important est que l’ordinateur qui exécute le connecteur dispose également d’un accès à vos applications. Vous pouvez installer les connecteurs à l’intérieur de votre réseau d’entreprise ou sur une machine virtuelle qui s’exécute dans le cloud. Les connecteurs peuvent s’exécuter dans une zone démilitarisée (DMZ), mais ce n’est pas nécessaire car tout le trafic est sortant afin sécuriser votre réseau.
@@ -89,6 +102,8 @@ La mise à l’échelle pour le proxy d’application est transparente, mais l�
 Les performances du connecteur sont liées au processeur et à la mise en réseau. Les performances processeur sont nécessaires pour le chiffrement et le déchiffrement SSL, tandis que la mise en réseau est vitale pour obtenir une connectivité rapide aux applications et au service en ligne dans Azure.
 
 En revanche, la mémoire est moins problématique pour les connecteurs. Le service en ligne s’occupe de la majeure partie du traitement et de tout le trafic non authentifié. Tout ce qui peut être effectué dans le cloud est réalisé dans le cloud. 
+
+L’équilibrage de charge se produit entre les connecteurs d’un groupe de connecteurs donné. Nous faisons une variation de tourniquet pour déterminer quel connecteur du groupe sert une requête particulière. Après avoir choisi un connecteur, nous mettons en place une affinité de session entre cet utilisateur et l’application pour la durée de la session. Si, pour une raison quelconque, la machine ou le connecteur devient indisponible, le trafic commencera à passer à un autre connecteur du groupe. Cette résilience est également la raison pour laquelle nous vous recommandons d’avoir plusieurs connecteurs.
 
 Un autre facteur affectant les performances est la qualité de la connexion réseau entre les connecteurs, y compris : 
 
@@ -151,5 +166,4 @@ Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecte
 * [Travailler avec des serveurs proxy locaux existants](application-proxy-working-with-proxy-servers.md)
 * [Résoudre les erreurs du proxy d’application et du connecteur](active-directory-application-proxy-troubleshoot.md)
 * [Comment installer silencieusement le connecteur du Proxy d'application Azure AD](active-directory-application-proxy-silent-installation.md)
-
 

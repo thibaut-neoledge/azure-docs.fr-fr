@@ -14,10 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
 ms.openlocfilehash: 21817b09440fc98a54dc45c9129d104b01fa387d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.6
 Ce document contient les notes de publication du Kit de développement logiciel (SDK) Azure pour .NET version 2.6. 
@@ -34,7 +34,7 @@ Grâce au Kit de développement logiciel (SDK) Azure pour .NET 2.6, vous pouve
 ## <a name="hdinsight-tools-for-visual-studio-updates"></a>Mises à jour des outils HDInsight pour Visual Studio
 * **Amélioration d'IntelliSense**: suggestion de métadonnées distantes
   
-    Les outils HDInsight pour Visual Studio prennent en charge l'obtention de métadonnées distantes pendant la modification d'un script Hive. Par exemple, vous pouvez taper **sélectionner * FROM** et tous les noms de table seront affiche. Si vous spécifiez une table, les noms des colonnes s'afficheront également.
+    Les outils HDInsight pour Visual Studio prennent en charge l'obtention de métadonnées distantes pendant la modification d'un script Hive. Par exemple, vous pouvez taper **SELECT * FROM** pour afficher tous les noms de tables. Si vous spécifiez une table, les noms des colonnes s'afficheront également.
 * **Prise en charge de l'émulateur HDInsight**
   
     Les outils HDInsight pour Visual Studio prennent à présent en charge la connexion à l'émulateur HDInsight. Vous pouvez donc développer vos scripts Hive localement sans coûts supplémentaires, puis exécuter ces scripts sur vos clusters HDInsight. 

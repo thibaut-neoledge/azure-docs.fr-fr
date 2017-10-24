@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
 ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-azure-backup-server-v2"></a>Installer le serveur de sauvegarde Azure v2
 
@@ -269,7 +269,7 @@ Partie 2 :- Éléments importants > Le nouveau serveur doit porter le même nom 
 9) À partir de la ligne de commande d’administration sur le nouveau serveur, accédez au répertoire d’installation de Sauvegarde Microsoft Azure, puis au dossier bin.
 
 Exemple de chemin : C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-dans Azure sauvegarde exécutez DPMSYNC-SYNC
+vers la sauvegarde Azure Exécutez DPMSYNC -SYNC
 
 10) Exécutez DPMSYNC-SYNC. Remarque : Si vous avez ajouté de nouveaux disques au pool de stockage DPM au lieu de déplacer les anciens, exécutez DPMSYNC -Reallocatereplica.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 18faa88641623e1248d6a33bc2d87099e1c9f624
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="routing-and-tag-expressions"></a>Routage et expressions de balise
 ## <a name="overview"></a>Vue d'ensemble
@@ -33,7 +33,7 @@ Le serveur principal d'application peut choisir les inscriptions à cibler avec 
 3. **Expression de balise**: toutes les inscriptions dont le jeu de balises correspond à l'expression spécifiée reçoivent la notification.
 
 ## <a name="tags"></a>Tags
-Une balise peut être n’importe quelle chaîne, jusqu'à 120 caractères alphanumériques et les caractères non alphanumériques suivants : '_', ' @', '#', '. ',' :', '-'. L'exemple suivant montre une application à partir de laquelle vous pouvez recevoir des notifications toast concernant des groupes musicaux spécifiques. Dans ce scénario, une méthode simple pour acheminer des notifications consiste à étiqueter les inscriptions avec des balises représentant les différents groupes de musique, comme dans l'image suivante.
+Une balise est une chaîne de 120 caractères maximum, contenant des caractères alphanumériques ainsi que les caractères non alphanumériques suivants : « _ », « @ », « # », « . », « : » et « - ». L'exemple suivant montre une application à partir de laquelle vous pouvez recevoir des notifications toast concernant des groupes musicaux spécifiques. Dans ce scénario, une méthode simple pour acheminer des notifications consiste à étiqueter les inscriptions avec des balises représentant les différents groupes de musique, comme dans l'image suivante.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 

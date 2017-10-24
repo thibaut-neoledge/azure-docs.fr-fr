@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
+ms.openlocfilehash: 0ed8d3432a988c468260589cfe12090529c403d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 2728e8b1e190b4ecd0635925b96e97775564a2ee
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-load-balancer-standard-overview-preview"></a>Présentation de la référence Standard d’Azure Load Balancer (préversion)
 
 Utilisées ensemble, la référence SKU Standard d’Azure Load Balancer et la référence SKU Standard d’adresse IP publique vous permettent de créer des architectures hautement évolutives et fiables.  Les applications utilisant la référence Standard de Load Balancer peuvent tirer parti des nouvelles fonctionnalités en plus d’une faible latence, d’un débit élevé et d’une mise à l’échelle pour des millions de flux de toutes les applications TCP et UDP.
 
 >[!NOTE]
-> La référence SKU Standard de Load Balancer est actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour vos services de production, utilisez la [référence SKU De base de Load Balancer](load-balancer-overview.md) de la version publique.
+> La référence SKU Standard de Load Balancer est actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour vos services de production, utilisez la [référence SKU De base de Load Balancer](load-balancer-overview.md) de la version publique.  Les fonctionnalités associées à cette préversion, [Zones de disponibilité](https://aka.ms/availabilityzones) et [Ports HA](https://aka.ms/haports), nécessitent une inscription distincte pour l’instant. Veuillez suivre les instructions respectives relatives à l’inscription en plus de la [préversion standard](#preview-sign-up) de Load Balancer.
 
 ## <a name="why-use-load-balancer-standard"></a>Pourquoi utiliser la référence Standard de Load Balancer ?
 
@@ -151,6 +149,8 @@ En outre, vous pouvez également choisir de spécifier une zone particulière po
 #### <a name="zonal-deployments"></a>Déploiements zonaux
 
 Si vous le souhaitez, vous pouvez également aligner le serveur frontal sur une zone spécifique en définissant un serveur frontal zonal.  Un serveur frontal zonal est servi par la zone de disponibilité unique désignée seulement, et lorsqu’il est combiné à des instances de machine virtuelle zonales, vous pouvez aligner des ressources sur des zones spécifiques.
+
+Une adresse IP publique créée dans une zone spécifique existera toujours dans cette zone.  Il n’est pas possible de modifier la zone d’une adresse IP publique.  Si vous souhaitez avoir une adresse IP publique qui peut être associée à des ressources dans plusieurs zones, vous devez créer une adresse IP publique à redondance de zone à la place.
 
 Créez une adresse IP publique zonale dans une zone de disponibilité 1 avec le code suivant (ajoutez « zones » et « sku »aux modèles Resource Manager existants) :
 
@@ -290,11 +290,11 @@ La référence SKU Standard d’adresse IP publique est une nouvelle offre et ac
 
 Contrairement à la référence De base d’adresse IP publique qui propose plusieurs méthodes d’allocation, la référence Standard d’adresse IP publique offre toujours une méthode d’allocation statique.
 
-Lorsqu’elle est utilisée dans une région qui propose également des zones de disponibilité, la référence Standard d’adresse IP est automatiquement résiliente dans la zone, sauf si elle a été déclarée comme étant zonale.
+Lorsqu’elle est utilisée dans une région qui propose également des zones de disponibilité, la référence Standard d’adresse IP est automatiquement résiliente dans la zone, sauf si elle a été déclarée comme étant zonale.  Une adresse IP publique zonale ne peut pas être transférée d’une zone à une autre.
 
 ## <a name="migration-between-skus"></a>Migration entre les références SKU
 
-Si vous souhaitez passer d’une référence SKU de ressource à l’autre, procédez comme suit :
+Les références SKU ne sont pas mutables.  Si vous souhaitez passer d’une référence SKU de ressource à l’autre, procédez comme suit :
 
 ### <a name="migrating-from-basic-to-standard-sku"></a>Migration de la référence SKU De base à la référence SKU Standard
 
@@ -374,7 +374,7 @@ Pour découvrir la préversion de la référence SKU Standard de Load Balancer e
 >L’inscription de la fonctionnalité Standard de Load Balancer peut prendre jusqu’à une heure.
 
 >[!NOTE]
->Si vous souhaitez utiliser des zones de disponibilité avec Load Balancer et l’adresse IP publique, vous devez également inscrire votre abonnement à la préversion des zones de disponibilité.
+>Si vous souhaitez utiliser Load Balancer Standard avec des [Zones de disponibilité](https://aka.ms/availabilityzones) et des [Ports HA](https://aka.ms/haports), une inscription distincte est requise pour ces préversions.  Suivez les instructions respectives.
 
 ## <a name="pricing"></a>Tarification
 
@@ -401,5 +401,4 @@ Les limitations suivantes s’appliquent au moment de la version préliminaire e
 - En savoir plus sur [la référence De base de Load Balancer](load-balancer-overview.md)
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)
 - Découvrir les autres [fonctionnalités de réseau](../networking/networking-overview.md) clés d’Azure
-
 

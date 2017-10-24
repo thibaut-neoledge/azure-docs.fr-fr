@@ -3,7 +3,7 @@ title: "Proxy d’application Azure AD - bien démarrer avec l’installation du
 description: "Activez le proxy d’application dans le portail Azure et installez les connecteurs pour le proxy inverse."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
-ms.author: kgremban
+ms.date: 10/02/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 3b0a3e315ecd98565a852b3a8190d78ccdefe42d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 77acb23f33fd656a12c27107cb159613a8b2aec4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Bien démarrer avec le proxy d’application et l’installation du connecteur
 Cet article vous guide tout au long des étapes d’activation du proxy d’application Microsoft Azure AD pour votre répertoire de cloud dans Azure AD.
 
@@ -63,7 +61,7 @@ Pour préparer votre environnement pour le proxy d’application Azure AD, vous 
    * ocsp.msocsp.com:80
    * www.microsoft.com:80
 
-4. Votre connecteur doit accéder à login.windows.net et login.microsoftonline.net pour le processus d’inscription.
+4. Votre connecteur doit accéder à login.windows.net et login.microsoftonline.net pour effectuer le processus d’inscription.
 
 5. Utilisez [l’outil de test des ports du connecteur de proxy d’application Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) pour vous assurer que votre connecteur peut joindre le service de proxy d’application. Au minimum, assurez-vous d’avoir coché les États-Unis du Centre et les régions les plus proches de vous. En outre, un nombre plus élevé de coches vertes signifie une résilience accrue.
 
@@ -108,4 +106,3 @@ Pour plus d’informations sur les connecteurs et leur mise à jour, consultez [
 Vous voici prêt à [publier des applications avec le proxy d’application](application-proxy-publish-azure-portal.md).
 
 Si vous disposez d’applications figurant sur des réseaux distincts ou à différents emplacements, utilisez des groupes de connecteurs pour organiser les différents connecteurs en unités logiques. Apprenez-en davantage sur [l’utilisation de connecteurs de proxy d’application](active-directory-application-proxy-connectors-azure-portal.md).
-

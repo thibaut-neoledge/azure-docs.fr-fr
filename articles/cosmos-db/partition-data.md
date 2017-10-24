@@ -12,17 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 6f272136d535dddd9c8213293841ace203c042a1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionner et mettre à l’échelle dans Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) est un service de base de données multimodèle distribué à l’échelle mondiale, qui a été conçu pour vous permettre d’accéder à des performances élevées et prévisibles. Il se met à l’échelle en toute transparence à mesure que votre application évolue. Cet article offre une vue d’ensemble du fonctionnement du partitionnement pour toutes les modèles de données dans Azure Cosmos DB. Il vous explique aussi comment configurer des conteneurs Azure Cosmos DB pour mettre efficacement vos applications à l’échelle.
@@ -63,6 +61,12 @@ Azure Cosmos DB utilise le partitionnement basé sur le hachage. Quand vous écr
 >
 
 Les conteneurs Azure Cosmos DB peuvent être créés *fixes* ou *illimités*. Les conteneurs de taille fixe ont une limite maximale de 10 Go et de 10 000 RU/s de débit. Certaines API permettent d’omettre la clé de partition pour les conteneurs de taille fixe. Pour créer un conteneur dit illimité, vous devez spécifier un débit minimum de 2 500 RU/s.
+
+Il est judicieux de vérifier la façon dont vos données sont réparties dans les partitions. Pour vérifier cette répartition dans le portail, connectez-vous à votre compte Azure Cosmos DB et cliquez sur **Mesures** dans la section **Surveillance** ; ensuite, dans le volet de droite, cliquez sur l’onglet **Stockage** pour déterminer le mode de répartition des données dans une autre partition physique.
+
+![Partitionnement des ressources](./media/partition-data/partitionkey-example.png)
+
+L’image de gauche indique le résultat d’une clé de partition incorrecte et l’image de droite, le résultat d’une clé de partition correcte. Dans l’image de gauche, vous pouvez voir que les données ne sont pas réparties uniformément sur les partitions. Vous devez vous efforcer de distribuer vos données de sorte que votre graphique soit similaire à l’image de droite.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Partitionnement et débit approvisionné
 Azure Cosmos DB est conçu pour offrir des performances prévisibles. Quand vous créez un conteneur, vous réservez un débit en termes *[d’unités de requête](request-units.md) (RU) par seconde*. Des frais d’UR proportionnels à la quantité de ressources système, comme le processeur, la mémoire et les E/S consommées par l’opération, sont imputés à chaque requête. La lecture d’un document de 1 Ko avec une cohérence de session consomme 1 RU. Une lecture correspond à 1 RU, quel que soit le nombre d’éléments stockés ou le nombre de demandes simultanées en cours d’exécution. Les éléments plus volumineux exigent des RU supérieures en rapport avec la taille. Si vous connaissez la taille de vos entités et le nombre de lectures nécessaires à prendre en charge pour votre application, vous pouvez approvisionner la quantité exacte de débit requis pour les besoins en lecture de votre application. 
@@ -121,7 +125,7 @@ Résultats :
 }
 ```
 
-### <a name="table-api"></a>API Table
+### <a name="table-api"></a>API de table
 
 Avec l’API Table, vous spécifiez le débit des tables dans la configuration appSettings de votre application.
 
@@ -177,7 +181,7 @@ Pour plus d’informations, consultez [Prise en charge de Gremlin pour Azure Cos
 ## <a name="design-for-partitioning"></a>Conception axée sur le partitionnement
 Pour mettre à l’échelle efficacement avec Azure Cosmos DB, vous devez choisir une bonne clé de partition lorsque vous créez votre conteneur. Il y a principalement deux éléments à prendre en considération quand il s’agit de choisir une clé de partition :
 
-* **Limite des requêtes et des transactions**. Votre choix de clé de partition doit garantir un équilibre entre le besoin d’utiliser des transactions et le besoin de répartir les entités sur plusieurs clés de partitions pour assurer une solution scalable. D’un côté, vous pouvez définir la même clé de partition pour tous vos éléments, mais cette solution peut limiter la scalabilité de votre solution. D’un autre côté, vous pouvez affecter une clé de partition unique à chaque élément. Si ce choix s’avère hautement scalable, il vous empêche en revanche d’utiliser des transactions entre documents via des procédures stockées et des déclencheurs. Une clé de partition idéale vous permet d’utiliser des requêtes efficaces et présente une cardinalité suffisante pour garantir la scalabilité de votre solution. 
+* **Limite des requêtes et des transactions**. Votre choix de clé de partition doit équilibrer la nécessité d’utiliser des transactions et la nécessité de répartir les entités sur plusieurs clés de partitions pour garantir une solution évolutive. D’un côté, vous pouvez définir la même clé de partition pour tous vos éléments, mais cette solution peut limiter la scalabilité de votre solution. D’un autre côté, vous pouvez affecter une clé de partition unique à chaque élément. Si ce choix s’avère hautement scalable, il vous empêche en revanche d’utiliser des transactions entre documents via des procédures stockées et des déclencheurs. Une clé de partition idéale vous permet d’utiliser des requêtes efficaces et présente une cardinalité suffisante pour garantir la scalabilité de votre solution. 
 * **Absence de goulots d’étranglement au niveau des performances et du stockage**. Il est important de choisir une propriété qui permet la distribution des écritures entre plusieurs valeurs distinctes. Les demandes auprès de la même clé de partition ne peuvent pas dépasser le débit d’une partition unique et sont limitées. Il est donc important de choisir une clé de partition qui ne se traduit pas par des « zones réactives » au sein de votre application. Comme toutes les données relatives à une clé de partition unique doivent être stockées dans une partition, vous devez éviter les clés de partition qui ont des volumes de données importants pour une même valeur. 
 
 Penchons-nous sur quelques scénarios concrets et sur les clés de partition adaptées à chaque cas :
@@ -208,7 +212,6 @@ Dans cet article, nous avons fourni une vue d’ensemble des concepts et des bon
 
 * Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](request-units.md).
 * Renseignez-vous sur la [distribution globale dans Azure Cosmos DB](distribute-data-globally.md).
-
 
 
 

@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/30/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: 6e526e10ac5e3307aeefcdd22840a3e6a6ec843d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 895b538680230170cd29817997a7739b1ba89cfc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
 
 Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
+
+>[!IMPORTANT]
+>À partir de la version 1.1.484, Azure AD Connect a introduit un bogue de régression qui nécessite des autorisations d’administrateur système pour mettre à niveau la base de données SQL.  Ce bogue est toujours présent dans la dernière version, 1.1.614.  Si vous effectuez une mise à jour vers cette version, vous aurez besoin des autorisations d’administrateur système.  Les autorisations dbo ne sont pas suffisantes.  Si vous tentez de mettre à niveau Azure AD Connect sans avoir les autorisations d’administrateur système, la mise à niveau échoue et Azure AD Connect ne fonctionne plus correctement.  Microsoft en est conscient et recherche actuellement une solution.
 
 Voici la liste des rubriques connexes :
 
@@ -779,4 +781,3 @@ Publication : septembre 2014
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-

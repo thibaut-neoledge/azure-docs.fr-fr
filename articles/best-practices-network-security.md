@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Services de cloud computing et sécurité réseau Microsoft
 Les services cloud Microsoft offrent une grande évolutivité des services et de l’infrastructure, des capacités de niveau d'entreprise et de nombreuses options de connectivité hybride. Les clients peuvent choisir d’accéder à ces services avec Internet ou grâce à Azure ExpressRoute, qui fournit une connectivité réseau privée. La plateforme Microsoft Azure permet aux clients d’étendre leur infrastructure dans le cloud et de générer des architectures à plusieurs niveaux en toute transparence. Par ailleurs, des tiers peuvent activer des fonctionnalités améliorées en offrant des services de sécurité et des appliances virtuelles. Ce livre blanc fournit une vue d’ensemble des problèmes de sécurité et d’architecture dont les clients doivent tenir compte lorsqu’ils utilisent des services de cloud computing Microsoft auxquels ils accèdent avec ExpressRoute. Il décrit également la création de services plus sécurisés dans les réseaux virtuels Azure.
@@ -528,9 +528,9 @@ L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut �
 [4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Architecture de sécurité Azure"
 [5]: ./media/best-practices-network-security/dmzazure.png "Une zone DMZ dans un réseau virtuel Azure"
 [6]: ./media/best-practices-network-security/dmzhybrid.png "Réseau hybride avec trois limites de sécurité"
-[7]: ./media/best-practices-network-security/example1design.png "Zone DMZ avec groupe de sécurité réseau (NSG)"
+[7]: ./media/best-practices-network-security/example1design.png "Réseau de périmètre entrant avec groupe de sécurité réseau"
 [8]: ./media/best-practices-network-security/example2design.png "Zone DMZ entrante avec NVA et NSG"
-[9]: ./media/best-practices-network-security/example3design.png "Zone DMZ bidirectionnelle avec NVA, NSG et UDR"
+[9]: ./media/best-practices-network-security/example3design.png "DMZ bidirectionnel avec NVA, NSG et UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Affichage logique des règles de pare-feu"
 [11]: ./media/best-practices-network-security/example3designoptions.png "Zone DMZ avec réseau hybride connecté à une NVA"
 [12]: ./media/best-practices-network-security/example4designs2s.png "Zone DMZ avec NVA connectée à l’aide d’un VPN de site à site"

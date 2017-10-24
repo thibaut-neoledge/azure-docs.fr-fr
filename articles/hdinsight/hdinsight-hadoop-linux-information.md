@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
@@ -50,19 +49,19 @@ Le nom de domaine complet (FQDN) à utiliser pour se connecter au cluster depuis
 
 En interne, chaque nœud du cluster porte un nom qui est attribué pendant la configuration du cluster. Pour rechercher les noms de cluster, consultez la page **Hôtes** sur l’interface Web Ambari. Vous pouvez également utiliser les éléments suivants pour renvoyer la liste des hôtes à partir de l’API REST Ambari :
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Remplacez **PASSWORD** par le mot de passe du compte d’administrateur et **CLUSTERNAME** par le nom de votre cluster. Cette commande renvoie un document JSON qui contient une liste des hôtes du cluster. Jq est utilisé pour extraire la valeur d’élément `host_name` pour chaque hôte.
+Remplacez **CLUSTERNAME** par le nom de votre cluster. Lorsque vous y êtes invité, entrez le mot de passe du compte Administrateur. Cette commande renvoie un document JSON qui contient une liste des hôtes du cluster. Jq est utilisé pour extraire la valeur d’élément `host_name` pour chaque hôte.
 
 Si vous avez besoin de trouver le nom du nœud d’un service spécifique, vous pouvez interroger Ambari pour obtenir ce composant. Par exemple, pour trouver les hôtes du nœud de nom HDFS, utilisez la commande suivante :
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
 Cette commande renvoie un document JSON qui décrit le service. Ensuite, jq extrait uniquement la valeur `host_name` des hôtes.
 
 ## <a name="remote-access-to-services"></a>Accès à distance aux services
 
-* **Ambari (Web)** : https://&lt;clustername>.azurehdinsight.net
+* **Ambari (Web)** : https://&lt;clustername&gt;.azurehdinsight.net
 
     Authentifiez-vous à l’aide du nom d’utilisateur et du mot de passe de l’administrateur du cluster, puis connectez-vous à Ambari.
 
@@ -73,21 +72,21 @@ Cette commande renvoie un document JSON qui décrit le service. Ensuite, jq extr
     >
     > Pour bénéficier de toutes les fonctionnalités de l’interface utilisateur Web Ambari, vous devez utiliser un tunnel SSH pour assurer l’acheminement proxy vers le nœud principal cluster. Consultez [Utilisation de SSH Tunneling pour accéder à l’interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-* **Ambari (REST)** : https://&lt;clustername>.azurehdinsight.net/ambari
+* **Ambari (REST)** : https://&lt;clustername&gt;.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Authentifiez-vous avec le nom d’utilisateur et le mot de passe de l’administrateur du cluster.
     >
     > L’authentification est en clair. Utilisez toujours HTTPS pour vous assurer que la connexion est sécurisée.
 
-* **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** - https://&lt;clustername&gt;.azurehdinsight.net/templeton
 
     > [!NOTE]
     > Authentifiez-vous avec le nom d’utilisateur et le mot de passe de l’administrateur du cluster.
     >
     > L’authentification est en clair. Utilisez toujours HTTPS pour vous assurer que la connexion est sécurisée.
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net sur le port 22 ou 23. Le port 22 est utilisé pour se connecter au nœud principal primaire tandis que le port 23 est utilisé pour se connecter au nœud principal secondaire. Pour plus d’informations sur les nœuds principaux, consultez [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;clustername&gt;-ssh.azurehdinsight.net sur le port 22 ou 23. Le port 22 est utilisé pour se connecter au nœud principal primaire tandis que le port 23 est utilisé pour se connecter au nœud principal secondaire. Pour plus d’informations sur les nœuds principaux, consultez [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
 
     > [!NOTE]
     > Vous pouvez accéder aux nœuds principaux du cluster uniquement via SSH depuis une machine cliente. Une fois connecté, vous pouvez ensuite accéder aux nœuds Worker à l’aide de SSH depuis un nœud principal.
@@ -146,7 +145,7 @@ Lorsque vous utilisez __Data Lake Store__, utilisez l’un des schémas d’URI 
 
 Vous pouvez utiliser Ambari pour récupérer la configuration de stockage par défaut du cluster. Utilisez la commande suivante pour récupérer les informations de configuration HDFS à l’aide de curl, puis filtrez ces informations avec [jq](https://stedolan.github.io/jq/):
 
-```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
+```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
 > [!NOTE]
 > Cette commande renvoie la première configuration appliquée au serveur (`service_config_version=1`), qui contient ces informations. Vous devrez peut-être répertorier toutes les versions de configuration pour rechercher la version la plus récente.
@@ -155,17 +154,17 @@ Cette commande retourne une valeur semblable aux URI suivants :
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net` si vous utilisez un compte de stockage Azure.
 
-    Le nom du compte est le nom du compte de stockage Azure, tandis que le nom du conteneur est le conteneur d’objets blob correspondant à la racine de stockage du cluster.
+    Le nom du compte correspond au nom du compte Stockage Azure. Le nom du conteneur est le conteneur d’objets blob qui constitue la racine de l’espace de stockage en cluster.
 
 * `adl://home` si vous utilisez Azure Data Lake Store. Pour obtenir le nom du magasin Data Lake Store, utilisez l’appel REST suivant :
 
-    ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
+    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
     Cette commande renvoie le nom d’hôte suivant : `<data-lake-store-account-name>.azuredatalakestore.net`.
 
     Pour obtenir le répertoire du magasin qui correspond à la racine de HDInsight, utilisez l’appel REST suivant :
 
-    ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
+    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
 
     Cette commande renvoie un chemin d’accès semblable à ce qui suit : `/clusters/<hdinsight-cluster-name>/`.
 
@@ -211,7 +210,7 @@ La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifie
 Les différents types de cluster sont affectés par la mise à l’échelle comme suit :
 
 * **Hadoop** : quand vous réduisez le nombre de nœuds dans un cluster, les services du cluster sont redémarrés. Les opérations de mise à l’échelle peuvent provoquer l’échec des tâches en cours d’exécution ou en attente à la fin de l’opération de mise à l’échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l’opération terminée.
-* **HBase** : les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Pour équilibrer manuellement les serveurs régionaux, procédez comme suit :
+* **HBase** : les serveurs régionaux sont automatiquement équilibrés en l’espace de quelques minutes, une fois l’opération de mise à l’échelle terminée. Pour équilibrer manuellement les serveurs régionaux, procédez comme suit :
 
     1. Connectez-vous au cluster HDInsight à l’aide de SSH : Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -245,12 +244,11 @@ Pour obtenir des informations spécifiques sur la mise à l’échelle de votre 
 
 HDInsight est un service géré. Si Azure détecte un problème avec le cluster, il peut supprimer le nœud défaillant et créer un nœud pour le remplacer. Si vous installez manuellement des éléments sur le cluster, ils ne sont pas conservés lorsque cette opération se produit. Utilisez plutôt [Actions de script HDInsight](hdinsight-hadoop-customize-cluster.md). Une action de script peut être utilisée pour effectuer les modifications suivantes :
 
-* Installer et configurer un service ou un site web comme Spark ou Hue.
-* Installer et configurer un composant qui nécessite des modifications de configuration sur plusieurs nœuds du cluster. Par exemple, une variable d’environnement nécessaire, la création d’un répertoire de journalisation ou la création d’un fichier de configuration.
+* Installer et configurer un service ou un site web.
+* Installer et configurer un composant qui nécessite des modifications de configuration sur plusieurs nœuds du cluster.
 
-Les actions de script sont des scripts Bash. Les scripts sont exécutés pendant l’approvisionnement de cluster et peuvent être utilisés pour installer et configurer des composants supplémentaires sur le cluster. Des exemples de scripts sont fournis pour l’installation des composants suivants :
+Les actions de script sont des scripts Bash. Les scripts s’exécutent pendant la création du cluster et sont utilisés pour installer et configurer des composants supplémentaires. Des exemples de scripts sont fournis pour l’installation des composants suivants :
 
-* [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
@@ -258,7 +256,7 @@ Pour plus d’informations sur le développement de vos propres actions de scrip
 
 ### <a name="jar-files"></a>Fichiers Jar
 
-Certaines technologies Hadoop sont fournies dans des fichiers jar autonomes, qui contiennent des fonctions utilisées dans le cadre d’un travail MapReduce ou à partir de Pig ou Hive. Bien qu’elles puissent être installées à l’aide d’actions de script, elles ne nécessitent généralement aucune configuration et peuvent être chargées vers le cluster après l’approvisionnement, puis utilisées directement. Si vous souhaitez que le composant survive à la réinitialisation du cluster, vous pouvez stocker le fichier jar dans le stockage par défaut de votre cluster (WASB ou ADL).
+Certaines technologies Hadoop sont fournies dans des fichiers jar autonomes, qui contiennent des fonctions utilisées dans le cadre d’un travail MapReduce ou à partir de Pig ou Hive. Il ne nécessitent généralement aucune configuration et peuvent être chargés dans le cluster après la création et être utilisés directement. Si vous souhaitez que le composant survive à la réinitialisation du cluster, vous pouvez stocker le fichier jar dans le stockage par défaut de votre cluster (WASB ou ADL).
 
 Par exemple, si vous souhaitez utiliser la dernière version de [DataFu](http://datafu.incubator.apache.org/), vous pouvez télécharger un fichier jar contenant le projet, puis le télécharger vers le cluster HDInsight. Suivez ensuite la documentation DataFu pour savoir comment l’utiliser à partir de Pig ou Hive.
 
@@ -282,4 +280,3 @@ Pour utiliser une version différente d’un composant, chargez la version dont 
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
-

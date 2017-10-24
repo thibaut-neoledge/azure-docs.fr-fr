@@ -10,15 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
+ms.openlocfilehash: aca9f0b3320f298987cf39172fd4b043326a2f4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 32e5c2c7c058267c7a2c43d5264922c8a4cab83a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="assign-access-to-cost-management-data"></a>Autoriser l’accès aux données de gestion des coûts
 
 L’accès aux données de gestion des coûts est assuré par une gestion des utilisateurs ou des entités. Les comptes d’utilisateur Cloudyn déterminent l’accès aux *entités* et aux fonctions d’administration. Il existe deux types d’accès : administrateur et utilisateur. Sauf modifié par utilisateur, l’accès administrateur concède à l’utilisateur un accès non restreint à toutes les fonctions du portail Cloudyn, notamment la gestion des utilisateurs, la gestion des listes de destinataires et l’accès aux entités racines pour toutes les données d’entité. L’accès utilisateur permet aux utilisateurs finaux d’afficher et de créer des rapports à travers l’accès dont ils disposent aux données d’entité.
@@ -80,8 +77,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Créer un utilisateur avec un accès utilisateur
 > * Créer des entités
 
-Passez à la documentation de Cloudyn pour en savoir plus sur la prise en main de Cloudyn et l’utilisation de ses fonctionnalités.
+Passez au didacticiel suivant pour apprendre à prévoir les dépenses à partir des données historiques.
 
 > [!div class="nextstepaction"]
-> [Documentation de Cloudyn](https://support.cloudyn.com/hc/)
-
+> [Prévoir les dépenses futures](tutorial-forecast-spending.md)

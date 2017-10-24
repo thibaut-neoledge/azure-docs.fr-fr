@@ -4,8 +4,8 @@ description: "Apprenez à configurer un pare-feu de base de données SQL avec de
 keywords: "pare-feu de base de données"
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: craigg
+author: CarlRabeler
+manager: jhubbard
 editor: cgronlun
 tags: 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
@@ -15,20 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/15/2017
-ms.author: rickbyh
+ms.date: 10/11/2017
+ms.author: carlrab
+ms.openlocfilehash: a99ef3117cba8fea6a69e8f5cef15cf8fe711715
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a683481c9ebcdb8be6f9fefe442541e222482823
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Règles de pare-feu au niveau du serveur et de la base de données d’Azure SQL Database 
 
 Microsoft Azure SQL Database fournit un service de base de données relationnelle pour Azure et d’autres applications basées sur Internet. Pour aider à protéger vos données, le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande.
 
-#### <a name="virtual-netowrk-rules-as-alternatives-to-ip-rules"></a>Règles de réseau virtuel comme alternatives aux règles d’adresses IP
+#### <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Règles de réseau virtuel comme alternatives aux règles d’adresses IP
 
 Outre les règles d’adresses IP, le pare-feu gère également *les règles de réseau virtuel*. Les règles de réseau virtuel dépendent des points de terminaison de service de réseau virtuel. Les règles de réseau virtuel peuvent être préférables aux règles d’adresses IP dans certains cas. Pour plus d’informations, voir [Points de terminaison de service de réseau virtuel et règles dans Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
 
@@ -71,7 +70,7 @@ Pour autoriser des applications d’Azure à se connecter à Azure SQL Server, l
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Création et gestion des règles de pare-feu
-Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’aide du [portail Azure](https://portal.azure.com/) ou par programmation avec [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l’interface de ligne de commande Azure](/cli/azure/sql/server/firewall-rule#create) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/firewallrules). Les règles de pare-feu au niveau du serveur suivantes peuvent être créées et gérées à l’aide de ces méthodes, et par le biais de Transact-SQL. 
+Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’aide du [portail Azure](https://portal.azure.com/) ou par programmation avec [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l’interface de ligne de commande Azure](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/firewallrules). Les règles de pare-feu au niveau du serveur suivantes peuvent être créées et gérées à l’aide de ces méthodes, et par le biais de Transact-SQL. 
 
 > [!IMPORTANT]
 > Les règles de pare-feu au niveau de la base de données ne peuvent être créées et gérées qu’avec Transact-SQL. 
@@ -163,11 +162,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Gérer les règles de pare-feu à l’aide d’Azure CLI
 | Applet de commande | Niveau | Description |
 | --- | --- | --- |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Crée une règle de pare-feu pour autoriser l’accès à toutes les instances SQL Database sur le serveur à partir de la plage d’adresses IP entrée.|
-| [az sql server firewall delete](/cli/azure/sql/server/firewall-rule#delete)| Supprime une règle de pare-feu.|
-| [az sql server firewall list](/cli/azure/sql/server/firewall-rule#list)| Répertorie les règles de pare-feu.|
-| [az sql server firewall rule show](/cli/azure/sql/server/firewall-rule#show)| Affiche les détails d’une règle de pare-feu.|
-| [ax sql server firewall rule update](/cli/azure/sql/server/firewall-rule#update)| Met à jour une règle de pare-feu.
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Serveur|Crée la règle de pare-feu d’un serveur|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Serveur|Répertorie les règles de pare-feu sur un serveur|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Serveur|Affiche les détails d’une règle de pare-feu|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Serveur|Met à jour une règle de pare-feu|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Serveur|Supprime une règle de pare-feu|
 
 L’exemple suivant définit une règle de pare-feu au niveau du serveur à l’aide de l’interface de ligne de commande Azure : 
 
@@ -227,4 +226,3 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-

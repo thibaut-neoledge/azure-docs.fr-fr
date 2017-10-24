@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
+ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 7f4981feb0b2f524bab095d76000e01aa88bc81f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Hadoop disponibles avec HDInsight ?
 
@@ -98,7 +97,7 @@ Le tableau suivant répertorie les versions de HDInsight qui sont actuellement d
 ## <a name="hdinsight-windows-retirement"></a>Mise hors service de HDInsight sur Windows
 La version 3.3 est la dernière version de Microsoft Azure HDInsight sur Windows. La date de mise hors service de HDInsight sur Windows est le 31 juillet 2018. Si vous disposez de clusters HDInsight sur Windows dont la version est 3.3 ou antérieure, vous devez migrer vers HDInsight sur Linux (version 3.5 ou ultérieure) avant le 31 juillet 2018. Grâce à la migration vers le système d’exploitation Linux, vous pouvez continuer de créer ou de redimensionner vos clusters HDInsight. La prise en charge de HDInsight version 3.3 sur Windows a expiré le 27 juin 2016.
 
-Depuis HDInsight version 3.4, Microsoft a publié ce logiciel uniquement sur le système d’exploitation Linux. Par conséquent, certains composants de HDInsight sont disponibles pour Linux uniquement. Cela inclut les applications Apache Ranger, Kafka, Hive interactif, Spark et HDInsight ainsi que l’utilisation de Azure Data Lake Store en tant que système de fichiers principal. Les versions ultérieures de HDInsight sont également disponibles sur Linux uniquement. Aucune version de HDInsight ne sera proposée sur Windows. 
+Depuis HDInsight version 3.4, Microsoft a publié ce logiciel uniquement sur le système d’exploitation Linux. Par conséquent, certains composants de HDInsight sont disponibles pour Linux uniquement. Il s’agit notamment des applications Apache Ranger, Kafka, Interactive Query, Spark et HDInsight, et d’Azure Data Lake Store en tant que système de fichiers principal. Les versions ultérieures de HDInsight sont également disponibles sur Linux uniquement. Aucune version de HDInsight ne sera proposée sur Windows. 
 
 ## <a name="faqs"></a>FAQ
 
@@ -135,7 +134,7 @@ Non, la tarification est identique pour HDInsight, que ce soit sur Windows ou su
 * Possibilité de procéder à un développement actif, par l’intermédiaire de la communauté Hadoop open source et d’autres technologies de Big Data
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>La version de HDInsight sur Linux propose-t-elle des fonctionnalités supplémentaires par rapport à la version de ce logiciel sous Windows ?
-Depuis HDInsight version 3.4, Microsoft a publié ce logiciel uniquement sur le système d’exploitation Linux. Par conséquent, certains composants de HDInsight sont disponibles pour Linux uniquement. Cela inclut les applications Apache Ranger, Kafka, Hive interactif, Spark et HDInsight ainsi que l’utilisation d’Azure Data Lake Store en tant que système de fichiers principal. 
+Depuis HDInsight version 3.4, Microsoft a publié ce logiciel uniquement sur le système d’exploitation Linux. Par conséquent, certains composants de HDInsight sont disponibles pour Linux uniquement. Il s’agit notamment des applications Apache Ranger, Kafka, Interactive Query, Spark et HDInsight, et d’Azure Data Lake Store en tant que système de fichiers principal. 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contrat de niveau de service pour les versions de cluster HDInsight
 Le contrat de niveau de service (SLA) est défini en termes de _fenêtre de support_. L’expression « fenêtre de support » désigne la durée pendant laquelle une version de cluster HDInsight est prise en charge par le support technique et le service clientèle Microsoft. Si la version du logiciel est associée à une _date d’expiration du support_ dépassée, cela signifie que le cluster HDInsight n’est plus inclus dans la fenêtre de support. Pour en savoir plus sur les versions gérées, consultez la liste des [versions de cluster HDInsight prises en charge](hdinsight-migrate-from-windows-to-linux.md). La date d’expiration du support d’une version donnée de HDInsight (lorsqu’une version X+1 plus récente est disponible) est calculée comme suit, la date la plus tardive prévalant :  
@@ -187,7 +186,7 @@ Le tableau suivant répertorie les types de cluster qui sont pris en charge dans
 | HBase |OUI |Non |
 | Storm |OUI |Non |
 | R Server |Oui |Non |
-| Hive interactif (version préliminaire) |Oui |Non |
+| Interactive Query |Oui |Non |
 | Kafka (préversion) |Oui |Non | 
 
 ### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Prise en charge d’Azure Data Lake Store dans HDInsight Premium
@@ -262,4 +261,3 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
-

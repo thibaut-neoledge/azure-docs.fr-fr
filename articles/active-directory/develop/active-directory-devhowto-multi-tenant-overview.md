@@ -15,19 +15,18 @@ ms.workload: identity
 ms.date: 09/26/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: b409aa762b60c6bed0ee26f4b9fa7c347d9eb997
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Comment connecter un utilisateur Azure Active Directory (AD) à l’aide du modèle d’application mutualisée
 Si vous proposez une application SaaS (Software as a Service) à de nombreuses organisations, vous pouvez configurer votre application pour accepter les connexions à partir de n’importe quel client Azure AD.  Dans Azure AD, cette configuration permet de rendre une application multi-locataire.  Les utilisateurs de n’importe quel client Azure AD pourront se connecter à votre application après votre consentement afin d’utiliser leur compte avec votre application.  
 
 Si vous avez une application existante qui possède son propre système de compte, ou prend en charge d’autres types de connexion auprès d’autres fournisseurs cloud, l’ajout de la connexion Azure AD à partir de n’importe quel client est simple. Inscrivez simplement votre application, ajoutez le code de connexion via OAuth2, OpenID Connect ou SAML, et placez un bouton « Se connecter avec Microsoft » dans votre application. Cliquez sur le bouton suivant pour en savoir plus sur la personnalisation de votre application.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Bouton Se connecter][AAD-Sign-In]][AAD-App-Branding]
 
 Cet article suppose que vous êtes déjà familiarisé avec la création d’une application à client unique pour Azure AD.  Si ce n’est pas le cas, retournez à la [page d’accueil du guide du développeur][AAD-Dev-Guide] et testez l’un de nos démarrages rapides !
 
@@ -62,7 +61,7 @@ La réponse de connexion envoyée à l’application contient un jeton représen
 
 Comme mentionné précédemment, les applications mutualisées doivent également fournir une expérience de connexion cohérente aux utilisateurs en suivant les directives de personnalisation des applications Azure Active Directory. Cliquez sur le bouton suivant pour en savoir plus sur la personnalisation de votre application.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Bouton Se connecter][AAD-Sign-In]][AAD-App-Branding]
 
 Intéressons-nous désormais de plus près à l’utilisation du point de terminaison /common et à l’implémentation de votre code.
 
@@ -240,7 +239,6 @@ Utilisez la section Commentaires suivante pour donner votre avis et nous aider �
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
 
 
 

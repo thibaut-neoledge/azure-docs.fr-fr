@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: 06a1d301818f025270137f7eaa9f40e5e4503112
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA
 
@@ -198,7 +197,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforjira-tutorial/addon10.png)
 
-    a. Sélectionnez **Create users in JIRA's internal Directory if needed** (Créer des utilisateurs dans le répertoire interne de JIRA si nécessaire) et entrez le nom de groupe approprié pour les utilisateurs (peut être plusieurs groupes séparés par des virgules).
+    a. Sélectionnez **Create users in JIRA’s internal Directory if needed** (Créer des utilisateurs dans l’annuaire interne de JIRA si nécessaire) et saisissez le nom de groupe approprié pour les utilisateurs (il peut s’agir de plusieurs groupes séparés par des virgules).
 
     b. Cliquez sur **Suivant**.
 
@@ -214,7 +213,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Entrez le nom de domaine dans la zone de texte **Known domains** (Domaines connus).
 
-    c. Cliquez sur **Save**. 
+    c. Cliquez sur **Enregistrer**. 
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -336,5 +335,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_203.png
-
 

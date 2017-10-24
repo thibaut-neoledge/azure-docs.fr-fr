@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/27/2017
+ms.date: 10/09/2017
 ms.author: genemi
+ms.openlocfilehash: f62184d97b18d72b91d63db0e449bbab6c20a179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: e4ee69abe0b3b5d594ee191cc8210d25c325efaa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
 
@@ -109,8 +108,8 @@ Chaque règle de réseau virtuel s’applique à tout le serveur Azure SQL Datab
 
 Il existe une séparation des rôles de sécurité dans l’administration des points de terminaison de service de réseau virtuel. Chacun des rôles suivants doit réaliser une action :
 
-- **Administrateur de réseau :** &nbsp; Activez le point de terminaison.
-- **Administrateur de base de données :** &nbsp; Mettez à jour la liste de contrôle d’accès (ACL) pour ajouter un sous-réseau donné sur le serveur SQL Database.
+- **Administrateur de réseau :**&nbsp; Activez le point de terminaison.
+- **Administrateur de base de données :**&nbsp; Mettez à jour la liste de contrôle d’accès (ACL) pour ajouter un sous-réseau donné sur le serveur SQL Database.
 
 *Alternative RBAC :* 
 
@@ -118,9 +117,16 @@ Les rôles d’administrateur de réseau et d’administrateur de base de donné
 
 Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du rôle (RBAC)][rbac-what-is-813s] dans Azure pour créer un rôle personnalisé unique disposant uniquement des fonctionnalités nécessaires. Le rôle personnalisé peut être utilisé au lieu d’impliquer l’administrateur de réseau ou l’administrateur de base de données. Votre surface d’exposition de sécurité est inférieure si vous assignez un rôle personnalisé à un utilisateur au lieu de lui assigner les deux principaux rôles d’administrateur.
 
-#### <a name="limitations"></a>Limites
+
+
+
+
+
+## <a name="limitations"></a>Limites
 
 Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
+
+- Dans le pare-feu pour votre base de données SQL Database, chaque règle de réseau virtuel fait référence à un sous-réseau. Tous ces sous-réseaux référencés doivent être hébergés dans la même région géographique qui héberge la base de données SQL Database.
 
 - Chaque serveur Azure SQL Database peut avoir jusqu’à 128 entrées ACL pour un réseau virtuel donné.
 
@@ -146,9 +152,36 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 
 
+## <a name="errors-40914-and-40615"></a>Erreurs 40914 et 40615
+
+L’erreur de connexion 40914 est liée aux *règles de réseau virtuel*, comme spécifié dans le volet Pare-feu du portail Azure. L’erreur 40615 est similaire, à ceci près qu’elle est liée aux *règles des adresses IP* sur le pare-feu.
+
+#### <a name="error-40914"></a>Erreur 40914
+
+*Texte du message :* Impossible d’ouvrir le serveur « *[nom-serveur]* » demandé par la connexion. Le client n’est pas autorisé à accéder au serveur.
+
+*Description de l’erreur :* le client se trouve dans un sous-réseau qui a des points de terminaison de serveur de réseau virtuel. Mais le serveur Azure SQL Database n’a pas de règle de réseau virtuel qui accorde au sous-réseau le droit de communiquer avec la base de données SQL Database.
+
+*Résolution de l’erreur :* dans le volet Pare-feu du portail Azure, utilisez le contrôle des règles de réseau virtuel pour [ajouter une règle de réseau virtuel](#anchor-how-to-by-using-firewall-portal-59j) au sous-réseau.
+
+#### <a name="error-40615"></a>Erreur 40615
+
+*Texte du message :* Impossible d’ouvrir le serveur ’{0}’ demandé par la connexion. Le client avec l'adresse IP '{1}' n'est pas autorisé à accéder au serveur.
+
+*Description de l’erreur :* le client tente de se connecter à partir d’une adresse IP qui n’est pas autorisée à se connecter au serveur Azure SQL Database. Le pare-feu du serveur ne dispose d’aucune règle d’adresse IP qui autorise un client à communiquer à partir de l’adresse IP donnée vers la base de données SQL Database.
+
+*Résolution de l’erreur :*  entrez l’adresse IP du client en tant que règle d’adresse IP. Effectuez cette opération via le volet Pare-feu du portail Azure.
+
+
+Une liste de plusieurs messages d’erreur de base de données SQL Database est documentée [ici][sql-database-develop-error-messages-419g].
+
+
+
+
+
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
-## <a name="how-to-create-a-virtual-network-rule-by-using-the-portal"></a>Création d’une règle de réseau virtuel à l’aide du portail Azure
+## <a name="portal-can-create-a-virtual-network-rule"></a>Le portail peut créer une règle de réseau virtuel
 
 Cette section montre comment vous pouvez utiliser le [portail Azure][http-azure-portal-link-ref-477t] pour créer une *règle de réseau virtuel* sur votre serveur Azure SQL Database. La règle donne l’instruction à votre serveur SQL Database d’accepter les communications provenant d’un sous-réseau spécifique qui a été marqué comme étant un *point de terminaison de service de réseau virtuel*.
 
@@ -232,6 +265,8 @@ La fonctionnalité de points de terminaison de service de réseau virtuel Micros
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 
+[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
+
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
@@ -262,5 +297,4 @@ La fonctionnalité de points de terminaison de service de réseau virtuel Micros
 
 - ARM templates
 -->
-
 

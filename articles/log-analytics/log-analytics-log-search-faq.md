@@ -11,16 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/09/2017
 ms.author: bwren
+ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Questions fréquentes (FAQ) sur la nouvelle recherche dans les journaux Log Analytics et problèmes connus
 
 Cet article regroupe les questions fréquentes et les problèmes connus relatifs à la mise à niveau de [Log Analytics avec le nouveau langage de requête](log-analytics-log-search-upgrade.md).  Nous vous invitons à lire cet article dans son intégralité avant de vous décider à mettre à niveau votre espace de travail.
@@ -30,6 +28,10 @@ Cet article regroupe les questions fréquentes et les problèmes connus relatifs
 
 ### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Question : J’ai un grand nombre de règles d’alerte. Dois-je les recréer dans la nouvelle langue après la mise à niveau ?  
 Non, vos règles d’alerte sont automatiquement converties en nouveau langage de recherche pendant la mise à niveau.  
+
+### <a name="question-i-have-alert-rules-with-webhook-and-runbook-actions-will-these-continue-to-work-when-i-upgrade"></a>Question : J’ai des règles d’alerte avec des actions de Webhook et de runbook. Fonctionneront-elles toujours après la mise à niveau ?
+
+Non. Certaines modifications apportées aux actions de Webhook et de runbook risquent de vous obliger à revoir votre façon de gérer la charge utile. Nous avons apporté ces modifications afin de normaliser les différents formats de sortie et de réduire la taille de la charge utile. Pour plus d’informations sur ces formats, consultez la page [Ajouter des actions à des règles d’alerte dans Log Analytics](log-analytics-alerts-actions.md).
 
 
 ## <a name="computer-groups"></a>Groupes d’ordinateurs
@@ -48,7 +50,7 @@ Voici un exemple de requête permettant de créer un groupe d’ordinateurs qui 
 ## <a name="dashboards"></a>Tableaux de bord
 
 ### <a name="question-can-i-still-use-dashboards-in-an-upgraded-workspace"></a>Question : Puis-je toujours utiliser des tableaux de bord dans un espace de travail mis à niveau ?
-Vous pouvez continuer d’utiliser les vignettes que vous avez ajoutées à **Mon tableau de bord** avant la mise à niveau de votre espace de travail, mais vous ne pouvez ni les modifier ni en ajouter de nouvelles.  Vous pouvez continuer de créer et modifier des vues à l’aide du [Concepteur de vues](log-analytics-view-designer.md) mais aussi créer des tableaux de bord dans le portail Azure.
+Avec la mise à niveau, nous entamons un processus à l’issue duquel **Mon tableau de bord** sera déconseillé.  Vous pouvez continuer d’utiliser les vignettes que vous avez ajoutées au tableau de bord avant la mise à niveau de votre espace de travail, mais vous ne pouvez ni les modifier ni en ajouter de nouvelles.  Vous pouvez encore créer et modifier des affichages à l’aide du [Concepteur de vues](log-analytics-view-designer.md), qui comporte davantage de fonctionnalités, mais aussi créer des tableaux de bord sur le Portail Azure.
 
 
 ## <a name="log-searches"></a>Recherches dans les journaux
@@ -58,6 +60,9 @@ Vous pouvez utiliser l’outil de conversion de langage dans la page de recherch
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Question : Pourquoi mes résultats de requête ne sont pas triés ?
 Par défaut, les résultats ne sont pas triés dans le nouveau langage de requête.  Utilisez l’[opérateur de tri](https://go.microsoft.com/fwlink/?linkid=856079) pour trier vos résultats selon une ou plusieurs propriétés.
+
+### <a name="question-where-did-the-metrics-view-go-after-i-upgraded"></a>Question : Où se trouve l’affichage des mesures après la mise à niveau ?
+L’affichage des mesures offrait une représentation graphique des données de performances à partir d’une Recherche dans les journaux.  Cet affichage n’est plus disponible après la mise à niveau.  Vous pouvez utiliser [l’opérateur de rendu](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) pour mettre en forme la sortie d’une requête dans une frise chronologique.
 
 ### <a name="question-where-did-minify-go-after-i-upgraded"></a>Question : Où se trouve Minify après la mise à niveau ?
 Minify est une fonctionnalité qui fournit une synthèse de vos résultats de recherche.  Une fois la mise à niveau effectuée, l’option Minify ne s’affiche plus dans le portail de recherche dans les journaux.  Vous pouvez obtenir des fonctionnalités similaires avec le nouveau langage de recherche en utilisant [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) ou [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
@@ -173,4 +178,3 @@ Quand vous cliquez sur l’option *Afficher tout* au bas d’un graphique en cou
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Plus d’informations sur la [mise à niveau de votre espace de travail vers le nouveau langage de requête de Log Analytics](log-analytics-log-search-upgrade.md).
-

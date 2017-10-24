@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 10/09/2017
 ms.author: jgao
+ms.openlocfilehash: fbd6ff573a1d4f7fe2754935dd8c199092076725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 9d1b629ad05f45efc8d01799616c82b4a11ecaab
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster HBase dans les réseaux virtuels Azure
 
@@ -57,7 +56,7 @@ Il existe trois options de configuration :
 
 Pour vous aider à configurer les environnements, nous avons créé des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Si vous préférez configurer les environnements en utilisant d’autres méthodes, consultez :
 
-- [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Créer des clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Création de clusters HBase dans un réseau virtuel Azure](hdinsight-hbase-provision-vnet.md)
 
 ### <a name="set-up-one-virtual-network"></a>Configurer un seul réseau virtuel
@@ -97,11 +96,54 @@ Pour le scénario de réseaux virtuels croisés, vous devez utiliser le commutat
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurer deux réseaux virtuels dans deux régions différentes
 
-Pour créer deux réseaux virtuels dans deux régions différentes, sélectionnez l’image suivante. Le modèle est stocké dans un conteneur de blobs Azure global.
+Pour créer deux réseaux virtuels dans deux régions différentes, ainsi que la connexion VPN entre les deux, cliquez sur l’image suivante. Ce modèle est stocké dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-Créez une passerelle VPN entre les deux réseaux virtuels. Pour des instructions précises, consultez [Création d’un réseau virtuel avec une connexion de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Voici quelques-unes des valeurs codées en dur dans le modèle :
+
+**Réseau virtuel 1**
+
+| Propriété | Valeur |
+|----------|-------|
+| Lieu | Ouest des États-Unis |
+| Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet1 |
+| Préfixe de l’espace d’adressage | 10.1.0.0/16 |
+| Nom du sous-réseau | subnet 1 |
+| Préfixe du sous-réseau | 10.1.0.0/24 |
+| Nom du sous-réseau (passerelle) | GatewaySubnet (non modifiable) |
+| Préfixe du sous-réseau (passerelle) | 10.1.255.0/27 |
+| Nom de la passerelle | vnet1gw |
+| Type de passerelle | Vpn |
+| Type de VPN de la passerelle | RouteBased |
+| SKU de la passerelle | De base |
+| Adresse IP de la passerelle | vnet1gwip |
+| Nom du cluster | &lt;ClusterNamePrefix>1 |
+| Version du cluster | 3.6 |
+| Type de cluster | hbase |
+| Nombre de nœuds de travail du cluster | 2 |
+
+
+**Réseau virtuel 2**
+
+| Propriété | Valeur |
+|----------|-------|
+| Lieu | Est des États-Unis |
+| Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet2 |
+| Préfixe de l’espace d’adressage | 10.2.0.0/16 |
+| Nom du sous-réseau | subnet 1 |
+| Préfixe du sous-réseau | 10.2.0.0/24 |
+| Nom du sous-réseau (passerelle) | GatewaySubnet (non modifiable) |
+| Préfixe du sous-réseau (passerelle) | 10.2.255.0/27 |
+| Nom de la passerelle | vnet2gw |
+| Type de passerelle | Vpn |
+| Type de VPN de la passerelle | RouteBased |
+| SKU de la passerelle | De base |
+| Adresse IP de la passerelle | vnet1gwip |
+| Nom du cluster | &lt;ClusterNamePrefix>2 |
+| Version du cluster | 3.6 |
+| Type de cluster | hbase |
+| Nombre de nœuds de travail du cluster | 2 |
 
 La réplication HBase utilise des adresses IP des machines virtuelles ZooKeeper. Vous devez configurer des adresses IP statiques pour les nœuds ZooKeeper HBase de destination. Pour configurer une adresse IP statique, consultez la section [Configurer deux réseaux virtuels dans la même région](#set-up-two-virtual-networks-in-the-same-region) de cet article.
 
@@ -111,11 +153,11 @@ Pour le scénario de réseaux virtuels croisés, vous devez utiliser le commutat
 
 Lorsque vous répliquez un cluster, vous devez spécifier les tables à répliquer. Dans cette section, vous chargez des données dans le cluster source. Dans la section suivante, vous allez activer la réplication entre les deux clusters.
 
-Pour créer une table **Contacts** et insérer des données dans la table, suivez les instructions du [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux](hdinsight-hbase-tutorial-get-started-linux.md).
+Pour créer une table **Contacts** et y insérer des données, suivez les instructions du [didacticiel HBase : bien démarrer avec Apache HBase dans HDInsight Linux](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Activer la réplication
 
-Les étapes suivantes décrivent comment appeler le script d’action de script à partir du portail Azure. Pour savoir comment exécuter une action de script à l’aide d’Azure PowerShell et de l’outil en ligne de commande Azure (Azure CLI), consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
+Les étapes suivantes décrivent comment appeler le script d’action de script à partir du portail Azure. Pour savoir comment exécuter une action de script à l’aide d’Azure PowerShell et de l’outil en ligne de commande Azure (Azure CLI), consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Pour activer la réplication HBase à partir du portail Azure**
 
@@ -241,7 +283,6 @@ Ce didacticiel a décrit la configuration de la réplication HBase dans un rése
 * [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux][hdinsight-hbase-get-started]
 * [Présentation de HBase dans HDInsight : une base de données NoSQL fournissant des fonctionnalités similaires à BigTable pour Hadoop][hdinsight-hbase-overview]
 * [Création de clusters HBase dans un réseau virtuel Azure][hdinsight-hbase-provision-vnet]
-* [Analyse de sentiments Twitter en temps réel avec HBase dans HDInsight][hdinsight-hbase-twitter-sentiment]
 * [Analyse des données de capteur avec Storm et HBase dans HDInsight (Hadoop)][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
@@ -254,8 +295,6 @@ Ce didacticiel a décrit la configuration de la réplication HBase dans un rése
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-

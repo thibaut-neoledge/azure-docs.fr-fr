@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
-ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
-
-
+ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN
 Cette rubrique répertorie les descriptions détaillées des fonctionnalités disponibles pour le [moteur de règles](cdn-rules-engine.md)Azure Content Delivery Network (CDN).
 
@@ -131,8 +130,7 @@ Informations essentielles :
 
 - L’option Valeur définit le nom de paramètre de chaîne de requête par le biais duquel un jeton peut être spécifié.
 - L’option Valeur ne peut pas être définie sur « ec_token ».
-- Assurez-vous que le nom défini dans l’option Valeur contient 
-- uniquement des caractères d’URL valides.
+- Assurez-vous que le nom défini dans l’option Valeur contient uniquement des caractères d’URL valides.
 
 Valeur|Résultat
 ----|----
@@ -147,7 +145,7 @@ Ces fonctionnalités sont conçues pour personnaliser la mise en cache du conten
 
 Nom | Objectif
 -----|--------
-Paramètres de bande passante | Détermine si les paramètres de limitation de bande passante (c.-à-d., ec_rate et ec_prebuf) sont actifs.
+Paramètres de bande passante | Détermine si les paramètres de limitation de bande passante (par exemple, ec_rate et ec_prebuf) sont actifs.
 Limitation de bande passante | Limite la bande passante pour la réponse fournie par nos serveurs Edge.
 Ignorer le cache | Détermine si la requête peut exploiter notre technologie de mise en cache.
 Traitement d’en-tête de contrôle de cache | Contrôle la génération des en-têtes de contrôle de cache par le serveur Edge quand la fonctionnalité Âge maximal externe est active.
@@ -173,7 +171,7 @@ Rendre obsolète pendant la revalidation | Améliore les performances en permett
 Commentaire | La fonctionnalité Commentaire permet d’ajouter une remarque dans une règle.
 
 ###<a name="bandwidth-parameters"></a>Paramètres de bande passante
-**Objectif :** détermine si les paramètres de limitation de bande passante (c.-à-d., ec_rate et ec_prebuf) sont actifs.
+**Objectif :** détermine si les paramètres de limitation de bande passante (par exemple, ec_rate et ec_prebuf) sont actifs.
 
 Les paramètres de limitation de bande passante déterminent si le taux de transfert de données pour une requête du client est limité à un taux personnalisé.
 
@@ -247,9 +245,9 @@ Si vous souhaitez dupliquer le comportement de mise en cache de la chaîne de re
 
 #### <a name="sample-scenarios"></a>Exemples de scénarios
 
-Des exemples d’utilisation de cette fonctionnalité spnt fournis ci-dessous. Vous trouverez ci-dessous un exemple de requête et la clé de cache par défaut.
+L’exemple d’utilisation suivant inclut un exemple de requête et la clé de cache par défaut :
 
-- **Exemple de requête :** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Exemple de requête :** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&amp;language=EN&amp;userid=01
 - **Clé de cache par défaut :** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Inclure
@@ -410,7 +408,7 @@ Informations essentielles :
 - Cette fonctionnalité n’a pas d’effet visible sur la réponse fournie par un serveur Edge au demandeur. Toutefois, elle peut avoir une incidence sur la quantité de trafic de revalidation envoyé à partir de nos serveurs Edge vers le serveur d’origine.
 - Configurez cette fonctionnalité en :
     - sélectionnant le code d’état pour lequel un âge maximal interne sera appliqué.
-    - spécifiant une valeur entière, puis en sélectionnant l’unité de temps souhaitée (par exemple, secondes, minutes, heures, etc.). Cette valeur définit l’intervalle d’âge maximal de la requête.
+    - spécifiant une valeur entière et en sélectionnant l’unité de temps souhaitée (par exemple, secondes, minutes, heures, etc.). Cette valeur définit l’intervalle d’âge maximal de la requête.
 
 - La définition de l’unité de temps sur « Désactivé » a pour effet de désactiver cette fonctionnalité. Un intervalle d’âge maximal interne n’est pas attribué aux ressources demandées. Si l’en-tête d’origine ne contient pas d’instructions de mise en cache, la ressource est mise en cache en fonction du paramètre actif de la fonctionnalité Âge maximal interne par défaut.
 - En raison du type de suivi des paramètres de cache, cette fonctionnalité ne peut pas être associée avec les conditions de correspondance suivantes : 
@@ -430,7 +428,7 @@ Informations essentielles :
 Informations essentielles :
 
 - Définissez un ensemble d’extensions de noms de fichier H.264 autorisées séparé par un espace dans l’option Extensions de fichier. Cette option remplacera le comportement par défaut. Maintenez la prise en charge de MP4 et F4V en incluant ces extensions de noms de fichier lors de la définition de cette option. 
-- Veillez à inclure une période lorsque vous spécifiez une extension de nom de fichier (par exemple, .mp4 .f4v).
+- Veillez à inclure un point lorsque vous spécifiez une extension de nom de fichier (par exemple, .mp4 .f4v).
 
 **Comportement par défaut :** Le téléchargement progressif HTTP prend en charge les formats multimédia MP4 et F4V par défaut.
 
@@ -513,7 +511,7 @@ Informations essentielles :
     - Littéral de requête d’URL
     - Caractère générique de requête d’URL
 
-**Comportement par défaut :** 2 minutes
+**Comportement par défaut :** deux minutes
 
 ###<a name="partial-cache-sharing"></a>Partage de cache partiel
 **Objectif :** détermine si une requête peut générer du contenu partiellement mis en cache.
@@ -562,11 +560,11 @@ Définissez un ensemble de codes d’état souhaités séparés par un espace.
 
 Informations essentielles :
 
-- Activez également la fonctionnalité Ignorer la requête non-cache d’origine. Si cette fonctionnalité n’est pas activée, les réponses non&200; OK ne peuvent pas être mises en cache.
+- Activez la fonctionnalité Ignorer la requête non-cache d’origine. Si cette fonctionnalité n’est pas activée, les réponses non 200 OK ne peuvent pas être mises en cache.
 - L’ensemble des codes d’état valides pour cette fonctionnalité sont les suivants : 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, et 505.
 - Cette fonctionnalité ne peut pas être utilisée pour désactiver la mise en cache des réponses qui génèrent un code d’état 200 OK.
 
-**Comportement par défaut :** la mise en cache est activée uniquement pour les réponses qui génèrent un code d’état 200 OK.
+**Comportement par défaut :** la mise en cache est activée uniquement pour les réponses qui génèrent un code d’état 200 OK.
 ###<a name="stale-content-delivery-on-error"></a>Rendre obsolète la remise de contenu en cas d’erreur
 **Objectif :** 
 
@@ -585,7 +583,7 @@ Désactivé|L’erreur du serveur d’origine sera transférée au demandeur.
 Informations essentielles :
 
 - Le comportement de cette fonctionnalité varie en fonction de l’unité de temps sélectionnée.
-    - **Unité de temps :** spécifiez une durée, puis sélectionnez une unité de temps (par exemple, secondes, minutes, heures, etc.) pour permettre la distribution de contenu obsolète. Ce type d’installation permet au CDN d’étendre la durée pendant laquelle il peut fournir du contenu avant de demander une validation en fonction de la formule suivante :**TTL** + **Rendre obsolète pendant la revalidation** 
+    - **Unité de temps :** spécifiez une durée, puis sélectionnez une unité de temps (par exemple, secondes, minutes, heures, etc.) pour permettre la distribution de contenu obsolète. Ce type d’installation permet au CDN d’étendre la durée pendant laquelle il peut fournir du contenu avant de demander une validation en fonction de la formule suivante :**TTL** + **Rendre obsolète pendant la revalidation** 
     - **Désactivé :** sélectionnez « Désactivé » pour demander la revalidation avant qu’une requête de contenu obsolète puisse être traitée.
         - Ne spécifiez pas de durée, car elle est inapplicable et sera ignorée.
 
@@ -599,7 +597,7 @@ Une utilisation de cette fonctionnalité consiste à fournir des informations su
 Informations essentielles :
 
 - Vous pouvez spécifier un maximum de 150 caractères.
-- Veillez à utiliser uniquement des caractères alphanumériques.
+- Utilisez uniquement des caractères alphanumériques.
 - Cette fonctionnalité n’affecte pas le comportement de la règle. Il est simplement destiné à proposer une zone dans laquelle vous pouvez fournir des informations afin de pouvoir vous y référer ultérieurement, ou qui peuvent vous aider lors du dépannage de la règle.
  
 ## <a name="headers"></a>En-têtes
@@ -669,7 +667,7 @@ Informations essentielles :
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
-- Veillez à utiliser uniquement des caractères alphanumériques, des tirets ou des traits de soulignement lorsque vous spécifiez un nom d’en-tête.
+- Lorsque vous spécifiez un nom d’en-tête, utilisez uniquement des caractères alphanumériques, des tirets ou des traits de soulignement.
 - La suppression d’un en-tête évite sa transmission à un serveur d’origine par nos serveurs Edge.
 - Les en-têtes suivants sont réservés et ne peuvent pas être modifiés par cette fonctionnalité :
     - forwarded
@@ -727,7 +725,7 @@ L’option de nom d’en-tête définit le nom de l’en-tête de requête perso
 
 Cette fonctionnalité permet à un serveur d’origine du client de trouver les adresses IP du client via un en-tête de requête personnalisé. Si la requête est traitée à partir du cache, le serveur d’origine n’est pas informé de l’adresse IP du client. Par conséquent, il est recommandé que cette fonctionnalité soit utilisée avec ADN ou les ressources qui ne sont pas mises en cache.
 
-Assurez-vous que le nom d’en-tête spécifié ne correspond pas à une des opérations suivantes :
+Assurez-vous que le nom d’en-tête spécifié ne correspond pas à un des noms suivants :
 
 - Noms d’en-tête de requête standard. Vous trouverez une liste de noms d’en-tête standard dans [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Noms d’en-tête réservés :
@@ -765,7 +763,7 @@ En-tête de réponse|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o 
 Informations essentielles :
 
 - Un champ de fichier journal personnalisé peut contenir n’importe quelle combinaison de champs d’en-tête et de texte brut.
-- Les caractères valides pour ce champ sont les suivants : caractères alphanumériques (par exemple, 0 à 9, a à z et A à Z), tirets, deux-points, points-virgules, apostrophes, virgules, points, traits de soulignement, signes égal, parenthèses, crochets et espaces. Le symbole de pourcentage et les accolades sont autorisés uniquement lorsqu’ils sont utilisés pour spécifier un champ d’en-tête.
+- Les caractères valides pour ce champ sont les suivants : caractères alphanumériques (par exemple, 0 à 9, a à z et A à Z), tirets, deux-points, points-virgules, apostrophes, virgules, points, traits de soulignement, signes égal, parenthèses, crochets et espaces. Le symbole de pourcentage et les accolades sont autorisés uniquement lorsqu’ils sont utilisés pour spécifier un champ d’en-tête.
 - L’orthographe de chaque champ d’en-tête spécifié doit correspondre au nom d’en-tête de requête/réponse souhaité.
 - Si vous souhaitez spécifier plusieurs en-têtes, il est recommandé d’utiliser un séparateur pour indiquer chaque en-tête. Par exemple, vous pouvez utiliser une abréviation pour chaque en-tête. Un exemple de syntaxe est fourni ci-dessous.
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
@@ -927,7 +925,7 @@ La configuration de cette fonctionnalité nécessite de définir les options sui
 Option|Description
 -|-
 Code|Sélectionnez le code de réponse qui sera renvoyé au demandeur.
-Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source :** (ou point d’accès au contenu) Sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> **Source (modèle) :** Un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (par exemple, Source et modèle) définis ci-dessus ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Assurez-vous de spécifier un modèle. À l’aide d’une valeur vide dans la mesure où le modèle correspond uniquement au dossier racine du serveur d’origine sélectionné (par exemple, http://cdn.mydomain.com/).
+Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> **Source (modèle) :** Un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
 Destination| Définissez l’URL vers laquelle les requêtes ci-dessus seront redirigées. <br/> Construisez dynamiquement cette URL à l’aide des éléments suivants : <br/> - Un modèle d’expression régulière <br/>- Des variables HTTP <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. <br/> 
 Il est fortement recommandé d’utiliser une URL absolue. L’utilisation d’une URL relative peut rediriger les URL CDN vers un chemin d’accès non valide.
 
@@ -964,7 +962,7 @@ Informations essentielles :
 
 Option|Description
 -|-
- Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/>     - **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> - **Source (modèle) :** un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (par exemple, Source et modèle) définis ci-dessus ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Assurez-vous de spécifier un modèle. À l’aide d’une valeur vide dans la mesure où le modèle correspond uniquement au dossier racine du serveur d’origine sélectionné (par exemple, http://cdn.mydomain.com/). 
+ Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/>     - **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> - **Source (modèle) :** un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance. 
  Destination  |Définissez l’URL relative vers laquelle les requêtes ci-dessus seront réécrites en : <br/>    1. Sélectionnant un point d’accès au contenu qui identifie un serveur d’origine. <br/>    2. Définissant un chemin d’accès relatif à l’aide des éléments suivants : <br/>        - Un modèle d’expression régulière <br/>        - Des variables HTTP <br/> <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. 
  Cette fonctionnalité permet à nos serveurs Edge de réécrire l’URL sans effectuer de redirection classique. Cela signifie que le demandeur reçoit un code de réponse identique à celui reçu si l’URL réécrite avait été demandée.
 
@@ -1018,9 +1016,3 @@ Cette fonctionnalité inclut des critères de correspondance devant être rempli
 * [Conditions de correspondance du moteur de règles](cdn-rules-engine-reference-match-conditions.md)
 * [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
 * [Vue d'ensemble d'Azure CDN](cdn-overview.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

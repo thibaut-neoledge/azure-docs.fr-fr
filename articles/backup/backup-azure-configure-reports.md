@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 597c3eb49bc3d4f9b2311f232e4280027636266c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article détaille la procédure permettant de configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services et d’accéder à ces rapports avec Power BI. Une fois que vous aurez suivi ces étapes, vous pourrez accéder directement à Power BI pour afficher tous les rapports, en personnaliser et en créer. 
@@ -66,7 +65,7 @@ Suivez les étapes ci-dessous afin de configurer le compte de stockage pour le c
 7. Vérifiez toutes les modifications et cliquez sur le bouton **Enregistrer** en haut, comme le montre la figure ci-dessus. Cette action garantit que toutes vos modifications sont enregistrées et que le compte de stockage est maintenant configuré de façon à stocker les données de rapports.
 
 > [!NOTE]
-> Une fois que vous configurez des rapports en enregistrant un compte de stockage, vous devez **attendre 24 heures** pour que le push de données initial soit complété. Vous devez importer le pack de contenu Azure Backup dans Power BI uniquement après cette heure. Consultez [la section FAQ](#frequently-asked-questions) pour plus de détails. 
+> Une fois que vous configurez des rapports en enregistrant un compte de stockage, vous devez **attendre 24 heures** pour que le push de données initial soit complété. Vous devez importer le pack de contenu Azure Backup dans Power BI uniquement après cette heure. Consultez la [section FAQ](#frequently-asked-questions) pour en savoir plus. 
 >
 >
 
@@ -152,5 +151,4 @@ Maintenant que vous avez configuré le compte de stockage et importé le pack de
 * [Utiliser le modèle de données de rapports de la Sauvegarde Azure](backup-azure-reports-data-model.md)
 * [Filtrer les rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Créer des rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-
 

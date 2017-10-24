@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/14/2017
+ms.date: 10/6/2017
 ms.author: raiye
+ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -30,14 +29,24 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 >
 
 
-> [!NOTE]
-> Le flux RSS a récemment été déconseillé. Surveillez les mises à jour sur un nouveau flux bientôt disponible !
+> [!TIP]
+>  Abonnez-vous au [Flux RSS de mise à jour du SE invité] pour recevoir en temps voulu les notifications relatives à toutes les modifications du SE invité.
+>
+>
+
+> [!IMPORTANT]
+> À partir de la version de novembre, seules les 2 dernières versions du SE invité seront prises en charge et disponibles dans le portail Azure.
 >
 >
 
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+
+###### <a name="october-6-2017"></a>**6 octobre 2017**
+Publication du SE invité septembre. Pour la version de septembre de Windows Server 2016, netfx3 est activé par défaut. Les clients doivent ajouter « dism /online /disable-feature /featurename:netfx3 » dans leur OnStart si leur flux de travail en a besoin pour exécuter une application .NET 2.x avec un runtime 4.x ou s’ils ont exécuté une application .NET 2.x, ont géré une erreur, puis ont exécuté une application .NET 4.x.
+
 ###### <a name="september-14-2017"></a>**14 septembre 2017**
 Le déploiement du système d’exploitation invité du mois de septembre commence le 14 septembre, et sa publication est prévue le 9 octobre.
 
@@ -71,7 +80,7 @@ Début du déploiement du SE invité d’avril le 18 avril et publication proje
 
 ## <a name="releases"></a>Publications
 ## <a name="family-5-releases"></a>Publications de famille 5
-**Windows Server 2016**
+**Windows Server 2016**
 
 .NET Framework est installé : 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
@@ -83,9 +92,10 @@ Début du déploiement du SE invité d’avril le 18 avril et publication proje
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.11_201709-01 |6 octobre 2017 |Post 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |24 août 2017 |Post 5.12 |TBD |
 | WA-GUEST-OS-5.9_201707-01 |3 août 2017 |Post 5.11 |TBD |
-| WA-GUEST-OS-5.8_201706-01 |7 juillet 2017 |Post 5.10 |TBD |
+|~~WA-GUEST-OS-5.8_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
@@ -105,9 +115,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.46_201709-01 |6 octobre 2017 |Post 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |24 août 2017 |Post 4.47 |TBD |
 | WA-GUEST-OS-4.44_201707-01 |3 août 2017 |Post 4.46 |TBD |
-| WA-GUEST-OS-4.43_201706-01 |7 juillet 2017 |Post 4.45 |TBD |
+|~~WA-GUEST-OS-4.43_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
@@ -131,9 +142,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.53_201709-01 |6 octobre 2017 |Post 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |24 août 2017 |Post 3.54 |TBD |
 | WA-GUEST-OS-3.51_201707-01 |3 août 2017 |Post 3.53 |TBD |
-| WA-GUEST-OS-3.50_201706-01 |7 juillet 2017 |Post 3.52 |TBD |
+|~~WA-GUEST-OS-3.50_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
@@ -157,9 +169,10 @@ Prend en charge .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.66_201709-01 |6 octobre 2017 |Post 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |24 août 2017 |Post 2.67 |TBD |
 | WA-GUEST-OS-2.64_201707-01 |3 août 2017 |Post 2.66 |TBD |
-| WA-GUEST-OS-2.63_201706-01 |7 juillet 2017 |Post 2.65 |TBD |
+|~~WA-GUEST-OS-2.63_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
@@ -177,9 +190,9 @@ Prend en charge .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 La liste des correctifs inclus dans chaque publication mensuelle du SE invité est disponible [ici][patches].
 
 ## <a name="sdk-support"></a>Prise en charge des Kits de développement logiciel (SDK)
-La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le kit SDK pris en charge le plus récent.
+La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le Kit de développement logiciel (SDK) pris en charge le plus récent.
 
-| Famille de SE invité | Versions du kit SDK compatibles |
+| Famille de SE invité | Versions du Kit de développement logiciel (SDK) compatibles |
 | --- | --- |
 | 5 |Versions 2.9.5.1 et ultérieures |
 | 4 |Versions 2.1 et ultérieures |
@@ -228,6 +241,7 @@ Si vous procédez à une mise à jour manuelle de votre SE invité, consultez la
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité
 La prise en charge et la stratégie de suppression du SE invité sont détaillées [ici][retirepolicy].
 
+[Flux RSS de mise à jour du SE invité]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -247,4 +261,3 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [correctif]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
-

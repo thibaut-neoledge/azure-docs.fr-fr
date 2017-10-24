@@ -1,5 +1,5 @@
 ---
-title: "Dépannage : « Active Directory » est manquant ou non disponible | Documents Microsoft"
+title: "Dépannage : l’élément « Active Directory » est manquant ou non disponible | Microsoft Docs"
 description: "Que faire lorsque l’élément de menu Active Directory n’apparaît pas dans le portail de gestion Azure."
 services: active-directory
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Dépannage : l’élément « Active Directory » est manquant ou non disponible
 De nombreuses instructions relatives à l’utilisation des fonctionnalités et des services d’Azure Active Directory commencent par « Accédez au portail de gestion Azure et cliquez sur **Active Directory**. » Mais que faire si l’élément de menu ou l’extension Active Directory n’apparaît pas ou si elle est marquée comme **non disponible**? Cette rubrique d’aide répond à cette question. Elle décrit les conditions dans lesquelles **Active Directory** n’apparaît pas ou n’est pas disponible et explique comment procéder.

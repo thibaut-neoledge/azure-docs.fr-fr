@@ -14,12 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 8a6fd3711bf273d7035587d3731a334fd2268c32
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -131,7 +130,7 @@ Cochez la case « **Je reconnais que cette opération va remplacer tout le conte
 Lorsque vous créez un serveur principal Node.js Mobile App à l’aide du panneau **Démarrage rapide** du portail, un projet Node.js est créé et déployé sur votre site. Vous pouvez ajouter des tables et des API et modifier les fichiers de code pour le serveur principal Node.js dans le portail. Vous pouvez également utiliser l’un des divers outils de déploiement pour télécharger le projet de serveur principal afin de pouvoir ajouter ou modifier des tables et des API, avant de publier à nouveau le projet. Pour plus d’informations, consultez le [Guide de déploiement d’Azure App Service]. La procédure suivante utilise un référentiel Git pour télécharger le code de projet quickstart.
 
 1. Si vous ne l’avez pas déjà fait, installez Git. La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
-2. Suivez les étapes de la rubrique [Activer le référentiel de l’application App Service](../app-service-web/app-service-deploy-local-git.md#Step3) pour activer le référentiel Git pour votre backend, en prenant note du nom d’utilisateur et du mot de passe utilisés pour le déploiement.
+2. Suivez les étapes de la rubrique [Activer le référentiel de l’application App Service](../app-service/app-service-deploy-local-git.md#Step3) pour activer le référentiel Git pour votre backend, en prenant note du nom d’utilisateur et du mot de passe utilisés pour le déploiement.
 3. Dans le panneau de votre serveur principal Mobile App, prenez note du paramètre **URL de clone Git** .
 4. Exécutez la commande `git clone` à l’aide de l’URL de clone Git, en saisissant si besoin votre mot de passe, comme dans l’exemple suivant :
 
@@ -319,7 +318,7 @@ Nous vous recommandons d’ajouter *azureMobile.js* à votre fichier *.gitignore
 ### <a name="howto-appsettings"></a>Procédure : configuration des paramètres d’application pour votre application mobile
 La plupart des paramètres du fichier *azureMobile.js* ont un paramètre équivalent dans le [portail Azure].  Utilisez la liste suivante pour configurer votre application dans les paramètres d’application :
 
-| Paramètre d'application | *azureMobile.js*  | Description | Valeurs valides |
+| Paramètre d'application | *azureMobile.js* | Description | Valeurs valides |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |name |Nom de l’application |string |
 | **MS_MobileLoggingLevel** |logging.level |Niveau minimal de journal pour les messages à consigner |error, warning, info, verbose, debug, silly |
@@ -348,7 +347,7 @@ La modification de la plupart des paramètres requiert le redémarrage du servic
 L’utilisation de la base de données SQL Azure en tant que datastore est identique pour tous les types d’applications Azure App Service. Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer un serveur principal d’application mobile.
 
 1. Connectez-vous au [portail Azure].
-2. Dans le coin supérieur gauche de la fenêtre, cliquez sur le bouton **+ NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez un nom pour votre serveur principal d’application mobile.
+2. Dans le coin supérieur gauche de la fenêtre, cliquez sur le bouton **+ NOUVEAU** > **Web + Mobile**>**Application mobile**, puis indiquez un nom pour votre serveur principal d’application mobile.
 3. Dans la zone **Groupe de ressources** , entrez le même nom que votre application.
 4. Le plan App Service par défaut est sélectionné.  Pour modifier votre plan App Service, cliquez sur le plan App Service > **+ Créer nouveau**.  Indiquez le nom du nouveau plan App Service et sélectionnez un emplacement approprié.  Cliquez sur Niveau de tarification et sélectionnez un niveau de tarification approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d’options de tarification, telles que **Gratuit** et **Partagé**.  Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner** .  Retournez dans le panneau **Plan App Service**, puis cliquez sur **OK**.
 5. Cliquez sur **Create**. La configuration d’un serveur principal d’application mobile peut prendre quelques minutes.  Une fois le serveur principal d’application mobile configuré, le portail ouvre le panneau **Paramètres** correspondant au serveur principal d’application mobile.
@@ -844,20 +843,19 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms Client QuickStart]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store Client QuickStart]: app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [la synchronisation des données hors connexion]: app-service-mobile-offline-data-sync.md
-[Comment configurer votre application pour utiliser la connexion Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Comment configurer votre application pour utiliser une connexion Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Comment configurer votre application pour utiliser une connexion Google]: app-service-mobile-how-to-configure-google-authentication.md
-[Comment configurer votre application pour utiliser une connexion par compte Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Comment configurer votre application pour utiliser une connexion Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Guide de déploiement d’Azure App Service]: ../app-service-web/web-sites-deploy.md
-[Surveiller les applications web dans Microsoft Azure App Service]: ../app-service-web/web-sites-monitor.md
-[Activer la journalisation des diagnostics pour les applications web dans Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Dépanner un service Azure App dans Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[Comment configurer votre application pour utiliser la connexion Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Comment configurer votre application pour utiliser une connexion Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[Comment configurer votre application pour utiliser une connexion Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[Comment configurer votre application pour utiliser une connexion par compte Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Comment configurer votre application pour utiliser une connexion Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Guide de déploiement d’Azure App Service]: ../app-service/app-service-deploy-local-git.md
+[Surveiller les applications web dans Microsoft Azure App Service]: ../app-service/web-sites-monitor.md
+[Activer la journalisation des diagnostics pour les applications web dans Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
+[Dépanner un service Azure App dans Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [spécifier la version de Node]: ../nodejs-specify-node-version-azure-apps.md
 [utiliser les modules Node]: ../nodejs-use-node-modules-azure-apps.md
-[Create a new Azure App Service]: ../app-service-web/
+[Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
@@ -875,4 +873,3 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
-

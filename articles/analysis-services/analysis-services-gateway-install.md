@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/09/2017
 ms.author: owend
+ms.openlocfilehash: 71c4c8929a80a46ba2b9ba204f5666d40607f303
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: d614352a62dc7aca012e9b144473604ae9829af9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales. Pour en savoir plus sur la passerelle, consultez la page [Passerelle de données locale](analysis-services-gateway.md).
@@ -44,6 +43,7 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
 * Une seule passerelle peut être installée sur un ordinateur.
 * Installez la passerelle sur un ordinateur qui reste activé et qui ne se met pas en veille.
 * N’installez pas la passerelle sur un ordinateur sans fil connecté à votre réseau. Les performances peuvent être réduites.
+* Connectez-vous à Azure avec le compte Azure AD du même [locataire](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que l’abonnement dans lequel vous inscrivez la passerelle. Les comptes Azure B2B (invité) ne sont pas pris en charge lors de l’installation et de l’inscription d’une passerelle.
 
 
 ## <a name="download"></a>Télécharger
@@ -57,12 +57,12 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
 
    ![Emplacement d’installation et termes du contrat de licence](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Entrez un compte pour vous connecter à Azure. Le compte doit se trouver dans l’Azure Active Directory de votre locataire. Ce compte est utilisé pour l’administrateur de passerelle. 
+3. Connectez-vous à Azure. Le compte doit se trouver dans l’Azure Active Directory de votre locataire. Ce compte est utilisé pour l’administrateur de passerelle. Les comptes Azure B2B (invité) ne sont pas pris en charge lors de l’installation et de l’inscription de la passerelle.
 
-   ![Entrer un compte pour vous connecter à Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Connexion à Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > Si vous vous connectez avec un compte de domaine, il sera mappé à votre compte professionnel dans Azure AD. Votre compte professionnel sert de compte d’administrateur de passerelle.
+   > Si vous vous connectez avec un compte de domaine, ce compte sera mappé à votre compte professionnel dans Azure AD. Votre compte professionnel sert de compte d’administrateur de passerelle.
 
 ## <a name="register"></a>S’inscrire
 Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’instance locale que vous avez installée auprès du service cloud de passerelle. 
@@ -88,7 +88,6 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
     * **Nom** : entrez un nom pour votre ressource de passerelle. 
 
     * **Abonnement** : sélectionnez l’abonnement Azure à associer à votre ressource de passerelle. 
-    Cet abonnement doit être le même que celui de vos serveurs.
    
       L’abonnement par défaut est basé sur le compte Azure que vous avez utilisé pour vous connecter.
 
@@ -118,4 +117,3 @@ Vous avez terminé. Si vous devez ouvrir des ports ou effectuer des opérations 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gérer Analysis Services](analysis-services-manage.md)   
 * [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)
-

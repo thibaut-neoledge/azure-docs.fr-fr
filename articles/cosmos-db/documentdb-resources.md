@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 53059c09d454dedbd65ef188a0dd91d497b0e502
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7326dce288996f0690be3b66882b8b4c21a35348
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Concepts clés et modèle de ressource hiérarchiques Azure Cosmos DB
 Les entités de base de données que gère Azure Cosmos DB sont appelées des **ressources**. Chaque ressource est identifiée de manière unique par un URI logique. Vous pouvez interagir avec ces ressources en utilisant des verbes HTTP standard, des en-têtes de demande/réponse et des codes d'état. 
@@ -217,7 +216,7 @@ En vertu de son engagement ferme vis-à-vis de JavaScript et JSON directement da
 * la mise en œuvre efficace simultanée du contrôle, de la récupération, de l'indexation automatique des graphiques d'objet JSON directement dans le moteur de base de données ;
 * l'expression naturelle du flux de contrôle, l'étendue variable, attribution et l'intégration directes des primitives de gestion des exceptions directement en termes du langage de programmation JavaScript.
 
-La logique JavaScript enregistrée au niveau d'une collection peut alors émettre des opérations de base de données vers les documents d'une collection donnée. Azure Cosmos DB inclut implicitement les procédures stockées et les déclencheurs JavaScript dans des transactions ACID ambiantes, avec un isolement de capture instantanée dans les documents d’une collection. Lors de son exécution, si le code JavaScript lève une exception, toute la transaction est abandonnée. Le modèle de programmation qui en résulte est simple mais puissant. Les développeurs JavaScript obtiennent un modèle de programmation « durable » tout en continuant d'utiliser les constructions de langage et les primitives de bibliothèques qui leurs sont familières.   
+La logique JavaScript enregistrée au niveau d'une collection peut alors émettre des opérations de base de données vers les documents d'une collection donnée. Azure Cosmos DB inclut implicitement les procédures stockées et les déclencheurs JavaScript dans des transactions ACID ambiantes, avec un isolement de capture instantanée dans les documents d’une collection. Lors de son exécution, si le code JavaScript lève une exception, toute la transaction est abandonnée. Le modèle de programmation obtenu est très simple, mais puissant. Les développeurs JavaScript obtiennent un modèle de programmation « durable » tout en continuant d'utiliser les constructions de langage et les primitives de bibliothèques qui leurs sont familières.   
 
 La possibilité d'exécuter directement JavaScript dans le moteur de base de données au sein du même espace d'adressage que le pool de mémoires tampons permet une exécution performante et transactionnelle des opérations de base de données sur les documents d'une collection. De plus, l’engagement ferme du moteur de base de données Cosmos DB envers JSON et JavaScript élimine tout risque d’incohérence en matière d’impédance entre les systèmes de type d’application et la base de données.   
 
@@ -462,5 +461,4 @@ Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, 
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-
 
