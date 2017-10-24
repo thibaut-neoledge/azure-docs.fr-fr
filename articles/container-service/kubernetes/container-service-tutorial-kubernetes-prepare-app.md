@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d09f59715ac4dac1482e6ca5f79e8426f1f01ced
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: d09f59715ac4dac1482e6ca5f79e8426f1f01ced
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/29/2017
+
 ---
+
 # <a name="create-container-images-to-be-used-with-azure-container-service"></a>Créer des images de conteneur à utiliser avec Azure Container Service
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Dans ce didacticiel (le premier d’une série de sept), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les étapes effectuées sont les suivantes :  
 
@@ -140,3 +144,4 @@ Passez au didacticiel suivant pour en savoir plus sur le stockage d’images de 
 
 > [!div class="nextstepaction"]
 > [Envoyer des images à Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)
+
