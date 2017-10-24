@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 523b3608c242a8041a2ea2806543e882de0e492e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montage d’un partage de fichiers Azure avec Azure Container Instances
 
@@ -55,14 +55,14 @@ Pour monter un partage de fichiers Azure en tant que volume dans Azure Container
 Si vous avez utilisé le script ci-dessus, le nom du compte de stockage a été créé avec une valeur aléatoire à la fin. Pour interroger la chaîne finale (y compris la partie aléatoire), utilisez les commandes suivantes :
 
 ```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
 echo $STORAGE_ACCOUNT
 ```
 
 Le nom du partage étant déjà connu (il s’agit de *acishare* dans le script ci-dessus), il ne reste que la clé du compte de stockage accessible à l’aide de la commande suivante :
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
@@ -74,7 +74,7 @@ Créez un coffre de clés avec Azure CLI :
 
 ```azurecli-interactive
 KEYVAULT_NAME=aci-keyvault
-az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g myResourceGroup
+az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g $ACI_PERS_RESOURCE_GROUP
 ```
 
 Le commutateur `enabled-for-template-deployment` permet à Azure Resource Manager d’extraire les secrets de votre coffre de clés au moment du déploiement.
