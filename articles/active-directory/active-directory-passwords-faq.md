@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -178,7 +177,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q : Quelle est la durée de validité du code secret à usage unique pour les e-mails et les SMS ?**
 
-  > **R :** La durée de vie de session pour la réinitialisation du mot de passe est de 105 minutes. À compter du début de l’opération de réinitialisation du mot de passe, l’utilisateur dispose de 105 minutes pour le réinitialiser. Le code secret à usage unique pour les messages électroniques et les SMS perd sa validité à l’issue de cette période.
+  > **R :** La durée de vie de session pour la réinitialisation du mot de passe est de 15 minutes. À compter du début de l’opération de réinitialisation du mot de passe, l’utilisateur dispose de 15 minutes pour le réinitialiser. Le code secret à usage unique pour les messages électroniques et les SMS perd sa validité à l’issue de cette période.
   >
   >
 
@@ -276,8 +275,7 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service pour vos utilisateurs grâce aux conseils figurant ici.
 * [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
 * [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service
-* [**Stratégie** ](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD
-* [**Écriture différée de mot de passe** ](active-directory-passwords-writeback.md) - fonctionnement de l’écriture différée de mot de passe avec votre annuaire local
-* [**Présentation technique approfondie** ](active-directory-passwords-how-it-works.md) : découvrez ce qu’il se passe sous le capot pour comprendre le fonctionnement
-* [**Résolution des problèmes** ](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants que nous observons avec la réinitialisation de mot de passe en libre-service
-
+* [**Stratégie**](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD
+* [**Écriture différée de mot de passe**](active-directory-passwords-writeback.md) - fonctionnement de l’écriture différée de mot de passe avec votre annuaire local
+* [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qu’il se passe sous le capot pour comprendre le fonctionnement
+* [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants que nous observons avec la réinitialisation de mot de passe en libre-service

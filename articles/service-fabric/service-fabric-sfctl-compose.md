@@ -14,26 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 64852471a848cb42fd8a2e67622d309d5e050cfd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-compose"></a>sfctl compose
-Permet de créer, de supprimer et de gérer les applications Docker Compose.
+Permet de créer, de supprimer et de gérer les déploiements Docker Compose.
 
 ## <a name="commands"></a>Commandes
 
 |Commande|Description|
 | --- | --- |
-|    create| Crée une application Service Fabric à partir d’un fichier Compose.|
-|    list  | Permet d’obtenir la liste des applications compose créées dans le cluster Service Fabric.|
-|   remove| Permet de supprimer une application compose Service Fabric existante du cluster.|
-|   status| Permet d’obtenir des informations sur une application compose Service Fabric.|
+|    create| Permet de déployer une application Service Fabric à partir d’un fichier Compose.|
+|    list  | Permet d’obtenir la liste des déploiements compose créés dans le cluster Service Fabric.|
+|   remove| Permet de supprimer un déploiement compose Service Fabric existant du cluster.|
+|   status| Permet d’obtenir des informations sur un déploiement compose Service Fabric.|
 |mettre à niveau       | Permet de commencer la mise à niveau d’un déploiement compose dans le cluster Service Fabric.|
-|    upgrade-status| Permet d’obtenir la dernière mise à jour effectuée sur ce déploiement compose Service Fabric.|
+|    upgrade-status| Permet d’obtenir des informations sur la dernière mise à niveau effectuée sur le déploiement Compose Service Fabric.|
 
 
 ## <a name="sfctl-compose-create"></a>sfctl compose create
@@ -44,11 +43,11 @@ Permet de créer un déploiement compose Service Fabric.
 |Argument|Description|
 | --- | --- |
 | --file-path [Requis]| Chemin d’accès au fichier Docker Compose cible.|
- |   --name      [Requis]| Identité du déploiement.|
-|    --encrypted-pass      | Au lieu de demander un mot de passe de Registre de conteneur, utilisez une phrase secrète déjà chiffrée.|
-|    --has-pass            | Demande un mot de passe pour accéder au Registre du conteneur.|
-|    --timeout -t          | Délai d’expiration du serveur en secondes.  Valeur par défaut : 60.|
- |   --user                | Nom d’utilisateur pour se connecter au Registre du conteneur.|
+ |   --deployment-name [Requis]| Le nom du déploiement.|
+|    --encrypted-pass             | Au lieu de demander un mot de passe de Registre de conteneur, utilisez une phrase secrète déjà chiffrée.|
+|    --has-pass                   | Demande un mot de passe pour accéder au Registre du conteneur.|
+|    --timeout -t                 | Délai d’expiration du serveur en secondes.  Valeur par défaut : 60.|
+ |   --user                       | Nom d’utilisateur pour se connecter au Registre du conteneur.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -136,7 +135,7 @@ Permet de valider les paramètres de mise à niveau fournis et de commencer la m
 |Argument|Description|
 | --- | --- |
 |    --file-path        [Requis]| Chemin d’accès au fichier Docker Compose cible.|
-|    --name             [Requis]| Identité du déploiement.|
+|    --deployment-name [Requis]| Le nom du déploiement.|
 |    --default-svc-type-health-map| Dictionnaire encodé JSON qui décrit la stratégie d’intégrité utilisée pour évaluer l’intégrité des services.|
 |    --encrypted-pass             | Au lieu de demander un mot de passe de Registre de conteneur, utilisez une phrase secrète déjà chiffrée.|
  |   --failure-action             | Les valeurs possibles sont : « Invalid », « Rollback », « Manual ».|

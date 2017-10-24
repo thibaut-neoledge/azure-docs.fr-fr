@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 467a08b1ba9f7c0070dfa0cf3df18326cf49ca70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 6a03f668c6b9e18bf80cb04ea9feddeef4b6bd9e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Déployer un cluster Azure Kubernetes pour des conteneurs Windows
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide explique en détail comment utiliser Azure CLI pour déployer un cluster [Kubernetes](https://kubernetes.io/docs/home/) dans [Azure Container Service](../container-service-intro.md). Une fois le cluster déployé, vous vous y connectez avec l’outil en ligne de commande Kubernetes `kubectl`, et vous déployez votre premier conteneur Windows.
@@ -168,7 +166,7 @@ Pour exposer le pod avec une adresse IP publique, tapez la commande suivante :
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Avec cette commande, Kubernetes crée un service et une [règle Azure Load Balancer](container-service-kubernetes-load-balancing.md) avec une adresse IP publique pour ce service. 
+Avec cette commande, Kubernetes crée un service et une règle Azure Load Balancer avec une adresse IP publique pour ce service. 
 
 Exécutez la commande suivante pour afficher l’état du service.
 
@@ -203,4 +201,3 @@ Par le biais de ce guide de démarrage rapide, vous avez déployé un cluster Ku
 
 > [!div class="nextstepaction"]
 > [Gérer un cluster Kubernetes ACS](container-service-tutorial-kubernetes-prepare-app.md)
-

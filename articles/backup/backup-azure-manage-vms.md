@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestion des sauvegardes de machines virtuelles Azure
 > [!div class="op_single_selector"]
@@ -95,7 +95,7 @@ Dans la procédure précédente, vous avez ouvert le tableau de bord du coffre. 
    * suspendre la protection des machines virtuelles <br\>
    * reprendre la protection d’une machine virtuelle <br\>
    * supprimer des données de sauvegarde (ou un point de récupération) <br\>
-   * [restaurer des disques de sauvegarde](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
+   * [restaurer des disques de sauvegarde](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  &lt;br\>
 
 Pour les procédures suivantes, nous allons travailler à partir du tableau de bord de l’élément du coffre.
 
@@ -170,7 +170,7 @@ Pour arrêter la protection d’une machine virtuelle :
 
     Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour en afficher le nom. Le nom de l’élément figure également sous **Arrêter la sauvegarde** en haut du panneau.
 4. Vous pouvez, si vous le souhaitez, indiquer une **Raison** ou un **Commentaire**.
-5. Pour arrêter le travail de sauvegarde pour l’élément actif, cliquez sur ![bouton sauvegarde arrêter](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. Pour arrêter le travail de sauvegarde de l’élément actif, cliquez sur le ![bouton Arrêter la sauvegarde](./media/backup-azure-manage-vms/stop-backup-button-blue.png).
 
     Un message de notification vous informe que les travaux de sauvegarde ont été interrompus.
 
@@ -219,7 +219,7 @@ Pour supprimer les données de sauvegarde d’une machine virtuelle avec l’opt
 
     Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour en afficher le nom. Le nom de l’élément figure également sous **Supprimer les données de sauvegarde** en haut du panneau.
 3. Vous pouvez, si vous le souhaitez, indiquer une **Raison** ou un **Commentaire**.
-4. Pour supprimer les données de sauvegarde pour l’élément actif, cliquez sur ![bouton sauvegarde arrêter](./media/backup-azure-manage-vms/delete-button.png)
+4. Pour supprimer les données de sauvegarde de l’élément actif, cliquez sur le ![bouton Arrêter la sauvegarde](./media/backup-azure-manage-vms/delete-button.png).
 
     Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 

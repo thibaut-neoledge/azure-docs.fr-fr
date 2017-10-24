@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
+ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: bef3e7bf8b1fd9199d0c8a083d94660b8eed3365
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
 
@@ -83,7 +82,7 @@ Si vous ne pouvez pas effectuer de mise à niveau vers les dernières versions d
 
 ### <a name="cause"></a>Cause :
 
-Certaines distributions Linux ne prennent pas encore en charge les fonctionnalités de chiffrement dans SMB 3.0, et les utilisateurs peuvent recevoir un message d’erreur « 115 » s’ils essaient de monter Azure Files à l’aide de SMB 3.0, en raison d’une fonctionnalité manquante.
+Certaines distributions Linux ne prennent pas encore en charge les fonctionnalités de chiffrement dans SMB 3.0, et les utilisateurs peuvent recevoir un message d’erreur « 115 » s’ils essaient de monter Azure Files à l’aide de SMB 3.0, en raison d’une fonctionnalité manquante. SMB 3.0 avec le chiffrement complet est uniquement pris en charge lors de l’utilisation d’Ubuntu 16.04 ou version ultérieure.
 
 ### <a name="solution"></a>Solution
 
@@ -104,11 +103,11 @@ Pour vérifier si la mise en cache est désactivée, recherchez l’entrée **ca
 
 Dans certains scénarios, l’option de montage **serverino** peut entraîner la commande **ls** à exécuter stat dans chaque entrée de répertoire. Ce comportement provoque une dégradation des performances lorsque vous répertoriez le contenu d’un répertoire volumineux. Vous pouvez vérifier les options de montage dans l’entrée **/etc/fstab** :
 
-`//azureuser.file.core.windows.net/cifs /cifs cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 Vous pouvez également vérifier si les options correctes sont utilisées en exécutant la commande **sudo mount | grep cifs** et en vérifiant sa sortie, comme l’exemple de sortie suivant :
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Si l’option **cache=strict** ou **serverino** n’est pas présente, démontez et remontez Azure Files en exécutant la commande de montage à partir de la [documentation](../storage-how-to-use-files-linux.md). Revérifiez ensuite que les options sont correctes pour l’entrée **/etc/fstab**.
 
@@ -159,4 +158,3 @@ Pour résoudre le problème, utilisez [l’outil de résolution des erreurs de m
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.
-

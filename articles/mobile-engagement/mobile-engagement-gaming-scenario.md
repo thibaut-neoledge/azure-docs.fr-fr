@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Mise en œuvre de Mobile Engagement avec une application de jeu
 ## <a name="overview"></a>Vue d'ensemble
@@ -61,7 +61,7 @@ Après 3 mois, le responsable de projet mobile a recueilli suffisamment de donn
 * Les utilisateurs qui ont réussi le niveau 20 commencent à dépenser plus de 10 $/semaine.
 * Les utilisateurs ont tendance à acheter des packages premium aux niveaux 16, 24 et 32.
 
-Grâce à cette analyse, le responsable de projet mobile décide de créer des séquences de notification Push spécifiques pour augmenter les ventes d’application. Il crée trois séquences Push qu’il nomme respectivement Bienvenue dans le programme, Programme commercial et Programme inactif. Pour plus d’informations, reportez-vous à la [règles](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]
+Grâce à cette analyse, le responsable de projet mobile décide de créer des séquences de notification Push spécifiques pour augmenter les ventes d’application. Il crée trois séquences Push qu’il nomme respectivement Bienvenue dans le programme, Programme commercial et Programme inactif. Pour plus d’informations, reportez-vous aux [Manuels](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks).![][1]
 
 <!--Image references-->
 

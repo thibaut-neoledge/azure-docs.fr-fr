@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: 523b3608c242a8041a2ea2806543e882de0e492e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montage d’un partage de fichiers Azure avec Azure Container Instances
 
 Par défaut, les conteneurs Azure Container Instances sont sans état. Si le conteneur se bloque ou s’arrête, son état est entièrement perdu. Pour conserver l’état au-delà de la durée de vie du conteneur, vous devez monter un volume à partir d’un stockage externe. Cet article explique comment monter un partage de fichiers Azure pour une utilisation avec Azure Container Instances.
@@ -205,4 +203,3 @@ Vous pouvez utiliser un outil comme l’[Explorateur de stockage Microsoft Azure
 
 - Déployer votre premier conteneur en utilisant le [démarrage rapide](container-instances-quickstart.md) d’Azure Container Instances
 - Découvrir la [relation entre Azure Container Instances et les orchestrateurs de conteneurs](container-instances-orchestrator-relationship.md)
-

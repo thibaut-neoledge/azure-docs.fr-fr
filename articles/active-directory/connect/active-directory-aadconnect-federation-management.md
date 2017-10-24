@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: 0cab39bb3ce5c42fac543171baea498eb894c502
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 14f03542a6553c5bb697192828368ffe6b96441c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect
 Cet article décrit comment gérer et personnaliser Active Directory Federation Services (ADFS) à l’aide d’Azure Active Directory (Azure AD) Connect. Il indique également d’autres tâches courantes liées à AD FS que vous devrez peut-être effectuer pour terminer la configuration d’une batterie de serveurs AD FS.
@@ -42,7 +41,7 @@ Cet article décrit comment gérer et personnaliser Active Directory Federation 
 ## <a name="manage-ad-fs"></a>Gérer AD FS
 Vous pouvez effectuer différentes tâches associées à AD FS dans Azure AD Connect avec une intervention minime de l’utilisateur à l’aide de l’Assistant Azure AD Connect. Une fois que vous avez terminé l’installation d’Azure AD Connect à l’aide de l’Assistant, vous pouvez à nouveau exécuter l’Assistant pour effectuer des tâches supplémentaires.
 
-## Réparation de l’approbation <a name=repairthetrust></a>
+## <a name="repairthetrust"></a>Réparation de l’approbation 
 Vous pouvez utiliser Azure AD Connect pour vérifier l’état actuel des services AD FS et Azure AD et prendre des mesures appropriées pour réparer l’approbation. Pour réparer l’approbation des services Azure AD et AD FS, procédez comme suit :
 
 1. Sélectionnez **Réparer la confiance AAD et ADFS** dans la liste des tâches disponibles.
@@ -68,7 +67,7 @@ Vous pouvez utiliser Azure AD Connect pour vérifier l’état actuel des servic
 > [!NOTE]
 > Azure AD Connect peut seulement réparer ou modifier les certificats auto-signés. Azure AD Connect ne permet pas de réparer les certificats tiers.
 
-## Fédération avec Azure AD en utilisant AlternateID <a name=alternateid></a>
+## <a name="alternateid"></a>Fédération avec Azure AD via AlternateID 
 Il est recommandé que le nom d’utilisateur principal (UPN) local et le nom d’utilisateur principal cloud soient identiques. Si l’UPN local utilise un domaine non routable (par ex. Contoso.local) ou ne peut pas être modifié en raison des dépendances d’application locales, nous vous recommandons de configurer un ID de connexion de substitution. Un ID de connexion de substitution permet de configurer une expérience de connexion où les utilisateurs peuvent se connecter avec un attribut autre que leur UPN, comme leur adresse e-mail. Le choix de nom d’utilisateur principal dans Azure AD Connect est par défaut l’attribut userPrincipalName dans Active Directory. Si vous choisissez n’importe quel autre attribut pour le nom d’utilisateur principal et fédérez avec AD FS, Azure AD Connect configurera AD FS pour l’ID de connexion de substitution. Vous trouverez ci-dessous un exemple de choix d’un autre attribut pour le nom d’utilisateur principal :
 
 ![Sélection d’un attribut d’ID de substitution](media/active-directory-aadconnect-federation-management/attributeselection.png)
@@ -84,7 +83,7 @@ La configuration d’un ID de connexion de substitution pour AD FS comprend deux
 > [!NOTE]
 > Pour plus d’informations sur ID de substitution et les étapes de configuration manuelle, lisez [Configuration d’un ID de connexion de substitution](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
 
-## Ajout d’un serveur AD FS <a name=addadfsserver></a>
+## <a name="addadfsserver"></a>Ajout d’un serveur AD FS 
 
 > [!NOTE]
 > Pour ajouter un serveur AD FS, Azure AD Connect requiert le certificat PFX. Par conséquent, vous ne pouvez effectuer cette opération que si vous avez configuré la batterie de serveurs AD FS à l’aide d’Azure AD Connect.
@@ -117,7 +116,7 @@ La configuration d’un ID de connexion de substitution pour AD FS comprend deux
 
     ![Installation terminée](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
-## Ajout d’un serveur de proxy d’application web AD FS <a name=addwapserver></a>
+## <a name="addwapserver"></a>Ajout d’un serveur WAP AD FS 
 
 > [!NOTE]
 > Pour ajouter un serveur de proxy d’application web AD FS, Azure AD Connect requiert le certificat PFX. Par conséquent, vous ne pouvez effectuer cette opération que si vous avez configuré la batterie de serveurs AD FS à l’aide d’Azure AD Connect.
@@ -151,7 +150,7 @@ La configuration d’un ID de connexion de substitution pour AD FS comprend deux
 
    ![Installation terminée](media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
-## Ajout d’un domaine fédéré <a name=addfeddomain></a>
+## <a name="addfeddomain"></a>Ajout d’un domaine fédéré 
 
 Il est facile d’ajouter un domaine à fédérer avec Azure AD à l’aide d’Azure AD Connect. Azure AD Connect ajoute le domaine de la fédération et modifie les règles de revendication pour identifier correctement l’émetteur lorsque plusieurs domaines sont fédérés avec Azure AD.
 
@@ -183,7 +182,7 @@ Il est facile d’ajouter un domaine à fédérer avec Azure AD à l’aide d’
 ## <a name="ad-fs-customization"></a>Personnalisation d’AD FS
 Les sections suivantes fournissent des informations concernant certaines tâches courantes que vous devrez peut-être effectuer pour personnaliser votre page de connexion AD FS.
 
-## Ajout d’une illustration ou d’un logo de société personnalisé <a name=customlogo></a>
+## <a name="customlogo"></a>Ajout d’une illustration ou d’un logo de société personnalisé 
 Pour changer le logo de la société affiché sur la page **Connexion**, utilisez l’applet de commande et la syntaxe Windows PowerShell suivantes.
 
 > [!NOTE]
@@ -194,12 +193,12 @@ Pour changer le logo de la société affiché sur la page **Connexion**, utilise
 > [!NOTE]
 > Le paramètre *TargetName* est obligatoire. Le thème par défaut publié avec AD FS est nommé Par défaut.
 
-## Ajout d’une description de connexion <a name=addsignindescription></a>
+## <a name="addsignindescription"></a>Ajout d’une description de connexion 
 Pour ajouter une description de la **page de connexion**, utilisez l’applet de commande et la syntaxe Windows PowerShell suivantes.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-## Modification des règles de revendication AD FS <a name=modclaims></a>
+## <a name="modclaims"></a>Modification des règles de revendication AD FS 
 AD FS prend en charge un langage complet, qui permet de créer des règles de revendication personnalisées. Pour plus d’informations, consultez [Rôle du langage de règle de revendication](https://technet.microsoft.com/library/dd807118.aspx).
 
 Les sections suivantes décrivent comment écrire des règles personnalisées pour certains scénarios se rapportant à la fédération des services Azure AD et AD FS.
@@ -272,4 +271,3 @@ Pour n’avoir que le domaine racine dans la valeur de revendication de l’éme
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [options de connexion de l’utilisateur](active-directory-aadconnect-user-signin.md).
-

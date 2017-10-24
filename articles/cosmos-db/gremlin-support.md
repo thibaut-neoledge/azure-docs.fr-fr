@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/10/2017
 ms.author: denlee
+ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 3f2d2af1d6be41d98f9780b4cf9ca4cd79de0fd7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Prise en charge des graphes Azure Cosmos DB Gremlin
 Azure Cosmos DB prend en charge le langage de traversée de graphe [d’Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). Il s’agit d’une API Graph qui permet de créer des entités de graphes et d’effectuer des opérations de requête de graphe. Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (vertex et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
 
@@ -209,4 +207,3 @@ Le moteur optimisé pour l’écriture d’Azure Cosmos DB prend en charge l’i
 ## <a name="next-steps"></a>Étapes suivantes
 * Commencez par créer une application de graphe [à l’aide de nos kits SDK](create-graph-dotnet.md) 
 * En savoir plus sur [la prise en charge des graphes par Azure Cosmos DB](graph-introduction.md)
-

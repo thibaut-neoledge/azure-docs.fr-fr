@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: f98d769542f5a52d659f561e970f0a7e9dce9fd9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
-
+ms.openlocfilehash: 96f0be021a2b362c702f91ec4b532df8a334529f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Utilisation de C# avec Diffusion en continu MapReduce sur Hadoop dans HDInsight
 
@@ -180,7 +179,7 @@ Après avoir créé l’application, générez-la pour produire le fichier `/bin
 
 1. Utilisez SSH pour vous connecter au cluster HDInsight. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Exécutez une des commandes suivantes pour démarrer la tâche MapReduce :
+2. Exécutez une des commandes suivantes pour démarrer la tâche MapReduce :
 
     * Si vous utilisez __Data Lake Store__ en tant que stockage par défaut :
 
@@ -227,7 +226,7 @@ Utilisez le script PowerShell suivant pour exécuter une tâche MapReduce et té
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Ce script vous invite à entrer le nom et le mot de passe du compte de connexion du cluster, ainsi que le nom du cluster HDInsight. Une fois la tâche terminée, la sortie est téléchargée vers le fichier `output.txt` dans le répertoire à partir duquel le script est exécuté. Le texte suivant constitue un exemple des données contenues dans le fichier `output.txt` :
+Ce script vous invite à entrer le nom et le mot de passe du compte de connexion du cluster, ainsi que le nom du cluster HDInsight. Une fois que la tâche est terminée, la sortie est téléchargée dans un fichier nommé `output.txt`. Le texte suivant constitue un exemple des données contenues dans le fichier `output.txt` :
 
     you     1128
     young   38

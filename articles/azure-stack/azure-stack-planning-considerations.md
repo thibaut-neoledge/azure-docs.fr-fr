@@ -12,14 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/09/2017
 ms.author: twooley
+ms.openlocfilehash: 790b65720a8457b780dc727b0f67fcd12aed31bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 54d9ba1ac1e46843740b7dcec2c9bef80b2325b4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Considérations sur la planification pour les systèmes intégrés Azure Stack
 
@@ -39,7 +38,7 @@ Lorsqu’un niveau plus élevé d’accès est nécessaire pour résoudre des pr
 
 ## <a name="deploy-connected-or-disconnected"></a>Déploiement connecté ou déconnecté
  
-Vous pouvez choisir de déployer Azure Stack en le connectant ou non à internet (et à Azure). Pour tirer le meilleur parti de Azure Stack, y compris les scénarios hybrides entre Azure Stack et Azure, vous souhaiterez le connecter à Azure. Le tableau suivant permet de résumer les principales différences entre les modes de déploiement.
+Vous pouvez choisir de déployer Azure Stack en le connectant ou non à internet (et à Azure). Pour tirer le meilleur parti d’Azure Stack, y compris les scénarios hybrides entre Azure Stack et Azure, vous souhaiterez le connecter à Azure. Le tableau suivant permet de résumer les principales différences entre les modes de déploiement.
 
 | Domaine | Mode connecté | Mode déconnecté |
 | -------- | ------------- | ----------|
@@ -55,26 +54,26 @@ Vous ne pouvez pas modifier le mode de déploiement plus tard sans effectuer un 
 
 ### <a name="choose-identity-provider"></a>Choisir un fournisseur d’identité
 
-Vous devez prendre en compte le fournisseur d’identité que vous souhaitez utiliser pour le déploiement de Azure Stack, que ce soit Azure AD ou AD FS. Vous ne pouvez pas changer les fournisseurs d’identité après le déploiement sans effectuer un redéploiement complet du système.
+Vous devez prendre en compte le fournisseur d’identité que vous souhaitez utiliser pour le déploiement d’Azure Stack, que ce soit Azure AD ou AD FS. Vous ne pouvez pas changer les fournisseurs d’identité après le déploiement sans effectuer un redéploiement complet du système.
 
 Votre choix de fournisseur d’identité n’a aucune incidence sur les machines virtuelles du client, le système d’identité et les comptes qu’ils utilisent, la possibilité de joindre un domaine Active Directory, etc. C’est différent.
 
-**Raisons d’envisager l’utilisation de Azure AD**
+**Raisons d’envisager l’utilisation d’Azure AD**
 
 - Vous disposez déjà d’investissements dans Azure AD (par exemple, Azure ou Office 365).
 - Vous souhaitez utiliser la même identité dans des clouds Azure et Azure Stack.
-- Vous souhaitez prendre en charge les scénarios d’architecture mutualisée, où vous pouvez héberger des organisations différentes sur la même instance de Azure Stack.
+- Vous souhaitez prendre en charge les scénarios d’architecture mutualisée, où vous pouvez héberger des organisations différentes sur la même instance d’Azure Stack.
 - Vous souhaitez utiliser la gestion de répertoire basée sur REST via Azure AD Graph pour approvisionner les utilisateurs, groupes, etc. via des API.
 
 > [!NOTE]
-> Un déploiement de Azure Stack ne peut pas se connecter à une instance Azure AD et une instance AD FS existante en même temps. Si vous déployez avec Azure AD, et que vous souhaitez utiliser une instance AD FS existante, vous pouvez fédérer votre instance AD FS locale avec Azure AD.
+> Un déploiement d’Azure Stack ne peut pas se connecter à une instance Azure AD et une instance AD FS existante en même temps. Si vous déployez avec Azure AD, et que vous souhaitez utiliser une instance AD FS existante, vous pouvez fédérer votre instance AD FS locale avec Azure AD.
 
 **Raisons d’envisager l’utilisation de AD FS**
 
 - La connectivité à internet est partielle ou inexistante.
 - Il existe des exigences de souveraineté/réglementaires.
 - Vous souhaitez utiliser votre propre système d’identité (par exemple, votre Active Directory d’entreprise) pour les comptes d’utilisateurs et d’opérateurs. Pour ce faire, vous pouvez fédérer avec une instance AD FS existante (sur Windows Server 2012, 2012 R2 ou 2016) sauvegardée par Active Directory.
-- Vous ne disposez d’aucun investissements Azure, et vous ne souhaitez pas utiliser Azure AD.
+- Vous ne disposez d’aucun investissement Azure, et vous ne souhaitez pas utiliser Azure AD.
 
 > [!NOTE]
 > Vous pouvez fédérer Azure Stack uniquement avec une autre instance AD FS sauvegardée par Active Directory. Les autres fournisseurs d’identité ne sont pas pris en charge. Si vous avez d’autres fournisseurs d’identité que vous souhaitez utiliser avec Azure Stack, envisagez l’utilisation du déploiement basé sur Azure AD.
@@ -94,7 +93,7 @@ Vous devez choisir le modèle de licence que vous souhaitez utiliser. Pour un d�
 
 ## <a name="naming-decisions"></a>Décisions d’attribution de noms
 
-Vous devez réfléchir à la façon dont vous souhaitez planifier votre espace de noms Azure Stack, notamment le nom de la région et le nom de domaine externe. Le nom de domaine complet (FQDN) de votre déploiement Azure Stack pour les points de terminaison publics est la combinaison de ces deux noms, &lt;*région*&gt;&lt;*nom_de_domaine_externe_complet* &gt;, par exemple, *east.cloud.fabrikam.com*. Dans cet exemple, les portails de Azure Stack sont accessibles aux URL suivantes :
+Vous devez réfléchir à la façon dont vous souhaitez planifier votre espace de noms Azure Stack, notamment le nom de la région et le nom de domaine externe. Le nom de domaine complet (FQDN) de votre déploiement Azure Stack pour les points de terminaison publics est la combinaison de ces deux noms, &lt;*région*&gt;&lt;*nom_de_domaine_externe_complet* &gt;, par exemple, *east.cloud.fabrikam.com*. Dans cet exemple, les portails d’Azure Stack sont accessibles aux URL suivantes :
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
@@ -110,13 +109,16 @@ Le tableau suivant récapitule ces décisions d’attribution de noms de domaine
 
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
 
-Pour le déploiement, vous devrez fournir les certificats SSL (Secure Sockets Layer) pour les points de terminaison publics. Les certificats doivent répondre aux exigences suivantes :
+Pour le déploiement, vous devrez fournir les certificats SSL (Secure Sockets Layer) pour les points de terminaison publics. À un niveau élevé, les certificats présentent les exigences suivantes :
+
+> [!IMPORTANT]
+> Les informations du certificat de cet article sont fournies uniquement à titre indicatif. Avant d’acquérir des certificats pour Azure Stack, travaillez avec votre fabricant partenaire de matériel OEM. Ce dernier fournit des conseils et des exigences plus détaillées en matière de certificat.
 
 - Vous pouvez utiliser un certificat à caractères génériques unique, ou vous pouvez utiliser un jeu de certificats dédiés et utiliser des certificats à caractères génériques uniquement pour les points de terminaison tels que le stockage et le coffre de clés.
 - Les certificats doivent être émis par une autorité de certification approuvée publique (CA) ou une autorité de certification d’entreprise.
 - Le certificat ne peut pas être émis par une autorité de certification intermédiaire.
  
-Le tableau suivant montre les services et le nombre de points de terminaison publics qui nécessitent des certificats pour le déploiement initial de Azure Stack. 
+Le tableau suivant montre les services et le nombre de points de terminaison publics qui nécessitent des certificats pour le déploiement initial d’Azure Stack. 
 
 | Utilisation | Point de terminaison 
 | -------- | ------------- | 
@@ -126,14 +128,14 @@ Le tableau suivant montre les services et le nombre de points de terminaison pub
 | Portail (utilisateur) | portal. [region].[external_domain] |
 | Key Vault (utilisateur) | &#42;.vault.[region].[external_domain] |
 | Key Vault (administrateur) | &#42;.adminvault.[region].[external_domain] |
-| Storage | &#42;blob.[region].[external_domain]<br>&#42;table.[region].[external_domain]<br>&#42;queue.[region].[external_domain]  |
+| Storage | &#42;.blob.[region].[external_domain]<br>&#42;.table.[region].[external_domain]<br>&#42;.queue.[region].[external_domain]  |
 | Graph** | graph.[region].[external_domain] |
 | AD FS** | adfs.[region].[external_domain] |
 | | |
 
 ** Les certificats pour les points de terminaison Graph et AD FS sont nécessaires uniquement pour les déploiements AD FS.
 
-Si vous souhaitez utiliser un certificat à caractères génériques unique, vous avez besoin de six autres noms de l’objet (SAN) pour le déploiement initial de Azure Stack. Ces autres noms de l’objet sont : 
+Si vous souhaitez utiliser un certificat à caractères génériques unique, vous avez besoin de six autres noms de l’objet (SAN) pour le déploiement initial d’Azure Stack. Ces autres noms de l’objet sont : 
 
 - &#42;.[region].[external_domain]
 - &#42;.vault.[region].[external_domain]
@@ -144,15 +146,15 @@ Si vous souhaitez utiliser un certificat à caractères génériques unique, vou
 
 ## <a name="time-synchronization"></a>Synchronisation temporelle
 
-Vous devez synchroniser le serveur de temps de Azure Stack avec un serveur de temps externe qui peut être résolu via l’adresse IP. Un serveur de temps sur le réseau d’entreprise est requis pour un déploiement déconnecté.
+Vous devez synchroniser le serveur de temps d’Azure Stack avec un serveur de temps externe qui peut être résolu via l’adresse IP. Un serveur de temps sur le réseau d’entreprise est requis pour un déploiement déconnecté.
 
 ## <a name="network-connectivity"></a>Connectivité réseau
 
 ### <a name="dns-integration"></a>Intégration DNS
 
-Afin de résoudre les noms DNS externes de Azure Stack (par exemple, www.bing.com), vous devrez fournir des serveurs DNS que Azure Stack peut utiliser pour transférer les requêtes DNS pour lesquelles Azure Stack ne fait pas autorité. En tant qu’entrées du déploiement, vous devez fournir au moins deux serveurs à utiliser comme redirecteurs DNS pour la tolérance de panne.
+Afin de résoudre les noms DNS externes d’Azure Stack (par exemple, www.bing.com), vous devrez fournir des serveurs DNS que Azure Stack peut utiliser pour transférer les requêtes DNS pour lesquelles Azure Stack ne fait pas autorité. En tant qu’entrées du déploiement, vous devez fournir au moins deux serveurs à utiliser comme redirecteurs DNS pour la tolérance de panne.
 
-Afin de résoudre les noms DNS des points de terminaison Azure Stack en dehors de Azure Stack (par exemple, à partir de la forêt d’entreprise), vous devez intégrer les serveurs DNS qui hébergent la zone DNS externe pour Azure Stack aux serveurs DNS qui hébergent la zone parent que vous souhaitez utiliser. Cela requiert une résolution de noms DNS entre Azure Stack et des zones DNS existantes dans le centre de données. Pour ce faire, vous allez utiliser des méthodes telles que la délégation de zone ou le transfert conditionnel. Nous vous recommandons cette approche conditionnelle si vous contrôlez directement les serveurs DNS qui hébergent la zone parente pour votre espace de noms DNS externe Azure Stack. (Si votre zone DNS Azure Stack externe apparaît comme un domaine enfant de votre nom de domaine d’entreprise (par exemple, azurestack.contoso.com et contoso.com), vous devez utiliser la délégation de zone à la place.
+Afin de résoudre les noms DNS des points de terminaison Azure Stack en dehors d’Azure Stack (par exemple, à partir de la forêt d’entreprise), vous devez intégrer les serveurs DNS qui hébergent la zone DNS externe pour Azure Stack aux serveurs DNS qui hébergent la zone parente que vous souhaitez utiliser. Cela requiert une résolution de noms DNS entre Azure Stack et des zones DNS existantes dans le centre de données. Pour ce faire, vous allez utiliser des méthodes telles que la délégation de zone ou le transfert conditionnel. Nous vous recommandons cette approche conditionnelle si vous contrôlez directement les serveurs DNS qui hébergent la zone parente pour votre espace de noms DNS externe Azure Stack. (Si votre zone DNS Azure Stack externe apparaît comme un domaine enfant de votre nom de domaine d’entreprise (par exemple, azurestack.contoso.com et contoso.com), vous devez utiliser la délégation de zone à la place.
 
 ### <a name="network-infrastructure"></a>Infrastructure réseau
 
@@ -164,9 +166,9 @@ Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IP
 
 | Réseau logique | Description | Taille | 
 | -------- | ------------- | ------------ | 
-| Adresse IP virtuelle publique | Les adresses IP publiques pour un petit ensemble de services Azure Stack, avec le reste utilisé par les machines virtuelles du client. L’infrastructure de Azure Stack utilise 32 adresses à partir de ce réseau. Si vous envisagez d’utiliser App Service et les fournisseurs de ressources SQL, 7 adresses supplémentaires sont utilisées. | / 26 (62 hôtes) - /22 (1022 hôtes)<br><br>Recommandé = /24 (254 hôtes) | 
+| Adresse IP virtuelle publique | Les adresses IP publiques pour un petit ensemble de services Azure Stack, avec le reste utilisé par les machines virtuelles du client. L’infrastructure d’Azure Stack utilise 32 adresses à partir de ce réseau. Si vous envisagez d’utiliser App Service et les fournisseurs de ressources SQL, 7 adresses supplémentaires sont utilisées. | / 26 (62 hôtes) - /22 (1022 hôtes)<br><br>Recommandé = /24 (254 hôtes) | 
 | Infrastructure du commutateur | Adresses IP de point à point pour le routage, les interfaces de gestion de commutateur dédiées et les adresses de bouclage attribuées au commutateur. | /26 | 
-| Infrastructure | Utilisé pour les composants internes de Azure Stack pour communiquer. | /24 |
+| Infrastructure | Utilisé pour les composants internes d’Azure Stack pour communiquer. | /24 |
 | Privé | Utilisé pour le réseau de stockage et les adresses IP virtuelles privées. | /24 | 
 | BMC | Utilisé pour communiquer avec les contrôleurs BMC sur les hôtes physiques. | /27 | 
 | | | |
@@ -184,13 +186,13 @@ Nous vous recommandons BGP, car il permet la mise à jour automatique des itiné
 
 Azure Stack prend en charge uniquement les serveurs proxy transparents. Un proxy transparent intercepte les demandes au niveau de la couche réseau sans demander une configuration client spéciale.
 
-### <a name="publish-azure-stack-services"></a>Publier des services de Azure Stack
+### <a name="publish-azure-stack-services"></a>Publier des services d’Azure Stack
 
-Vous devrez rendre les services de Azure Stack disponibles aux utilisateurs en dehors de Azure Stack. Azure Stack définit différents points de terminaison pour ses rôles d’infrastructure. Ces points de terminaison se voient assigner des adresses IP virtuelles du pool d’adresses IP publiques. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement. Par exemple, le portail utilisateur se voit attribué l’entrée d’hôte DNS de « portal. <*region*>. <*external_FQDN*>. » 
+Vous devrez rendre les services d’Azure Stack disponibles aux utilisateurs en dehors d’Azure Stack. Azure Stack définit différents points de terminaison pour ses rôles d’infrastructure. Ces points de terminaison se voient assigner des adresses IP virtuelles du pool d’adresses IP publiques. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement. Par exemple, le portail utilisateur se voit attribuer l’entrée d’hôte DNS de « portal. <*region*>. <*external_FQDN*>. » 
 
 #### <a name="ports-and-urls"></a>Ports et URL
 
-Pour rendre les services de Azure Stack (tels que les portails, Azure Resource Manager, DNS, etc.) disponibles pour les réseaux externes, vous devez autoriser le trafic entrant vers ces points de terminaison pour les URL, les ports et les protocoles spécifiques.
+Pour rendre les services d’Azure Stack (tels que les portails, Azure Resource Manager, DNS, etc.) disponibles pour les réseaux externes, vous devez autoriser le trafic entrant vers ces points de terminaison pour les URL, les ports et les protocoles spécifiques.
  
 Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser des URL et des ports spécifiques pour les communications sortantes. Cela comprend les ports et les URL pour l’identité, la syndication de Place de marché, les correctifs et les mises à jour, l’inscription et les données d’utilisation.
 
@@ -202,19 +204,19 @@ Pour plus d'informations, consultez les pages suivantes :
 
 Pour les scénarios de cloud hybrides, vous devrez planifier la façon dont vous souhaitez connecter Azure Stack à Azure. Deux méthodes vous permettent de connecter des réseaux virtuels Azure Stack à des réseaux virtuels Azure : 
 - **Site à site**. Une connexion de réseau privé virtuel (VPN) sur IPsec (IKE v1 et IKE v2). Ce type de connexion requiert un périphérique VPN ou le service de routage et d’accès à distance (RRAS). Pour plus d’informations sur les passerelles VPN dans Azure, consultez l’article [À propos de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). La communication via ce tunnel est chiffrée et sécurisée. Toutefois, la bande passante est limitée par le débit maximal du tunnel (100-200 Mbps).
-- **NAT de trafic sortant**. Par défaut, toutes les machines virtuelles dans Azure Stack ont une connectivité aux réseaux externes via le NAT de trafic sortant. Chaque réseau virtuel créé dans Azure Stack se voit attribuer une adresse IP publique. Si la machine virtuelle se voit directement attribuée une adresse IP publique, ou se trouve derrière un équilibreur de charge avec une adresse IP publique, il aura un accès sortant via le NAT de trafic sortant à l’aide de l’adresse IP virtuelle du réseau virtuel. Cela fonctionne uniquement pour une communication initiée par la machine virtuelle et destinée à des réseaux externes (internet ou intranet). Il ne peut pas être utilisé pour communiquer avec la machine virtuelle à partir de l’extérieur.
+- **NAT de trafic sortant**. Par défaut, toutes les machines virtuelles dans Azure Stack ont une connectivité aux réseaux externes via le NAT de trafic sortant. Chaque réseau virtuel créé dans Azure Stack se voit attribuer une adresse IP publique. Si la machine virtuelle se voit directement attribuer une adresse IP publique, ou se trouve derrière un équilibreur de charge avec une adresse IP publique, il aura un accès sortant via le NAT de trafic sortant à l’aide de l’adresse IP virtuelle du réseau virtuel. Cela fonctionne uniquement pour une communication initiée par la machine virtuelle et destinée à des réseaux externes (internet ou intranet). Il ne peut pas être utilisé pour communiquer avec la machine virtuelle à partir de l’extérieur.
 
 #### <a name="hybrid-connectivity-options"></a>Options de connectivité hybride
 
 Pour une connectivité hybride, il est important de savoir quel type de déploiement vous souhaitez proposer et où il sera déployé. Vous devrez prendre en compte le fait de devoir isoler le trafic par client, et le fait d’effectuer un déploiement intranet ou internet.
 
-- **Azure Stack à client unique**. Un déploiement de Azure Stack qui semble, au moins du point de vue de la mise en réseau, être un seul client. Il peut y avoir beaucoup d’abonnements clients, mais comme tout service intranet, tout le trafic transite sur les mêmes réseaux. Le trafic provenant d’un abonnement transite sur la même connexion réseau comme un autre abonnement et ne doit être pas être isolé via un tunnel chiffré.
+- **Azure Stack à client unique**. Un déploiement d’Azure Stack qui semble, au moins du point de vue de la mise en réseau, être un seul client. Il peut y avoir beaucoup d’abonnements clients, mais comme tout service intranet, tout le trafic transite sur les mêmes réseaux. Le trafic provenant d’un abonnement transite sur la même connexion réseau comme un autre abonnement et ne doit être pas être isolé via un tunnel chiffré.
 
-- **Azure Stack mutualisé**. Un déploiement de Azure Stack où le trafic de l’abonnement de chaque client lié pour les réseaux externes à Azure Stack doit être isolé du trafic des autres clients.
+- **Azure Stack mutualisé**. Un déploiement d’Azure Stack où le trafic de l’abonnement de chaque client lié pour les réseaux externes à Azure Stack doit être isolé du trafic des autres clients.
  
-- **Déploiement intranet**. Un déploiement de Azure Stack qui se trouve sur un intranet d’entreprise, en général sur l’espace d’adresse IP privée et derrière un ou plusieurs pare-feu. Les adresses IP publiques ne sont pas réellement publiques, car elles ne peuvent pas être routées directement via l’internet public.
+- **Déploiement intranet**. Un déploiement d’Azure Stack qui se trouve sur un intranet d’entreprise, en général sur l’espace d’adresse IP privée et derrière un ou plusieurs pare-feu. Les adresses IP publiques ne sont pas réellement publiques, car elles ne peuvent pas être routées directement via l’internet public.
 
-- **Déploiement internet**. Un déploiement de Azure Stack qui est connecté à l’internet public et utilise des adresses IP publiques routables sur internet pour la plage d’adresses IP virtuelles publiques. Le déploiement peut toujours se placer derrière un pare-feu, mais la plage d’adresses IP virtuelles publiques est directement accessible depuis l’internet public et Azure.
+- **Déploiement internet**. Un déploiement d’Azure Stack qui est connecté à l’internet public et utilise des adresses IP publiques routables sur internet pour la plage d’adresses IP virtuelles publiques. Le déploiement peut toujours se placer derrière un pare-feu, mais la plage d’adresses IP virtuelles publiques est directement accessible depuis l’internet public et Azure.
  
 Le tableau suivant résume les scénarios de connectivité hybride, avec les avantages, les inconvénients et les cas d’usage.
 
@@ -222,7 +224,7 @@ Le tableau suivant résume les scénarios de connectivité hybride, avec les ava
 | -- | -- | --| -- | --|
 | Azure Stack avec un seul client, déploiement en intranet | NAT de trafic sortant | Meilleure bande passante pour des transferts plus rapides. Simple à implémenter ; aucune passerelle requise. | Trafic non chiffré ; aucun chiffrement ou isolation au-delà de TOR. | Déploiements d’entreprise où tous les clients sont fiables.<br><br>Entreprises qui ont un circuit Azure ExpressRoute vers Azure. |
 | Azure Stack mutualisé, déploiement en intranet | VPN de site à site | Le trafic du réseau virtuel du client vers la destination est sécurisé. | La bande passante est limitée par le tunnel VPN de site à site.<br><br>Requiert une passerelle dans le réseau virtuel et un périphérique VPN sur le réseau de destination. | Les déploiements d’entreprise où certains trafics de client doivent être sécurisés par rapport aux autres clients. |
-| Azure Stack avec un seul client, déploiement par internet | NAT de trafic sortant | Meilleure bande passante pour des transferts plus rapides. | Trafic non chiffré ; aucun chiffrement ou isolation au-delà de TOR. | Hébergement des scénarios où le client obtient son propre déploiement de Azure Stack et un circuit dédié à l’environnement Azure Stack. Par exemple, ExpressRoute et MPLS (Multiprotocol Label Switching).
+| Azure Stack avec un seul client, déploiement par internet | NAT de trafic sortant | Meilleure bande passante pour des transferts plus rapides. | Trafic non chiffré ; aucun chiffrement ou isolation au-delà de TOR. | Hébergement des scénarios où le client obtient son propre déploiement d’Azure Stack et un circuit dédié à l’environnement Azure Stack. Par exemple, ExpressRoute et MPLS (Multiprotocol Label Switching).
 | Azure Stack mutualisé, déploiement par internet | VPN de site à site | Le trafic du réseau virtuel du client vers la destination est sécurisé. | La bande passante est limitée par le tunnel VPN de site à site.<br><br>Requiert une passerelle dans le réseau virtuel et un périphérique VPN sur le réseau de destination. | Hébergement des scénarios où le fournisseur souhaite offrir un cloud mutualisé, où les clients ne se font pas confiance et où le trafic doit être chiffré.
 |  |  |  |  |  |
 
@@ -239,7 +241,7 @@ Le diagramme suivant montre ExpressRoute pour un scénario mutualisé.
 ![Diagramme montrant un scénario ExpressRoute mutualisé](media/azure-stack-planning-considerations/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Surveillance externe
-Pour obtenir une vue unique de toutes les alertes à partir de vos appareils et du déploiement de Azure Stack, et d’intégrer des alertes dans les flux de travail existants de gestion du service informatique pour la création de tickets, vous pouvez intégrer Azure Stack aux solutions de surveillance du centre de données externe.
+Pour obtenir une vue unique de toutes les alertes à partir de vos appareils et du déploiement d’Azure Stack, et d’intégrer des alertes dans les flux de travail existants de gestion du service informatique pour la création de tickets, vous pouvez intégrer Azure Stack aux solutions de surveillance du centre de données externe.
 
 Inclus dans la solution Azure Stack, l’hôte de cycle de vie du matériel est un ordinateur extérieur à Azure Stack qui exécute les outils d’administration fournie par le fabricant OEM pour le matériel. Vous pouvez utiliser ces outils ou d’autres solutions s’intégrant directement avec les solutions de surveillance existantes dans votre centre de données.
 
@@ -254,7 +256,7 @@ Le tableau suivant récapitule la liste des options actuellement disponibles.
 |  |  | 
 
 Notez les exigences suivantes :
-- La solution que vous utilisez doit être sans agent. Vous ne pouvez pas installer d’agents tiers à l’intérieur des composants de Azure Stack. 
+- La solution que vous utilisez doit être sans agent. Vous ne pouvez pas installer d’agents tiers à l’intérieur des composants d’Azure Stack. 
 - Si vous souhaitez utiliser System Center Operations Manager, cela requiert Operations Manager 2012 R2 ou Operations Manager 2016.
 
 ## <a name="backup-and-disaster-recovery"></a>Sauvegarde et récupération d'urgence
@@ -266,9 +268,9 @@ La planification de la sauvegarde et de la récupération d’urgence implique u
 Azure Stack sauvegarde les composants d’infrastructure sur un partage que vous spécifiez.
 
 - Vous aurez besoin d’un partage de fichiers SMB externe sur un serveur de fichiers Windows existant ou un périphérique tiers.
-- Vous devriez utiliser ce même partage pour la sauvegarde des commutateurs réseau et l’hôte de cycle de vie du matériel. Votre fabricant de matériel OEM aidera à fournir des conseils pour la sauvegarde et la restauration de ces composants étant donné qu’ils ne font pas partie de Azure Stack. Vous êtes responsable d’exécuter les flux de travail de sauvegarde basés sur la recommandation du fabricant OEM.
+- Vous devriez utiliser ce même partage pour la sauvegarde des commutateurs réseau et l’hôte de cycle de vie du matériel. Votre fabricant de matériel OEM aidera à fournir des conseils pour la sauvegarde et la restauration de ces composants étant donné qu’ils ne font pas partie d’Azure Stack. Vous êtes responsable d’exécuter les flux de travail de sauvegarde basés sur la recommandation du fabricant OEM.
 
-En cas de perte catastrophique de données, vous pouvez utiliser la sauvegarde de l’infrastructure pour réimplanter les données de déploiement telles que les entrées et les identificateurs de déploiement, les comptes de service, le certificat racine d’autorité de certification, les ressources fédérés (dans les déploiements déconnectés), les plans, les offres, les abonnements, les quotas, les attributions de rôle et de stratégie RBAC et les secrets de coffre de clés.
+En cas de perte catastrophique de données, vous pouvez utiliser la sauvegarde de l’infrastructure pour réimplanter les données de déploiement telles que les entrées et les identificateurs de déploiement, les comptes de service, le certificat racine d’autorité de certification, les ressources fédérées (dans les déploiements déconnectés), les plans, les offres, les abonnements, les quotas, les attributions de rôle et de stratégie RBAC et les secrets de coffre de clés.
  
 ### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>Protéger les applications du client sur des machines virtuelles IaaS
 
@@ -284,5 +286,4 @@ Pour répliquer des données vers un emplacement secondaire et orchestrer le bas
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les cas d’usage, l’achat, les partenaires et les fabricants de matériel OEM, consultez la page produit [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
-- Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack, consultez le livre blanc : [Azure Stack : une extension de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
-
+- Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack, consultez le livre blanc : [Azure Stack : une extension d’Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 

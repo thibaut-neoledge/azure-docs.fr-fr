@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/29/2017
 ms.author: juliako
+ms.openlocfilehash: e2a580b835496c677f048599ae83287dbb61621d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 1f0c5cf93b44433aab2163548de916626a7fa480
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions"></a>Forum Aux Questions
 
 Cet article répond aux questions fréquemment posées par communauté des utilisateurs d’Azure Media Services (AMS).
 
 ## <a name="general-ams-faqs"></a>Forum Aux Questions - Généralités AMS
+
+Q : Comment diffuser en continu vers des appareils Apple iOS ?
+
+R : ajoutez le chemin « (format=m3u8-aapl) » à la partie « /Manifest » de l’URL pour indiquer au serveur de diffusion en continu d’origine qu’il doit retourner le contenu HLS pour la consommation sur les appareils natifs Apple iOS (pour plus d’informations, consultez l’article relatif à la distribution de contenu[media-services-deliver-content-overview.md]).
+
 Q : comment mettre à l’échelle l’indexation ?
 
 R : les unités réservées sont les mêmes pour les tâches d’encodage et d’indexation. Suivez les instructions de la page [Comment mettre à l’échelle des unités réservées mise à l’échelle des unités réservées d’encodage](media-services-scale-media-processing-overview.md). **Remarque** : le fonctionnement de l’indexeur n’est pas affecté par le type d’unité réservée.
@@ -81,4 +85,3 @@ R : [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-st
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

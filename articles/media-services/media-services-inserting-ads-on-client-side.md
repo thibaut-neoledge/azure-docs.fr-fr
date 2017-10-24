@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Insertion de publicités du côté client
 Cette rubrique contient des informations sur l’insertion de différents types de publicité du côté client.
@@ -32,7 +31,7 @@ Pour en savoir plus sur la prise en charge du sous-titrage codé et des publicit
 > 
 
 ## <a id="insert_ads_into_media"></a>Insertion de publicités dans vos supports
-Azure Media Services assure la prise en charge des insertions publicitaires via la plateforme Windows Media : Infrastructures de lecteur. Des infrastructures de lecteur avec prise en charge des publicités sont disponibles pour les appareils Windows 8, Silverlight, Windows Phone 8 et iOS. Chaque infrastructure de lecteur contient un exemple de code qui montre comment implémenter une application de lecteur. Il existe trois sortes de publicités que vous pouvez insérer dans votre liste multimédia.
+Azure Media Services assure la prise en charge des insertions publicitaires via la plateforme Windows Media : Infrastructures de lecteur. Des infrastructures de lecteur avec prise en charge des publicités sont disponibles pour les périphériques Windows 8, Silverlight, Windows Phone 8 et iOS. Chaque infrastructure de lecteur contient un exemple de code qui montre comment implémenter une application de lecteur. Il existe trois sortes de publicités que vous pouvez insérer dans votre liste multimédia.
 
 * **Linéaire** : publicité en plein cadre qui interrompt la vidéo principale.
 * **Non linéaire** : publicité superposée qui s’affiche pendant la lecture de la vidéo principale ; il s’agit généralement d’un logo ou d’une autre image statique apparaissant à l’intérieur du cadre du lecteur.
@@ -155,7 +154,7 @@ Les publicités non linéaires sont également spécifiées dans un élément <C
     </Creative>
 
 
-L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>**, chacun d’eux pouvant décrire une publicité non linéaire. L’élément <**NonLinear**> spécifie la ressource de la publicité non linéaire. La ressource peut être une <**StaticResource**>, une <**IFrameResource**> ou une <**HTMLResource**>. <**StaticResource**> décrit une ressource non HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
+L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>**, chacun d’eux pouvant décrire une publicité non linéaire. L’élément <**NonLinear**> spécifie la ressource de la publicité non linéaire. La ressource peut être une <**StaticResource**>, une <**IFrameResource**> ou une <**HTMLResource**>. <**StaticResource**&gt; décrit une ressource non HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
 
 Image/gif, image/jpeg, image/png : la ressource est affichée dans une balise HTML <**img**>.
 
@@ -324,7 +323,7 @@ L’élément **<trigger>** contient un élément **<startConditions>** qui spé
 3. **value** : valeur à laquelle une propriété sera comparée.
 4. **operator** : opération à utiliser pendant l’évaluation : EQ (égal à), NEQ (différent de), GTR (supérieur à), GEQ (supérieur ou égal à), LT (inférieur à), LEQ (inférieur ou égal à), MOD (modulo).
 
-**<endConditions>** contient également des éléments <condition>. Lorsqu’une condition prend la valeur True, le déclencheur est réinitialisé. L’élément <trigger> contient également un élément <sources> qui renferme à son tour un ou plusieurs éléments <source>. Les éléments <source> définissent l’URI vers la réponse publicitaire et le type de réponse publicitaire. Dans cet exemple, un URI est donné à une réponse VAST. 
+**&lt;endConditions&gt;** contient également des éléments <condition>. Lorsqu’une condition prend la valeur True, le déclencheur est réinitialisé. L’élément <trigger> contient également un élément <sources> qui renferme à son tour un ou plusieurs éléments <source>. Les éléments <source> définissent l’URI vers la réponse publicitaire et le type de réponse publicitaire. Dans cet exemple, un URI est donné à une réponse VAST. 
 
     <trigger id="postroll" description="postroll"  >
       <startConditions>
@@ -792,5 +791,4 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 
 ## <a name="see-also"></a>Voir aussi
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
-
 

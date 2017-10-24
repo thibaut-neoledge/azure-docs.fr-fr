@@ -13,16 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
+ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 706c9650a8deef941f9b39956021456053369e5e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
-Pour envoyer des notifications unidirectionnelles à l’application pour appareil à partir du backend de votre solution, envoyez des messages cloud-à-appareil depuis votre hub IoT vers votre appareil. Pour une description des autres options cloud-à-appareil prises en charge par IoT Hub, consultez [Conseils pour les communications cloud-à-appareil][lnk-c2d-guidance].
+Pour envoyer des notifications unidirectionnelles à l’application pour appareil à partir du back-end de votre solution, envoyez des messages cloud-à-appareil depuis votre hub IoT vers votre appareil. Pour une description des autres options cloud-à-appareil prises en charge par IoT Hub, consultez [Conseils pour les communications cloud-à-appareil][lnk-c2d-guidance].
 
 Vous envoyez les messages cloud-à-appareil via un point de terminaison côté service (**/messages/devicebound**). Un appareil reçoit ensuite les messages via un point de terminaison spécifique de l’appareil (**/devices/{IdAppareil}/messages/devicebound**).
 
@@ -43,13 +42,13 @@ Quand le service IoT Hub envoie un message à un appareil, il définit l’état
 Un appareil peut également choisir de :
 
 * *rejeter* le message, ce qui amène IoT Hub à lui attribuer l’état **Deadlettered** (Lettre morte). Les appareils qui se connectent via le protocole MQTT ne peuvent pas rejeter les messages cloud-à-appareil.
-* d’*abandonner* le message, ce qui amène IoT Hub à replacer le message dans la file d’attente avec l’état **Enqueued**(En file attente).
+* *abandonner* le message, ce qui amène IoT Hub à replacer le message dans la file d’attente avec l’état **Enqueued**(En file attente). Les appareils qui se connectent par le biais du protocole MQTT ne peuvent pas abandonner les messages cloud-à-appareil.
 
 Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **Enqueued** (En file d’attente) après un *délai d’attente de visibilité (ou de verrouillage)*. La valeur par défaut de ce délai est d’une minute.
 
 La propriété **nombre maximal de remises** sur IoT Hub détermine le nombre maximal de fois qu’un message peut passer de l’état **En file d’attente** à l’état **Invisible**, et inversement. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Deadlettered**(Lettre morte). De même, IoT Hub attribue à un message l’état **Deadlettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie][lnk-ttl]).
 
-Le [Guide pratique pour envoyer des messages cloud-à-appareil avec IoT Hub][lnk-c2d-tutorial] explique comment envoyer des messages cloud-à-appareil depuis le cloud et comment les recevoir sur un appareil.
+La page [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial] (Guide pratique pour envoyer des messages cloud-à-appareil avec IoT Hub) explique comment envoyer des messages cloud-à-appareil depuis le cloud et comment les recevoir sur un appareil.
 
 Généralement, un appareil achève un message cloud-à-appareil quand la perte du message n’affecte pas la logique d’application. C’est par exemple le cas quand l’appareil a rendu persistant le contenu du message localement ou qu’il a exécuté une opération correctement. Le message peut également transporter des informations temporaires, dont la perte n’aurait aucun impact sur les fonctionnalités de l’application. Quelquefois, pour les tâches longues, vous pouvez :
 
@@ -133,13 +132,13 @@ Chaque hub IoT expose les options de configuration suivantes pour la messagerie 
 | feedback.ttlAsIso8601     | Rétention des messages de commentaires liés au service. | Intervalle ISO_8601 jusqu’à 2D (minimum 1 minute). Par défaut : 1 heure. |
 | feedback.maxDeliveryCount |Nombre de remises maximal pour la file d’attente de commentaires. | 1 à 100. Par défaut : 100. |
 
-Pour plus d’informations sur la définition de ces options de configuration, consultez [Créer des hubs IoT][lnk-portal].
+Pour plus d’informations sur la définition de ces options de configuration, consultez [Create IoT hubs][lnk-portal] (Créer des hubs IoT).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les SDK que vous pouvez utiliser pour recevoir des messages cloud-à-appareil, consultez [Kits Azure IoT SDK][lnk-sdks].
+Pour plus d’informations sur les SDK que vous pouvez utiliser pour recevoir des messages cloud-à-appareil, consultez [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks].
 
-Pour essayer de recevoir des messages cloud-à-appareil, consultez le didacticiel [Envoyer des messages cloud-à-appareil][lnk-c2d-tutorial].
+Pour essayer de recevoir des messages cloud-à-appareil, consultez le didacticiel [Send cloud-to-device][lnk-c2d-tutorial] (Envoyer des messages cloud-à-appareil).
 
 [img-lifecycle]: ./media/iot-hub-devguide-messages-c2d/lifecycle.png
 
@@ -151,4 +150,3 @@ Pour essayer de recevoir des messages cloud-à-appareil, consultez le didacticie
 [lnk-c2d-configuration]: #cloud-to-device-configuration-options
 [lnk-lifecycle]: #message-lifecycle
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-

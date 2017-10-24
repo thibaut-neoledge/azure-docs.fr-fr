@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 10/09/2017
 ms.author: johnkem
+ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs devops) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
@@ -75,15 +74,23 @@ Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre
 
 | Opération | Description |
 | --- | --- |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Règles d’alerte en lecture/écriture/suppression. |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Lire/écrire/supprimer des groupes d’actions. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Lire/écrire/supprimer des alertes de journal d’activité. |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Lire/écrire/supprimer des règles d’alerte (alertes de métrique). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Liste d’incidents (historique de la règle d’alerte déclenchée) pour les règles d’alerte. Cela s’applique uniquement au portail. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Paramètres de mise à l’échelle automatique en lecture/écriture/suppression. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Paramètres de diagnostic en lecture/écriture/suppression. |
+| Microsoft.Insights/EventCategories/Read |Énumérer toutes les catégories possibles dans le journal d’activité. Utilisée par le Portail Azure. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Cette autorisation est nécessaire pour les utilisateurs qui doivent accéder aux journaux d’activité via le portail. |
 | Microsoft.Insights/eventtypes/values/Read |Événements du journal d’activité, (événements de gestion) dans un abonnement. Cette autorisation est applicable pour l’accès par programme et portail dans le journal d’activité. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Lire/écrire/supprimer des paramètres de diagnostic pour les journaux de flux réseau. |
 | Microsoft.Insights/LogDefinitions/Read |Cette autorisation est nécessaire pour les utilisateurs qui doivent accéder aux journaux d’activité via le portail. |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Lire/écrire/supprimer des profils de journal (diffusion en continu du journal d’activité vers le Event Hub ou le compte de stockage). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Lire/écrire/supprimer des alertes de métrique quasiment en temps réel (préversion publique). |
 | Microsoft.Insights/MetricDefinitions/Read |Lire des définitions de mesure (liste de types de mesure disponibles pour une ressource). |
 | Microsoft.Insights/Metrics/Read |Lire des mesures pour une ressource. |
+| Microsoft.Insights/Register/Action |Inscrire le fournisseur de ressources Azure Monitor. |
+
 
 > [!NOTE]
 > Accéder aux alertes, aux paramètres de diagnostic et aux mesures pour une ressource nécessite que l’utilisateur ait accès en lecture au type de ressource et à la portée de la ressource. La création (« écriture ») d’un profil de journalisation ou de paramètre de diagnostic qui archive sur un compte de stockage ou diffuse vers des hubs d’événements exige que l’utilisateur dispose également de l’autorisation ListKeys sur la ressource cible.
@@ -170,5 +177,4 @@ Un modèle similaire peut être suivi avec les hubs d’événements, mais vous 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur RBAC et les autorisations dans Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Lire la vue d’ensemble de l’analyse dans Azure](monitoring-overview.md)
-
 

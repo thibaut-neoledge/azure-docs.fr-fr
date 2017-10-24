@@ -12,16 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 10/07/2017
 ms.author: skwan
+ms.openlocfilehash: c091ea7cec35099d8ad2ab47361cd4c1278fdab6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 3cfd1eb55a031696635270a56ed5028e3b249543
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -58,6 +56,16 @@ Où :
 
 ## <a name="known-issues"></a>Problèmes connus
 
+### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>Un « script d’automatisation » échoue lors de la tentative d’exportation d’un schéma pour l’extension MSI
+
+Lorsque l’identité du service administré est activée sur une machine virtuelle, l’erreur suivante s’affiche lorsque vous tentez d’utiliser la fonctionnalité « Script d’automatisation » pour la machine virtuelle ou son groupe de ressources :
+
+![Erreur d’exportation de script d’automatisation MSI](media/msi-known-issues/automation-script-export-error.png)
+
+L’extension de machine virtuelle Identité du service administré ne prend actuellement pas en charge la possibilité d’exporter son schéma vers un modèle de groupe de ressources. Par conséquent, le modèle généré n’affiche pas les paramètres de configuration permettant d’activer l’identité du service administré sur la ressource. Ces sections peuvent être ajoutées manuellement en suivant les exemples dans [Configurer une identité du service administré d’une machine virtuelle à l’aide d’un modèle](msi-qs-configure-template-windows-vm.md).
+
+Lorsque la fonctionnalité d’exportation de schéma sera disponible pour l’extension de machine virtuelle MSI, elle sera répertoriée dans [Exportation des groupes de ressources contenant des extensions de machine virtuelle](../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Le panneau de configuration n’apparaît pas dans le portail Azure
 
 Si le panneau de configuration de la machine virtuelle n’apparaît pas sur votre machine virtuelle, cela signifie que l’identité du service administré n’a pas encore été activée dans le portail de votre région.  Revérifiez ultérieurement.  Vous pouvez également activer l’identité du service administré pour votre machine virtuelle à l’aide de [PowerShell](msi-qs-configure-powershell-windows-vm.md) ou d’[Azure CLI](msi-qs-configure-cli-windows-vm.md).
@@ -87,4 +95,3 @@ Une fois que la machine virtuelle est démarrée, la balise peut être supprimé
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-

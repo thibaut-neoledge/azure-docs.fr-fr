@@ -12,18 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 09/19/2017
 ms.author: sasolank
+ms.openlocfilehash: df21b7213a647a66a16a84889bf7a24fde03c493
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8131ded6b74e9c544bf70b1a4659ed07e5def04d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway 
 
-##<a name="overview"> </a> Vue d'ensemble
+##<a name="overview"></a> Vue d'ensemble
  
 Le service Gestion des API peut être configuré dans un réseau virtuel en mode interne, ce qui le rend uniquement accessible à partir du réseau virtuel. La passerelle Azure Application Gateway est un service PAAS qui propose un équilibreur de charge de couche 7. Il agit comme un service proxy inverse et fournit dans son offre un pare-feu d’applications web (WAF).
 
@@ -33,14 +32,24 @@ Combiner la gestion des API configurée dans un réseau virtuel interne avec le 
 * Utilisez une seule ressource de gestion des API et mettez à disposition un sous-ensemble d’API défini dans la gestion des API pour les consommateurs externes.
 * Fournissez un moyen clé en main d’activer et désactiver l’accès à la gestion des API à partir de l’Internet public. 
 
-##<a name="scenario"> </a> Scénario
+## <a name="prerequisites"></a>Composants requis
+
+Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
+
++ Un abonnement Azure actif.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ Une instance APIM. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
+
+##<a name="scenario"></a> Scénario
 Dans cet article, nous allons étudier comment utiliser un seul et même service Gestion des API pour les consommateurs internes et externes, et l’utiliser comme serveur frontal sur les API locales et cloud. Vous allez également voir comment exposer uniquement un sous-ensemble de vos API (dans cet exemple, elles sont mises en surbrillance en vert) pour une consommation externe, à l’aide de la fonctionnalité PathBasedRouting disponible dans Application Gateway.
 
 Dans le premier exemple de configuration, toutes vos API sont gérées uniquement à partir de votre réseau virtuel. Les consommateurs internes (mis en surbrillance en orange) peuvent accéder à toutes vos API internes et externes. Le trafic ne sort jamais vers Internet et une performance élevée est fournie via les circuits ExpressRoute.
 
 ![itinéraire d’URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"> </a> Avant de commencer
+## <a name="before-you-begin"></a> Avant de commencer
 
 1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
 2. Créez un réseau virtuel et des sous-réseaux distincts pour le service Gestion des API et Application Gateway. 
@@ -56,7 +65,7 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 * **Sonde d’intégrité personnalisée :** Application Gateway, par défaut, utilise des sondes basées sur des adresses IP pour déterminer les serveurs actifs dans le BackendAddressPool. Le service Gestion des API répond uniquement aux demandes dont l’en-tête d’hôte est correct. C’est pourquoi les sondes par défaut échouent. Une sonde d’intégrité personnalisée doit être définie pour aider Application Gateway à déterminer que le service est actif et qu’il doit transférer les demandes.
 * **Certificat de domaine personnalisé :** pour accéder au service Gestion des API à partir d’Internet, vous devez créer un mappage CNAME de son nom d’hôte au nom DNS frontal d’Application Gateway. Cela garantit que l’en-tête de nom d’hôte et le certificat envoyé à Application Gateway qui est transféré au service Gestion des API peuvent être reconnus comme valides par l’APIM.
 
-## <a name="overview-steps"> </a> Étapes requises pour l’intégration de la gestion des API et d’Application Gateway 
+## <a name="overview-steps"></a> Étapes requises pour l’intégration de la gestion des API et d’Application Gateway 
 
 1. Créer un groupe de ressources pour Resource Manager
 2. Créer un réseau virtuel, un sous-réseau et une adresse IP publique pour la passerelle Application Gateway Créer un autre sous-réseau pour le service Gestion des API
@@ -338,10 +347,10 @@ Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer 
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
-##<a name="summary"> </a> Résumé
+##<a name="summary"></a> Résumé
 Le service Gestion des API Azure configuré dans un réseau virtuel fournit une interface de passerelle unique pour l’ensemble des API configurées, qu’elles soient hébergées en local ou dans le cloud. L’intégration d’Application Gateway au service Gestion des API vous permet d’activer facilement l’accessibilité d’API particulières sur Internet, tout en fournissant un pare-feu d’applications web en tant que pare-feu frontal pour votre instance de service Gestion des API.
 
-##<a name="next-steps"> </a> Étapes suivantes
+##<a name="next-steps"></a> Étapes suivantes
 * En savoir plus sur Azure Application Gateway
   * [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)
   * [Pare-feu d’applications web sur Application Gateway](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
@@ -349,4 +358,3 @@ Le service Gestion des API Azure configuré dans un réseau virtuel fournit une 
 * En savoir plus sur le service Gestion des API et les réseaux virtuels
   * [Utilisation de Gestion des API disponible uniquement dans le réseau virtuel](api-management-using-with-internal-vnet.md)
   * [Avec la gestion des API dans le réseau virtuel](api-management-using-with-vnet.md)
-

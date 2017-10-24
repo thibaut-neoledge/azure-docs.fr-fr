@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: billmath
+ms.openlocfilehash: 4f4fa884694dc8dad6349e3835e7c7ba2c4d2bdf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0327b37b56987d52557f3f4e305f27eb2e5296d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
 ## <a name="how-to-deploy-azure-ad-pass-through-authentication"></a>Comment déployer l’authentification directe Azure AD ?
@@ -130,10 +128,11 @@ Si vous envisagez de déployer l’authentification directe dans un environnemen
 >Vous pouvez également télécharger l’agent d’authentification [ici](https://aka.ms/getauthagent). Veillez à consulter et à accepter les [conditions de service](https://aka.ms/authagenteula) de l’agent d’authentification _avant_ de l’installer.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) :découvrez les scénarios pris en charge et ceux qui ne le sont pas.
-- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez le mode opératoire de cette fonctionnalité.
+- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
+- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Forum aux questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
+- [**Immersion dans la sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
 - [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.
-

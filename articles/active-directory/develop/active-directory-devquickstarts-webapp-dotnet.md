@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 3c1e558c9d41e385f80939203a3457b74e30973b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>Connexion et déconnexion à une application web ASP.NET avec Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +109,7 @@ Au cours de cette étape, vous allez configurer l’intergiciel OWIN pour utilis
 ## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Étape 3 : Utiliser OWIN pour émettre des demandes de connexion et de déconnexion dans Azure AD
 L’application est maintenant correctement configurée pour communiquer avec Azure AD en utilisant le protocole d’authentification OpenID Connect. OWIN a géré tous les détails de la création de messages d’authentification, de la validation des jetons d’Azure AD et de la gestion des sessions utilisateur. Il ne reste qu’à offrir aux utilisateurs un moyen de se connecter et de se déconnecter.
 
-1. Vous pouvez utiliser des balises autorisées dans vos contrôleurs afin d’exiger que les utilisateurs se connectent pour pouvoir accéder à une page donnée. Pour cela, ouvrez Controllers\HomeController.cs et ajoutez la balise `[Authorize]` au contrôleur About.
+1. Vous pouvez utiliser des balises autorisées dans vos contrôleurs afin d’exiger que les utilisateurs se connectent pour pouvoir accéder à une page donnée. Pour cela, ouvrez Controllers\HomeController.cs et ajoutez la balise `[Authorize]` à l’action About.
 
      ```C#
      [Authorize]
@@ -195,4 +193,3 @@ Pour référence, consultez [l’exemple terminé](https://github.com/AzureADQui
 Vous pouvez maintenant aborder des rubriques plus avancées. Par exemple, essayez de [Sécuriser une API web avec Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

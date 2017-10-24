@@ -11,16 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/30/2017
 ms.author: jingwang
+ms.openlocfilehash: d8db545fc58f3cc2e18bbc9a732ed16ef8b563c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ae4537ee37103392f78c4fa554984f1375634f17
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche Azure à l’aide d’Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -117,7 +115,7 @@ Pour copier des données vers Recherche Azure, définissez **AzureSearchIndexSin
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
 | type | La propriété type de la source d’activité de copie doit être définie sur **AzureSearchIndexSink** | Oui |
-| WriteBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Valeurs autorisées : **Merge** (par défaut) et **Upload**. | Non |
+| writeBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Valeurs autorisées : **Merge** (par défaut) et **Upload**. | Non |
 | writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property).<br/><br/>Valeurs autorisées : entier de 1 à 1000 ; la valeur par défaut est 1000. | Non |
 
 ### <a name="writebehavior-property"></a>Propriété WriteBehavior
@@ -160,7 +158,7 @@ Le service Recherche Azure prend en charge l’écriture de documents sous form
             },
             "sink": {
                 "type": "AzureSearchIndexSink",
-                "WriteBehavior": "Merge"
+                "writeBehavior": "Merge"
             }
         }
     }

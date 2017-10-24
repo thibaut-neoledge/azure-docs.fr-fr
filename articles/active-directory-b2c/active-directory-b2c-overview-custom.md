@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
+ms.openlocfilehash: 25dada7bc04449c6e527b94d97780d9aef1c33a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 33f62a33ea7a3fadb6e7b045de10df25f5edbe83
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C : stratégies personnalisées
 
@@ -27,9 +26,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="what-are-custom-policies"></a>Que sont les stratégies personnalisées ?
 
-Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de votre client Azure AD B2C. Si les **stratégies prédéfinies** sont prédéfinies sur le Portail Azure AD B2C pour les tâches d’identité les plus courantes, les stratégies personnalisées, elles, peuvent être entièrement modifiés par un développeur d’identité pour effectuer un nombre quasiment illimité de tâches. Lisez la suite pour déterminer si les stratégies personnalisées vous conviennent et sont adaptées à votre scénario d’identité.
-
-**La modification de stratégies personnalisées ne s’adresse pas à tout le monde.** La courbe d’apprentissage est exigeante, la mise en route prend plus de temps et les modifications ultérieures des stratégies personnalisées nécessitent une expertise similaire pour la maintenance. Il est important de commencer par étudier attentivement les stratégies prédéfinies dans le cadre de votre scénario avant d’utiliser des stratégies personnalisées.
+Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de votre client Azure AD B2C. Si les **stratégies prédéfinies** sont prédéfinies sur le Portail Azure AD B2C pour les tâches d’identité les plus courantes, les stratégies personnalisées, elles, peuvent être entièrement modifiées par un développeur d’identité pour effectuer un nombre quasiment illimité de tâches. Lisez la suite pour déterminer si les stratégies personnalisées vous conviennent et sont adaptées à votre scénario d’identité.
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Comparaison des stratégies prédéfinies et des stratégies personnalisées
 
@@ -37,7 +34,7 @@ Les stratégies personnalisées sont des fichiers de configuration qui définiss
 |-|-------------------|-----------------|
 |Utilisateurs cibles | Tous les développeurs d’applications avec ou sans expertise de l’identité | Professionnels de l’identité : intégrateurs système, consultants et équipes d’identité internes. Ils sont à l’aise avec les flux OpenID Connect et comprennent les fournisseurs d’identité et l’authentification basée sur les revendications. |
 |Mode de configuration | Portail Azure avec interface utilisateur conviviale | Modification directe des fichiers XML, puis chargement sur le Portail Azure |
-|Personnalisation de l’interface utilisateur | Personnalisation complète de l’interface utilisateur, avec prise en charge HTML, CSS et JScript (nécessite un domaine personnalisé)<br><br>Prise en charge multilingue avec chaînes personnalisées | Identique |
+|Personnalisation de l’interface utilisateur | Personnalisation complète de l’interface utilisateur, avec prise en charge HTML, CSS et javascript (nécessite un domaine personnalisé)<br><br>Prise en charge multilingue avec chaînes personnalisées | Identique |
 | Personnalisation des attributs | Attributs standard et personnalisés | Identique |
 |Gestion des jetons et des sessions | Options de jetons personnalisés et de sessions multiples | Identique |
 |Identity Providers| **Aujourd'hui** : fournisseur social local prédéfini<br><br>**À l’avenir** : OIDC basé sur les normes, SAML, OAuth | **Aujourd'hui** : OIDC basé sur les normes, OAuth, SAML<br><br>**À l’avenir** : WS-Fed |
@@ -70,11 +67,11 @@ Azure AD B2C interagit de façon séquentielle avec les fournisseurs d’identit
 
 ### <a name="identity-experience-framework"></a>Identity Experience Framework (Infrastructure d’expérience d’identité)
 
-Plateforme Azure cloud, entièrement configurable et pilotée par des stratégies, qui orchestre les relations de confiance entre entités (en général des fournisseurs de revendications) dans des formats de protocoles standard, notamment OpenID Connect, OAuth, SAML, WS-Fed, ainsi que quelques protocoles non standard (par exemple, des échanges de revendications intersystèmes basés sur l’API REST). Le I2E crée des expériences conviviales en marque blanche qui prennent en charge HTML, CSS et JScript.  Aujourd’hui, l’infrastructure d’expérience d’identité est disponible uniquement dans le contexte du service Azure AD B2C, en priorité pour les tâches relatives au service de gestion des accès et des identités clients.
+Plateforme Azure cloud, entièrement configurable et pilotée par des stratégies, qui orchestre les relations de confiance entre entités (en général des fournisseurs de revendications) dans des formats de protocoles standard, notamment OpenID Connect, OAuth, SAML, WS-Fed, ainsi que quelques protocoles non standard (par exemple, des échanges de revendications intersystèmes basés sur l’API REST). Le I2E crée des expériences conviviales en marque blanche qui prennent en charge HTML, CSS et javascript.  Aujourd’hui, l’infrastructure d’expérience d’identité est disponible uniquement dans le contexte du service Azure AD B2C, en priorité pour les tâches relatives au service de gestion des accès et des identités clients.
 
 ### <a name="built-in-policies"></a>Stratégies prédéfinies
 
-Fichiers de configuration prédéfinis qui contrôlent le comportement d’Azure AD B2C pour effectuer les tâches d’identité les plus courantes (c.-à-d. l’inscription de l’utilisateur, la connexion et la réinitialisation de mot de passe) et interagir avec les parties de confiance dont la relation est également prédéfinie dans Azure AD B2C (par exemple, fournisseur d’identité Facebook, LinkedIn, compte Microsoft, comptes Google).  À l’avenir, les stratégies prédéfinies seront également susceptibles de permettre la personnalisation des fournisseurs d’identité qui se trouvent généralement dans le domaine de l’entreprise, par exemple Azure Active Directory Premium, Active Directory/ADFS ou le fournisseur d’identité Salesforce.
+Fichiers de configuration prédéfinis qui contrôlent Azure AD B2C de sorte qu’il effectue les tâches d’identité les plus couramment utilisée (par exemple, inscription des utilisateurs, connexion, réinitialisation du mot de passe) et interagisse avec les parties de confiance dont la relation est également prédéfinie dans Azure AD B2C (par exemple, le fournisseur d’identités Facebook, LinkedIn, compte Microsoft, comptes Google).  À l’avenir, les stratégies prédéfinies seront également susceptibles de permettre la personnalisation des fournisseurs d’identité qui se trouvent généralement dans le domaine de l’entreprise, par exemple Azure Active Directory Premium, Active Directory/ADFS ou le fournisseur d’identité Salesforce.
 
 
 ### <a name="custom-policies"></a>Stratégies personnalisées
@@ -85,11 +82,11 @@ Fichiers de configuration qui définissent le comportement de l’infrastructure
 
 ### <a name="policy-files"></a>Fichiers de stratégie
 
-Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Les éléments XML définissent notamment les éléments suivants : schéma de revendications, transformation de revendications, définitions de contenu, fournisseurs de revendications / profils techniques et étapes d’orchestration du parcours utilisateur.  Nous vous recommandons d’utiliser trois types de fichiers de stratégie :
+Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Les éléments XML définissent notamment les éléments suivants : schéma de revendications, transformation de revendications, définitions de contenu, fournisseurs de revendications/profils techniques et étapes d’orchestration du parcours utilisateur.  Nous vous recommandons d’utiliser trois types de fichiers de stratégie :
 
-- **Un fichier de BASE**, qui contient la plupart des définitions et pour lequel Azure fournit un échantillon complet.  Nous vous recommandons d’apporter aussi peu de modifications que possible à ce fichier pour faciliter la résolution des problèmes et la maintenance à long terme de vos stratégies.
+- **Un fichier de BASE** contient la plupart des définitions et pour lequel Azure fournit un échantillon complet.  Nous vous recommandons d’apporter aussi peu de modifications que possible à ce fichier pour faciliter la résolution des problèmes et la maintenance à long terme de vos stratégies.
 - **Un fichier d’EXTensions** qui contient les modifications de configuration propres à votre client.
-- **Un fichier de la partie de confiance (RP)**, le seul fichier centré sur les tâches qui est appelé directement par l’application ou le service (la partie de confiance).  Lisez l’article sur les définitions de fichiers de stratégie pour plus d’informations.  Chaque tâche unique nécessite sa propre partie de confiance et, en fonction des exigences de personnalisation, le nombre peut être « le nombre total d’applications multiplié par le nombre total de cas d’utilisation ».
+- **Un fichier de la partie de confiance (RP)** est le seul fichier centré sur les tâches appelé directement par l’application ou le service (la partie de confiance).  Lisez l’article sur les définitions de fichiers de stratégie pour plus d’informations.  Chaque tâche unique nécessite sa propre partie de confiance et, en fonction des exigences de personnalisation, le nombre peut être « le nombre total d’applications multiplié par le nombre total de cas d’utilisation ».
 
 ![Types de fichiers de stratégie](media/active-directory-b2c-overview-custom/active-directory-b2c-overview-custom-policy-files.png)
 
@@ -105,3 +102,7 @@ Lorsqu’une application appelle le fichier de stratégie de la partie de confia
 
 Les **stratégies prédéfinies** dans Azure AD B2C suivent le modèle à trois fichiers décrit ci-dessus, mais le développeur ne voit que le fichier de la partie de confiance (RP), tandis que le portail modifie en arrière-plan le fichier d’EXTensions.  L’ensemble d’Azure AD B2C partage un fichier de stratégie de BASE, sous le contrôle de l’équipe Azure B2C et mis à jour fréquemment.
 
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md)

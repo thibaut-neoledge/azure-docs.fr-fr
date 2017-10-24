@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/03/2017
 ms.author: larryfr
+ms.openlocfilehash: 28d23cf397db204a22fea785521ea6a164d84374
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8238bb829df95dcb8c99c0b7fff53c627a56f47c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Exécution des tâches MapReduce avec Hadoop sur HDInsight avec REST
 
@@ -42,7 +41,7 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapR
 > [!NOTE]
 > Lorsque vous utilisez Curl ou toute autre communication REST avec WebHCat, vous devez authentifier les requêtes en fournissant le nom d’utilisateur et le mot de passe d’administrateur de cluster HDInsight. Vous devez utiliser le nom du cluster dans l’URI utilisé pour envoyer les requêtes au serveur.
 >
-> Pour les commandes de cette section, remplacez **USERNAME** par l’utilisateur à authentifier sur le cluster et **PASSWORD** par le mot de passe du compte d’utilisateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
+> Pour les commandes de cette section, remplacez **admin** par l’utilisateur pour l’authentification auprès du cluster. Remplacez **CLUSTERNAME** par le nom de votre cluster. Lorsque vous y êtes invité, indiquez le mot de passe du compte de l’utilisateur.
 >
 > L’API REST est sécurisée à l’aide de l’ [authentification d’accès de base](http://en.wikipedia.org/wiki/Basic_access_authentication). Vous devez toujours effectuer les requêtes à l’aide de HTTPS pour vous assurer que vos informations d’identification sont envoyées en toute sécurité sur le serveur.
 
@@ -50,10 +49,10 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapR
 1. À partir d’une ligne de commande, exécutez la commande suivante pour vérifier que vous pouvez vous connecter à votre cluster HDInsight.
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    Vous devez recevoir une réponse similaire au JSON suivant :
+    La réponse reçue est similaire au JSON suivant :
 
         {"status":"ok","version":"v1"}
 
@@ -62,12 +61,12 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapR
    * **-u**: indique le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
    * **-G**: indique que cette opération est une requête GET
 
-     Le début de l’URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes.
+   Le début de l’URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes.
 
 2. Pour envoyer une tâche MapReduce, utilisez la commande suivante :
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
     ```
 
     La fin de l’URI (/mapreduce/jar) indique à WebHCat que cette demande lance une tâche MapReduce à partir d’une classe dans un fichier jar. Les paramètres utilisés dans cette commande sont les suivants :
@@ -78,14 +77,14 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapR
     * **class**: la classe contenant la logique MapReduce
     * **arg**: les arguments à transmettre à la tâche MapReduce. Dans le cas présent, le fichier texte d’entrée et le répertoire utilisés pour la sortie
 
-     Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche :
+   Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche :
 
        {"id":"job_1415651640909_0026"}
 
 3. Pour vérifier le statut de la tâche, utilisez la commande suivante :
 
     ```bash
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
     Remplacez **JOBID** par la valeur retournée à l’étape précédente. Par exemple, si la valeur de retour était `{"id":"job_1415651640909_0026"}`, le JOBID sera `job_1415651640909_0026`.

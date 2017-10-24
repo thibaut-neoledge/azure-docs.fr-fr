@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 10/03/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: 1a37f0753ab576aba9154e148b026b70877176f2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concepts du service IoT Hub Device Provisioning
 
 Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui vous permet de configurer l’approvisionnement sans contact des appareils dans un hub IoT spécifié. Avec le service Device Provisioning, vous pouvez approvisionner des millions d’appareils de manière sécurisée et scalable.
@@ -53,14 +51,14 @@ L’inscription désigne l’enregistrement d’appareils ou de groupes d’appa
 
 ### <a name="enrollment-group"></a>Groupe d’inscription
 
-Un groupe d’inscription désigne un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Tous les appareils du groupe d’inscription présentent des certificats X.509 qui ont été signés par la même autorité de certification racine. Les groupes d’inscription peuvent uniquement utiliser le mécanisme d’attestation X.509.
+Un groupe d’inscription désigne un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Tous les appareils du groupe d’inscription présentent des certificats X.509 qui ont été signés par la même autorité de certification racine. Les groupes d’inscription peuvent uniquement utiliser le mécanisme d’attestation X.509. Le nom du groupe d’inscription et le nom du certificat sont alphanumériques, en minuscules et peuvent contenir des traits d’union.
 
 > [!TIP]
 > Nous vous recommandons d’utiliser un groupe d’inscription pour un grand nombre d’appareils qui partagent une configuration initiale souhaitée ou pour des appareils destinés au même locataire.
 
 ### <a name="individual-enrollment"></a>Inscription individuelle
 
-Une inscription individuelle désigne une entrée pour un seul appareil pouvant s’inscrire. Les inscriptions individuelles peuvent utiliser des certificats x509 ou des jetons SAP (dans un module TPM réel ou virtuel) comme mécanismes d’attestation. Dans le cas des inscriptions individuelles, vous pouvez spécifier l’ID d’appareil de hub IoT de votre choix.
+Une inscription individuelle désigne une entrée pour un seul appareil pouvant s’inscrire. Les inscriptions individuelles peuvent utiliser des certificats x509 ou des jetons SAP (dans un module TPM réel ou virtuel) comme mécanismes d’attestation. L’ID d’enregistrement d’une inscription individuelle est alphanumérique, en minuscules et peut contenir des traits d’union. Dans le cas d’inscriptions individuelles, vous pouvez spécifier l’ID de l’appareil IoT Hub souhaité.
 
 > [!TIP]
 > Nous vous recommandons d’utiliser des inscriptions individuelles pour les appareils qui nécessitent une configuration initiale unique ou pour les appareils qui peuvent uniquement utiliser des jetons SAP par le biais du module TPM ou du module TPM virtuel comme mécanisme d’attestation.
@@ -72,4 +70,3 @@ L’inscription désigne l’enregistrement d’un appareil inscrit/approvisionn
 ## <a name="operations"></a>Opérations
 
 Les opérations désignent l’unité de facturation du service Device Provisioning. Une opération est une instruction envoyée au service qui se déroule correctement. Les opérations incluent les inscriptions et réinscriptions d’appareils, ainsi que les changements côté service, comme l’ajout et la mise à jour des entrées de liste d’inscriptions.
-

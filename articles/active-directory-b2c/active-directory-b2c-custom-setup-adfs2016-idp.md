@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
+ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 6cd0d19e5fd90cb9fb6d3fc4c17119476d7b4f62
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C : Ajout d’ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -105,7 +103,7 @@ La fédération avec les comptes ADFS requiert une clé secrète client pour le 
 7.  Cliquez sur **Créer**
 8.  Vérifiez que vous avez créé la clé `B2C_1A_ADFSSamlCert`.
 
-## <a name="add-a-claims-provider-in-your-extension-policy"></a>Ajout d’un fournisseur de revendications dans votre stratégie d’extension
+## <a name="add-a-claims-provider-in-your-extension-policy"></a>Ajouter un fournisseur de revendications à une stratégie d’extension
 Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte ADFS, vous devez définir le compte ADFS comme fournisseur de revendications. En d’autres termes, vous devez spécifier un point de terminaison avec lequel Azure AD B2C communiquera. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
 Définissez ADFS comme fournisseur de revendications, en ajoutant le nœud `<ClaimsProvider>` dans votre fichier de stratégie d’extension :
@@ -155,18 +153,20 @@ Définissez ADFS comme fournisseur de revendications, en ajoutant le nœud `<Cla
 
 ## <a name="register-the-adfs-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Inscription du fournisseur de revendications de compte ADFS à un parcours utilisateur Inscription ou Connexion
 À ce stade, le fournisseur d’identité a été configuré.  Toutefois, il n’est disponible dans aucun des écrans d’inscription/de connexion. Maintenant vous devez ajouter le fournisseur d’identité du compte AD FS au parcours `SignUpOrSignIn` de votre utilisateur. Pour le rendre disponible, nous créons un doublon d’un modèle de parcours utilisateur existant.  Ensuite, nous le modifions pour qu’il comporte le fournisseur d’identité ADFS :
-    >[!NOTE]
-    >If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip this section.
+
+>[!NOTE]
+>Si vous avez précédemment copié l’élément `<UserJourneys>` à partir du fichier de base de votre stratégie vers le fichier d’extension (TrustFrameworkExtensions.xml), vous pouvez ignorer cette section.
+
 1.  Ouvrez le fichier de base de votre stratégie (par exemple, TrustFrameworkBase.xml).
-2.  Recherchez l’élément `<UserJourneys>` et copiez le contenu entier du nœud `<UserJourneys>`.
+2.  Recherchez l’élément `<UserJourneys>` et copiez la totalité du contenu du nœud `<UserJourneys>`.
 3.  Ouvrez le fichier d’extension (par exemple, TrustFrameworkExtensions.xml), puis recherchez l’élément `<UserJourneys>`. Si l’élément n’existe pas, ajoutez-en un.
 4.  Collez l’intégralité du contenu du nœud `<UserJournesy>` que vous avez copié en tant qu’enfant de l’élément `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Afficher le bouton
-L’élément `<ClaimsProviderSelections>` définit la liste des options de sélection de fournisseur de revendications et leur ordre.  L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur une page d’inscription/de connexion. Si vous ajoutez un élément `<ClaimsProviderSelection>` au compte ADFS, un nouveau bouton apparaît quand un utilisateur accède à la page. Pour ajouter cet élément :
+L’élément `<ClaimsProviderSelections>` définit la liste des options de sélection du fournisseur de revendications et leur ordre.  L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur une page d’inscription/de connexion. Si vous ajoutez un élément `<ClaimsProviderSelection>` au compte ADFS, un nouveau bouton apparaît quand un utilisateur accède à la page. Pour ajouter cet élément :
 
 1.  Recherchez le nœud `<UserJourney>` incluant `Id="SignUpOrSignIn"` dans le parcours utilisateur que vous avez copié.
-2.  Recherchez le nœud `<OrchestrationStep>` qui inclut `Order="1"`
+2.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 3.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 
 ```xml
@@ -206,7 +206,7 @@ Vous pouvez également ajouter le fournisseur d’identité du compte ADFS au pa
 ### <a name="display-the-button"></a>Afficher le bouton
 1.  Ouvrez le fichier d’extension de votre stratégie (par exemple, TrustFrameworkExtensions.xml).
 2.  Recherchez le nœud `<UserJourney>` incluant `Id="ProfileEdit"` dans le parcours utilisateur que vous avez copié.
-3.  Recherchez le nœud `<OrchestrationStep>` qui inclut `Order="1"`
+3.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 4.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 
 ```xml
@@ -221,11 +221,10 @@ Vous pouvez également ajouter le fournisseur d’identité du compte ADFS au pa
 <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
 ```
 
-### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Tester la stratégie de modification de profil personnalisée en utilisant Exécuter maintenant
+### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Tester la stratégie personnalisée de modification de profil en utilisant Exécuter maintenant
 1.  Ouvrez **Paramètres Azure AD B2C** et accédez à **Infrastructure d’expérience d’identité**.
 2.  Ouvrez **B2C_1A_ProfileEdit**, la stratégie personnalisée de partie de confiance que vous avez chargée. Sélectionnez **Exécuter maintenant**.
 3.  Vous devriez être en mesure de vous connecter à l’aide de votre compte ADFS.
 
 ## <a name="download-the-complete-policy-files"></a>Télécharger les fichiers de stratégie complets
 Facultatif : nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée après avoir effectué la prise en main des stratégies personnalisées. [Exemples de fichiers de stratégie pour référence uniquement](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)
-

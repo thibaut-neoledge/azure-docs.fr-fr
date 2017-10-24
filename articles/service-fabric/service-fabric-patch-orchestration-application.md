@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
+ms.openlocfilehash: c37180262981bbbcdecb0504e2717db27568586d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 6385dd99e3f5d96eee2cf50016e4af599d91b011
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
 L’application d’orchestration des correctifs est une application Azure Service Fabric qui automatise les mises à jour correctives du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt.
@@ -71,7 +69,7 @@ Pour que l’application d’orchestration des correctifs puisse fonctionner, le
 Le service de gestion des réparations est activé par défaut pour les clusters Azure au niveau de durabilité Silver. Le service de gestion des réparations peut être activé ou non pour les clusters Azure au niveau de durabilité Gold, en fonction du moment de leur création. Le service de gestion des réparations est déactivé par défaut pour les clusters Azure au niveau de durabilité Bronze. Si le service est déjà activé, vous pouvez le voir s’exécuter dans la section des services système de Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Portail Azure
-Vous pouvez activer le gestionnaire des réparations à partir du portail Azure au moment de la configuration du cluster. Sélectionnez l’option `Include Repair Manager` située sous `Add on features` au moment de la configuration du cluster.
+Vous pouvez activer le gestionnaire des réparations à partir du portail Azure au moment de la configuration du cluster. Sélectionnez l’option **Inclure le gestionnaire de réparation** sous **Fonctionnalités complémentaires** lors de la configuration du cluster.
 ![Image représentant l’activation du gestionnaire des réparations à partir du portail Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
@@ -427,4 +425,3 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 - Résolution de bogues liés au flux de travail de redémarrage du système.
 - Résolution d’un bogue lié à la création de tâches RM, suite auquel le contrôle d’intégrité survenant lors de la préparation des tâches de réparation ne s’exécutait pas comme convenu.
 - Transition du mode de démarrage du service Windows POANodeSvc, depuis le démarrage automatique vers le démarrage automatique différé.
-

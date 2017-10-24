@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: 33d0b9aa37cc92dda27f1cf21f1d393b42b8c09b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Sorties Stream Analytics : options de stockage, d’analyse
 Quand vous créez une tâche Stream Analytics, songez à la façon dont les données obtenues seront consommées. Comment allez-vous examiner les résultats de la tâche Stream Analytics et où allez-vous la stocker ?
@@ -57,7 +56,7 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 </tr>
 <tr>
 <td>Modèle de préfixe de chemin d’accès</td>
-<td>Chemin de fichier utilisé pour écrire vos fichiers dans le compte Data Lake Store spécifié. <BR>{date}, {time}<BR>Exemple 1 : dossier1/journaux/{date}/{heure}<BR>Exemple 2 : dossier1/journaux/{date}</td>
+<td>La procédure d’affection de noms respecte la convention suivante : <BR>{Modèle de préfixe de chemin d’accès}/Code_hachage_schéma_Numéro_Guid.extension <BR> <BR>Exemples de fichier de sortie :<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>En outre, voici les situations dans lesquelles un fichier est créé :<BR>1. Modification du schéma de sortie <BR>2. Redémarrage externe ou interne d’un travail<BR><BR>En outre, si le modèle de chemin d’accès au fichier ne contient aucun caractère « / », le dernier modèle du chemin d’accès sera traité en tant que préfixe de nom de fichier.<BR><BR>Exemple :<BR>Pour le modèle de chemin d’accès « folder1/logs/HH », le fichier généré ressemblerait à ce qui suit : folder1/logs/02_134343_gguid_1.csv.</td>
 </tr>
 <tr>
 <td>Format de la date [<I>facultatif</I>]</td>
@@ -81,7 +80,7 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 </tr>
 <tr>
 <td>Format</td>
-<td>Applicable uniquement pour la sérialisation JSON. « Séparé par une ligne » spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON.</td>
+<td>Applicable uniquement pour la sérialisation JSON. « Séparé par une ligne » spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque la tâche s’arrête ou que Stream Analytics est passé à la fenêtre de temps suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit.</td>
 </tr>
 </tbody>
 </table>
@@ -137,7 +136,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 </tr>
 <tr>
 <td>Séquence d’octets préfixe du chemin d’accès [facultatif]</td>
-<td>Chemin d’accès de fichier utilisé pour écrire vos objets blob dans le conteneur spécifié.<BR>Dans le chemin d’accès, vous pouvez choisir d’utiliser une ou plusieurs instances de l’une des 2 variables suivantes pour spécifier la fréquence d’écriture des objets blob :<BR>{date}, {time}<BR>Exemple 1 : cluster1/logs/{date}/{time}<BR>Exemple 2 : cluster1/logs/{date}</td>
+<td>Modèle de chemin d’accès au fichier utilisé pour écrire vos blobs dans le conteneur spécifié. <BR> Dans le modèle de chemin d’accès, vous pouvez choisir d’utiliser une ou plusieurs instances de l’une des 2 variables suivantes pour spécifier la fréquence d’écriture des blobs : <BR> {date}, {time} <BR> Exemple 1 : cluster1/logs/{date}/{time} <BR> Exemple 2 : cluster1/logs/{date} <BR> <BR> La procédure d’affection de noms respecte la convention suivante : <BR> {Modèle de préfixe de chemin d’accès}/Code_hachage_schéma_Numéro_Guid.extension <BR> <BR> Exemples de fichier de sortie : <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> En outre, voici les situations dans lesquelles un fichier est créé : <BR> 1. Le nombre maximal de blocs autorisé du fichier actuel (50 000, actuellement) est dépassé <BR> 2. Modification du schéma de sortie <BR> 3. Redémarrage externe ou interne d’un travail  </td>
 </tr>
 <tr>
 <td>Format de la date [facultatif]</td>
@@ -182,7 +181,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 | Format de sérialisation de l’événement |Format de sérialisation pour les données de sortie.  JSON, CSV et Avro sont pris en charge. |
 | Encodage |Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge |
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
-| Format |Applicable uniquement pour le type JSON. «&#160;Séparé par une ligne&#160;» spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON. |
+| Format |Applicable uniquement pour la sérialisation JSON. « Séparé par une ligne » spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque la tâche s’arrête ou que Stream Analytics est passé à la fenêtre de temps suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit. |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) peut être utilisé comme sortie d’une tâche Stream Analytics pour fournir une expérience de visualisation riche des résultats d’analyse. Cette fonctionnalité peut être utilisée pour les tableaux de bord opérationnels, la génération de rapports et la création de rapports pilotés par des métriques.
@@ -267,7 +266,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Partition Key |Nom de la colonne de sortie contenant la clé de partition. La clé de partition est un identificateur unique pour la partition dans une table donnée qui constitue la première partie de la clé primaire d’une entité. C’est une valeur de chaîne qui peut atteindre 1 Ko. |
 | Row Key |Nom de la colonne de sortie contenant la clé de ligne. La clé de ligne est un identificateur unique pour une entité dans une partition donnée. Elle constitue la deuxième partie de la clé primaire d’une entité. La clé de ligne est une valeur de chaîne qui peut atteindre 1 Ko. |
 | Taille du lot |Nombre d’enregistrements d’une opération par lot. En général, la valeur par défaut est suffisante pour bon nombre des tâches. Pour plus d’informations sur la modification de ce paramètre, voir [Spécifications des opérations par lot des tables](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx). |
-
+ 
 ## <a name="service-bus-queues"></a>Files d'attente Service Bus
 [Files d'attente Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) permettent de livrer des messages selon le principe du premier entré, premier sorti (FIFO) à un ou plusieurs destinataires concurrents. En général, les messages sont reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message est reçu et traité par un seul consommateur de message uniquement.
 
@@ -298,7 +297,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Nom de la stratégie de rubrique |Lorsque vous créez une rubrique, vous pouvez également créer des stratégies d’accès partagé sur l’onglet Configurer de la rubrique. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès |
 | Clé de la stratégie de rubrique |Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Service Bus |
 | Format de sérialisation de l’événement |Format de sérialisation pour les données de sortie.  JSON, CSV et Avro sont pris en charge. |
-| Encodage |S’il s’agit du format CSV ou JSON, un encodage doit être spécifié. UTF-8 est le seul format d’encodage actuellement pris en charge |
+ | Encodage |S’il s’agit du format CSV ou JSON, un encodage doit être spécifié. UTF-8 est le seul format d’encodage actuellement pris en charge |
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -315,6 +314,23 @@ La liste ci-dessous présente les noms et les descriptions des propriétés pour
   2\) MyCollection{partition} : vous devez créer les collections « MyCollection0 », « MyCollection1 », « MyCollection2 », etc.  
 * **Clé de partition** : facultative. Nécessaire uniquement si vous utilisez un jeton {partition} dans votre modèle de nom de collection. Nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
 * **ID de document** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
+
+## <a name="azure-functions-in-preview"></a>Azure Functions (préversion)
+Azure Functions est un service de calcul sans serveur qui vous permet d’exécuter du code à la demande sans explicitement configurer ou gérer l’infrastructure. Grâce à ce service, vous pouvez implémenter le code qui est déclenché par les événements qui se produisent dans Azure ou des services tiers.  Comme ce logiciel peut répondre à des déclencheurs, il constitue l’outil de sortie logique pour Azure Stream Analytics. Cet adaptateur de sortie permet aux utilisateurs de connecter Stream Analytics à Azure Functions et d’exécuter un script ou un fragment de code en réaction à différents événements.
+
+Azure Stream Analytics appelle Azure Functions via des déclencheurs HTTP. Le nouvel adaptateur de sortie Azure Stream Analytics est disponible, avec les propriétés configurables suivantes :
+
+| Nom de la propriété | Description |
+| --- | --- |
+| Function App |Nom de votre application Azure Function App |
+| Fonction |Nom de la fonction dans votre application Azure Function App |
+| Taille de lot maximale |Cette propriété peut être utilisée pour définir la taille maximale de chaque lot de sortie qui sera envoyé à votre application Azure Functions. Par défaut, cette valeur est définie sur 256 Ko. |
+| Nombre maximal de lots  |Comme son nom l’indique, cette propriété vous permet de spécifier le nombre maximal d’événements dans chaque lot envoyé à Azure Functions. Par défaut, cette valeur est de 100. |
+| Clé |Si vous souhaitez utiliser une fonction Azure à partir d’un autre abonnement, vous pouvez le faire en fournissant la clé permettant d’accéder à votre fonction. |
+
+Lorsque le logiciel Azure Stream Analytics reçoit une erreur 413 (qui indique que l’entité de demande HTTP est trop volumineuse) de la part d’une fonction Azure, il réduit la taille des lots envoyés à Azure Functions. Dans le code de votre fonction Azure, utilisez cette exception pour vous assurer qu’Azure Stream Analytics n’envoie pas de lots trop volumineux. Vérifiez également que les valeurs de taille et de nombre de lots maximum utilisées dans la fonction correspondent à celles qui ont été saisies dans le portail Stream Analytics. 
+
+De plus, si aucun événement n’est signalé dans le temps imparti, aucune sortie n’est générée. De ce fait, la fonction computeResult n’est pas appelée. Ce comportement est cohérent avec les fonctions d’agrégation fenêtrées intégrées.
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
@@ -335,4 +351,3 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Exemples de mappage d’un service web existant à OData via des données CSDL
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>Exemple : FunctionImport pour des données de type « Raw » (brutes) renvoyées à l’aide de « POST »
-Utilisez des donnés POST Raw pour créer un subordonné et son URL (emplacement) définie par le serveur ou pour mettre à jour la partie du subordonné dans l’URL définie par le serveur.  Où le subordonné est un flux, par exemple non structuré, notamment un fichier texte.  Prenez garde que POST ne soit pas idempotent sans emplacement.
+Utilisez des donnés POST Raw pour créer un subordonné et son URL (emplacement) définie par le serveur ou pour mettre à jour la partie du subordonné dans l’URL définie par le serveur.  Où le subordonné est un flux, c’est-à-dire non structuré, par exemple un fichier texte.  Prenez garde que POST ne soit pas idempotent sans emplacement.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -106,7 +106,7 @@ Utilisez PUT pour créer un subordonné ou mettre à jour la totalité du subord
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>Exemple : FunctionImport pour des données de type « Raw » (brutes) renvoyées à l’aide de « PUT »
-Utilisez des données PUT Raw pour créer un subordonné ou mettre à jour la totalité du subordonné entière à une URL défini par le serveur.  Où le subordonné est un flux, par exemple non structuré, notamment un fichier texte.  Où le subordonné est une structure, PUT est idempotent. Vous obtiendrez donc plusieurs occurrences dans le même état ; par exemple, x=5.  PUT doit être utilisé avec la totalité du contenu de la ressource spécifiée.
+Utilisez des données PUT Raw pour créer un subordonné ou mettre à jour la totalité du subordonné entière à une URL défini par le serveur.  Où le subordonné est un flux, c’est-à-dire non structuré, par exemple un fichier texte.  Où le subordonné est une structure, PUT est idempotent. Vous obtiendrez donc plusieurs occurrences dans le même état ; par exemple, x=5.  PUT doit être utilisé avec la totalité du contenu de la ressource spécifiée.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Contrôle de version client et serveur dans Mobile Apps et Mobile Services
 La dernière version d'Azure Mobile Services est la fonctionnalité **Mobile Apps** d'Azure App Service.
@@ -79,7 +79,7 @@ Remarque : les SDK clients Mobile Services n’envoient *pas* de valeur d’en-
 ### <a name="mobile-services-server-sdks"></a>SDK serveurs Mobile *Services*
 | Plateforme de serveur | Version | En-têtes de versions acceptés |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |** Aucun en-tête de version ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Aucun en-tête de version ** |
 | Node.js |(bientôt disponible) |**Aucun en-tête de version** |
 
 <!-- TODO: add Node npm version -->

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
+ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connexion de données : en savoir plus sur les entrées de flux de données pour Stream Analytics
 La connexion de données à un travail Stream Analytics est un flux d’événements provenant d’une source de données, qui est appelée *entrée* du travail. Stream Analytics propose une intégration de pointe aux sources de flux de données Azure, notamment [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) et le [stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/). Ces sources d’entrée peuvent provenir du même abonnement Azure que votre travail d’analyse ou d’un autre abonnement.
@@ -35,6 +34,12 @@ Un flux de données est une séquence illimitée d’événements au fil du temp
 Stream Analytics prend également en charge des entrées appelées *données de référence*. Ces données auxiliaires sont statiques ou sont modifiées lentement. Elles sont généralement utilisées pour effectuer une corrélation et des recherches. Par exemple, vous pouvez joindre des données de l’entrée de flux de données à des données de référence, comme vous effectueriez une jointure SQL pour rechercher des valeurs statiques. Le stockage d’objets blob Azure est la seule source d’entrée prise en charge pour les données de référence. Les objets blob de source de données de référence sont limités à une taille de 100 Mo.
 
 Pour découvrir comment créer des entrées de données de référence, voir [Utiliser les données de référence](stream-analytics-use-reference-data.md).  
+
+## <a name="compression"></a>Compression
+
+Azure Stream Analytics déploiera prochainement une fonctionnalité de compression pour toutes les sources d’entrée de flux de données (Event Hubs, IoT Hub et stockage Blob). Cette fonctionnalité ajoute une option de liste déroulante au panneau **Nouvelle entrée** dans le portail Azure pour vous permettre de choisir de compresser des flux de données. Les types actuellement pris en charge sont Aucun, GZip et Compression Deflate. 
+
+La compression ne peut pas avoir lieu en même temps que la sérialisation Avro et ne s’applique pas aux données de référence. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Créer une entrée de flux de données à partir de concentrateurs Event Hubs
 
@@ -57,6 +62,7 @@ Le tableau suivant décrit chaque propriété du panneau **Nouvelle entrée** du
 | **Groupe de consommateurs du hub d’événements** (facultatif) |Groupe de consommateurs à utiliser pour ingérer les données du concentrateur Event Hub. Si aucun groupe de consommateurs n’est spécifié, le travail Stream Analytics utilise le groupe de consommateurs par défaut. Nous vous recommandons d’utiliser un groupe de consommateurs différent pour chaque travail Stream Analytics. |
 | **Format de sérialisation de l’événement** |Format de sérialisation (JSON, CSV ou Avro) du flux de données entrant. |
 | **Encodage** | Pour le moment, UTF-8 est le seul format d’encodage pris en charge. |
+| **Compression** (facultatif) | Le type de compression (Aucun, GZip ou Deflate) du flux de données entrant. |
 
 Si vos données proviennent d’un concentrateur Event Hub, vous avez accès aux champs de métadonnées suivants dans votre requête Stream Analytics :
 
@@ -102,6 +108,7 @@ Le tableau suivant décrit chaque propriété du panneau **Nouvelle entrée** du
 | **Groupe de consommateurs** (facultatif) |Groupe de consommateurs à utiliser pour ingérer les données du concentrateur IoT Hub. Si aucun groupe de consommateurs n’est spécifié, un travail Stream Analytics utilise le groupe de consommateurs par défaut. Nous vous recommandons d’utiliser un groupe de consommateurs différent pour chaque travail Stream Analytics. |
 | **Format de sérialisation de l’événement** |Format de sérialisation (JSON, CSV ou Avro) du flux de données entrant. |
 | **Encodage** |Pour le moment, UTF-8 est le seul format d’encodage pris en charge. |
+| **Compression** (facultatif) | Le type de compression (Aucun, GZip ou Deflate) du flux de données entrant. |
 
 Si vos données proviennent d’un concentrateur IoT Hub, vous avez accès aux champs de métadonnées suivants dans votre requête Stream Analytics :
 
@@ -144,6 +151,7 @@ Le tableau suivant décrit chaque propriété du panneau **Nouvelle entrée** du
 | **Format d’heure** (facultatif) |  Format d’heure suivant lequel les fichiers sont organisés si vous utilisez la variable d’heure dans le chemin d’accès. Actuellement, la seule valeur prise en charge est `HH`. |
 | **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV ou Avro) des flux de données entrants. |
 | **Encodage** | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge. |
+| **Compression** (facultatif) | Le type de compression (Aucun, GZip ou Deflate) du flux de données entrant. |
 
 Si vos données proviennent d’une source de stockage d’objets blob, vous avez accès aux champs de métadonnées suivants dans votre requête Stream Analytics :
 
@@ -182,4 +190,3 @@ Vous avez appris à connaître les options de connexion de données dans Azure p
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

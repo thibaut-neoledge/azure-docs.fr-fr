@@ -11,15 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/19/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a21f1c61f344f96e2e03422e41fd8c5f7f841a0c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud
 
@@ -34,7 +32,10 @@ IoT Hub vous permet d’acheminer les [messages appareil-à-cloud][lnk-device-to
 
 Un seul message peut correspondre à la condition de plusieurs règles d’acheminement, auquel cas IoT Hub remet le message au point de terminaison associé à chaque règle ayant affiché une correspondance. Par ailleurs, IoT Hub déduplique automatiquement la remise des messages ; par conséquent, si un message correspond à plusieurs règles qui ont toutes la même destination, il n’est écrit qu’une seule fois dans cette destination.
 
-Un hub IoT a par défaut un [point de terminaison intégré][lnk-built-in]. Vous pouvez créer des points de terminaison personnalisés pour y acheminer les messages en liant d’autres services de votre abonnement au hub. IoT Hub prend actuellement en charge les points de terminaison personnalisés Event Hubs, les files d’attente Service Bus et les rubriques Service Bus.
+Un hub IoT a par défaut un [point de terminaison intégré][lnk-built-in]. Vous pouvez créer des points de terminaison personnalisés pour y acheminer les messages en liant d’autres services de votre abonnement au hub. IoT Hub prend actuellement en charge les conteneurs de stockage Azure, les points de terminaison personnalisés Event Hubs, les files d’attente Service Bus et les rubriques Service Bus.
+
+> [!NOTE]
+> IoT Hub prend uniquement en charge l’écriture de données dans des conteneurs de stockage Azure en tant qu’objets blob.
 
 > [!WARNING]
 > Les files d’attente et rubriques Service Bus dont les options **Sessions** ou **Détection des doublons** sont activées ne sont pas prises en charge comme points de terminaison personnalisés.
@@ -43,6 +44,7 @@ Pour plus d’informations sur la création de points de terminaison personnalis
 
 Pour plus d’informations sur la lecture à partir de points de terminaison personnalisés, consultez :
 
+* Lecture à partir des [conteneurs de stockage Azure][lnk-getstarted-storage].
 * Lecture à partir [d’Event Hubs][lnk-getstarted-eh].
 * Lecture à partir de [files d’attente Service Bus][lnk-getstarted-queue].
 * Lecture à partir de [rubriques Service Bus][lnk-getstarted-topic].
@@ -63,4 +65,4 @@ Le didacticiel [Traiter les messages appareil-à-cloud IoT Hub en utilisant les 
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-
+[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 9eaa2ec661a3488b0bef1f6b7cc7a82290720054
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour FishEye/Crucible
 
@@ -201,7 +201,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforfisheyecrucible-tutorial/addon10.png)
 
-    a. Sélectionnez **créer des utilisateurs dans l’annuaire interne de FishEye si nécessaire** et entrez le nom du groupe approprié pour les utilisateurs (peut être non plusieurs. groupes séparés par des virgules).
+    a. Sélectionnez **Create users in FishEye's internal Directory if needed** (Créer des utilisateurs dans l’annuaire interne de FishEye si nécessaire) et entrez le nom de groupe approprié pour les utilisateurs (peut être plusieurs groupes séparés par des virgules).
 
     b. Cliquez sur **Suivant**.
 

@@ -1,7 +1,7 @@
 ---
-title: "Se connecter aux systèmes de fichiers locaux à partir d’Azure Logic Apps | Microsoft Docs"
-description: "Se connecter à un système de fichiers local à partir du flux de travail d’applications logiques par le biais de la passerelle de données locale et du connecteur du système de fichiers"
-keywords: "systèmes de fichiers"
+title: "Se connecter aux systèmes de fichiers locaux - Azure Logic Apps | Microsoft Docs"
+description: "Se connecter aux systèmes de fichiers locaux à partir de workflows d’application logique par le biais de la passerelle de données locale et du connecteur de système de fichiers"
+keywords: "systèmes de fichiers, locaux"
 services: logic-apps
 author: derek1ee
 manager: anneta
@@ -12,70 +12,72 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2017
+ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: f33e7c58103c57e17e4e273caba1ab9b83f0cd2b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Se connecter aux systèmes de fichiers local à partir d’applications logiques avec le connecteur du système de fichiers
 
-La connectivité cloud hybride est essentielle pour les applications logiques ; par conséquent, pour gérer les données et accéder en toute sécurité aux ressources locales, vos applications logiques peuvent utiliser la passerelle de données locale. Dans cet article, nous montrons comment se connecter à un système de fichiers local avec un scénario de base : copie d’un fichier chargé sur Dropbox vers un partage de fichiers, puis envoi d’un e-mail.
+Pour gérer les données et accéder en toute sécurité aux ressources locales, vos applications logiques peuvent utiliser la passerelle de données locale. Cet article vous explique comment vous connecter à un système de fichiers local par l’intermédiaire de cet exemple de scénario simple : copie d’un fichier chargé dans Dropbox vers un partage de fichiers, puis envoi d’un e-mail.
 
 ## <a name="prerequisites"></a>Composants requis
 
-- Installez et configurez la toute dernière [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127).
-- Installez la dernière passerelle de données locale, version 1.15.6150.1 ou version ultérieure. La rubrique [Se connecter à la passerelle de données locale](http://aka.ms/logicapps-gateway) répertorie les étapes nécessaires. La passerelle doit être installée sur un ordinateur local avant de pouvoir effectuer le reste des étapes.
+* Téléchargez la toute dernière [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127).
+
+* Installez et configurez la dernière passerelle de données locale, version 1.15.6150.1 ou ultérieure. Pour connaître la procédure à suivre, consultez l’article [Connexion à des sources de données locales](http://aka.ms/logicapps-gateway). Vous devez installer la passerelle sur une machine locale avant de pouvoir effectuer le reste de la procédure.
+
+* Des connaissances de base en [création d’applications logiques](../logic-apps/logic-apps-create-a-logic-app.md)
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Ajouter un déclencheur et des actions pour se connecter au système de fichiers
 
-1. Créez une application logique et ajoutez ce déclencheur Dropbox : **Lorsqu’un fichier est créé**. 
-2. Sous le déclencheur, choisissez **Étape suivante** > **Ajouter une action**. 
-3. Dans la zone de recherche, entrez `file system` pour afficher toutes les actions prises en charge pour le connecteur du système de fichiers.
+1. Créez une application logique vide. Ajoutez ce déclencheur comme première étape : **Dropbox - Quand un fichier est créé**. 
+
+2. Sous le déclencheur, choisissez **+ Étape suivante** > **Ajouter une action**. 
+
+3. Dans la zone de recherche, entrez « système de fichiers » en tant que filtre. Lorsque vous voyez apparaître toutes les actions pour le connecteur de système de fichiers, choisissez l’action **Système de fichiers - Créer un fichier**. 
 
    ![Rechercher le connecteur de fichiers](media/logic-apps-using-file-connector/search-file-connector.png)
 
-2. Choisissez l’action **Créer un fichier** et créez une connexion à votre système de fichiers.
+4. Si vous ne disposez pas encore d’une connexion à votre système de fichiers, vous êtes invité à créer une connexion. 
 
-   Si vous n’avez pas de connexion existante, vous êtes invité à en créer une.
+5. Sélectionnez l’option **Se connecter via la passerelle de données locale**. Lorsque les propriétés de connexion apparaissent, configurez votre connexion comme spécifié dans le tableau.
 
-   1. Choisissez **Se connecter via la passerelle de données locale**. D’autres propriétés s’affichent.
-   2. Sélectionnez le dossier racine de votre système de fichiers.
-      
-       > [!NOTE]
-       > Le dossier racine est le dossier parent principal qui est utilisé pour les chemins relatifs de toutes les actions liées aux fichiers. Vous pouvez spécifier un dossier local situé sur la machine où est installée la passerelle de données locale ; il peut également s’agir d’un partage réseau auquel la machine a accès.
+   ![Configurer la connexion](media/logic-apps-using-file-connector/create-file.png)
 
-   3. Entrez le nom d’utilisateur et le mot de passe de la passerelle.
-   4. Sélectionnez la passerelle que vous avez installée précédemment.
+   | Paramètre | Description |
+   | ------- | ----------- |
+   | **Dossier racine** | Spécifiez le dossier racine de votre système de fichiers. Vous pouvez spécifier un dossier local situé sur la machine où est installée la passerelle de données locale ; il peut également s’agir d’un partage réseau auquel la machine a accès. <p>**Conseil :** Le dossier racine est le dossier parent principal, qui est utilisé pour les chemins d’accès relatifs de toutes les actions liées aux fichiers. | 
+   | **Type d’authentification** | Type d’authentification utilisé par votre système de fichiers. | 
+   | **Nom d’utilisateur** | Fournissez votre nom d’utilisateur {*domaine*\\*nom d’utilisateur*} pour la passerelle que vous avez installée précédemment. | 
+   | **Mot de passe** | Fournissez votre mot de passe pour la passerelle que vous avez installée précédemment. | 
+   | **Passerelle** | Sélectionnez la passerelle que vous avez installée précédemment. | 
+   ||| 
 
-       ![Configurer la connexion](media/logic-apps-using-file-connector/create-file.png)
-
-3. Après avoir fourni tous les détails, choisissez **Créer**. 
+6. Après avoir fourni tous les détails de connexion, choisissez **Créer**. 
 
    Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement. 
-   Si la connexion est correctement configurée, des options s’affichent pour l’action sélectionnée précédemment. 
+   Si la connexion est configurée correctement, des options apparaissent pour l’action que vous avez sélectionnée précédemment. 
    Le connecteur Système de fichiers est maintenant prêt à être utilisé.
 
-4. Spécifiez que vous souhaitez copier des fichiers de Dropbox vers le dossier racine de votre partage de fichiers local.
+7. Configurez l’action **Créer un fichier** pour la copie de fichiers de Dropbox vers le dossier racine de votre partage de fichiers local.
 
    ![Créer une action de fichier](media/logic-apps-using-file-connector/create-file-filled.png)
 
-5. Une fois que votre application logique a copié le fichier, ajoutez une action d’Outlook qui envoie un e-mail afin que les utilisateurs concernés soient informés de la présence du nouveau fichier. Saisissez les destinataires, l’objet et le corps de l’e-mail. 
+8. Après cette action de copie du fichier, ajoutez une action Outlook qui envoie un e-mail afin que les utilisateurs concernés soient informés de la présence du nouveau fichier. Saisissez les destinataires, l’objet et le corps de l’e-mail. 
 
-   Dans le sélecteur de contenu dynamique, vous pouvez choisir les sorties de données du connecteur de fichier pour pouvoir ajouter plus de détails à l’adresse e-mail.
+   Dans la liste **Contenu dynamique**, vous pouvez choisir les sorties de données du connecteur de fichier pour être en mesure d’ajouter plus de détails à l’e-mail.
 
    ![Envoyer l’action de messagerie](media/logic-apps-using-file-connector/send-email.png)
 
-6. Enregistrez votre application logique. Testez votre application en chargeant un fichier sur Dropbox. Le fichier se copie sur le partage de fichiers local et vous recevrez un e-mail concernant l’opération.
+9. Enregistrez votre application logique. Testez votre application en chargeant un fichier sur Dropbox. Le fichier se copie sur le partage de fichiers local et vous recevrez un e-mail concernant l’opération.
 
-   > [!TIP] 
-   > Apprenez à [surveiller vos applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+Félicitations, vous avez maintenant une application logique en état de fonctionnement qui peut se connecter à votre système de fichiers local. 
 
-Félicitations, vous avez maintenant une application logique en état de fonctionnement qui peut se connecter à votre système de fichiers local. Essayez de découvrir les autres fonctionnalités offertes par le connecteur, par exemple :
+Essayez de découvrir les autres fonctionnalités offertes par le connecteur, par exemple :
 
 - Créer un fichier
 - Répertorier les fichiers dans un dossier
@@ -89,16 +91,17 @@ Félicitations, vous avez maintenant une application logique en état de fonctio
 - Mettre à jour un fichier
 
 ## <a name="view-the-swagger"></a>Afficher Swagger
+
 Consultez les [détails sur Swagger](/connectors/fileconnector/). 
 
-## <a name="get-help"></a>Obtenir de l'aide
+## <a name="get-support"></a>Obtenir de l'aide
 
-Pour poser des questions ou y répondre et voir ce que font les autres utilisateurs d’Azure Logic Apps, visitez le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site de commentaires utilisateur Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site UserVoice concernant Azure Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Se connecter à des données locales](../logic-apps/logic-apps-gateway-connection.md) à partir d’applications logiques
-- En savoir plus sur [l’intégration d’entreprise](../logic-apps/logic-apps-enterprise-integration-overview.md)
-
+* [Se connecter à des données locales](../logic-apps/logic-apps-gateway-connection.md) 
+* [Analyser vos applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Intégration Entreprise pour les scénarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md)

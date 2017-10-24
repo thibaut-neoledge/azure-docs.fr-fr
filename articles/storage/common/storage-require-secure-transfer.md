@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
+ms.openlocfilehash: 1bb87cf3e37e486f9a03da43df652442c19fd218
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 5ec50ca23d9f7c92365492dfab42dc14a38699e2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Exiger un transfert sécurisé dans Stockage Azure
 
@@ -30,7 +29,7 @@ Lorsque vous utilisez le service Azure Files, toute connexion sans chiffrement 
 Par défaut, l’option Transfert sécurisé requis est désactivée.
 
 > [!NOTE]
-> Étant donné que Stockage Azure ne prend pas en charge le protocole HTTPS pour les noms de domaine personnalisés, cette option n’est pas appliquée lorsque vous utilisez un nom de domaine personnalisé.
+> Étant donné que Stockage Azure ne prend pas en charge le protocole HTTPS pour les noms de domaine personnalisés, cette option n’est pas appliquée lorsque vous utilisez un nom de domaine personnalisé. En outre, les comptes de stockage classiques ne sont pas pris en charge.
 
 ## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Activer l’option Transfert sécurisé requis dans le portail Azure
 
@@ -63,59 +62,65 @@ Pour exiger un transfert sécurisé par programme, utilisez le paramètre _suppo
 * [SDK Python](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (version : 1.1.0)
 * [SDK Ruby](https://rubygems.org/gems/azure_mgmt_storage) (version : 0.11.0)
 
-### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>Activer le paramètre « Transfert sécurisé requis » avec l’API REST
+### <a name="enable-secure-transfer-required-setting-with-powershell"></a>Activer le paramètre « Transfert sécurisé requis » avec PowerShell
 
-Pour simplifier les tests avec l’API REST, utilisez [ArmClient](https://github.com/projectkudu/ARMClient) pour appeler à partir de la ligne de commande.
+Cet exemple requiert le module Azure PowerShell version 4.1 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
- Utilisez la ligne de commande ci-dessous pour vérifier le paramètre avec l’API REST :
+Exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
+
+ Utilisez la ligne de commande ci-dessous pour vérifier le paramètre :
+
+```powershell
+> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : False
+...
 
 ```
-# Login Azure and proceed with your credentials
-> armclient login
 
-> armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
+Utilisez la ligne de commande ci-dessous pour activer le paramètre :
+
+```powershell
+> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : True
+...
+
 ```
 
-Recherchez le paramètre _supportsHttpsTrafficOnly_ dans la réponse. Par exemple :
+### <a name="enable-secure-transfer-required-setting-with-cli"></a>Activer le paramètre « Transfert sécurisé requis » avec l’interface de ligne de commande
 
-```Json
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+ Utilisez la ligne de commande ci-dessous pour vérifier le paramètre :
+
+```azurecli-interactive
+> az storage account show -g {ResourceGroupName} -n {StorageAccountName}
 {
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
-  "kind": "Storage",
-  ...
-  "properties": {
-    ...
-    "supportsHttpsTrafficOnly": false
-  },
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": false,
   "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```
 
-Utilisez la ligne de commande ci-dessous pour activer le paramètre avec l’API REST :
+Utilisez la ligne de commande ci-dessous pour activer le paramètre :
 
-```
-
-# Login Azure and proceed with your credentials
-> armclient login
-
-> armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01 < Input.json
-
-```
-
-Vous trouverez ci-dessous un exemple de Input.json :
-```Json
-
+```azurecli-interactive
+> az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
 {
-  "location": "westus",
-  "properties": {
-    "supportsHttpsTrafficOnly": true
-  }
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": true,
+  "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Stockage Azure propose un ensemble complet de fonctionnalités de sécurité qui, une fois réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité Stockage Azure](storage-security-guide.md).
-

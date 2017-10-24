@@ -14,19 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: bwren
+ms.openlocfilehash: 271747e25f319c76195ec643025d24c6b7cdc9c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 98befb16d27387e8f65a27771a2a32c264119d74
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Exportation de données Log Analytics vers Power BI
 
 >[!NOTE]
-> Une fois votre espace de travail mis à niveau vers le [nouveau langage de requête de Log Analytics](log-analytics-log-search-upgrade.md), le processus d’exportation des données de Log Analytics à Power BI ne fonctionne plus.  Toutes les planifications existantes que vous avez créées avant la mise à niveau sont alors désactivées. 
+> Une fois votre espace de travail mis à niveau vers le [nouveau langage de requête de Log Analytics](log-analytics-log-search-upgrade.md), le processus d’exportation des données de Log Analytics à Power BI ne fonctionne plus.  Toutes les planifications existantes que vous avez créées avant la mise à niveau sont alors désactivées. L’option d’activation de la fonctionnalité d’exportation Power BI n’est plus visible dans Paramètres sous Fonctionnalités en préversion, car cette fonctionnalité est entièrement publiée dans les espaces de travail mis à niveau. 
 >
 > Après la mise à niveau, Azure Log Analytics utilise la même plateforme qu’Application Insights et vous devez utiliser le même processus vous permettant d’exporter des requêtes de Log Analytics vers Power BI comme [processus d’exportation des requêtes d’Application Insights vers Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Vous pouvez soit exporter la requête à l’aide de la console Analytics comme décrit dans cet article, soit sélectionner le bouton **Power BI** situé dans le coin supérieur de l’écran du portail de recherche dans les journaux.
+>
+> Les utilisateurs devront accéder à la ressource de l’espace de travail pour utiliser la fonctionnalité d’exportation Power BI dans les espaces de travail mis à niveau. S’il ne disposent pas de l’accès requis, les utilisateurs obtiendront un message d’erreur lors de l’importation de la requête dans l’application Power BI Desktop à laquelle ils n’ont pas accès.
 
 
 
@@ -126,4 +127,3 @@ Pour enregistrer le rapport, cliquez sur le bouton Enregistrer en haut de l’é
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment les [recherches de journaux](log-analytics-log-searches.md) peuvent vous aider à générer des requêtes pouvant être exportées vers Power BI.
 * Découvrez comment utiliser [Power BI](http://powerbi.microsoft.com) pour créer des visualisations basées sur des exportations Log Analytics.
-

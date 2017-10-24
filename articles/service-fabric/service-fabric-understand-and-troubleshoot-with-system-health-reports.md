@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
+ms.openlocfilehash: 21f04c1b01033adcef7b7d73c710dd2b4590f76f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fb3b2ecd73acb0ea65af477bc6a5b887c117574c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utiliser les rapports d’intégrité du système pour la résolution des problèmes
-Les composants Azure Service Fabric signalent sans configuration l’intégrité de toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
+Les composants Azure Service Fabric fournissent des rapports d’intégrité du système prêts à l’emploi pour toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
 
 > [!NOTE]
 > Pour mieux comprendre les concepts relatifs à l’intégrité, consultez la documentation relative au [modèle d’intégrité du Service Fabric](service-fabric-health-introduction.md).
 > 
 > 
 
-Les rapports d’intégrité du système procurent une visibilité sur les fonctionnalités du cluster et des applications, et signalent les problèmes d’intégrité. Pour les applications et services, les rapports d’intégrité du système vérifient que les entités sont implémentées et qu’elles se comportent correctement du point de vue de Service Fabric. Le rapport ne fournit aucune information sur l’intégrité de la logique métier du service ni sur la détection des processus bloqués. Les services utilisateur peuvent enrichir les données d’intégrité avec des informations spécifiques à leur logique.
+Les rapports d’intégrité du système procurent une visibilité sur les fonctionnalités du cluster et des applications, et signalent les problèmes. Pour les applications et services, les rapports d’intégrité du système vérifient que les entités sont implémentées et qu’elles se comportent correctement du point de vue de Service Fabric. Les rapports ne fournissent aucune information sur l’intégrité de la logique métier du service ni sur la détection des processus bloqués. Les services utilisateur peuvent enrichir les données d’intégrité avec des informations spécifiques à leur logique.
 
 > [!NOTE]
-> Les rapports de surveillance d’intégrité sont visibles uniquement *après* que les composants système ont créé une entité. Lorsqu’une entité est supprimée, le magasin d’intégrité élimine automatiquement l’ensemble des rapports d’intégrité qui lui sont associés. Cela vaut également quand une nouvelle instance de l’entité est créée (par exemple une nouvelle instance de réplica de service avec état persistant est créée). Tous les rapports associés à l’ancienne instance sont supprimés et éliminés du magasin.
+> Les rapports d’intégrité envoyés par les agents de surveillance de l’utilisateur sont visibles uniquement *après* que les composants système ont créé une entité. Lorsqu’une entité est supprimée, le magasin d’intégrité élimine automatiquement l’ensemble des rapports d’intégrité qui lui sont associés. Cela vaut également quand une instance de l’entité est créée (par exemple, quand une instance de réplica de service avec état persistant est créée). Tous les rapports associés à l’ancienne instance sont supprimés et éliminés du magasin.
 > 
 > 
 
 Les rapports sur les composants système sont identifiés par la source, qui commence par le préfixe « **System.** » . Les pilotes de surveillance ne peuvent pas utiliser le même préfixe pour leurs sources, car les rapports dotés de paramètres non valides sont rejetés.
-Examinons certains rapports du système et tâchons d’identifier les éléments déclencheurs et d’imaginer des moyens de corriger les problèmes potentiels qu’ils représentent.
+
+Examinons certains rapports du système et tâchons d’identifier les éléments déclencheurs et d’apprendre à corriger les problèmes potentiels qu’ils représentent.
 
 > [!NOTE]
-> Service Fabric continue d’ajouter des rapports sur les domaines d’intérêt qui améliorent la visibilité sur les événements associés au cluster et aux applications. Les rapports existants peuvent également être améliorés en offrant plus de détails pour vous aider à résoudre le problème plus rapidement.
+> Service Fabric continue d’ajouter des rapports sur des états intéressants qui améliorent la visibilité sur ce qui se passe dans le cluster et les applications. Davantage de détails peuvent être inclus pour améliorer les rapports existants et ainsi permettre de résoudre le problème plus rapidement.
 > 
 > 
 
@@ -48,27 +48,27 @@ Examinons certains rapports du système et tâchons d’identifier les élément
 L’entité d’intégrité du cluster est créée automatiquement dans le magasin d’intégrité. Si tout fonctionne correctement, elle ne présente pas de rapport système.
 
 ### <a name="neighborhood-loss"></a>Perte de voisinage
-**System.Federation** indique une erreur s’il détecte une perte de voisinage. Le rapport est issu de nœuds individuels ; l’ID de nœud est inclus dans le nom de propriété. Si un voisinage est perdu dans l’ensemble de l’anneau de Service Fabric, deux événements sont généralement signalés (les deux côtés de l’intervalle indiquent une erreur). Si plusieurs voisinages sont perdus, d’autres d’événements ont lieu.
+**System.Federation** indique une erreur s’il détecte une perte de voisinage. Le rapport est issu de nœuds individuels ; l’ID de nœud est inclus dans le nom de propriété. Si un voisinage est perdu dans l’ensemble de l’anneau de Service Fabric, deux événements (qui représentent les deux limites du rapport d’intervalle) sont généralement signalés. Si plusieurs voisinages sont perdus, d’autres d’événements ont lieu.
 
-Le rapport spécifie le délai d’expiration du bail globale comme durée de vie. Il est renvoyé lorsque la moitié de la durée de vie est atteinte, tant que la condition reste active. L’événement arrivé à expiration est automatiquement supprimé. Le comportement de suppression à expiration garantit le nettoyage approprié du rapport dans le magasin d’intégrité, même si le nœud de création de rapports est arrêté.
+Le rapport spécifie le délai d’expiration du bail global comme durée de vie. Il est renvoyé lorsque la moitié de la durée de vie est atteinte, tant que la condition reste active. L’événement arrivé à expiration est automatiquement supprimé. Le comportement de suppression à expiration garantit le nettoyage approprié du rapport dans le magasin d’intégrité, même si le nœud de création de rapports est arrêté.
 
 * **SourceId**: System.Federation.
 * **Property** : commence par **Neighborhood** et inclut des informations sur le nœud.
-* **Étapes suivantes**: recherchez ce qui a provoqué la perte de voisinage (par exemple, vérifiez la communication entre les nœuds du cluster).
+* **Étapes suivantes** : recherchez ce qui a provoqué la perte de voisinage (par exemple, vérifiez la communication entre les nœuds du cluster).
 
 ## <a name="node-system-health-reports"></a>Rapports d’intégrité du système sur les nœuds
-**System.FM**, qui représente le service Failover Manager, est l’autorité qui gère les informations sur les nœuds de cluster. Un rapport System.FM indiquant son état doit être alloué à chaque nœud. Les entités de nœud sont supprimées lorsque l’état du nœud est supprimé (consultez [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
+**System.FM**, qui représente le service Failover Manager, est l’autorité qui gère les informations sur les nœuds de cluster. Un rapport System.FM indiquant son état doit être alloué à chaque nœud. Les entités de nœud sont supprimées lorsque l’état du nœud est supprimé. Pour plus d’informations, consultez [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### <a name="node-updown"></a>Nœud activé/désactivé
-System.FM consigne la valeur OK lorsque le nœud rejoint l’anneau (il est opérationnel). Il indique une erreur lorsque le nœud quitte l’anneau (il est inactif, en raison d’une mise à niveau ou simplement d’une défaillance). La hiérarchie d’intégrité développée par le magasin d’intégrité agit sur les entités déployées en corrélation avec les rapports sur les nœuds de System.FM. Elle traite le nœud comme un parent virtuel de toutes les entités déployées. Les entités déployées sur ce nœud sont exposées via des requêtes si le nœud est indiqué comme actif par System/FM, avec la même instance comme instance associée aux entités. Lorsque System.FM fait état de l’inactivité ou du redémarrage du nœud (nouvelle instance), le magasin d’intégrité nettoie automatiquement les entités déployées qui peuvent exister uniquement sur le nœud inactif ou sur l’instance précédente du nœud.
+System.FM consigne la valeur OK lorsque le nœud rejoint l’anneau (il est opérationnel). Il indique une erreur lorsque le nœud quitte l’anneau (il est inactif, en raison d’une mise à niveau ou simplement d’une défaillance). La hiérarchie d’intégrité développée par le magasin d’intégrité agit sur les entités déployées en corrélation avec les rapports sur les nœuds de System.FM. Elle traite le nœud comme un parent virtuel de toutes les entités déployées. Les entités déployées sur ce nœud sont exposées via des requêtes si le nœud est indiqué comme actif par System/FM, avec la même instance comme instance associée aux entités. Lorsque System.FM fait état de l’inactivité ou du redémarrage du nœud (en tant que nouvelle instance), le magasin d’intégrité nettoie automatiquement les entités déployées qui peuvent exister uniquement sur le nœud inactif ou sur l’instance précédente du nœud.
 
 * **SourceId**: System.FM
-* **Property**: State
-* **Étapes suivantes**: si le nœud est inactif en raison d’une mise à niveau, il doit redevenir actif une fois l’opération terminée. Dans ce cas, l’état d’intégrité doit repasser sur OK. Si le nœud ne redevient pas actif ou s’il échoue, le problème requiert un examen plus approfondi.
+* **Property**: State.
+* **Étapes suivantes** : si le nœud est inactif en raison d’une mise à niveau, il doit redevenir actif une fois l’opération terminée. Dans ce cas, l’état d’intégrité doit repasser sur OK. Si le nœud ne redevient pas actif ou s’il échoue, le problème requiert un examen plus approfondi.
 
 L’exemple suivant représente l’événement System.FM avec un état d’intégrité OK pour le nœud actif :
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
 
 NodeName              : _Node_0
@@ -92,14 +92,14 @@ HealthEvents          :
 **System.FabricNode** indique un avertissement lorsque les certificats utilisés par le nœud sont sur le point d’arriver à expiration. Chaque nœud comporte trois certificats associés : **Certificate_cluster**, **Certificate_server** et **Certificate_default_client**. Lorsque la date d’expiration est à au moins deux semaines, l’état d’intégrité du rapport est OK. Si elle a lieu dans les deux semaines qui suivent, le type de rapport est un avertissement. La durée de vie de ces événements est infinie, et ils sont supprimés lorsqu’un nœud quitte un cluster.
 
 * **SourceId**: System.FabricNode
-* **Property** : commence par **Certificate** et contient des informations supplémentaires sur le type de certificat
+* **Property** : commence par **Certificate** et contient des informations supplémentaires sur le type de certificat.
 * **Étapes suivantes**: mettez à jour les certificats sur le point d’arriver à expiration.
 
 ### <a name="load-capacity-violation"></a>Violation de capacité de charge
 L’équilibrage de charge de Service Fabric indique un avertissement quand il détecte une violation de la capacité du nœud.
 
 * **SourceId**: System.PLB
-* **Property** : commence par **Capacity**
+* **Property** : commence par **Capacity**.
 * **Étapes suivantes**: contrôlez les mesures fournies et examinez la capacité actuelle sur le nœud.
 
 ## <a name="application-system-health-reports"></a>Rapports d’intégrité du système sur les applications
@@ -109,12 +109,12 @@ L’équilibrage de charge de Service Fabric indique un avertissement quand il d
 System.CM consigne la valeur OK lorsque l’application a été créée ou mise à jour. Il informe le magasin d’intégrité lorsque l’application a été supprimée afin qu’elle puisse en être retirée.
 
 * **SourceId**: System.CM
-* **Property**: State
-* **Étapes suivantes**: si l’application a été créée ou mise à jour, elle doit inclure le rapport d’intégrité du Gestionnaire du cluster. Dans le cas contraire, vérifiez l’état de l’application en émettant une requête (par exemple, l’applet de commande PowerShell **Get-ServiceFabricApplication -ApplicationName *nom_application***).
+* **Property**: State.
+* **Étapes suivantes**: si l’application a été créée ou mise à jour, elle doit inclure le rapport d’intégrité du Gestionnaire du cluster. Dans le cas contraire, vérifiez l’état de l’application en émettant une requête (par exemple, la cmdlet PowerShell **Get-ServiceFabricApplication -ApplicationName** *applicationName*).
 
 L’exemple suivant représente l’événement d’état sur l’application **fabric:/WordCount** :
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
 
 ApplicationName                 : fabric:/WordCount
@@ -142,11 +142,11 @@ HealthEvents                    :
 System.FM consigne la valeur OK lorsque le service a été créé. Il supprime l’entité du magasin d’intégrité lorsque le service a été supprimé.
 
 * **SourceId**: System.FM
-* **Property**: State
+* **Property**: State.
 
 L’exemple suivant représente l’événement d’état sur le service **fabric:/WordCount/WordCountWebService** :
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
 
@@ -171,10 +171,10 @@ HealthEvents          :
 ```
 
 ### <a name="service-correlation-error"></a>Erreur de corrélation de services
-**System.PLB** signale une erreur lorsqu’il détecte que la mise à jour d’un service à mettre en corrélation avec un autre service crée une chaîne d’affinités. Le rapport est effacé lorsque la mise à jour est réussie.
+**System.PLB** signale une erreur lorsqu’il détecte que la mise à jour d’un service est liée à un autre service qui crée une chaîne d’affinités. Le rapport est effacé lorsque la mise à jour est réussie.
 
-* **SourceId** : System.PLB
-* **Property** : ServiceDescription
+* **SourceId**: System.PLB
+* **Property** : ServiceDescription.
 * **Étapes suivantes** : vérifiez les descriptions de service en corrélation.
 
 ## <a name="partition-system-health-reports"></a>Rapports d’intégrité du système sur les partitions
@@ -183,17 +183,17 @@ HealthEvents          :
 ### <a name="state"></a>State
 System.FM consigne la valeur OK lorsque la partition créée est intègre. Il élimine l’entité du magasin d’intégrité lorsque la partition est supprimée.
 
-Si la partition présente une valeur inférieure au nombre minimal de réplicas, une erreur est signalée. Si la partition présente une valeur non inférieure au nombre minimal de réplicas, mais inférieure au nombre cible de réplicas, un avertissement est signalé. Si la partition subit une perte de quorum, System.FM indique une erreur.
+Si la partition présente une valeur inférieure au nombre minimal de réplicas, une erreur est signalée. Si la partition présente une valeur supérieure au nombre minimum de réplicas, mais inférieure au nombre cible de réplicas, un avertissement est signalé. Si la partition subit une perte de quorum, System.FM indique une erreur.
 
-Les autres événements importants incluent un avertissement quand la reconfiguration et la génération prennent plus de temps que prévu. Les délais impartis pour la génération et la reconfiguration sont configurables en fonction des scénarios de service. Par exemple, si un service présente un état défini en téraoctet, par exemple une instance SQL Database, la génération prendra davantage de temps que celle d’un service affichant un état d’un volume moindre.
+Les autres événements notables incluent un avertissement quand la reconfiguration et la génération prennent plus de temps que prévu. Les délais impartis pour la génération et la reconfiguration sont configurables en fonction des scénarios de service. Par exemple, si un service présente un état défini en téraoctet, par exemple une instance Azure SQL Database, la génération prendra davantage de temps que celle d’un service affichant un état d’un volume moindre.
 
 * **SourceId**: System.FM
-* **Property**: State
+* **Property**: State.
 * **Étapes suivantes**: si l’état d’intégrité n’est pas OK, il est possible que certains réplicas n’aient pas été créés, ouverts ou promus comme réplicas principaux ou secondaires de manière correcte. 
 
-Si la description décrit une perte de quorum, l’examen du rapport d’intégrité détaillé pour les réplicas qui sont arrêtés et la remise en service de ceux-ci peut vous aider à remettre en ligne la partition.
+Si la description fait état d’une perte de quorum, l’examen du rapport d’intégrité détaillé pour les réplicas qui sont arrêtés et la remise en service de ceux-ci peuvent vous permettre de remettre en ligne la partition.
 
-Si la description décrit une partition bloquée lors de la [reconfiguration](service-fabric-concepts-reconfiguration.md), le rapport d’intégrité sur le réplica principal peut fournir des informations supplémentaires.
+Si la description indique une partition bloquée lors de la [reconfiguration](service-fabric-concepts-reconfiguration.md), le rapport d’intégrité sur le réplica principal fournit des informations supplémentaires.
 
 Pour les autres rapports d’intégrité System.FM, il y aurait des rapports sur les réplicas ou la partition ou le service à partir d’autres composants système. 
 
@@ -201,7 +201,7 @@ Les exemples ci-dessous décrivent certains de ces rapports.
 
 L’exemple suivant représente une partition saine :
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
 
 PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
@@ -221,9 +221,9 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-L’exemple suivant représente l’intégrité d’une partition qui présente un nombre de réplicas inférieur à la valeur cible. Ensuite, il faut récupérer la description de la partition, qui indique la façon dont elle est configurée : **MinReplicaSetSize** est défini sur trois et **TargetReplicaSetSize** sur sept. Obtenez ensuite le nombre de nœuds dans le cluster : 5. Par conséquent, dans ce cas, il n’est pas possible de placer deux réplicas, car le nombre cible de réplicas est supérieur au nombre de nœuds disponibles.
+L’exemple suivant représente l’intégrité d’une partition qui présente un nombre de réplicas inférieur à la valeur cible. Ensuite, il faut récupérer la description de la partition, qui indique la façon dont elle est configurée : **MinReplicaSetSize** est défini sur trois et **TargetReplicaSetSize** sur sept. Récupérez ensuite le nombre de nœuds dans le cluster. Ici, il est égal à cinq. Par conséquent, dans ce cas, il n’est pas possible de placer deux réplicas, car le nombre cible de réplicas est supérieur au nombre de nœuds disponibles.
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
 
@@ -299,9 +299,9 @@ PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
-L’exemple suivant montre l’intégrité d’une partition qui est bloquée dans une reconfiguration parce que l’utilisateur n’honore pas le jeton d’annulation dans la méthode RunAsync. L’examen du rapport d’intégrité de tout réplica marqué comme Principal (P) permet d’explorer plus en profondeur le problème.
+L’exemple suivant montre l’intégrité d’une partition qui est bloquée dans une reconfiguration parce que l’utilisateur ne respecte pas le jeton d’annulation dans la méthode **RunAsync**. L’examen du rapport d’intégrité de tout réplica marqué comme Principal (P) permet d’explorer plus en profondeur le problème.
 
-```powershell
+```PowerShell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
 
 
@@ -331,7 +331,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Ok->Warning = 8/27/2017 3:43:32 AM, LastError = 1/1/0001 12:00:00 AM
 ```
-Ce rapport d’intégrité affiche l’état des réplicas de la partition en cours de reconfiguration. 
+Ce rapport d’intégrité affiche l’état des réplicas de la partition en cours de reconfiguration : 
 
 ```
   P/S Ready Node1 131482789658160654
@@ -339,33 +339,33 @@ Ce rapport d’intégrité affiche l’état des réplicas de la partition en co
   S/S Ready Node3 131482789688598468
 ```
 
-Pour chaque réplica, le rapport d’intégrité contient :
+Pour chaque réplica, le rapport d’intégrité contient :
 - Rôle de configuration précédente
 - Rôle de configuration actuelle
 - [État du réplica](service-fabric-concepts-replica-lifecycle.md)
 - Nœud sur lequel le réplica est en cours d’exécution
 - ID du réplica
 
-Dans ce cas, par exemple, un examen plus poussé doit examiner l’intégrité de chaque réplica individuel, en commençant par les réplicas marqués comme Principaux (131482789658160654 et 131482789688598467) dans l’exemple ci-dessus.
+Pour notre exemple, d’autres examens sont nécessaires. Examinez l’intégrité de chaque réplica individuel, en commençant par les réplicas marqués comme `Primary` et `Secondary` (131482789658160654 et 131482789688598467) dans l’exemple précédent.
 
 ### <a name="replica-constraint-violation"></a>Violation des contraintes de réplicas
 **System.PLB** indique un avertissement s’il détecte une violation des contraintes de réplicas et qu’il ne peut pas placer tous les réplicas de la partition. Les détails du rapport montrent quelles contraintes et quelles propriétés empêchent le placement des réplicas.
 
 * **SourceId**: System.PLB
-* **Property** : commence par **ReplicaConstraintViolation**
+* **Property** : commence par **ReplicaConstraintViolation**.
 
 ## <a name="replica-system-health-reports"></a>Rapports d’intégrité du système sur les réplicas
 **System.RA**, qui représente le composant Reconfiguration Agent, est l’autorité de l’état des réplicas.
 
-### <a name="state"></a>État
-**System.RA** consigne la valeur OK lorsque le réplica a été créé.
+### <a name="state"></a>State
+System.RA indique la valeur OK lorsque le réplica a été créé.
 
 * **SourceId**: System.RA
-* **Property**: State
+* **Property**: State.
 
 L’exemple suivant représente un réplica sain :
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -386,17 +386,17 @@ HealthEvents          :
 ```
 
 ### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
-Cette propriété est utilisée pour indiquer les avertissements ou les erreurs lors de la tentative d’ouverture d’un réplica, de la fermeture d’un réplica ou de la transition d’un réplica d’un rôle vers un autre (voir [Cycle de vie de réplica](service-fabric-concepts-replica-lifecycle.md)). Les défaillances peuvent être des exceptions déclenchées par les appels d’api ou les pannes du processus hôte de service pendant cette période. Pour les échecs dus aux appels d’api à partir de code C#, Service Fabric ajoutera l’exception et la trace de la pile au rapport d’intégrité.
+Cette propriété est utilisée pour indiquer les avertissements ou les défaillances lors de la tentative d’ouverture d’un réplica, de la fermeture d’un réplica ou de la transition d’un réplica d’un rôle à un autre. Pour en savoir plus, consultez [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md). Les défaillances peuvent être des exceptions déclenchées par les appels d’API ou les incidents du processus hôte de service pendant cette période. Pour les défaillances dues aux appels d’API à partir de code C#, Service Fabric ajoute l’exception et l’arborescence des appels de procédure au rapport d’intégrité.
 
-Ces avertissements d’intégrité sont déclenchés après avoir essayé l’action localement un certain nombre de fois (en fonction de la stratégie). Service Fabric va continuer à retenter l’action jusqu'à un seuil maximal après lequel il peut essayer de prendre des mesures pour corriger la situation, entraînant ainsi la suppression de ces avertissements car il cesse d’exécuter l’action sur ce nœud. Par exemple : si un réplica ne parvient pas à s’ouvrir sur un nœud, Service Fabric va déclencher un avertissement d’intégrité. Si le réplica ne s’ouvre toujours pas, Service Fabric va entreprendre des mesures pour s’auto-réparer, en essayant par exemple la même opération sur un autre nœud. Cela entraînerait la suppression de l’avertissement déclenché pour ce réplica. 
+Ces avertissements d’intégrité sont déclenchés après avoir essayé l’action localement un certain nombre de fois (en fonction de la stratégie). Service Fabric retente l’action jusqu’à un seuil maximal. Une fois ce seuil maximal atteint, il peut essayer d’agir pour corriger la situation. Cette tentative risque de supprimer ces avertissements, car l’action effectuée sur ce nœud est abandonnée. Par exemple, si un réplica ne parvient pas à s’ouvrir sur un nœud, Service Fabric déclenche un avertissement d’intégrité. Si après plusieurs tentatives, le réplica ne parvient pas à s’ouvrir, Service Fabric résout le problème lui-même. Cette action peut impliquer d’effectuer la même opération sur un autre nœud. Cela entraîne la suppression de l’avertissement déclenché pour ce réplica. 
 
 * **SourceId**: System.RA
-* **Propriété** : **ReplicaOpenStatus**, **ReplicaCloseStatus**, **ReplicaChangeRoleStatus**
+* **Property** : **ReplicaOpenStatus**, **ReplicaCloseStatus** et **ReplicaChangeRoleStatus**.
 * **Étapes suivantes** : examinez le code de service ou les vidages sur incident pour identifier la cause de l’échec de l’opération.
 
-L’exemple suivant montre l’intégrité d’un réplica qui déclenche `TargetInvocationException` à partir de sa méthode open. La description contient le point de défaillance (**IStatefulServiceReplica.Open**), le type d’exception (**TargetInvocationException**) et la trace de la pile.
+L’exemple suivant montre l’intégrité d’un réplica qui déclenche `TargetInvocationException` à partir de sa méthode open. La description contient le point de défaillance (**IStatefulServiceReplica.Open**), le type d’exception (**TargetInvocationException**) et l’arborescence des appels de procédure.
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
 
 
@@ -445,9 +445,9 @@ Exception has been thrown by the target of an invocation.
                         Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM                        
 ```
 
-L’exemple suivant montre un réplica qui est constamment en panne lors de la fermeture.
+L’exemple suivant montre un réplica qui est constamment en panne lors de la fermeture :
 
-```Powershell
+```PowerShell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
 
 
@@ -476,23 +476,23 @@ HealthEvents          :
 ```
 
 ### <a name="reconfiguration"></a>Reconfiguration
-Cette propriété est utilisée pour indiquer le moment où un réplica effectuant une [reconfiguration](service-fabric-concepts-reconfiguration.md) détecte que la reconfiguration est bloquée. Ce rapport d’intégrité se trouvera sur le réplica dont le rôle actuel est principal (sauf dans les cas d’une reconfiguration principale d’échange, où il peut être sur le réplica qui est rétrogradé de principal à secondaire actif).
+Cette propriété est utilisée pour indiquer le moment où un réplica effectuant une [reconfiguration](service-fabric-concepts-reconfiguration.md) détecte que la reconfiguration est bloquée. Ce rapport d’intégrité peut se trouver sur le réplica dont le rôle actuel est principal, sauf dans les cas d’une reconfiguration principale d’échange, où il peut être sur le réplica qui est rétrogradé de principal à secondaire actif.
 
-La reconfiguration peut être bloquée pour les raisons suivantes :
+La reconfiguration peut être bloquée pour l’une des raisons suivantes :
 
 - Une action sur le réplica local (le même réplica que celui effectuant la reconfiguration) ne se termine pas. Dans ce cas, l’examen des rapports d’intégrité sur ce réplica à partir d’autres composants (System.RAP ou System.RE) peut fournir des informations supplémentaires.
 
-- Une action ne se termine pas sur un réplica distant. Les réplicas pour lesquels des actions sont en attente seront affichés dans le rapport d’intégrité. Une analyse approfondie doit être effectuée sur les rapports d’intégrité pour ces réplicas à distance. Il peut également y avoir des problèmes de communication entre ce nœud et le nœud distant.
+- Une action ne se termine pas sur un réplica distant. Les réplicas pour lesquels des actions sont en attente sont affichés dans le rapport d’intégrité. Une analyse approfondie doit être effectuée sur les rapports d’intégrité pour ces réplicas à distance. Il peut également y avoir des problèmes de communication entre ce nœud et le nœud distant.
 
-Dans de rares cas, la reconfiguration peut se bloquer en raison de problèmes de communication ou d’autres problèmes entre ce nœud et le Failover Manager Service.
+Dans de rares cas, la reconfiguration peut se bloquer en raison de problèmes de communication ou d’autres problèmes entre ce nœud et le service Failover Manager.
 
 * **SourceId**: System.RA
-* **Propriété** : **Reconfiguration**
+* **Property** : **Reconfiguration**.
 * **Étapes suivantes** : examinez les réplicas locaux ou distants en fonction de la description du rapport d’intégrité.
 
-L’exemple ci-dessous montre un rapport d’intégrité dans lequel une reconfiguration est bloquée sur le réplica local (en raison d’un service qui n’honore pas le jeton d’annulation).
+L’exemple suivant montre un rapport d’intégrité dans lequel une reconfiguration est bloquée sur le réplica local. Dans cet exemple, la cause de ce blocage s’explique par le fait qu’un service ne respecte pas le jeton d’annulation.
 
-```Powershell
+```PowerShell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
 
 
@@ -519,7 +519,7 @@ HealthEvents          :
                         Transitions           : Error->Warning = 8/28/2017 2:13:57 AM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-L’exemple ci-dessous montre un rapport d’intégrité dans lequel une reconfiguration est bloquée parce qu’elle attend une réponse de deux réplicas distants (il y a trois réplicas dans la partition, y compris le principal actuel). 
+L’exemple suivant montre un rapport d’intégrité dans lequel une reconfiguration est bloquée et attend une réponse de deux réplicas distants. Dans cet exemple, la partition comprend trois réplicas, dont le réplica principal. 
 
 ```Powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId  579d50c6-d670-4d25-af70-d706e4bc19a2 -ReplicaOrInstanceId 131483956274977415
@@ -551,7 +551,7 @@ HealthEvents          :
                         Transitions           : Error->Warning = 8/28/2017 12:07:37 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-Ce rapport d’intégrité montre que la reconfiguration est bloquée dans l’attente d’une réponse des deux réplicas. 
+Ce rapport d’intégrité montre que la reconfiguration est bloquée et attend une réponse de deux réplicas : 
 
 ```
     P/I Down 40 131483956244554282
@@ -566,8 +566,8 @@ Pour chaque réplica, les informations suivantes sont fournies :
 - ID du réplica
 
 Pour débloquer la reconfiguration :
-- **down** les réplicas doivent être réactivés 
-- **InBuild** la génération des réplicas doit se terminer et passer à l’état prêt
+- Les réplicas **down** doivent être réactivés. 
+- Les réplicas **inbuild** doivent terminer la génération et passer à l’état Prêt.
 
 ### <a name="slow-service-api-call"></a>Appel lent d’API de service
 **System.RAP** et **System.Replicator** indiquent un avertissement si un appel de code de service utilisateur prend plus de temps que la durée configurée. L’avertissement est effacé à l’exécution de l’appel.
@@ -576,9 +576,9 @@ Pour débloquer la reconfiguration :
 * **Property**: nom de l’API lente. La description fournit plus de détails sur le délai de mise en attente de l’API.
 * **Étapes suivantes**: recherchez pourquoi l’appel prend plus de temps que prévu.
 
-L’exemple suivant montre l’événement d’intégrité à partir de System.RAP pour un service fiable qui n’honore pas le jeton d’annulation dans RunAsync.
+L’exemple suivant montre l’événement d’intégrité à partir de System.RAP pour un service fiable qui ne respecte pas le jeton d’annulation dans **RunAsync** :
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
 
@@ -603,45 +603,45 @@ HealthEvents          :
                         
 ```
 
-La propriété et le texte indiquent l’API qui peut être bloquée. Les étapes suivantes pour les diverses API bloquées sont différentes. Toute api sur *IStatefulServiceReplica* ou *IStatelessServiceInstance* correspond généralement à un bogue dans le code de service. La section suivante décrit la traduction de ceux-ci dans le [modèle de services fiable](service-fabric-reliable-services-lifecycle.md).
+La propriété et le texte indiquent l’API qui est bloquée. Les étapes ultérieures à suivre pour les diverses API bloquées sont différentes. Toute API sur *IStatefulServiceReplica* ou *IStatelessServiceInstance* correspond généralement à un bogue dans le code de service. La section suivante décrit comment cela se traduit dans le [modèle Reliable Services](service-fabric-reliable-services-lifecycle.md) :
 
-- **IStatefulServiceReplica.Open** : indique un appel à `CreateServiceInstanceListeners` ou `ICommunicationListener.OpenAsync` ou que la substitution de `OnOpenAsync` est bloquée.
+- **IStatefulServiceReplica.Open** : cet avertissement indique qu’un appel à `CreateServiceInstanceListeners` ou `ICommunicationListener.OpenAsync`, ou si remplacé, à `OnOpenAsync` est bloqué.
 
-- **IStatefulServiceReplica.Close** et **IStatefulServiceReplica.Abort** : le cas le plus courant est un service qui n’honore pas le jeton d’annulation passé à `RunAsync`. Cela peut également indiquer `ICommunicationListener.CloseAsync` ou que la substitution de `OnCloseAsync` est bloquée.
+- **IStatefulServiceReplica.Close** et **IStatefulServiceReplica.Abort** : le cas le plus courant est un service qui ne respecte pas le jeton d’annulation transmis à `RunAsync`. Cela peut également indiquer que `ICommunicationListener.CloseAsync`, ou si remplacé, `OnCloseAsync` est bloqué.
 
-- **IStatefulServiceReplica.ChangeRole(S)** et **IStatefulServiceReplica.ChangeRole(N)** : le cas le plus courant est un service qui n’honore pas le jeton d’annulation passé à `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole(S)** et **IStatefulServiceReplica.ChangeRole(N)** : le cas le plus courant est un service qui ne respecte pas le jeton d’annulation transmis à `RunAsync`.
 
-- **IStatefulServiceReplica.ChangeRole(P)** : le cas le plus courant est que le service n’a pas retourné une tâche à partir de `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole(P)** : le cas le plus courant est que le service n’a pas renvoyé de tâche à partir de `RunAsync`.
 
-D’autres appels d’api qui peuvent être bloqués se trouvent dans l’interface **IReplicator**. Par exemple :
+D’autres appels d’API qui peuvent être bloqués se trouvent dans l’interface **IReplicator**. Par exemple :
 
-- **IReplicator.CatchupReplicaSet** : indique qu’il n’y a pas assez de réplicas actifs (ce qui peut être déterminé en examinant l’état des réplicas dans la partition ou le rapport d’intégrité System.FM pour une reconfiguration bloquée) ou que les réplicas sont reconnaissent pas les opérations. L’applet de commande powershell `Get-ServiceFabricDeployedReplicaDetail` peut être utilisée pour déterminer la progression de tous les réplicas. Le problème situe dans les réplicas pour lesquels `LastAppliedReplicationSequenceNumber` se trouve derrière le `CommittedSequenceNumber` du principal.
+- **IReplicator.CatchupReplicaSet** : cet avertissement indique l’une des deux choses suivantes : Soit qu’il n’y a pas assez de réplicas actifs, ce qui peut être déterminé en examinant l’état des réplicas dans la partition ou le rapport d’intégrité System.FM pour une reconfiguration bloquée. Soit que les réplicas n’accusent pas réception des opérations. La cmdlet PowerShell `Get-ServiceFabricDeployedReplicaDetail` peut être utilisée pour déterminer la progression de tous les réplicas. Le problème se situe dans les réplicas dans lesquels `LastAppliedReplicationSequenceNumber` se trouve derrière le `CommittedSequenceNumber` du réplica principal.
 
-- **IReplicator.BuildReplica (<Remote ReplicaId>)** : cela indique un problème dans le processus de génération (consultez [Cycle de vie du réplica](service-fabric-concepts-replica-lifecycle.md)). Cela peut être dû à une configuration incorrecte de l’adresse du réplicateur (voir [ici](service-fabric-reliable-services-configuration.md) et [ici](service-fabric-service-manifest-resources.md)). Il peut également s’agir d’un problème sur le nœud distant.
+- **IReplicator.BuildReplica(<Remote ReplicaId>)** : cet avertissement indique un problème dans le processus de génération. Pour en savoir plus, consultez [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md). Cela peut être dû à une configuration incorrecte de l’adresse du réplicateur. Pour plus d’informations, consultez [Configuration des services fiables (Reliable Services) avec état](service-fabric-reliable-services-configuration.md) et [Spécifier des ressources dans un manifeste de service](service-fabric-service-manifest-resources.md). Il peut également s’agir d’un problème sur le nœud distant.
 
 ### <a name="replication-queue-full"></a>File d’attente de réplication complète
-**System.Replicator** indique un avertissement lorsque la file d’attente de réplication est pleine. Sur le rôle principal, la file d’attente de réplication se remplit généralement en raison de la lenteur d’un ou de plusieurs réplicas secondaires à accuser réception des opérations. Sur le rôle secondaire, cela se produit habituellement lorsque le service prend trop de temps pour appliquer les opérations. L’avertissement est effacé une fois que la file d’attente n’est plus pleine.
+**System.Replicator** indique un avertissement lorsque la file d’attente de réplication est pleine. Sur le réplica principal, la file d’attente de réplication se remplit généralement en raison de la lenteur d’un ou de plusieurs réplicas secondaires à accuser réception des opérations. Sur le rôle secondaire, cela se produit habituellement lorsque le service prend trop de temps pour appliquer les opérations. L’avertissement est effacé une fois que la file d’attente n’est plus pleine.
 
 * **SourceId**: System.Replicator
-* **Property** : **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, en fonction du rôle de réplica
+* **Property** : **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus** en fonction du rôle du réplica.
 
 ### <a name="slow-naming-operations"></a>Opérations de nommage lentes
 **System.NamingService** signale l’intégrité sur son réplica principal quand une opération de nommage prend trop de temps. [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) et [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) sont des exemples d’opérations de nommage. D’autres méthodes se trouvent sous FabricClient, par exemple dans les [méthodes de gestion de service](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou les [méthodes de gestion de propriété](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
-> Le service d’affectation de noms résout les noms des services dans un emplacement du cluster et permet aux utilisateurs de gérer les propriétés et les noms des services. Il s’agit d’un service persistant partitionné Service Fabric. L’une des partitions représente le propriétaire de l’autorité, qui contient des métadonnées sur tous les noms et les services Service Fabric. Les noms Service Fabric sont mappés à des partitions différentes, appelées partitions Propriétaire du nom. Ainsi, le service est extensible. En savoir plus sur le [service de nommage](service-fabric-architecture.md).
+> Le service d’affectation de noms résout les noms des services dans un emplacement du cluster et permet aux utilisateurs de gérer les propriétés et les noms des services. Il s’agit d’un service persistant partitionné Service Fabric. L’une des partitions représente le *propriétaire de l’autorité*, qui contient des métadonnées sur tous les noms et les services Service Fabric. Les noms Service Fabric sont mappés à des partitions différentes, appelées partitions *Propriétaire du nom*. Ainsi, le service est extensible. En savoir plus sur le [service de nommage](service-fabric-architecture.md).
 > 
 > 
 
-Quand une opération de nommage prend plus longtemps que prévu, elle est marquée avec un Avertissement sur le *réplica principal de la partition de service d’affectation de noms qui effectue l’opération*. Si l’opération se termine avec succès, l’avertissement est effacé. Si l’opération se termine avec une erreur, le rapport d’intégrité inclut des détails sur l’erreur.
+Quand une opération de nommage prend plus longtemps que prévu, elle est marquée avec un avertissement sur le réplica principal de la partition de service de nommage qui effectue l’opération. Si l’opération se termine avec succès, l’avertissement est effacé. Si l’opération se termine avec une erreur, le rapport d’intégrité inclut des détails sur l’erreur.
 
 * **SourceId**: System.NamingService
-* **Property** : commence par le préfixe **Duration_** et identifie l’opération lente et le nom Service Fabric sur lequel l’opération est appliquée. Par exemple, si la création de service au nom fabric:/MyApp/MyService prend trop de temps, la propriété est Duration_AOCreateService.fabric:/MyApp/MyService. AO pointe vers le rôle de la partition de nommage pour ce nom et cette opération.
-* **Étapes suivantes**: vérifier pourquoi l’opération de nommage échoue. Chaque opération peut avoir différentes causes principales. Par exemple, une opération de suppression de service peut se bloquer car l’hôte d’application se bloque constamment sur un nœud à cause d’un bogue utilisateur dans le code de service.
+* **Property** : commence par le préfixe « **Duration_** » et identifie l’opération lente et le nom Service Fabric sur lequel l’opération est appliquée. Par exemple, si la création de service au niveau du nom **fabric:/MyApp/MyService** prend trop de temps, la propriété est **Duration_AOCreateService.fabric:/MyApp/MyService**. « AO » pointe vers le rôle de la partition de nommage pour ce nom et cette opération.
+* **Étapes suivantes** : vérifiez pourquoi l’opération de nommage échoue. Chaque opération peut avoir différentes causes principales. Par exemple, le service de suppression peut être bloqué. Le service peut être bloqué car l’hôte d’application se bloque constamment sur un nœud à cause d’un bogue utilisateur dans le code de service.
 
-L’exemple suivant illustre une opération de création de service. L’opération a duré plus longtemps que la durée configurée. AO réessaie et envoie le travail à NO. NO a terminé la dernière opération avec Timeout. Dans ce cas, le même réplica est principal pour les rôles AO et NO.
+L’exemple suivant illustre une opération de création de service. L’opération a duré plus longtemps que la durée configurée. « AO »réessaie et envoie le travail à « NO ». « NO » a terminé la dernière opération avec TIMEOUT. Dans ce cas, le même réplica est principal pour les rôles « AO » et « NO ».
 
-```powershell
+```PowerShell
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
@@ -693,12 +693,12 @@ HealthEvents          :
 System.Hosting consigne la valeur OK lorsqu’une application a été activée sur le nœud. Dans le cas contraire, il indique une erreur.
 
 * **SourceId**: System.Hosting
-* **Property**: Activation, inclut la version de déploiement
+* **Property** : Activation, inclut la version de déploiement.
 * **Étapes suivantes**: si l’application est défectueuse, rechercher la raison de l’échec de l’activation.
 
 L’exemple suivant représente une activation réussie :
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
 
 ApplicationName                    : fabric:/WordCount
@@ -725,10 +725,10 @@ HealthEvents                       :
 ```
 
 ### <a name="download"></a>Télécharger
-**System.Hosting** indique une erreur en cas d’échec du téléchargement du package d’application.
+System.Hosting indique une erreur en cas d’échec du téléchargement du package d’application.
 
 * **SourceId**: System.Hosting
-* **Property** : **Download:*RolloutVersion***
+* **Property** : **Download :** *RolloutVersion*.
 * **Étapes suivantes**: rechercher la raison de l’échec du téléchargement sur le nœud.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>Rapports d’intégrité du système sur le package de service déployé
@@ -738,24 +738,24 @@ HealthEvents                       :
 System.Hosting consigne la valeur OK si l’activation du package de service sur le nœud est réussie. Dans le cas contraire, il indique une erreur.
 
 * **SourceId**: System.Hosting
-* **Property**: Activation
+* **Property** : Activation.
 * **Étapes suivantes**: examiner la raison de l’échec de l’activation.
 
 ### <a name="code-package-activation"></a>Activation du package de code
-**System.Hosting** consigne la valeur OK pour chaque package de code en cas de réussite de l’activation. En cas d’échec de l’activation, il indique un avertissement conformément à la configuration. Si l’activation de **CodePackage** échoue, ou s’il se termine avec une erreur supérieure à la valeur **CodePackageHealthErrorThreshold** configurée, System.Hosting indique une erreur. Si un package de service contient plusieurs packages de code, un rapport d’activation est généré pour chacun d’entre eux.
+System.Hosting indique la valeur OK pour chaque package de code en cas de réussite de l’activation. En cas d’échec de l’activation, il indique un avertissement conformément à la configuration. Si l’activation de **CodePackage** échoue, ou s’il se termine avec une erreur supérieure à la valeur **CodePackageHealthErrorThreshold** configurée, System.Hosting indique une erreur. Si un package de service contient plusieurs packages de code, un rapport d’activation est généré pour chacun d’entre eux.
 
 * **SourceId**: System.Hosting
-* **Property** : utilise le préfixe **CodePackageActivation** et contient le nom du package de code et le point d’entrée **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (par exemple, **CodePackageActivation:Code:SetupEntryPoint**)
+* **Property** : utilise le préfixe **CodePackageActivation** et contient le nom du package de code et le point d’entrée sous la forme**CodePackageActivation:***CodePackageName* : *SetupEntryPoint/EntryPoint*. Par exemple, **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Inscription du type de service
-**System.Hosting** consigne la valeur OK si le type de service a été inscrit correctement. Il indique une erreur si l’inscription n’a pas été effectuée à temps (conformément à la configuration de **ServiceTypeRegistrationTimeout**). Si le runtime est fermé, le type de service n’est pas inscrit à partir du nœud et Hosting signale un avertissement.
+System.Hosting indique la valeur OK si le type de service a été inscrit correctement. Il indique une erreur si l’inscription n’a pas été effectuée à temps, conformément à la configuration via **ServiceTypeRegistrationTimeout**. Si le runtime est fermé, le type de service n’est pas inscrit à partir du nœud et Hosting signale un avertissement.
 
 * **SourceId**: System.Hosting
-* **Property** : utilise le préfixe **ServiceTypeRegistration** et contient le nom du type de service (par exemple, **ServiceTypeRegistration:FileStoreServiceType**)
+* **Property** : utilise le préfixe **ServiceTypeRegistration** et contient le nom du type de service. Par exemple, **ServiceTypeRegistration:FileStoreServiceType**.
 
 L’exemple suivant représente un package de service déployé sain :
 
-```powershell
+```PowerShell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 
@@ -803,20 +803,20 @@ HealthEvents               :
 ```
 
 ### <a name="download"></a>Télécharger
-**System.Hosting** indique une erreur en cas d’échec du téléchargement du package de service.
+System.Hosting indique une erreur en cas d’échec du téléchargement du package de service.
 
 * **SourceId**: System.Hosting
-* **Property** : **Download:*RolloutVersion***
+* **Property** : **Download :** *RolloutVersion*.
 * **Étapes suivantes**: rechercher la raison de l’échec du téléchargement sur le nœud.
 
 ### <a name="upgrade-validation"></a>Validation de mise à niveau
-**System.Hosting** indique une erreur en cas d’échec de la validation lors la mise à niveau ou en cas d’échec de la mise à niveau sur le nœud.
+System.Hosting indique une erreur en cas d’échec de la validation lors la mise à niveau ou en cas d’échec de la mise à niveau sur le nœud.
 
 * **SourceId**: System.Hosting
-* **Property** : utilise le préfixe **FabricUpgradeValidation** et contient la version de mise à niveau
-* **Description**: désigne l’erreur rencontrée
+* **Property** : utilise le préfixe **FabricUpgradeValidation** et contient la version de la mise à niveau.
+* **Description** : désigne l’erreur rencontrée.
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
 [Affichage rapports d’intégrité de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Comment signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
@@ -824,5 +824,4 @@ HealthEvents               :
 [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
-
 

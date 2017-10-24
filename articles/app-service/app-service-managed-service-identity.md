@@ -11,14 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
+ms.openlocfilehash: fd63d53697ccd529c144482202e2fd8c6b184991
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: fda9d6c12da382faed5312a677c533f24ffbd824
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Guide pratique pour utiliser l’identité de service managée (préversion publique) dans App Service et Azure Functions
 
 > [!NOTE] 
@@ -29,6 +27,10 @@ Cette rubrique vous montre comment créer une identité d’application managée
 ## <a name="creating-an-app-with-an-identity"></a>Création d’une application avec une identité
 
 Créer une application avec une identité requiert la définition d’une propriété supplémentaire sur cette application.
+
+> [!NOTE] 
+> Seul l’emplacement principal pour un site recevra l’identité. Les identités du service administré pour les emplacements de déploiement ne sont pas encore prises en charge.
+
 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
@@ -203,4 +205,3 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
-

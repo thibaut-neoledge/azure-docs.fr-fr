@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: 46908be2846062a0520d21e06db3091a4d711b0b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Informations d’identification utilisées pour accéder à la bibliothèque cliente de la base de données élastique
 La [bibliothèque cliente de la base de données élastique](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) utilise trois types d’informations d’identification différents pour accéder au [gestionnaire des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). En fonction du besoin, utilisez les informations d’identification avec le niveau d’accès le plus faible possible.
@@ -43,7 +43,7 @@ La variable **smmAdminConnectionString** est une chaîne de connexion qui compor
 
      "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-N’utilisez pas les valeurs sous la forme de «username@server», à la place utiliser simplement la valeur « username ».  Cela vient du fait que les informations d’identification doivent fonctionner avec la base de données du gestionnaire de cartes de partitions et les partitions, qui peuvent se trouver sur différents serveurs.
+N’utilisez pas de valeurs de type « username@server » ; utilisez simplement la valeur « nom d’utilisateur » à la place.  Cela vient du fait que les informations d’identification doivent fonctionner avec la base de données du gestionnaire de cartes de partitions et les partitions, qui peuvent se trouver sur différents serveurs.
 
 ## <a name="access-credentials"></a>Informations d’identification d’accès
 Lorsque vous créez un gestionnaire des cartes de partitions dans une application qui ne gère pas les cartes de partitions, utilisez les informations d'identification dotées des autorisations en lecture seule pour la carte de partitions globale. Les informations extraites de la carte de partitions globale avec ces informations d’identification sont utilisées pour le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et pour remplir le cache de la carte de partitions sur le client. Les informations d’identification sont fournies via le même modèle d’appel à **GetSqlShardMapManager** que celui indiqué ci-dessus : 
@@ -66,7 +66,7 @@ Dans cet exemple, **smmUserConnectionString** comporte la chaîne de connexion c
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Comme avec les informations d’identification admin, ne pas valeurs sous la forme de «username@server». Utilisez simplement « username ».  Notez également que la chaîne de connexion ne comporte pas de nom de serveur et de nom de base de données. En effet, l’appel de **OpenConnectionForKey** dirige automatiquement la connexion vers la partition appropriée en fonction de la clé. Par conséquent, il n'est pas nécessaire de fournir les noms de la base de données et du serveur. 
+Tout comme pour les informations d’identification de l’administrateur, n’utilisez pas de valeurs sous la forme « username@server ». Utilisez simplement « username ».  Notez également que la chaîne de connexion ne comporte pas de nom de serveur et de nom de base de données. En effet, l’appel de **OpenConnectionForKey** dirige automatiquement la connexion vers la partition appropriée en fonction de la clé. Par conséquent, il n'est pas nécessaire de fournir les noms de la base de données et du serveur. 
 
 ## <a name="see-also"></a>Consultez également la section 
 [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)

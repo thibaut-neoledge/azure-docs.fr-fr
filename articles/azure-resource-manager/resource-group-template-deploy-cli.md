@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
+ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4f1d5f4cc48470f8906edb28628006dd1996bd3a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles Resource Manager et dAzure CLI
 
@@ -79,55 +78,11 @@ az group deployment create \
 
 L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous ne souhaitez pas que votre modèle soit accessible au public, vous pouvez le protéger en le stockant dans un conteneur de stockage privé. Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton de signature d’accès partagé (SAS), consultez [Déployer un modèle privé avec un jeton SAS](resource-manager-cli-sas-token.md).
 
-## <a name="deploy-template-from-cloud-shell"></a>Déployer le modèle à partir de Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Vous pouvez utiliser [Cloud Shell](../cloud-shell/overview.md) pour exécuter les commandes Azure CLI pour le déploiement de votre modèle. Toutefois, vous devez d’abord charger votre modèle dans le partage de fichiers de votre Cloud Shell. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md) pour obtenir plus d’informations sur sa configuration.
+Dans Azure Cloud Shell, utilisez les commandes suivantes :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).   
-
-2. Sélectionnez votre groupe de ressources Cloud Shell. Le modèle de nom est `cloud-shell-storage-<region>`.
-
-   ![Sélection du groupe de ressources](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
-
-3. Sélectionnez le compte de stockage de votre Cloud Shell.
-
-   ![Sélectionner le compte de stockage](./media/resource-group-template-deploy-cli/select-storage.png)
-
-4. Sélectionnez **Fichiers**.
-
-   ![Sélectionner des fichiers](./media/resource-group-template-deploy-cli/select-files.png)
-
-5. Sélectionnez le partage de fichiers pour Cloud Shell. Le modèle de nom est `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Sélectionner le partage de fichiers](./media/resource-group-template-deploy-cli/select-file-share.png)
-
-6. Sélectionnez **Ajouter un répertoire**.
-
-   ![Ajouter un répertoire](./media/resource-group-template-deploy-cli/select-add-directory.png)
-
-7. Nommez-le **modèles** puis sélectionnez **Ok**.
-
-   ![Nommer le répertoire](./media/resource-group-template-deploy-cli/name-templates.png)
-
-8. Sélectionnez votre nouveau répertoire.
-
-   ![Sélectionner le répertoire](./media/resource-group-template-deploy-cli/select-templates.png)
-
-9. Sélectionnez **Télécharger**.
-
-   ![Sélectionner Télécharger](./media/resource-group-template-deploy-cli/select-upload.png)
-
-10. Recherchez et chargez votre modèle.
-
-   ![Charger le fichier](./media/resource-group-template-deploy-cli/upload-files.png)
-
-11. Ouvrez l’invite de commandes.
-
-   ![Ouvrir Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
-
-12. Entrez les commandes suivantes dans Cloud Shell :
-
-   ```azurecli
+   ```azurecli-interactive
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
@@ -282,4 +237,3 @@ Le modèle suivant est utilisé pour les exemples de cette rubrique. Copiez et e
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](resource-manager-cli-sas-token.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-

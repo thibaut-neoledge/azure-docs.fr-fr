@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 9bfcb44ed19f167872b3cd9119e2dbdd35c82604
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Didacticiel : Intégration d’Azure Active Directory à xMatters OnDemand
 
@@ -209,7 +209,7 @@ Pour pouvoir se connecter à XMatters OnDemand, les utilisateurs d’Azure AD d
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
 1. Connectez-vous à votre client **xMatters OnDemand** .
 
-2.  Cliquez sur l’onglet **Users**, puis cliquez sur **Add User**.
+2.  Cliquez sur l’onglet **Utilisateurs**, puis sur **Ajouter un utilisateur**.
   
     ![Utilisateurs](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "Utilisateurs")
 

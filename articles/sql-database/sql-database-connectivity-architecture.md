@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 524804c972ee3a5e97ebc756628dbf7ef5ab720d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 308bf9dcde3a6c586e316c02cd261da8ed5b4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architecture de connectivité Azure SQL Database 
 
@@ -101,7 +100,7 @@ Pour modifier la stratégie de connexion Azure SQL Database d’un serveur Azure
 - Si votre stratégie de connexion est définie sur **Proxy**, tous les paquets réseau transitent via la passerelle Azure SQL Database. Pour ce paramètre, vous devez autoriser le trafic sortant uniquement vers l’IP de la passerelle Azure SQL Database. L’utilisation d’un paramètre de **Proxy** offre plus de latence qu’un paramètre de **redirection**. 
 - Si votre stratégie de connexion repose sur le paramètre de **redirection**, tous les paquets réseau se dirigent directement vers le proxy de l’intergiciel. Pour ce paramètre, vous devez autoriser le trafic sortant vers plusieurs adresses IP. 
 
-## <a name="script-to-change-connection-settings"></a>Script permettant de modifier les paramètres de connexion
+## <a name="script-to-change-connection-settings-via-powershell"></a>Script permettant de modifier les paramètres de connexion via PowerShell 
 
 > [!IMPORTANT]
 > Ce script nécessite le [module Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -161,9 +160,34 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script permettant de modifier les paramètres de connexion via Azure CLI 2.0 
+
+> [!IMPORTANT]
+> Ce script nécessite [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+>
+
+Le script CLI suivant montre comment modifier la stratégie de connexion.
+
+<pre>
+ # Get SQL Server ID
+ sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+
+# Set URI
+uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
+
+# Get Access Token 
+accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+
+# Get current connection policy 
+curl -H "authorization: Bearer $accessToken" -X GET $uri
+
+#Update connection policy 
+curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+
+</pre>
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur la façon de modifier la stratégie de connexion Azure SQL Database d’un serveur Azure SQL Database, consultez [Create or Update Server Connection Policy using the REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx) (Créer ou mettre à jour la stratégie de connexion au serveur à l’aide de l’API REST).
 - Pour plus d’informations sur le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure, consultez [Ports au-delà de 1433 pour ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Pour en savoir plus sur la vue d’ensemble du développement d’applications générales, consultez [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md).
-
