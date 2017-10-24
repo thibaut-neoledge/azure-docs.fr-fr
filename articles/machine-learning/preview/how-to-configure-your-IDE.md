@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/05/2017
+ms.openlocfilehash: 4e18a413a0559b1ddebecf1b29722d21ef35c337
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5fa9926e2230b285a2598e5d43048d6591bd1b03
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>Guide pratique pour configurer Azure Machine Learning Workbench afin qu’il fonctionne avec un IDE 
 
 Vous pouvez configurer Azure Machine Learning Workbench afin qu’il fonctionne avec les environnements de développement intégré (IDE) Python populaires. Il procure une expérience de développement de science des données fluide allant de la préparation des données à l’opérationnalisation, en passant par la création du code et le suivi des exécutions. Les IDE pris en charge sont les suivants :
@@ -43,8 +41,7 @@ Vous pouvez configurer Azure Machine Learning Workbench afin qu’il fonctionne 
 * macOS : sélectionnez le chemin .app, par exemple « /Applications/PyCharm CE.app » ; ensuite, l’application ajoute le reste du chemin automatiquement. Par défaut, le chemin complet du fichier exécutable est `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`. PyCharm peut également se trouver dans le dossier bin, `/usr/local/bin/charm`.
 
 ## <a name="open-project-in-ide"></a>Ouvrir un projet dans l’IDE 
-Une fois la configuration effectuée, vous pouvez ouvrir un projet Azure Machine Learning dans l’IDE en ouvrant le menu **Fichier**, puis en sélectionnant **Ouvrir le projet (<nom_IDE>)**.
-
+Une fois la configuration effectuée, vous pouvez ouvrir un projet Azure Machine Learning en ouvrant le menu **Fichier** dans Azure Machine Learning Workbench, puis en cliquant sur **Ouvrir le projet (<nom_IDE>)**. Cette action ouvre le projet actif en cours dans l’IDE configuré. _Remarque : si vous n’êtes pas dans un projet, l’option **Ouvrir le projet (<nom_IDE>)** est désactivée._
 
 ## <a name="configuring-the-integrated-terminal-in-visual-studio-code"></a>Configuration du terminal intégré dans Visual Studio Code
 
@@ -56,5 +53,4 @@ _Autorisez-vous le lancement de l’interpréteur de commandes `C:\windows\Syste
 Répondez `yes` pour autoriser la configuration de l’interpréteur de commandes afin qu’il fonctionne de manière fluide avec l’interface de ligne de commande d’Azure Machine Learning Workbench.
 
 ### <a name="mac"></a>Mac
-Pour exécuter une commande `az` à l’aide du terminal intégré de Visual Studio Code sur Mac, vous devez définir manuellement `PATH` sur la même valeur que `PATH` dans le fichier `.vscode/settings.json` du projet.
-
+Pour exécuter une commande `az` à l’aide du terminal intégré de Visual Studio Code sur Mac, vous devez définir manuellement `PATH` sur la même valeur que `PATH` dans le fichier `.vscode/settings.json` du projet sous la clé `terminal.integrated.env.osx`. Pour ce faire, exécutez la commande suivante dans le terminal : `PATH=<PATH in .vscode/settings>`

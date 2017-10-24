@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f4d8efe9814bd28bb902567a23b541bc9b5414a1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 0ba30ca4687248a27d9fe72acdc65a95114a437f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Configuration de la distribution mondiale d’Azure Cosmos DB à l’aide de l’API DocumentDB
 
@@ -46,7 +45,7 @@ Le SDK envoie automatiquement toutes les écritures vers la région d’écritur
 
 Toutes les lectures sont envoyées vers la première région disponible dans la liste PreferredLocations. Si la demande échoue, le client passe à la région suivante dans la liste et ainsi de suite.
 
-Les SDK tentent des opérations de lecture uniquement à partir des régions spécifiées dans PreferredLocations. Ainsi, par exemple, si le compte de base de données est disponible dans trois régions, mais que le client spécifie uniquement deux des régions sans écriture de PreferredLocations, aucune lecture n’est traitée hors de la région d’écriture, même en cas de basculement.
+Les SDK tentent des opérations de lecture uniquement à partir des régions spécifiées dans PreferredLocations. Ainsi, par exemple, si le compte de base de données est disponible dans quatre régions, mais que le client spécifie uniquement deux régions de lecture (sans écriture) pour PreferredLocations, aucune lecture ne sera prise en charge en dehors de la région de lecture si elle n’est pas spécifiée dans PreferredLocations. Si les régions de lecture spécifiées dans PreferredLocations ne sont pas disponibles, les lectures seront prises en charge en dehors de la région d’écriture.
 
 L’application peut vérifier le point de terminaison d’écriture et le point de terminaison de lecture actuels choisis par le SDK en vérifiant deux propriétés, WriteEndpoint et ReadEndpoint, disponibles dans le SDK version 1.8 et ultérieure.
 
@@ -177,5 +176,4 @@ Vous pouvez maintenant passer au didacticiel suivant pour apprendre à développ
 > [Développer en local avec l’émulateur](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-
 

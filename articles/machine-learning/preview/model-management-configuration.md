@@ -10,25 +10,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
+ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 06fbf6019aa4a2ceab99a83efe072fc0b71bfbf4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>Installation de la gestion des modèles
 
 ## <a name="overview"></a>Vue d'ensemble
 Ce document montre comment utiliser la gestion des modèles Azure ML pour déployer et gérer vos modèles d’apprentissage automatique en tant que services web. 
 
-Grâce à la gestion des modèles Azure ML, vous pouvez déployer et gérer efficacement les modèles d’apprentissage automatique générés à l’aide de différents frameworks, notamment SparkML, Keras, TensorFlow, Microsoft Cognitive Toolkit ou Python. 
+Avec la Gestion des modèles Azure ML, vous pouvez déployer et gérer efficacement des modèles d’apprentissage automatique générés avec différents frameworks, notamment SparkML, Keras, TensorFlow, Microsoft Cognitive Toolkit ou Python. 
 
 À la fin de ce document, votre environnement de gestion des modèles doit être configuré et prêt pour le déploiement de vos modèles d’apprentissage automatique.
 
 ## <a name="what-you-need-to-get-started"></a>Ce dont vous avez besoin pour commencer
 Pour tirer le meilleur parti de ce guide, vous devez avoir un accès propriétaire à un abonnement Azure sur lequel vous pouvez déployer vos modèles.
-L’interface CLI est préinstallée sur Azure Machine Learning Workbench et sur les [images DSVM Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+L’interface CLI est préinstallée sur Azure Machine Learning Workbench et sur les [machines virtuelles DSVM Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Utilisation de l’interface CLI
 Pour utiliser les interfaces de ligne de commande (CLI) à partir de Workbench, cliquez sur **Fichier** -]**Ouvrir l’interface de ligne de commande**. 
@@ -122,7 +121,7 @@ Utilisez le déploiement de cluster pour des scénarios de production à grande 
 Pour déployer votre service web dans un environnement de production, commencez par configurer l’environnement à l’aide de la commande suivante :
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
+az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 La commande de configuration d’environnement de cluster crée les ressources suivantes dans votre abonnement :
@@ -143,6 +142,9 @@ az ml env set -n [environment name] -g [resource group]
 >[!NOTE] 
 > Une fois l’environnement créé, pour les déploiements suivants, il suffit d’exécuter la commande set ci-dessus pour le réutiliser.
 >
+
+>[!NOTE] 
+>Pour créer un point de terminaison HTTPS, spécifiez un certificat SSL lors de la création d’un cluster à l’aide des options --cert-name et --cert-pem dans az ml env setup. Cela configure le cluster pour qu’il traite les demandes HTTPS, sécurisées à l’aide du certificat fourni. Une fois l’installation terminée, créez un enregistrement DNS CNAME qui pointe vers le nom de domaine complet du cluster.
 
 ### <a name="create-an-account"></a>Créer un compte
 Un compte est nécessaire pour déployer des modèles. Vous devez effectuer cette opération une fois par compte, et vous pouvez réutiliser le même compte dans plusieurs déploiements.
@@ -167,4 +169,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ### <a name="next-steps"></a>Étapes suivantes
 Essayez l’un des nombreux exemples de la galerie.
-

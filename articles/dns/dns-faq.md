@@ -11,16 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 09/22/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f365574a12047f6952209dc3883af32a2e9ecd1e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 9d786ce4d06ec95a647a755bed51f824e72ad04c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-dns-faq"></a>FAQ Azure DNS
 
 ## <a name="about-azure-dns"></a>À propos d’Azure DNS
@@ -76,12 +74,9 @@ Non. Azure DNS ne prend actuellement pas en charge l'achat de noms de domaine. S
 Il s’agit d’une fonctionnalité que nous suivons dans notre file d’attente de travaux en souffrance. Vous pouvez utiliser notre site de commentaires pour [enregistrer votre support pour cette fonctionnalité](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### <a name="does-azure-dns-support-private-domains"></a>Azure DNS prend-il en charge les domaines « privés » ?
+La prise en charge de domaines « privés » est implémentée à l’aide de zones DNS privées.  Cette fonctionnalité est actuellement disponible en préversion.  Les zones DNS privées sont managées à l’aide des mêmes outils que les zones DNS Azure accessibles sur Internet, mais elles peuvent uniquement être résolues à partir de vos réseaux virtuels spécifiés.  Consultez la [vue d’ensemble](private-dns-overview.md) pour plus d’informations.
 
-Non. Azure DNS ne prend actuellement en charge que les domaines côté Internet.
-
-Il s’agit d’une fonctionnalité que nous suivons dans notre file d’attente de travaux en souffrance. Vous pouvez utiliser notre site de commentaires pour [enregistrer votre support pour cette fonctionnalité](https://feedback.azure.com/forums/217313-networking/suggestions/10737696-enable-split-dns-for-providing-both-public-and-int).
-
-Pour plus d’informations sur les options DNS internes dans Azure, consultez [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Pour plus d’informations sur les autres options DNS internes dans Azure, consultez [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### <a name="does-azure-dns-support-dnssec"></a>Azure DNS prend-il en charge DNSSEC ?
 
@@ -155,8 +150,9 @@ Vous pouvez configurer des noms de domaines internationaux (IDN) dans Azure DNS 
 
 [En savoir plus sur Azure DNS](dns-overview.md)
 <br>
+[En savoir plus sur l’utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md)
+<br>
 [En savoir plus sur les zones et enregistrements DNS](dns-zones-records.md)
 <br>
 [Prise en main d’Azure DNS](dns-getstarted-portal.md)
-
 

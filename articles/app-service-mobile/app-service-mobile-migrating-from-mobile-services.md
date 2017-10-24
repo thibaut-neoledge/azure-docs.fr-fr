@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
+ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
 Avec la [mise à la disposition générale d’Azure App Service], les sites Azure Mobile Services peuvent être facilement migrés sur place pour tirer parti de toutes les fonctionnalités d’Azure App Service.  Ce document explique ce qui se passe lors de la migration de votre site à partir d’Azure Mobile Services vers Azure App Service.
@@ -32,7 +31,7 @@ La migration de votre service mobile Azure transforme votre service mobile en ap
 ## <a name="why-migrate"></a>Pourquoi migrer votre site
 Microsoft vous recommande de migrer votre service mobile Azure pour tirer parti des fonctionnalités d’Azure App Service, notamment :
 
-* nouvelles fonctionnalités d’hôte, dont [Tâches web] et [noms de domaine personnalisés] ;
+* nouvelles fonctionnalités d’hôte, dont [WebJobs] et [noms de domaine personnalisés].
 * surveillance et dépannage à l’aide de New Relic ou d’ [Application Insights];
 * outils DevOps intégrés, dont [emplacements intermédiaires], restauration et tests en production ;
 * [mise à l’échelle automatique], équilibrage de charge et [analyse des performances].
@@ -229,7 +228,7 @@ Les tâches planifiées sont affichées à la fréquence que vous avez spécifi�
 3. Cliquez sur **Paramètres**, puis sur **Planification**.
 4. Sélectionnez **Une fois** comme Périodicité, puis cliquez sur **Enregistrer**
 
-Vos tâches à la demande se trouvent dans `App_Data/config/scripts/scheduler post-migration`.  Nous vous conseillons de convertir toutes les tâches à la demande en [Tâches web] ou [Fonctions].  Vous devez écrire de nouvelles tâches du planificateur en tant que [Tâches web] ou [Fonctions].
+Vos tâches à la demande se trouvent dans `App_Data/config/scripts/scheduler post-migration`.  Nous vous conseillons de convertir toutes les tâches à la demande en [WebJobs] ou [Fonctions].  Vous devez écrire de nouvelles tâches du planificateur en tant que [WebJobs] ou [Fonctions].
 
 ### <a name="notification-hubs"></a>Notification Hubs
 Mobile Services utilise Notification Hubs pour les notifications push.  Les paramètres de l’application utilisés pour lier le concentrateur de notification à votre service mobile après la migration sont les suivants :
@@ -358,7 +357,7 @@ Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir direct
 Maintenant que votre application a été migrée vers App Service, vous pouvez utiliser davantage de fonctionnalités :
 
 * Le déploiement d’ [emplacements intermédiaires] vous permet d’organiser les modifications apportées à votre site par phases et d’effectuer un test A/B.
-* [Tâches web] remplacent les tâches planifiées à la demande.
+* [WebJobs] remplacent les tâches planifiées à la demande.
 * Vous pouvez [déployer en continu] votre site en le liant à GitHub, à TFS ou à Mercurial.
 * Vous pouvez utiliser [Application Insights] pour analyser votre site.
 * Servez un site web et une API mobile à partir du même code.
@@ -375,29 +374,26 @@ Maintenant que votre application a été migrée vers App Service, vous pouvez u
 <!-- Links -->
 [Tarification d’App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
-[mise à l’échelle automatique]: ../app-service-web/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Documentation sur le déploiement d’Azure App Service]: ../app-service-web/web-sites-deploy.md
+[mise à l’échelle automatique]: ../app-service/web-sites-scale.md
+[Azure App Service]: ../app-service/app-service-web-overview.md
 [portail Azure Classic]: https://manage.windowsazure.com
 [portail Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Plans d’Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
-[déployer en continu]: ../app-service-web/app-service-continuous-deployment.md
+[déployer en continu]: ../app-service/app-service-continuous-deployment.md
 [Convertissez vos espaces de noms mixte]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
-[noms de domaine personnalisés]: ../app-service-web/web-sites-custom-domain-name.md
+[noms de domaine personnalisés]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler
 [mise à la disposition générale d’Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Journalisation]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[Journalisation]: ../app-service/web-sites-enable-diagnostic-log.md
 [Kit de développement logiciel (SDK) Mobile Apps Node.js]: https://github.com/azure/azure-mobile-apps-node
 [Services mobiles et App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[analyse des performances]: ../app-service-web/web-sites-monitor.md
+[analyse des performances]: ../app-service/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[emplacements intermédiaires]: ../app-service-web/web-sites-staged-publishing.md
-[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Tâches web]: ../app-service-web/websites-webjobs-resources.md
+[emplacements intermédiaires]: ../app-service/web-sites-staged-publishing.md
+[VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [exemples de transformation XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Fonctions]: ../azure-functions/functions-overview.md
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
+ms.openlocfilehash: 0514710606b74db7c13f04e961347d215d2d283d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 00673cac31eb25bb8dd8228d6a36617c3812f5db
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 Cet article décrit l’infrastructure de sécurité de base qu’utilisent les services de déplacement des données dans Azure Data Factory pour sécuriser vos données. Les ressources de gestion d’Azure Data Factory reposent sur l’infrastructure de sécurité Azure et utilisent toutes les mesures de sécurité proposées par Azure.
 
@@ -97,9 +95,9 @@ Les informations d’identification associées à vos banques de données locale
 
 1. Vous pouvez choisir de **stocker les informations d’identification localement**. Si vous souhaitez chiffrer et stocker les informations d’identification localement sur le runtime d’intégration auto-hébergé, suivez les étapes de [chiffrement des informations d’identification sur le runtime d’intégration auto-hébergé](encrypt-credentials-self-hosted-integration-runtime.md). Tous les connecteurs prennent en charge cette option. Le runtime d’intégration auto-hébergé utilise Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) pour chiffrer les données sensibles/informations d’identification. 
 
-   Utilisez la cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** pour chiffrer les informations d’identification/informations sensibles du service lié. Vous pouvez ensuite utiliser le code JSON retourné (avec l’élément **EncryptedCredential** dans la chaîne **connectionString**) pour créer un service lié avec la cmdlet **Set-AzureRmDataFactoryV2LinkedService**.  
+   Utilisez la cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** pour chiffrer les informations d’identification/informations sensibles du service lié. Vous pouvez ensuite utiliser le code JSON retourné (avec l’élément **EncryptedCredential** dans la chaîne **connectionString**) pour créer un service lié avec la cmdlet **Set-AzureRmDataFactoryV2LinkedService**.  
 
-2. Si vous n’utilisez pas la cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** comme décrit à l’étape ci-dessus et préférez utiliser directement la cmdlet **Set-AzureRmDataFactoryV2LinkedSevrice** avec les chaînes de connexion/informations d’identification incluses dans le code JSON, le service lié sera **chiffré et stocké dans le stockage géré par Azure Data Factory**. Les informations sensibles sont toujours chiffrées par des certificats gérés par Microsoft.
+2. Si vous n’utilisez pas la cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** comme décrit à l’étape ci-dessus et préférez utiliser directement la cmdlet **Set-AzureRmDataFactoryV2LinkedSevrice** avec les chaînes de connexion/informations d’identification incluses dans le code JSON, le service lié sera **chiffré et stocké dans le stockage géré par Azure Data Factory**. Les informations sensibles sont toujours chiffrées par des certificats gérés par Microsoft.
 
 
 
@@ -186,4 +184,3 @@ Les banques de données cloud suivantes requièrent l’autorisation de l’adre
 Pour en savoir plus sur les performances de l’activité de copie, consultez le [Guide sur les performances et le réglage de l’activité de copie](copy-activity-performance.md).
 
  
-

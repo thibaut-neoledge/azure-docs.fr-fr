@@ -9,12 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 09/14/2017
+ms.openlocfilehash: 83bcb339c16b8a1be15773ba35208461ecf8120e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: b7b8583e8923e65ff068a2bec060a27a14905485
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Clés de compte de stockage Azure Key Vault
 
@@ -139,10 +138,15 @@ La sortie de la commande précédente comprend votre principal de service, que n
 
 ### <a name="set-permissions"></a>Définir des autorisations
 
-Vérifiez que vos autorisations de stockage sont définies sur *Tout*.
+Vérifiez que vos autorisations de stockage sont définies sur *Tout*. Vous pouvez obtenir votre yourUserPrincipalId et définir les autorisations pour le coffre à l’aide des commandes suivantes.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrincipalId -PermissionsToStorage all
+Get-AzureRmADUser -SearchString "your name"
+```
+À présent, recherchez votre nom et obtenez l’ObjectId connexe, que vous utiliserez lors de la définition des autorisations pour le coffre.
+
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Autoriser l’accès
@@ -238,4 +242,3 @@ Le jeton OBO ne fonctionne que si l’on utilise des applications clientes nativ
 
 - [Présentation des clés, des secrets et des certificats](https://docs.microsoft.com/rest/api/keyvault/)
 - [Blog de l’équipe Key Vault](https://blogs.technet.microsoft.com/kv/)
-

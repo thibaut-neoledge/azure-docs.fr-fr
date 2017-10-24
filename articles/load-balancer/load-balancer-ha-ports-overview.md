@@ -15,20 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
+ms.openlocfilehash: 3e54cb45cf002a183a5b0bd9b3082a235cd825f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="high-availability-ports-overview-preview"></a>Présentation des ports de haute disponibilité (préversion)
 
 La référence SKU Standard d’Azure Load Balancer comprend de nouveaux ports de haute disponibilité qui permettent de distribuer le trafic provenant de tous les ports, pour tous les protocoles pris en charge. Lorsque vous configurez un équilibreur de charge interne, les utilisateurs peuvent configurer une règle de ports de haute disponibilité qui définit les ports frontend et backend sur **0** et le protocole sur **Tous**, permettant ainsi au trafic de circuler au sein de l’équilibreur de charge interne.
 
 >[!NOTE]
-> Les ports de haute disponibilité sont actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La fonctionnalité des ports haute disponibilité est proposée avec Load Balancer Standard, actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Il est nécessaire de s’inscrire à la préversion standard de Load Balancer pour pouvoir utiliser les ports haute disponibilité avec des ressources Load Balancer Standard. Suivez les instructions relatives à l’inscription en plus de la [préversion standard](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer.
 
 L’algorithme d’équilibrage de charge reste le même, et la destination est sélectionnée en fonction des cinq tuples <adresse IP source, port source, adresse IP de destination, port de destination, protocole>. Toutefois, cette configuration permet à une seule règle d’équilibrage de charge de traiter tout le trafic disponible, ce qui simplifie la configuration et permet de ne pas être limité par le nombre maximal de règles d’équilibrage de charge pouvant être ajoutées.
 
@@ -71,12 +69,17 @@ Pour découvrir la préversion des ports de haute disponibilité associés aux r
 
     ```cli
     az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
-    ```
-## <a name="caveats"></a>Mises en garde
+    ```  
+
+
+>[!NOTE]
+>Pour utiliser cette fonctionnalité, vous devez également vous inscrire à la [préversion standard](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer, en plus des ports haute disponibilité. L’inscription aux ports haute disponibilité et aux préversions standard de Load Balancer peut prendre jusqu’à une heure.
+
+## <a name="limitations"></a>Limites
 
 Voici les configurations et exceptions prises en charge pour les ports de haute disponibilité :
 
-- Une configuration IP frontend peut comprendre soit une règle d’équilibreur de charge DSR avec ports de haute disponibilité (tous les ports), soit une règle d’équilibreur de charge non DSR avec ports de haute disponibilité (tous les ports). Elle ne peut pas comprendre les deux à la fois.
+- Une configuration d’adresse IP frontale peut consister en une seule règle Load Balancer DSR avec ports haute disponibilité (tous les ports) ou en une seule règle Load Balancer non DSR avec ports haute disponibilité (tous les ports). Elle ne peut pas comprendre les deux à la fois.
 - Une même configuration IP d’interface réseau ne peut avoir qu’une seule règle d’équilibreur de charge non DSR avec ports de haute disponibilité. Aucune autre règle ne peut être configurée pour cette configuration IP.
 - Une même configuration IP d’interface réseau peut comporter une ou plusieurs règles d’équilibreur de charge DSR avec ports de haute disponibilité, du moment que toutes leurs configurations IP frontend sont uniques.
 - Il est possible de faire coexister plusieurs règles d’équilibreur de charge pointant vers un même pool backend si l’ensemble des règles d’équilibrage de charge est configuré avec des ports de haute disponibilité (DSR uniquement), ou, si l’ensemble des règles est configuré sans ports de haute disponibilité (DSR et non DSR). Ces deux règles d’équilibrage de charge ne peuvent pas coexister en présence d’une combinaison de règles avec et sans ports de haute disponibilité.
@@ -86,5 +89,4 @@ Voici les configurations et exceptions prises en charge pour les ports de haute 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Configurer des ports de haute disponibilité sur un équilibreur de charge interne](load-balancer-configure-ha-ports.md)
-
 

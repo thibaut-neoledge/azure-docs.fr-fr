@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 09/27/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Python Azure Cosmos DB : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -52,6 +51,11 @@ ms.lasthandoff: 08/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Résolution de bogue pour le dictionnaire d’agrégation.
+* Résolution de bogue pour la suppression des barres obliques dans le lien de ressource.
+* Ajout de tests pour l’encodage Unicode.
+
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
 
@@ -127,6 +131,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |29 septembre 2017 |--- |
 | [2.2.0](#2.2.0) |10 mai 2017 |--- |
 | [2.1.0](#2.1.0) |1er mai 2017 |--- |
 | [2.0.1](#2.0.1) |30 octobre 2016 |--- |
@@ -154,5 +159,4 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

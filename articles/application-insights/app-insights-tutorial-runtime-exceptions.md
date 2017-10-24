@@ -3,21 +3,19 @@ title: "Diagnostiquer des exceptions runtime à l’aide d’Azure Application I
 description: "Didacticiel décrivant comment rechercher et diagnostiquer des exceptions runtime dans votre application à l’aide d’Azure Application Insights."
 services: application-insights
 keywords: 
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/19/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 58c69e9c75f3a97c04b2c5b2e3b9acfc7065c658
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rechercher et diagnostiquer des exceptions runtime avec Azure Application Insights
 
 Azure Application Insights collecte la télémétrie de votre application pour identifier et diagnostiquer des exceptions runtime.  Ce didacticiel vous guide dans ce processus avec votre application.  Vous allez apprendre à effectuer les actions suivantes :
@@ -31,7 +29,7 @@ Azure Application Insights collecte la télémétrie de votre application pour i
 > * Créer un élément de travail pour corriger le code défectueux
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel :
 
@@ -39,7 +37,8 @@ Pour suivre ce didacticiel :
     - Développement web et ASP.NET
     - Développement Azure
 - Téléchargez et installez le [débogueur d'instantané de Visual Studio](http://aka.ms/snapshotdebugger).
-- Déployez une application .NET sur Azure et [activez le Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md). 
+- Activez le [débogueur de capture instantanée de Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger).
+- Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](app-insights-asp-net.md). 
 - Le didacticiel effectuant le suivi de l’identification d’une exception dans votre application, modifiez le code dans votre environnement de développement ou de test afin de générer une exception. 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
@@ -98,7 +97,7 @@ Toutes les données collectées par Application Insights sont stockées dans Azu
 
     ![Code](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
-9. Cliquez sur **Analyser l’impact** pour ouvrir Application Insights Analytics.  Application Insights Analytics comprend plusieurs requêtes qui fournissent des détails sur les demandes ayant échoué, tels que les utilisateurs, les navigateurs et les régions concernés.<br><br>![Analytics](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+9. Cliquez sur **Analyser l’impact** pour ouvrir Application Insights Analytics.  Application Insights Analytics comprend plusieurs requêtes qui fournissent des détails sur les demandes ayant échoué, tels que les utilisateurs, les navigateurs et les régions concernés.<br><br>![Analyse](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>Ajouter un élément de travail
 Si vous connectez Application Insights à un système de suivi tel que Visual Studio Team Services ou GitHub, vous pouvez créer un élément de travail directement à partir d’Application Insights.

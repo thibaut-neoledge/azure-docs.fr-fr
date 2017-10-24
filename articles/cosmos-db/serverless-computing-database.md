@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mimig
+ms.openlocfilehash: 192bdde86e12472a6fd87ba50fd597ea8b01247d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 084dacc6a07b64500652481fbcabf1b0fc44306c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions
 
 L’informatique sans serveur permet de se concentrer sur des éléments de logique individuels renouvelables et sans état. Ces éléments ne nécessitent aucune gestion d’infrastructure et consomment uniquement des ressources le temps de leur exécution (secondes ou millisecondes). Au cœur du mouvement informatique sans serveur se trouvent des fonctions, qui sont mises à disposition dans l’écosystème Azure par [Azure Functions](https://azure.microsoft.com/services/functions).
@@ -159,7 +157,6 @@ Si vous n’êtes pas sûr de la meilleure option entre Flow, Logic Apps, Azure 
 
 
  
-
 
 
 

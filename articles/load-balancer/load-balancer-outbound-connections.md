@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
+ms.openlocfilehash: d3c8c79170e2f369a89c4ab0588e057d0228b573
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 03cb14b5710b6dd17599a3c4eab21380c76c2b40
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understanding-outbound-connections-in-azure"></a>Comprendre les connexions sortantes dans Azure
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -42,7 +40,7 @@ Si vous ne souhaitez pas qu’une machine virtuelle communique avec les points d
 
 Dans ce scénario, la machine virtuelle ne fait pas partie d’un pool Azure Load Balancer et aucune adresse IP publique de niveau d’instance (ILPIP) n’y est affectée. Lorsque la machine virtuelle crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique. L’adresse IP publique utilisée pour ce flux sortant n’est pas configurable et n’entre pas en compte dans la limite de ressource IP publique de l’abonnement. Azure utilise le mode SNAT (Source Network Address Translation) pour exécuter cette fonction. Les ports éphémères de l’adresse IP publique sont utilisés pour distinguer chaque flux provenant de la machine virtuelle. SNAT alloue dynamiquement des ports éphémères lors de la création de flux. Dans ce contexte, les ports éphémères utilisés pour SNAT sont appelés ports SNAT.
 
-Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre leur utilisation. Un seul port SNAT est utilisé par flux vers une adresse IP de destination unique. En cas de flux multiples vers la même adresse IP de destination, chaque flux utiliser un seul port SNAT. Cela garantit que les flux sont uniques s’ils proviennent de la même adresse IP publique et sont dirigés vers la même adresse IP de destination. Plusieurs flux, chacun d’eux dirigé vers une adresse IP de destination différente, utilisent un seul port SNAT par destination. L’adresse IP de destination rend les flux uniques.
+Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre leur utilisation. Un seul port SNAT est utilisé par flux vers une adresse IP de destination unique. En cas de flux multiples vers la même adresse IP de destination, chaque flux utiliser un seul port SNAT. Cela garantit que les flux sont uniques s’ils proviennent de la même adresse IP publique et sont dirigés vers la même adresse IP de destination. Plusieurs flux, chacun dirigé vers une adresse IP de destination différente, partagent un même port SNAT. L’adresse IP de destination rend les flux uniques.
 
 Vous pouvez utiliser [Analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) et le [Journal des événements d’alerte](load-balancer-monitor-log.md#alert-event-log) pour surveiller la présence de messages signalant l’épuisement des ressources de port SNAT. En cas d’épuisement des ressources de port SNAT, les flux sortants échouent jusqu'à ce que des ports SNAT soient libérés par flux existants. L’équilibrage de charge utilise un délai d’inactivité de 4 minutes pour la récupération des ports SNAT.
 
@@ -52,7 +50,7 @@ Dans ce scénario, la machine virtuelle fait partie d’un pool Azure Load Balan
 
 Lorsque la machine virtuelle à charge équilibrée crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique du frontend d’équilibrage de charge public. Azure utilise le mode SNAT (Source Network Address Translation) pour exécuter cette fonction. Les ports éphémères de l’adresse IP publique de l’équilibrage de charge sont utilisés pour distinguer chaque flux provenant de la machine virtuelle. SNAT alloue dynamiquement des ports éphémères lors de la création de flux sortants. Dans ce contexte, les ports éphémères utilisés pour SNAT sont appelés ports SNAT.
 
-Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre leur utilisation. Un seul port SNAT est utilisé par flux vers une adresse IP de destination unique. En cas de flux multiples vers la même adresse IP de destination, chaque flux utiliser un seul port SNAT. Cela garantit que les flux sont uniques s’ils proviennent de la même adresse IP publique et sont dirigés vers la même adresse IP de destination. Plusieurs flux, chacun d’eux dirigé vers une adresse IP de destination différente, utilisent un seul port SNAT par destination. L’adresse IP de destination rend les flux uniques.
+Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre leur utilisation. Un seul port SNAT est utilisé par flux vers une adresse IP de destination unique. En cas de flux multiples vers la même adresse IP de destination, chaque flux utiliser un seul port SNAT. Cela garantit que les flux sont uniques s’ils proviennent de la même adresse IP publique et sont dirigés vers la même adresse IP de destination. Plusieurs flux, chacun dirigé vers une adresse IP de destination différente, partagent un même port SNAT. L’adresse IP de destination rend les flux uniques.
 
 Vous pouvez utiliser [Analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) et le [Journal des événements d’alerte](load-balancer-monitor-log.md#alert-event-log) pour surveiller la présence de messages signalant l’épuisement des ressources de port SNAT. En cas d’épuisement des ressources de port SNAT, les flux sortants échouent jusqu'à ce que des ports SNAT soient libérés par flux existants. L’équilibrage de charge utilise un délai d’inactivité de 4 minutes pour la récupération des ports SNAT.
 
@@ -79,4 +77,3 @@ Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de char
 Azure utilise un algorithme pour déterminer le nombre de ports SNAT disponibles en fonction de la taille du pool.  Ce n’est pas configurable pour l’instant.
 
 Il est à noter que le nombre de ports SNAT disponibles n’est pas directement lié au nombre de connexions. Voir ci-dessus pour savoir à quel moment et de quelle manière des ports SNAT sont alloués, et comment gérer cette ressource qui n’est pas inépuisable.
-

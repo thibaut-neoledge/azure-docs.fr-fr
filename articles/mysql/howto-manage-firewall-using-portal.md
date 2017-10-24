@@ -8,16 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 33198e5a6e11df2db3a17fc96a0b3cd4b1a284e8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: 0604b29fcd9849545886a783ae5bbb2cbb72f2ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-using-the-azure-portal"></a>Création et gestion des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure
-Les règles de pare-feu au niveau du serveur permettent aux administrateurs d’accéder à un serveur Azure Database pour MySQL à partir d’une adresse IP spécifiée ou d’une plage d’adresses IP. 
+# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du Portail Azure
+Les règles de pare-feu au niveau du serveur permettent aux administrateurs d’accéder à un serveur Azure Database pour MySQL à partir d’une adresse IP ou d’une plage d’adresses IP spécifiée. 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Créer une règle de pare-feu au niveau du serveur dans le portail Azure
 
@@ -35,23 +34,22 @@ Les règles de pare-feu au niveau du serveur permettent aux administrateurs d’
 
    ![Recherche Bing « quelle est mon adresse IP »](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Ajoutez des plages d’adresses supplémentaires. Dans les règles de pare-feu de la base de données MySQL, vous pouvez spécifier une seule adresse IP ou une plage d’adresses. Si vous souhaitez limiter la règle à une seule adresse IP, saisissez la même adresse dans le champ d’adresse IP de début et d’adresse IP de fin. Ouvrir le pare-feu permet aux administrateurs et utilisateurs d’accéder à toute base de données sur le serveur MySQL pour laquelle ils disposent d’informations d’identification valides.
+4. Ajoutez des plages d’adresses supplémentaires. Dans les règles de pare-feu Azure Database pour MySQL, vous pouvez spécifier une seule adresse IP ou une plage d’adresses. Si vous souhaitez limiter la règle à une seule adresse IP, tapez la même adresse dans les champs d’adresse IP de début et d’adresse IP de fin. Ouvrir le pare-feu permet aux administrateurs et utilisateurs d’accéder à toute base de données sur le serveur MySQL pour laquelle ils disposent d’informations d’identification valides.
 
    ![Portail Azure - règles de pare-feu ](./media/howto-manage-firewall-using-portal/5-specify-addresses.png)
 
 
-5. Cliquez sur **Enregistrer** sur la barre d’outils pour enregistrer cette règle de pare-feu de niveau serveur. Attendez la confirmation que la mise à jour des règles de pare-feu a réussi.
+5. Cliquez sur **Enregistrer** sur la barre d’outils pour enregistrer cette règle de pare-feu de niveau serveur. Attendez la confirmation de la mise à jour des règles de pare-feu.
 
    ![Portail Azure - cliquez sur Enregistrer](./media/howto-manage-firewall-using-portal/4-save-firewall-rule.png)
 
-## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Gérer des règles de pare-feu au niveau du serveur existantes via le portail Azure
+## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Gérer des règles de pare-feu existantes au niveau du serveur à l’aide du Portail Azure
 Répétez les étapes pour gérer les règles de pare-feu.
 * Pour ajouter l’ordinateur actuel, cliquez sur **Ajouter mon adresse IP**.
 * Pour ajouter des adresses IP supplémentaires, remplissez les champs **Nom de la règle**, **Adresse IP de début** et **Adresse IP de fin**.
-* Pour modifier une règle existante, cliquez sur les champs dans la règle et modifiez-les.
-* Pour supprimer une règle existante, cliquez sur les points de suspension [...] puis sur **Supprimer**.
+* Pour modifier une règle existante, cliquez sur l’un de ses champs, puis modifiez-le.
+* Pour supprimer une règle existante, cliquez sur les points de suspension [...], puis sur **Supprimer**.
 * Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour vous aider à vous connecter à un serveur Azure Database pour MySQL, consultez la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](./concepts-connection-libraries.md)
-

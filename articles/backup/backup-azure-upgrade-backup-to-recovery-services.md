@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
+ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services
 
@@ -70,6 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 > Les noms de groupes de ressources doivent respecter certaines contraintes. Veillez à suivre les recommandations. Le non-respect de celles-ci pourrait entraîner l’échec des mises à niveau de coffre.
 >
 >Les clients **Azure du gouvernement américain** doivent définir l’environnement sur « AzureUSGovernment » lors de l’exécution du script.
+>Les clients **Azure China** doivent définir l’environnement sur « AzureChinaCloud » durant l’exécution du script.
 
 L’extrait de code suivant illustre ce à quoi votre commande PowerShell devrait ressembler :
 
@@ -159,4 +159,3 @@ Consultez l’article suivant pour :</br>
 [Sauvegarder une machine virtuelle IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Sauvegarder un serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md)</br>
 [Sauvegarder un serveur Windows Server](backup-configure-vault.md)
-

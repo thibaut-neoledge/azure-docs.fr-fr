@@ -11,18 +11,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 2e3fdf06316bbf68abefe06024f63668bdf07b05
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Utiliser l’interface de ligne de commande Azure pour gérer les ressources et les groupes de ressources Azure
 
-Dans cet article, vous allez apprendre à gérer vos solutions avec Azure CLI et Azure Resource Manager. Si vous n’êtes pas familiarisé avec Resource Manager, consultez la page [Vue d’ensemble de Resource Manager](resource-group-overview.md). Cette rubrique se concentre sur les tâches de gestion. Vous allez :
+Dans cet article, vous allez apprendre à gérer vos solutions avec Azure CLI et Azure Resource Manager. Si vous n’êtes pas familiarisé avec Resource Manager, consultez la page [Vue d’ensemble de Resource Manager](resource-group-overview.md). Cet article se concentre sur les tâches de gestion. Vous allez :
 
 1. Créer un groupe de ressources
 2. Ajouter une ressource au groupe de ressources
@@ -79,6 +78,7 @@ az account show
 ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
 Avant de déployer des ressources dans votre abonnement, vous devez créer un groupe de ressources qui contiendra ces ressources.
 
 Pour créer un groupe de ressources, utilisez la commande **az group create**. La commande utilise le paramètre **name** pour attribuer un nom au groupe de ressources et le paramètre **location** pour indiquer son emplacement.
@@ -115,6 +115,7 @@ az group list
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>Ajouter des ressources à un groupe de ressources
+
 Pour ajouter une ressource au groupe de ressources, vous pouvez utiliser la commande **az resource create** ou une commande spécifique au type de ressource que vous créez (comme **az storage account create**). Il est peut-être plus facile d’utiliser une commande spécifique à un type de ressource, car elle inclut les paramètres relatifs aux propriétés requises pour la nouvelle ressource. Pour utiliser **az resource create**, vous devez connaître toutes les propriétés à définir, même si vous n’êtes pas invité à les entrer.
 
 Cependant, l’ajout d’une ressource à l’aide de scripts risque de créer une confusion par la suite, car la nouvelle ressource n’existe pas dans un modèle Resource Manager. Les modèles vous permettent de déployer votre solution plusieurs fois de manière fiable.
@@ -133,7 +134,7 @@ az storage account show --name myuniquestorage --resource-group TestRG1
 
 ## <a name="add-a-tag"></a>Ajouter une balise
 
-Les balises vous permettent d’organiser vos ressources en fonction de différentes propriétés. Par exemple, vous pouvez disposer de plusieurs ressources incluses dans différents groupes de ressources appartenant au même service. Vous pouvez appliquer une valeur et une balise de service à ces ressources pour les marquer comme appartenant à la même catégorie. Vous pouvez également indiquer si une ressource est utilisée dans un environnement de production ou de test. Dans le cadre de cette rubrique, vous appliquez des balises à une seule ressource, mais il conviendra probablement d’appliquer des balises à toutes vos ressources dans votre environnement.
+Les balises vous permettent d’organiser vos ressources en fonction de différentes propriétés. Par exemple, vous pouvez disposer de plusieurs ressources incluses dans différents groupes de ressources appartenant au même service. Vous pouvez appliquer une valeur et une balise de service à ces ressources pour les marquer comme appartenant à la même catégorie. Vous pouvez également indiquer si une ressource est utilisée dans un environnement de production ou de test. Dans le cadre de cet article, vous appliquez des balises à une seule ressource, mais il conviendra probablement d’appliquer des balises à toutes vos ressources dans votre environnement.
 
 La commande suivante applique deux balises à votre compte de stockage :
 
@@ -176,6 +177,14 @@ Utilisez la commande **az resource list** pour récupérer les ressources selon 
   ```azurecli-interactive
   az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
+
+## <a name="get-resource-id"></a>Obtenir l’ID de ressource
+
+De nombreuses commandes utilisent un ID de ressource comme paramètre. Pour obtenir l’ID d’une ressource et le stocker dans une variable, utilisez :
+
+```azurecli-interactive
+webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+```
 
 ## <a name="lock-a-resource"></a>Verrouiller une ressource
 

@@ -12,30 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.openlocfilehash: 90a1ea99cbba82b49a0ff6712bcaaa5dc814810e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 3412864384961e8820d6700c1bf22a4cae64ba4b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Ajouter des bibliothèques Hive personnalisées lors de la création de votre cluster HDInsight
 
-Si vous avez des bibliothèques que vous utilisez fréquemment avec Hive sur HDInsight, ce document contient des informations sur l'utilisation d'une action de script pour précharger les bibliothèques lors de la création du cluster. Les bibliothèques ajoutées à l’aide de la procédure de ce document sont disponibles dans Hive : il n’est pas nécessaire d’utiliser [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) pour les charger.
+Découvrez comment précharger des bibliothèques Hive dans HDInsight. Ce document contient des informations sur l’utilisation d’une action de script pour précharger des bibliothèques durant la création d’un cluster. Les bibliothèques ajoutées à l’aide de la procédure de ce document sont disponibles dans Hive : il n’est pas nécessaire d’utiliser [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) pour les charger.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Lorsque vous créez un cluster, vous pouvez éventuellement spécifier une action de script qui exécute un script sur les nœuds de cluster lors de leur création. Le script dans ce document accepte un seul paramètre, qui est un emplacement WASB qui contient les bibliothèques (stockées en tant que fichiers jar) qui seront préchargées.
+Quand vous créez un cluster, vous pouvez utiliser une action de script pour modifier les nœuds de cluster au fur et à mesure qu’ils sont créés. Le script dans ce document accepte un seul paramètre, qui correspond à l’emplacement des bibliothèques. Cet emplacement doit se trouver dans un compte de stockage Azure, et les bibliothèques doivent être stockées sous forme de fichiers jar.
 
 Lors de la création du cluster, le script énumère les fichiers, les copie sur le répertoire `/usr/lib/customhivelibs/` sur le nœud principal et le nœud de travail, puis les ajoute à la propriété `hive.aux.jars.path` dans le fichier `core-site.xml`. Pour les clusters basés sur Linux, il met également à jour le fichier `hive-env.sh` avec l'emplacement des fichiers.
 
 > [!NOTE]
 > L’utilisation de l’action de script dans cet article rend les bibliothèques disponibles dans les scénarios suivants :
 >
-> * **HDInsight basé sur Linux** : lorsque vous utilisez un client Hive, **WebHCat** et **HiveServer2**.
+> * **HDInsight basé sur Linux** : quand vous utilisez un client Hive, **WebHCat** et **HiveServer2**.
 > * **HDInsight basé sur Windows** : lorsque vous utilisez le client Hive et **WebHCat**.
 
 ## <a name="the-script"></a>Le script
@@ -60,7 +59,7 @@ Pour les **clusters basés sur Windows**: [https://hdiconfigactions.blob.core.wi
 * Le chemin WASB vers le conteneur doit être spécifié en tant que paramètre à l'action de script. Par exemple, si les fichiers jar sont stockés dans un conteneur nommé **libs** sur un compte de stockage nommé **mystorage**, le paramètre serait **wasb://libs@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]
-  > Ce document suppose que vous avez déjà créé un compte de stockage, un conteneur d'objets blob et que vous avez déjà téléchargé les fichiers vers ceux-ci.
+  > Ce document suppose que vous avez déjà créé un compte de stockage et un conteneur d'objets blob et que vous avez déjà chargé les fichiers dans ce dernier.
   >
   > Si vous n'avez pas créé de compte de stockage, vous pouvez le faire via le [portail Azure](https://portal.azure.com). Vous pouvez ensuite utiliser un utilitaire tel que [Azure Storage Explorer](http://storageexplorer.com/) pour créer un conteneur dans le compte et y télécharger des fichiers.
 
@@ -73,7 +72,7 @@ Pour les **clusters basés sur Windows**: [https://hdiconfigactions.blob.core.wi
 
 1. Démarrez l’approvisionnement d’un cluster à l’aide de la procédure décrite dans [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md), mais n’achevez pas l’approvisionnement.
 
-2. Dans le panneau **Configuration facultative**, sélectionnez **Actions de script**, puis indiquez les informations suivantes :
+2. Dans la section **Configuration facultative**, sélectionnez **Actions de script**, puis indiquez les informations suivantes :
 
    * **NAME**: saisissez un nom convivial pour l’action de script.
 
@@ -89,9 +88,9 @@ Pour les **clusters basés sur Windows**: [https://hdiconfigactions.blob.core.wi
 
 3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration.
 
-4. Dans le panneau **Configuration facultative**, sélectionnez **Comptes de stockage liés** et sélectionnez le lien **Ajouter une clé de stockage**. Sélectionnez le compte de stockage qui contient les fichiers jar et utilisez les boutons de **sélection** pour enregistrer les paramètres et revenir au panneau **Configuration facultative**.
+4. Dans la section **Configuration facultative**, sélectionnez **Comptes de stockage liés**, puis le lien **Ajouter une clé de stockage**. Sélectionnez le compte de stockage qui contient les fichiers jar. Utilisez ensuite les boutons **Sélectionner** pour enregistrer les paramètres et revenir à la section **Configuration facultative**.
 
-5. Utilisez le bouton **Sélectionner** au bas du panneau **Configuration facultative** pour enregistrer les informations de configuration facultatives.
+5. Pour enregistrer la configuration facultative, utilisez le bouton **Sélectionner** situé en bas de la section **Configuration facultative**.
 
 6. Continuez l’approvisionnement du cluster, comme indiqué dans [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -100,4 +99,3 @@ Lorsque la création du cluster est terminée, vous pouvez utiliser les fichiers
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations sur l’utilisation de Hive, consultez la rubrique [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
-

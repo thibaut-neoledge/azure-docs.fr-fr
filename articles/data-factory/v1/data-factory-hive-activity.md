@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
+ms.openlocfilehash: 88529344eee45150503b0d0e57c92f0cb4f07598
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 0b2d6580f30044b703acb3e3f53066a45f4f7b18
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hive dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -129,7 +128,7 @@ Pour exécuter ce script Hive dans un pipeline Data Factory, vous devez effectue
 1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
 2. Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié « StorageLinkedService ».
 3. Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d'entrée « HiveSampleIn » et le jeu de données de sortie « HiveSampleOut »
-4. Copiez la requête Hive en tant que fichier dans le stockage d’objets blob Azure configuré à l’étape 2 ci-dessus. Si le stockage pour l’hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service lié de stockage Azure distinct et référencez-le dans l’activité. Utilisez **scriptPath ** pour spécifier le chemin d’accès au fichier de requête Hive et **scriptLinkedService** pour spécifier le stockage Azure qui contient le fichier de script. 
+4. Copiez la requête Hive en tant que fichier dans le stockage d’objets blob Azure configuré à l’étape 2 ci-dessus. Si le stockage pour l’hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service lié de stockage Azure distinct et référencez-le dans l’activité. Utilisez **scriptPath** pour spécifier le chemin d’accès au fichier de requête Hive et **scriptLinkedService** pour spécifier le stockage Azure qui contient le fichier de script. 
    
    > [!NOTE]
    > Vous pouvez également fournir le script en ligne Hive dans la définition d’activité à l’aide de la propriété **script** . Nous ne le recommandons pas, car tous les caractères spéciaux du script dans le document JSON doivent être placés dans une séquence d’échappement, ce qui risque d’entraîner des problèmes de débogage. La meilleure pratique consiste à suivre l’étape 4.
@@ -247,5 +246,4 @@ Pour utiliser le script Hive paramétré, procédez comme suit :
 * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Appeler des programmes Spark](data-factory-spark.md)
 * [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
 

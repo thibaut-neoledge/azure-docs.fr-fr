@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 09/27/2017
 ms.author: juliako;
+ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 0d071129944fb9298e8f0a7b8f3bb1dd2fcc4bd4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Éditer les visages avec Azure Media Analytique
 ## <a name="overview"></a>Vue d'ensemble
@@ -134,7 +133,7 @@ Exemple : foo_IDList.txt
 
 ## <a name="blur-types"></a>Types de flou
 
-Dans le mode **Combiné** ou **Rédiger**, 5 modes de flou sont disponibles par le biais de la configuration d’entrée JSON : **Faible**, **Med** (Moyen), **Élevé**, **Débogage** et **Noir**. Par défaut, **Med** (Moyen) est utilisé.
+Dans le mode **Combiné** ou **Rédiger**, 5 modes de flou sont disponibles par le biais de la configuration d’entrée JSON : **Faible**, **Med** (Moyen), **Élevé**, **Box** et **Noir**. Par défaut, **Med** (Moyen) est utilisé.
 
 Vous trouverez des exemples de types de flou ci-dessous.
 
@@ -154,9 +153,9 @@ Vous trouverez des exemples de types de flou ci-dessous.
 
 ![Élevé](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="debug"></a>Déboguer
+#### <a name="box"></a>Box
 
-![Déboguer](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Noir
 
@@ -353,5 +352,4 @@ Configurez votre environnement de développement et ajoutez des informations de 
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

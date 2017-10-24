@@ -12,25 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: ae5ccb83a0088cb7c9668f18620b74f9f3f1e9b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c201ac12d06ffc8097615517ae09422b037eba6b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>Gérer les ressources avec Azure PowerShell et Resource Manager
-> [!div class="op_single_selector"]
-> * [Portail](resource-group-portal.md)
-> * [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [API REST](resource-manager-rest-api.md)
->
->
 
-Dans cet article, vous allez apprendre à gérer vos solutions avec Azure PowerShell et Azure Resource Manager. Si vous n’êtes pas familiarisé avec Resource Manager, consultez la page [Vue d’ensemble de Resource Manager](resource-group-overview.md). Cette rubrique se concentre sur les tâches de gestion. Vous allez :
+Dans cet article, vous allez apprendre à gérer vos solutions avec Azure PowerShell et Azure Resource Manager. Si vous n’êtes pas familiarisé avec Resource Manager, consultez la page [Vue d’ensemble de Resource Manager](resource-group-overview.md). Cet article traite en particulier des tâches de gestion. Vous allez :
 
 1. Créer un groupe de ressources
 2. Ajouter une ressource au groupe de ressources
@@ -53,7 +45,7 @@ Pour vérifier votre version du module de ressources Azure, utilisez l’applet 
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Cette rubrique a été mise à jour pour la version 3.3.0. Si vous possédez une version antérieure, les étapes présentées dans cette rubrique ne correspondront peut-être pas à votre situation. Pour plus d’informations sur les applets de commande pour cette version, consultez [AzureRM.Resources Module](/powershell/module/azurerm.resources) (Module AzureRM.Resources).
+Cet article a été mis à jour pour la version 3.3.0. Si vous possédez une version antérieure, les étapes présentées dans cet article ne correspondront peut-être pas à votre situation. Pour plus d’informations sur les applets de commande pour cette version, consultez [AzureRM.Resources Module](/powershell/module/azurerm.resources) (Module AzureRM.Resources).
 
 ## <a name="log-in-to-your-azure-account"></a>Connexion à votre compte Azure
 Avant de travailler sur votre solution, vous devez vous connecter à votre compte.
@@ -110,6 +102,7 @@ Set-AzureRmContext -SubscriptionName "Example Subscription Two"
 ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
 Avant de déployer des ressources dans votre abonnement, vous devez créer un groupe de ressources qui contiendra ces ressources.
 
 Pour créer un groupe de ressources, utilisez l’applet de commande **New-AzureRmResourceGroup** . La commande utilise le paramètre **Name** pour attribuer un nom au groupe de ressources et le paramètre **Location** pour indiquer son emplacement.
@@ -141,9 +134,10 @@ Get-AzureRmResourceGroup
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>Ajouter des ressources à un groupe de ressources
+
 Pour ajouter une ressource au groupe de ressources, vous pouvez utiliser l’applet de commande **New-AzureRmResource** ou une applet de commande spécifique au type de ressource que vous créez (comme **New-AzureRmStorageAccount**). Il est peut-être plus facile d’utiliser une applet de commande spécifique à un type de ressource, car elle inclut les paramètres relatifs aux propriétés requises pour la nouvelle ressource. Pour utiliser **New-AzureRmResource**, vous devez connaître toutes les propriétés à définir, même si vous n’êtes pas invité à les entrer.
 
-Cependant, l’ajout d’une ressource à l’aide d’applets de commande risque de créer une confusion par la suite, car la nouvelle ressource n’existe pas dans un modèle Resource Manager. Microsoft recommande de définir l’infrastructure de votre solution Azure dans un modèle Resource Manager. Les modèles vous permettent de déployer votre solution plusieurs fois de manière fiable. Dans le cadre de cette rubrique, vous créez un compte de stockage avec une applet de commande PowerShell et générerez plus tard un modèle à partir de votre groupe de ressources.
+Cependant, l’ajout d’une ressource à l’aide d’applets de commande risque de créer une confusion par la suite, car la nouvelle ressource n’existe pas dans un modèle Resource Manager. Microsoft recommande de définir l’infrastructure de votre solution Azure dans un modèle Resource Manager. Les modèles vous permettent de déployer votre solution plusieurs fois de manière fiable. Dans le cadre de cet article, vous créez un compte de stockage avec une applet de commande PowerShell et générerez plus tard un modèle à partir de votre groupe de ressources.
 
 L’applet de commande suivante permet de créer un compte de stockage. Au lieu d’utiliser le nom indiqué dans l’exemple, entrez un nom unique pour le compte de stockage. Le nom doit comprendre entre 3 et 24 caractères et comporter uniquement des lettres en minuscules et des nombres. Si vous utilisez le nom indiqué dans l’exemple, vous recevez une erreur, car ce nom est déjà en cours d’utilisation.
 
@@ -159,7 +153,7 @@ Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
 
 ## <a name="add-a-tag"></a>Ajouter une balise
 
-Les balises vous permettent d’organiser vos ressources en fonction de différentes propriétés. Par exemple, vous pouvez disposer de plusieurs ressources incluses dans différents groupes de ressources appartenant au même service. Vous pouvez appliquer une valeur et une balise de service à ces ressources pour les marquer comme appartenant à la même catégorie. Vous pouvez également indiquer si une ressource est utilisée dans un environnement de production ou de test. Dans le cadre de cette rubrique, vous appliquez des balises à une seule ressource, mais il conviendra probablement d’appliquer des balises à toutes vos ressources dans votre environnement.
+Les balises vous permettent d’organiser vos ressources en fonction de différentes propriétés. Par exemple, vous pouvez disposer de plusieurs ressources incluses dans différents groupes de ressources appartenant au même service. Vous pouvez appliquer une valeur et une balise de service à ces ressources pour les marquer comme appartenant à la même catégorie. Vous pouvez également indiquer si une ressource est utilisée dans un environnement de production ou de test. Dans le cadre de cet article, vous appliquez des balises à une seule ressource, mais il conviendra probablement d’appliquer des balises à toutes vos ressources dans votre environnement.
 
 L’applet de commande suivante applique deux balises à votre compte de stockage :
 
@@ -203,6 +197,14 @@ Utilisez l’applet de commande **Find-AzureRmResource** pour récupérer les re
   Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
   ```
 
+## <a name="get-resource-id"></a>Obtenir l’ID de ressource
+
+De nombreuses commandes utilisent un ID de ressource comme paramètre. Pour obtenir l’ID d’une ressource et le stocker dans une variable, utilisez :
+
+```powershell
+$webappID = (Get-AzureRmResource -ResourceGroupName exampleGroup -ResourceName exampleSite).ResourceId
+```
+
 ## <a name="lock-a-resource"></a>Verrouiller une ressource
 
 Pour vous assurer qu’une ressource critique ne sera pas accidentellement supprimée ou modifiée, appliquez un verrou à la ressource. Vous pouvez spécifier le niveau **CanNotDelete** ou **ReadOnly**.
@@ -242,7 +244,7 @@ Pour les deux applets de commande, vous êtes invité à confirmer que vous souh
 
 ## <a name="run-resource-manager-scripts-with-azure-automation"></a>Exécuter des scripts Resource Manager avec Azure Automation
 
-Cette rubrique montre comment effectuer des opérations de base sur vos ressources avec Azure PowerShell. Pour les scénarios de gestion plus avancés, vous souhaiterez généralement créer un script et le réutiliser en fonction de vos besoins ou selon une planification. [Azure Automation](../automation/automation-intro.md) vous offre un moyen d’automatiser les scripts fréquemment utilisés, qui gèrent vos solutions Azure.
+Cet article montre comment effectuer des opérations de base sur vos ressources avec Azure PowerShell. Pour les scénarios de gestion plus avancés, vous souhaiterez généralement créer un script et le réutiliser en fonction de vos besoins ou selon une planification. [Azure Automation](../automation/automation-intro.md) vous offre un moyen d’automatiser les scripts fréquemment utilisés, qui gèrent vos solutions Azure.
 
 Les rubriques suivantes vous montrent comment utiliser Azure Automation, Resource Manager et PowerShell pour exécuter efficacement des tâches de gestion :
 
@@ -256,5 +258,4 @@ Les rubriques suivantes vous montrent comment utiliser Azure Automation, Resourc
 * Pour savoir comment déployer des modèles, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 * Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressources. Pour obtenir des exemples, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-
 

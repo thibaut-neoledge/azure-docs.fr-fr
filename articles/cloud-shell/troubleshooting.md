@@ -12,16 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/2/2017
 ms.author: damaerte
+ms.openlocfilehash: a23023649474d4b4a36a362593dd7affde49b1a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 32d4d4d10e5d8986e2dfe94430f52db8f038e245
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-azure-cloud-shell"></a>Dépannage d’Azure Cloud Shell
 Les solutions connues aux problèmes d’Azure Cloud Shell sont les suivantes :
 
@@ -61,3 +59,7 @@ Les solutions connues aux problèmes d’Azure Cloud Shell sont les suivantes :
  ``` Powershell
  Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
  ```
+
+ ### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` met en cache le résultat dans le lecteur Azure
+ - **Détails** : le résultat de `dir` est mis en cache dans le lecteur Azure.
+ - **Résolution** : après avoir créé ou supprimé une ressource dans la vue du lecteur Azure, exécutez `dir -force` pour mettre à jour ce dernier.

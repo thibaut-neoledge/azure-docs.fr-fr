@@ -7,20 +7,18 @@ ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 06/20/2017
+ms.date: 09/20/2017
+ms.openlocfilehash: aeca003a9b031a48804a057b627714b554298645
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 6ffcf3b38a3d868dfa10ea2e2a9d097441387d4f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Base de données Azure pour MySQL : Utilisation de Java pour se connecter et interroger des données
-Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL en utilisant une application Java. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Les étapes de cet article supposent que vous connaissez le développement avec Java, mais que vous ne savez pas utiliser la base de données Azure pour MySQL.
+Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure Database pour MySQL en utilisant une application Java. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de Java et que vous ne savez pas utiliser Azure Database pour MySQL.
 
 ## <a name="prerequisites"></a>Composants requis
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
@@ -38,7 +36,7 @@ Obtenez les informations requises pour vous connecter à la base de données Azu
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le volet gauche, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous avez créé (par exemple, **myserver4demo**).
 3. Cliquez sur le nom du serveur.
-4. Sélectionnez la page **Propriétés** du serveur. Prenez note du **nom du serveur** et du **nom de connexion d’administrateur du serveur**.
+4. Sélectionnez la page **Propriétés** du serveur, puis notez le **Nom du serveur** et le **Nom de connexion de l’administrateur du serveur**.
  ![Nom du serveur de base de données Azure pour MySQL](./media/connect-java/1_server-properties-name-login.png)
 5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
 
@@ -396,4 +394,3 @@ public class DeleteTable {
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration](concepts-migrate-dump-restore.md)
-

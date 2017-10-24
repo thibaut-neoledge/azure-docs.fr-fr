@@ -17,10 +17,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
 ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
 
@@ -41,7 +41,7 @@ Le projet comportait deux exigences principales :
 * La possibilité de visualiser les erreurs susceptibles de se produire dans le flux de travail.
 
 > [!TIP]
-> Pour une vidéo détaillée sur ce projet, consultez [Groupe d’utilisateurs d’intégration](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
+> Pour une vidéo générale sur ce projet, consultez la page [Groupe d’utilisateurs d’intégration](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Groupe d’utilisateurs d’intégration").
 
 ## <a name="how-we-solved-the-problem"></a>Comment nous avons résolu le problème
 

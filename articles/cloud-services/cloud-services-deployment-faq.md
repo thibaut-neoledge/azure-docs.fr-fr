@@ -13,15 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 9b788b1d95c821a4bb76cd4dea1d689d36e2f92b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour Azure Cloud Services : questions fréquentes (FAQ)
 
@@ -56,7 +54,7 @@ Pour vérifier les tailles disponibles dans votre région, consultez [Microsoft 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Pourquoi le déploiement d’un service cloud échoue-t-il parfois en raison des limites/quotas/contraintes de mon abonnement ou service ?
 Le déploiement d’un service cloud peut échouer si les ressources qui doivent être allouées dépassent la valeur par défaut ou le quota maximal autorisé pour votre service au niveau de la région et/ou du centre de données. Pour plus d’informations, consultez [Limites de services cloud](../azure-subscription-service-limits.md#cloud-services-limits).
 
-Vous pouvez aussi suivre l’utilisation et/ou le quota actuels de votre abonnement sur le portail : Portail Azure=> Abonnements => \<abonnement approprié>=> « Utilisation + quota ».
+Vous pouvez aussi suivre l’utilisation et/ou le quota actuels de votre abonnement sur le portail : Portail Azure=> Abonnements=> \<abonnement approprié=> « Utilisation + quota ».
 
 Vous pouvez aussi obtenir des informations sur l’utilisation/consommation de ressources via les API de facturation Azure. Consultez [API Azure Resource Usage (version préliminaire)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
@@ -65,5 +63,15 @@ Vous ne pouvez pas modifier la taille de machine virtuelle d’un service cloud 
 
 Pour plus d’informations, consultez [Comment mettre à jour un service clou](cloud-services-update-azure-service.md).
 
- 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Pourquoi ne puis-je pas déployer de services cloud via les API Gestion des services ou PowerShell en utilisant le compte de stockage Azure Resource Manager ? 
 
+Étant donné que le service cloud est une ressource classique qui n’est pas directement compatible avec le modèle Azure Resource Manager, vous ne pouvez pas l’associer aux comptes de stockage Azure Resource Manager. Voici quelques solutions alternatives possibles : 
+ 
+- Déploiement via l’API REST.
+
+    Quand vous déployez via l’API REST Gestion des services, vous pouvez obtenir la limitation en spécifiant une URL SAS pour le stockage d’objets blob, qui fonctionnera à la fois avec un compte de stockage Azure Resource Manager et classique. Pour en savoir plus sur la propriété 'PackageUrl', cliquez [ici](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
+- Déploiement via le [portail Azure](https://portal.azure.com).
+
+    Le déploiement est possible à partir du [portail Azure](https://portal.azure.com), car l’appel passe par un proxy/shim qui permet la communication entre les ressources Azure Resource Manager et classiques. 
+ 

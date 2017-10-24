@@ -13,22 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: 910077645b521d4cd303d39f543cf155161a31c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 4a5dc668e21c5328b308c8f5852aaa922232374d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
 Azure Functions s’intègre avec Azure Logic Apps dans le Concepteur d’applications logiques. Cette intégration vous permet d’utiliser la puissance des fonctions dans les orchestrations avec d’autres services Azure et services tiers. 
 
-Ce didacticiel vous montre comment utiliser des fonctions avec Logic Apps et Azure Cognitive Services pour analyser les sentiments de billets Twitter. Une fonction déclenchée via HTTP classe les tweets en vert, jaune ou rouge selon le score de sentiments. Un courrier électronique est envoyé lors de la détection de sentiments négatifs. 
+Ce didacticiel vous montre comment utiliser des fonctions avec Logic Apps et Microsoft Cognitive Services sur Azure pour analyser les sentiments de billets Twitter. Une fonction déclenchée via HTTP classe les tweets en vert, jaune ou rouge selon le score de sentiments. Un courrier électronique est envoyé lors de la détection de sentiments négatifs. 
 
 ![Image : deux premières étapes de l’application dans le Concepteur d’applications logiques](media/functions-twitter-email/designer1.png)
 
@@ -59,7 +57,7 @@ Un compte Cognitive Services est requis pour détecter les sentiments des tweets
 
 3. Cliquez sur **Données + analyse** > **Cognitive Services**. Puis, utilisez les paramètres comme indiqué dans le tableau, acceptez les termes du contrat et cochez **Épingler au tableau de bord**.
 
-    ![Panneau Créer un compte Cognitive](media/functions-twitter-email/cog_svcs_account.png)
+    ![Page Créer un compte Cognitive](media/functions-twitter-email/cog_svcs_account.png)
 
     | Paramètre      |  Valeur suggérée   | Description                                        |
     | --- | --- | --- |
@@ -131,11 +129,12 @@ Vous disposez maintenant d’une fonction permettant de classer les scores des s
     | Paramètre      |  Valeur suggérée   | Description                                        |
     | ----------------- | ------------ | ------------- |
     | **Nom** | TweetSentiment | Choisissez un nom approprié pour votre application. |
-    | **Groupe de ressources** | myResourceGroup | API utilisée pour analyser le texte.  |
-    | **Emplacement** | Est des États-Unis | Choisissez un emplacement proche de vous. |
-    | **Groupe de ressources** | myResourceGroup | Choisissez le même groupe de ressources existant que précédemment.|
+    | **Groupe de ressources** | myResourceGroup | Choisissez le même groupe de ressources existant que précédemment. |
+    | **Emplacement** | Est des États-Unis | Choisissez un emplacement proche de vous. |    
 
-4. Cliquez sur **Créer** pour créer votre application logique. Une fois que l’application est créée, cliquez sur votre nouvelle application logique épinglée au tableau de bord. Dans le Concepteur d’applications logiques, faites défiler vers le bas, puis cliquez sur le modèle **Application logique vide**. 
+4. Choisissez **Épingler au tableau de bord** puis cliquez sur **Créer** pour créer votre application logique. 
+
+5. Une fois que l’application est créée, cliquez sur votre nouvelle application logique épinglée au tableau de bord. Dans le Concepteur d’applications logiques, faites défiler vers le bas, puis cliquez sur le modèle **Application logique vide**. 
 
     ![Modèle d’applications logiques vides](media/functions-twitter-email/blank.png)
 
@@ -212,7 +211,7 @@ La dernière partie du flux de travail consiste à déclencher un courrier élec
 
 4. Dans l’action **Envoyer un courrier électronique**, utilisez les paramètres de messagerie indiqués dans le tableau. 
 
-    ![Configurez le courrier électronique pour l’action Envoyer un courrier électronique.](media/functions-twitter-email/sendemail.png)
+    ![Configurez le courrier électronique pour l’action Envoyer un courrier électronique.](media/functions-twitter-email/sendEmail.png)
 
     | Paramètre      |  Valeur suggérée   | Description  |
     | ----------------- | ------------ | ------------- |
@@ -275,5 +274,4 @@ Passez au didacticiel suivant pour apprendre à créer une API sans serveur pour
 > [Créer une API sans serveur à l’aide d’Azure Functions](functions-create-serverless-api.md)
 
 Pour plus d’informations sur Logic Apps, voir [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: arramac
+ms.openlocfilehash: 1e23fa988952f2515d82d4d043c390c263959ccc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: a0f6a845a345ebd4ef0a58abf4934ce400103109
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilisation de l’émulateur Azure Cosmos DB pour le développement local et le test
 
@@ -85,7 +84,7 @@ Vous pouvez télécharger et installer l’émulateur Azure Cosmos DB à partir 
 
 L’émulateur Azure Cosmos DB peut être exécuté sur Docker pour Windows. L’émulateur ne fonctionne pas sur Docker pour Oracle Linux.
 
-Une fois que [Docker pour Windows](https://www.docker.com/docker-windows) est installé, vous pouvez extraire l’image de l’émulateur à partir de Docker Hub en exécutant la commande suivante depuis votre interpréteur de commandes favori (cmd.exe, PowerShell, etc.).
+Une fois que [Docker pour Windows](https://www.docker.com/docker-windows) est installé et que vous avez basculé vers les conteneurs Windows, vous pouvez extraire l’image de l’émulateur à partir de Docker Hub en exécutant la commande suivante à partir de votre interpréteur de commandes favori (cmd.exe, PowerShell, etc.).
 
 ```      
 docker pull microsoft/azure-cosmosdb-emulator 
@@ -94,7 +93,7 @@ Pour démarrer l’image, exécutez les commandes suivantes :
 
 ``` 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 La réponse ressemble à ce qui suit :
@@ -409,4 +408,3 @@ Dans ce didacticiel, vous avez appris à utiliser l’émulateur local pour un d
 
 > [!div class="nextstepaction"]
 > [Exporter les certificats de l’émulateur Azure Cosmos DB](local-emulator-export-ssl-certificates.md)
-

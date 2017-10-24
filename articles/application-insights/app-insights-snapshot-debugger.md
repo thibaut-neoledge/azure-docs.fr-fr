@@ -11,19 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 525f67a856e5ffa9fcd3c8fd368a564adc2e99fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0761339dfdaaaed418a1414472393ce8e0f37b9c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée (préversion) dans [Azure Application Insights](app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](app-insights-asp-net-exceptions.md) dans le portail Application Insights.
 
-Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les captures instantanées à l’aide de Visual Studio 2017 Enterprise en [téléchargeant l’extension du Débogueur de capture instantanée pour Visual Studio](https://aka.ms/snapshotdebugger).
+Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les captures instantanées à l’aide de Visual Studio 2017 Enterprise en [téléchargeant l’extension du Débogueur de capture instantanée pour Visual Studio](https://aka.ms/snapshotdebugger). Dans Visual Studio, vous pouvez également [définir des points de capture instantanée pour prendre des captures instantanées de manière interactive](https://aka.ms/snappoint) sans attendre la levée d’une exception.
 
 La collecte de captures instantanées est disponible pour :
 * les applications .NET framework et ASP.NET exécutant .NET Framework 4.5 ou version ultérieure ;
@@ -194,7 +193,7 @@ Une fois une capture instantanée créée, un fichier minidump (.dmp) est créé
 
 2. Sélectionnez le panneau **Outils avancés**, ou recherchez **Kudu**.
 3. Cliquez sur **Atteindre**.
-4. Dans la zone de liste déroulante de la **Console de débogage**, sélectionnez **CMD**.
+4. Dans le zone de liste déroulante de la **Console de débogage**, sélectionnez **CMD**.
 5. Cliquez sur **LogFiles**.
 
 Vous devriez voir au moins un fichier dont le nom commence par `Uploader_` et dont l’extension est `.log`. Cliquez sur l’icône appropriée pour télécharger tous les fichiers journaux ou les ouvrir dans un navigateur.
@@ -259,7 +258,6 @@ Si vous ne voyez toujours pas d’exception avec cet ID d’instantané, cela si
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Définir des points de capture instantanée dans votre code](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/) afin d’obtenir des captures instantanées sans attendre la levée d’une exception.
+* [Définir des points de capture instantanée dans votre code](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) afin obtenir des captures instantanées sans attendre la levée d’une exception.
 * [Diagnostiquer des exceptions dans vos applications web](app-insights-asp-net-exceptions.md) explique comment rendre visible à Application Insights un plus grand nombre d’exceptions. 
 * [Détection intelligente](app-insights-proactive-diagnostics.md) permet de détecter automatiquement les anomalies relatives aux performances.
-

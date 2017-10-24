@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
+ms.openlocfilehash: 64bdd6ed41e98079c8d4112e895aaeddcd629282
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f461efbc2a23f85e8b6d3fdec156a0df1636708a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>Attribuer et gérer les stratégies de ressources
 
@@ -31,6 +30,23 @@ Pour implémenter une stratégie, vous devez suivre ces étapes :
 4. Dans les deux cas, attribuez la stratégie à une étendue (par exemple, un groupe de ressources ou un abonnement). Les règles de la stratégie sont à présent appliquées.
 
 Cet article est centré sur les étapes de création d’une définition de stratégie et d’attribution de cette définition à une étendue via l’API REST, PowerShell ou Azure CLI. Si vous préférez utiliser le portail pour affecter des stratégies, consultez [Utiliser le portail Azure pour affecter et gérer les stratégies de ressources](resource-manager-policy-portal.md). Il n’aborde pas la syntaxe de création de la définition de stratégie. Pour plus d’informations sur la syntaxe des stratégies, consultez la page [Vue d’ensemble des stratégies de ressources](resource-manager-policy.md).
+
+## <a name="exclusion-scopes"></a>Étendues d’exclusion
+
+Vous pouvez exclure une étendue lors de l’attribution d’une stratégie. Cette possibilité simplifie les attributions de stratégies car vous pouvez attribuer une stratégie au niveau de l’abonnement tout en spécifiant les endroits où la stratégie n’est pas appliquée. Par exemple, dans votre abonnement, vous avez un groupe de ressources destiné à l’infrastructure réseau. Les équipes d’application déploient leurs ressources dans d’autres groupes de ressources. Vous voulez éviter que ces équipes créent des ressources réseau pouvant entraîner des problèmes de sécurité. Mais dans le groupe de ressources réseau, vous souhaitez autoriser des ressources réseau. Vous pouvez attribuer la stratégie au niveau de l’abonnement, mais exclure le groupe de ressources réseau. Vous pouvez spécifier plusieurs étendues secondaires.
+
+```json
+{
+    "properties":{
+        "policyDefinitionId":"<ID for policy definition>",
+        "notScopes":[
+            "/subscriptions/<subid>/resourceGroups/networkresourceGroup1"
+        ]
+    }
+}
+```
+
+Si vous spécifiez une étendue d’exclusion dans votre attribution, utilisez la version d’API **2017-06-01-preview**.
 
 ## <a name="rest-api"></a>API REST
 
@@ -168,8 +184,28 @@ Avant de passer à la création d’une définition de stratégie, examinez les 
 ### <a name="create-policy-definition"></a>Créer une définition de stratégie
 Vous pouvez créer une définition de stratégie en utilisant l’applet de commande `New-AzureRmPolicyDefinition`.
 
+Pour créer une définition de stratégie à partir d’un fichier, transmettez le chemin d’accès au fichier. Pour un fichier externe, utilisez :
+
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Pour un fichier local, utilisez :
+
+```powershell
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Pour créer une définition de stratégie avec une règle en ligne, utilisez :
+
+```powershell
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
   "if": {
     "allOf": [
       {
@@ -195,12 +231,6 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 ```            
 
 Le résultat est stocké dans un objet `$definition` utilisé lors de l’attribution de la stratégie. 
-
-Au lieu de spécifier le JSON comme paramètre, vous pouvez fournir le chemin d’accès à un fichier .json contenant la règle de stratégie.
-
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
-```
 
 L’exemple suivant crée une définition de stratégie qui inclut des paramètres :
 
@@ -319,8 +349,10 @@ Avant de passer à la création d’une définition de stratégie, examinez les 
 
 Vous pouvez créer une définition de stratégie à l’aide d’Azure CLI avec la commande de définition de stratégie.
 
+Pour créer une définition de stratégie avec une règle en ligne, utilisez :
+
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
   "if": {
     "allOf": [
       {
@@ -371,5 +403,4 @@ az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscr
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-
 

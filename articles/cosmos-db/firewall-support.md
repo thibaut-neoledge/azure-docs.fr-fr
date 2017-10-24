@@ -14,14 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 10/06/2017
 ms.author: ankshah
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e08c0ba9c1fc0bab72ae8c1158aafaad4f66920e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 8836cb516bf7669a2d17da7f87222960fc343042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Prise en charge du pare-feu Azure Cosmos DB
 Pour sécuriser les données stockées dans un compte de base de données Azure Cosmos DB, Azure Cosmos DB assure la prise en charge d’un [modèle d’autorisation](https://msdn.microsoft.com/library/azure/dn783368.aspx) basé sur une clé secrète, qui utilise un code d’authentification de message basé sur le hachage (HMAC) à forte intégrité. Outre le modèle d’autorisations basé sur un secret, Azure Cosmos DB prend désormais en charge les contrôles d’accès basés sur une stratégie IP pour la prise en charge du pare-feu entrant. Ce modèle est très semblable aux règles de pare-feu d’un système de base de données traditionnel et renforce la sécurité du compte de base de données Azure Cosmos DB. Avec ce modèle, vous pouvez désormais configurer un compte de base de données Azure Cosmos DB pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux ressources Azure Cosmos DB à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.
@@ -66,10 +65,10 @@ Dans le volet Nouveau, indiquez si le portail Azure peut accéder au compte et a
 > Quand vous activez une stratégie de contrôle d’accès IP, vous devez ajouter l’adresse IP du portail Azure pour conserver l’accès. Les adresses IP du portail sont :
 > |Région|Adresse IP|
 > |------|----------|
-> |Toutes les régions, à l’exception de celles spécifiées ci-dessous| 104.42.195.92|
+> |Toutes les régions, à l’exception de celles spécifiées ci-dessous| 104.42.195.92, 40.76.54.131, 52.176.6.30, 52.169.50.45, 52.187.184.26|
 > |Allemagne|51.4.229.218|
 > |Chine|139.217.8.252|
-> |Gouvernement des États-Unis – Arizona|52.244.48.71|
+> |Gouvernement des États-Unis|52.244.48.71|
 >
 
 ![Capture d’écran montrant comment configurer les paramètres du pare-feu dans le portail Azure](./media/firewall-support/azure-portal-firewall-configure.png)
@@ -85,5 +84,4 @@ Pour des raisons de sécurité, l’accès via le Kit de développement logiciel
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les conseils sur les performances relatives au réseau, consultez [Conseils relatifs aux performances](performance-tips.md).
-
 

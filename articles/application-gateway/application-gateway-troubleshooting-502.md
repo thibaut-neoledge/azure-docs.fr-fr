@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
 
 Découvrez comment résoudre les erreurs de passerelle incorrecte (502) reçues lors de l’utilisation d’Application Gateway.
@@ -31,63 +29,48 @@ Découvrez comment résoudre les erreurs de passerelle incorrecte (502) reçues 
 
 Après avoir configuré une passerelle Application Gateway, les utilisateurs peuvent rencontrer l’erreur « Erreur serveur 502 : le serveur Web a reçu une réponse erronée lors de son utilisation en tant que passerelle ou serveur proxy ». Cette erreur peut se produire pour les raisons suivantes :
 
-* Le [pool principal d’Azure Application Gateway n’est pas configuré ou est vide](#empty-backendaddresspool).
-* Aucune des machines virtuelles ou des instances du [groupe de machines virtuelles identiques](#unhealthy-instances-in-backendaddresspool) n’est intègre.
+* Un groupe de sécurité réseau, un routage défini par l’utilisateur ou un DNS personnalisé bloque l’accès aux membres du pool principal.
 * Les machines virtuelles principales ou les instances du groupe de machines virtuelles identiques [ne répondent pas à la sonde d’intégrité par défaut](#problems-with-default-health-probe.md).
 * [Configuration non valide ou incorrecte des sondes d’intégrité personnalisées](#problems-with-custom-health-probe.md).
+* Le [pool principal d’Azure Application Gateway n’est pas configuré ou est vide](#empty-backendaddresspool).
+* Aucune des machines virtuelles ou des instances du [groupe de machines virtuelles identiques](#unhealthy-instances-in-backendaddresspool) n’est intègre.
 * [Problèmes de connectivité ou d’expiration](#request-time-out) des requêtes d’utilisateur.
 
-## <a name="empty-backendaddresspool"></a>Pool d’adresses principal vide
+## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>Problème de groupe de sécurité réseau, de routage défini par l’utilisateur ou de DNS personnalisé
 
 ### <a name="cause"></a>Cause :
 
-Si Application Gateway ne dispose d’aucune machine virtuelle ou de jeu de mise à l’échelle de machine virtuelle configuré(e) dans le pool d’adresses principal, il ne peut pas acheminer les demandes client et renvoie alors une erreur de passerelle incorrecte.
+Si l’accès au serveur principal est bloqué en raison de la présence d’un groupe de sécurité réseau, d’un routage défini par l’utilisateur ou d’un DNS personnalisé, les instances de la passerelle Application Gateway ne pourra par atteindre le pool principal et entraînera des échecs de sonde et par conséquent des erreurs de type 502. Notez que le groupe de sécurité réseau/le routage défini par l’utilisateur peut être présent dans le sous-réseau de la passerelle Application Gateway ou le sous-réseau sur lequel les machines virtuelles d’application sont déployées. De même, la présence d’un DNS personnalisé dans le réseau virtuel peut également entraîner des problèmes si le nom de domaine complet est utilisé pour les membres du pool principal et n’est pas résolu correctement par le serveur DNS configuré par l’utilisateur pour le réseau virtuel.
 
 ### <a name="solution"></a>Solution
 
-Assurez-vous que le pool d’adresses principal n’est pas vide. Vous pouvez pour cela utiliser PowerShell, l’interface de ligne de commande ou le portail.
+Validez la configuration du groupe de sécurité réseau, du routage défini par l’utilisateur et du DNS en effectuant les étapes suivantes :
+* Vérifiez les groupes de sécurité réseau associés au sous-réseau de la passerelle Application Gateway. Assurez-vous que la communication vers le serveur principal n’est pas bloquée.
+* Vérifiez le routage défini par l’utilisateur associé au sous-réseau de la passerelle Application Gateway. Assurez-vous que le routage défini par l’utilisateur ne détourne pas le trafic du sous-réseau du serveur principal. Vérifiez par exemple le routage vers les appliances virtuelles du réseau ou les itinéraires par défaut annoncés sur le sous-réseau de la passerelle Application Gateway via ExpressRoute/VPN.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
-L’applet de commande ci-dessus doit renvoyer un pool d’adresses principal non vide. Dans l’exemple suivant, la commande retourne deux pools configurés avec un nom de domaine complet ou des adresses IP pour les machines virtuelles de serveur principal. L’approvisionnement de BackendAddressPool doit se trouver à l’état « Succeeded » (Réussi).
+* Vérifiez le groupe de sécurité réseau et le routage vers la machine virtuelle du serveur principal.
 
-BackendAddressPoolsText :
+```powershell
+Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+```
+
+* Vérifiez la présence d’un DNS personnalisé dans le réseau virtuel. Le DNS peut être vérifié en examinant les détails des propriétés du réseau virtuel dans la sortie.
 
 ```json
-[{
-    "BackendAddresses": [{
-        "ipAddress": "10.0.0.10",
-        "ipAddress": "10.0.0.11"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool01",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-}, {
-    "BackendAddresses": [{
-        "Fqdn": "xyx.cloudapp.net",
-        "Fqdn": "abc.cloudapp.net"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool02",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-}]
+Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+DhcpOptions            : {
+                           "DnsServers": [
+                             "x.x.x.x"
+                           ]
+                         }
 ```
-
-## <a name="unhealthy-instances-in-backendaddresspool"></a>Instances non intègres dans BackendAddressPool
-
-### <a name="cause"></a>Cause :
-
-Si aucune des instances de BackendAddressPool n’est intègre, Application Gateway ne disposera d’aucun serveur principal vers lequel acheminer la demande utilisateur. Cette situation peut se produire lorsque les instances de serveur principal sont intègres, mais que l’application requise n’est pas déployée.
-
-### <a name="solution"></a>Solution
-
-Assurez-vous que les instances sont intègres et que l’application est correctement configurée. Vérifiez si les instances de serveur principal sont en mesure de répondre à une commande ping générée par une autre machine virtuelle résidant dans le même réseau virtuel. Si vous utilisez un point de terminaison public, assurez-vous qu’une demande de navigateur à l’application web est accessible.
+Le cas échéant, vérifiez que le serveur DNS est en mesure de résoudre correctement le nom de domaine complet du membre du pool principal.
 
 ## <a name="problems-with-default-health-probe"></a>Problèmes avec la sonde d’intégrité par défaut
 
@@ -138,7 +121,7 @@ Vérifiez que la sonde d’intégrité personnalisée est correctement configur�
 * Si vous utilisez une sonde HTTPS, vérifiez que le serveur back-end ne nécessite pas SNI en configurant un certificat de secours sur le serveur back-end lui-même. 
 * Assurez-vous que les paramètres Interval, Time-out et UnhealtyThreshold se trouvent dans la plage acceptable.
 
-## <a name="request-time-out"></a>Délai d’expiration de la demande
+## <a name="request-time-out"></a>Délai d’attente de la demande
 
 ### <a name="cause"></a>Cause :
 
@@ -152,8 +135,59 @@ Application Gateway permet aux utilisateurs de configurer ce paramètre via Back
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
+## <a name="empty-backendaddresspool"></a>Pool d’adresses principal vide
+
+### <a name="cause"></a>Cause :
+
+Si Application Gateway ne dispose d’aucune machine virtuelle ou d’aucun groupe de machines virtuelles identiques configurés dans le pool d’adresses principal, il ne peut pas acheminer les demandes client et renvoie alors une erreur de passerelle incorrecte.
+
+### <a name="solution"></a>Solution
+
+Assurez-vous que le pool d’adresses principal n’est pas vide. Vous pouvez pour cela utiliser PowerShell, l’interface de ligne de commande ou le portail.
+
+```powershell
+Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```
+
+L’applet de commande ci-dessus doit renvoyer un pool d’adresses principal non vide. Dans l’exemple suivant, la commande retourne deux pools configurés avec un nom de domaine complet ou des adresses IP pour les machines virtuelles de serveur principal. L’approvisionnement de BackendAddressPool doit se trouver à l’état « Succeeded » (Réussi).
+
+BackendAddressPoolsText :
+
+```json
+[{
+    "BackendAddresses": [{
+        "ipAddress": "10.0.0.10",
+        "ipAddress": "10.0.0.11"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool01",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+}, {
+    "BackendAddresses": [{
+        "Fqdn": "xyx.cloudapp.net",
+        "Fqdn": "abc.cloudapp.net"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool02",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+}]
+```
+
+## <a name="unhealthy-instances-in-backendaddresspool"></a>Instances non intègres dans BackendAddressPool
+
+### <a name="cause"></a>Cause :
+
+Si aucune des instances de BackendAddressPool n’est intègre, Application Gateway ne disposera d’aucun serveur principal vers lequel acheminer la demande utilisateur. Cette situation peut se produire lorsque les instances de serveur principal sont intègres, mais que l’application requise n’est pas déployée.
+
+### <a name="solution"></a>Solution
+
+Assurez-vous que les instances sont intègres et que l’application est correctement configurée. Vérifiez si les instances de serveur principal sont en mesure de répondre à une commande ping générée par une autre machine virtuelle résidant dans le même réseau virtuel. Si vous utilisez un point de terminaison public, assurez-vous qu’une demande de navigateur à l’application web est accessible.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si les étapes précédentes ne vous permettent pas de résoudre le problème, ouvrez un [ticket d’incident](https://azure.microsoft.com/support/options/).
-
 
