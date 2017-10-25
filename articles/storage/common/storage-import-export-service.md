@@ -373,7 +373,7 @@ Pour une description étape par étape, consultez [Exemple de flux de travail po
 
 6. Sur la page Résumé, cliquez sur OK pour terminer la création du travail d’importation.
 
-7. Après l’envoi des disques, revenez sur la page **Importer/Exporter** du portail Azure : a) Accédez au travail d’importation et cliquez dessus. b) Cliquez sur **Mettez à jour l’état de la tâche et les informations de suivi une fois les lecteurs expédiés.**. 
+7. Après l’envoi des disques, revenez sur la page **Importer/Exporter** du portail Azure : a) Accédez au travail d’importation et cliquez dessus. b) Cliquez sur **Mettez à jour l’état de la tâche et les informations de suivi une fois les lecteurs expédiés**. 
      c) Cochez la case « Marquer comme expédié ». d) Indiquez le transporteur et le numéro de suivi.
     
    Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
@@ -421,7 +421,7 @@ Les vérifications préalables suivantes sont recommandées pour préparer vos d
 
 6. Sur la page Résumé, cliquez sur OK pour terminer la création du travail d’exportation.
 
-7. Après l’envoi des disques, revenez sur la page **Importer/Exporter** du portail Azure : a) Accédez au travail d’importation et cliquez dessus. b) Cliquez sur **Mettez à jour l’état de la tâche et les informations de suivi une fois les lecteurs expédiés.**. 
+7. Après l’envoi des disques, revenez sur la page **Importer/Exporter** du portail Azure : a) Accédez au travail d’importation et cliquez dessus. b) Cliquez sur **Mettez à jour l’état de la tâche et les informations de suivi une fois les lecteurs expédiés**. 
      c) Cochez la case « Marquer comme expédié ». d) Indiquez le transporteur et le numéro de suivi.
     
    Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
