@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1923a145d258e558811b610be9a6bb8ea0e4c933
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1923a145d258e558811b610be9a6bb8ea0e4c933
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
+
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Lier un certificat SSL existant à des applications web Azure
 
@@ -279,7 +280,7 @@ Vous pouvez automatiser les liaisons SSL de votre application web à l’aide de
 La commande suivante charge un fichier PFX exporté et obtient l’empreinte.
 
 ```bash
-thumbprint=$(az appservice web config ssl upload \
+thumbprint=$(az webapp config ssl upload \
     --name <app_name> \
     --resource-group <resource_group_name> \
     --certificate-file <path_to_PFX_file> \
@@ -291,7 +292,7 @@ thumbprint=$(az appservice web config ssl upload \
 La commande suivante ajoute une liaison SSL basée sur SNI à l’aide de l’empreinte de la commande précédente.
 
 ```bash
-az appservice web config ssl bind \
+az webapp config ssl bind \
     --name <app_name> \
     --resource-group <resource_group_name>
     --certificate-thumbprint $thumbprint \
@@ -326,3 +327,4 @@ Passez au didacticiel suivant pour découvrir comment utiliser un réseau de dis
 
 > [!div class="nextstepaction"]
 > [Ajouter un réseau de distribution de contenu (CDN) à un Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+
