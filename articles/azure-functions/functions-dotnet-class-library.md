@@ -14,14 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 10/10/2017
 ms.author: donnam
+ms.openlocfilehash: ad71a32d82e9b5aa4efda6d7ea67a9326ffcc4ff
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Utilisation de bibliothèques de classes .NET avec Azure Functions
 
@@ -31,8 +30,8 @@ En plus des fichiers de script, Azure Functions prend en charge la publication d
 
 Cet article nécessite les éléments suivants :
 
-- [Visual Studio 2017 15.3 (préversion)](https://www.visualstudio.com/vs/preview/) Installez les charges de travail **Développement web et ASP.NET** et **Développement Azure**.
-- [Outils d’Azure Functions pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017)
+- [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/) ou version ultérieure.
+- Installez la charge de travail de **développement Azure**.
 
 ## <a name="functions-class-library-project"></a>Projet de bibliothèque de classes Azure Functions
 
@@ -50,14 +49,15 @@ Lorsque vous générez un projet Azure Functions, un fichier *function.json* es
 
 Cette conversion est effectuée par le package NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). La source est disponible dans le référentiel GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## <a name="triggers-and-bindings"></a>Déclencheurs et liaisons
+## <a name="triggers-and-bindings"></a>Déclencheurs et liaisons 
 
 Le tableau suivant répertorie les déclencheurs et liaisons disponibles dans un projet de bibliothèque de classes Azure Functions. Tous les attributs figurent dans l’espace de noms `Microsoft.Azure.WebJobs`.
 
 | Liaison | Attribut | Package NuGet |
 |------   | ------    | ------        |
 | [Déclencheur, entrée, sortie de Stockage Blob](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Stockage d’objets blob] |
-| [Liaison d’entrée et de sortie de Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Déclencheur Cosmos DB](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Entrée et sortie Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
 | [Déclencheur et sortie d’Event Hubs](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
 | [Entrée et sortie de fichier externe](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
 | [Déclencheur HTTP et webhook](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
@@ -72,11 +72,11 @@ Le tableau suivant répertorie les déclencheurs et liaisons disponibles dans un
 
 <a name="blob-storage"></a>
 
-### <a name="blob-storage-trigger-input-and-output-bindings"></a>Liaisons de déclencheur, d’entrée, de sortie de Stockage Blob
+### <a name="blob-storage-trigger-input-bindings-and-output-bindings"></a>Liaisons de sortie, liaisons d’entrée et déclencheur de Stockage Blob
 
 Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour Stockage Blob Azure. Pour plus d’informations sur les expressions et métadonnées de liaison, voir [Liaisons de Stockage Blob Azure Functions](functions-bindings-storage-blob.md).
 
-Un déclencheur d’objet blob est défini avec l’attribut `[BlobTrigger]`. Vous pouvez utiliser l’attribut `[StorageAccount]` pour définir le compte de stockage utilisé par une fonction entière ou une classe.
+Un déclencheur d’objet blob est défini avec l’attribut `[BlobTrigger]`. Vous pouvez utiliser l’attribut `[StorageAccount]` pour définir le nom de paramètre d’application contenant la chaîne de connexion au compte de stockage utilisé par une classe ou fonction entière.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -121,17 +121,30 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 <a name="cosmos-db"></a>
 
-### <a name="cosmos-db-input-and-output-bindings"></a>Liaisons d’entrée et de sortie Cosmos DB
+### <a name="cosmos-db-trigger-input-bindings-and-output-bindings"></a>Liaisons de sortie, liaisons d’entrée et déclencheur Cosmos DB
 
-Azure Functions prend en charge des liaisons d’entrée et de sortie pour Cosmos DB. Pour en savoir plus sur les fonctionnalités de la liaison Cosmos DB, voir [Liaisons Cosmos DB Azure Functions](functions-bindings-documentdb.md).
+Azure Functions prend en charge des déclencheurs et des liaisons d’entrée et de sortie pour Cosmos DB. Pour en savoir plus sur les fonctionnalités de la liaison Cosmos DB, voir [Liaisons Cosmos DB Azure Functions](functions-bindings-documentdb.md).
 
-Pour lier à un document Cosmos DB, utilisez l’attribut `[DocumentDB]` dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. L’exemple suivant comprend un déclencheur de file d’attente et une liaison de sortie d’API DocumentDB :
+Pour effectuer le déclenchement à partir d’un document Cosmos DB, utilisez l’attribut `[CosmosDBTrigger]` dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. L’exemple suivant effectue un déclenchement à partir de paramètres `database` et `collection` spécifiques. Le paramètre `myCosmosDB` inclut la connexion à l’instance Cosmos DB. 
+
+```csharp
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents, TraceWriter log)
+{
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
+}
+```
+
+Pour lier à un document Cosmos DB, utilisez l’attribut `[DocumentDB]` dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. L’exemple suivant comprend un déclencheur de file d’attente et une liaison de sortie d’API DocumentDB.
 
 ```csharp
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "DocDBConnection")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }
@@ -232,7 +245,7 @@ Azure Functions prend en charge une liaison de sortie pour Notification Hubs. Po
 
 Azure Functions prend en charge les liaisons de déclencheur et de sortie pour les files d’attente Azure. Pour plus d’informations, voir [Liaisons de Stockage File d’attente Azure Functions](functions-bindings-storage-queue.md).
 
-L’exemple suivant montre comment utiliser le type de retour de la fonction avec une liaison de sortie de file d’attente en utilisant l’attribut `[Queue]`. Pour définir un déclencheur de file d’attente, utilisez l’attribut `[QueueTrigger]`.
+L’exemple suivant montre comment utiliser le type de retour de la fonction avec une liaison de sortie de file d’attente en utilisant l’attribut `[Queue]`. 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -246,7 +259,15 @@ public static class QueueFunctions
         log.Info($"C# function processed: {input.Text}");
         return input.Text;
     }
+}
 
+```
+
+Pour définir un déclencheur de file d’attente, utilisez l’attribut `[QueueTrigger]`.
+```csharp
+[StorageAccount("AzureWebJobsStorage")]
+public static class QueueFunctions
+{
     // Queue trigger
     [FunctionName("QueueTrigger")]
     [StorageAccount("AzureWebJobsStorage")]
@@ -258,13 +279,16 @@ public static class QueueFunctions
 
 ```
 
+
 <a name="sendgrid"></a>
 
 ### <a name="sendgrid-output"></a>Sortie de SendGrid
 
 Azure Functions prend en charge une liaison de sortie SendGrid pour l’envoi de courrier par programmation. Pour plus d’informations, voir [Liaisons SendGrid dans Azure Functions](functions-bindings-sendgrid.md).
 
-L’attribut `[SendGrid]` est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+L’attribut `[SendGrid]` est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid]. Une liaison SendGrid nécessite un paramètre d’application nommé `AzureWebJobsSendGridApiKey`, contenant la clé de votre API SendGrid. Il s’agit du nom du paramètre par défaut de la clé de votre API SendGrid. S’il vous faut plusieurs clés SendGrid, ou si vous devez choisir un nom de paramètre différent, vous pouvez définir ce nom à l’aide de la propriété `ApiKey` de l’attribut de liaison `SendGrid`, comme indiqué ci-dessous :
+
+    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
 
 Voici un exemple d’utilisation d’une liaison de déclencheur de file d’attente Service Bus et d’une liaison de sortie SendGrid à l’aide de `SendGridMessage` :
 
@@ -289,6 +313,7 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
+Remarque : cet exemple nécessite le stockage de la clé d’API SendGrid dans un paramètre d’application nommé `AzureWebJobsSendGridApiKey`.
 
 <a name="service-bus"></a>
 
@@ -365,7 +390,7 @@ Azure Functions offre une liaison de déclencheur de minuteur qui vous permet d�
 
 Sur le plan Consommation, vous pouvez définir des planifications avec une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression). Si vous utilisez un plan App Service, vous pouvez également utiliser une chaîne TimeSpan. 
 
-L’exemple suivant définit un déclencheur de minuteur qui s’exécute toutes les 5 minutes :
+L’exemple suivant définit un déclencheur de minuteur qui s’exécute toutes les cinq minutes :
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -411,7 +436,7 @@ Pour plus d’informations sur l’utilisation d’Azure Functions dans un scrip
 
 <!-- NuGet packages --> 
 [Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta1
+[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
 [Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
@@ -426,6 +451,7 @@ Pour plus d’informations sur l’utilisation d’Azure Functions dans un scrip
 
 <!-- Links to source --> 
 [DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
+[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
 [EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
 [EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
 [MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
@@ -441,4 +467,3 @@ Pour plus d’informations sur l’utilisation d’Azure Functions dans un scrip
 [HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
 [ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
 [TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
-

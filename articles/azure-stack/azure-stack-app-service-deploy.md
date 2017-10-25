@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: db1b5c00f946b5945e15303683630d95339228e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d8de03b92fd4cc41d7a2d077053da3b8769da50
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
 En tant qu’opérateur cloud Azure Stack, vous pouvez donner à vos utilisateurs la possibilité de créer des applications web et API. Pour ce faire, vous devez d’abord ajouter le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) à votre déploiement Azure Stack comme décrit dans cet article. Après avoir installé le fournisseur de ressources App Service, vous pouvez l’inclure dans vos offres et vos plans. Les utilisateurs peuvent ensuite s’abonner pour obtenir le service et commencer à créer des applications.
 
-Pour ajouter le fournisseur de ressources App Service à votre déploiement Azure Stack, vous devez effectuer trois tâches de niveau supérieur :
+> [!IMPORTANT]
+> Avant d’exécuter le programme d’installation, assurez-vous d’avoir suivi notre guide dans [Avant de commencer](azure-stack-app-service-before-you-get-started.md).
+> 
+>
 
-1.  [Télécharger et extraire les fichiers d’installation et d’assistance](azure-stack-app-service-before-you-get-started.md).
-2.  [Créer les certificats requis](azure-stack-app-service-before-you-get-started.md#certificates-required-for-the-azure-stack-development-kit).
-3.  Exécuter le programme d’installation du fournisseur de ressources App Service.
+
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Exécuter le programme d’installation du fournisseur de ressources App Service
 
@@ -98,6 +99,11 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
 11. Passez en revue de l’instance de rôle et les options de la référence SKU. Les valeurs par défaut sont renseignées avec les références d’instance minimale recommandée pour chaque rôle. Un résumé des exigences de base et de mémoire est fourni pour vous aider à planifier votre déploiement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
 
+    > [!NOTE]
+    > Pour les déploiements de production, suivez le guide dans [Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack](azure-stack-app-service-capacity-planning.md).
+    > 
+    >
+
     | Rôle | Instances minimales recommandées | Référence SKU recommandée | Remarques |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Gère et maintient l’intégrité du Cloud App Service. |
@@ -107,9 +113,6 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     | Worker partagé | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Héberge les applications web ou d’API et Azure Functions. Vous souhaiterez peut-être ajouter d’autres instances. En tant qu’opérateur, vous pouvez définir votre offre et choisir n’importe quel niveau de référence. Les niveaux doivent avoir au minimum un cœur. |
 
     ![Programme d’installation App Service](media/azure-stack-app-service-deploy/image08.png)    
-
-    > [!NOTE]
-    > Dans les préversions techniques, le programme d’installation du fournisseur de ressources App Service déploie également une instance A1 Standard pour fonctionner en tant que serveur de fichiers simple pour prendre en charge Azure Resource Manager. Cette instance est conservée pour le kit de développement à un seul nœud. Pour les charges de production, lors de la disponibilité générale, le programme d’installation App Service permet d’utiliser un serveur de fichiers à haute disponibilité.
 
 12. Dans la zone **Sélectionnez l’image de plate-forme**, choisissez votre image de machine virtuelle Windows Server 2016 de déploiement parmi celles disponibles dans le fournisseur de ressources de calcul pour le cloud App Service. Cliquez sur **Suivant**.
 
@@ -136,20 +139,11 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Valider l’installation App Service sur Azure Stack
 
-1. Dans le portail d’administration Azure Stack, accédez au groupe de ressources créé par le programme d’installation. Par défaut, ce groupe est **APPSERVICE-LOCAL**.
+1. Dans le portail administrateur d’Azure Stack, allez dans **Administration - App Service**.
 
-2. Recherchez **CN0-VM**. Pour vous connecter à la machine virtuelle, cliquez sur **Se connecter** dans le panneau **Machine virtuelle**.
+2. Dans la vue d’ensemble, sous les statuts, vérifiez que le **Statut** affiche **Tous les rôles sont prêts**.
 
-3. Sur le bureau de cette machine virtuelle, cliquez deux fois sur **Console de gestion cloud web**.
-
-4. Accédez à **Serveurs gérés**.
-
-5. Lorsque toutes les machines affichent l’état **Prêt** pour un ou plusieurs Workers, passez à l’étape 6.
-
-6. Fermez l’ordinateur Bureau à distance et revenez à l’ordinateur où vous avez exécuté le programme d’installation App Service.
-
-    ![Programme d’installation App Service](media/azure-stack-app-service-deploy/managed-servers.png)    
-
+    ![Programme d’installation App Service](media/azure-stack-app-service-deploy/image12.png)    
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Tester App Service sur Azure Stack
 
