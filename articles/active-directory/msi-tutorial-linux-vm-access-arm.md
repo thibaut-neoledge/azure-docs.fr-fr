@@ -3,7 +3,7 @@ title: "Utiliser l’identité du service administré d’une machine virtuelle 
 description: "Ce didacticiel vous guide tout au long du processus consistant à utiliser l’identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,14 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: 874dc9aab8561a3d0e5158ffd943f773e91acdfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 874dc9aab8561a3d0e5158ffd943f773e91acdfb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 09/20/2017
+
 ---
+
 # <a name="use-managed-service-identity-with-a-linux-vm-to-access-azure-resource-manager"></a>Utiliser l’identité du service administré avec une machine virtuelle Linux pour accéder à Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -125,4 +127,5 @@ Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utili
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](../active-directory/msi-overview.md).
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
+
 
