@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 2c2213f663f539e123f70028fd70bedb1cb6511d
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Utilisation de données d’emplacement géospatiales et GeoJSON dans Azure Cosmos DB
 Cet article est une introduction aux fonctionnalités géospatiales dans [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
@@ -399,5 +398,4 @@ Maintenant que vous avez appris à utiliser la prise en charge géospatiale dans
 * Découvrir l’interrogation géospatiale dans [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 * En savoir plus sur les [requêtes Azure Cosmos DB](documentdb-sql-query.md)
 * En savoir plus sur les [stratégies d’indexation Azure Cosmos DB](indexing-policies.md)
-
 

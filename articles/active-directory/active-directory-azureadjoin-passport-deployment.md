@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 58943e1e29755c983e55c675dd4fe7b75ac47b34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fd9f3a51651fc163abd79aaf21ec3dd92502bb5
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Activer Microsoft Windows Hello Entreprise dans votre organisation
 Après avoir [connecté les appareils du domaine Windows 10 à Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), procédez comme suit pour activer Microsoft Windows Hello Entreprise dans votre organisation :
@@ -108,7 +108,7 @@ Sur la page **Enregistrement SCEP** du profil de certificat, vous devez choisir 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
-* [Authentification des identités sans mot de passe avec Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [S’authentifier sans mots de passe](active-directory-azureadjoin-passport.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)

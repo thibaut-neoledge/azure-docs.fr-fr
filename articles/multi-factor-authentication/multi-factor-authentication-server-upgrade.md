@@ -15,11 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Mise à niveau du serveur Azure Multi-Factor Authentication vers la dernière version
 
@@ -29,7 +29,7 @@ Si vous passez de la v6.x ou d’une version antérieure à la version 7.x ou un
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Installer la dernière version du serveur Azure MFA
 
-1. Suivez les instructions de la page [Télécharger le serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server) pour obtenir la dernière version du serveur Azure MFA.
+1. Suivez les instructions de la page [Télécharger le serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-mfa-server) pour obtenir la dernière version du serveur Azure MFA.
 2. Effectuez une sauvegarde du fichier de données du serveur MFA situé dans C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (emplacement d’installation par défaut) sur votre serveur MFA maître.
 3. Si vous exécutez plusieurs serveurs à des fins de haute disponibilité, modifiez les systèmes clients qui s’authentifient auprès du serveur MFA afin qu’ils arrêtent d’envoyer du trafic aux serveurs en cours de mise à niveau. Si vous utilisez un équilibreur de charge, supprimez un serveur MFA de l’équilibreur de charge, effectuez la mise à niveau, puis rajoutez le serveur à la batterie de serveurs.
 4. Exécutez le nouveau programme d’installation sur chaque serveur MFA. Mettez à niveau les serveurs subordonnés en premier, car ils peuvent lire l’ancien fichier de données que le maître est en train de répliquer. 

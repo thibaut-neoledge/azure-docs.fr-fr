@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 849637fb391576954307bc84bb02e1d8579bf1cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Sécurisation de l’accès privilégié dans Azure AD
 La sécurisation de l’accès privilégié est une première étape essentielle pour protéger les ressources d’entreprise dans une organisation moderne. Les comptes privilégiés sont ceux qui administrent et gèrent des systèmes informatiques. Les pirates informatiques ciblent ces comptes pour accéder aux données et aux systèmes d’une organisation. Pour sécuriser l’accès privilégié, vous devez isoler les comptes et les systèmes contre les risques d’exposition à un utilisateur malveillant.
@@ -62,8 +62,6 @@ Pour réduire le temps d’exposition des privilèges et mieux contrôler leur u
 ## <a name="conditional-access"></a>Accès conditionnel
 Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur, avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application.
 
-![Définition des règles d’accès conditionnel avec l’authentification multifacteur][4]
-
 ## <a name="related-articles"></a>Articles connexes
 * Activation [d’Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Activation [d’Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
@@ -76,4 +74,3 @@ Pour plus d’informations sur la création d’une feuille de route de sécurit
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png
 [2]: ../media/active-directory-privileged-identity-management-configure/PIM_Dash.png
 [3]: ../media/active-directory-identityprotection/29.png
-[4]: ../media/active-directory-conditional-access/conditionalaccess-saas-apps.png

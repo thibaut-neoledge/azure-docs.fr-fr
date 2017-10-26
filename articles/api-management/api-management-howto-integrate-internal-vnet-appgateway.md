@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: df21b7213a647a66a16a84889bf7a24fde03c493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 834a81c36557feffaa01c256dad0338617486773
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway 
 
@@ -51,7 +51,7 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 
 ## <a name="before-you-begin"></a> Avant de commencer
 
-1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
+1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 2. Créez un réseau virtuel et des sous-réseaux distincts pour le service Gestion des API et Application Gateway. 
 3. Si vous envisagez de créer un serveur DNS personnalisé pour le réseau virtuel, faites-le avant de commencer le déploiement. Vérifiez qu’il fonctionne en vous assurant qu’une machine virtuelle créée dans un nouveau sous-réseau du réseau virtuel peut résoudre tous les points de terminaison de service Azure et y accéder.
 

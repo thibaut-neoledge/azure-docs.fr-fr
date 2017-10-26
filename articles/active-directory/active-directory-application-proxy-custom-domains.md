@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: kgremban
+ms.date: 10/11/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c15808a97d4efa5f9453f33d9ac70ebde5288201
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilisation des domaines personnalisés dans le proxy d'application Azure AD
 
@@ -69,8 +69,6 @@ Lorsque vous avez rempli ces trois conditions, procédez comme suit pour configu
 Il n’existe aucune restriction sur les méthodes de signature de certificat. Chiffrement à courbe elliptique (ECC), autre nom de l’objet (SAN) et d’autres types de certificat courants sont tous pris en charge. 
 
 Vous pouvez utiliser un certificat avec caractère générique tant que ce dernier correspond à l’URL externe de votre choix. 
-
-Vous pouvez également utiliser des certificats auto-signés. Si vous utilisez une autorité de certification privée, le point de distribution de la liste de révocation de certificats du certificat doit être public.
 
 ### <a name="changing-the-domain"></a>Modification de domaine
 Tous les domaines vérifiés s’affichent dans la liste déroulante de l’URL externe pour votre application. Pour modifier le domaine, mettez simplement ce champ à jour pour l’application. Si le domaine n’est pas dans la liste, [ajoutez-le en tant que domaine vérifié](active-directory-domains-add-azure-portal.md). Si vous sélectionnez un domaine dont le certificat n’est pas encore associé, suivez les étapes 5 à 7 pour ajouter le certificat. Ensuite, assurez-vous que vous mettez à jour l’enregistrement DNS pour la redirection à partir de la nouvelle URL externe. 

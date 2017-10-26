@@ -3,7 +3,7 @@ title: "Comment ajouter des opérations à une API dans Gestion des API Azure | 
 description: "Découvrez comment ajouter des opérations à une API dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 1158a023-1913-4e9c-93de-9164b672f9b3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b047c0826590d1cb6a79a2f14ca07764dc2b409
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Ajout d'opérations à une API dans Gestion des API Azure
 Pour qu'une API puisse être utilisée dans Gestion des API, vous devez ajouter des opérations. Ce guide présente comment ajouter et configurer différents types d'opérations pour une API dans Gestion des API.

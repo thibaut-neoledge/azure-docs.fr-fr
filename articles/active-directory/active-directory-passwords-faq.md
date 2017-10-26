@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fda60c9dfde64c526ad4cbf7fc4ccc5b56becafb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -56,10 +56,6 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 * **Q : Mes utilisateurs peuvent-ils inscrire des données pour que les autres utilisateurs ne puissent pas les voir ?**
 
   > **R :** Oui, lorsque les utilisateurs inscrivent des données à l’aide du portail d’inscription à la réinitialisation de mot de passe, les données sont enregistrées dans des champs d’authentification privés uniquement visibles par les administrateurs généraux et l’utilisateur.
-    >
-    > [!NOTE]
-    > Si un **compte d’administrateur Azure** enregistre son numéro de téléphone d’authentification, il est également rempli dans le champ téléphone mobile et est visible.
-    >
   >
   >
 * **Q : Mes utilisateurs doivent-ils être inscrits avant de pouvoir utiliser la réinitialisation de mot de passe ?**

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 08998340afb2f242b9a268331607b0d1ddb9b0c6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 034bfe6fbab3da083d6c63f99f960467fd0a84e9
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
 > [!div class="op_single_selector"]
@@ -67,5 +66,4 @@ Le code de traçage que vous avez ajouté à votre application ci-dessus pour le
 
 * [Collecte des journaux avec Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Agrégation et collection d’événements avec EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
-
 

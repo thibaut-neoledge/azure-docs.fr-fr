@@ -1,5 +1,5 @@
 ---
-title: "Vue d’ensemble du processus Azure TDSP (Team Data Science Process) | Microsoft Docs"
+title: "Qu’est-ce que le processus Team Data Science Process ? | Microsoft Docs"
 description: "Propose une méthodologie de science des données permettant de fournir des solutions d’analyse prédictive et des applications intelligentes."
 services: machine-learning
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2017
+ms.date: 10/20/2017
 ms.author: bradsev;
-ms.openlocfilehash: d92c8df7ad8cf522079bdea86e7b33d8441452ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75e170f29f9a6abeeb3393e43e6a4c355749044d
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
-# <a name="team-data-science-process-overview"></a>Vue d’ensemble du processus TDSP (Team Data Science Process)
+# <a name="what-is-the-team-data-science-process"></a>Qu’est-ce que le processus Team Data Science Process ?
 
 Le processus TDSP (Team Data Science Process) est une méthodologie de science des données agile et itérative permettant de fournir des solutions d’analyse prédictive et des applications intelligentes avec efficacité. Le processus TDSP permet d’améliorer la collaboration et l’apprentissage au sein des équipes. Il distille les meilleures pratiques et structures de Microsoft et d’autres acteurs du secteur qui facilitent l’implémentation d’initiatives de science des données. L’objectif est d’aider les entreprises à exploiter pleinement les avantages de leur programme d’analytique.
 

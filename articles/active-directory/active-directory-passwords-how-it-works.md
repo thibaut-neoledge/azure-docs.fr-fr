@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: cbb33988f5db47e35db406c037caa9133616d191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b363616792b35420644154cc0f8b878f2c83f1c7
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
 
@@ -77,7 +77,7 @@ Par défaut, seuls les attributs cloud Téléphone professionnel et Téléphone 
 
 Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont des données présentes dans les méthodes d’authentification que l’administrateur a activées et exige.
 
-Si les utilisateurs ne souhaitent pas que leur numéro de téléphone mobile soit visible dans le répertoire, mais veulent quand même l’utiliser pour la réinitialisation du mot de passe, les administrateurs ne doivent pas le renseigner dans le répertoire et l’utilisateur doit ensuite indiquer son attribut **Téléphone d’authentification** via le [portail d’inscription de réinitialisation du mot de passe](http://aka.ms/ssprsetup). Les administrateurs peuvent consulter ces informations dans le profil de l’utilisateur, mais elles ne sont pas publiées ailleurs. Si un compte d’administrateur Azure inscrit son numéro de téléphone d’authentification, il est également renseigné dans le champ Téléphone mobile et est visible.
+Si les utilisateurs ne souhaitent pas que leur numéro de téléphone mobile soit visible dans le répertoire, mais veulent quand même l’utiliser pour la réinitialisation du mot de passe, les administrateurs ne doivent pas le renseigner dans le répertoire et l’utilisateur doit ensuite indiquer son attribut **Téléphone d’authentification** via le [portail d’inscription de réinitialisation du mot de passe](http://aka.ms/ssprsetup). Les administrateurs peuvent consulter ces informations dans le profil de l’utilisateur, mais elles ne sont pas publiées ailleurs.
 
 ### <a name="number-of-authentication-methods-required"></a>Nombre de méthodes d’authentification requises
 

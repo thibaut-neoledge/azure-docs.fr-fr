@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: apimpm
-ms.openlocfilehash: cf5cd03bd9147ac81b07dc453a919a3c74de44fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22cc917eb6f296724bf535e48b0dd6ba8927e5d3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API et la mettre à l’échelle 
 
@@ -23,10 +23,10 @@ Les clients peuvent mettre à une instance du service Gestion des API (APIM) en 
 
 La capacité et le prix de chaque unité dépendent du **niveau** auquel se trouve l’unité. Vous pouvez choisir entre trois niveaux : **Développeur**, **Standard** et **Premium**. Si vous avez besoin d’augmenter la capacité d’un service au sein d’un niveau, vous devez ajouter une unité. Si le niveau actuellement sélectionné dans votre instance APIM n’autorise pas l’ajout d’unités supplémentaires, vous devez effectuer la mise à niveau vers une couche de niveau supérieur. 
 
-Le prix de chaque unité et la possibilité d’ajouter/de supprimer des unités ou de disposer de certaines fonctionnalités (par exemple, le déploiement de plusieurs régions) dépendent de la couche que vous avez choisie pour votre instance APIM. L’article relatif aux [informations de tarification](https://azure.microsoft.com/pricing/details/api-management/) explique le prix unitaire et les fonctionnalités que vous obtenez dans chaque couche. 
+Le prix de chaque unité et la possibilité d’ajouter/de supprimer des unités ou de disposer de certaines fonctionnalités (par exemple, le déploiement de plusieurs régions) dépendent de la couche que vous avez choisie pour votre instance APIM. L’article relatif aux [informations de tarification](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) explique le prix unitaire et les fonctionnalités que vous obtenez dans chaque couche. 
 
 >[!NOTE]
->L’article relatif aux [informations de tarification](https://azure.microsoft.com/pricing/details/api-management/) indique la valeur de capacité unitaire approximative dans chaque couche. Pour obtenir des chiffres plus précis, vous devez consulter un scénario réaliste pour vos API. Pour cela, consultez la section « Comment planifier la capacité » qui suit.
+>L’article relatif aux [informations de tarification](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) indique la valeur de capacité unitaire approximative dans chaque couche. Pour obtenir des chiffres plus précis, vous devez consulter un scénario réaliste pour vos API. Pour cela, consultez la section « Comment planifier la capacité » qui suit.
 
 ## <a name="prerequisites"></a>Composants requis
 

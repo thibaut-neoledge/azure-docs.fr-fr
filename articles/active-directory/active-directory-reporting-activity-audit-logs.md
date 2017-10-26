@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: e454c783242bd46f70f6dbe2e0768d61a9d2d504
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
@@ -185,6 +184,5 @@ Vous pouvez filtrer davantage cette vue pour afficher uniquement les **groupes**
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir une vue d’ensemble des rapports, voir [Création de rapports Azure Active Directory](active-directory-reporting-azure-portal.md).
-
+Pour obtenir une vue d’ensemble des rapports, consultez [Création de rapports Azure Active Directory](active-directory-reporting-azure-portal.md).
 

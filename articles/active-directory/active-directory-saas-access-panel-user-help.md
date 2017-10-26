@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
+ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Besoin d’aide avec le portail Mes applications ?
 
@@ -109,5 +108,4 @@ Si vous rencontrez des problèmes après l’installation, effectuez les étapes
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir des informations relatives à la résolution des problèmes, consultez [Problems using the application access panel website or mobile application](active-directory-application-access-panel-content-map.md) (Problèmes lors de l’utilisation du site web ou de l’application mobile du volet d’accès aux applications).
-
 

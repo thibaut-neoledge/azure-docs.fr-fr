@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aac9c9bcc609a91415438279419d4cc8e237fcb
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Copier des données entre un emplacement local et le cloud
-Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser. 
+Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser.
 
-Dans ce didacticiel, vous allez utiliser Azure PowerShell pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale dans un stockage Blob Azure. Vous créerez et utiliserez un runtime d’intégration (IR) auto-hébergé d’Azure Data Factory, qui permet l’intégration de magasins de données locaux et de magasins de données cloud.  Pour en savoir plus sur l’utilisation d’autres outils/SDK pour créer une fabrique de données, consultez [Guides de démarrage rapide](quickstart-create-data-factory-dot-net.md). 
+Dans ce didacticiel, vous allez utiliser Azure PowerShell pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale dans un stockage Blob Azure. Vous créerez et utiliserez un runtime d’intégration (IR) auto-hébergé d’Azure Data Factory, qui permet l’intégration de magasins de données locaux et de magasins de données cloud.  Pour en savoir plus sur l’utilisation d’autres outils/SDK pour créer une fabrique de données, consultez [Guides de démarrage rapide](quickstart-create-data-factory-dot-net.md).
 
 Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 
@@ -40,7 +40,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="prerequisites"></a>Composants requis
 
-* **SQL Server**. Dans le cadre de ce didacticiel, vous utilisez une base de données SQL Server locale comme magasin de données **source**. 
+* **SQL Server**. Dans le cadre de ce didacticiel, vous utilisez une base de données SQL Server locale comme magasin de données **source**.
 * **Compte Stockage Azure**. Dans ce didacticiel, le stockage Blob Azure est utilisé comme magasin de données de **destination/réception**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
 * **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -115,13 +115,13 @@ Dans cette section, vous pouvez créer un runtime d’intégration auto-héberg�
    ```json
    Nodes                     : {}
    CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption : 
-   Version                   : 
+   InternalChannelEncryption :
+   Version                   :
    Capabilities              : {}
-   ScheduledUpdateDate       : 
-   UpdateDelayOffset         : 
-   LocalTimeZoneOffset       : 
-   AutoUpdate                : 
+   ScheduledUpdateDate       :
+   UpdateDelayOffset         :
+   LocalTimeZoneOffset       :
+   AutoUpdate                :
    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
@@ -135,7 +135,7 @@ Dans cette section, vous pouvez créer un runtime d’intégration auto-héberg�
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   Voici l'exemple de sortie : 
+   Voici l'exemple de sortie :
 
    ```json
    {
@@ -144,19 +144,19 @@ Dans cette section, vous pouvez créer un runtime d’intégration auto-héberg�
    }
    ```
 
-4. [Téléchargez](https://www.microsoft.com/download/details.aspx?id=39717) le runtime d’intégration auto-hébergé sur un ordinateur Windows local et servez-vous de la clé d’authentification obtenue à l’étape précédente pour inscrire manuellement le runtime d’intégration auto-hébergé. 
+4. [Téléchargez](https://www.microsoft.com/download/details.aspx?id=39717) le runtime d’intégration auto-hébergé sur un ordinateur Windows local et servez-vous de la clé d’authentification obtenue à l’étape précédente pour inscrire manuellement le runtime d’intégration auto-hébergé.
 
    ![Inscrire le runtime d’intégration](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-   Le message suivant s’affiche une fois que le runtime d’intégration auto-hébergé est bien inscrit : 
+   Le message suivant s’affiche une fois que le runtime d’intégration auto-hébergé est bien inscrit :
 
    ![Inscription réussie](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-   La page suivante apparaît une fois que le nœud est connecté au service cloud : 
-    
+   La page suivante apparaît une fois que le nœud est connecté au service cloud :
+
    ![Le nœud est connecté](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-## <a name="create-linked-services"></a>Créez des services liés 
+## <a name="create-linked-services"></a>Créez des services liés
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Créer un service lié Stockage Azure (destination/réception)
 
@@ -167,7 +167,7 @@ Dans cette section, vous pouvez créer un runtime d’intégration auto-héberg�
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": { 
+                "connectionString": {
                     "type": "SecureString",
                     "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
                 }
@@ -196,7 +196,7 @@ Dans cette section, vous pouvez créer un runtime d’intégration auto-héberg�
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Créer et chiffrer un service lié SQL Server (source)
 
-1. Créez un fichier JSON sous le nom **SqlServerLinkedService.json** dans le dossier **C:\ADFv2Tutorial** avec le contenu suivant : avant d’enregistrer le fichier, remplacez **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** et **&lt;password>** par les valeurs de votre serveur SQL Server. Remplacez **&lt;integration** **runtime** **name>** par le nom de votre runtime d’intégration. 
+1. Créez un fichier JSON sous le nom **SqlServerLinkedService.json** dans le dossier **C:\ADFv2Tutorial** avec le contenu suivant : avant d’enregistrer le fichier, remplacez **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** et **&lt;password>** par les valeurs de votre serveur SQL Server. Remplacez **&lt;integration** **runtime** **name>** par le nom de votre runtime d’intégration.
 
     ```json
     {
@@ -216,7 +216,7 @@ Dans cette section, vous pouvez créer un runtime d’intégration auto-héberg�
         "name": "SqlServerLinkedService"
     }
    ```
-2. Pour chiffrer les données sensibles de la charge utile JSON sur le runtime d’intégration auto-hébergé local, nous pouvons exécuter **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** et passer la charge utile JSON ci-dessus. Les informations d’identification sont alors chiffrées à l’aide de l’API de protection des données (DPAPI) avant d’être stockées localement sur le nœud du runtime d’intégration auto-hébergé. La charge utile de sortie peut être redirigée vers un autre fichier JSON (dans ce cas, « encryptedLinkedService.json ») qui contient les informations d’identification chiffrées. 
+2. Pour chiffrer les données sensibles de la charge utile JSON sur le runtime d’intégration auto-hébergé local, nous pouvons exécuter **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** et passer la charge utile JSON ci-dessus. Les informations d’identification sont alors chiffrées à l’aide de l’API de protection des données (DPAPI) avant d’être stockées localement sur le nœud du runtime d’intégration auto-hébergé. La charge utile de sortie peut être redirigée vers un autre fichier JSON (dans ce cas, « encryptedLinkedService.json ») qui contient les informations d’identification chiffrées.
 
     Remplacez **&lt;integration runtime name&gt;** par le nom de votre runtime d’intégration avant d’exécuter la commande.
 
@@ -227,7 +227,7 @@ Dans cette section, vous pouvez créer un runtime d’intégration auto-héberg�
 3. Exécutez la commande suivante en utilisant le fichier JSON de l’étape précédente pour créer le service **SqlServerLinkedService** :
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
+   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -315,7 +315,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>Créer un jeu de données pour le stockage Blob Azure récepteur
 
-1. Créez un fichier JSON sous le nom **AzureBlobDataset.json** dans le dossier **C:\ADFv2Tutorial** avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom **AzureBlobDataset.json** dans le dossier **C:\ADFv2Tutorial** avec le contenu suivant :
 
     > [!IMPORTANT]
     > Cet exemple de code suppose que vous disposez d’un conteneur nommé **adftutorial** dans le stockage Blob Azure.
@@ -436,7 +436,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
             $result
             break
         }
-    } 
+    }
     ```
 
     Voici la sortie de l’exemple d’exécution :
@@ -449,7 +449,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
     PipelineName      : SQLServerToBlobPipeline
     Input             :  
     Output            :  
-    LinkedServiceName : 
+    LinkedServiceName :
     ActivityRunStart  : 9/13/2017 1:35:22 PM
     ActivityRunEnd    : 9/13/2017 1:35:42 PM
     DurationInMs      : 20824
@@ -479,7 +479,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 4. Connectez-vous à votre stockage Blob Azure récepteur et vérifiez que les données y ont bien été copiées à partir d’Azure SQL Database.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à effectuer les actions suivantes : 
+Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.

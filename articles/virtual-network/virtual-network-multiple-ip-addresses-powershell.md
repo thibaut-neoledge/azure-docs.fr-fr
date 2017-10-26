@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: 29f64aeefc2a7deb1f84d759c2323347536b9c27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell
 
@@ -159,7 +159,7 @@ Les étapes qui suivent expliquent comment créer un exemple de machine virtuell
     ```
 
     >[!NOTE]
-    >Bien que toutes les configurations soient attribuées à une carte réseau dans cet article, vous pouvez attribuer plusieurs configurations IP à chaque carte réseau connectée à la machine virtuelle. Pour découvrir comment créer une machine virtuelle avec plusieurs cartes réseau, voir [Créer une machine virtuelle avec plusieurs cartes d’interface réseau](virtual-network-deploy-multinic-arm-ps.md).
+    >Bien que toutes les configurations soient attribuées à une carte réseau dans cet article, vous pouvez attribuer plusieurs configurations IP à chaque carte réseau connectée à la machine virtuelle. Pour découvrir comment créer une machine virtuelle avec plusieurs cartes réseau, voir [Créer une machine virtuelle avec plusieurs cartes d’interface réseau](../virtual-machines/windows/multiple-nics.md).
 
 9. Créez la machine virtuelle en entrant les commandes suivantes :
 

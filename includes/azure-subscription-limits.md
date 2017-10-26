@@ -10,7 +10,7 @@
 | Adresses IP réservées par abonnement |20 |100 |
 | Certificats de services hébergés par abonnement |400 |400 |
 | [Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement |256 |256 |
-| Règles d’alerte par abonnement |250 |250 |
+
 
 <sup>1</sup>Les très petites instances comptent comme un cœur pour la limite de cœurs, malgré l'utilisation d'un cœur partiel.
 

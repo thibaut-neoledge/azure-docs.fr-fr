@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
+ms.openlocfilehash: d689fc0724b613abf2b319037dbd5555372622a8
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 73b4ae4b7baca434c6aed99a2e59a9102b0d96ed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/22/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-azure-key-vault"></a>Prise en main du coffre de clés Azure
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -220,9 +219,9 @@ Vous pouvez également supprimer un groupe de ressources Azure, qui inclut le co
 ## <a id="other"></a>Autres applets de commande Azure PowerShell
 Autres commandes pouvant être utiles pour la gestion du coffre de clés Azure.
 
-* `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'` : cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des clés et propriétés sélectionnées.
-* `$Keys[0]` : cette commande affiche la liste complète des propriétés pour la clé spécifiée
-* `Get-AzureKeyVaultSecret` : cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des secrets et des propriétés sélectionnés.
+* `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des clés et propriétés sélectionnées.
+* `$Keys[0]`: cette commande affiche la liste complète des propriétés pour la clé spécifiée
+* `Get-AzureKeyVaultSecret`: cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des secrets et des propriétés sélectionnés.
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'` : exemple montrant comment supprimer une clé spécifique.
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'` : exemple montrant comment supprimer un secret spécifique.
 
@@ -234,4 +233,3 @@ Pour voir comment votre coffre de clés est utilisé, consultez l’article [Jou
 Pour obtenir la liste des dernières applets de commande Azure PowerShell pour le coffre de clés Azure, consultez la page relative aux [applets de commande Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
-

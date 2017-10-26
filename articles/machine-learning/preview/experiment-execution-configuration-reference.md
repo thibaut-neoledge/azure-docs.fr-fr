@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
+ms.openlocfilehash: 379640bcec85b79b3b3d8339f76d41d54f4609db
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: e1356439385cc7fe66985bd2b84e4121386ec23d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="azure-machine-learning-workbench-execution-configuration-files"></a>Fichiers de configuration de l’exécution d’Azure Machine Learning Workbench
 
 Lorsque vous soumettez un script pour Azure Machine Learning Workbench, le comportement de l’exécution est contrôlé par les fichiers figurant dans le dossier **aml_config**. Ce dossier figure à la racine du dossier de votre projet. Il est important de comprendre le contenu de ces fichiers pour pouvoir obtenir le résultat souhaité d’une exécution optimale.
@@ -214,4 +212,3 @@ df = datasource.load_datasource('mylocal.dsource')
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [configuration de l’environnement d’exécution](experiment-execution-configuration.md)
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: c37180262981bbbcdecb0504e2717db27568586d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -94,10 +94,10 @@ Pour activer le service de gestion des réparations à l’aide du [modèle Azur
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. Après avoir mis à jour votre modèle de cluster avec ces modifications, appliquez-les et laissez la mise à niveau s’accomplir. Vous pouvez maintenant voir le service système de gestion des réparations s’exécuter dans votre cluster. Il est appelé `fabric:/System/RepairManagerService` dans la section des services système de Service Fabric Explorer. 
@@ -119,15 +119,15 @@ Pour activer le service de gestion des réparations :
     }
     ```
 
-2. À présent, activez le service de gestion des réparations en ajoutant la section `addonFeaturres` suivante après la section `fabricSettings`, comme ci-dessous :
+2. À présent, activez le service de gestion des réparations en ajoutant la section `addonFeatures` suivante après la section `fabricSettings`, comme ci-dessous :
 
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. Mettez à jour le manifeste de cluster avec ces modifications, en utilisant le manifeste de cluster mis à jour, [créez un cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [mettez à niveau la configuration du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Une fois que le cluster fonctionne avec le manifeste de cluster mis à jour, vous pouvez voir, sous la section des services système de Service Fabric Explorer, que le service système de gestion des réparations appelé `fabric:/System/RepairManagerService` s’exécute dans votre cluster.

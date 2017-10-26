@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 98e5964f4a2dffd728dae1c452facfa6ea488167
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 51180530790fc0077cea4d8aea7088f1f871681b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET 
 > [!NOTE]
@@ -29,7 +29,6 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="about-this-tutorial"></a>À propos de ce didacticiel
 Ce didacticiel décrit les principes fondamentaux de l’utilisation de .NET pour développer des applications ou services qui utilisent Azure Files pour stocker les données de fichiers. Dans ce tutoriel, vous créez une application console simple et effectuez des actions de base avec .NET et Azure Files :
 
 * Obtenir le contenu d’un fichier
@@ -87,7 +86,7 @@ Enregistrez ensuite vos informations d’identification dans le fichier app.conf
 > La dernière version de l’émulateur de stockage Azure ne prend pas en charge Azure Files. Votre chaîne de connexion doit cibler un compte de stockage Azure dans le cloud pour fonctionner avec Azure Files.
 
 ## <a name="add-using-directives"></a>Ajouter des directives d’utilisation
-Ouvrez le fichier `Program.cs` à partir de l’Explorateur de solutions. Puis ajoutez les directives d’utilisation suivantes en haut du fichier.
+Ouvrez le fichier `Program.cs` à partir de l’Explorateur de solutions. puis ajoutez les directives d’utilisation suivantes en haut du fichier.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager

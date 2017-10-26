@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a5814691da8430f986d052e9d81e480bda226a46
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: cd2b646f3715368d9caba216883afdf07b9d778e
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Création d’une application ASP.NET dans Azure avec SQL Database
 
@@ -121,8 +121,8 @@ Dans la boîte de dialogue **Configurer plan App Service** configurez le nouveau
 | Paramètre  | Valeur suggérée | Pour plus d’informations |
 | ----------------- | ------------ | ----|
 |**Plan App Service**| myAppServicePlan | [Plans App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**Emplacement**| Europe de l'Ouest | [Régions Azure](https://azure.microsoft.com/regions/) |
-|**Taille**| Gratuit | [Niveaux de tarification](https://azure.microsoft.com/pricing/details/app-service/)|
+|**Emplacement**| Europe de l'Ouest | [Régions Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Taille**| Gratuit | [Niveaux de tarification](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>Créer une instance SQL Server
 

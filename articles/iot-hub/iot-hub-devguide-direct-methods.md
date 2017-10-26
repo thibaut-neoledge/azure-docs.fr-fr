@@ -12,24 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd0353bf805340a9c4d3151a9b85c329f7d2e96
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendre et appeler des méthodes directes à partir d’IoT Hub
-## <a name="overview"></a>Vue d'ensemble
 IoT Hub vous donne la possibilité d’appeler des méthodes directes sur des appareils à partir du cloud. Les méthodes directes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur). Cette approche est utile pour les scénarios où la conduite à suivre immédiate diffère selon que l’appareil a ou non pu répondre, comme l’envoi d’un SMS d’activation à un appareil quand celui-ci est hors connexion (un SMS étant plus onéreux qu’un appel de méthode).
 
 Chaque méthode d’appareil cible à un seul appareil. Les [travaux][lnk-devguide-jobs] offrent un moyen d’appeler des méthodes directes sur plusieurs appareils, et de planifier un appel de méthode pour des appareils déconnectés.
 
 Toute personne disposant d’autorisations **Connexion de service** sur IoT Hub peut appeler une méthode sur un appareil.
 
-### <a name="when-to-use"></a>Quand utiliser
 Les méthodes directes suivent un modèle de requête-réponse et sont destinées aux communications qui nécessitent une confirmation immédiate de leur résultat, généralement le contrôle interactif de l’appareil, par exemple, pour activer un ventilateur.
 
 En cas de doute entre l’utilisation des propriétés souhaitées des méthodes directes ou des messages cloud-à-appareil, voir [Instructions pour la communication appareil-à-cloud][lnk-c2d-guidance].
@@ -48,28 +46,25 @@ Les méthodes directes sont exclusivement HTTPS côté cloud, et MQTT ou AMQP c�
 
 La charge utile pour les requêtes et les réponses de méthode correspond à un document JSON d’une taille pouvant aller jusqu’à 8 Ko.
 
-## <a name="reference-topics"></a>Rubriques de référence :
-Les rubriques de référence suivantes vous fournissent des informations supplémentaires sur l’utilisation des méthodes directes.
-
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Appeler une méthode directe à partir d’une application principale
 ### <a name="method-invocation"></a>Appel de méthode
 Les appels de méthode directe sur un appareil sont des appels HTTPS qui comprennent les éléments suivants :
 
-* *L’URI* spécifique de l’appareil (`{iot hub}/twins/{device id}/methods/`)
-* La *méthode* POST
+* l’*URI* spécifique de l’appareil (`{iot hub}/twins/{device id}/methods/`) ;
+* la *méthode* POST ;
 * Des *en-têtes* contenant l’autorisation, l’ID de demande, le type de contenu et l’encodage du contenu
 * un *corps* JSON transparent au format suivant :
 
-```
-{
-    "methodName": "reboot",
-    "responseTimeoutInSeconds": 200,
-    "payload": {
-        "input1": "someInput",
-        "input2": "anotherInput"
-    }
-}
-```
+   ```
+   {
+       "methodName": "reboot",
+       "responseTimeoutInSeconds": 200,
+       "payload": {
+           "input1": "someInput",
+           "input2": "anotherInput"
+       }
+   }
+   ```
 
 Le délai d’attente est exprimé en secondes. Si le délai d’attente n’est pas défini, sa valeur par défaut est de 30 secondes.
 
@@ -78,14 +73,14 @@ L’application principale reçoit une réponse qui comprend les éléments suiv
 
 * un *code d’état HTTP*, qui est utilisé pour des erreurs en provenance d’IoT Hub, dont l’erreur 404 pour les appareils non connectés ;
 * Des *en-têtes* contenant l’ETag, l’ID de demande, le type de contenu et l’encodage du contenu
-* Un *corps* JSON au format suivant :
+* un *corps* JSON au format suivant :
 
-```
-{
-    "status" : 201,
-    "payload" : {...}
-}
-```
+   ```
+   {
+       "status" : 201,
+       "payload" : {...}
+   }
+   ```
 
    Les propriétés `status` et `body` sont fournies par l’appareil et permettent de répondre avec le code d’état et/ou la description spécifiques de l’appareil.
 

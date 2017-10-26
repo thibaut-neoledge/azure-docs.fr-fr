@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/20/2017
 ms.author: babanisa
-ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e251cbfe7c4d8dfbd492817a8fa7af48e6b379df
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
@@ -162,10 +162,6 @@ Cet exemple d’événement montre le schéma d’un événement Event Hubs déc
 
 
 ## <a name="azure-blob-storage"></a>Stockage d'objets blob Azure
-
->[!IMPORTANT]
->Vous devez être inscrit à la préversion des événements de stockage Blob pour utiliser les événements de stockage Blob. Pour plus d’informations sur le programme en préversion, consultez [Événements de stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview).  
-
 
 ### <a name="available-event-types"></a>Types d’événement disponibles
 

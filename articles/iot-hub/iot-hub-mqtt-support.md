@@ -3,7 +3,7 @@ title: "Présentation de la prise en charge de MQTT au niveau d’Azure IoT Hub 
 description: "Guide du développeur : prise en charge des appareils se connectant à un point de terminaison IoT Hub côté appareil en utilisant le protocole MQTT. Inclut des informations sur la prise en charge intégrée de MQTT dans les Azure IoT device SDK."
 services: iot-hub
 documentationcenter: .net
-author: kdotchkoff
+author: fsautomata
 manager: timlt
 editor: 
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2017
-ms.author: kdotchko
+ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2dc0dcfd004a453df2c0ce64d0d92c6f533a54f6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 11c35e895d061e6876ac18814025c814449351af
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 

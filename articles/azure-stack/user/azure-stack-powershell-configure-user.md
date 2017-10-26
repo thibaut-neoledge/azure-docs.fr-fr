@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: sngun
+ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 74c34fccffcea6aae370d881791093f9b58a5f3d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Configurer l’environnement PowerShell de l’utilisateur Azure Stack
 
 En tant qu’utilisateur d’Azure Stack, vous pouvez configurer l’environnement PowerShell de votre Kit de développement Azure Stack. Une fois la configuration effectuée, vous pouvez utiliser PowerShell pour gérer les ressources Azure Stack, par exemple vous abonner à des offres, créer des machines virtuelles, déployer des modèles Azure Resource Manager, et ainsi de suite. Cette rubrique concerne uniquement les environnements utilisateur. Si vous souhaitez configurer PowerShell pour l’environnement d’opérateur cloud, consultez la rubrique [Configurer l’environnement PowerShell de l’opérateur Azure Stack](../azure-stack-powershell-configure-admin.md). 
@@ -129,4 +127,3 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ## <a name="next-steps"></a>Étapes suivantes
 * [Développer des modèles pour Azure Stack](azure-stack-develop-templates.md)
 * [Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)
-

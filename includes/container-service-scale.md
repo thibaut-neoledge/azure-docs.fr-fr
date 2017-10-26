@@ -1,4 +1,3 @@
-# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Mettre à l’échelle des nœuds d’agent dans un cluster Container Service
 Après le [déploiement d’un cluster Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md), vous devez peut-être modifier le nombre de nœuds de l’agent. Vous risquez par exemple d’avoir besoin de davantage d’agents afin de pouvoir exécuter davantage d’instances ou d’applications de conteneur. 
 
 Vous pouvez modifier le nombre de nœuds de l’agent dans un cluster DC/OS, Docker Swarm ou Kubernetes à l’aide du portail Azure ou d’Azure CLI 2.0. 

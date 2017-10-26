@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
-ms.openlocfilehash: 33906514955b76a3d6587b19899a0c76a09018a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
@@ -29,10 +29,10 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 ## <a name="compute-quota-types"></a>Types de quotas de capacité de traitement (compute)
 | **Type** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
-| Nombre maximal de machines virtuelles |50 | Nombre maximal de machines virtuelles qu’un abonnement peut créer à cet emplacement. |
-| Nombre maximal de cœurs de machine virtuelle |100 | Nombre maximal de cœurs qu’un abonnement peut créer à cet emplacement (par exemple, une machine virtuelle A3 a quatre cœurs). |
-| Nombre maximal de groupes à haute disponibilité |10 | Nombre maximal de groupes à haute disponibilité qui peuvent être créés à cet emplacement. |
-| Nombre maximal de groupes de machines virtuelles identiques |100 | Nombre maximal de groupes de machines virtuelles identiques qui peuvent être créés à cet emplacement. |
+| Nombre maximal de machines virtuelles | 20 | Nombre maximal de machines virtuelles qu’un abonnement peut créer à cet emplacement. |
+| Nombre maximal de cœurs de machine virtuelle | 50 | Nombre maximal de cœurs qu’un abonnement peut créer à cet emplacement (par exemple, une machine virtuelle A3 a quatre cœurs). |
+| Nombre maximal de groupes à haute disponibilité | 10 | Nombre maximal de groupes à haute disponibilité qui peuvent être créés à cet emplacement. |
+| Nombre maximal de groupes de machines virtuelles identiques | 20 | Nombre maximal de groupes de machines virtuelles identiques qui peuvent être créés à cet emplacement. |
 
 > [!NOTE]
 > Les quotas de capacité de traitement (compute) ne sont pas appliqués dans cette version Technical Preview.

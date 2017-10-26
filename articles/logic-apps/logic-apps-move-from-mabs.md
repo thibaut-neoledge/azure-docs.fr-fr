@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Déplacer depuis BizTalk Services vers Logic Apps
 
@@ -127,5 +127,5 @@ Pour obtenir une haute disponibilité dans BizTalk Services, vous utilisez plusi
 
 ## <a name="next"></a>Suivant
 * [Qu’est-ce qu’une application logique ?](logic-apps-what-are-logic-apps.md)
-* [Créez votre première application logique](logic-apps-create-a-logic-app.md), ou devenez rapidement opérationnel à l’aide d’un [modèle prédéfini](logic-apps-use-logic-app-templates.md)  
+* [Créez votre première application logique](logic-apps-create-a-logic-app.md), ou devenez rapidement opérationnel à l’aide d’un [modèle prédéfini](logic-apps-create-logic-apps-from-templates.md)  
 * [Affichez tous les connecteurs disponibles](../connectors/apis-list.md) que vous pouvez utiliser dans une application logique

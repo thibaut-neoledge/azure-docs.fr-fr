@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 97df68d446755414cbd427d59f399d6430580f42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?
 Avec l’authentification unique, vous pouvez accéder à toutes les applications et toutes les ressources dont vous avez besoin pour travailler, en vous connectant une seule fois avec un seul compte utilisateur. Une fois connecté, vous pouvez accéder à toutes les applications dont vous avez besoin sans devoir vous authentifier à nouveau (par exemple, taper un mot de passe).
@@ -75,12 +75,10 @@ Dans les deux cas, les informations d’identification sont stockées sous forme
 L’authentification unique avec mot de passe s’appuie sur une extension de navigateur pour récupérer de façon sécurisée les informations sur l’application et sur l’utilisateur à partir d’Azure AD et les appliquer au service. La plupart des applications SaaS tierces prises en charge par Azure AD prennent en charge cette fonctionnalité.
 
 Pour l’authentification unique par mot de passe, les navigateurs de l’utilisateur final peuvent être :
-
-* Internet Explorer 8, 9, 10, 11 -- sous Windows 7 ou version ultérieure (voir également [Guide de déploiement extension IE](active-directory-saas-ie-group-policy.md))
+* Internet Explorer 8, 9, 10, 11 -- sur Windows 7 ou version ultérieure
+* Edge sur Windows 10 Édition anniversaire ou version ultérieure 
 * Chrome -- sur Windows 7 ou ultérieur, et sur Mac OS X ou ultérieur
 * Firefox 26.0 ou ultérieur -- sur Windows XP SP2 ou ultérieur, et sur Mac OS X 10.6 ou ultérieur
-
-**Remarque :** l'extension de l'authentification unique par mot de passe sera disponible pour Edge dans Windows 10 quand les extensions de navigateur seront prises en charge pour Edge.
 
 ### <a name="existing-single-sign-on"></a>Authentification unique existante
 Lors de la configuration de l’authentification unique pour une application, le portail de gestion Azure propose une troisième option, l’authentification unique existante. Cette option permet simplement à l’administrateur de créer un lien vers une application et de le placer dans le panneau d’accès pour les utilisateurs sélectionnés.
@@ -112,7 +110,7 @@ Une fois que vous avez trouvé votre application, vous pouvez commencer par suiv
 ### <a name="application-not-in-the-gallery"></a>L’application ne se trouve pas dans la galerie ?
 Si l’application est introuvable dans la galerie d’applications Azure AD, vous avez plusieurs possibilités :
 
-* **Ajouter une application non répertoriée que vous utilisez** : utilisez la catégorie Personnalisée dans la galerie d'applications du portail de gestion Azure pour connecter une application non répertoriée utilisée par votre organisation. Vous pouvez ajouter n’importe quelle application qui prend en charge SAML 2.0 comme application fédérée, ou bien toute application qui possède une page de connexion HTML comme étape d’authentification unique avec mot de passe. Pour plus d’informations, consultez cet article sur l’ [ajout de votre propre application](active-directory-saas-custom-apps.md).
+* **Ajouter une application non répertoriée que vous utilisez** : utilisez la catégorie Personnalisée dans la galerie d'applications du portail de gestion Azure pour connecter une application non répertoriée utilisée par votre organisation. Vous pouvez ajouter n’importe quelle application qui prend en charge SAML 2.0 comme application fédérée, ou bien toute application qui possède une page de connexion HTML comme étape d’authentification unique avec mot de passe. Pour plus d’informations, consultez cet article sur l’ [ajout de votre propre application](application-config-sso-how-to-configure-federated-sso-non-gallery.md).
 * **Ajouter une application que vous développez** : si vous avez développé l'application vous-même, suivez les instructions de la documentation développeur d'Azure AD pour implémenter l'authentification unique fédérée ou l'approvisionnement à l'aide de l'API Graph d'Azure AD. Pour plus d’informations, consultez ces ressources :
   
   * [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md)

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: dcced32925ecd109be8dde6324cca4899923679b
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 05476e35488c104a483f52f88540d33c55e5bc3c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Déployer un cluster Kubernetes dans Azure Container Service
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
@@ -109,4 +107,3 @@ Passez au didacticiel suivant pour en savoir plus sur l’exécution de l’appl
 
 > [!div class="nextstepaction"]
 > [Déployer une application dans Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
-

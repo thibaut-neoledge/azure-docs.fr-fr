@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
+ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 93cb0baeab8f13f81257ed1bd32ed08561c54b72
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
 
@@ -91,4 +90,3 @@ Pour en savoir plus sur les rapports de sécurité dans le portail Azure, consul
 - [Rapport de connexions à risque dans le portail Azure Active Directory ](active-directory-reporting-security-risky-sign-ins.md)
 
 Pour en savoir plus sur les événements à risque, consultez [Événements à risque dans Azure Active Directory](active-directory-reporting-risk-events.md).
-

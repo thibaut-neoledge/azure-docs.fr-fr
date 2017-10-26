@@ -9,14 +9,14 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 358015d6cfd9961508b209f628b2d648a75e3c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 709d23ab590c06d5da9b03e2767bc0be5905355b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatiser le redimensionnement des images chargées à l’aide d’Event Grid
 
@@ -25,8 +25,6 @@ ms.lasthandoff: 10/11/2017
 Ce didacticiel constitue la deuxième partie d’une série de didacticiels sur le stockage. Il développe le [didacticiel précédent sur le stockage][previous-tutorial] en y ajoutant la génération automatique de miniatures sans serveur à l’aide d’Azure Event Grid et d’Azure Functions. Event Grid permet à [Azure Functions](..\azure-functions\functions-overview.md) de répondre aux événements de [Stockage Blob Azure](..\storage\blobs\storage-blobs-introduction.md) et de générer les miniatures d’images chargées. Un abonnement est créé pour l’événement de création de Stockage Blob. Lorsqu’un objet blob est ajouté à un conteneur de stockage d’objets blob, un point de terminaison de fonction est appelé. Les données passées à la liaison de fonction à partir d’Event Grid sont utilisées pour accéder à l’objet blob et pour générer l’image miniature. 
 
 Pour ajouter la fonctionnalité de redimensionnement à une application existante de chargement d’images, utilisez Azure CLI et le portail Azure.
-
-[!INCLUDE [storage-events-note.md](../../includes/storage-events-note.md)]
 
 ![Application web publiée dans le navigateur Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -42,7 +40,6 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 Pour suivre ce didacticiel :
 
 + Vous devez avoir suivi entièrement le didacticiel précédent sur Stockage Blob intitulé [Charger des données d’image dans le cloud avec Stockage Azure][previous-tutorial]. 
-+ Vous devez demander et obtenir l’accès à la fonctionnalité d’événements Stockage Blob. [Demandez l’accès aux événements Stockage Blob](#request-storage-access) avant de passer aux étapes suivantes de la rubrique.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,32 +48,6 @@ Pour suivre ce didacticiel :
 Si vous choisissez d’installer et d’utiliser localement l’interface de ligne de commande, vous devez exécuter Azure CLI version 2.0.14 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 Si vous n’utilisez pas Cloud Shell, vous devez d’abord vous connecter à l’aide de `az login`.
-
-## <a name="enable-blob-storage-events"></a>Activer les événements Stockage Blob
-
-À ce stade, vous devez demander l’accès à la fonctionnalité d’événements Stockage Blob.  
-
-### <a name="request-storage-access"></a>Demander l’accès aux événements Stockage Blob
-
-Pour demander l’accès, utilisez la commande `az feature register`.
-
-> [!IMPORTANT]  
-> Les demandes de participation à la préversion des événements Stockage Blob sont acceptées dans l’ordre de leur réception. L’obtention de l’accès à cette fonctionnalité peut prendre 1 ou 2 jours. 
-
-```azurecli-interactive
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-
-### <a name="check-access-status"></a>Vérifier le statut d’approbation
-
-Vous recevrez un e-mail de la part de Microsoft vous informant que vous êtes désormais autorisé à accéder aux événements Stockage Blob. Vous pouvez vérifier le statut de votre demande d’accès à tout moment à l’aide de la commande `az feature show`.
-
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
-```
-Une fois que vous avez obtenu l’accès à la fonctionnalité d’événements Stockage Blob, cette commande retourne la valeur `"Registered"`. 
- 
-Une fois inscrit, vous pouvez poursuivre le didacticiel.
 
 ## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 

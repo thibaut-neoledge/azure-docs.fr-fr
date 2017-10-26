@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 2297d688e07d662acba0070c423c56dcb95f42ba
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: d09f59715ac4dac1482e6ca5f79e8426f1f01ced
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="create-container-images-to-be-used-with-azure-container-service"></a>Créer des images de conteneur à utiliser avec Azure Container Service
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
@@ -144,4 +142,3 @@ Passez au didacticiel suivant pour en savoir plus sur le stockage d’images de 
 
 > [!div class="nextstepaction"]
 > [Envoyer des images à Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)
-
