@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3c472904641108b7383cd0f1416c47460f8de11a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 9b07c7cd256cea31c5654f0c3325e9fb675b39f8
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="application-and-service-level-event-and-log-generation"></a>Génération de journaux et d’événements de niveau application et service
 
 ## <a name="instrumenting-the-code-with-custom-events"></a>Instrumentation du code avec des événements personnalisés
@@ -178,4 +176,3 @@ Si votre application repose sur des performances élevées, **EventSource** cons
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois votre fournisseur de journalisation choisi pour l’instrumentation de vos applications et services, vos journaux et événements doivent être agrégés pour pouvoir être envoyés à une plateforme d’analyse. Pour mieux comprendre certaines des options recommandées, consultez les informations relatives à [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) et [WAD](service-fabric-diagnostics-event-aggregation-wad.md).
-

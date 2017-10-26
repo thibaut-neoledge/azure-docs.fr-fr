@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: a5d0ff59803212403281063f47e706433cee64b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Interroge et gère des partitions pour tout service.
@@ -118,7 +118,7 @@ Permet d’obtenir la liste des partitions d’un service Service Fabric. La r�
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 Permet d’obtenir le chargement de la partition Service Fabric spécifiée.
 
-Retourne des informations sur la partition spécifiée. La réponse inclut une liste d’informations sur le chargement. Chaque information comprend un nom de métrique du chargement, une valeur et la dernière heure de rapport (UTC). .
+Retourne des informations sur la partition spécifiée. La réponse inclut une liste d’informations sur le chargement. Chaque information comprend un nom de métrique du chargement, une valeur et la dernière heure de rapport (UTC).
 
 ### <a name="arguments"></a>Arguments
 

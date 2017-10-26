@@ -11,20 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Présentation des recherches dans les journaux dans Log Analytics
-
-> [!NOTE]
-> Cet article décrit les recherches dans les journaux dans Azure Log Analytics utilisant le nouveau langage de requête.  Pour en savoir plus sur le nouveau langage et connaître la procédure de mise à niveau de votre espace de travail, consultez [Mettre à niveau votre espace de travail Azure Log Analytics avec la nouvelle recherche dans les journaux](log-analytics-log-search-upgrade.md).  
->
-> Si votre espace de travail n’a pas été mis à niveau vers le nouveau langage de requête, consultez [Rechercher des données avec les recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md).
 
 Vous avez besoin d’effectuer une recherche dans les journaux pour récupérer des données à partir de Log Analytics.  Que vous analysiez des données dans le portail, configuriez une règle d’alerte pour être averti d’une condition particulière ou récupériez des données à l’aide de l’API Log Analytics, vous utiliserez une recherche dans les journaux pour spécifier les données souhaitées.  Cet article décrit comment sont utilisées les recherches dans les journaux dans Log Analytics, et présente les concepts que vous devez comprendre avant de créer une recherche. Pour plus d’informations sur la création et la modification des recherches dans les journaux et pour obtenir des références sur le langage de requête, consultez la section [Étapes suivantes](#next-steps).
 
