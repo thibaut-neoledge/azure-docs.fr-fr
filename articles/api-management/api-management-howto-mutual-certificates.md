@@ -3,7 +3,7 @@ title: "Sécuriser les services principaux à l’aide d’une authentification 
 description: "Découvrez comment sécuriser des services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 464e5e2b2d9678bef002497588eac60db074f9bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 196a91c21afb8c1596c9766f6a2a5d373b828f60
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
 La Gestion des API permet de sécuriser l'accès au service principal d'une API en utilisant des certificats client. Ce guide explique comment gérer les certificats dans le portail des éditeurs de l’API et comment configurer une API pour utiliser un certificat et accéder à son service principal.

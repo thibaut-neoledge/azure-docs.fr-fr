@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/19/2017
 ms.author: genli
+ms.openlocfilehash: 178d7fbc17464f7c9a4bc891453d0999e4ba62c3
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 38742fd84dafc3fb68829a55ab7be0827ad0b451
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services
 
@@ -116,4 +115,3 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure Active Directory perme
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-

@@ -3,7 +3,7 @@ title: "Ajout de la mise en cache pour améliorer les performances de Gestion de
 description: "Apprenez à améliorer la latence, la consommation de bande passante et la charge du service web pour les appels du service Gestion des API."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 59c595f0d5ce849f44c46fdb6cab0b44d35fffa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e85979859cca40b852e1f39ccaedf6e2781f84a1
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
 Les opérations dans Gestion des API Azure peuvent être configurées pour mettre en cache la réponse. La mise en cache de la réponse peut réduire de façon importante la latence de l'API, la consommation de bande passante et la charge du service web pour les données qui ne changent pas fréquemment.

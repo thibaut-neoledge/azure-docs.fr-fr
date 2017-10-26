@@ -3,7 +3,7 @@ title: "Protéger un serveur d’API Web back-end avec Azure Active Directory et
 description: "Découvrez comment protéger un serveur principal d’API web avec Azure Active Directory et Gestion des API."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 0dfb4102904c2e972e6617fd3851fb1c50147357
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dd583c47fd2d9133c8a07e7bedcd49750ffdce4
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
 La vidéo suivante montre comment générer un serveur principal d’API web et le protéger à l’aide du protocole OAuth 2.0 avec Azure Active Directory et Gestion des API.  Cet article fournit une vue d’ensemble et des informations supplémentaires pour les étapes mentionnées dans la vidéo. Cette vidéo 24 minutes vous montre comment faire pour :

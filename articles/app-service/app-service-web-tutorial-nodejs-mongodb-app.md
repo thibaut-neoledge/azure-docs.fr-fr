@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d5b41faa28d9181b957ce346e25804e16d9303d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d4ef794106b27b812bfc0c5a7975fad23da1898
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Créer une application web Node.js et MongoDB dans Azure
 
@@ -312,12 +312,12 @@ Une fois l’application web créée, Azure CLI affiche des informations simil
 
 Précédemment dans ce didacticiel, vous avez codé en dur la chaîne de connexion de la base de données dans _config/env/prodution.js_. Conformément aux meilleures pratiques de sécurité, vous allez vouloir conserver ces données sensibles en dehors de votre référentiel Git. Pour l’application en cours d’exécution dans Azure, vous utiliserez plutôt une variable d’environnement.
 
-Dans Cloud Shell, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update). 
+Dans Cloud Shell, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). 
 
 L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application web Azure. Remplacez les espaces réservés *\<app_name>*, *\<cosmosdb_name>*, et *\<primary_master_key>*.
 
 ```azurecli-interactive
-az webapp config appsettings update --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
 Dans le code Node.js, vous accédez à ce paramètre d’application avec `process.env.MONGODB_URI`, comme vous accéderiez à n’importe quelle variable d’environnement. 
@@ -346,7 +346,7 @@ Vous pouvez déployer votre application dans Azure App Service de plusieurs faç
 Dans la commande suivante, remplacez les valeurs *\<user-name>* et *\<password>* par le nom et le mot de passe du nouvel utilisateur. Le nom d’utilisateur doit être unique. Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles. Si vous obtenez une erreur ` 'Conflict'. Details: 409`, modifiez le nom d’utilisateur. Si vous obtenez une erreur ` 'Bad Request'. Details: 400`, utilisez un mot de passe plus fort.
 
 ```azurecli-interactive
-az appservice web deployment user set --user-name <username> --password <password>
+az webapp deployment user set --user-name <username> --password <password>
 ```
 
 Enregistrez le nom d’utilisateur et le mot de passe pour les utiliser dans les étapes ultérieures du déploiement de l’application.

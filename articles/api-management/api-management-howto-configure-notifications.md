@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 3d8b74e32059cfc1a4c3a8fc7d3bd04676ee80c8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/31/2017
-
+ms.openlocfilehash: 2029405e4fa05c061cdf7b38fcaa05dd38f9c804
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
 Gestion des API Azure permet de configurer les notifications pour des événements spécifiques et de configurer les modèles de courrier électronique utilisés pour communiquer avec les administrateurs et les développeurs de l’instance Gestion des API. Cette rubrique vous présente comment configurer les notifications pour les événements disponibles. Elle offre également un aperçu de la configuration des modèles de messages électroniques utilisés pour ces événements.
 
-## <a name="publisher-notifications"> </a>Configuration des notifications de l’éditeur
+## <a name="publisher-notifications"></a>Configuration des notifications de l’éditeur
 Pour configurer les notifications, cliquez sur **Portail de publication** dans le portail Azure pour accéder à votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
@@ -64,7 +63,7 @@ Une fois les destinataires de la notification configurés, cliquez sur **Enregis
 > Si vous quittez l’onglet **Notifications de l’éditeur** , le portail de publication vous avertit si des modifications n’ont pas été enregistrées.
 
 
-## <a name="email-templates"> </a>Configuration des modèles de courrier électronique
+## <a name="email-templates"></a>Configuration des modèles de courrier électronique
 L'outil Gestion des API contient des modèles de messages électroniques pour les messages envoyés dans le cadre de l'administration et de l'utilisation du service. Les modèles suivants sont fournis.
 
 * Demande d'ajout à la galerie d'applications approuvée
@@ -120,4 +119,3 @@ Pour enregistrer les modifications apportées au modèle de message, cliquez sur
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
-

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ca2fdc9c68ea0030d938eeaebd57aafa0e2790f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6921ca86efeea9d1255bb2d1773f55daa48b9b4a
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’approvisionnement d’utilisateurs pour les applications SaaS dans Azure Active Directory
 Microsoft Azure AD prend en charge l’approvisionnement d’utilisateurs pour les applications SaaS tierces telles que Salesforce, Google Apps et autres. Si vous avez activé l’approvisionnement d’utilisateurs pour une application SaaS tierce, le portail de gestion Azure contrôle ses valeurs d’attributs sous forme d’une configuration appelée « mappage d’attributs ».

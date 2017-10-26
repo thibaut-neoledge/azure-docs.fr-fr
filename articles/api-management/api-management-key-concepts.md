@@ -3,7 +3,7 @@ title: "Concepts clés et présentation de la gestion des API Azure | Microsoft
 description: Learn about APIs, products, roles, groups, and other API Management key concepts.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: e71da405-835a-48f3-956f-45c1a85698d7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: becffc6011ef1dd49e07d22880d3346036629393
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="what-is-api-management"></a>Présentation de Gestion des API
 API Management aide les organisations à publier des API pour des développeurs externes, partenaires et internes, afin de libérer le potentiel de leurs données et services. Toutes les entreprises cherchent à étendre leurs opérations en tant que plateforme numérique, en créant de nouveaux canaux, en trouvant de nouveaux clients et en suscitant un engagement supérieur auprès de ceux existants. Gestion des API offre les compétences principales pour assurer un programme d'API réussi à travers l'engagement du développeur, les perspectives commerciales, l'analyse, la sécurité et la protection.

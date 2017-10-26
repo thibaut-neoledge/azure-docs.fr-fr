@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: d86b9e99619dea408e784f32d76ba6296948bdc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f00cbfb5348919c38dc2dd905f1c141a39736f4
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 Cet article explique comment activer Azure Active Directory Domain Services (Azure AD DS) au moyen du portail Azure.
@@ -62,19 +62,13 @@ Dans la page **Fonctions de base** de l’Assistant, vous pouvez spécifier le n
 
    * Il existe un service cloud portant ce nom sur le réseau virtuel.
 
-3. Choisissez le **type de réseau virtuel**. Le type de réseau virtuel **Resource Manager** est sélectionné par défaut. Nous vous recommandons d’utiliser ce type de réseau virtuel pour tous les nouveaux domaines managés.
+3. Sélectionnez l’**Abonnement** Azure dans lequel vous souhaitez créer le domaine managé.
 
-    > [!TIP]
-    > **La dépréciation de la prise en charge des réseaux virtuels classiques est planifiée.** Sélectionnez le type de réseau virtuel Resource Manager pour tous les nouveaux déploiements. Les réseaux virtuels classiques ne seront bientôt plus pris en charge pour les nouveaux déploiements. Les domaines gérés existants déployés dans des réseaux virtuels classiques continueront à être pris en charge.
-    >
+4. Sélectionnez le **Groupe de ressources** auquel le domaine managé doit appartenir. Vous avez le choix entre les options **Créer** ou **Utiliser l’existant** pour sélectionner le groupe de ressources.
 
-4. Sélectionnez l’**Abonnement** Azure dans lequel vous souhaitez créer le domaine managé.
+5. Choisissez l’**Emplacement** Azure dans lequel créer le domaine managé. Dans la page **Réseau** de l’Assistant, vous voyez uniquement les réseaux virtuels appartenant à l’emplacement que vous avez sélectionné.
 
-5. Sélectionnez le **Groupe de ressources** auquel le domaine managé doit appartenir. Vous avez le choix entre les options **Créer** ou **Utiliser l’existant** pour sélectionner le groupe de ressources.
-
-6. Choisissez l’**Emplacement** Azure dans lequel créer le domaine managé. Dans la page **Réseau** de l’Assistant, vous voyez uniquement les réseaux virtuels appartenant à l’emplacement que vous avez sélectionné.
-
-7. Lorsque vous avez terminé, cliquez sur **OK** pour accéder à la page **Réseau** de l’Assistant.
+6. Lorsque vous avez terminé, cliquez sur **OK** pour accéder à la page **Réseau** de l’Assistant.
 
 
 ## <a name="next-step"></a>Étape suivante

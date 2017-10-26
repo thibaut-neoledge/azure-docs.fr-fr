@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
+ms.openlocfilehash: 30c3df4ebc4417993170b994fc01bc82636dec3f
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 760434983978ff2233742ee4cef2de9762717620
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Créer une API RESTful Node.js et la déployer vers une application API dans Azure
 
@@ -295,5 +294,4 @@ az group delete --name myResourceGroup
 ## <a name="next-step"></a>Étape suivante 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)
-
 
