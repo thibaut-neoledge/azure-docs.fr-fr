@@ -1,0 +1,35 @@
+- name: Vue d'ensemble
+  items:
+    - name: À propos de Terraform sur Azure
+      href: terraform-overview.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Installer et configurer Terraform
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Créer une machine virtuelle Linux
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
+- name: Didacticiels
+  items:
+    - name: Créer un cluster de machines virtuelles avec des modules Terraform
+      href: terraform-create-vm-cluster-module.md
+    - name: Créer un cluster de machines virtuelles avec Cloud Shell
+      href: terraform-create-vm-cluster-with-infrastructure.md
+    - name: Provisionner des groupes de machines virtuelles identiques avec infrastructure
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
+- name: Concepts
+  items:
+    - name: Intégration de Cloud Shell
+      href: terraform-cloud-shell.md
+- name: Exemples
+  items:
+    - name: Modèles de configuration
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+- name: Référence
+  items:
+    - name: Registre du module Azure
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Référence de Terraform
+      href: 'http://aka.ms/terraform'

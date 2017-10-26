@@ -63,6 +63,7 @@
 #### [Traitement des transactions](service-bus-transactions.md)
 #### [Implémentation de l’espace de noms associé](service-bus-paired-namespaces.md)
 ## Gérer
+### [Analyser Service Bus avec la surveillance Azure](service-bus-metrics-azure-monitor.md)
 ### [Bibliothèques de gestion de Service Bus](service-bus-management-libraries.md)
 ### [Journaux de diagnostic](service-bus-diagnostic-logs.md)
 ### [Interrompre et réactiver des entités de messagerie](entity-suspend.md)

@@ -14,7 +14,7 @@
 # Procédures
 ## Utiliser des machines virtuelles dans un laboratoire
 ### [Créer des machines virtuelles](devtest-lab-add-vm.md)
-### [Créer des machines virtuelles exigibles](devtest-lab-add-claimable-vm.md)
+### [Créer et gérer des machines virtuelles revendicables](devtest-lab-add-claimable-vm.md)
 ### [Créer et gérer des machines virtuelles avec l’interface Azure CLI](devtest-lab-vmcli.md)
 ### [Redémarrer une machine virtuelle](devtest-lab-restart-vm.md)
 

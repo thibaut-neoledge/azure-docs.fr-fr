@@ -20,6 +20,7 @@
 ### [Exemples de données d’entrée](stream-analytics-sample-data-input.md)
 ### [Modèles de requête courants](stream-analytics-stream-analytics-query-patterns.md)
 ### [Fonctions Windows](stream-analytics-window-functions.md)
+
 ### [Utiliser les données de référence](stream-analytics-use-reference-data.md)
 ### [Requêtes de test](stream-analytics-test-query.md)
 ### [Intégration d’UDF JavaScript](stream-analytics-javascript-user-defined-functions.md)
@@ -53,6 +54,7 @@
 ### [Diagramme de travail et mesures](stream-analytics-job-diagram-with-metrics.md)
 ### [Débogage de SELECT INTO](stream-analytics-select-into.md)
 ### [Gestion de commande d’événement](stream-analytics-out-of-order-and-late-events.md)
+### [Considérations relatives à l’organisation des événements](stream-analytics-out-of-order-and-late-events.md)
 ### [Limites du lecteur Event Hub](stream-analytics-event-hub-consumer-groups.md)
 ### [Journaux de diagnostics](stream-analytics-job-diagnostic-logs.md)
 

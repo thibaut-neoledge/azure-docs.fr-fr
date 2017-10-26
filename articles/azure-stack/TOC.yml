@@ -24,10 +24,16 @@
     - name: Stratégie de maintenance
       href: azure-stack-servicing-policy.md
     - name: Notes de publication
-      href: azure-stack-asdk-release-notes.md
+      items:
+        - name: Notes de publication du kit de développement
+          href: azure-stack-asdk-release-notes.md
+        - name: Notes de publication des systèmes intégrés
+          items:
+            - name: mise à jour 1710
+              href: azure-stack-update-1710.md
     - name: Principaux concepts et fonctionnalités
       href: azure-stack-key-features.md
-    - name: Architecture du Kit de développement Azure Stack
+    - name: Architecture du kit de développement
       href: azure-stack-architecture.md
     - name: Informations de base sur l’administration
       href: azure-stack-manage-basics.md
@@ -51,10 +57,14 @@
           href: azure-stack-provision-vm.md
     - name: Intégration du centre de données
       items:
-        - name: Intégrer DNS
+        - name: DNS
           href: azure-stack-integrate-dns.md
+        - name: Identité
+          href: azure-stack-integrate-identity.md
         - name: Publier des points de terminaison
           href: azure-stack-integrate-endpoints.md
+        - name: Sécurité
+          href: azure-stack-integrate-security.md
     - name: Gérer
       items:
         - name: Gestion des régions
@@ -83,6 +93,8 @@
               href: azure-stack-updates.md
             - name: Appliquer des mises à jour
               href: azure-stack-apply-updates.md
+            - name: Surveiller le statut de mise à jour
+              href: azure-stack-monitor-update.md
         - name: Surveiller l’intégrité et les alertes
           href: azure-stack-monitor-health.md
         - name: Gérer des ressources réseau
@@ -95,8 +107,12 @@
           items:
             - name: Actions de nœud
               href: azure-stack-node-actions.md
+            - name: Remplacer le nœud
+              href: azure-stack-replace-node.md
             - name: Remplacer le disque
               href: azure-stack-replace-disk.md
+            - name: Remplacer le composant
+              href: azure-stack-replace-component.md
     - name: 'Sécurité, conformité et identité'
       items:
         - name: Présentation de la sécurité

@@ -1,10 +1,10 @@
-- name: Web App for Containers
+- name: App Service sur Linux
   href: index.yml
 - name: Vue d'ensemble
   items:
     - name: À propos de Web Apps
       href: ../app-service-web-overview.md
-    - name: À propos de Web App for Containers
+    - name: Découvrez App Service sur Linux
       href: app-service-linux-intro.md
     - name: Comparer les options d’hébergement
       href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json

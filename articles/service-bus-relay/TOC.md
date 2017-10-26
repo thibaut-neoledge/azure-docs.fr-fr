@@ -20,7 +20,9 @@
 ## Développement
 ### [API disponibles](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
-#### [Nœud](relay-hybrid-connections-node-ws-api-overview.md)
+#### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Gérer
+### [Analyser Azure Relay avec la surveillance Azure](relay-metrics-azure-monitor.md)
 
 # Référence
 ## .NET
