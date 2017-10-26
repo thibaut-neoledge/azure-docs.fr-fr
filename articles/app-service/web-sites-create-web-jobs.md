@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga
-ms.openlocfilehash: 5517581f929ffce9e9184848049ce9832013277e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1594a27d50df9abdac27b342ad18363b974c8972
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 
@@ -43,7 +43,7 @@ Le tableau suivant décrit les différences entre une tâche Web *continue* et u
 | Prend en charge le débogage à distance. | Ne prend pas en charge le débogage à distance.|
 
 > [!NOTE]
-> Une application web peut expirer après 20 minutes d’inactivité. Seules les demandes vers le site scm (déploiement) ou des pages de l’application web dans le portail permettent de réinitialiser le minuteur. Les requêtes à destination du site actif ne réinitialisent pas le minuteur. Si votre application exécute des tâches Web continues ou planifiées, activez l’option **Toujours actif** pour vous assurer que les tâches web s’exécutent de manière fiable. Cette fonctionnalité est disponible uniquement dans les [niveaux tarifaires](https://azure.microsoft.com/pricing/details/app-service/) De base, Standard et Premium.
+> Une application web peut expirer après 20 minutes d’inactivité. Seules les demandes vers le site scm (déploiement) ou des pages de l’application web dans le portail permettent de réinitialiser le minuteur. Les requêtes à destination du site actif ne réinitialisent pas le minuteur. Si votre application exécute des tâches Web continues ou planifiées, activez l’option **Toujours actif** pour vous assurer que les tâches web s’exécutent de manière fiable. Cette fonctionnalité est disponible uniquement dans les [niveaux tarifaires](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) De base, Standard et Premium.
 
 ## <a name="acceptablefiles"></a>Types de fichier pris en charge pour les scripts ou les programmes
 
@@ -83,7 +83,7 @@ when making changes in one don't forget the other two.
    | **Name** | myContinuousWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »). |
    | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
    | **Type** | Continue | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
-   | **Mettre à l'échelle** | Multi-instances | Disponible uniquement pour les tâches web continues. Détermine si le programme ou le script s’exécute sur toutes les instances ou une seule instance. L’option permettant une exécution sur plusieurs instances ne s’applique pas aux [niveaux tarifaires](https://azure.microsoft.com/pricing/details/app-service/) Gratuit ou Partagé. |
+   | **Mettre à l'échelle** | Multi-instances | Disponible uniquement pour les tâches web continues. Détermine si le programme ou le script s’exécute sur toutes les instances ou une seule instance. L’option permettant une exécution sur plusieurs instances ne s’applique pas aux [niveaux tarifaires](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuit ou Partagé. | 
 
 4. Cliquez sur **OK**.
 

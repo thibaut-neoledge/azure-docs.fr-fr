@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 0c3bda65bd40a5d24e4c4ab3dcbbbf27fbbb87c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3540e58a58f20842979212ba41f11ce2908941f5
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Opérations de gestion du système de fichiers sur Data Lake Store à l’aide de l’API REST
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Dans cet article, vous apprenez à utiliser le kit de développement logiciel (S
 
 ## <a name="prerequisites"></a>Composants requis
 
-* **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article s’appuie sur Python version 3.6.2.
+* **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article utilise Python 3.6.2.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -42,9 +42,9 @@ Dans cet article, vous apprenez à utiliser le kit de développement logiciel (S
 
 Pour utiliser Data Lake Store avec Python, vous devez installer trois modules.
 
-* Le module `azure-mgmt-resource`, qui inclut des modules Azure pour Active Directory, etc.
-* Le module `azure-mgmt-datalake-store`, qui inclut les opérations de gestion des comptes Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules de gestion Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
-* Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules du système de fichiers Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Le module `azure-mgmt-resource`, qui inclut des modules Azure pour Active Directory, etc.
+* Le module `azure-mgmt-datalake-store`, qui inclut les opérations de gestion des comptes Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules de gestion Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules du système de fichiers Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilisez les commandes suivantes pour installer les modules.
 
@@ -103,7 +103,7 @@ L’extrait de code suivant crée dans un premier temps le client du compte Data
     adlsAccountName = 'FILL-IN-HERE'
 
     ## Create a filesystem client object
-    adlsFileSystemClient = core.AzureDLFileSystem(token, store_name=adlsAccountName)
+    adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountName)
 
 ## <a name="create-a-directory"></a>Créer un répertoire
 

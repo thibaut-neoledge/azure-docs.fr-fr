@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 27fe69753acc6fa047b5791a583d70e80318288a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48990c57fb10127733623000a105507b5a48d900
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-python"></a>Authentification des utilisateurs finals auprès de Data Lake Store avec Python
 > [!div class="op_single_selector"]
@@ -41,15 +41,15 @@ Les deux options sont décrites dans cet article. Pour en savoir plus sur l’au
 
 * **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Créez une application « native » Azure Active Directory**. Vous devez avoir suivi la procédure [Authentification des utilisateurs finals auprès de Data Lake Store à l’aide d’Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Créez une application « native » Azure Active Directory**. Vous devez avoir suivi la procédure [Authentification d’utilisateur final auprès de Data Lake Store à l’aide d’Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="install-the-modules"></a>Installer les modules
 
 Pour utiliser Data Lake Store avec Python, vous devez installer trois modules.
 
-* Le module `azure-mgmt-resource`, qui comprend des modules Azure pour Active Directory, etc.
-* Le module `azure-mgmt-datalake-store`, qui comprend les opérations de gestion du compte Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules de gestion Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
-* Le module `azure-datalake-store`, qui comprend les opérations de gestion du système de fichiers Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules du système de fichiers Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Le module `azure-mgmt-resource`, qui inclut des modules Azure pour Active Directory, etc.
+* Le module `azure-mgmt-datalake-store`, qui inclut les opérations de gestion des comptes Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules de gestion Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Azure Data Lake Store. Pour plus d’informations sur ce module, consultez les [informations de référence sur les modules du système de fichiers Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilisez les commandes suivantes pour installer les modules.
 
@@ -63,7 +63,7 @@ pip install azure-datalake-store
 
 1. Utilisez l’IDE de votre choix et créez une application Python, par exemple, **mysample.py**.
 
-2. Ajoutez l’extrait de code suivant pour importer les modules requis :
+2. Ajoutez l’extrait de code suivant pour importer les modules requis
 
     ```
     ## Use this for Azure AD authentication
@@ -104,13 +104,13 @@ Utilisez l’extrait de code suivant pour l’authentification auprès d’Azure
     code = context.acquire_user_code(RESOURCE, client_id)
     print(code['message'])
     mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
 
 ### <a name="for-filesystem-operations"></a>Pour les opérations du système de fichiers
 
 Utilisez cet extrait de code pour l’authentification auprès d’Azure AD dans le cas d’opérations du système de fichiers sur un compte Data Lake Store. L’extrait de code suivant peut être utilisé pour authentifier votre application à l’aide de l’authentification multifacteur. Indiquez les valeurs ci-dessous pour une application **native** Azure AD déjà présente.
 
-    token = lib.auth(tenant_id='FILL-IN-HERE')
+    adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
 ## <a name="end-user-authentication-without-multi-factor-authentication"></a>Authentification des utilisateurs finals sans authentification multifacteur
 
@@ -119,6 +119,6 @@ Cette option est déconseillée. Pour plus d’informations, consultez la page [
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification des utilisateurs finals auprès d’Azure Data Lake Store avec Python. Vous pouvez maintenant consulter les articles suivants, qui expliquent comment utiliser Python pour travailler avec Azure Data Lake Store.
 
-* [Opérations de gestion du compte sur Data Lake Store avec Python](data-lake-store-get-started-python.md)
-* [Opérations du système de fichiers sur Data Lake Store avec Python](data-lake-store-data-operations-python.md)
+* [Opérations de gestion des comptes sur Data Lake Store à l’aide de Python](data-lake-store-get-started-python.md)
+* [Opérations de données sur Data Lake Store à l’aide de Python](data-lake-store-data-operations-python.md)
 

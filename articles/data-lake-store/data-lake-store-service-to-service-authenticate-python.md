@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: d884e3ab71ae1967d1676bc0591ef86f64da6c5b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f23a5e24067dab29a21a44404a912588b46d3b0
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Authentification de service à service auprès de Data Lake Store à l’aide de Python
 > [!div class="op_single_selector"]
@@ -90,23 +90,23 @@ Utilisez cet extrait de code pour l’authentification auprès d’Azure AD pour
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
     authority_uri = authority_host_uri + '/' + tenant
-    resource_uri = 'https://management.core.windows.net/'
+    RESOURCE = 'https://management.core.windows.net/'
     client_id = '<CLIENT_ID>'
     client_secret = '<CLIENT_SECRET>'
-
+    
     context = adal.AuthenticationContext(authority_uri, api_version=None)
-    mgmt_token = context.acquire_token_with_client_credentials(resource_uri, client_id, client_secret)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>Authentification de service à service avec clé secrète client pour les opérations du système de fichiers
 
 Utilisez l’extrait de code suivant pour procéder à une authentification auprès d’Azure AD pour les opérations du système de fichiers sur Data Lake Store, telles que la création d’un dossier, le chargement d’un fichier, etc. Vous pouvez faire appel à l’extrait de code suivant pour authentifier votre application en mode non interactif, en utilisant la clé secrète client pour une application/un principal du service. Utilisez-le avec une « application web » Azure AD existante.
 
-    token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
+    adlCreds = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
-## <a name="service-to-service-authentication-with-certificate-for-account-management"></a>Authentification de service à service avec certificat pour la gestion de compte
+<!-- ## Service-to-service authentication with certificate for account management
 
-Utilisez cet extrait de code pour l’authentification auprès d’Azure AD pour les opérations de gestion de compte sur Data Lake Store, telles que la création ou la suppression d’un compte Data Lake Store, etc. Vous pouvez utiliser l’extrait de code suivant pour authentifier votre application en mode non interactif, en utilisant le certificat pour une application « Web App » Azure AD existante. Pour plus d’informations sur la création d’une application Azure AD, consultez [Créer un principal du service avec un certificat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Use this snippet to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. The following snippet can be used to authenticate your application non-interactively, using the certificate of an existing Azure AD "Web App" application. For instructions on how to create an Azure AD application, see [Create service principal with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
@@ -118,7 +118,7 @@ Utilisez cet extrait de code pour l’authentification auprès d’Azure AD pour
 
     context = adal.AuthenticationContext(authority_uri, api_version=None)
     mgmt_token = context.acquire_token_with_client_certificate(resource_uri, client_id, client_cert, client_cert_thumbprint)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification de service à service auprès d’Azure Data Lake Store avec Python. Vous pouvez maintenant consulter les articles suivants, qui expliquent comment utiliser Python pour travailler avec Azure Data Lake Store.

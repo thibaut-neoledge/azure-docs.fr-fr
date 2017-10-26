@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 73f63300e65e1f6bc25edf7f28ec2769acbb7c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1a33705648a982631315439f99425bab59ad1d1
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory
 Actuellement, Azure Active Directory prend en charge l’authentification unique avec la plupart des applications d’entreprise, y compris les deux applications pré-intégrées dans la galerie d’applications Azure AD, ainsi que les applications personnalisées. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire d’Azure AD en utilisant le protocole SAML 2.0, Azure AD envoie un jeton à l’application (via HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées « revendications ».
@@ -127,7 +127,7 @@ Il existe certaines revendications restreintes dans SAML. Si vous ajoutez ces re
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](../active-directory-apps-index.md)
-* [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](../active-directory-saas-custom-apps.md)
+* [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md)
 
 <!--Image references-->
