@@ -44,7 +44,7 @@
     - name: Configurer un environnement de calcul
       items:
         - name: Configurer l’expérimentation
-          href: experiment-execution-configuration.md
+          href: experimentation-service-configuration.md
         - name: Créer un cluster Spark DSVM et HDI
           href: how-to-create-dsvm-hdi.md
         - name: Effectuer l'apprentissage avec des GPU
@@ -147,7 +147,7 @@
     - name: Expérimentation
       items:
         - name: Configuration du service d’expérimentation
-          href: experiment-execution-configuration-reference.md
+          href: experimentation-service-configuration-reference.md
         - name: API de jouurnalisation
           href: reference-logging-api.md
     - name: Gestion des modèles
@@ -175,7 +175,7 @@
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Tarification
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Dépassement de capacité de la pile

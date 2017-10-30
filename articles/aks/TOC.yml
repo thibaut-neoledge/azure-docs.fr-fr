@@ -46,7 +46,7 @@
     - name: Interface de ligne de commande Azure
       href: /cli/azure/aks
     - name: REST
-      href: /rest/api/container-service
+      href: /rest/api/aks
 - name: Ressources
   items:
     - name: Feuille de route Azure

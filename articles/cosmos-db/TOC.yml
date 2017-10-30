@@ -139,6 +139,7 @@
     - name: Développement
       items:
         - name: API DocumentDB
+          href: documentdb-index.md
           items:
             - name: Ressources
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 'Mettre hors service S1, S2, S3'
                   href: performance-levels.md
         - name: API MongoDB
+          href: mongodb-index.md
           items:
             - name: Se connecter à votre compte MongoDB
               href: connect-mongodb-account.md
