@@ -1,6 +1,6 @@
 ---
-title: "Utiliser une image Docker personnalisée pour Azure Web App for Containers | Microsoft Docs"
-description: "Comment utiliser une image Docker personnalisée pour Azure Web App for Containers."
+title: "Utiliser une image Docker personnalisée pour Web App for Containers - Azure | Microsoft Docs"
+description: "Comment utiliser une image Docker personnalisée pour Web App for Containers."
 keywords: azure app service, application web, linux, docker, conteneur
 services: app-service
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc268bce48a42607d4404758e744a006dfbd6c19
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Utiliser une image Docker personnalisée pour Azure Web App for Containers
+# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utiliser une image Docker personnalisée pour Web App for Containers
 
 [Web App for Containers](app-service-linux-intro.md) fournit des images Docker intégrées sur Linux avec prise en charge de versions spécifiques, comme PHP 7.0 et Node.js 4.5. Web App for Containers tire parti de la technologie de conteneur Docker pour héberger à la fois des images intégrées et des images personnalisées en tant que système PaaS (Platform as a Service). Dans ce didacticiel, vous apprendrez à créer une image Docker personnalisée afin de l’utiliser dans Web App for Containers, qui constitue un modèle commun s’il n’existe aucune image intégrée pour votre langue, ou si votre application nécessite une configuration spécifique qui n’est pas fournie dans les images intégrées.
 
@@ -176,7 +176,7 @@ Si vous ne vous êtes pas encore connecté au registre Docket Hub, faites-le en 
 docker login --username <docker-id> --password <docker-hub-password>
 ```
 
-Un message « login succeeded » (connexion réussie) confirme que vous êtes connecté. Une fois connecté, vous pouvez transférer l’image vers le registre Docker Hub à l’aide de la commande [docker push](https://docs.docker.com/engine/reference/commandline/push/).
+Un message indiquant que votre connexion a réussi confirme que vous êtes connecté. Une fois connecté, vous pouvez transférer l’image vers le registre Docker Hub à l’aide de la commande [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0 .
@@ -210,7 +210,7 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 
 ## <a name="create-web-app-for-containers"></a>Créer une application Web App for Containers
 
-Vous pouvez héberger des applications Linux natives dans le cloud en utilisant Azure Web Apps. Pour créer une application Web App for Containers, vous devez exécuter les commandes CLI d’Azure qui créent un groupe, un plan de service puis l’application web elle-même. Tout d’abord, exécutez la commande [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create), puis transmettez un emplacement et un nom unique.
+Vous pouvez héberger des applications Linux natives dans le cloud en utilisant Azure App Service sur Linux. Pour créer une application Web App for Containers, vous devez exécuter les commandes CLI d’Azure qui créent un groupe, un plan de service puis l’application web elle-même. Tout d’abord, exécutez la commande [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create), puis transmettez un emplacement et un nom unique.
 
 ```azurecli-interactive
 az group create --location "West Europe" --name myResourceGroup
@@ -220,7 +220,7 @@ Le résultat est similaire à l’exemple suivant :
 
 ```json
 {
-  "id": "/subscriptions/432849d3e4-4f90-a782-87c11e-5e59d6dd/resourceGroups/myResourceGroup",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup",
   "location": "westeurope",
   "managedBy": null,
   "name": "myResourceGroup",
@@ -245,8 +245,7 @@ La création d’un plan de service génère des résultats semblables à l’ex
   "appServicePlanName": "myServicePlan",
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/resourceGroups/myResourceGroup/provide
-rs/Microsoft.Web/serverfarms/myServicePlan",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myServicePlan",
   "kind": "linux",
   "location": "West Europe", 
   "resourceGroup": "myResourceGroup",
@@ -292,7 +291,7 @@ La commande pour créer une application web génère les résultats suivants :
   ],
   "hostNamesDisabled": false,
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/5e59d6dd-d3e4-4f90-a782-43284987c11e/resourceGroups/myResourceGroup/providers/Microsoft.
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.
 Web/sites/<web-app-name>",
   "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
   "location": "West Europe",
@@ -401,7 +400,7 @@ SSH permet d’établir une communication sécurisée entre un conteneur et un c
     > [!NOTE]
     > Cette configuration n’autorise pas les connexions externes avec le conteneur. SSH est disponible uniquement via le site Kudu/SCM. Le site Kudu/SCM est authentifié avec des informations d’identification de publication.
 
-* Une instruction [COPY](https://docs.docker.com/engine/reference/builder/#copy) qui indique au moteur Docker de copier le fichier [sshd_config](http://man.openbsd.org/sshd_config) dans le répertoire */etc/ssh/*. Votre fichier de configuration doit être basé sur notre fichier [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config) dans le référentiel GitHub Azure-App-Service.
+* Une instruction [COPY](https://docs.docker.com/engine/reference/builder/#copy) qui indique au moteur Docker de copier le fichier [sshd_config](http://man.openbsd.org/sshd_config) dans le répertoire */etc/ssh/*. Votre fichier de configuration doit être basé sur notre fichier [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config) dans le dépôt GitHub Azure-App-Service.
 
     > [!NOTE]
     > Le fichier *sshd_config* doit inclure les éléments suivants : 
@@ -462,7 +461,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Félicitations ! Vous avez configuré une image Docker personnalisée destinée à Azure Web App for Containers.
+Félicitations ! Vous avez configuré une image Docker personnalisée destinée à Web App for Containers.
 
 ## <a name="push-a-docker-image-to-private-registry-optional"></a>Transmettre une image Docker au registre privé (facultatif)
 
@@ -486,7 +485,7 @@ Use an existing service principal and assign access:
 {
   "adminUserEnabled": false,
   "creationDate": "2017-08-09T04:21:09.654153+00:00",
-  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/{azure-container-registry-name>",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name>",
   "location": "westeurope",
   "loginServer": "<azure-container-registry-name>.azurecr.io",
   "name": "<azure-container-registry-name>",
@@ -621,4 +620,4 @@ La commande fournit un résultat similaire à la chaîne JSON suivante, indiquan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Forum aux questions sur Azure App Service Web App for Containers](app-service-linux-faq.md)
+[Questions fréquentes (FAQ) sur Azure App Service sur Linux](app-service-linux-faq.md)

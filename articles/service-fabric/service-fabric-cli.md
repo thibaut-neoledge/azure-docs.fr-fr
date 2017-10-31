@@ -6,13 +6,13 @@ author: samedder
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 10/20/2017
 ms.author: edwardsa
-ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Interface de ligne de commande Azure Service Fabric
 
@@ -32,7 +32,7 @@ L’interface CLI Service Fabric a pour objectif de prendre en charge la derni
 
 | Version de la CLI   | Version du runtime prise en charge |
 |---------------|---------------------------|
-| La plus récente (~2)  | La plus récente (~6.0)            |
+| La plus récente (~=3)  | La plus récente (~6.0)            |
 | 1.1.0         | 5.6, 5.7                  |
 
 Vous pouvez éventuellement spécifier une version cible de l’interface CLI à installer ajoutant à la commande `pip install` le suffixe `==<version>`. Par exemple, pour la version 1.1.0, la syntaxe serait la suivante :
@@ -42,6 +42,8 @@ pip install -I sfctl==1.1.0
 ```
 
 Remplacez la commande `pip install` par la commande mentionnée précédemment, si nécessaire.
+
+Pour plus d’informations sur les versions de l’interface de ligne de commande de Service Fabric, consultez la [documentation GitHub](https://github.com/Azure/service-fabric-cli/releases).
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Installer pip, Python et l’interface de ligne de commande Service Fabric
 

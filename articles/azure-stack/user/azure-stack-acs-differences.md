@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.openlocfilehash: 381950321ac3a5ea8a43b76f3fba868da4be4682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : différences et points à prendre en compte
 
@@ -40,6 +40,7 @@ Cet article récapitule les différences connues entre le stockage Azure Stack e
 |Disques gérés|Premium et standard pris en charge|Pas encore pris en charge
 |Nom de l’objet blob|1 024 caractères (2 048 octets)|880 caractères (1 760 octets)
 |Taille maximale d’un objet blob de blocs|4,75 To (100 Mo X 50 000 blocs)|50 000 X 4 Mo (195 Go environ)
+|Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement|Pas encore pris en charge
 |Copie d’instantané incrémentiel d’objet blob de pages|Objets blob de pages Azure Premium et standard pris en charge|Pas encore pris en charge
 |Taille maximale d’un objet blob de pages|8 To|1 To
 |Taille de page d’un objet blob de pages|512 octets|4 Ko

@@ -1,12 +1,12 @@
 ---
-title: "Définir des stratégies de sécurité dans Azure Security Center | Microsoft Docs"
-description: "Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité Azure."
+title: "Intégration des stratégies de sécurité Azure Security Center avec Azure Policy | Microsoft Docs"
+description: "Ce document est conçu pour vous aider à configurer l’intégration de stratégies de sécurité Azure Security Center avec Azure Policy."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
 editor: 
-ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
+ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,36 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.openlocfilehash: 5e07cd6891a5ab04012f819b5f6b9379312e530d
 ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-security-center"></a>Définir des stratégies de sécurité dans Security Center
-Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité en vous guidant tout au long des étapes nécessaires à l’exécution de cette tâche. 
+# <a name="set-security-policies-in-security-center-powered-by-azure-policy"></a>Définir des stratégies de sécurité dans Security Center, fournies par Azure Policy
+Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans Security Center, fournies par Azure Policy, en vous guidant tout au long des étapes nécessaires à l’exécution de cette tâche. 
 
 
-## <a name="how-security-policies-work"></a>Fonctionnement des stratégies de sécurité
-Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Vous pouvez modifier la stratégie dans Security Center et en surveiller la conformité. 
+## <a name="how-security-policies-work"></a>Comment fonctionnent les stratégies de sécurité ?
+Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Vous pouvez modifier la stratégie dans Security Center ou utiliser [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) pour créer des définitions de stratégie, affecter des stratégies à des groupes d’administrations (qui peuvent représenter toute l’organisation, une branche commerciale de cette dernière, etc), et surveiller la conformité des stratégies.
 
 > [!NOTE]
-> Vous pouvez maintenant étendre des stratégies Security Center à l’aide de la stratégie Azure, disponible en préversion limitée. Cliquez sur [ici](http://aka.ms/getpolicy) pour rejoindre la préversion ou consultez la documentation [ici](security-center-azure-policy.md).
-
-Par exemple, les ressources utilisées pour le développement ou le test peuvent avoir des exigences de sécurité différentes de celles utilisées pour les applications de production. De même, les applications qui utilisent des données réglementées, telles que des informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé. Les stratégies de sécurité activées dans Azure Security Center déterminent les recommandations de sécurité et la surveillance qui vous aident à identifier les vulnérabilités potentielles et à éliminer les menaces. Pour plus d’informations sur le choix de l’option adaptée à votre situation, consultez le [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) .
+> La stratégie Azure est disponible en préversion limitée. Cliquez [ici](https://aka.ms/getpolicy) pour la rejoindre. Pour plus d’informations sur les stratégies Azure, consultez [Create and manage policies to enforce compliance](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy) (Créer et gérer des stratégies pour mettre en vigueur la conformité).
 
 ## <a name="edit-security-policies"></a>Modifier des stratégies de sécurité
-Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos abonnements Azure dans Security Center. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire, de collaborateur ou d’administrateur de la sécurité pour l’abonnement concerné. Connectez-vous au portail Azure et suivez les étapes ci-dessous pour configurer des stratégies de sécurité dans Security Center : 
+Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos abonnements Azure dans Security Center. Pour modifier une stratégie de sécurité, vous devez avoir le rôle d’administrateur de la sécurité, de propriétaire ou de collaborateur pour l’abonnement concerné ou le groupe de gestion dans laquelle elle se trouve. Connectez-vous au portail Azure et suivez les étapes ci-dessous pour afficher les stratégies de sécurité dans Security Center :
 
-1.  Dans le tableau de bord **Security Center**,sous **Général**, cliquez sur **Stratégie de sécurité**.
-2.  Sélectionnez l’abonnement sur lequel activer la stratégie de sécurité.
-3.  Dans la section **COMPOSANTS DE LA STRATÉGIE** , cliquez sur **stratégie de sécurité**.
-4.  Il s’agit de la stratégie par défaut affectée par Security Center. Vous pouvez activer ou désactiver les recommandations de sécurité disponibles.
-5.  Lorsque vous avez terminé, cliquez sur **Enregistrer**.
+1. Dans le tableau de bord **Security Center**,sous **Général**, cliquez sur **Stratégie de sécurité**.
+2. Sélectionnez l’abonnement sur lequel activer la stratégie de sécurité.
 
-## <a name="available-security-policy-options"></a>Options de stratégie de sécurité disponibles
+    ![Gestion des stratégies](./media/security-center-policies/security-center-policies-fig10.png)
 
-Le tableau ci-dessous explique à quoi sert chaque option :
+3. Dans la section **COMPOSANTS DE LA STRATÉGIE** , cliquez sur **stratégie de sécurité**.
+
+    ![Composants de la stratégie](./media/security-center-policies/security-center-policies-fig12.png)
+
+4. Il s’agit de la stratégie par défaut affectée à Security Center via la stratégie Azure. Vous pouvez supprimer les éléments qui se trouvent sous **PARAMÈTRES ET STRATÉGIES**, ou ajouter d’autres définitions de stratégies se trouvant sous **OPTIONS DISPONIBLES**. Pour ce faire, il suffit de cliquer sur le signe plus à côté du nom de la définition.
+
+    ![Définitions de stratégies](./media/security-center-policies/security-center-policies-fig11.png)
+
+5. Si vous souhaitez plus d’explications sur la stratégie, cliquez dessus pour afficher autre page comportant les détails et le code JSON ayant la structure [définition de stratégie](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure) :
+
+    ![Json](./media/security-center-policies/security-center-policies-fig14.png)
+
+6. Lorsque vous avez terminé, cliquez sur **Enregistrer**.
+
+
+## <a name="available-security-policy-definitions"></a>Définitions de stratégie de sécurité disponibles
+
+Prenez le tableau suivant pour référence afin de comprendre les définitions de stratégies qui sont disponibles dans la stratégie de sécurité par défaut : 
 
 | Stratégie | Lorsque l’option est activée |
 | --- | --- |

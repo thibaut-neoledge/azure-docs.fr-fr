@@ -12,20 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2017
+ms.date: 10/24/2017
 ms.author: juanpere
-ms.openlocfilehash: ed93463153e3fba154aae733da27dea3e8d47689
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f90ecb70ad12ed05d5d40f8b26a0a4e461c9f835
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Planifier des travaux sur plusieurs appareils
-## <a name="overview"></a>Vue d'ensemble
-Comme décrit dans les articles précédents, Azure IoT Hub utilise un certain nombre de composantes ([balises et propriétés de jumeau d’appareil][lnk-twin-devguide], et [méthodes directes][lnk-dev-methods]).  Généralement, les applications principales permettent aux administrateurs et opérateurs d’appareil de mettre à jour et d’interagir avec les appareils IoT par lots et à une heure planifiée.  Les travaux englobent l’exécution des mises à jour des jumeaux d’appareil et des méthodes directes sur un ensemble d’appareils à une heure planifiée.  Par exemple, un opérateur peut utiliser une application principale qui lance et suit un travail pour le redémarrage d’un ensemble d’appareils dans le bâtiment 43 à l’étage 3 à une heure qui ne perturbera pas les opérations du bâtiment.
 
-### <a name="when-to-use"></a>Quand utiliser
-Envisagez d’utiliser les travaux quand le backend d’une solution doit planifier et suivre la progression des activités suivantes sur un ensemble d’appareils :
+Azure IoT Hub utilise un certain nombre de composantes, telles que les [balises et propriétés de jumeau d’appareil][lnk-twin-devguide] ou les [méthodes directes][lnk-dev-methods].  Généralement, les applications principales permettent aux administrateurs et opérateurs d’appareil de mettre à jour et d’interagir avec les appareils IoT par lots et à une heure planifiée.  Les travaux assurent l’exécution des mises à jour des jumeaux d’appareil et des méthodes directes sur un ensemble d’appareils à une heure planifiée.  Par exemple, un opérateur peut utiliser une application principale qui lance et suit un travail pour le redémarrage d’un ensemble d’appareils dans le bâtiment 43 à l’étage 3 à une heure qui ne perturbera pas les opérations du bâtiment.
+
+Envisagez d’utiliser les travaux quand vous devez planifier et suivre la progression des activités suivantes sur un ensemble d’appareils :
 
 * Mettre à jour les propriétés souhaitées
 * Mettre à jour les balises
@@ -35,17 +34,11 @@ Envisagez d’utiliser les travaux quand le backend d’une solution doit planif
 Les travaux sont lancés par l’application principale de la solution et maintenus par IoT Hub.  Vous pouvez lancer un travail via une URI de service (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) et vérifier la progression d’un travail en cours via une URI de service (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Pour actualiser l’état des travaux en cours d’exécution une fois qu’un travail a démarré, exécutez une requête de travail.
 
 > [!NOTE]
-> Lorsque vous lancez une tâche, les noms et valeurs de propriété peuvent contenir uniquement des caractères alphanumériques US-ASCII imprimables, à l’exception des caractères suivants : ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
-> 
-> 
-
-## <a name="reference-topics"></a>Rubriques de référence :
-Les rubriques de référence suivantes vous fournissent des informations supplémentaires sur l’utilisation des travaux.
+> Lorsque vous lancez une tâche, les noms et valeurs de propriété peuvent contenir uniquement des caractères alphanumériques US-ASCII imprimables, à l’exception des caractères suivants : `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`.
 
 ## <a name="jobs-to-execute-direct-methods"></a>Tâches pour exécuter des méthodes directes
 L’extrait suivant montre les détails de la requête HTTPS 1.1 pour exécuter une [méthode directe][lnk-dev-methods] sur un ensemble d’appareils en utilisant un travail :
 
-    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
     Authorization: <config.sharedAccessSignature>
@@ -65,10 +58,9 @@ L’extrait suivant montre les détails de la requête HTTPS 1.1 pour exécuter 
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
-    ```
+
 La condition de requête peut également être un ID d’appareil unique ou figurer sur une liste d’ID comme illustré dans les exemples suivants :
 
-**Exemples**
 ```
 queryCondition = "deviceId = 'MyDevice1'"
 queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
@@ -79,7 +71,6 @@ Le [langage de requête IoT Hub][lnk-query] couvre le langage de requête IoT Hu
 ## <a name="jobs-to-update-device-twin-properties"></a>Travaux pour mettre à jour les propriétés d’un jumeau d’appareil
 L’extrait suivant montre les détails de la requête HTTPS 1.1 pour mettre à jour les propriétés d’un jumeau d’appareil à l’aide d’un travail :
 
-    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -94,19 +85,16 @@ L’extrait suivant montre les détails de la requête HTTPS 1.1 pour mettre à 
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
-    ```
 
 ## <a name="querying-for-progress-on-jobs"></a>Vérification de la progression des travaux
 L’extrait suivant montre les détails de la requête HTTPS 1.1 pour [interroger des travaux][lnk-query] :
 
-    ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
     User-Agent: <sdk-name>/<sdk-version>
-    ```
 
 Le paramètre continuationToken est fourni dans la réponse.  
 
@@ -129,16 +117,12 @@ La liste suivante montre les propriétés et les descriptions correspondantes qu
 | | **failed** : le travail a échoué. |
 | | **completed** : le travail est terminé. |
 | **deviceJobStatistics** |Statistiques relatives à l’exécution du travail. |
-
-Propriétés **deviceJobStatistics**.
-
-| Propriété | Description |
-| --- | --- |
-| **deviceJobStatistics.deviceCount** |Nombre d’appareils du travail. |
-| **deviceJobStatistics.failedCount** |Nombre d’appareils sur lesquels le travail a échoué. |
-| **deviceJobStatistics.succeededCount** |Nombre d’appareils sur lesquels le travail a réussi. |
-| **deviceJobStatistics.runningCount** |Nombre d’appareils qui exécutent actuellement le travail. |
-| **deviceJobStatistics.pendingCount** |Nombre d’appareils en attente d’exécution du travail. |
+| | Propriétés **deviceJobStatistics** : |
+| | **deviceJobStatistics.deviceCount** : nombre d’appareils du travail. |
+| | **deviceJobStatistics.failedCount** : nombre d’appareils sur lesquels le travail a échoué. |
+| | **deviceJobStatistics.succeededCount** : nombre d’appareils sur lesquels le travail a réussi. |
+| | **deviceJobStatistics.runningCount** : nombre d’appareils qui exécutent actuellement le travail. |
+| | **deviceJobStatistics.pendingCount** : nombre d’appareils en attente d’exécution du travail. |
 
 ### <a name="additional-reference-material"></a>Matériel de référence supplémentaire
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :

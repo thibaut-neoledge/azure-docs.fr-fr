@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
-ms.openlocfilehash: b8497f0331e9b7d19eed2e1c254849a1619f496a
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: b67cabf0ecdb48f137bfcfbce95eee568a1c298d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Déployer le Kit de développement Azure Stack
 
@@ -31,7 +31,7 @@ Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous 
 3. [Déployez le Kit de développement](#deploy-the-development-kit) sur l’hôte du Kit de développement.
 
 > [!NOTE]
-> Pour un résultat optimal, même si vous voulez utiliser un environnement Azure Stack déconnecté, il est préférable de déployer en étant connecté à Internet. De cette façon, la version d’évaluation de Windows Server 2016 peut être activée au moment du déploiement. Si la version d’évaluation de Windows Server 2016 n’est pas activée dans les 10 jours, elle s’arrête.
+> Pour un résultat optimal, même si vous voulez utiliser un environnement Azure Stack déconnecté, il est préférable de déployer en étant connecté à Internet. De cette façon, la version d’évaluation de Windows Server 2016 peut être activée au moment du déploiement.
 > 
 > 
 
@@ -98,7 +98,7 @@ Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous 
     
 2. Ouvrez une console PowerShell avec élévation de privilèges > Exécutez le script \AzureStack_Installer\asdk-installer.ps1 (qui peut être sur un lecteur différent dans Cloudbuilder.vhdx) > Cliquez sur **Installer**.
 3. Dans la zone **Type**, sélectionnez **Cloud Azure** ou **ADFS**.
-    - **Cloud Azure** : Azure Active Directory est le fournisseur d’identité. Utilisez ce paramètre pour spécifier un annuaire spécifique où le compte AAD a des autorisations d’administrateur général. Nom complet d’un locataire d’annuaire AAD au format .onmicrosoft.com. 
+    - **Cloud Azure** : Azure Active Directory est le fournisseur d’identité. Utilisez ce paramètre pour spécifier un annuaire spécifique où le compte AAD a des autorisations d’administrateur général. Nom complet d’un locataire de répertoire AAD. Par exemple,. onmicrosoft.com. 
     - **ADFS**: le service d’annuaire de marquage par défaut est le fournisseur d’identité, le compte par défaut avec lequel se connecter est azurestackadmin@azurestack.local et le mot de passe à utiliser est celui que vous avez fourni dans le cadre de l’installation.
 4. Sous **Mot de passe de l’administrateur local**, dans la zone **Mot de passe**, tapez le mot de passe de l’administrateur local (qui doit correspondre au mot de passe de l’administrateur local actuellement configuré), puis cliquez sur **Suivant**.
 5. Sélectionnez une carte réseau à utiliser pour le Kit de développement, puis cliquez sur **Suivant**.
@@ -140,6 +140,10 @@ Vous pouvez aussi [redéployer](azure-stack-redeploy.md) à partir de zéro.
 
 Pour faire en sorte que le mot de passe de l’hôte du Kit de développement n’expire pas trop tôt, suivez ces étapes après avoir déployé :
 
+Pour modifier la stratégie d’expiration de mot de passe à partir de Powershell :
+1. Dans la fenêtre Powershell, exécutez la commande ; Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
+
+Pour modifier la stratégie d’expiration de mot de passe manuellement :
 1. Sur l’hôte du Kit de développement, ouvrez **Gestion des stratégies de groupe** et accédez à **Gestion des stratégies de groupe** – **Forêt : azurestack.local** – **Domaines** – **azurestack.local**.
 2. Cliquez avec le bouton droit sur **Stratégie de domaine par défaut**, puis cliquez sur **Modifier**.
 3. Dans l’Éditeur de gestion de stratégie de groupe, accédez à **Configuration de l’ordinateur** – **Stratégies** – **Paramètres Windows** – **Paramètres de sécurité**– **Stratégies de comptes** – **Stratégie de mot de passe**.

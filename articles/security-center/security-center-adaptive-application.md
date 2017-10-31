@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Contrôles d’application adaptative dans Azure Security Center (version préliminaire)
 Découvrez comment configurer le contrôle d’application dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -37,7 +37,7 @@ Les contrôles d’application adaptative vous aident à contrôler les applicat
 > Les contrôles d’application adaptative sont disponibles pour les clients Azure Security Center Standard en tant que version préliminaire publique limitée. [Envoyez-nous](mailto:ASC_appcontrol@microsoft.com) un e-mail avec vos ID d’abonnement pour joindre la version préliminaire.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Comment activer les contrôles d’application adaptative ?
-Les contrôles d’application adaptative vous aident à définir un ensemble d’applications autorisées à s’exécuter sur des groupes de ressources configurés. Cette fonctionnalité est disponible uniquement pour les machines Windows (toutes les versions, Classic ou Azure Resource Manager). Suivez les étapes ci-dessous pour configurer la mise en liste verte des applications dans Security Center :
+Les contrôles d’application adaptative vous aident à définir un ensemble d’applications autorisées à s’exécuter sur des groupes de ressources configurés. Cette fonctionnalité est disponible uniquement pour les machines Windows (toutes les versions, Classic ou Azure Resource Manager). Vous pouvez suivre les étapes ci-dessous pour configurer la mise en liste verte des applications dans Security Center :
 
 1.  Ouvrez le tableau de bord **Security Center**, puis cliquez sur **Vue d’ensemble**.
 2.  Dans **Défense de cloud avancée**, la vignette **Contrôles d’application adaptative** affiche le comparatif entre le nombre de machines virtuelles disposant du contrôle et le nombre de machines virtuelles. Il montre également le nombre de problèmes détectés cette semaine : 
@@ -52,8 +52,6 @@ Les contrôles d’application adaptative vous aident à définir un ensemble d�
     * **Recommandé** : liste des groupes de ressources pour lesquels le contrôle d’application adaptative est recommandé. Security Center utilise le machine learning pour identifier les machines virtuelles potentiellement concernées par le contrôle d’application en fonction de leur capacité à exécuter les mêmes applications en continu.
     * **Configuré** : liste des groupes de ressources contenant les machines virtuelles qui ont été configurées avec le contrôle d’application. 
     * **Aucune recommandation** : liste des groupes de ressources contenant des machines virtuelles sans recommandations de contrôle d’application. Par exemple, les machines virtuelles dont les applications sont toujours en cours de modification et qui n’ont pas atteint un état stable.
-
-Les sections suivantes expliquent en détail comment fonctionnent les options et comment les utiliser.
 
 ### <a name="configure-a-new-application-control-policy"></a>Configurer une nouvelle stratégie de contrôle des applications
 Cliquez sur l’onglet **Recommandé** pour obtenir une liste des groupes de ressources disposant de recommandations de contrôle d’application :
@@ -75,9 +73,11 @@ Dans **Sélectionner les machines virtuelles**, examinez la liste des machines v
 - **NOM** : le chemin d’accès complet de l’application
 - **PROCESSUS** : le nombre d’applications se trouvant dans chaque chemin d’accès
 - **COMMUN** : la valeur « true » indique que ces processus ont été exécutés sur la plupart des machines virtuelles de ce groupe de ressources.
-- **EXPLOITABLE** : une icône d’avertissement indique si les applications peuvent être utilisées par une personne malveillante pour ignorer la liste verte d’application. Il est fortement recommandé d’examiner ces applications avant leur approbation. 
+- **EXPLOITABLE** : une icône d’avertissement indique si les applications peuvent être utilisées par une personne malveillante pour ignorer la liste verte d’application. Nous vous recommandons de vérifier ces applications avant de les valider. 
 
 Une fois que vous avez terminé vos sélections, cliquez sur le bouton **Créer**. Par défaut, Security Center autorise toujours le contrôle d’application dans le mode *Audit*. Après avoir confirmé que la liste verte n’a aucun effet négatif sur votre charge de travail, vous pouvez passer en mode *Appliquer*.
+
+Security Center se base sur l’équivalent de deux semaines de données au minimum pour établir une ligne de base et remplir les recommandations uniques par groupe de machines virtuelles. Les nouveaux clients du niveau Standard de Security Center peuvent s’attendre à un comportement dans lequel leurs groupes de machines virtuelles apparaîtront d’abord sous l’onglet *Aucune recommandation*.
 
 > [!NOTE]
 > Afin d’assurer les meilleures pratiques de sécurité, Security Center essaie toujours de créer une règle d’éditeur pour les applications à mettre en liste verte. Si une application ne possède pas d’informations d’éditeur (l’application n’est pas signée), une règle de chemin d’accès est créée pour le chemin d’accès complet d’un fichier EXE spécifique.
@@ -147,7 +147,7 @@ La liste contient :
 - **NOM** : le nom de l’abonnement et des groupes de ressources.
 - **MACHINES VIRTUELLES** : le nombre de machines virtuelles dans le groupe de ressources.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez découvert comment utiliser les contrôles d’application adaptative dans Azure Security Center afin d’inclure dans une liste verte des applications s’exécutant sur les machines virtuelles Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.

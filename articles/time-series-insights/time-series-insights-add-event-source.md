@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 123ecca28f0d970851487827d0d18e244ce6d98e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Créer une source d’événement pour votre environnement Time Series Insights à l’aide du portail Ibiza
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer une source d’événement pour votre environnement Time Series Insights à l’aide du portail Azure
 
 La source d’événement Time Series Insights est dérivée d’un service Broker pour les événements tel que les concentrateurs d’événements Azure. Time Series Insights se connecte directement aux sources d’événement, en recevant le flux de données sans demander aux utilisateurs d’écrire une seule ligne de code. Actuellement, Time Series Insights prend en charge les concentrateurs d’événements Azure et les IoT Hubs. À l’avenir, plusieurs sources d’événements seront ajoutées.
 
 ## <a name="steps-to-add-an-event-source-to-your-environment"></a>Étapes pour ajouter une source d’événement à votre environnement
 
-1.  Connectez-vous au [portail Ibiza](https://portal.azure.com).
-2.  Cliquez sur « Toutes les ressources » dans le menu de gauche du portail Ibiza.
+1.  Connectez-vous au [portail Azure](https://portal.azure.com).
+2.  Cliquez sur « Toutes les ressources » dans le menu de gauche du portail Azure.
 3.  Sélectionnez votre environnement Time Series Insights.
 
   ![Créer la source d’événement Time Series Insights](media/add-event-source/getstarted-create-event-source-1.png)
@@ -43,7 +43,7 @@ La source d’événement Time Series Insights est dérivée d’un service Brok
 8.  Spécifiez un groupe de consommateurs du concentrateur d’événements.
 
   > [!IMPORTANT]
-  > Assurez-vous que ce groupe de consommateurs n’est pas utilisé par un autre service (par exemple, la tâche Stream Analytics ou un autre environnement Time Series Insights). Si le groupe de consommateurs est utilisé par d’autres services, l’opération de lecture est affectée pour cet environnement et les autres services. Si vous utilisez le groupe de consommateurs « $Default », ceci peut entraîner une réutilisation potentielle par d’autres lecteurs.
+  > Assurez-vous que ce groupe de consommateurs n’est pas utilisé par un autre service (par exemple, une tâche Stream Analytics ou un autre environnement Time Series Insights). Si le groupe de consommateurs est utilisé par d’autres services, l’opération de lecture est affectée pour cet environnement et les autres services. Si vous utilisez le groupe de consommateurs « $Default », ceci peut entraîner une réutilisation potentielle par d’autres lecteurs.
 
 9.  Cliquez sur « Créer ».
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: renash
-ms.openlocfilehash: 6643dad5ea3ba703e26f5708cdd2e925f702847f
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 33b64e1ad3fd5a2a6954a02da0fb303acca54c40
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="work-with-azure-file-share-snapshots-preview"></a>Utiliser des instantanés de partage de fichiers Azure (préversion)
 Les instantanés de partage de fichiers Azure (préversion) sont une version en lecture seule d’un partage de fichiers Azure pris à un point dans le temps. Un instantané de partage peut être lu, copié ou supprimé, mais pas modifié. Les instantanés de partage sont une façon de sauvegarder le partage à un instant T. Dans cet article, vous allez découvrir comment créer, gérer et supprimer des instantanés de partage de fichiers Azure. Pour en savoir plus sur les instantanés de partage, consultez [Vue d’ensemble des instantanés de partage](storage-snapshots-files.md) ou [Forum aux questions sur les instantanés](storage-files-faq.md).
@@ -57,7 +57,7 @@ Exemple de sortie
 ```
 
 ### <a name="create-share-snapshot-using-powershell"></a>Créer un instantané de partage à l’aide de PowerShell
-Vous pouvez créer un instantané de partage à l’aide de la commande `$share.Snapshot()` :
+Vous pouvez supprimer un instantané de partage à l’aide de la commande `$share.Snapshot()` :
 
 ```powershell
 $connectionstring="DefaultEndpointsProtocol=http;FileEndpoint=http:<Storage Account Name>.file.core.windows.net /;AccountName=:<Storage Account Name>;AccountKey=:<Storage Account Key>"
@@ -72,9 +72,10 @@ $share.IsSnapshot
 $snapshot=$share.Snapshot()
 
 ```
-## <a name="list-share-snapshots-browse-share-snapshot-contents-and-restore-from-snapshots"></a>Répertorier les instantanés de partage, parcourir leur contenu et effectuer une restauration à partir des instantanés
 
-Vous pouvez énumérer les instantanés de partage associés à votre partage de fichiers à l’aide de l’intégration « Versions précédentes » dans Windows, via l’API REST, la bibliothèque cliente, PowerShell et le portail. Une fois le partage de fichiers Azure monté, vous pouvez afficher toutes les versions antérieures du fichier à l’aide de l’intégration SMB « Versions précédentes ». Une fois le partage de fichiers Azure monté, vous pouvez afficher toutes les versions antérieures du répertoire à l’aide de l’intégration SMB « Versions précédentes ». Dans les sections suivantes, vous allez apprendre à utiliser le portail Azure, Windows et Azure CLI 2.0 pour répertorier, parcourir et restaurer des instantanés de partage.
+## <a name="common-share-snapshot-operations"></a>Opérations courantes sur les instantanés de partage
+
+Vous pouvez énumérer les instantanés de partage associés à votre partage de fichiers à l’aide de l’onglet « Versions précédentes » sous Windows, via l’API REST, la bibliothèque cliente, PowerShell et le portail. Une fois le partage de fichiers Azure monté, vous pouvez afficher toutes les versions antérieures du fichier à l’aide de l’onglet « Versions précédentes » sous Windows. Dans les sections suivantes, vous allez apprendre à utiliser le portail Azure, Windows et Azure CLI 2.0 pour répertorier, parcourir et restaurer des instantanés de partage.
 
 ### <a name="share-snapshot-operations-in-portal"></a>Opérations sur les instantanés de partage dans le portail
 

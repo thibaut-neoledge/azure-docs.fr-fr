@@ -1,11 +1,11 @@
-## <a name="scenario"></a>Scénario
+## <a name="configuration-scenario"></a>Scénario de configuration
 
-Vous créez un équilibreur de charge interne selon le scénario suivant
+Dans ce scénario, nous créons un équilibreur de charge interne dans un réseau virtuel comme indiqué dans l’illustration suivante :
 
-![DESCRIPTION DE L'IMAGE](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![Scénario de l’équilibrage de charge interne](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-Un équilibrage de charge interne est configuré dans un réseau virtuel
+La configuration pour notre scénario est la suivante :
 
-* 2 machines virtuelles appelées DB1 et DB2
-* Points de terminaison
-* Équilibreur de charge interne
+* Deux machines virtuelles nommées **DB1** et **DB2**
+* Points de terminaison pour l’équilibreur de charge interne
+* Un équilibreur de charge interne

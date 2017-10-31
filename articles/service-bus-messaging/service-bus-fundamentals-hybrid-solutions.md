@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -58,15 +58,15 @@ La procédure est simple : l’expéditeur envoie un message à une file d’at
 
 Chaque message se compose de deux parties : un jeu de propriétés (chacun de type paire clé/valeur) et une charge utile de message. La charge utile peut être de type binaire, texte, voire XML. La façon dont les messages sont utilisés dépend de ce que tente de faire l’application. Par exemple, une application qui envoie un message à propos d’une vente récente peut mentionner les propriétés **Seller="Ava"** et **Amount=10000**. Le corps du message peut contenir une image numérisée du contrat signé ou rester vide s’il n’y en a pas.
 
-Le destinataire peut lire le message de file d’attente Service Bus de deux façons. La première option, appelée *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, retire un message de la file d’attente et le supprime immédiatement. C’est simple, mais si le destinataire rencontre un problème avant d’avoir fini de traiter le message, ce dernier est perdu. Comme il est retiré de la file d’attente, aucun autre destinataire ne peut y accéder. 
+Le destinataire peut lire le message de file d’attente Service Bus de deux façons. La première option, appelée *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, reçoit un message de la file d’attente et le supprime immédiatement. C’est simple, mais si le destinataire rencontre un problème avant d’avoir fini de traiter le message, ce dernier est perdu. Comme il est retiré de la file d’attente, aucun autre destinataire ne peut y accéder. 
 
-La deuxième option, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, a pour but de résoudre ce problème. Comme dans le cas de **ReceiveAndDelete**, la lecture **PeekLock** retire le message de la file d’attente. Par contre, le message n’est pas supprimé. Il est verrouillé, et donc désormais invisible par les autres destinataires. Il attend ensuite un des trois événements suivants :
+La deuxième option, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)*, a pour but de résoudre ce problème. Comme dans le cas de **ReceiveAndDelete**, la lecture **PeekLock** retire le message de la file d’attente. Par contre, le message n’est pas supprimé. Il est verrouillé, et donc désormais invisible par les autres destinataires. Il attend ensuite un des trois événements suivants :
 
-* Si le destinataire traite correctement le message, il appelle la méthode [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), et la file d’attente supprime le message. 
-* Si le destinataire décide qu’il ne peut pas traiter correctement le message, il appelle la méthode [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). La file d’attente déverrouille le message et le remet à disposition des autres destinataires.
+* Si le destinataire traite correctement le message, il appelle la méthode [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync), et la file d’attente supprime le message. 
+* Si le destinataire décide qu’il ne peut pas traiter correctement le message, il appelle la méthode [Abandon()](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync). La file d’attente déverrouille le message et le remet à disposition des autres destinataires.
 * Si le destinataire n’appelle aucune de ces méthodes pendant une période réglable (60 secondes par défaut), la file d’attente part du principe que le destinataire a échoué. Dans ce cas, elle se comporte comme si le destinataire avait passé l’appel **Abandon**, rendant le message accessible aux autres destinataires.
 
-Notez ce qui peut se produire ici : le même message risque d’être remis deux fois, peut-être à deux destinataires différents. Les applications qui utilisent des files d’attente Service Bus doivent pouvoir faire face à cet événement. Afin de faciliter la détection des doublons, chaque message comporte une propriété [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) unique, qui reste la même par défaut quel que soit le nombre de lectures du message dans la file d’attente. 
+Notez ce qui peut se produire ici : le même message risque d’être remis deux fois, peut-être à deux destinataires différents. Les applications qui utilisent des files d’attente Service Bus doivent pouvoir faire face à cet événement. Afin de faciliter la détection des doublons, chaque message comporte une propriété [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) unique, qui reste la même par défaut quel que soit le nombre de lectures du message dans la file d’attente. 
 
 Les files d’attente sont utiles dans de nombreuses situations. Elles permettent aux applications de communiquer, même si elles ne s’exécutent pas toutes les deux en même temps, ce qui peut s’avérer utile avec les applications mobiles et les applications de traitement par lots. Une file d'attente avec plusieurs destinataires assure aussi un équilibrage automatique de la charge, car les messages sont répartis vers ces différents destinataires.
 
@@ -84,7 +84,7 @@ Les *rubriques* sont assez similaires aux files d’attente. Les expéditeurs en
 * L’abonné 2 reçoit les messages qui contiennent la propriété *Seller="Ruby"* et/ou la propriété *Amount* avec une valeur de 100 000 ou plus. Si Ruby est la directrice des ventes, elle souhaite peut-être pouvoir afficher ses propres ventes, ainsi que toutes les ventes importantes, quel que soit le vendeur.
 * L’abonné 3 a défini son filtre sur *True*, ce qui veut dire qu’il reçoit tous les messages. Par exemple, cette application peut être chargée de maintenir une piste d’audit et doit donc voir tous les messages.
 
-Comme pour les files d’attente, les abonnés d’une rubrique peuvent lire les messages à l’aide de l’option [ReceiveAndDelete ou PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnements. Cette approche, communément appelée *publication et abonnement* (ou *pub/sub*), est utile quand plusieurs applications sont intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
+Comme pour les files d’attente, les abonnés d’une rubrique peuvent lire les messages à l’aide de l’option [ReceiveAndDelete ou PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnements. Cette approche, communément appelée *publication et abonnement* (ou *pub/sub*), est utile quand plusieurs applications sont intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
 
 ## <a name="relays"></a>relais
 

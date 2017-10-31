@@ -1,3 +1,5 @@
+Ce FAQ s’applique aux connexions P2S utilisant le modèle de déploiement classique.
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Quels systèmes d’exploitation clients puis-je utiliser avec une connexion de point à site ?
 
 Les systèmes d’exploitation clients pris en charge sont les suivants :

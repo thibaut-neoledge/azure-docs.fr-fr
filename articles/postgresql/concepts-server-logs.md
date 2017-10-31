@@ -9,26 +9,26 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 2f75af62df0284a609169acd9d2c5bb6eaf36fbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 696af85cd5609171a719a7e77efbfcdeba0aaaaa
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Journaux de serveur dans une base de données Azure pour PostgreSQL 
-La base de données Azure pour PostgreSQL génère des journaux des requêtes et des erreurs. Toutefois, l’accès aux journaux des transactions n’est pas pris en charge. Ces journaux peuvent servir à identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. Pour plus d’informations, consultez la page [Signalement et journalisation des erreurs](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
+La base de données Azure pour PostgreSQL génère des journaux des requêtes et des erreurs. Toutefois, l’accès aux journaux des transactions n’est pas pris en charge. Les journaux des requêtes et des erreurs peuvent être utilisés pour identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. Pour plus d’informations, consultez la page [Signalement et journalisation des erreurs](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
 
 ## <a name="access-server-logs"></a>Accéder aux journaux du serveur
 Vous pouvez lister et télécharger les journaux des erreurs du serveur PostgreSQL Azure à l’aide du portail Azure, [d’Azure CLI](howto-configure-server-logs-using-cli.md) et des API REST Azure.
 
 ## <a name="log-retention"></a>Rétention des journaux
-Vous pouvez définir la période de rétention des journaux système en utilisant le paramètre **log\_retention\_period** associé à votre serveur. Ce paramètre a pour unité les jours. La valeur par défaut est de trois jours. La valeur maximale est de sept jours. Votre serveur doit posséder suffisamment de stockage pour contenir les fichiers journaux conservés.
+Vous pouvez définir la période de rétention des journaux système en utilisant le paramètre **log\_retention\_period** associé à votre serveur. Ce paramètre a pour unité les jours. La valeur par défaut est de 3 jours. La valeur maximale est de sept jours. Votre serveur doit posséder suffisamment de stockage pour contenir les fichiers journaux conservés.
 Les fichiers journaux tournent toutes les heures ou par tranches de 100 Mo, selon la limite atteinte en premier.
 
 ## <a name="configure-logging-for-azure-postgresql-server"></a>Configurer la journalisation pour le serveur PostgreSQL Azure
 Vous pouvez activer la journalisation des requêtes et des erreurs pour votre serveur. Les journaux d’erreurs peuvent contenir des informations sur le nettoyage automatique, la connexion et les points de contrôle.
 
-Vous pouvez activer la journalisation des requêtes pour votre instance de base de données PostgreSQL en définissant deux paramètres de serveur : log\_statement et log\_min\_duration\_statement.
+Vous pouvez activer la journalisation des requêtes pour votre instance de base de données PostgreSQL en définissant deux paramètres de serveur : `log\_statement` et `log\_min\_duration\_statement`.
 
 Le paramètre **log\_statement** contrôle quelles instructions SQL sont consignées. Nous vous recommandons de définir ce paramètre sur ***all*** pour consigner toutes les instructions ; la valeur par défaut est none.
 
@@ -36,7 +36,7 @@ Le paramètre **log\_min\_duration\_statement** définit la limite en millisecon
 
 **log\_min\_messages** permet de contrôler quels niveaux de message sont écrits dans le journal du serveur. La valeur par défaut est WARNING 
 
-Pour plus d’informations sur ces paramètres, consultez la documentation [Signalement et journalisation des erreurs](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html). En particulier, pour configurer les paramètres du serveur de base de données Azure pour PostgreSQL, consultez la page [Journaux du serveur de base de données Azure pour PostgreSQL](concepts-server-logs.md).
+Pour plus d’informations sur ces paramètres, consultez la documentation [Signalement et journalisation des erreurs](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html). En particulier, pour configurer les paramètres du serveur Azure Database pour PostgreSQL, consultez la page [Personnalisation des paramètres de configuration du serveur à l’aide de l’interface de ligne de commande Azure](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour accéder aux journaux à l’aide de l’interface de ligne de commande Azure CLI, consultez [Configuration et accès aux journaux du serveur à l’aide de la ligne de commande Azure](howto-configure-server-logs-using-cli.md).

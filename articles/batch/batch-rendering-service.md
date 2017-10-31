@@ -1,5 +1,5 @@
 ---
-title: "Utiliser le service Azure Batch Rendering pour créer des rendus dans le cloud | Microsoft Docs"
+title: "Service de rendu Batch Azure - création de rendus à l’échelle du cloud | Microsoft Docs"
 description: "Créez des travaux de rendu sur des machines virtuelles Azure directement à partir de Maya et sur une base de paiement à l’utilisation."
 services: batch
 author: v-dotren
@@ -8,17 +8,17 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 47ccbd89d5abf04034196ab735c6740d57099023
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Prise en main du service Batch Rendering
 
 Le service Azure Batch Rendering offre des fonctionnalités de création de rendus à l’échelle du cloud, sur une base de paiement à l’utilisation. Ce service traite la planification des travaux et leur mise en file d’attente, la gestion des échecs et des nouvelles tentatives et la mise à l’échelle automatique de vos travaux de rendu. Il prend en charge [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3DS Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) et [V-Ray](https://www.chaosgroup.com/vray/maya). Le plug-in Batch pour Maya 2017 facilite le lancement d’un travail de rendu sur Azure directement à partir de votre bureau.
 
-Avec Maya et 3DS Max, vous pouvez exécuter des travaux à l’aide de l’application de bureau [Batch Labs](https://github.com/Azure/BatchLabs) ou de la [CLI de modèle Batch](batch-cli-templates.md). Vous pouvez utiliser Azure CLI Batch pour exécuter des travaux Batch sans écrire de code. Vous pouvez utiliser les modèles de fichier pour créer des tâches, des travaux et des pools Batch. Pour en savoir plus, voir [Utiliser des modèles d’interface CLI Batch et de transfert de fichier (préversion)](batch-cli-templates.md).
+Avec Maya et 3DS Max, vous pouvez exécuter des travaux à l’aide de l’application de bureau [BatchLabs](https://github.com/Azure/BatchLabs) ou de la [CLI de modèle Batch](batch-cli-templates.md). Vous pouvez utiliser Azure CLI Batch pour exécuter des travaux Batch sans écrire de code. Vous pouvez utiliser les modèles de fichier pour créer des tâches, des travaux et des pools Batch. Pour en savoir plus, voir [Utiliser des modèles d’interface CLI Batch et de transfert de fichier (préversion)](batch-cli-templates.md).
 
 
 ## <a name="supported-applications"></a>Applications prises en charge
@@ -39,6 +39,7 @@ Pour utiliser le service Batch Rendering, vous avez besoin des éléments suivan
 - Un [compte Azure](https://azure.microsoft.com/free/).
 - **Un compte Azure Batch.** Pour obtenir des conseils sur la création d’un compte Batch dans le portail Azure, consultez [Créer un compte Batch avec le portail Azure](batch-account-create-portal.md).
 - **Un compte de stockage Azure.** Les ressources utilisées pour votre travail de rendu sont stockées dans le stockage Azure. Vous pouvez créer un compte de stockage automatiquement lorsque vous configurez votre compte Batch. Vous pouvez également utiliser un compte de stockage existant. Pour en savoir plus sur les comptes de stockage, consultez [À propos des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+- **BatchLabs** (facultatif). [BatchLabs](https://azure.github.io/BatchLabs) est un outil client autonome, gratuit et doté de nombreuses fonctionnalités, aidant à créer, déboguer et surveiller les applications Azure Batch. Alors que l’utilisation du service de rendu n’est pas obligatoire, il représente toute fois une option utile pour développer et déboguer vos solutions Batch.
 
 Pour utiliser le plug-in Batch pour Maya, vous avez besoin des éléments suivants :
 
@@ -59,7 +60,7 @@ Pour plus d’informations sur les nœuds de calcul et pools Batch, consultez le
 
 Un travail **Batch** est une collection de tâches qui s’exécutent sur les nœuds de calcul d’un pool. Lorsque vous envoyez un travail de rendu, Batch le divise en tâches et les distribue aux nœuds de calcul dans le pool à exécuter.
 
-Vous pouvez utiliser le [portail Azure](https://ms.portal.azure.com/) pour surveiller les travaux et diagnostiquer les tâches ayant échoué en téléchargeant les journaux d’applications et en vous connectant à distance à des machines virtuelles individuelles, à l’aide des protocoles RDP ou SSH. Vous pouvez également gérer, surveiller et déboguer une application à l’aide du [client Batch Labs](https://github.com/Azure/BatchLabs).
+Vous pouvez utiliser le [portail Azure](https://ms.portal.azure.com/) pour surveiller les travaux et diagnostiquer les tâches ayant échoué en téléchargeant les journaux d’applications et en vous connectant à distance à des machines virtuelles individuelles, à l’aide des protocoles RDP ou SSH. Vous pouvez également gérer, surveiller et déboguer à l’aide de [l’outil BatchLabs](https://azure.github.io/BatchLabs).
 
 Pour plus d’informations sur les travaux Batch, consultez la section [Travail](batch-api-basics.md#job) de l’article [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
 
@@ -69,9 +70,9 @@ Plusieurs applications peuvent être nécessaires pour effectuer le rendu d’un
 
 ### <a name="pre-configured-vm-images"></a>Images de machines virtuelles préconfigurées
 
-Azure propose des images Windows et Linux associées à une version unique de Maya, 3DS Max, Arnold et V-Ray, préinstallée et prête à être utilisée. Vous pouvez sélectionner ces images dans le [portail Azure](https://portal.azure.com), le plug-in Maya ou [Batch Labs](https://github.com/Azure/BatchLabs) lorsque vous créez un pool.
+Azure propose des images Windows et Linux associées à une version unique de Maya, 3DS Max, Arnold et V-Ray, préinstallée et prête à être utilisée. Vous pouvez sélectionner ces images dans le [portail Azure](https://portal.azure.com), le plug-in Maya ou [BatchLabs](https://azure.github.io/BatchLabs) lorsque vous créez un pool.
 
-Dans le portail Azure et dans Batch Labs, vous pouvez installer l’une des images de machine virtuelle avec les applications préinstallées. Pour cela, dans la section Pools du compte Batch, sélectionnez **Nouveau** et, dans **Ajouter un pool**, sélectionnez **Graphisme et rendu (Linux/Windows)** dans la liste déroulante **Type d’image** :
+Dans le portail Azure et dans BatchLabs, vous pouvez installer l’une des images de machine virtuelle avec les applications préinstallées. Pour cela, dans la section Pools de votre compte Batch, sélectionnez **Nouveau** et, dans **Ajouter un pool**, sélectionnez **Graphisme et rendu (Linux/Windows)** dans la liste déroulante **Type d’image** :
 
 ![Sélectionner le type d’image pour le compte Batch](./media/batch-rendering-service/add-pool.png)
 
@@ -101,17 +102,17 @@ En fonction de l’application 3D que vous utilisez, il existe différentes opti
 Avec Maya, vous pouvez utiliser les éléments suivants :
 
 - [Plug-in Batch pour Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- Application de poste de travail [Batch Labs](https://github.com/Azure/BatchLabs)
+- Application de poste de travail [BatchLabs](https://azure.github.io/BatchLabs)
 - [CLI de modèle Batch](batch-cli-templates.md)
 
 ### <a name="3ds-max"></a>3DS Max
 
 Avec 3DS Max, vous pouvez utiliser les éléments suivants :
 
-- Application de bureau [Batch Labs](https://github.com/Azure/BatchLabs) (consultez le référentiel [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) pour savoir comment utiliser les modèles Batch Labs 3DS Max)
+- Application de bureau [BatchLabs](https://azure.github.io/BatchLabs) (consultez le référentiel [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) pour savoir comment utiliser les modèles BatchLabs 3DS Max)
 - [CLI de modèle Batch](batch-cli-templates.md)
 
-Les modèles Batch Labs 3DS Max vous permettent d’effectuer le rendu de scènes VRay et Arnold à l’aide d’Azure Batch Rendering Service. Il existe deux versions du modèle pour VRay et Arnold : l’un concerne les scènes standard et l’autre, les scènes plus complexes, qui nécessitent un fichier de chemin d’accès 3DS Max aux ressources et textures (fichier .mxp). Pour en savoir plus sur les modèles Batch Labs 3DS Max, consultez le référentiel [BatchLabs_data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) sur GitHub.
+Les modèles Batch Labs 3DS Max vous permettent d’effectuer le rendu de scènes VRay et Arnold à l’aide d’Azure Batch Rendering Service. Il existe deux versions du modèle pour VRay et Arnold : l’un concerne les scènes standard et l’autre, les scènes plus complexes, qui nécessitent un fichier de chemin d’accès 3DS Max aux ressources et textures (fichier .mxp). Pour en savoir plus sur les modèles BatchLabs 3DS Max, consultez le référentiel [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) sur GitHub.
 
 Vous pouvez également utiliser le [Kit de développement logiciel (SDK) Python Batch](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial) pour intégrer le service de rendu dans votre pipeline existant.
 
@@ -162,7 +163,7 @@ Les sections suivantes décrivent les options disponibles, accessibles via l’o
 
 #### <a name="specify-a-new-or-existing-pool"></a>Spécifier un pool nouveau ou existant
 
-Pour spécifier un pool sur lequel exécuter le travail de rendu, sélectionnez l’onglet **Envoyer**. Cet onglet propose des options permettant de créer un pool ou d’en sélectionner un existant :
+Pour spécifier un pool sur lequel exécuter le travail de rendu, sélectionnez l’onglet **Envoyer**. Cet onglet propose des options permettant de créer un pool ou d’un sélectionner un existant :
 
 - Vous pouvez **configurer automatiquement un pool pour ce travail** (option par défaut). Lorsque vous choisissez cette option, Batch crée le pool exclusivement pour le travail actuel et supprime automatiquement le pool lorsque le travail de rendu est terminé. Cette option est recommandée lorsque vous n’avez qu’un travail de rendu à réaliser.
 - Vous pouvez **réutiliser un pool persistant existant**. Si vous disposez d’un pool existant qui est inactif, vous pouvez spécifier ce pool pour l’exécution de la tâche de rendu en le sélectionnant dans la liste déroulante. La réutilisation d’un pool persistant existant vous permet de gagner du temps en évitant de configurer le pool.  
@@ -229,7 +230,7 @@ Lorsque vous chargez le plug-in, il analyse le fichier de scène pour toutes les
 - Le répertoire _sourceimages_ du projet actuel
 - Le répertoire de travail actuel 
 
-Si la ressource ne parvient pas à être localisée, elle est répertoriée avec une icône d’avertissement :
+Si la ressource ne parvient pas à être localisée, elles est répertoriée avec une icône d’avertissement :
 
 ![Les ressources manquantes sont affichées avec une icône d’avertissement](./media/batch-rendering-service/missing_assets.png)
 
@@ -243,7 +244,7 @@ Si votre scène requiert d’autres fichiers que le plug-in n’a pas détectés
 
 #### <a name="upload-assets-to-an-asset-project"></a>Charger des ressources dans un projet de ressources
 
-Lorsque vous envoyez un travail de rendu, les fichiers référencés affichés dans l’onglet **Ressources** sont automatiquement chargés vers le stockage Azure en tant que projet de ressources. Vous pouvez également charger les fichiers de ressources indépendamment d’un travail de rendu à l’aide du bouton **Charger** sur l’onglet **Ressources**. Le nom du projet de ressources est spécifié dans le champ **Projet** champ et est nommé d’après le projet Maya actif par défaut. Lorsque les fichiers de ressources sont chargés, la structure de fichier locale est conservée. 
+Lorsque vous envoyer un travail de rendu, les fichiers référencés affichés dans l’onglet **Ressources** sont automatiquement chargés vers le stockage Azure en tant que projet de ressources. Vous pouvez également charger les fichiers de ressources indépendamment d’un travail de rendu à l’aide du bouton **Charger** sur l’onglet **Ressources**. Le nom du projet de ressources est spécifié dans le champ **Projet** champ et est nommé d’après le projet Maya actif par défaut. Lorsque les fichiers de ressources sont chargés, la structure de fichier locale est conservée. 
 
 Une fois téléchargées, les ressources peuvent être référencées par n’importe quel nombre de travaux de rendu. Toutes les ressources chargées sont disponibles pour un travail qui fait référence au projet de ressources, qu’elles soient incluses dans la scène ou non. Pour modifier le projet de ressources référencé par votre travail suivant, modifiez le nom dans le champ **Projet** de l’onglet **Ressources**. S’il existe des fichiers référencés que vous souhaitez exclure du chargement, désélectionnez-les à l’aide du bouton vert en regard de la liste.
 

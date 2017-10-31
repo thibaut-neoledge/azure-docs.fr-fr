@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Classification d’Iris, partie 3 : déployer un modèle
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -193,6 +193,9 @@ Une fois la configuration effectuée, définissez les variables d’environnemen
    ```
 
 Vous êtes maintenant prêt à créer le service web en temps réel.
+
+>[!NOTE]
+>Vous pouvez réutiliser le compte et environnement de gestion des modèles pour les déploiements de service web suivants. Vous n’avez pas besoin de les créer pour chaque service web. Un compte ou un environnement peuvent disposer de plusieurs services web associés.
 
 ## <a name="create-a-real-time-web-service-in-one-command"></a>Créer un service web en temps réel en une seule commande
 1. Pour créer un service web en temps réel, utilisez la commande suivante :

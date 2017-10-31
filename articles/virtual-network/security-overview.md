@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>Sécurité du réseau
 
@@ -151,7 +151,10 @@ Si vous créez d’autres règles, en spécifiant d’autres groupes de sécurit
  
 Pour en savoir plus sur les limites lors de la création de groupes de sécurité d’application et lors de leur spécification dans les règles de sécurité, consultez les [limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Les groupes de sécurité d’application sont disponibles dans la version préliminaire. Avant d’utiliser des groupes de sécurité d’application, vous devez vous inscrire pour les utiliser en effectuant les étapes 1 à 5 de la procédure de [création d’un groupe de sécurité réseau avec des groupes de sécurité d’application](create-network-security-group-preview.md#powershell). Lisez l’article sur les [fonctionnalités de la version préliminaire](#preview-features) pour plus d’informations. Dans la version préliminaire, les groupes de sécurité d’application sont limités à l’étendue du réseau virtuel. Les réseaux virtuels appairés avec des références croisées à des groupes de sécurité d’application sur un groupe de sécurité réseau ne sont pas appliqués. 
+Les groupes de sécurité d’application sont disponibles dans la version préliminaire. Avant d’utiliser des groupes de sécurité d’application, vous devez vous inscrire pour les utiliser en effectuant les étapes 1 à 5 de la procédure de [création d’un groupe de sécurité réseau avec des groupes de sécurité d’application](create-network-security-group-preview.md#powershell). Lisez l’article sur les [fonctionnalités de la version préliminaire](#preview-features) pour plus d’informations. Les groupes de sécurité d’application ont les contraintes suivantes :
+
+-   Toutes les interfaces réseau au sein d’un groupe de sécurité d’application doivent exister dans le même réseau virtuel. Vous ne pouvez pas ajouter d’interfaces réseau à partir de différents réseaux virtuels au même groupe de sécurité d’application. Le réseau virtuel dans lequel la première interface réseau assignée au groupe de sécurité d’application se trouve définit le réseau virtuel dans lequel toutes les interfaces réseau assignées par la suite doivent se trouver.
+- Si vous spécifiez des groupes de sécurité d’application en tant que source et destination dans une règle de sécurité, les interfaces réseau dans les deux groupes de sécurité d’application doivent se trouver dans le même réseau virtuel. Par exemple, si ASG1 contient des interfaces réseau de VNet1 et si ASG2 contient des interfaces réseau de VNet2, vous ne pouvez pas assigner ASG1 en tant que source et ASG2 en tant que destination dans une règle. Toutes les interfaces réseaux doivent se trouver dans VNet1. 
 
 Les fonctionnalités de la version préliminaire n’offrent pas le même niveau de disponibilité et de fiabilité que les fonctionnalités de la version générale. Pour pouvoir utiliser des groupes de sécurité d’application, vous devez tout d’abord vous inscrire. Les fonctionnalités ne sont disponibles que dans la région Ouest du centre des États-Unis.
 

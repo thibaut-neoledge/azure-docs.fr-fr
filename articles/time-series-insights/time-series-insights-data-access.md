@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Accorder l’accès aux données d’un environnement Time Series Insights à l’aide du portail Azure
 
@@ -42,12 +42,13 @@ Les deux types de stratégies permettent de distinguer clairement l’accès à 
 Les étapes suivantes montrent comment accorder l’accès aux données pour un utilisateur principal :
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com).
-2.  Cliquez sur « Toutes les ressources » dans le menu de gauche du portail Azure.
-3.  Sélectionnez votre environnement Time Series Insights.
+2.  Tapez « Time Series » dans la fenêtre de recherche.
+3.  Cliquez sur Environnement Time Series
+4.  Sélectionnez votre environnement Time Series Insights dans la liste.
 
   ![Gérer la source Time Series Insights - Environnement](media/data-access/getstarted-grant-data-access1.png)
 
-4.  Sélectionnez « Accès au plan de données », puis cliquez sur « Ajouter »
+4.  Sélectionnez « Stratégies d’accès aux données » et cliquez sur « Ajouter »
 
   ![Gérer la source Time Series Insights - Ajouter](media/data-access/getstarted-grant-data-access2.png)
 

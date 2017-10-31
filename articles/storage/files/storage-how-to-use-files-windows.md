@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montage d’un partage de fichiers Azure et accès au partage dans Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows et Windows Server. Cet article présente trois méthodes différentes de montage d’un partage de fichiers Azure sur Windows : avec l’interface utilisateur de l’Explorateur de fichiers, via PowerShell ou via l’invite de commandes. 
@@ -29,7 +29,8 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 
 | Version de Windows        | Version SMB | Version montable dans une machine virtuelle Azure | Montable en local |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Oui | Oui |
+| Canal semestriel Windows Server <sup>1</sup> | SMB 3.0 | Oui | Oui |
+| Windows 10 <sup>2</sup>  | SMB 3.0 | Oui | Oui |
 | Windows Server 2016    | SMB 3.0     | Oui                   | Oui                  |
 | Windows 8.1            | SMB 3.0     | Oui                   | Oui                  |
 | Windows Server 2012 R2 | SMB 3.0     | Oui                   | Oui                  |
@@ -37,7 +38,8 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 | Windows 7              | SMB 2.1     | Oui                   | Non                   |
 | Windows Server 2008 R2 | SMB 2.1     | Oui                   | Non                   |
 
-<sup>1</sup>Les versions 1507, 1511, 1607, 1703 et 1709 de Windows 10.
+<sup>1</sup>La version 1709 de Windows Server.  
+<sup>2</sup>Les versions 1507, 1607, 1703 et 1709 de Windows 10.
 
 > [!Note]  
 > Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows.

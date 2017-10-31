@@ -14,140 +14,140 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.openlocfilehash: 43781cb025865df1d228376f57412f3d482d3ad0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5e7ab55800eccea98cbd71ae32bdc611ee3e961
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Ajouter l’image de machine virtuelle Windows Server 2016 sur la Place de marché Azure Stack
 
-Par défaut, il n’y a pas d’images de machine virtuelle disponibles sur la Place de marché Azure Stack. L’opérateur Azure Stack doit ajouter préalablement une image sur la Place de marché pour la mettre à la disposition des utilisateurs. Vous pouvez ajouter l’image Windows Server 2016 sur la Place de marché Azure Stack à l’aide d’une des deux méthodes suivantes :
+Par défaut, aucune image de machine virtuelle n’est disponible sur la Place de marché Azure Stack. Un opérateur Azure Stack doit ajouter une image sur la Place de marché pour la mettre à la disposition des utilisateurs. Vous pouvez ajouter l’image Windows Server 2016 sur la Place de marché Azure Stack à l’aide d’une des méthodes suivantes :
 
-* [Ajouter l’image en la téléchargeant à partir de la Place de marché Azure](#add-the-image-by-downloading-it-from-the-Azure-marketplace) : choisissez cette méthode si vous êtes dans un scénario connecté et si vous avez inscrit votre instance Azure Stack auprès d’Azure.
+* [Téléchargez une image à partir de la Place de Marché Azure](#add-the-image-by-downloading-it-from-the-azure-marketplace). Choisissez cette méthode si vous êtes dans un scénario connecté et si vous avez inscrit votre instance Azure Stack auprès d’Azure.
 
-* [Ajouter l’image à l’aide de PowerShell](#add-the-image-by-using-powershell) : choisissez cette méthode si vous avez déployé Azure Stack dans un scénario déconnecté ou avec une connectivité limitée.
+* [Ajouter l’image à l’aide de PowerShell](#add-the-image-by-using-powershell). Choisissez cette méthode si vous avez déployé Azure Stack dans un scénario déconnecté ou avec une connectivité limitée.
 
 ## <a name="add-the-image-by-downloading-it-from-the-azure-marketplace"></a>Ajouter l’image en la téléchargeant à partir de la Place de marché Azure
 
-1. Après avoir déployé Azure Stack, connectez-vous à votre Kit de développement Azure Stack.
+1. Déployez Azure Stack, puis connectez-vous à votre Kit de développement Azure Stack.
 
-2. Cliquez sur **Plus de services** > **Gestion de la Place de Marché** > **Ajouter à partir d’Azure** 
+2. Sélectionnez **Plus de services** > **Gestion de la Place de Marché** > **Ajouter à partir de Azure**. 
 
-3. Localisez ou recherchez l’image **Windows Server Datacenter 2016 – Évaluations** et cliquez sur **Télécharger**
+3. Localisez ou recherchez l’image **Windows Server Datacenter 2016 – Évaluations** puis sélectionnez **Télécharger**.
 
    ![Télécharger l’image à partir d’Azure](media/azure-stack-add-default-image/download-image.png)
 
-Une fois son téléchargement terminé, l’image est ajoutée au panneau **Gestion de la Place de Marché** et au panneau **Machines virtuelles**.
+Lorsque le téléchargement est terminé, l’image est disponible sous **Gestion de la Place de Marché**. L’image est également disponible sous **Machines virtuelles**.
 
 ## <a name="add-the-image-by-using-powershell"></a>Ajouter l’image à l’aide de PowerShell
 
 ### <a name="prerequisites"></a>Composants requis 
 
-Effectuez les étapes prérequises suivantes à partir du [Kit de développement](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou à partir d’un client externe Windows si vous êtes [connecté par le biais d’un VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) :
+Effectuez les étapes prérequises suivantes à partir du [kit de développement](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) :
 
-* Installez les [modules Azure PowerShell compatibles avec Azure Stack](azure-stack-powershell-install.md).  
+1. Installez les [modules Azure PowerShell compatibles avec Azure Stack](azure-stack-powershell-install.md).  
 
-* Téléchargez les [outils nécessaires pour utiliser Azure Stack](azure-stack-powershell-download.md).  
+2. Téléchargez les [outils nécessaires pour utiliser Azure Stack](azure-stack-powershell-download.md).  
 
-* Accédez à https://www.microsoft.com/fr-fr/evalcenter/evaluate-windows-server-2016 et téléchargez la version d’évaluation de Windows Server 2016. Quand vous y êtes invité, sélectionnez la version **ISO** du téléchargement. Enregistrez le chemin d’accès à l’emplacement de téléchargement, car vous en aurez besoin plus tard dans cette procédure. Cette étape nécessite une connectivité Internet.  
+3. Dans la page Windows Server Evaluations, [téléchargez la version d’évaluation de Windows Server 2016](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). Quand vous y êtes invité, sélectionnez la version ISO du téléchargement. Enregistrez le chemin d’accès à l’emplacement de téléchargement, car vous en aurez besoin plus tard au cours des étapes données dans cet article. Cette étape nécessite une connectivité Internet.  
 
-Effectuez maintenant les étapes suivantes pour ajouter l’image sur la Place de marché Azure Stack :
+### <a name="add-the-image-to-the-azure-stack-marketplace"></a>Ajouter l’image à la Place de Marché Azure Stack
    
 1. Importez les modules Azure Stack Connect et ComputeAdmin à l’aide des commandes suivantes :
 
    ```powershell
    Set-ExecutionPolicy RemoteSigned
 
-   # import the Connect and ComputeAdmin modules   
+   # Import the Connect and ComputeAdmin modules.   
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
 
    ```
 
-2. Connectez-vous à votre environnement Azure Stack. Exécutez le script suivant en fonction du type de déploiement de votre environnement Azure Stack : AAD ou AD FS (veillez à remplacer les valeurs tenantName AAD, le point de terminaison GraphAudience et la valeur ArmEndpoint conformément à la configuration de votre environnement) :  
+2. Connectez-vous à votre environnement Azure Stack. Exécutez l’un des scripts suivants, en fonction du déploiement de votre environnement Azure Stack (à l’aide de Azure Active Directory ou bien avec Active Directory Federation Services). (Remplacez le `tenantName` de Azure AD, le point de terminaison `GraphAudience`, et les valeurs `ArmEndpoint` pour refléter la configuration de votre environnement.)  
 
-   a. Pour **AAD**, utilisez l’applet de commande suivante :
+   * **Azure Active Directory**. Utilisez l’applet de commande suivante :
 
-   ```PowerShell
-   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+    ```PowerShell
+    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-   # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-   $GraphAudience = "<GraphAuidence endpoint for your environment>"
-   
-   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-     -Name "AzureStackAdmin" `
-     -ArmEndpoint $ArmEndpoint
-
-   Set-AzureRmEnvironment `
-    -Name "AzureStackAdmin" `
-    -GraphAudience $GraphAudience
-
-   $TenantID = Get-AzsDirectoryTenantId `
-     -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-     -EnvironmentName AzureStackAdmin
-
-   Login-AzureRmAccount `
-     -EnvironmentName "AzureStackAdmin" `
-     -TenantId $TenantID 
-   ```
-
-   b. Pour **AD FS**, utilisez l’applet de commande suivante :
+    # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+    $GraphAudience = "<GraphAuidence endpoint for your environment>"
     
-   ```PowerShell
-   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint $ArmEndpoint
 
-   # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience $GraphAudience
 
-   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-     -Name "AzureStackAdmin" `
-     -ArmEndpoint $ArmEndpoint
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
 
-   Set-AzureRmEnvironment `
-     -Name "AzureStackAdmin" `
-     -GraphAudience $GraphAudience `
-     -EnableAdfsAuthentication:$true
+    Login-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID 
+    ```
+
+   * **Active Directory Federation Services**. Utilisez l’applet de commande suivante :
+    
+    ```PowerShell
+    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+    # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+    $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint $ArmEndpoint
+
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience $GraphAudience `
+      -EnableAdfsAuthentication:$true
 
    $TenantID = Get-AzsDirectoryTenantId `
-     -ADFS 
-     -EnvironmentName AzureStackAdmin 
+     -ADFS `
+     -EnvironmentName "AzureStackAdmin" 
 
-   Login-AzureRmAccount `
-     -EnvironmentName "AzureStackAdmin" `
-     -TenantId $TenantID 
-   ```
+    Login-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID 
+    ```
    
-3. Ajoutez l’image Windows Server 2016 sur la Place de marché Azure Stack (sans oublier de remplacer la variable *Path_to_ISO* par le chemin d’accès à l’image ISO WS2016 que vous avez téléchargée) :
+3. Ajoutez l’image Windows Server 2016 sur la Place de marché Azure Stack. (Remplacez *fully_qualified_path_to_ISO* avec le chemin d’accès vers l’image ISO de Windows Server 2016 que vous avez téléchargé.)
 
-   ```PowerShell
-   $ISOPath = "<Fully_Qualified_Path_to_ISO>"
+    ```PowerShell
+    $ISOPath = "<fully_qualified_path_to_ISO>"
 
-   # Add a Windows Server 2016 Evaluation VM Image.
-   New-AzsServer2016VMImage `
-     -ISOPath $ISOPath
+    # Add a Windows Server 2016 Evaluation VM image.
+    New-AzsServer2016VMImage `
+      -ISOPath $ISOPath
 
-   ```
+    ```
 
-Pour vous assurer que l’image de machine virtuelle Windows Server 2016 contient la dernière mise à jour cumulative, incluez le paramètre `IncludeLatestCU` dans l’applet de commande `New-AzsServer2016VMImage` que vous allez exécuter. Consultez la section [Paramètres](#parameters) pour plus d’informations sur les paramètres autorisés dans l’applet de commande `New-AzsServer2016VMImage`. La publication de l’image sur la Place de marché Azure Stack prend environ une heure. 
+Pour vous assurer que l’image de machine virtuelle Windows Server 2016 contient la dernière mise à jour cumulative, incluez le paramètre `IncludeLatestCU` lorsque vous exécutez l’applet de commande `New-AzsServer2016VMImage`. Pour plus d’informations sur les paramètres autorisés dans l’applet de commande `New-AzsServer2016VMImage`, consultez [Paramètres](#parameters). La publication de l’image sur la Place de marché Azure Stack prend environ une heure. 
 
-## <a name="parameters"></a>Paramètres
+## <a name="parameters"></a>parameters
 
 |Paramètres New-AzsServer2016VMImage|Requis ?|Description|
 |-----|-----|------|
 |ISOPath|Oui|Spécifie le chemin d’accès complet à l’image ISO Windows Server 2016 téléchargée.|
-|Net35|Non|Ce paramètre vous permet d’installer le Runtime .NET 3.5 sur l’image Windows Server 2016. Par défaut, cette valeur est définie sur true.|
-|Version|Non|Ce paramètre vous permet de choisir l’option d’installation des images Windows Server 2016 : **Base**, **Complète** ou **Les deux**. Par défaut, cette valeur est définie sur Complète.|
-|VHDSizeInMB|Non|Définit la taille (en Mo) de l’image VHD à ajouter à votre environnement Azure Stack. Par défaut, cette valeur est définie sur 40 960 Mo.|
-|CreateGalleryItem|Non|Spécifie si un élément de la Place de marché doit être créé pour l’image Windows Server 2016. Par défaut, cette valeur est définie sur true.|
+|Net35|Non|Installe le runtime .NET 3.5 sur l’image Windows Server 2016. Par défaut, cette valeur est définie sur **true**.|
+|Version|Non|Spécifie les images de Windows Server 2016 **Core**, **Complète**, ou **les deux**. Par défaut, cette valeur est définie sur **Complète**.|
+|VHDSizeInMB|Non|Définit la taille (en Mo) de l’image VHD à ajouter à votre environnement Azure Stack. Par défaut, cette valeur est définie sur 40,960 Mo.|
+|CreateGalleryItem|Non|Spécifie si un élément de la Place de marché doit être créé pour l’image Windows Server 2016. Par défaut, cette valeur est définie sur **true**.|
 |location |Non |Spécifie l’emplacement de publication de l’image Windows Server 2016.|
-|IncludeLatestCU|Non|Ce paramètre vous permet d’appliquer la dernière mise à jour cumulative de Windows Server 2016 à la nouvelle image VHD.|
-|CUUri |Non |Ce paramètre vous permet de choisir la mise à jour cumulative de Windows Server 2016 à partir d’un URI spécifique. |
-|CUPath |Non |Ce paramètre vous permet de choisir la mise à jour cumulative de Windows Server 2016 à partir d’un chemin d’accès local. Ce paramètre est utile si vous avez déployé l’instance Azure Stack dans un environnement déconnecté.|
+|IncludeLatestCU|Non|Applique la dernière mise à jour cumulative de Windows Server 2016 à la nouvelle image VHD.|
+|CUUri |Non |Choisit la mise à jour cumulative de Windows Server 2016 à exécuter à partir d’un URI spécifique. |
+|CUPath |Non |Choisit la mise à jour cumulative de Windows Server 2016 à exécuter à partir d’un chemin d’accès local. Ce paramètre est utile si vous avez déployé l’instance Azure Stack dans un environnement déconnecté.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
