@@ -3,7 +3,6 @@
 ## [Fournisseurs et types de ressources](resource-manager-supported-services.md)
 ## [Déploiements Resource Manager et classiques](resource-manager-deployment-model.md)
 ## [Gouvernance de l’abonnement](resource-manager-subscription-governance.md)
-## [Applications gérées](managed-application-overview.md)
 
 # Prise en main
 ## [Création et déploiement du modèle](resource-manager-create-first-template.md)
@@ -60,6 +59,7 @@
 ### [Déplacer les ressources vers un nouveau groupe ou un nouvel abonnement](resource-group-move-resources.md)
 ### [Organiser les abonnements avec des groupes d’administration](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Exemples de gouvernance](resource-manager-subscription-examples.md)
+### [Applications managées](../managed-applications/overview.md)
 
 ## Contrôler l’accès
 ### Créer un principal du service
@@ -80,13 +80,6 @@
 #### [Stockage](resource-manager-policy-storage.md)
 #### [Machine virtuelle Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Machine virtuelle Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## Utiliser des applications gérées
-### [Publier l’application de catalogue de services](managed-application-publishing.md)
-### [Utiliser l’application de catalogue de services](managed-application-consumption.md)
-### [Publier l’application de la Place de marché](managed-application-author-marketplace.md)
-### [Utiliser l’application de la Place de marché](managed-application-consume-marketplace.md)
-### [Créer des définitions d’interface utilisateur](managed-application-createuidefinition-overview.md)
 
 ## Audit
 ### [Afficher les journaux d’activité](resource-group-audit.md)
@@ -124,21 +117,6 @@
 ### [Fonctions numériques](resource-group-template-functions-numeric.md)
 ### [Fonctions de ressource](resource-group-template-functions-resource.md)
 ### [Fonctions de chaîne](resource-group-template-functions-string.md)
-## [Fonctions de définition de l’interface utilisateur](managed-application-createuidefinition-functions.md)
-## [Éléments de définition de l’interface utilisateur](managed-application-createuidefinition-elements.md)
-### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Interface de ligne de commande Azure](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

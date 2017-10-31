@@ -66,8 +66,12 @@
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Gérer
       items:
-        - name: PowerShell
+        - name: PowerShell pour les fichiers Azure
           href: storage-how-to-use-files-powershell.md
+        - name: PowerShell pour le stockage Azure
+          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 'PowerShell pour les Clouds chinois, allemands et des administrations'
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: "Azure CLI\_2.0"
           href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Azure CLI 1.0
