@@ -86,6 +86,7 @@
 ### Charger des fichiers à partir d’appareils
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.JS](iot-hub-node-node-file-upload.md)
 ### Prise en main des représentations d’appareils
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-twin-getstarted.md)
