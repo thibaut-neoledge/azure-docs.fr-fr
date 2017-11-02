@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 5595ea016ab01d20cee82b75f56623bb0727a1b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure
 
@@ -40,8 +40,8 @@ Voici une liste de vérification rapide pour optimiser les performances de SQL S
 | Domaine | Optimisations |
 | --- | --- |
 | [Taille de la machine virtuelle](#vm-size-guidance) |[Édition SQL Enterprise DS3](../../virtual-machines-windows-sizes-memory.md) ou supérieure.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) ou supérieure pour SQL Server Standard Edition ou SQL Server Web Edition. |
-| [Stockage](#storage-guidance) |Utiliser [Premium Storage](../../../storage/common/storage-premium-storage.md). Le stockage standard n’est recommandé que pour le développement et le test.<br/><br/>Conservez le [compte de stockage](../../../storage/common/storage-create-storage-account.md) et la machine virtuelle SQL Server dans la même région.<br/><br/>Désactivez le [stockage géo-redondant](../../../storage/common/storage-redundancy.md) (géo-réplication) d’Azure sur le compte de stockage. |
-| [Disques](#disks-guidance) |Utilisez au moins 2 [disques P30](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) (1 pour les fichiers journaux ; 1 pour les fichiers de données et TempDB).<br/><br/>Éviter d’utiliser des disques de système d’exploitation ou temporaires pour le stockage ou la journalisation des bases de données.<br/><br/>Activer la mise en cache de lecture sur le ou les disques hébergeant les fichiers de données et TempDB.<br/><br/>Ne pas activer la mise en cache sur le ou les disques hébergeant le fichier journal.<br/><br/>Important : arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache d’un disque de machine virtuelle Azure.<br/><br/>Entrelacer plusieurs disques de données Azure pour obtenir un débit d’E/S plus élevé.<br/><br/>Formatez avec des tailles d’allocation documentées. |
+| [Stockage](#storage-guidance) |Utiliser [Premium Storage](../premium-storage.md). Le stockage standard n’est recommandé que pour le développement et le test.<br/><br/>Conservez le [compte de stockage](../../../storage/common/storage-create-storage-account.md) et la machine virtuelle SQL Server dans la même région.<br/><br/>Désactivez le [stockage géo-redondant](../../../storage/common/storage-redundancy.md) (géo-réplication) d’Azure sur le compte de stockage. |
+| [Disques](#disks-guidance) |Utilisez au moins 2 [disques P30](../premium-storage.md#scalability-and-performance-targets) (1 pour les fichiers journaux ; 1 pour les fichiers de données et TempDB).<br/><br/>Éviter d’utiliser des disques de système d’exploitation ou temporaires pour le stockage ou la journalisation des bases de données.<br/><br/>Activer la mise en cache de lecture sur le ou les disques hébergeant les fichiers de données et TempDB.<br/><br/>Ne pas activer la mise en cache sur le ou les disques hébergeant le fichier journal.<br/><br/>Important : arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache d’un disque de machine virtuelle Azure.<br/><br/>Entrelacer plusieurs disques de données Azure pour obtenir un débit d’E/S plus élevé.<br/><br/>Formatez avec des tailles d’allocation documentées. |
 | [E/S](#io-guidance) |Activez la compression des pages de base de données.<br/><br/>Activer l’initialisation de fichiers instantanée pour les fichiers de données.<br/><br/>Limiter ou désactiver la croissance automatique sur la base de données.<br/><br/>Désactiver la réduction automatique sur la base de données.<br/><br/>Déplacer toutes les bases de données vers des disques de données, y compris les bases de données système.<br/><br/>Déplacer les répertoires des journaux d’erreurs et des fichiers de trace SQL Server vers des disques de données.<br/><br/>Configurez les emplacements par défaut du fichier de sauvegarde et du fichier de base de données.<br/><br/>Activer les pages verrouillées.<br/><br/>Appliquez les correctifs de performances de SQL Server. |
 | [Fonctionnalités spécifiques](#feature-specific-guidance) |Sauvegardez directement dans le stockage d’objets blob. |
 
@@ -56,7 +56,7 @@ Pour les applications sensibles aux performances, il est recommandé d’utilise
 
 ## <a name="storage-guidance"></a>Conseils liés au stockage
 
-Les machines virtuelles de série DS (ainsi que des séries DSv2 et GS) prennent en charge le [stockage Premium](../../../storage/common/storage-premium-storage.md). L’option Premium Storage est recommandée pour toutes les charges de travail de production.
+Les machines virtuelles de série DS (ainsi que des séries DSv2 et GS) prennent en charge le [stockage Premium](../premium-storage.md). L’option Premium Storage est recommandée pour toutes les charges de travail de production.
 
 > [!WARNING]
 > L’option Standard Storage possède différents temps de latence et une bande passante variable. Elle est recommandée uniquement pour les charges de travail de développement/de test. Les charges de production doivent utiliser Premium Storage.
@@ -89,7 +89,7 @@ Pour les machines virtuelles qui prennent en charge le stockage Premium (de sér
 
 ### <a name="data-disks"></a>Disques de données
 
-* **Utilisation de disques de données pour les données et les fichiers journaux** : utilisez au moins 2 [disques P30](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) de stockage Premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir les données, ainsi que le ou les fichiers TempDB. Chaque disque de stockage Premium fournit un nombre d’opérations d’E/S par seconde et une bande passante (Mo/s) en fonction de sa taille, comme décrit dans l’article suivant : [Utilisation du stockage Premium pour les disques](../../../storage/common/storage-premium-storage.md).
+* **Utilisation de disques de données pour les données et les fichiers journaux** : utilisez au moins 2 [disques P30](../premium-storage.md#scalability-and-performance-targets) de stockage Premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir les données, ainsi que le ou les fichiers TempDB. Chaque disque de stockage Premium fournit un nombre d’opérations d’E/S par seconde et une bande passante (Mo/s) en fonction de sa taille, comme décrit dans l’article suivant : [Utilisation du stockage Premium pour les disques](../premium-storage.md).
 
 * **Entrelacement de disques**: pour augmenter le débit, vous pouvez ajouter des disques de données supplémentaires et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, vous devez analyser le nombre d’opérations d’E/S par seconde et de bande passante disponibles pour vos fichiers journaux, vos données et vos fichiers TempDB. Notez que les différentes tailles de machine virtuelle sont associées à des limites spécifiques concernant la bande passante et le nombre d’opérations d’E/S par seconde pris en charge. Pour en savoir plus, consultez les tableaux relatifs aux nombre d’opérations d’E/S par seconde en fonction des [tailles de machine virtuelle](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Respectez les recommandations suivantes :
 

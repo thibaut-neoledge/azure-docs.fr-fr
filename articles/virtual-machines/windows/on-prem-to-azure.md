@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 086f73fd07e9ef24dd7fe776851e1a9402233f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b427556c589c7cc5205bfda16edc8d891814326
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrer à partir d’Amazon Web Services (AWS) et d’autres plateformes vers Managed Disks dans Azure
 
@@ -47,9 +47,9 @@ Vous pouvez charger des disques durs virtuels généralisés et spécialisés.
 
 Azure Managed Disks simplifie la gestion des machines virtuelles en éliminant la nécessité de gérer des comptes de stockage. Managed Disks bénéficie également d’une meilleure fiabilité des machines virtuelles dans un groupe à haute disponibilité. Cela permet de s’assurer que les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres pour éviter un point de défaillance unique. Les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont automatiquement placés dans des unités d’échelle (tampons) de stockage distinctes, ce qui limite l’impact des défaillances d’unités d’échelle de stockage uniques dues à des défaillances matérielles et logicielles. Selon vos besoins, vous avez le choix entre deux types d’options de stockage : 
  
-- Les [disques gérés Premium](../../storage/common/storage-premium-storage.md) sont des supports basés sur des disques SSD (Solide State Drive) qui assurent de hautes performances et une faible latence pour les machines virtuelles dont les charges de travail nécessitent de nombreuses E/S. Vous pouvez tirer parti de la vitesse et des performances des disques gérés Premium en migrant vers ces disques.  
+- Les [disques gérés Premium](premium-storage.md) sont des supports basés sur des disques SSD (Solide State Drive) qui assurent de hautes performances et une faible latence pour les machines virtuelles dont les charges de travail nécessitent de nombreuses E/S. Vous pouvez tirer parti de la vitesse et des performances des disques gérés Premium en migrant vers ces disques.  
 
-- Les [disques gérés Standard](../../storage/common/storage-standard-storage.md) utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement/test et d’accès peu fréquent, qui sont moins sensibles à la variabilité des performances.  
+- Les [disques gérés Standard](standard-storage.md) utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement/test et d’accès peu fréquent, qui sont moins sensibles à la variabilité des performances.  
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Planification de la migration vers Managed Disks
 

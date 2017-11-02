@@ -4,7 +4,7 @@ description: "Gestion d’Azure Analysis Services avec PowerShell."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 ms.assetid: 
 ms.service: analysis-services
@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: 385dd7798893447817dfc2c3a3538a13409ab6e3
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 52c74feacb8cf2e7005f6b284d7b55078449dc79
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gérer Azure Analysis Services avec PowerShell
 
@@ -32,7 +32,7 @@ La plupart des tâches PowerShell nécessitent que vous disposiez de privilège
 Pour les opérations de serveur utilisant des applets de commande AzureRm, votre compte ou le compte exécutant Scheduler doivent également appartenir au rôle Propriétaire associé à la ressource dans le [contrôle d’accès en fonction du rôle (RBAC) d’Azure](../active-directory/role-based-access-control-what-is.md). 
 
 ## <a name="server-operations"></a>Opérations de serveur 
-Les applets de commande Azure Analysis Services sont incluses dans le module de composant [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices). Pour installer les modules d’applet de commande AzureRM, consultez [Applets de commande Azure Resource Manager](/powershell/azure/overview) dans PowerShell Gallery.
+Les applets de commande Azure Analysis Services sont incluses dans le module de composant [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices). Pour installer les modules d’applet de commande AzureRM, consultez [Azure Resource Manager cmdlets](/powershell/azure/overview) (Applets de commande Azure Resource Manager) dans PowerShell Gallery.
 
 |Applet de commande|Description| 
 |------------|-----------------| 

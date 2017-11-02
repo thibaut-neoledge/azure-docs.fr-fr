@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -162,7 +162,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
    | SQL Server | 1433 | Port normal pour les instances par défaut de SQL Server. Si vous avez utilisé une image de la galerie, ce port s’ouvre automatiquement.
    | Sonde d’intégrité | 59999 | Tout port TCP ouvert. Dans une étape ultérieure, configurez la [sonde d’intégrité](#probe) de l’équilibrage de charge et le cluster pour qu’ils utilisent ce port.  
 
-1. Ajoutez du stockage à la machine virtuelle. Pour plus d’informations, consultez [Ajouter du stockage](../../../storage/common/storage-premium-storage.md).
+1. Ajoutez du stockage à la machine virtuelle. Pour plus d’informations, consultez [Ajouter du stockage](../premium-storage.md).
 
    Les deux machines virtuelles ont besoin d’au moins deux disques de données.
 

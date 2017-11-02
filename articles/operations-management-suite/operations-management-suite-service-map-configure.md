@@ -1,6 +1,6 @@
 ---
 title: Configurer Service Map dans Operations Management Suite | Microsoft Docs
-description: "Service Map est une solution OMS (Operations Management Suite) qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Service Map dans votre environnement et son utilisation dans divers scénarios."
+description: "Carte de service est une solution OMS (Operations Management Suite) qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Carte de service dans votre environnement et son utilisation dans divers scénarios."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 4c5c8aacd2d104b8d6074b90eeffc32b29fc50f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: daef11a0cea11b0f6633ab32f7d84fac4591180a
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurer Service Map dans Operations Management Suite
-Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cette solution permet d’afficher les serveurs comme on se les représente, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP, sans configuration requise autre que l’installation d’un agent.
+Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cette solution permet d’afficher les serveurs comme on se les représente, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP, sans configuration requise autre que l’installation d’un agent.
 
-Cet article décrit en détail la configuration de Service Map et de l’intégration des agents. Pour plus d’informations sur l’utilisation de Service Map, consultez [Utiliser la solution Service Map dans Operations Management Suite](operations-management-suite-service-map.md).
+Cet article décrit en détail la configuration de Carte de service et de l’intégration des agents. Pour plus d’informations sur l’utilisation de Service Map, consultez [Utiliser la solution Service Map dans Operations Management Suite](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Téléchargements de l’agent de dépendances
 | Fichier | SE | Version | SHA-256 |
@@ -33,14 +33,14 @@ Cet article décrit en détail la configuration de Service Map et de l’intégr
 
 
 ## <a name="connected-sources"></a>Sources connectées
-Service Map obtient ses données à partir de l’agent de dépendances Microsoft. L’agent de dépendances dépend de l’agent OMS pour ses connexions à Operations Management Suite. Cela signifie qu’un serveur doit disposer de l’agent OMS installé et configuré avant que l’agent de dépendances puisse être installé. Le tableau suivant décrit les sources connectées prises en charge par la solution Service Map.
+Carte de service obtient ses données à partir de l’agent de dépendances Microsoft. L’agent de dépendances dépend de l’agent OMS pour ses connexions à Operations Management Suite. Cela signifie qu’un serveur doit disposer de l’agent OMS installé et configuré avant que l’agent de dépendances puisse être installé. Le tableau suivant décrit les sources connectées prises en charge par la solution Service Map.
 
 | Source connectée | Pris en charge | Description |
 |:--|:--|:--|
-| Agents Windows | Oui | Service Map analyse et collecte des données à partir des ordinateurs agents Windows. <br><br>Outre [l’agent OMS](../log-analytics/log-analytics-windows-agents.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
-| Agents Linux | Oui | Service Map analyse et collecte des données à partir des ordinateurs agents Linux. <br><br>Outre [l’agent OMS](../log-analytics/log-analytics-linux-agents.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
+| Agents Windows | Oui | Carte de service analyse et collecte des données à partir des ordinateurs agents Windows. <br><br>Outre [l’agent OMS](../log-analytics/log-analytics-windows-agents.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
+| Agents Linux | Oui | Carte de service analyse et collecte des données à partir des ordinateurs agents Linux. <br><br>Outre [l’agent OMS](../log-analytics/log-analytics-linux-agents.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
 | Groupe d’administration Microsoft System Center Operations Manager | Oui | Service Map analyse et collecte des données provenant des agents Windows et Linux dans un [groupe d’administration System Center Operations Manager](../log-analytics/log-analytics-om-agents.md) connecté. <br><br>Une connexion directe entre l’ordinateur agent System Center Operations Manager et Operations Management Suite est requise. Les données sont transférées du groupe d’administration au référentiel Operations Management Suite.|
-| Compte de stockage Azure | Non | Service Map collecte des données provenant des ordinateurs agents. Aucune donnée n’est donc recueillie à partir du Stockage Azure. |
+| Compte Azure Storage | Non | Service Map collecte des données provenant des ordinateurs agents. Aucune donnée n’est donc recueillie à partir du Stockage Azure. |
 
 Service Map prend uniquement en charge les plateformes 64 bits.
 
@@ -50,7 +50,7 @@ Sous Linux, l’agent OMS pour Linux collecte et envoie les données d’analyse
 
 Dans cet article, nous ferons référence à tous les agents (Linux ou Windows, connectés à un groupe d’administration System Center Operations Manager ou directement à Operations Management Suite) sous le terme d’« agents OMS ». Nous n’utiliserons le nom de déploiement propre à l’agent que si le contexte l’impose.
 
-L’agent Service Map ne transmet pas les données lui-même et il n’est pas nécessaire d’apporter des modifications au pare-feu ni aux ports. Les données de Service Map sont toujours transmises par l’agent OMS à Operations Management Suite, directement ou via la passerelle OMS.
+L’agent Carte de service ne transmet pas les données lui-même et il n’est pas nécessaire d’apporter des modifications au pare-feu ni aux ports. Les données de Service Map sont toujours transmises par l’agent OMS à Operations Management Suite, directement ou via la passerelle OMS.
 
 ![Agents Service Map](media/oms-service-map/agents.png)
 
@@ -255,12 +255,12 @@ Le tableau ci-dessous liste des numéros de code et des suggestions de résoluti
 
 ### <a name="post-installation-issues"></a>Problèmes après installation
 #### <a name="server-doesnt-appear-in-service-map"></a>Le serveur n’apparaît pas dans Service Map
-Si votre installation de l’agent de dépendances a réussi mais que vous ne voyez pas votre serveur dans la solution Service Map :
+Si votre installation de l’agent de dépendances a réussi mais que vous ne voyez pas votre serveur dans la solution de carte de service :
 * L’agent de dépendances est-il correctement installé ? Vous pouvez vous en assurer en vérifiant si le service est installé et en cours d’exécution.<br><br>
 **Windows** : recherchez le service nommé « Microsoft Dependency Agent ».<br>
 **Linux** : recherchez « microsoft-dependency-agent » dans les processus en cours d’exécution.
 
-* Utilisez-vous le [niveau tarifaire Gratuit d’Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers) ? Le forfait Gratuit autorise jusqu'à cinq serveurs Service Map uniques. Les serveurs suivants ne s’afficheront pas dans Service Map, même si les cinq précédents n’envoient plus de données.
+* Utilisez-vous le [niveau tarifaire Gratuit d’Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers) ? Le forfait Gratuit autorise jusqu'à cinq serveurs de carte de service uniques. Les serveurs suivants ne s’afficheront pas dans la carte de service, même si les cinq précédents n’envoient plus de données.
 
 * Votre serveur envoie-t-il des données de journal et de performances à Operations Management Suite ? Accédez à la recherche dans les journaux et exécutez la requête suivante sur votre ordinateur : 
 
@@ -269,7 +269,7 @@ Si votre installation de l’agent de dépendances a réussi mais que vous ne vo
   Avez-vous reçu divers événements dans les résultats ? Les données sont-elles récentes ? Dans ce cas, votre agent OMS fonctionne correctement et communique avec le service Operations Management Suite. Si ce n’est pas le cas, vérifiez l’agent OMS sur votre serveur : [Résolution des problèmes de l’agent OMS pour Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) ou [Résolution des problèmes de l’agent OMS pour Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Le serveur s’affiche dans Service Map, mais n’a aucun processus
-Si vous voyez votre serveur dans Service Map, mais qu’il ne comporte aucune donnée de processus ou de connexion, cela indique que l’agent de dépendances est installé et en cours d’exécution, mais que le pilote du noyau ne s’est pas chargé. 
+Si vous voyez votre serveur dans la carte de service, mais qu’il ne comporte aucune donnée de processus ou de connexion, cela indique que l’agent de dépendances est installé et en cours d’exécution, mais que le pilote du noyau ne s’est pas chargé. 
 
 Vérifiez le fichier C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) ou le fichier /var/opt/microsoft/dependency-agent/log/service.log (Linux). Les dernières lignes du fichier doivent indiquer la raison pour laquelle le noyau ne s’est pas chargé. Par exemple, le noyau n’est peut-être pas pris en charge sous Linux si vous l’avez mis à jour.
 
@@ -283,6 +283,7 @@ Service Map est actuellement disponible dans les régions Azure suivantes :
 - Est des États-Unis
 - Europe de l'Ouest
 - Centre-Ouest des États-Unis
+- Asie du Sud-Est
 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge

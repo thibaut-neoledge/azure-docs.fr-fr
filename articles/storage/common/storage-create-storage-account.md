@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>À propos des comptes de stockage Azure
 
@@ -79,7 +79,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 5. Sélectionnez le type de compte de stockage : **Usage général** ou **Stockage Blob**. **Usage général** .
    
-    Si **Usage général** est sélectionné, spécifiez le niveau de performances **Standard** ou **Premium**. Le niveau par défaut est **Standard**. Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Introduction au Stockage Microsoft Azure](storage-introduction.md) et [Stockage Premium : stockage hautes performances pour les charges de travail des Machines Virtuelles Azure](storage-premium-storage.md).
+    Si **Usage général** est sélectionné, spécifiez le niveau de performances **Standard** ou **Premium**. Le niveau par défaut est **Standard**. Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Introduction au Stockage Microsoft Azure](storage-introduction.md) et [Stockage Premium : stockage hautes performances pour les charges de travail des Machines Virtuelles Azure](../../virtual-machines/windows/premium-storage.md).
    
     Si **Stockage Blob** est sélectionné, spécifiez le niveau d’accès **Chaud** ou **Froid**. Le niveau par défaut est **Chaud**. Pour plus d’informations, voir [Stockage d’objets blob Azure : niveaux froid et chaud](../blobs/storage-blob-storage-tiers.md) .
 6. Sélectionnez l’option de réplication du compte de stockage : **LRS**, **GRS**, **RA-GRS** ou **ZRS**. La valeur par défaut est **RA-GRS**. Pour plus d’informations sur les options de réplication d’Azure Storage, consultez [Réplication Azure Storage](storage-redundancy.md).

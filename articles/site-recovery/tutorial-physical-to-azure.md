@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: 2f9a5092d4dacce8aa1630830499635b3b4eb151
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -76,7 +76,7 @@ Configurez un [compte de stockage Azure](../storage/common/storage-create-storag
 
 - Site Recovery réplique les machines virtuelles locales sur le stockage Azure. Des machines virtuelles Azure sont créées à partir du stockage après le basculement.
 - Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services.
-- Le compte de stockage peut être standard ou [premium](../storage/common/storage-premium-storage.md).
+- Le compte de stockage peut être standard ou [premium](../virtual-machines/windows/premium-storage.md).
 - Si vous configurez un compte premium, vous aurez également besoin d’un compte standard supplémentaire pour les données de journal.
 
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 120810b2b112649e21ec4bfe0c0f58b1fe3d80ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3be12abaaedf5b0d66a484cbee48fe3df77f63fe
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
@@ -93,10 +93,10 @@ Le tableau suivant montre les composants Azure Backup prenant en charge Linux.
 | Sauvegarde des machines virtuelles IaaS Azure |Sauvegarde cohérente au niveau application à l’aide de [l’infrastructure pré et post-script](backup-azure-linux-app-consistent.md)<br/> [Récupération de fichiers granulaire](backup-azure-restore-files-from-vm.md)<br/> [Restaurer tous les disques de machines virtuelles](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauration de machines virtuelles](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilisation des machines virtuelles Premium Storage avec Azure Backup
-Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur le stockage Premium, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/common/storage-premium-storage.md).
+Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur le stockage Premium, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Sauvegarder des machines virtuelles Premium Storage
-Au moment de sauvegarder des machines virtuelles de stockage Premium, le service de sauvegarde crée un emplacement temporaire intermédiaire appelé « AzureBackup- » dans le compte Stockage Premium. La taille de l’emplacement intermédiaire est égale à la taille de la capture instantanée de point de récupération. Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../storage/common/storage-premium-storage.md#scalability-and-performance-targets). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../storage/common/storage-premium-storage.md#pricing-and-billing).
+Au moment de sauvegarder des machines virtuelles de stockage Premium, le service de sauvegarde crée un emplacement temporaire intermédiaire appelé « AzureBackup- » dans le compte Stockage Premium. La taille de l’emplacement intermédiaire est égale à la taille de la capture instantanée de point de récupération. Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Évitez de modifier l'emplacement intermédiaire.

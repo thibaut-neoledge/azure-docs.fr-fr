@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d43fb03ce1c54a47315b8c3a5c83ec2082bcab9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -82,7 +82,7 @@ Configurez un [compte de stockage Azure](../storage/common/storage-create-storag
 
 - Site Recovery réplique les machines virtuelles locales sur le stockage Azure. Des machines virtuelles Azure sont créées à partir du stockage après le basculement.
 - Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services.
-- Le compte de stockage peut être standard ou [premium](../storage/common/storage-premium-storage.md).
+- Le compte de stockage peut être standard ou [premium](../virtual-machines/windows/premium-storage.md).
 - Si vous configurez un compte premium, vous avez besoin d’un compte standard supplémentaire pour les données de journal.
 
 ### <a name="prepare-hyper-v-hosts"></a>Préparer les hôtes Hyper-V
@@ -251,7 +251,7 @@ Si vous utilisez VMM, configurez le mappage de réseau.
 3. Dans **Fréquence de copie**, spécifiez la fréquence selon laquelle répliquer les données delta après la réplication initiale (toutes les 30 secondes ou toutes les 5 ou 15 minutes).
 
     > [!NOTE]
-    >  Une fréquence de 30 secondes n’est pas prise en charge lors de la réplication sur un Stockage Premium. La limitation est déterminée par le nombre de captures instantanées par objet blob (100) pris en charge par le Stockage Premium. [En savoir plus](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob).
+    >  Une fréquence de 30 secondes n’est pas prise en charge lors de la réplication sur un Stockage Premium. La limitation est déterminée par le nombre de captures instantanées par objet blob (100) pris en charge par le Stockage Premium. [En savoir plus](../virtual-machines/windows/premium-storage.md#snapshots-and-copy-blob).
 
 4. Dans **Rétention des points de récupération**, spécifiez la durée (en heures) de la fenêtre de rétention pour chaque point de récupération. Les machines protégées peuvent être récupérées à tout moment pendant cette fenêtre temporelle.
 5. Dans **Fréquence des captures instantanées cohérentes de l’application**, spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre 1 et 12 heures). Hyper-V utilise deux types de captures instantanées :

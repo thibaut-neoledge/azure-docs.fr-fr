@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 5eea1baed550d5231c54f2ebc7b48169f58e64c5
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
 Microsoft Azure propose une gamme croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
@@ -59,7 +59,7 @@ Voici quelques conseils de base pour la sélection d’une taille de machine vir
 
 Remarque : les machines virtuelles des séries DS et GS peuvent utiliser un stockage Premium, qui offre un stockage SSD hautes performances à faible latence pour les charges de travail impliquant des E/S intensives. Le stockage Premium est disponible dans certaines régions. Pour plus d'informations, consultez les rubriques :
 
-* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](../../storage/common/storage-premium-storage.md)
+* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](../windows/premium-storage.md)
 
 ## <a name="automation"></a>Automatisation
 Pour obtenir une culture DevOps appropriée, toute l’infrastructure doit être du code.  Lorsque l’ensemble de l’infrastructure se trouve dans le code, elle est facile à recréer (serveurs Phoenix).  Azure fonctionne avec tous les principaux outils d’automatisation, comme Ansible, Chef, SaltStack et Puppet.  Azure propose également ses propres outils pour l’automatisation :
