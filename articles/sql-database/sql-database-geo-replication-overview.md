@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database : groupes de basculement et géo-réplication active | Documents Microsoft"
-description: "Les groupes de basculement automatique avec géo-réplication active vous permettent de configurer quatre réplicas de votre base de données dans un des centres de données Azure et d’effectuer un basculement automatique en cas de panne."
+description: "Utilisez des groupes de basculement automatique avec géoréplication active et activez les basculement automatique en cas de panne."
 services: sql-database
 documentationcenter: na
 author: anosov1960
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 0725d5747ab343dcf99ad8f2dc0e47d7304c9f1e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0b424e2b260ec527f33cdbfe49d1d981b14edfda
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Vue d’ensemble : groupes de basculement et géo-réplication active
 La géo-réplication active vous permet de configurer jusqu'à quatre bases de données secondaires accessibles en lecture dans des emplacements de centres de données identiques ou différents (régions). Les bases de données secondaires sont disponibles pour l’interrogation et le basculement en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire. Le basculement doit être lancé manuellement par l’application de l’utilisateur. Après le basculement, la nouvelle base de données primaire présente un point de terminaison de connexion différent. 
@@ -65,7 +65,7 @@ La fonction de géo-réplication active fournit les capacités essentielles suiv
 * **Bases de données secondaires accessibles en lecture**: une application peut accéder à une base de données secondaire pour des opérations en lecture seule avec des entités de sécurité qui peuvent différer de celles utilisées pour accéder à la base de données primaire. Les bases de données secondaires fonctionnent en mode d’isolement d’instantané pour garantir que la réplication des mises à jour de la base de données primaire n’est pas retardée par des requêtes exécutées sur la base de données secondaire.
 
    > [!NOTE]
-   > La relecture du journal est retardée sur la base de données secondaire si celle-ci reçoit de la base de données primaire des mises à jour de schéma, car cette opération nécessite un verrou de schéma sur la base de données secondaire. 
+   > La relecture du journal est différée sur la base de données secondaire s’il existe des mises à jour de schéma sur le Principal. Cette dernière nécessite un verrouillage de schéma sur la base de données secondaire. 
    > 
 
 * **Plusieurs bases de données secondaires accessibles en lecture** : l’utilisation d’au moins deux bases de données secondaires permet d’améliorer la redondance et le niveau de protection de la base de données primaire et de l’application. S’il existe plusieurs bases de données secondaires, l’application reste protégée même en cas d’échec de l’une des bases de données secondaires. S’il n’existe qu’une seule base de données secondaire, en cas d’échec de celle-ci, l’application est exposée à un risque plus élevé jusqu’à la création d’une nouvelle base de données secondaire.

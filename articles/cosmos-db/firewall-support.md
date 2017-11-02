@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 10/12/2017
 ms.author: ankshah
-ms.openlocfilehash: 8836cb516bf7669a2d17da7f87222960fc343042
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e4419b57edf86e03044ad1047b18397ff4d8d19
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Prise en charge du pare-feu Azure Cosmos DB
 Pour sécuriser les données stockées dans un compte de base de données Azure Cosmos DB, Azure Cosmos DB assure la prise en charge d’un [modèle d’autorisation](https://msdn.microsoft.com/library/azure/dn783368.aspx) basé sur une clé secrète, qui utilise un code d’authentification de message basé sur le hachage (HMAC) à forte intégrité. Outre le modèle d’autorisations basé sur un secret, Azure Cosmos DB prend désormais en charge les contrôles d’accès basés sur une stratégie IP pour la prise en charge du pare-feu entrant. Ce modèle est très semblable aux règles de pare-feu d’un système de base de données traditionnel et renforce la sécurité du compte de base de données Azure Cosmos DB. Avec ce modèle, vous pouvez désormais configurer un compte de base de données Azure Cosmos DB pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux ressources Azure Cosmos DB à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.
@@ -38,7 +38,7 @@ Dans Azure, les services cloud sont une méthode très courante d’hébergement
 Lorsque vous faites évoluer votre service cloud en ajoutant des instances de rôle supplémentaires, ces nouvelles instances auront automatiquement accès au compte de base de données Azure Cosmos DB, car ils font partie du même service cloud.
 
 ## <a name="connections-from-virtual-machines"></a>Connexions à partir de machines virtuelles
-Des [machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) ou des [jeux de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) peuvent également être utilisés pour héberger les services de couche intermédiaire à l’aide d’Azure Cosmos DB.  Pour configurer le compte de base de données Azure Cosmos DB afin qu’il autorise l’accès à partir de machines virtuelles, les adresses IP publiques de la machine virtuelle ou du groupe de machines virtuelles identiques doivent figurer parmi les adresses IP autorisées de votre compte de base de données Azure Cosmos DB en [configurant la stratégie de contrôle d’accès IP](#configure-ip-policy). Vous pouvez récupérer des adresses IP pour des machines virtuelles dans le portail Azure, comme illustré dans la capture d’écran suivante.
+Des [machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) ou des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) peuvent également être utilisés pour héberger les services de couche intermédiaire à l’aide d’Azure Cosmos DB.  Pour configurer le compte de base de données Azure Cosmos DB afin qu’il autorise l’accès à partir de machines virtuelles, les adresses IP publiques de la machine virtuelle ou du groupe de machines virtuelles identiques doivent figurer parmi les adresses IP autorisées de votre compte de base de données Azure Cosmos DB en [configurant la stratégie de contrôle d’accès IP](#configure-ip-policy). Vous pouvez récupérer des adresses IP pour des machines virtuelles dans le portail Azure, comme illustré dans la capture d’écran suivante.
 
 ![Capture d’écran illustrant une adresse IP publique pour une machine virtuelle affichée dans le portail Azure](./media/firewall-support/public-ip-addresses-dns.png)
 
@@ -65,7 +65,7 @@ Dans le volet Nouveau, indiquez si le portail Azure peut accéder au compte et a
 > Quand vous activez une stratégie de contrôle d’accès IP, vous devez ajouter l’adresse IP du portail Azure pour conserver l’accès. Les adresses IP du portail sont :
 > |Région|Adresse IP|
 > |------|----------|
-> |Toutes les régions, à l’exception de celles spécifiées ci-dessous| 104.42.195.92, 40.76.54.131, 52.176.6.30, 52.169.50.45, 52.187.184.26|
+> |Toutes les régions, à l’exception de celles spécifiées ci-dessous|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 > |Allemagne|51.4.229.218|
 > |Chine|139.217.8.252|
 > |Gouvernement des États-Unis|52.244.48.71|

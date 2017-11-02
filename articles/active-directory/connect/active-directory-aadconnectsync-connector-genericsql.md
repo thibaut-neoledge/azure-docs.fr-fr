@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2017
 ms.author: billmath
-ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81bacc39d974dfbd1b2aa8dce9e629c508203811
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Référence technique du connecteur SQL générique
 Cet article décrit le connecteur SQL générique. Cet article s’applique aux produits suivants :
@@ -291,7 +291,7 @@ Si vous choisissez l’option Procédure stockée, l’exportation nécessite 3 
 * **Ajouter un nom SP**: cette procédure stockée s’exécute si un objet arrive au connecteur pour une insertion dans la table concernée.
 * **Mettre à jour un nom SP**: cette procédure stockée s’exécute si un objet arrive au connecteur pour une mise à jour dans la table concernée.
 * **Supprimer un nom SP**: cette procédure stockée s’exécute si un objet arrive au connecteur pour une suppression de la table concernée.
-* Attribut sélectionné à partir du schéma utilisé comme valeur de paramètre à la procédure stockée. Par exemple, `EmployeeName: INPUT: @EmployeeName` (EmployeeName est sélectionné dans le schéma de connecteur et un connecteur remplace la valeur correspondante lors de l’exportation)
+* Attribut sélectionné à partir du schéma utilisé comme valeur de paramètre à la procédure stockée. Par exemple, `@EmployeeName: INPUT: EmployeeName` (EmployeeName est sélectionné dans le schéma de connecteur et un connecteur remplace la valeur correspondante lors de l’exportation)
 * Pour exécuter la procédure stockée paramétrée, fournissez les paramètres au format `[Name]:[Direction]:[Value]` . Saisissez chaque paramètre sur une ligne différente (Utilisez Ctrl + Entrée pour passer à la ligne).
 
 **SQL query**  

@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 10/20/2017
 ms.author: babanisa
-ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Présentation d’Azure Event Grid
 
@@ -25,8 +25,6 @@ Dans sa version préliminaire, Event Grid prend en charge les emplacements **wes
 Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md).
 
 ![Modèle de grille d’événement fonctionnel](./media/overview/event-grid-functional-model.png)
-
-Stockage Blob n’est pas disponible publiquement en tant qu’éditeur. Vous devez vous inscrire à la version préliminaire pour réagir aux événements d’objets blob de stockage. Pour plus d’informations, consulter [Acheminer des événements de stockage Blob vers un point de terminaison web personnalisé (version préliminaire)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## <a name="concepts"></a>Concepts
 
@@ -64,6 +62,7 @@ Actuellement, les services Azure suivants ont une prise en charge de l’éditeu
 * Groupes de ressources (opérations de gestion)
 * Abonnements Azure (opérations de gestion)
 * Event Hubs
+* Storage Blob
 * Rubriques personnalisées
 
 D’autres services Azure seront ajoutés cette année.
@@ -118,6 +117,8 @@ Event Grid coûte 0,60 $ par million d’opérations (0,30 $ pendant l’aperçu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Router les événements d’objet blob de stockage](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+  Répondez aux événements d’objet blob de stockage à l’aide d’Event Grid.
 * [Créer des événements personnalisés et s’y abonner](custom-event-quickstart.md)  
   Démarrez et commencez à envoyer vos propres événements personnalisés vers tout point de terminaison à l’aide du guide de démarrage rapide Azure Event Grid.
 * [Utilisation de Logic Apps en tant que gestionnaire d’événements](monitor-virtual-machine-changes-event-grid-logic-app.md)  

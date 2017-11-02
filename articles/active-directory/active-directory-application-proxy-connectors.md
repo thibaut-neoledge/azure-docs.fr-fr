@@ -3,7 +3,7 @@ title: "Connecteurs de proxy d’application Azure AD du portail Classic | Micr
 description: "Explique comment créer et gérer des groupes de connecteurs dans le proxy d’Application Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: LizCasey
 manager: femila
 ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: fc65c4053c45d9c16c62ee0fe65924133a4bb94a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09e161effb595b993cc87b3a1c3773bdb5a6ca5a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
 > [!div class="op_single_selector"]

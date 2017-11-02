@@ -3,7 +3,7 @@ title: "Attribution de rôles d’administrateur dans Azure Active Directory | M
 description: "Le rôle de l’administrateur peut servir à créer ou modifier des utilisateurs, attribuer des rôles d’administrateur, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc. Un utilisateur à qui un rôle d’administrateur est affecté a les mêmes autorisations sur tous les services cloud auxquels votre organisation s’est abonnée."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
@@ -17,11 +17,11 @@ ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 8e50ea660df0a3ca1fbd23f7b610a7e57eb737d1
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 7c866842c2d090c27c77b2ef5c236bda893022c4
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Attribution de rôles d’administrateur dans Azure Active Directory
 > [!div class="op_single_selector"]

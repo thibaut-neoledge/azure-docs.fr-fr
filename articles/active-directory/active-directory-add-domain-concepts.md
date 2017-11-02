@@ -3,7 +3,7 @@ title: "Vue d’ensemble conceptuelle des noms de domaine personnalisés dans Az
 description: "Explique l’infrastructure conceptuelle pour l’utilisation des noms de domaine personnalisés dans Azure Active Directory, notamment la fédération pour l’authentification unique"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: b0ba411dd40bbd063a328d61be899c1e70a96eda
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: baaf1829705c46322158c229a8ecccd0164cd4a6
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Vue d’ensemble conceptuelle des noms de domaine personnalisés dans Azure Active Directory
 Un nom de domaine peut être un identificateur important pour de nombreuses ressources de répertoire, lorsqu’il est compris dans :
@@ -40,7 +40,7 @@ Chaque nom de domaine dans Azure AD est un nom de domaine initial ou un nom de d
 
 Chaque service Azure AD est fourni avec un nom de domaine initial dans le formulaire contoso.onmicrosoft.com. Ce troisième niveau du nom de domaine, « contoso.onmicrosoft.com » dans cet exemple, a été établi lorsque le répertoire a été créé, généralement par l’administrateur qui a créé le répertoire. Le nom de domaine initial d’un répertoire ne peut pas être modifié ou supprimé. Le nom de domaine initial, bien qu’entièrement fonctionnel, est principalement destiné à être utilisé comme un mécanisme d’amorçage jusqu’à ce qu’un nom de domaine personnalisé soit vérifié.
 
-Dans la plupart des environnements de production, un répertoire contient au moins un domaine personnalisé vérifié, par exemple « contoso.com », et c’est ce domaine personnalisé qui est visible aux utilisateurs finaux. Un nom de domaine personnalisé est un nom de domaine qui est la propriété et qui est utilisé par cette organisation, par exemple, « contoso.com », pour des utilisations comme l’hébergement de son site web. Ce nom de domaine est connu des employés, car il fait partie du nom d’utilisateur dont ils se servent pour se connecter au réseau d’entreprise, ou pour envoyer et récupérer l’ e-mail.
+Dans la plupart des environnements de production, un répertoire contient au moins un domaine personnalisé vérifié, par exemple « contoso.com », et c’est ce domaine personnalisé qui est visible aux utilisateurs finaux. Un nom de domaine personnalisé est un nom de domaine qui est la propriété et qui est utilisé par cette organisation, par exemple, « contoso.com », pour des utilisations comme l’hébergement de son site web. Ce nom de domaine est connu des employés, car il fait partie du nom d’utilisateur dont ils se servent pour se connecter au réseau d’entreprise, ou pour envoyer et récupérer le courrier électronique.
 
 Avant de pouvoir être utilisé par Azure AD, le nom de domaine personnalisé doit être ajouté à votre répertoire et vérifié.
 
@@ -49,7 +49,7 @@ Le nom de domaine initial d’un répertoire est implicitement évalué comme v�
 
 Azure AD vérifie la propriété d’un nom de domaine en recherchant une entrée particulière dans le fichier de zone du service de nom de domaine (DNS) pour le nom de domaine. Pour vérifier la propriété d’un nom de domaine, un administrateur obtient l’entrée DNS qui sera recherchée par Azure AD à partir d’Azure AD et ajoute cette entrée au fichier de zone DNS pour le nom de domaine. Le fichier de zone DNS est conservé par le bureau d’enregistrement de noms de domaine pour ce domaine. Les étapes permettant de vérifier un domaine sont décrites dans l’article [Ajout d’un domaine personnalisé à votre répertoire Azure AD](active-directory-add-domain.md).
 
-L’ajout d’une entrée DNS au fichier de zone pour le nom de domaine n’affecte pas les autres services de domaine, tels que l’ e-mail ou l’hébergement web.
+L’ajout d’une entrée DNS au fichier de zone pour le nom de domaine n’affecte pas les autres services de domaine, tels que le courrier électronique ou l’hébergement web.
 
 ## <a name="federated-and-managed-domain-names"></a>Noms de domaines fédérés et gérés
 Un nom de domaine personnalisé dans Azure AD peut être configuré pour permettre une authentification fédérée entre Active Directory local et Azure AD. La configuration d’un domaine pour la fédération requiert des mises à jour vers des ressources privilégiées dans Azure AD et votre Windows Server Active Directory. La configuration d’un domaine fédéré doit être effectuée à partir d’Azure AD Connect ou à l’aide de PowerShell. La fédération d’un domaine personnalisé ne peut pas être lancée à partir du portail Azure Classic. Les domaines qui ne sont pas fédérés sont parfois appelés domaines gérés. Le nom de domaine initial d’un répertoire Azure AD est implicitement évalué comme domaine géré.

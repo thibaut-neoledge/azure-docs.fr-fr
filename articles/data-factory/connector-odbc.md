@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 4acc29dc74a37d16a9e90101aa9b7706c55af58e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur **Odbc** | Oui |
-| connectionString | Chaîne de connexion sans la partie contenant les informations d’identification. Consultez les exemples dans la section suivante. | Oui |
+| connectionString | Chaîne de connexion sans la partie contenant les informations d’identification. Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le nom de source de données (DSN) du système que vous avez configuré sur la machine de l’Integration Runtime avec `"DSN=<name of the DSN on IR machine>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié en conséquence).| Oui |
 | authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC.<br/>Valeurs autorisées : **De base** et **Anonyme**. | Oui |
 | userName | Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. | Non |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ comme SecureString. | Non |
@@ -71,11 +71,11 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -100,11 +100,11 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Anonymous",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Anonymous",
             "credential": {
                 "type": "SecureString",
                 "value": "RefreshToken=<secret refresh token>;"
@@ -240,9 +240,93 @@ Pour copier des données vers une banque de données compatible ODBC, définisse
 ]
 ```
 
+## <a name="ibm-informix-source"></a>Source IBM Informix
+
+Vous pouvez copier des données à partir d’une base de données IBM Informix à l’aide du connecteur ODBC générique.
+
+Configurez un runtime d’intégration auto-hébergé sur une machine ayant accès à votre banque de données. L’Integration Runtime utilise le pilote ODBC pour Informix pour se connecter à la banque de données. Par conséquent, installez le pilote s’il ne l’est pas encore sur la même machine. Par exemple, vous pouvez utiliser le pilote « IBM INFORMIX ODBC DRIVER (64 bits) ». Pour plus d’informations, voir la section [Conditions préalables](#prerequisites).
+
+Avant d’utiliser la source Informix dans une solution de fabrique de données, vérifiez si l’Integration Runtime peut se connecter à la banque de données en suivant les instructions de la section [Résoudre les problèmes de connectivité](#troubleshoot-connectivity-issues).
+
+Créez un service lié ODBC pour lier une banque de données IBM Informix à une fabrique de données Azure comme dans l’exemple suivant :
+
+```json
+{
+    "name": "InformixLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "<Informix connection string or DSN>"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Pour une présentation détaillée de l'utilisation de banques de données ODBC en tant que banques de données de sources/réceptrices dans une opération de copie, lisez l'article depuis le début.
+
+## <a name="microsoft-access-source"></a>Source Microsoft Access
+
+Vous pouvez copier des données à partir d’une base de données Microsoft Access à l’aide du connecteur ODBC générique.
+
+Configurez un runtime d’intégration auto-hébergé sur une machine ayant accès à votre banque de données. L’Integration Runtime utilise le pilote ODBC pour Microsoft Access pour se connecter à la banque de données. Par conséquent, installez le pilote s’il ne l’est pas encore sur la même machine. Pour plus d’informations, voir la section [Conditions préalables](#prerequisites).
+
+Avant d’utiliser la source Microsoft Access dans une solution de fabrique de données, vérifiez si l’Integration Runtime peut se connecter à la banque de données en suivant les instructions de la section [Résoudre les problèmes de connectivité](#troubleshoot-connectivity-issues).
+
+Créez un service lié ODBC pour lier une base de données Microsoft Access à une fabrique de données Azure comme dans l’exemple suivant :
+
+```json
+{
+    "name": "MicrosoftAccessLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Pour une présentation détaillée de l'utilisation de banques de données ODBC en tant que banques de données de sources/réceptrices dans une opération de copie, lisez l'article depuis le début.
+
 ## <a name="ge-historian-source"></a>Source GE Historian
 
-Vous créez un service lié ODBC pour lier un magasin de données [GE Proficy Historian (désormais GE Historian)](http://www.geautomation.com/products/proficy-historian) à une fabrique de données Azure comme l’indique l’exemple suivant :
+Vous pouvez copier des données à partir de GE Historian à l’aide du connecteur ODBC générique.
+
+Configurez un runtime d’intégration auto-hébergé sur une machine ayant accès à votre banque de données. Le runtime d’intégration utilise le pilote ODBC pour GE Historian pour se connecter à la banque de données. Par conséquent, installez le pilote s’il ne l’est pas encore sur la même machine. Pour plus d’informations, voir la section [Conditions préalables](#prerequisites).
+
+Avant d’utiliser la source GE Historian dans une solution de fabrique de données, vérifiez si l’Integration Runtime peut se connecter à la banque de données en suivant les instructions de la section [Résoudre les problèmes de connectivité](#troubleshoot-connectivity-issues).
+
+Créez un service lié ODBC pour lier une base de données Microsoft Access à une fabrique de données Azure comme dans l’exemple suivant :
 
 ```json
 {
@@ -252,11 +336,11 @@ Vous créez un service lié ODBC pour lier un magasin de données [GE Proficy Hi
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<GE Historian store connection string or DSN>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -270,10 +354,6 @@ Vous créez un service lié ODBC pour lier un magasin de données [GE Proficy Hi
     }
 }
 ```
-
-Configurez un runtime d’intégration auto-hébergé sur une machine ayant accès à votre banque de données. Le runtime d’intégration utilise le pilote ODBC pour GE Historian pour se connecter à la banque de données. Par conséquent, installez le pilote s’il ne l’est pas encore sur la même machine. Pour plus d’informations, voir la section [Conditions préalables](#prerequisites).
-
-Avant d'utiliser la banque de données GE Historian dans une solution Data Factory, vérifiez si le runtime d’intégration peut se connecter à la banque de données en suivant les instructions de la section suivante.
 
 Pour une présentation détaillée de l'utilisation de banques de données ODBC en tant que banques de données de sources/réceptrices dans une opération de copie, lisez l'article depuis le début.
 
@@ -283,7 +363,13 @@ Pour une présentation détaillée de l'utilisation de banques de données ODBC 
 >Pour copier des données d’une banque de données SAP HANA, reportez-vous à la documentation du [connecteur SAP HANA](connector-sap-hana.md) natif. Pour copier des données vers SAP HANA, suivez cette instruction pour utiliser un connecteur ODBC. Notez que les services liés pour les connecteurs SAP HANA et ODBC sont de types différents et qu’ils ne peuvent donc pas être réutilisées.
 >
 
-Vous créez un service lié ODBC pour lier une banque de données SAP HANA à une fabrique de données Azure comme dans l’exemple suivant :
+Vous pouvez copier des données vers une base de données SAP HANA à l’aide du connecteur ODBC générique.
+
+Configurez un runtime d’intégration auto-hébergé sur une machine ayant accès à votre banque de données. Le runtime d’intégration utilise le pilote ODBC pour SAP HANA pour se connecter à la banque de données. Par conséquent, installez le pilote s’il ne l’est pas encore sur la même machine. Pour plus d’informations, voir la section [Conditions préalables](#prerequisites).
+
+Avant d’utiliser le récepteur SAP HANA dans une solution de fabrique de données, vérifiez si l’Integration Runtime peut se connecter à la banque de données en suivant les instructions de la section [Résoudre les problèmes de connectivité](#troubleshoot-connectivity-issues).
+
+Créez un service lié ODBC pour lier une banque de données SAP HANA à une fabrique de données Azure comme dans l’exemple suivant :
 
 ```json
 {
@@ -293,11 +379,11 @@ Vous créez un service lié ODBC pour lier une banque de données SAP HANA à un
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -311,10 +397,6 @@ Vous créez un service lié ODBC pour lier une banque de données SAP HANA à un
     }
 }
 ```
-
-Configurez un runtime d’intégration auto-hébergé sur une machine ayant accès à votre banque de données. Le runtime d’intégration utilise le pilote ODBC pour SAP HANA pour se connecter à la banque de données. Par conséquent, installez le pilote s’il ne l’est pas encore sur la même machine. Pour plus d’informations, voir la section [Conditions préalables](#prerequisites).
-
-Avant d'utiliser la banque de données SAP HANA dans une solution Data Factory, vérifiez si le runtime d’intégration peut se connecter à la banque de données en suivant les instructions de la section suivante.
 
 Pour une présentation détaillée de l'utilisation de banques de données ODBC en tant que banques de données de sources/réceptrices dans une opération de copie, lisez l'article depuis le début.
 
