@@ -13,14 +13,14 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-design
+ms.workload: Active
 ms.date: 02/01/2017
 ms.author: srinia
-ms.openlocfilehash: 3d8e3a05ae067fc9b2d52e47c4c49759c940477e
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: eef48cfcbc7d6c241b5ece863df0be6ecad78ca7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Modèles de conception pour les applications SaaS multilocataires et Azure SQL Database
 Cet article vous fournit des informations sur la configuration requise et les modèles d’architecture de données les plus courants pour les applications de base de données SaaS (Software as a Service) multilocataires s’exécutant dans un environnement cloud. Il explique également les facteurs à prendre en compte et les compromis en fonction de chaque modèle de conception. Les pools élastiques et les outils élastiques dans Azure SQL Database peuvent vous aider à répondre à des besoins spécifiques sans compromettre d’autres objectifs.
@@ -66,7 +66,7 @@ Les pratiques de conception courantes pour placer les données des locataires su
 
 ![modèles de données d’applications multilocataires](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
 
-Figure 1: Common design practices for multi-tenant data models
+Figure 1 : Pratiques de conception courantes pour les modèles de données multilocataires
 
 * **Base de données par locataire**. Chaque locataire a sa propre base de données. Toutes les données spécifiques des locataires sont limitées à leur base de données. Elles sont isolées des autres locataires et de leurs données.
 * **Base de données partagée partitionnée**. Plusieurs locataires partagent l’une des différentes bases de données. Un ensemble distinct de clients est attribué à chaque base de données à l’aide d’une stratégie de partitionnement telle que le hachage, la plage ou le partitionnement de liste. Cette stratégie de distribution des données est souvent appelée partitionnement.
@@ -88,7 +88,7 @@ Dans la Figure 2, l’axe Y indique le niveau d’isolation des locataires. L’
 
 ![Modèles courants de conception d’applications multilocataires](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png)
 
-Figure 2: Modèles de données multilocataires courants
+Figure 2 : Modèles de données multilocataires courants
 
 Dans la Figure 2, le quadrant inférieur droit montre un modèle d’application qui utilise une base de données unique partagée potentiellement volumineuse et l’approche de la table partagée (ou du schéma distinct). C’est une bonne chose pour le partage de ressources, car tous les locataires utilisent les mêmes ressources de base de données (processeur, mémoire et entrée/sortie) dans une base de données unique. Cependant, l’isolation des locataires est limitée. Vous devrez peut-être prendre des mesures supplémentaires pour protéger les locataires les uns des autres au niveau de la couche application. Ces étapes supplémentaires peuvent augmenter considérablement le coût DevOps de développement et de gestion de l’application. L’évolutivité est limitée par la mise à l’échelle du matériel qui héberge la base de données.
 
@@ -109,19 +109,19 @@ Azure SQL Database prend en charge tous les modèles d’applications multilocat
 
 ![Modèles dans Azure SQL Database](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
 
-Figure 3: Multi-tenant application patterns in Azure SQL Database
+Figure 3 : Modèles d’applications multilocataires dans Azure SQL Database
 
 ## <a name="database-per-tenant-model-with-elastic-pools-and-tools"></a>Modèle de base de données par locataire avec outils et pools élastiques
 Dans SQL Database, les pools de base de données élastiques combinent l’isolation des locataires et le partage de ressources entre les bases de données des locataires pour mieux prendre en charge l’approche de base de données par locataire. SQL Database est une solution de couche de données pour les fournisseurs SaaS qui créent des applications multilocataires. La charge du partage de ressources entre les locataires se déplace de la couche d’application à la couche de service de base de données. La gestion et l’interrogation à l’échelle entre les bases de données deviennent plus simples avec les tâches, les requêtes et les transactions élastiques, ainsi que la bibliothèque cliente de base de données élastique.
 
 | Exigences de l’application | Fonctionnalités de Base de données SQL |
 | --- | --- |
-| Isolation des locataires et partage des ressources |[Elastic pools](sql-database-elastic-pool.md): Allocate a pool of SQL Database resources and share the resources across various databases. En outre, les bases de données individuelles peuvent tirer autant de ressources que nécessaire dans le pool en fonction des pics de besoins de capacité dus aux modifications des charges de travail des locataires. Le pool élastique peut lui-même varier en fonction des besoins. Les pools élastiques offrent aussi une grande facilité de gestion, de surveillance et de résolution des problèmes au niveau du pool. |
-| Simplicité des opérations de développement entre bases de données |[Elastic pools](sql-database-elastic-pool.md): As noted earlier. |
-| | [Elastic query](sql-database-elastic-query-horizontal-partitioning.md): Query across databases for reporting or cross-tenant analysis. |
-| | [Elastic jobs](sql-database-elastic-jobs-overview.md): Package and reliably deploy database maintenance operations or database schema changes to multiple databases. |
-| | [Elastic transactions](sql-database-elastic-transactions-overview.md): Process changes to several databases in an atomic and isolated way. Les transactions élastiques sont nécessaire lorsque des applications ont besoin de garanties « tout ou rien » sur plusieurs opérations de base de données. |
-| | [Elastic database client library](sql-database-elastic-database-client-library.md): Manage data distributions and map tenants to databases. |
+| Isolation des locataires et partage des ressources |[Pools élastiques](sql-database-elastic-pool.md): permettent d’allouer un pool de ressources Base de données SQL et de partager les ressources sur plusieurs bases de données. En outre, les bases de données individuelles peuvent tirer autant de ressources que nécessaire dans le pool en fonction des pics de besoins de capacité dus aux modifications des charges de travail des locataires. Le pool élastique peut lui-même varier en fonction des besoins. Les pools élastiques offrent aussi une grande facilité de gestion, de surveillance et de résolution des problèmes au niveau du pool. |
+| Simplicité des opérations de développement entre bases de données |[Pools élastiques](sql-database-elastic-pool.md): comme indiqué ci-dessus. |
+| | [Requête élastique](sql-database-elastic-query-horizontal-partitioning.md): permet d’interroger des bases de données pour la création de rapports ou l’analyse entre locataires. |
+| | [Tâches élastiques](sql-database-elastic-jobs-overview.md): permettent de regrouper et de déployer correctement les opérations de maintenance de base de données ou les modifications de schéma de base de données pour plusieurs bases de données. |
+| | [Transactions élastiques](sql-database-elastic-transactions-overview.md): permet de traiter les modifications dans plusieurs bases de données de manière atomique et isolée. Les transactions élastiques sont nécessaire lorsque des applications ont besoin de garanties « tout ou rien » sur plusieurs opérations de base de données. |
+| | [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md): permet de gérer la distribution de données et de mapper les locataires sur les bases de données. |
 
 ## <a name="shared-models"></a>Modèles partagés
 Comme indiqué précédemment, pour la plupart des fournisseurs SaaS une approche de modèle partagé peut engendrer des problèmes d’isolation des locataires, mais aussi compliquer le développement et la maintenance des applications. Toutefois, pour les applications multilocataires qui fournissent directement un service aux consommateurs, les exigences d’isolation des locataires peuvent ne pas être aussi prioritaires que le souhait de minimiser les coûts. Il est possible de regrouper les locataires dans une ou plusieurs bases de données haute densité afin de réduire les coûts. Les modèles de base de données partagée qui utilisent une base de données unique ou plusieurs bases de données partitionnées peuvent améliorer le partage des ressources et faire baisser les coûts globaux. Azure SQL Database fournit des fonctionnalités qui aident les clients à générer une isolation pour améliorer la sécurité et la gestion à grande échelle dans la couche de données.

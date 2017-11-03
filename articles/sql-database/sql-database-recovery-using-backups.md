@@ -12,14 +12,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Active
 ms.date: 10/13/2017
 ms.author: carlrab
-ms.openlocfilehash: 64cc1db78dd6f50c07ca79f8ab0bf29fdbbead22
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
 SQL Database fournit trois options pour la récupération de base de données à l’aide des [sauvegardes de base de données automatisées](sql-database-automated-backups.md) et des [sauvegardes depuis la rétention à long terme](sql-database-long-term-retention.md). Vous pouvez effectuer une restauration à partir d’une sauvegarde de base de données vers :
@@ -55,7 +55,7 @@ Le temps de récupération pour restaurer une base de données à l’aide des s
   
   Pour une base de données très volumineuse et/ou très active, la restauration peut prendre plusieurs heures. En cas de panne prolongée dans une région, il est possible qu’un grand nombre de demandes de géorestauration soient traitées par d’autres régions. S’il y a un grand nombre de demandes, le temps de récupération des bases de données de cette région peut s’en trouver augmenté. La plupart des restaurations de bases de données se terminent dans un délai de 12 heures.
   
-Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
+Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le script [Base de données SQL Azure : récupération de serveur complète](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) est un exemple d'une façon d'accomplir cette tâche.
 
 > [!IMPORTANT]
 > Pour effectuer une récupération à l’aide de sauvegardes automatisées, vous devez avoir un rôle de collaborateur SQL Server dans l’abonnement ou être le propriétaire de l’abonnement. Vous pouvez effectuer une récupération en utilisant le portail Azure, PowerShell ou l’API REST. Vous ne pouvez pas utiliser Transact-SQL. 

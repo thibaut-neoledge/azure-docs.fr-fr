@@ -13,14 +13,14 @@ ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-migrate
+ms.workload: Active
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 6147c5d24214933566e0a909ac99c817350578c7
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migration de base de données SQL Server vers SQL Database dans le cloud
 Cet article décrit les deux méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers Azure SQL Database. La première méthode est plus simple, mais elle implique un temps d’arrêt potentiellement important pendant la migration. La seconde méthode est plus complexe, mais elle élimine en grande partie les temps d’arrêt lors de la migration.
@@ -31,7 +31,7 @@ Dans les deux cas, vous devez vérifier que la base de données source est compa
 > Pour migrer une base de données non SQL Server, notamment Microsoft Access, Sybase, MySQL Oracle et DB2, vers une base de données SQL Azure, consultez l’ [Assistant Migration SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
 > 
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Method 1: Migration with downtime during the migration
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Méthode 1 : Migration avec un temps d’arrêt pendant l’opération
 
  Utilisez cette méthode si vous pouvez vous permettre un temps d’arrêt ou si vous effectuez un test de migration d’une base de données de production que vous envisagez de migrer. Pour un didacticiel, consultez [Migrer une base de données SQL Server](sql-database-migrate-your-sql-server-database.md).
 
@@ -61,7 +61,7 @@ La liste suivante contient des recommandations pour optimiser les performances p
 
 [Mettez à jour les statistiques](https://msdn.microsoft.com/library/ms187348.aspx) avec une analyse complète une fois la migration terminée.
 
-## <a name="method-2-use-transactional-replication"></a>Method 2: Use Transactional Replication
+## <a name="method-2-use-transactional-replication"></a>Méthode 2: Utiliser la réplication transactionnelle
 
 Quand vous ne pouvez pas vous permettre de sortir votre base de données SQL Server de la production pendant la migration, vous pouvez utiliser la réplication transactionnelle SQL Server comme solution de migration. Pour que vous puissiez utiliser cette méthode, la base de données source doit remplir les [conditions requises pour la réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx) et être compatible avec Azure SQL Database. Pour plus d’informations sur la réplication SQL avec AlwaysOn, consultez [Configurer la réplication pour les groupes de disponibilité AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
@@ -104,9 +104,9 @@ Avec la réplication transactionnelle, toutes les modifications apportées à vo
 Vous pouvez rencontrer une grande variété de problèmes de compatibilité, selon la version de SQL Server dans la base de données source et la complexité de la base de données que vous êtes en train de migrer. Les versions antérieures de SQL Server ont plus de problèmes de compatibilité. Utilisez les ressources suivantes en plus d’une recherche Internet ciblée dans le moteur de recherche de votre choix :
 
 * [Fonctionnalités de base de données SQL Server non prises en charge dans Azure SQL Database](sql-database-transact-sql-information.md)
-* [Discontinued Database Engine Functionality in SQL Server 2016 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2005)](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-* [Discontinued Database Engine Functionality in SQL Server 2014 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2005)](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-* [Discontinued Database Engine Functionality in SQL Server 2012 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2005)](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
+* [Discontinued Database Engine Functionality in SQL Server 2016 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2016)](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
+* [Discontinued Database Engine Functionality in SQL Server 2014 (Fonctionnalités du moteur de base de données non disponibles dans SQL Server 2014)](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
+* [Discontinued Database Engine Functionality in SQL Server 2012 (Fonctionnalités du moteur de base de données non disponibles dans SQL Server 2012)](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
 * [Discontinued Database Engine Functionality in SQL Server 2008 R2 (Fonctionnalités du moteur de base de données non disponibles dans SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 * [Discontinued Database Engine Functionality in SQL Server 2005 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2005)](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 

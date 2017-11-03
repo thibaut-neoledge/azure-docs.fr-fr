@@ -12,14 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 7e56baab6ae161736b05ea53b59c9e802a94633e
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 86011610885ff913bfd70aa46389e4e39989d0a3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
@@ -60,7 +60,7 @@ Les détériorations des performances de SQL Database identifiées sont enregist
 | Métriques impactées | Métriques qui ont provoqué la génération d’une information : <ul><li>Augmentation de la durée de la requête [secondes].</li><li>Attente excessive [secondes].</li><li>Demandes ayant expiré [pourcentage].</li><li>Demandes erronées [pourcentage].</li></ul>|
 | Valeur d’impact | Valeur d’une métrique mesurée. |
 | Requêtes impactées et codes d’erreur | Hachage de requête ou code d’erreur. Ces éléments peuvent être utilisés pour établir facilement une corrélation avec les requêtes affectées. Des métriques ayant trait à une augmentation de durée de requête, à un temps d’attente, à des nombres d’expiration ou à des codes d’erreur sont fournies. |
-| Détections | Détection identifiée au niveau de la base de données pendant la durée d’un événement. Il existe 15 modèles de détection. Pour plus d’informations, consultez [Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
+| Détections | Détection identifiée au niveau de la base de données pendant la durée d’un événement. Il existe 15 modèles de détection. Pour plus d’informations, consultez [Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
 | Analyse de la cause racine | Analyse de la cause racine du problème identifié dans un format lisible. Certaines informations peuvent contenir une recommandation d’amélioration des performances lorsque cela est possible. |
 |||
 

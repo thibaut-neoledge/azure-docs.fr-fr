@@ -12,14 +12,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 345a3bf0ff417b35c2abaa26352cff3359997544
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 3bd39b9a63cd4a18eabee3d1737daac56b3e37df
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Créer et gérer des serveurs et des bases de données Azure SQL Database
 
@@ -196,7 +196,7 @@ Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Az
 
 
 > [!TIP]
-> For quick start tutorial using SQL Server Management Studio on Microsoft Windows, see [Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md). For a quick start tutorial using Visual Studio Code on the macOS, Linux, or Windows, see [Azure SQL Database: Use Visual Studio Code to connect and query data](sql-database-connect-query-vscode.md).
+> Pour obtenir un didacticiel de démarrage rapide à l’aide de SQL Server Management Studio sur Microsoft Windows, consultez la page [Azure SQL Database : utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes](sql-database-connect-query-ssms.md). Pour obtenir un didacticiel de démarrage rapide à l’aide de Visual Studio Code sur Mac OS, Linux ou Windows, consultez la page [Azure SQL Database : utilisez Visual Studio Code pour vous connecter et interroger des données](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Gérer les serveurs, les bases de données et les pare-feux SQL Azure à l’aide de l’API REST
 

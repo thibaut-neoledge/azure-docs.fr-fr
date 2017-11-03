@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: d037b793609c359cccebd8dbea917516abf16fce
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 736e48f9651d89a1f4e8e0ae72cdffebb8e9c6e0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Créer un routage défini par l’utilisateur - Portail Azure
 
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous allez créer un réseau virtuel comprenant des sous-r�
 
 ![Itinéraires définis par l’utilisateur](./media/create-user-defined-route/user-defined-routes.png)
 
-Cet article explique comment créer un routage (ou itinéraire) défini par l’utilisateur à l’aide du modèle de déploiement Resource Manager, qui est le modèle de déploiement que nous recommandons d’utiliser lors de la création de routages défini par l’utilisateur. Si vous avez besoin créer un routage défini par l’utilisateur (classique), voir [Création des itinéraires définis par l’utilisateur](virtual-network-create-udr-classic-ps.md). Si vous ne connaissez pas les modèles de déploiement Azure, consultez [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour en savoir plus sur les routages définis par l’utilisateur, voir [Vue d’ensemble des routages définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined-routes).
+Cet article explique comment créer un routage (ou itinéraire) défini par l’utilisateur à l’aide du modèle de déploiement Resource Manager, qui est le modèle de déploiement que nous recommandons d’utiliser lors de la création de routages défini par l’utilisateur. Si vous avez besoin créer un routage défini par l’utilisateur (classique), voir [Création des itinéraires définis par l’utilisateur](virtual-network-create-udr-classic-ps.md). Si vous ne connaissez pas les modèles de déploiement Azure, consultez [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour en savoir plus sur les routages définis par l’utilisateur, voir [Vue d’ensemble des routages définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Créer des itinéraires et une appliance virtuelle réseau
 

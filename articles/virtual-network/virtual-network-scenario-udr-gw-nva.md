@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
-ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="virtual-appliance-scenario"></a>Scénario d’appliance virtuelle
 Pour les clients Azure volumineux, il faut souvent fournir une application à deux niveaux exposée à Internet, tout en autorisant l’accès au niveau d’arrière-plan à partir d’un centre de données local. Ce document vous guide dans un scénario utilisant des itinéraires définis par l’utilisateur (UDR), une passerelle VPN et des appliances virtuelles de réseau pour déployer un environnement à deux niveaux conforme aux exigences suivantes :
@@ -70,7 +70,7 @@ Dans cet exemple, il existe un abonnement qui contient les éléments suivants 
   * **AZF3**. Pare-feu de gestion accessible aux administrateurs à partir du centre de données local, et connecté à un sous-réseau servant à gérer toutes les appliances de pare-feu. Vous pouvez trouver des modèles d’appliance virtuelle à 2 cartes réseau dans Marketplace ou en demander un à votre fournisseur d’appliances.
 
 ## <a name="user-defined-routing-udr"></a>Itinéraire défini par l’utilisateur (UDR)
-Chaque sous-réseau dans Azure peut être lié à une table d’UDR utilisée pour définir le mode d’acheminement du trafic dans ce sous-réseau. Si aucun UDR n’est défini, Azure utilise les itinéraires par défaut pour autoriser le trafic d’un sous-réseau à un autre. Pour mieux comprendre les itinéraires définis par l’utilisateur, consultez [Présentation des itinéraires définis par l’utilisateur et du transfert IP](virtual-networks-udr-overview.md#ip-forwarding).
+Chaque sous-réseau dans Azure peut être lié à une table d’UDR utilisée pour définir le mode d’acheminement du trafic dans ce sous-réseau. Si aucun UDR n’est défini, Azure utilise les itinéraires par défaut pour autoriser le trafic d’un sous-réseau à un autre. Pour mieux comprendre les itinéraires définis par l’utilisateur, consultez [Présentation des itinéraires définis par l’utilisateur et du transfert IP](virtual-networks-udr-overview.md).
 
 Pour assurer la communication transite par l’appliance de pare-feu appropriée, conformément à la dernière exigence ci-dessus, vous devez créer la table suivante contenant les UDR de **azurevnet**.
 
@@ -110,7 +110,7 @@ L’UDR et le transfert IP sont des fonctionnalités que vous pouvez combiner po
 
 La machine virtuelle d’appliance virtuelle doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous devez activer le transfert IP pour la machine virtuelle. Il s’agit d’un paramètre Azure, pas d’un paramètre du système d’exploitation invité. Votre appliance virtuelle doit toujours exécuter un type d’application pour gérer le trafic entrant et l’acheminer correctement.
 
-Pour plus d’informations sur le transfert IP, consultez la [Présentation des itinéraires définis par l’utilisateur et du transfert IP](virtual-networks-udr-overview.md#ip-forwarding).
+Pour plus d’informations sur le transfert IP, consultez la [Présentation des itinéraires définis par l’utilisateur et du transfert IP](virtual-networks-udr-overview.md).
 
 Par exemple, imaginez un réseau virtuel Azure avec la configuration suivante :
 

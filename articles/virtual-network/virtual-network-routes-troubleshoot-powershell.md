@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 141e3c571d744470fd07e99538b6e38d4144e8d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Résoudre des problèmes d’itinéraires à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Des tables d’itinéraires sont associées aux sous-réseaux, qui s’appliquen
 
 * **Itinéraires système :** par défaut, chaque sous-réseau créé dans un réseau virtuel Azure a des tables d’itinéraires système qui permettent le trafic de réseau virtuel local, le trafic local au moyen de passerelles VPN et le trafic Internet. Il existe également des itinéraires système pour les réseaux virtuels homologués.
 * **Itinéraires BGP :** propagés aux interfaces réseau par le biais d’ExpressRoute ou des connexions VPN de site à site. Pour plus d’informations sur les itinéraires BGP, consultez les articles [BGP avec passerelles VPN](../vpn-gateway/vpn-gateway-bgp-overview.md) et [Présentation d’ExpressRoute](../expressroute/expressroute-introduction.md).
-* **Itinéraires définis par l’utilisateur :** si vous utilisez des appliances virtuelles réseau ou effectuez un tunneling forcé du trafic vers un réseau local par le biais d’un VPN de site à site, il se peut que des itinéraires définis par l’utilisateur soient associés à votre table d’itinéraires de sous-réseau. Si vous n’êtes pas familiarisé avec les itinéraires définis par l’utilisateur, consultez [Itinéraires définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined-routes) .
+* **Itinéraires définis par l’utilisateur :** si vous utilisez des appliances virtuelles réseau ou effectuez un tunneling forcé du trafic vers un réseau local par le biais d’un VPN de site à site, il se peut que des itinéraires définis par l’utilisateur soient associés à votre table d’itinéraires de sous-réseau. Si vous n’êtes pas familiarisé avec les itinéraires définis par l’utilisateur, consultez [Itinéraires définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined) .
 
 Avec les différents itinéraires applicables à une interface réseau, il peut être difficile de déterminer quels itinéraires agrégés sont efficaces. Pour vous aider à résoudre les problèmes de connectivité réseau de machine virtuelle, vous pouvez afficher tous les itinéraires effectifs pour une interface réseau dans le modèle de déploiement Azure Resource Manager.
 

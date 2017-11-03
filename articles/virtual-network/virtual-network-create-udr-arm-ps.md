@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 4ca7f791b4c5c8bb9020144785b1c1aeb20db195
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 9696a74ac02688f9004156f6f16b39b37756751d
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-user-defined-route---powershell"></a>Créer un routage défini par l’utilisateur - PowerShell
 
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous allez créer un réseau virtuel comprenant des sous-r�
 
 ![Itinéraires définis par l’utilisateur](./media/create-user-defined-route/user-defined-routes.png)
 
-Cet article explique comment créer un routage (ou itinéraire) défini par l'utilisateur à l’aide du modèle de déploiement Resource Manager, qui est le modèle de déploiement que nous recommandons d’utiliser lors de la création de routages définis par l'utilisateur. Si vous avez besoin créer un routage défini par l’utilisateur (classique), voir [Création des itinéraires définis par l'utilisateur](virtual-network-create-udr-classic-ps.md). Si vous ne connaissez pas les modèles de déploiement Azure, consultez [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour en savoir plus sur les routages définis par l’utilisateur, voir [Vue d’ensemble des routages définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined-routes).
+Cet article explique comment créer un routage (ou itinéraire) défini par l'utilisateur à l’aide du modèle de déploiement Resource Manager, qui est le modèle de déploiement que nous recommandons d’utiliser lors de la création de routages définis par l'utilisateur. Si vous avez besoin créer un routage défini par l’utilisateur (classique), voir [Création des itinéraires définis par l’utilisateur](virtual-network-create-udr-classic-ps.md). Si vous ne connaissez pas les modèles de déploiement Azure, consultez [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour en savoir plus sur les routages définis par l’utilisateur, voir [Vue d’ensemble des routages définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Créer des itinéraires et une appliance virtuelle réseau
 
@@ -349,11 +349,11 @@ Vous pouvez installer et configurer la dernière version du module PowerShell [A
        La sortie renvoie *10.0.2.4* pour **nextHopIpAddress** et *VirtualAppliance* pour **nextHopType**.
 
 > [!NOTE]
-> Pour illustrer les concepts de ce didacticiel, des adresses IP publiques sont attribuées aux machines virtuelles des sous-réseaux Public et Privé, et l'accès à tous les ports réseau est activé dans Azure pour les deux machines virtuelles. Lorsque vous créez des machines virtuelles pour la production, vous ne pouvez pas leur attribuer des adresses IP publiques mais vous pouvez filtrer le trafic réseau vers le sous-réseau Privé en déployant en amont une appliance virtuelle réseau ou en attribuant un groupe de sécurité réseau aux sous-réseaux, à l'interface réseau, ou aux deux. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](virtual-networks-nsg.md).
+> Pour illustrer les concepts de ce didacticiel, des adresses IP publiques sont attribuées aux machines virtuelles des sous-réseaux Public et Privé, et l'accès à tous les ports réseau est activé dans Azure pour les deux machines virtuelles. Lorsque vous créez des machines virtuelles pour la production, vous ne pouvez pas leur attribuer des adresses IP publiques mais vous pouvez filtrer le trafic réseau vers le sous-réseau Privé en déployant en amont une appliance virtuelle réseau ou en attribuant un groupe de sécurité réseau aux sous-réseaux, à l'interface réseau, ou aux deux. Pour en savoir plus sur les groupes de sécurité réseau, voir [Groupes de sécurité réseau](virtual-networks-nsg.md).
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Ce didacticiel nécessite un réseau virtuel existant avec deux sous-réseaux. Cliquez sur le bouton **Essayez** dans la zone qui suit pour créer rapidement un réseau virtuel. Cliquer sur le bouton **Essayez** ouvre [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Même si Cloud Shell exécute PowerShell ou un interpréteur de commandes Bash, dans cette section, l’interpréteur de commandes Bash sert à créer le réseau virtuel. L’interface de ligne de commande Azure est installée dans l'interpréteur de commandes Bash. Si vous y êtes invité par Cloud Shell, connectez-vous à Azure à l’aide votre [compte Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p). Pour créer le réseau virtuel utilisé dans ce didacticiel, cliquez sur le bouton **Copier** dans la zone suivante, puis collez le script dans Azure Cloud Shell :
+Ce didacticiel nécessite un réseau virtuel existant avec deux sous-réseaux. Pour créer rapidement un réseau virtuel, cliquez sur le bouton **Essayer** dans la zone qui suit. Cliquer sur le bouton **Essayez** a pour effet d’ouvrir [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si Azure Cloud Shell exécute PowerShell ou un interpréteur de commandes Bash, dans cette section, l’interpréteur de commandes Bash est utilisé pour créer le réseau virtuel. L’interface de ligne de commande Azure est installée dans l'interpréteur de commandes Bash. Si Azure Cloud Shell vous y invite, connectez-vous à Azure à l’aide votre [compte Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p). Pour créer le réseau virtuel utilisé dans ce didacticiel, cliquez sur le bouton **Copier** dans la zone suivante, puis collez le script dans Azure Cloud Shell :
 
 ```azurecli-interactive
 #!/bin/bash
@@ -383,7 +383,7 @@ az network vnet subnet create \
   --resource-group $rgName
 ```
 
-Pour en savoir plus sur la façon d’utiliser le portail, PowerShell ou un modèle Azure Resource Manager pour créer un réseau virtuel, consultez [Créer un réseau virtuel](virtual-networks-create-vnet-arm-pportal.md).
+Pour en savoir plus sur la façon d’utiliser le portail, PowerShell ou un modèle Azure Resource Manager afin de créer un réseau virtuel, voir [Créer un réseau virtuel](virtual-networks-create-vnet-arm-pportal.md).
 
 ## <a name="delete-resources"></a>Supprimer des ressources
 

@@ -9,17 +9,18 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
-ms.openlocfilehash: ed2266004e60843749233f92c8f4b069e4c17ba5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: douglasl
+ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -155,8 +156,6 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :
     -   [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [Télécharger la documentation technique complète sur la synchronisation des données SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 
 -   [Télécharger la documentation de l’API REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: b41754e74708a095d95eee31da5e304771a6ae05
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: affa68b6aeedb031914b12dac711d93c7ed4a47a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-user-defined-route---azure-cli"></a>Créer un routage défini par l’utilisateur - Azure CLI
 
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous allez créer un réseau virtuel comprenant des sous-r�
 
 ![Itinéraires définis par l’utilisateur](./media/create-user-defined-route/user-defined-routes.png)
 
-Cet article explique comment créer un routage défini par l'utilisateur à l’aide du modèle de déploiement Resource Manager, qui est le modèle de déploiement que nous recommandons d’utiliser lors de la création de routages défini par l'utilisateur. Si vous avez besoin de créer un routage défini par l’utilisateur (classique), voir [Création des routages définis par l’utilisateur](virtual-network-create-udr-classic-cli.md). Si vous ne connaissez pas les modèles de déploiement Azure, consultez [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour en savoir plus sur les routages définis par l’utilisateur, voir [Vue d’ensemble des routages définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined-routes).
+Cet article explique comment créer un routage (ou itinéraire) défini par l'utilisateur à l’aide du modèle de déploiement Resource Manager, qui est le modèle de déploiement que nous recommandons d’utiliser lors de la création de routages définis par l'utilisateur. Si vous avez besoin créer un routage défini par l’utilisateur (classique), voir [Création des itinéraires définis par l’utilisateur](virtual-network-create-udr-classic-cli.md). Si vous ne connaissez pas les modèles de déploiement Azure, consultez [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour en savoir plus sur les routages définis par l’utilisateur, voir [Vue d’ensemble des routages définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Créer des itinéraires et une appliance virtuelle réseau
 
@@ -286,14 +286,14 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
 
 3. Validez la communication entre les machines virtuelles des sous-réseaux public et privé. 
 
-    - Ouvrez une connexion [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) ou [Bureau à distance](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) à l’adresse IP publique de la machine virtuelle *myVm-Publique*.
-    - À partir d’une invite de commandes sur la machine virtuelle *myVm Publique*, entrez `ping myVm-Private`. Vous recevez des réponses parce que l’appliance virtuelle réseau route le sous-réseau public vers le sous-réseau privé.
-    - À partir de la machine virtuelle *myVm-Publique*, exécutez une commande de suivi de l’itinéraire entre les machines virtuelles des sous-réseaux public et privé. Entrez la commande appropriée qui suit, selon le système d’exploitation installé sur les machines virtuelles des sous-réseaux Public et Privé :
+    - Ouvrez une connexion [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) ou [Bureau à distance](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) à l’adresse IP publique de la machine virtuelle *myVm-Public*.
+    - À partir d’une invite de commandes sur la machine virtuelle *myVm-Public*, entrez `ping myVm-Private`. Vous recevez des réponses parce que l’appliance virtuelle réseau route le sous-réseau public vers le sous-réseau privé.
+    - À partir de la machine virtuelle *myVm-Public*, exécutez une commande de suivi de l’itinéraire entre les machines virtuelles des sous-réseaux public et privé. Entrez la commande appropriée qui suit, selon le système d’exploitation installé sur les machines virtuelles des sous-réseaux Public et Privé :
         - **Windows** : à partir d'une invite de commandes, exécutez la commande `tracert myvm-private`.
         - **Ubuntu** : exécutez la commande `tracepath myvm-private`.
       Le trafic transite par 10.0.2.4 (l’appliance virtuelle réseau) avant d’atteindre 10.0.1.4 (la machine virtuelle dans le sous-réseau Privé). 
     - Exécutez les étapes précédentes en vous connectant à la machine virtuelle *myVm-Private* et en effectuant un test ping sur la machine virtuelle *myVm-Public*. La commande de suivi de l’itinéraire montre la communication transitant via 10.0.2.4 avant d’atteindre 10.0.0.4 (la machine virtuelle dans le sous-réseau Public).
-    - **Facultatif** : utilisez la fonctionnalité de tronçons suivant d'Azure Network Watcher pour valider le tronçon suivant entre deux machines virtuelles dans Azure. Avant d’utiliser Network Watcher, vous devez [créer une instance Azure Network Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour la région dans laquelle vous souhaitez l’utiliser. Ce didacticiel utilise la région Est des États-Unis. Une fois que vous avez activé une instance Network Watcher pour la région, entrez la commande suivante pour consulter les informations du tronçon suivant entre les machines virtuelles des sous-réseaux Public et Privé :
+    - **Facultatif** : utilisez la fonctionnalité de tronçon suivant d'Azure Network Watcher pour valider le tronçon suivant entre deux machines virtuelles dans Azure. Avant d’utiliser Network Watcher, vous devez [créer une instance Azure Network Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour la région dans laquelle vous souhaitez l’utiliser. Ce didacticiel utilise la région Est des États-Unis. Une fois que vous avez activé une instance Network Watcher pour la région, entrez la commande suivante pour consulter les informations du tronçon suivant entre les machines virtuelles des sous-réseaux Public et Privé :
      
         ```azurecli-interactive
         az network watcher show-next-hop --resource-group myResourceGroup --vm myVm-Public --source-ip 10.0.0.4 --dest-ip 10.0.1.4
@@ -306,7 +306,7 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Ce didacticiel nécessite de disposer d’un réseau virtuel avec deux sous-réseaux. Pour créer rapidement un réseau virtuel, cliquez sur le bouton **Essayez** dans la zone qui suit. Cliquer sur le bouton **Essayez** a pour effet d’ouvrir [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si Azure Cloud Shell exécute PowerShell ou un interpréteur de commandes Bash, dans cette section, l’interpréteur de commandes Bash est utilisé pour créer le réseau virtuel. L’interpréteur de commandes Bash dispose de l’interface de ligne de commande Azure installée. Si Azure Cloud Shell vous y invite, connectez-vous à Azure à l’aide de votre [compte Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p). Pour créer le réseau virtuel utilisé dans ce didacticiel, cliquez sur le bouton **Copier** dans la zone suivante, puis collez le script dans Azure Cloud Shell :
+Ce didacticiel nécessite de disposer d’un réseau virtuel avec deux sous-réseaux. Pour créer rapidement un réseau virtuel, cliquez sur le bouton **Essayez** dans la zone qui suit. Cliquer sur le bouton **Essayez** a pour effet d’ouvrir [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si Azure Cloud Shell exécute PowerShell ou un interpréteur de commandes Bash, dans cette section, l’interpréteur de commandes Bash est utilisé pour créer le réseau virtuel. L’interface de ligne de commande Azure est installée dans l'interpréteur de commandes Bash. Si Azure Cloud Shell vous y invite, connectez-vous à Azure à l’aide de votre [compte Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p). Pour créer le réseau virtuel utilisé dans ce didacticiel, cliquez sur le bouton **Copier** dans la zone suivante, puis collez le script dans Azure Cloud Shell :
 
 ```azurecli-interactive
 #!/bin/bash
@@ -349,5 +349,5 @@ az group delete --name myResourceGroup --yes
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Créez une [appliance virtuelle réseau hautement disponible](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Souvent, plusieurs interfaces réseau et adresses IP sont attribuées aux appliances virtuelles réseau. Découvrez comment [ajouter des interfaces réseau à une machine virtuelle existante](virtual-network-network-interface-vm.md#vm-add-nic) et [ajouter des adresses IP à une interface réseau existante](virtual-network-network-interface-addresses.md#add-ip-addresses). Même si au moins deux interfaces réseau peuvent être attribuées à des machines virtuelles, quelle que soit leur taille, chaque taille de machine virtuelle prend en charge un nombre maximal d’interfaces réseau. Pour connaître le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle, consultez les tailles de machine virtuelle [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
-- Créez un routage défini par l'utilisateur pour forcer le trafic local via une [connexion VPN de site à site](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Souvent, plusieurs interfaces réseau et adresses IP sont attribuées aux appliances virtuelles réseau. Découvrez comment [ajouter des interfaces réseau à une machine virtuelle existante](virtual-network-network-interface-vm.md#vm-add-nic) et [ajouter des adresses IP à une interface réseau existante](virtual-network-network-interface-addresses.md#add-ip-addresses). Même si au moins deux interfaces réseau peuvent être attribuées à des machines virtuelles, quelle que soit leur taille, chaque taille de machine virtuelle prend en charge un nombre maximal d’interfaces réseau. Pour connaître le nombre d’interfaces réseau pris en charge par chaque la taille de machine virtuelle, consultez les tailles de machine virtuelle [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- Créez un itinéraire défini par l’utilisateur pour forcer le trafic local via une [connexion VPN site à site](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

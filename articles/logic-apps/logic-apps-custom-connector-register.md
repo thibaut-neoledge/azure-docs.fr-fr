@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2c384e27798bc4920ef73af1084600fdc4047f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e3d88abe751b37700590cc68c458f208d5868d2
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="register-custom-connectors-in-azure-logic-apps"></a>Inscrire des connecteurs personnalisés dans Azure Logic Apps
 
@@ -151,6 +151,8 @@ Maintenant, spécifiez le fichier OpenAPI ou la collection Postman permettant de
    ![Définition du connecteur](./media/logic-apps-custom-connector-register/definition.png)
 
 2. Si jamais vous souhaitez modifier des déclencheurs et actions existants ou en ajouter de nouveaux, suivez ces étapes.
+
+<a name="add-action-or-trigger"></a> 
 
 #### <a name="edit-or-add-actions-for-your-connector"></a>Modifier ou ajouter des actions au connecteur
 

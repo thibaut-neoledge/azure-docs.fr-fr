@@ -13,14 +13,14 @@ ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: Active
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: bb8bf2569f17bf6eef9f45255bbdda440e6afef5
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e4848eb366faea134a484c8a494fed6a83203116
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>Concevoir votre première base de données SQL Azure
 
@@ -74,7 +74,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
-   | **Mot de passe** | Mot de passe valide | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
+   | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : majuscules, minuscules, chiffres et caractères non alphanumériques. |
    | **Emplacement** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
@@ -92,7 +92,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
    > [!IMPORTANT]
    > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie et Canada Est. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  
@@ -155,7 +155,7 @@ Utilisez [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-
    | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
-   | Nom du serveur | Nom complet du serveur | The name should be something like this: **mynewserver20170824.database.windows.net**. |
+   | Nom du serveur | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mon_nouveau_serveur20170824.database.windows.net**. |
    | Authentification | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce didacticiel. |
    | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
    | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
@@ -313,12 +313,12 @@ Imaginez que vous avez supprimé une table par inadvertance. Il s’agit de quel
    ![restauration](./media/sql-database-design-first-database/restore.png)
 
 2. Remplissez le formulaire **Restaurer** avec les informations requises :
-    * Database name: Provide a database name 
-    * Point-in-time: Select the **Point-in-time** tab on the Restore form 
-    * Restore point: Select a time that occurs before the database was changed
-    * Target server: You cannot change this value when restoring a database 
-    * Elastic database pool: Select **None**  
-    * Pricing tier: Select **20 DTUs** and **40 GB** of storage.
+    * Nom de la base de données : entrez un nom pour la base de données 
+    * Point dans le temps : Sélectionnez l’onglet **Point dans le temps** dans le formulaire Restauration 
+    * Point de restauration : Sélectionnez une heure avant la modification de la base de données
+    * Serveur cible : Vous ne pouvez pas modifier cette valeur lors de la restauration d’une base de données 
+    * Pool de base de données élastique : sélectionnez **Aucun**  
+    * Niveau tarifaire : sélectionnez **20 DTU** et **40 Go** de stockage.
 
    ![point de restauration](./media/sql-database-design-first-database/restore-point.png)
 

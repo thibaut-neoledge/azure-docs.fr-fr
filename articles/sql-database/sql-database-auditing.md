@@ -9,17 +9,17 @@ editor: giladm
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 95ec35a2b8d557401822bb0e8c888e954c71b386
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: c97a9d96dbe6d9bc9eaa189384acad7579365e82
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 L’audit de bases de données SQL Azure suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
@@ -82,7 +82,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
     <a id="storage-screenshot"></a>![Volet de navigation][4]
 6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec PowerShell ou l’API REST. 
 7. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](sql-database-threat-detection-get-started.md).
-8. Cliquez sur **Save**.
+8. Cliquez sur **Enregistrer**.
 
 
 
@@ -146,9 +146,9 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 ### <a id="subheading-6">Audit des bases de données géorépliquées</a>
 Avec les bases de données géorépliquées, lorsque vous activez l’audit dans la base de données primaire, la même stratégie d’audit est appliquée à la base de données secondaire. Il est également possible de configurer l’audit dans la base de données secondaire en activant l’audit dans le **serveur secondaire**, indépendamment de la base de données primaire.
 
-* Server-level (**recommended**): Turn on auditing on both the **primary server** as well as the **secondary server** - the primary and secondary databases will each be audited independently based on their respective server-level policy.
+* Au niveau du serveur (**recommandé**) : Activez l’audit dans le **serveur principal** et le **serveur secondaire**. Les bases de données primaire et secondaire sont auditées, indépendamment l’une de l’autre, en fonction de leur stratégie de niveau serveur respective.
 
-* Database-level: Database-level auditing for secondary databases can only be configured from Primary database auditing settings.
+* Au niveau de la base de données : L’audit pour les bases de données secondaires peut uniquement être configuré à partir des paramètres d’audit de la base de données primaire.
    * L’audit Objet blob doit être activé sur la *base de données primaire elle-même*, et non pas sur le serveur.
    * Une fois que l’audit d’objets blob est activé sur la base de données primaire, il est également activé sur la base de données secondaire.
 

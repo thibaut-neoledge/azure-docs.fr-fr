@@ -13,14 +13,14 @@ ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: sqldb-performance
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 11/08/2016
 ms.author: bonova
-ms.openlocfilehash: c76934d96530889f529eb887469e05d5a6a45e1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e57f1c51ef5c551f3b2e5d0f0a51a1f462b6c1af
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Utilisation du magasin de requêtes dans la base de données SQL Azure
 Le magasin de requêtes dans Azure est une fonctionnalité de base de données entièrement gérée qui recueille et présente des informations historiques détaillées sur toutes les requêtes. Le magasin de requêtes peut être comparé à l’enregistreur de données de vol d’un avion, qui simplifie considérablement le dépannage des problèmes de performances des requêtes à la fois pour les clients cloud et pour les clients locaux. Cet article présente certains aspects de l’utilisation du magasin de requêtes dans Azure. À l’aide des données de requête collectées au préalable, vous pouvez diagnostiquer et résoudre rapidement les problèmes de performances, ce qui vous permet de consacrer davantage de temps à vos activités. 
