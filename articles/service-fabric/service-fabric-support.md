@@ -3,7 +3,7 @@ title: "En savoir plus sur les options de support d’Azure Service Fabric | Mi
 description: Versions de clusters Azure Service Fabric prises en charge et liens pour soumettre des tickets de support
 services: service-fabric
 documentationcenter: .net
-author: pkc
+author: pkcsf
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: pkc
-ms.openlocfilehash: cd01d79c83749b38cc72a468e167ade5e264e1c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bc0f70e99be04cd646c0b7c610f7c6e4a74dfc2
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Options de support d’Azure Service Fabric
 
@@ -72,10 +72,11 @@ Voici la liste des versions de Service Fabric prises en charge et la date associ
 | --- | --- | --- |
 | Toutes les versions de clusters antérieures à 5.3.121 |Inférieure ou égale à la version 2.3 |20 janvier 2017 |
 | 5.3.* |Inférieure ou égale à la version 2.3 |24 février 2017 |
-| 5.4.* |Inférieure ou égale à la version 2.4 |10 mai 2017     |
+| 5.4.* |Inférieure ou égale à la version 2.4 |10 mai 2017       |
 | 5.5.* |Inférieure ou égale à la version 2.5 |10 août 2017    |
-| 5.6.* |Inférieure ou égale à la version 2.6 |13 octobre 2017    |
-| 5.7.* |Inférieure ou égale à la version 2.7 |Version actuelle ; par conséquent, pas de date de fin
+| 5.6.* |Inférieure ou égale à la version 2.6 |13 octobre 2017   |
+| 5.7.* |Inférieure ou égale à la version 2.7 |15 décembre 2017  |
+| 6.0.* |Inférieure ou égale à la version 2.8 |Version actuelle ; par conséquent, pas de date de fin
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versions préliminaires de Service Fabric – non pris en charge pour la production.
 De temps à autre, nous publions des versions dotées de fonctionnalités significatives, sur lesquelles nous souhaitons avoir un retour et qui sont publiées sous forme de version préliminaire. Ces versions préliminaires doivent uniquement être utilisées à des fins de test. Votre cluster de production doit toujours exécuter une version de Service Fabric prise en charge et stable. Les versions préliminaires commencent toujours par un numéro de version majeure et mineure : 255. Par exemple, la version 255.255.5703.949 de Service Fabric ne doit être utilisée que dans les clusters de test. Il s’agit d’une version préliminaire. Ces versions préliminaires sont également annoncées sur le [blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) et s’accompagnent d’informations sur les fonctionnalités incluses.

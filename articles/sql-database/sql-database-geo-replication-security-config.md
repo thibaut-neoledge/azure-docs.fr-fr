@@ -1,6 +1,6 @@
 ---
 title: "Configurer la sécurité d’Azure SQL Database pour la récupération d’urgence | Microsoft Docs"
-description: "Cette rubrique décrit les considérations de sécurité pour la configuration et la gestion de la sécurité après une restauration de la base de données ou un basculement vers un serveur secondaire en cas d’arrêt du centre de données ou d’un autre incident"
+description: "Découvrez les considérations de sécurité pour la configuration et la gestion de la sécurité après une restauration de base de données ou un basculement vers un serveur secondaire."
 services: sql-database
 documentationcenter: na
 author: anosov1960
@@ -15,20 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: sashan
-ms.openlocfilehash: 48b35f761273c68b03af1fc5e977bb99455a01e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5522bb8770212cc226cb794dacaccee07cb4e91b
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement 
+
+Cette rubrique décrit les exigences d’authentification requises pour configurer et contrôler la [géoréplication active](sql-database-geo-replication-overview.md) et les opérations requises pour configurer l’accès utilisateur à la base de données secondaire. Elle explique également comment activer l’accès à la base de données restaurée après l’utilisation de la [géo-restauration](sql-database-recovery-using-backups.md#geo-restore). Pour plus d’informations sur les options de récupération, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
 > [!NOTE]
 > La [géoréplication active](sql-database-geo-replication-overview.md) est désormais disponible pour toutes les bases de données de tous les niveaux de service.
 >  
-
-## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>Vue d’ensemble des exigences d’authentification pour la récupération d’urgence
-Cette rubrique décrit les exigences d’authentification requises pour configurer et contrôler la [géoréplication active](sql-database-geo-replication-overview.md) et les opérations requises pour configurer l’accès utilisateur à la base de données secondaire. Elle explique également comment activer l’accès à la base de données restaurée après l’utilisation de la [géo-restauration](sql-database-recovery-using-backups.md#geo-restore). Pour plus d’informations sur les options de récupération, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
 ## <a name="disaster-recovery-with-contained-users"></a>Récupération d’urgence avec des utilisateurs contenus
 Contrairement aux utilisateurs classiques, qui doivent être mappés sur les connexions dans la base de données master, un utilisateur contenu est géré entièrement par la base de données elle-même. Cela a deux avantages. Dans le scénario de récupération d’urgence, les utilisateurs peuvent continuer de se connecter à la nouvelle base de données primaire ou à la base de données restaurée à l’aide de la géo-restauration sans configuration supplémentaire, car c’est la base de données qui gère les utilisateurs. Du point de vue de la connexion, cette configuration présente également des possibilités de mise à l’échelle et d’amélioration des performances. Pour plus d’informations, voir [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx). 
@@ -98,7 +97,7 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur la gestion de l’accès aux bases de données et des identifiants de connexion, consultez [Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données](sql-database-manage-logins.md).
+* For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](sql-database-manage-logins.md).
 * Pour plus d’informations sur les utilisateurs de base de données à relation contenant-contenu, consultez [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 * Pour plus d’informations sur l’utilisation et la configuration de la géoréplication active, voir [Géoréplication active](sql-database-geo-replication-overview.md).
 * Pour plus d’informations sur l’utilisation de la géorestauration, voir [Géorestauration](sql-database-recovery-using-backups.md#geo-restore).

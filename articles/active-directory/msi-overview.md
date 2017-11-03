@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 10/17/2017
 ms.author: skwan
-ms.openlocfilehash: 3974c3b0e22e95b8dd4a07a923fbbfc2fe7f8961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identité du service administré (MSI) pour les ressources Azure
 
@@ -51,11 +51,14 @@ Essayez un didacticiel d’identité du service administré afin d’en savoir p
 | À partir d’une ressource compatible avec l’identité du service administré | Découvrez comment |
 | ------- | -------- |
 | Machine virtuelle Azure (Windows) | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-arm.md) |
-|                    | [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Accéder au stockage Azure via une clé d’accès avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Accéder au stockage Azure via la signature d’accès partagé (SAP) avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-storage-sas.md) |
+|                    | [Accéder à Azure SQL avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Windows et Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
 | Machine virtuelle Azure (Linux)   | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-arm.md) |
-|                    | [Accéder à stockage Azure avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-storage.md) |
-|                    | [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-nonaad.md) |
+|                    | [Accéder au stockage Azure via une clé d’accès avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Accéder au stockage Azure via la signature d’accès partagé (SAP) avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-storage-sas.md) |
+|                    | [Accéder à une ressource non Azure AD avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux et Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Fonction Azure     | [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
@@ -82,6 +85,7 @@ Les services suivants prennent en charge l’authentification Azure AD et ont é
 | Azure Resource Manager | https://management.azure.com/ | Disponible | Septembre 2017 | [Portail Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Interface de ligne de commande Azure](msi-howto-assign-access-CLI.md) |
 | coffre de clés Azure | https://vault.azure.net/ | Disponible | Septembre 2017 | |
 | Azure Data Lake | https://datalake.azure.net/ | Disponible | Septembre 2017 | |
+| Azure SQL | https://database.windows.net/ | Disponible | Octobre 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Combien coûte l’identité du service administré ?
 

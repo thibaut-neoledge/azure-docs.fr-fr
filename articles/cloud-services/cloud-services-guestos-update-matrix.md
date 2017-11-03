@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 10/22/2017
 ms.author: raiye
-ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -106,7 +106,7 @@ Début du déploiement du SE invité d’avril le 18 avril et publication proje
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
 
-Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework est installé : 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Les dates précédées de * sont susceptibles de changer.
@@ -133,7 +133,7 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 ## <a name="family-3-releases"></a>Publications de famille 3
 **Windows Server 2012**
 
-Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework est installé : 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Les dates précédées de * sont susceptibles de changer.
@@ -160,7 +160,7 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
 
-Prend en charge .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework est installé : 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Les dates précédées de * sont susceptibles de changer.

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: b182c00ac9a6956d07dece621d03c84788442085
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/12/2017
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/12/2017
 InMage Scout dans [Azure Site Recovery](site-recovery-overview.md) assure la réplication en temps réel entre des sites VMware locaux. InMage Scout est inclus dans les abonnements au service Azure Site Recovery. 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -94,7 +94,7 @@ Téléchargez le fichier .zip de [mise à jour](https://aka.ms/asr-scout-update6
 ## <a name="updates"></a>Mises à jour
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
-Mise à jour : octobre 6, 2017
+Mise à jour : 12 octobre 2017
 
 Scout Update 6 est une mise à jour cumulative. Elle contient tous les correctifs d’Update 1 à Update 5, ainsi que les nouveaux correctifs et améliorations décrits ci-dessous. 
 
@@ -115,7 +115,6 @@ Scout Update 6 est une mise à jour cumulative. Elle contient tous les correctif
 
 #### <a name="bug-fixes-and-enhancements"></a>Résolutions de bogues et améliorations
 - Échec de la protection de la restauration automatique pour la machine Linux. La liste des disques à répliquer est vide à la fin de la configuration.
-
 
 ### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 est une mise à jour cumulative. Elle contient tous les correctifs d’Update 1 à Update 4, ainsi que les nouveaux correctifs décrits ci-dessous.
@@ -139,10 +138,10 @@ Scout Update 5 est une mise à jour cumulative. Elle contient tous les correctif
     
 * Corrigé : lors de la protection de la restauration automatique, si le serveur cible maître sélectionné ne se trouve pas sur le même serveur ESXi que la machine source protégée (lors de la protection du transfert), vContinuum sélectionne le mauvais serveur cible maître lors la récupération de la restauration automatique, ce qui entraîne l’échec de l’opération de récupération.
 
-#### <a name="issues"></a>Problèmes
-* Les correctifs de cluster P2V s’appliquent seulement aux clusters MSCS physiques qui sont nouvellement protégés avec Site Recovery Scout Update 5. Pour installer les correctifs de cluster sur des clusters P2V MSCS protégés avec des mises à jour plus anciennes, suivez les étapes de mise à niveau mentionnées dans la section 12 de [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).
-* Si, au moment de la reprotection. le même jeu de disques est actif sur chaque nœud de cluster comme ils l’étaient quand ils ont été initialement protégés, la reprotection d’un cluster MSCS physique peut seulement réutiliser les disques cibles existants. Dans le cas contraire, utilisez la procédure manuelle mentionnée dans la section 12 de [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes) pour déplacer les disques côté cible dans le chemin du magasin de données adéquat, de façon à les réutiliser lors de la reprotection. Si vous reprotégez le cluster MSCS en mode P2V sans appliquer la procédure de mise à niveau, il crée un nouveau disque sur le serveur ESXi cible. Vous devrez supprimer manuellement les anciens disques du magasin de données.
-* Quand une source SLES11 ou SLES11 (avec n’importe quel Service Pack) est redémarré normalement, marquez manuellement les paires de réplications de disque **racine** pour la resynchronisation. Aucune notification n’est faite dans l’interface CX. Si vous ne marquez pas le disque racine pour la resynchronisation, des problèmes d’intégrité des données peuvent apparaître.
+> [!NOTE]
+> * Les correctifs de cluster P2V s’appliquent seulement aux clusters MSCS physiques qui sont nouvellement protégés avec Site Recovery Scout Update 5. Pour installer les correctifs de cluster sur des clusters P2V MSCS protégés avec des mises à jour plus anciennes, suivez les étapes de mise à niveau mentionnées dans la section 12 de [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).
+> * Si, au moment de la reprotection. le même jeu de disques est actif sur chaque nœud de cluster comme ils l’étaient quand ils ont été initialement protégés, la reprotection d’un cluster MSCS physique peut seulement réutiliser les disques cibles existants. Dans le cas contraire, utilisez la procédure manuelle mentionnée dans la section 12 de [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes) pour déplacer les disques côté cible dans le chemin du magasin de données adéquat, de façon à les réutiliser lors de la reprotection. Si vous reprotégez le cluster MSCS en mode P2V sans appliquer la procédure de mise à niveau, il crée un nouveau disque sur le serveur ESXi cible. Vous devrez supprimer manuellement les anciens disques du magasin de données.
+> * Quand une source SLES11 ou SLES11 (avec n’importe quel Service Pack) est redémarré normalement, marquez manuellement les paires de réplications de disque **racine** pour la resynchronisation. Aucune notification n’est faite dans l’interface CX. Si vous ne marquez pas le disque racine pour la resynchronisation, des problèmes d’intégrité des données peuvent apparaître.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
@@ -180,14 +179,13 @@ Scout Update 4 est une mise à jour cumulative. Elle contient tous les correctif
   * Les détails sur la capacité et l’espace libre sont affichés pour tous les appareils protégés.
   * L’état du pilote Scout sur le serveur source est disponible.
 
-#### <a name="issues"></a>Problèmes
-
-* Le package de base **InMage_Scout_Standard_8.0.1_GA.zip** a :
+> [!NOTE]
+> * Le package de base **InMage_Scout_Standard_8.0.1_GA.zip** a :
     * Un programme d’installation de base du serveur de configuration mis à jour base (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
     * Un programme d’installation de base du serveur cible maître Windows (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
     * Pour toutes les nouvelles installations, utilisez le nouveau serveur de configuration et les exécutables GA du serveur cible maître Windows.
-* Vous pouvez appliquer Update 4 directement sur 8.0.1 GA.
-* Les mises à jour du serveur de configuration et de RX ne peuvent pas être annulées après avoir été appliquées.
+> * Vous pouvez appliquer Update 4 directement sur 8.0.1 GA.
+> * Les mises à jour du serveur de configuration et de RX ne peuvent pas être annulées après avoir été appliquées.
 
 
 ### <a name="azure-site-recovery-scout-801-update-3"></a>Azure Site Recovery Scout 8.0.1 Update 3

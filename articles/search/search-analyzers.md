@@ -12,22 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/11/2017
 ms.author: heidist
-ms.openlocfilehash: f9e456a57bae4aab25ef85c93132308f2c442c0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b9dea2978c11955da3ea4df8b90dc10a866d3f1
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="analyzers-in-azure-search"></a>Analyseurs dans Recherche Azure
 
-Un *analyseur* est un composant de [recherche en texte intégral](search-lucene-query-architecture.md) chargé de traiter le texte dans les chaînes de requête et les documents indexés. Pendant l’indexation, un analyseur transforme le texte en *jetons*, qui sont écrits sous forme de *termes tokenisés* dans l’index. Pendant la recherche, un analyseur effectue les mêmes transformations sur les *termes de requête*, sur la base desquels est effectuée la recherche des termes correspondants dans l’index.
-
-Les transformations suivantes se produisent généralement au cours d’une analyse :
+Un *analyseur* est un composant de [recherche en texte intégral](search-lucene-query-architecture.md) chargé de traiter le texte dans les chaînes de requête et les documents indexés. Les transformations suivantes se produisent généralement au cours d’une analyse :
 
 + Les mots non essentiels (mots vides) et la ponctuation sont supprimés.
 + Les expressions et les mots avec tirets sont segmentés en différents composants.
 + Les mots en majuscules sont mis en minuscules.
 + Seule la racine des mots est conservée pour qu’une correspondance soit trouvée, quels que soient le temps ou la forme utilisés.
+
+Les analyseurs linguistiques convertissent une entrée de texte en forme primitive ou racine plus efficace pour le stockage et la récupération des informations. La conversion se produit lors de l’indexation, lorsque l’index est créé, puis à nouveau lors d’une recherche lorsque l’index est en lecture. Vous êtes plus susceptible d’obtenir les résultats de recherche que vous attendez si vous utilisez le même analyseur de texte pour les deux opérations.
 
 Le service Recherche Azure utilise [l’analyseur Lucene Standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) comme analyseur par défaut. Vous pouvez substituer l’analyseur par défaut champ par champ. Cet article décrit les différents choix possibles et explique les bonnes pratiques à suivre pour l’analyse personnalisée. Il fournit également des exemples de configurations pour les principaux scénarios.
 
@@ -53,12 +53,12 @@ Vous pouvez personnaliser un analyseur prédéfini, tel que **Pattern** ou **Sto
 
 3. L’ajout d’un analyseur à une définition de champ entraîne une opération d’écriture dans l’index. Si vous ajoutez un **analyseur** à un index existant, prenez note des étapes suivantes :
  
- | Scénario | Étapes |
- |----------|-------|
- | Ajouter un nouveau champ | Si le champ n’existe pas encore dans le schéma, il n’y a pas de révision de champ à faire. Une analyse de texte se produit dès que vous ajoutez ou mettez à jour les documents qui fournissent le contenu du nouveau champ. Utilisez [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour cette tâche.|
- | Ajout d’un analyseur à un champ indexé existant. | L’index inversé doit être entièrement recréé pour ce champ et le contenu de document de ce dernier doit être réindexé. <br/> <br/>Pour un index en cours de développement, [supprimez](https://docs.microsoft.com/rest/api/searchservice/delete-index) et [créez](https://docs.microsoft.com/rest/api/searchservice/create-index) l’index pour sélectionner la nouvelle définition de champ. <br/> <br/>Pour un index en production, vous devez créer un champ pour fournir la définition modifiée et commencer à l’utiliser. Utilisez [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour incorporer le nouveau champ. Par la suite, pendant l’opération de maintenance planifiée de l’index, vous pouvez le nettoyer de façon à supprimer les champs obsolètes. |
+ | Scénario | Impact | Étapes |
+ |----------|--------|-------|
+ | Ajouter un nouveau champ | minimal | Si le champ n’existe pas encore dans le schéma, il n’y a aucune révision de champ à effectuer, car il n’a pas encore de présence physique dans votre index. Utilisez [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour cette tâche.|
+ | Ajout d’un analyseur à un champ indexé existant. | regénération | L’index inversé doit être entièrement recréé pour ce champ et le contenu de ces champs doit être réindexé. <br/> <br/>Pour un index en cours de développement, [supprimez](https://docs.microsoft.com/rest/api/searchservice/delete-index) et [créez](https://docs.microsoft.com/rest/api/searchservice/create-index) l’index pour sélectionner la nouvelle définition de champ. <br/> <br/>Pour un index en production, vous devez créer un champ pour fournir la définition modifiée et commencer à l’utiliser. Utilisez [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) et [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour incorporer le nouveau champ. Par la suite, pendant l’opération de maintenance planifiée de l’index, vous pouvez le nettoyer de façon à supprimer les champs obsolètes. |
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="tips-and-best-practices"></a>Conseils et meilleures pratiques
 
 Cette section offre des conseils pour utiliser les analyseurs.
 
@@ -72,12 +72,13 @@ En règle générale, il est préférable d’utiliser le même analyseur pour l
 
 La substitution de l’analyseur standard nécessite une regénération de l’index. Si possible, choisissez les analyseurs à utiliser pendant le développement actif, avant de déployer l’index dans un environnement de production.
 
-### <a name="compare-analyzers-side-by-side"></a>Comparer des analyseurs côte à côte
+### <a name="inspect-tokenized-terms"></a>Examiner les termes sous forme de jetons
 
-Nous vous recommandons d’utiliser [l’API Analyse](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). La réponse se compose de jetons, qui sont générés par un analyseur spécifique pour le texte que vous fournissez. 
+Si une recherche ne renvoie pas les résultats attendus, cela est très probablement dû aux différences de jetons entre les termes entrés dans la requête et les termes sous forme de jetons présents dans l’index. Si les jetons ne sont pas identiques, les correspondances ne sont pas détectées. Pour examiner les résultats du générateur de jetons, nous vous recommandons d’utiliser [l’API d’analyse](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) comme outil d’investigation. La réponse se compose de jetons qui sont générés par un analyseur spécifique.
 
-> [!Tip]
-> La [démonstration de l’analyseur Recherche](http://alice.unearth.ai/) présente une comparaison côte à côte de l’analyseur Lucene standard, de l’analyseur linguistique anglais de Lucene et de l’outil de traitement en langage naturel anglais de Microsoft. Pour chaque recherche, les résultats de chaque analyseur sont affichés dans des volets adjacents.
+### <a name="compare-english-analyzers"></a>Comparer les analyseurs en anglais
+
+La [démonstration de l’analyseur Recherche](http://alice.unearth.ai/) est une application de démonstration tierce qui présente une comparaison côte à côte de l’analyseur Lucene standard, de l’analyseur linguistique anglais de Lucene et de l’outil de traitement en langage naturel anglais de Microsoft. L’index est fixe et contient du texte issu d’un article populaire. Pour chaque recherche que vous effectuez, les résultats de chaque analyseur sont affichés dans des volets adjacents, ce qui vous donne une idée de la façon dont chaque analyseur traite la même chaîne. 
 
 ## <a name="examples"></a>Exemples
 

@@ -3,8 +3,8 @@ title: "Utiliser le Kit de développement logiciel (SDK) de serveur principal No
 description: "Découvrez comment utiliser le Kit de développement logiciel (SDK) du serveur principal Node.js pour Azure App Service Mobile Apps."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: elamalani
+manager: elamalani
 editor: 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -793,9 +793,13 @@ Consultez les articles suivants pour prendre en main le dépannage de votre serv
 Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic.  En interne, le SDK Node.js Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics.  La journalisation est activée automatiquement si vous activez le mode débogage ou définissez le paramètre d’application **MS_DebugMode** sur true dans le [portail Azure]. Les journaux générés s’affichent dans les journaux de diagnostic sur le [portail Azure].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Procédure : utilisation de l’outil Tables faciles dans le Portail Azure
-L’outil Easy Tables du portail vous permet de créer et utiliser des tables directement dans le portail. Vous pouvez même modifier les opérations de table à l’aide de l’éditeur App Service.
+L’outil Easy Tables du portail vous permet de créer et utiliser des tables directement dans le portail. Vous pouvez télécharger le jeu de données vers Tables faciles au format CSV. Notez que vous ne pouvez pas utiliser de noms de propriétés (dans ce jeu de données CSV) qui sont en conflit avec des noms de propriétés système d’Azure Mobile Apps Backend. Les noms de propriétés système sont :
+* createdAt
+* updatedAt
+* deleted
+* version
 
-Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal, vous pouvez ajouter, modifier ou supprimer une table. Vous pouvez également voir les données de la table.
+Vous pouvez même modifier les opérations de table à l’aide de l’éditeur App Service. Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal, vous pouvez ajouter, modifier ou supprimer une table. Vous pouvez également voir les données de la table.
 
 ![Utilisation de l’outil Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 

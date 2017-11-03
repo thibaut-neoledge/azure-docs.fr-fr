@@ -5,20 +5,22 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/29/2017
+ms.date: 10/11/2017
 ms.topic: overview
-ms.service: Cost Management
+ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9edcfa20b25d7048c2066fba86203a29ba1f84fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 969340080bfe2b04704367c2225895728773119e
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="what-is-azure-cost-management"></a>Qu’est-ce que la gestion des coûts Azure ?
 
 La gestion des coûts Azure selon Cloudyn vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud, notamment AWS et Google. Les rapports du tableau de bord vous aident à comprendre la répartition des coûts, de même que la rétrofacturation et la facturation interne. La gestion des coûts vous permet d’optimiser vos dépenses cloud en identifiant les ressources sous-utilisées que vous pouvez ainsi gérer et ajuster.
+
+Pour visionner une vidéo de présentation, consultez [Introduction à la gestion des coûts Azure de Cloudyn](https://youtu.be/NWIRny6Wpsk).
 
 ## <a name="monitor-usage-and-spending"></a>Surveiller l’utilisation et les dépenses
 

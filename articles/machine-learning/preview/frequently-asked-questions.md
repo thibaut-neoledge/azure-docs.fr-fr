@@ -9,11 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Forum aux questions sur Azure Machine Learning
 
@@ -108,7 +108,7 @@ Oui, le Service d’expérimentation et la Gestion des modèles fonctionnent con
 
 **Prenez-vous en charge les scénarios de déploiement local et cloud ?**
 
-Oui. Nous prenons en charge les scénarios de déploiement local via des conteneurs Docker. Les cibles d’exécution locale sont les suivantes : déploiements Docker à nœud unique, [Microsoft SQL Server avec Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop ou Spark. Nous prenons également en charge les déploiements cloud via Docker, à savoir : déploiements en cluster via Azure Container Service et des clusters Kubernetes, HDInsight ou Spark. Des scénarios de périphérie sont pris en charge via des conteneurs Docker et Azure IOT Edge. 
+Oui. Nous prenons en charge les scénarios de déploiement local et sur le cloud via des conteneurs Docker. Les cibles d’exécution locale sont les suivantes : déploiements Docker à nœud unique, [Microsoft SQL Server avec Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop ou Spark. Nous prenons également en charge les déploiements cloud via Docker, à savoir : déploiements en cluster via Azure Container Service et des clusters Kubernetes, HDInsight ou Spark. Des scénarios de périphérie sont pris en charge via des conteneurs Docker et Azure IOT Edge. 
 
 **Puis-je exécuter une image Docker créée à l’aide de l’interface de ligne de commande d’Azure Machine Learning sur un autre ordinateur hôte ?**
 

@@ -1,6 +1,6 @@
 ---
 title: "Configuration de la sécurité du fractionnement et de la fusion | Microsoft Docs"
-description: "Définissez les certificats x 409 pour le chiffrement"
+description: "Configurez des certificats x409 pour le chiffrement à l’aide du service de fractionnement/fusion pour la mise à l’échelle élastique."
 metakeywords: Elastic Database certificates security
 services: sql-database
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 7e6ccf51a4b75eef16a7df5c1a1018954af8e5dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ffd0f1ab8694a0397dceca5dfabbe7a9bdd9a387
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 Pour utiliser le service de fusion et de fractionnement, vous devez configurer correctement la sécurité. Ce service fait partie de la fonctionnalité d’infrastructure élastique de la base de données SQL Microsoft Azure. Pour plus d’informations, consultez le [didacticiel sur le service de fusion et de fractionnement de l’infrastructure élastique](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -45,7 +45,7 @@ Si ces options ne sont pas disponibles, vous pouvez générer des **certificats 
     Si installée, accédez à :
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Obtenez le kit WDK de [Windows 8.1 : téléchargement des kits et outils](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Pour configurer le certificat SSL
 Un certificat SSL est nécessaire pour chiffrer les communications et authentifier le serveur. Choisissez le plus approprié des trois scénarios ci-dessous et exécutez toutes les étapes associées :
@@ -407,9 +407,9 @@ Dans l’ **Assistant Exportation de certificat**:
 5. Vérifiez les options de votre choix.
 6. Vérifiez le **mot de passe**.
 7. Entrez un mot de passe fort et confirmez-le.
-8. Cliquez sur **Next**.
+8. Cliquez sur **Suivant**.
 9. Tapez ou sélectionnez un nom de fichier dans lequel stocker le certificat (utilisez une extension .PFX).
-10. Cliquez sur **Next**.
+10. Cliquez sur **Suivant**.
 11. Cliquez sur **Terminer**.
 12. Cliquez sur **OK**.
 
@@ -420,7 +420,7 @@ Dans l'Assistant Importation de certificat :
    
    * Sélectionnez **Utilisateur actuel** si seuls les processus s’exécutant sous l’utilisateur actuel accèdent au service.
    * Sélectionnez **Ordinateur local** si d’autres processus de cet ordinateur accèdent au service
-2. Cliquez sur **Next**.
+2. Cliquez sur **Suivant**.
 3. Si vous importez depuis un fichier, vérifiez le chemin d’accès.
 4. Si vous importez depuis un fichier .PFX :
    1. Entrez le mot de passe protégeant la clé privée

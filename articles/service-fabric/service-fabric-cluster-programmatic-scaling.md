@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 10/17/2017
 ms.author: mikerou
-ms.openlocfilehash: 46b0b62f92abbac57bc27bbcdd5821eafedf5519
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d123a3d06420194d2918b71c98152cd2ea03457
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Mettre à l’échelle un cluster Service Fabric par programmation 
 
@@ -29,7 +29,7 @@ Dans de nombreux scénarios, la mise à l’échelle manuelle ou via des règles
 
 - La mise à l’échelle manuelle vous oblige à ouvrir une session et à demander explicitement des opérations de mise à l’échelle. Si les opérations de mise à l’échelle sont requises fréquemment ou à des moments imprévisibles, cette approche n’est probablement pas la bonne.
 - Lorsque les règles de mise à l’échelle automatique suppriment une instance d’un groupe de machines virtuelles identiques, elles ne suppriment pas automatiquement les connaissances de ce nœud du cluster Service Fabric associé, sauf si le nœud a un niveau de durabilité agent ou or. Comme les règles de mise à l’échelle automatique fonctionnent au niveau du groupe de machines virtuelles (et non au niveau de Service Fabric), elles peuvent supprimer des nœuds Service Fabric sans les arrêter en douceur. Cette suppression brutale laisse l’état de nœud Service Fabric « ghost » derrière elle, après les opérations de mise à l’échelle. Une personne (ou un service) doit nettoyer régulièrement l’état du nœud supprimé dans le cluster Service Fabric.
-  - Notez qu’un nœud ayant un niveau de durabilité argent ou or nettoie automatiquement les nœuds supprimés.  
+  - Un type de nœud ayant un niveau de durabilité argent ou or nettoie automatiquement les nœuds supprimés. Par conséquent, aucun nettoyage supplémentaire n’est requis.
 - Bien que les règles de mise à l’échelle automatique prennent en charge [plusieurs mesures](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md), ce groupe reste limité. Si votre scénario requiert une mise à l’échelle en fonction d’une mesure non incluse dans ce groupe, les règles de mise à l’échelle automatique ne sont peut-être pas la bonne solution.
 
 Face à ces limitations, vous pouvez mettre en œuvre des modèles personnalisés de mise à l’échelle automatique. 
@@ -46,7 +46,7 @@ Pour interagir avec le cluster Service Fabric, utilisez [System.Fabric.FabricCli
 Bien sûr, le code de mise à l’échelle n’a pas besoin de s’exécuter comme un service dans le cluster à mettre à l’échelle. `IAzure` et `FabricClient` peuvent se connecter à leurs ressources Azure associées à distance. Donc, le service de mise à l’échelle peut être une application console ou un service Windows exécuté hors de l’application Service Fabric. 
 
 ## <a name="credential-management"></a>Gestion des informations d’identification
-Un service chargé de gérer la mise à l’échelle doit pouvoir accéder aux ressources d’un groupe de machines virtuelles identiques, sans ouverture de session interactive. L’accès au cluster Service Fabric est simple si le service de mise à l’échelle modifie sa propre application Service Fabric, mais des informations d’identification sont nécessaires pour accéder au groupe identique. Pour vous connecter, vous pouvez utiliser un [principal de service](https://github.com/Azure/azure-sdk-for-net/blob/Fluent/AUTH.md#creating-a-service-principal-in-azure) créé avec [Azure CLI 2.0](https://github.com/azure/azure-cli).
+Un service chargé de gérer la mise à l’échelle doit pouvoir accéder aux ressources d’un groupe de machines virtuelles identiques, sans ouverture de session interactive. L’accès au cluster Service Fabric est simple si le service de mise à l’échelle modifie sa propre application Service Fabric, mais des informations d’identification sont nécessaires pour accéder au groupe identique. Pour vous connecter, vous pouvez utiliser un [principal de service](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) créé avec [Azure CLI 2.0](https://github.com/azure/azure-cli).
 
 Pour créer un principal de service, procédez comme suit :
 
@@ -85,7 +85,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Il est également possible de gérer la taille des groupes de machines virtuelles identiques avec des applets de commande PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss) peut récupérer l’objet groupe de machines virtuelles identiques. La capacité actuelle sera stockée dans la propriété `.sku.capacity`. Une fois la capacité fixée à la valeur souhaitée, il est possible de mettre à jour le groupe de machines virtuelles identiques dans Azure avec la commande [`Update-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss).
+Il est également possible de gérer la taille des groupes de machines virtuelles identiques avec des applets de commande PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) peut récupérer l’objet groupe de machines virtuelles identiques. La capacité actuelle peut être connue par le biais de la propriété `.sku.capacity`. Une fois la capacité fixée à la valeur souhaitée, il est possible de mettre à jour le groupe de machines virtuelles identiques dans Azure avec la commande [`Update-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss).
 
 Lorsque vous ajoutez manuellement un nœud, l’ajout d’une instance de groupe identique doit suffire pour démarrer un nouveau nœud Service Fabric, car le modèle de groupe identique contient des extensions pour ajouter automatiquement des instances au cluster Service Fabric. 
 
@@ -105,7 +105,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-N’oubliez pas que les nœuds *racines* ne semblent pas toujours respecter la convention selon laquelle les ID d’instance supérieurs sont supprimés en premier.
+Les nœuds racines sont différents et ne respectent pas forcément la convention selon laquelle les ID d’instance supérieurs sont supprimés en premier.
 
 Une fois le nœud à supprimer trouvé, il peut être désactivé et supprimé à l’aide de la même instance `FabricClient` et de l’instance `IAzure` précédente.
 

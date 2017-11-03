@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b383a21500c753d8d2fe6747756541a3ff94ef02
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
@@ -28,8 +28,9 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 
 - Dans certains cas, l’activation de l’authentification unique transparente peut prendre jusqu’à 30 minutes.
 - La prise en charge du navigateur Edge n’est pas disponible.
-- L’activation de la licence sur les clients Office, surtout dans les scénarios d’ordinateurs partagés, provoque l’affichage d’invites de connexion supplémentaires pour les utilisateurs.
-- L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox. and 
+- Le lancement des clients Office, en particulier dans les scénarios d’ordinateurs partagés, entraîne l’affichage d’invites de connexion supplémentaires. Les utilisateurs doivent fréquemment entrer leur nom d’utilisateur, mais pas leur mot de passe.
+- Si l’authentification unique transparente réussit, l’utilisateur n’a pas la possibilité de choisir l’option « Maintenir la connexion ». En raison de ce comportement, les scénarios de mappage SharePoint et OneDrive ne fonctionnent pas.
+- L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox.
 - L’authentification unique transparente ne fonctionne pas sur Internet Explorer quand le mode protégé amélioré est activé.
 - L’authentification unique transparente ne fonctionne pas sur les navigateurs mobiles iOS et Android.
 - Si vous synchronisez 30 forêts AD ou plus, vous ne pouvez pas activer l’authentification unique transparente à l’aide d’Azure AD Connect. En guise de solution de contournement, vous pouvez [activer manuellement](#manual-reset-of-azure-ad-seamless-sso) la fonctionnalité pour votre locataire.

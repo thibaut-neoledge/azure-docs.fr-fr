@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 5adb76a779be7e82c864d67db7a2d3701805d874
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f6272d936b097a9458dfa18279a70727da9d6b
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ressources d’informations d’identification dans Azure Automation
 Une ressource d’informations d’identification Automation conserve un objet [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) qui contient les informations d’identification de sécurité comme un nom d’utilisateur et un mot de passe. Les Runbooks et les configurations DSC peuvent utiliser les applets de commande qui acceptent un objet PSCredential pour l’authentification, ou ils peuvent extraire le nom d’utilisateur et le mot de passe de l’objet PSCredential pour les fournir à l’application ou au service nécessitant l’authentification. Les propriétés d’informations d’identification sont stockées de manière sécurisée dans Azure Automation et sont accessibles dans le Runbook ou la configuration DSC avec l’activité [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) .
 
 > [!NOTE]
-> Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.  
+> Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé du compte Automation est déchiffrée à l'aide du certificat principal, puis utilisée pour chiffrer la ressource.  
 
-## <a name="windows-powershell-cmdlets"></a>Applets de commande Windows PowerShell
+## <a name="azure-classic-powershell-cmdlets"></a>Applets de commande PowerShell Azure Classic
 Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies dans le cadre du [module Azure PowerShell](/powershell/azure/overview) , utilisable dans les Runbooks Automation et les configurations DSC.
 
 | Applets de commande | Description |
@@ -35,6 +35,16 @@ Les applets de commande du tableau suivant sont utilisées pour créer et gérer
 | [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Crée de nouvelles informations d’identification Automation. |
 | [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Supprime des informations d’identification Automation. |
 | [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Définit les propriétés d’informations d’identification Automation existantes. |
+
+## <a name="azurerm-powershell-cmdlets"></a>Applets de commande AzureRM PowerShell
+Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies avec le [module AzureRM.Automation](/powershell/azure/overview), utilisable dans les runbooks Automation et les configurations DSC.
+
+| Applets de commande | Description |
+|:--- |:--- |
+| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Récupère des informations sur une ressource d’informations d’identification.  |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Crée de nouvelles informations d’identification Automation. |
+| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Supprime des informations d’identification Automation. |
+| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Définit les propriétés d’informations d’identification Automation existantes. |
 
 ## <a name="runbook-activities"></a>Activités de Runbook
 Les activités dans le tableau suivant sont utilisées pour accéder aux informations d’identification dans un Runbook ou dans des configurations DSC.

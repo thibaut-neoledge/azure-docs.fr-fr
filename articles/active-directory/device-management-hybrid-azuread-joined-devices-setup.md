@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c43d6bcd62690fe41599888b06ee9828c8e40fc0
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Comment configurer des appareils hybrides joints à Azure Active Directory
 
@@ -294,8 +294,7 @@ La définition vous permet de vérifier si les valeurs sont présentes ou si vou
 
 Dans la revendication ci-dessus,
 
-- `$<domain>` est l’URL des services AD FS
-- `<verified-domain-name>` est un espace réservé que vous devez remplacer par un de vos noms de domaine vérifiés dans Azure AD
+- `<verified-domain-name>` est un espace réservé que vous devez remplacer par l’un de vos noms de domaine vérifiés dans Azure AD. Par exemple, valeur = « http://contoso.com/adfs/services/trust/ »
 
 
 

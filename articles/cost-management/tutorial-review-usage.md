@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 4440ca81545978ab7438f1684ce71ded24c326e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="review-usage-and-costs"></a>Réviser l’utilisation et les coûts
 
@@ -39,15 +39,17 @@ Voici un exemple de rapport :
 
 ![exemple de rapport](./media/tutorial-review-usage/actual-cost01.png)
 
-Le rapport affiche toutes les dépenses au cours des 30 derniers jours. Pour afficher uniquement les dépenses pour les services Azure, appliquez le groupe Service et filtrez tous les services Azure. L’image ci-dessous montre les services filtrés.
+Le rapport affiche toutes les dépenses au cours des 30 derniers jours. Pour afficher uniquement les dépenses pour les services Azure, appliquez le groupe Service et filtrez tous les services Azure. L’illustration suivante montre les services filtrés.
 
 ![services filtrés](./media/tutorial-review-usage/actual-cost02.png)
 
-Dans l’exemple ci-dessus, la quantité d’argent dépensé a baissé à partir du 31/08/2017. Cette tendance de coût se poursuit pour les différents services pendant neuf jours environ. Les dépenses commencent ensuite à augmenter. Notez toutefois qu’un trop grand nombre de colonnes peut masquer une tendance évidente. Vous pouvez modifier l’affichage du rapport sous forme d’un graphique en courbes ou en aires pour visualiser les données affichées dans d’autres vues. L’image ci-dessous montre plus clairement la tendance.
+Dans l’exemple précédent, la quantité d’argent dépensée a baissé à partir du 31/08/2017. Cette tendance de coût se poursuit pour les différents services pendant neuf jours environ. Les dépenses commencent ensuite à augmenter. Notez toutefois qu’un trop grand nombre de colonnes peut masquer une tendance évidente. Vous pouvez modifier l’affichage du rapport sous forme d’un graphique en courbes ou en aires pour visualiser les données affichées dans d’autres vues. L’illustration suivante montre plus clairement la tendance.
 
 ![tendance reflétée dans le rapport](./media/tutorial-review-usage/actual-cost03.png)
 
 Dans l’exemple, vous observez clairement que les coûts du stockage Azure ont baissé à partir du 31/08/2017 tandis que les dépenses pour d’autres services Azure se sont maintenus au même niveau. Pourquoi cette baisse des dépenses ? Dans cet exemple, certains employés étaient en vacances et n’ont donc pas utilisé le service de stockage.
+
+Pour visionner un didacticiel vidéo sur le suivi de l’utilisation et des tendances de coût, consultez [Analyse des données de facturation cloud en fonction du temps avec Azure Cost Management de Cloudyn](https://youtu.be/7LsVPHglM0g).
 
 ## <a name="detect-usage-inefficiencies"></a>Détecter le manque d’efficacité au niveau de l’utilisation
 
@@ -55,7 +57,7 @@ Les rapports de l’optimiseur améliorent l’efficacité, optimisent l’utili
 
 La stratégie de virtualisation des organisations est un problème qui affecte souvent ces dernières quand elles déplacent au départ des ressources vers le cloud. Elles utilisent souvent une approche similaire à celle qu’elles utilisaient pour créer des machines virtuelles pour l’environnement de virtualisation local. Elles partent également du principe que les coûts sont réduits en déplaçant leurs machines virtuelles locales vers le cloud, telles quelles. Mais il est peu probable que cette approche permette de réduire les coûts.
 
-Le problème est que leur infrastructure existante a été déjà payée. Les utilisateurs pouvaient créer et faire fonctionner des machines virtuelles de taille importante s’ils le souhaitaient, qu’elles soient inactives ou pas, sans grandes conséquences. Le déplacement de machines virtuelles inactives ou de taille importante vers le cloud risque d’*augmenter* les coûts. L’affection des coûts des ressources est très importante quand vous signez des contrats avec des fournisseurs de services cloud. Vous devez payer en fonction de votre engagement, que vous utilisiez entièrement la ressource ou non.
+Le problème est que leur infrastructure existante a été déjà payée. Les utilisateurs pouvaient créer et faire fonctionner des machines virtuelles de taille importante s’ils le souhaitaient, qu’elles soient inactives ou pas, sans grandes conséquences. Le déplacement de machines virtuelles inactives ou de taille importante vers le cloud risque *d’augmenter* les coûts. L’affection des coûts des ressources est importante quand vous signez des contrats avec des fournisseurs de services cloud. Vous devez payer en fonction de votre engagement, que vous utilisiez entièrement la ressource ou non.
 
 Le rapport de recommandations de dimensionnement économique identifie les économies annuelles potentielles en comparant la capacité des types d’instance de machine virtuelle à leurs données d’historique d’utilisation de la mémoire et de l’UC.  
 
@@ -67,9 +69,11 @@ Dans cet exemple, l’organisation pourrait économiser 3 114 $ en suivant les r
 
 ![détails de la recommandation](./media/tutorial-review-usage/sizing02.png)
 
-Cliquez sur le signe plus situé en regard de **List of Candidates (Liste de candidats)** pour afficher les ID d’instance de machine virtuelle.
+Pour afficher les ID d’instance de machine virtuelle, cliquez sur le signe plus situé en regard de **List of Candidates (Liste de candidats)**.
 
 ![Liste de candidats](./media/tutorial-review-usage/sizing03.png)
+
+Pour visionner un didacticiel vidéo sur la détection des inefficacités d’utilisation, consultez [Optimisation de la taille de machine virtuelle dans Azure Cost Management de Cloudyn](https://youtu.be/1xaZBNmV704).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Créer des alertes pour dépenses inhabituelles
 

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7a886cdb0c36008bdb66592a8d3428889739627e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5feadd851b166d0a9a77bd1d124cdd599d5d701
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Immersion dans la sécurité de l’authentification directe Azure Active Directory
 
@@ -91,6 +91,8 @@ Voici comment se déroule l’inscription des agents d’authentification auprè
 4. Azure AD valide le jeton d’accès dans la demande d’inscription et vérifie que la demande provient d’un administrateur général.
 5. Azure AD signe ensuite et émet un certificat d’identité numérique vers l’agent d’authentification.
     - Le certificat est signé à l’aide de l’**autorité de certification racine d’Azure AD**. Notez que cette autorité de certification ne figure _pas_ dans le magasin des **autorités de certification racine reconnues approuvées**.
+    - Cette autorité de certification utilisée uniquement par la fonctionnalité d’authentification directe. Elle sert uniquement pour la signature des CSR lors de l’inscription de l’agent d’authentification.
+    - Cette autorité de certification n’est pas utilisée par un autre service dans Azure AD.
     - L’objet du certificat (**nom unique ou DN**) est défini sur votre **ID de locataire**. Il s’agit d’un GUID qui identifie de manière unique votre locataire. Le certificat ne peut donc être utilisé qu’avec votre locataire uniquement.
 6. Azure AD stocke la clé publique de l’agent d’authentification dans une base de données SQL Azure accessible uniquement à Azure AD.
 7. Le certificat (émis à l’étape 5) est stocké sur le serveur local dans le **magasin de certificats Windows** (plus précisément à l’emplacement **[CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)**) ; il est utilisé par les applications de l’agent d’authentification et de mise à jour.
@@ -133,6 +135,7 @@ L’authentification directe traite une demande de connexion de l’utilisateur 
 9. L’agent d’authentification localise la valeur de mot de passe chiffré propre à sa clé publique (à l’aide d’un identificateur) et la déchiffre à l’aide de sa clé privée.
 10. L’agent d’authentification tente de valider le nom d’utilisateur et le mot de passe dans votre annuaire Active Directory local à l’aide de l’**[API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)** (avec le paramètre **dwLogonType** défini sur **LOGON32_LOGON_NETWORK**). 
     - Il s’agit de l’API utilisée également par les services de fédération Active Directory (AD FS) pour connecter les utilisateurs dans un scénario de connexion fédérée.
+    - Elle s’appuie sur le processus de résolution standard de Windows Server pour localiser le contrôleur de domaine.
 11. L’agent d’authentification reçoit le résultat depuis Active Directory (réussite, nom d’utilisateur ou mot de passe incorrect, mot de passe expiré, utilisateur verrouillé et ainsi de suite).
 12. L’agent d’authentification retransmet le résultat à Azure AD STS via un canal HTTPS mutuellement authentifié sortant sur le port 443. L’authentification mutuelle utilise le certificat précédemment émis pour l’agent d’authentification lors de l’inscription.
 13. Azure AD STS vérifie que ce résultat est mis en corrélation avec la demande de connexion spécifique sur votre locataire.
@@ -191,7 +194,7 @@ Voici comment un agent d’authentification est mis à jour automatiquement :
 ## <a name="next-steps"></a>Étapes suivantes
 - [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
-- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [**Fonctionnement**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez les principes de fonctionnement de l’authentification directe Azure AD.
 - [**Questions fréquentes (FAQ)**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: de52e9cb32e28d2f40a56743ed759b5d5d0a63f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurer Pare-feu et réseaux virtuels dans Stockage Azure (préversion)
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
@@ -44,7 +44,7 @@ Les règles de réseau peuvent être appliquées aux comptes de stockage existan
 
 Une fois que les règles de réseau sont appliquées, elles concernent toutes les demandes.  Les jetons SAS qui accordent l’accès à un service d’adresse IP spécifique servent à **limiter** l’accès du détenteur du jeton, mais n’accordent pas d’accès au-delà des règles de réseau configurées. 
 
-Le trafic des disques de machine virtuelle (notamment les opérations de montage et démontage et les E/S de disque) n’est **pas** affecté par les règles de réseau.  La sauvegarde des disques non managés n’est pas prise en charge dans la préversion pour les comptes de stockage protégés.  L’accès REST aux objets blob de pages (utilisés pour les disques de machine virtuelle) est protégé par les règles de réseau.
+Le trafic des disques de machine virtuelle (notamment les opérations de montage et démontage et les E/S de disque) n’est **pas** affecté par les règles de réseau.  L’accès REST aux objets blob de pages est protégé par les règles de réseau.
 
 Les comptes de stockage Classic ne prennent **pas** en charge Pare-feu et réseaux virtuels.
 
@@ -305,6 +305,7 @@ Quand l’exception « Services Microsoft approuvés » est activée, les serv
 |Azure HDInsight|Microsoft.HDInsight|Approvisionnement et installation de cluster.  [En savoir plus](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau.  [En savoir plus](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Importation et exportation de données.  [En savoir plus](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Sauvegarde Azure|Microsoft.RecoveryServices|Sauvegarde et restauration des disques non gérés.  [En savoir plus](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics

@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: spelluru
-ms.openlocfilehash: 780e5673b5ed159a7f170373d54fea7c1713a910
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc0ed958a9e1018ed9f06fdcc94873ae5420ba95
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Gérer le runtime d’intégration Azure-SSIS
 L’article [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Créer un runtime d’intégration Azure-SSIS) vous explique comment créer un runtime d’intégration Azure-SSIS à l’aide d’Azure Data Factory. Cet article le complète en fournissant des informations sur la façon d’arrêter, de démarrer, de reconfigurer ou de supprimer un runtime d’intégration Azure-SSIS.  
 
+> [!NOTE]
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="stop"></a>Arrêter 
 Arrêtez le runtime d’intégration Azure-SSIS. Cette commande libère tous ses nœuds et arrête la facturation.

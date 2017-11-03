@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: d4548c6f21d04effd57ea36e4fc0d15f77568903
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Procédure détaillée de création d’une paire de clés SSH et de certificats supplémentaires pour une machine virtuelle Linux dans Azure
 Avec une paire de clés SSH, vous pouvez créer des machines virtuelles sur Azure qui utilisent par défaut des clés SSH pour l’authentification, éliminant ainsi la nécessité de recourir aux mots de passe pour la connexion. Les mots de passe sont vulnérables et peuvent exposer vos machines virtuelles à de constantes attaques par force brute visant à découvrir ces mots de passe. Les machines virtuelles créées avec l’interface de ligne de commande Azure ou avec des modèles Resource Manager peuvent inclure votre clé publique SSH dans le cadre du déploiement, ce qui évite l’étape de configuration post-déploiement consistant à désactiver les connexions par mot de passe pour SSH. Cet article fournit des étapes détaillées et des exemples supplémentaires de génération de certificats destinés, par exemple, à être utilisés avec les machines virtuelles Linux. Si vous souhaitez rapidement créer et utiliser une paire de clés SSH, consultez [Créer une paire de clés publique et privée SSH pour les machines virtuelles Linux](mac-create-ssh-keys.md).
@@ -55,7 +55,7 @@ ssh-keygen \
 
 `ssh-keygen` = programme utilisé pour créer les clés
 
-`-t rsa` = type de clé à créer correspondant au format RSA [wikipedia][parenthèses à la fin](`https://en.wikipedia.org/wiki/RSA_(cryptosystem) `)
+`-t rsa` = type de clé à créer correspondant au [format RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 `-b 2048` = bits de la clé
 
 `-C "azureuser@myserver"` = commentaire ajouté à la fin du fichier de la clé publique pour l’identifier facilement.  Un courrier électronique est généralement utilisé comme commentaire, mais vous pouvez utiliser le contenu le mieux adapté à votre infrastructure.

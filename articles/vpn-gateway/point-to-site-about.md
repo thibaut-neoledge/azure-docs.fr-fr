@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 010/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: f19b58ad8f12169acefd74bfe86a28ad950dad34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e31d58de113f737a48b6d3091650226f04ec69a
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
-Une connexion par passerelle VPN point à site (P2S) vous permet de créer une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur de client individuel. Une connexion P2S est établie en étant démarrée à partir de l’ordinateur client. Cette solution est utile pour les télétravailleurs souhaitant se connecter à un réseau virtuel à partir d’un emplacement distant, comme depuis leur domicile ou pendant une conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN Site à Site (S2S) lorsqu’un nombre restreint de clients doit se connecter à un réseau virtuel.
+Une connexion par passerelle VPN point à site (P2S) vous permet de créer une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur de client individuel. Une connexion P2S est établie en étant démarrée à partir de l’ordinateur client. Cette solution est utile pour les télétravailleurs souhaitant se connecter à un réseau virtuel à partir d’un emplacement distant, comme depuis leur domicile ou pendant une conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN Site à Site (S2S) lorsqu’un nombre restreint de clients doit se connecter à un réseau virtuel. Cet article s'applique au modèle de déploiement Resource Manager.
 
 ## <a name="protocol"></a>Quel protocole est utilisé par le P2S ?
 
@@ -36,7 +36,7 @@ La connexion VPN point à site peut utiliser un des protocoles suivants :
 Si vous avez un environnement client mixte comportant des appareils Windows et Mac, configurez SSTP et IKEv2.
 
 >[!NOTE]
->IKEv2 pour P2S est actuellement en préversion.
+>IKEv2 pour P2S est actuellement en préversion et est disponible pour le modèle de déploiement Resource Manager.
 >
 
 ## <a name="authentication"></a>Comment les clients VPN P2S sont-ils authentifiés ?

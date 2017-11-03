@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 10/16/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cc92f046267f2c4abc2ce46960a54487aa205ea8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e9670b39cf99cfa893270a0786a093914beee91
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Transfert de données à partir d’un HDFS local à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +69,7 @@ Un service lié lie un magasin de données à une fabrique de données. Vous cr�
 | type |La propriété de type doit être définie sur **Hdfs** |Oui |
 | Url |URL vers le système HDFS |Oui |
 | authenticationType |Anonyme ou Windows. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |Oui |
-| userName |Nom d’utilisateur de l’authentification Windows |Oui (pour l’authentification Windows) |
+| userName |Nom d’utilisateur de l’authentification Windows Pour l’authentification Kerberos, spécifiez `<username>@<domain>.com`. |Oui (pour l’authentification Windows) |
 | password |Mot de passe de l’authentification Windows |Oui (pour l’authentification Windows) |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au système HDFS. |Oui |
 | Encryptedcredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) des informations d’accès. |Non |
@@ -104,7 +104,7 @@ Un service lié lie un magasin de données à une fabrique de données. Vous cr�
         "typeProperties":
         {
             "authenticationType": "Windows",
-            "userName": "Administrator",
+            "userName": "<username>@<domain>.com (for Kerberos auth)",
             "password": "password",
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "gatewayName": "mygateway"

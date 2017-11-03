@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: spelluru
-ms.openlocfilehash: f2e1957a02d72d79a245ec3be705ba46dcc41e2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1bfb7199ddf9f02297db9de529729ba3833cf8c
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :
@@ -25,6 +25,9 @@ Le **runtime d’intégration** est l’infrastructure de calcul utilisée par A
 - Runtime d’intégration Azure
 - Runtime d’intégration auto-hébergé
 - Runtime d’intégration Azure SSIS
+
+> [!NOTE]
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 Pour obtenir l’état d’une instance de runtime d’intégration (IR), exécutez la commande PowerShell suivante : 
 

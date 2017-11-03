@@ -3,7 +3,7 @@ title: "Utiliser une MSI de machine virtuelle Windows pour accéder à Azure Key
 description: "Ce didacticiel vous guide tout au long de l’utilisation d’une identité du service administré (MSI) de machine virtuelle Windows pour accéder à Azure Key Vault."
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,19 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: 783579eda204b44564abdcb3fee30c09b0e5c1a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f9fa3e543851e79d9aed9c80ae4a8d2dd3420d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-managed-service-identity-msi-with-a-windows-vm-to-access-azure-key-vault"></a>Utiliser l’identité du service administré (MSI) avec une machine virtuelle Windows pour accéder à Azure Key Vault 
+# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous montre comment activer l’identité du service administré (MSI) pour une machine virtuelle Windows et comment l’utiliser pour accéder à l’API d’Azure Key Vault. Les identités du service administré sont gérées automatiquement par Azure et vous permettent de vous authentifier sur les services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous apprendrez à :
+Ce didacticiel vous montre comment activer l’identité MSI (Managed Service Identity) sur une machine virtuelle Windows et comment l’utiliser pour accéder à l’API d’Azure Key Vault. En agissant comme un amorçage, le coffre de clés permet à votre application cliente d’utiliser le secret pour accéder aux ressources non sécurisées par Azure Active Directory (AD). Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. 
+
+Vous allez apprendre à effectuer les actions suivantes :
 
 
 > [!div class="checklist"]
@@ -68,7 +70,7 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault 
  
-À l’aide de l’identité de service administré, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD.  Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser MSI avec les services qui ne prennent pas en charge l’authentification Azure AD, vous pouvez stocker les informations d’identification dont vous avez besoin pour ces services dans Azure Key Vault, puis utiliser MSI pour vous authentifier sur Key Vault et récupérer les informations d’identification. 
+À l’aide de l’identité de service administré, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD.  Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser l’identité MSI avec ces services, stockez les informations d’identification des services dans Azure Key Vault, puis utilisez l’identité MSI pour accéder au coffre de clés pour récupérer les informations d’identification. 
 
 Tout d’abord, nous devons créer un Key Vault et accorder l’accès au Key Vault à l’identité de la machine virtuelle.   
 
@@ -86,18 +88,18 @@ Tout d’abord, nous devons créer un Key Vault et accorder l’accès au Key Va
 
 Ensuite, ajoutez un secret à Key Vault, afin de pouvoir le retrouver à l’aide du code en cours d’exécution dans votre machine virtuelle : 
 
-1. Sélectionnez **Toutes les ressources**, puis recherchez et sélectionnez le Key Vault créé précédemment. 
+1. Sélectionnez **Toutes les ressources**, puis sélectionnez le coffre de clés créé précédemment. 
 2. Sélectionnez **Secret**, puis cliquez sur **Ajouter**. 
 3. Dans les **Options de chargement**, sélectionnez **Manuel**. 
 4. Entrez un nom et une valeur pour le secret.  Vous pouvez choisir la valeur de votre choix. 
 5. Laissez les champs pour la date d’activation et la date d’expiration vides, puis pour **Activé**, laissez la valeur **Oui**. 
 6. Cliquez sur **Créer** pour créer le secret. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-retrieve-the-secret-from-the-key-vault"></a>Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault  
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault  
 
-Maintenant que vous avez créé un secret, que vous l’avez stocké dans un Key Vault et que vous avez accordé l’accès à ce Key Vault à votre MSI de machine virtuelle, vous pouvez écrire du code pour récupérer le secret à l’exécution.  Pour simplifier cet exemple, nous allons utiliser des appels REST simples à l’aide de PowerShell.  Si vous n’avez pas installé PowerShell, vous pouvez le [télécharger ici](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1).
+Si PowerShell 4.3.1 ou version ultérieure n’est pas installé, vous devez [télécharger et installer la dernière version](https://docs.microsoft.com/powershell/azure/overview).
 
-Tout d’abord, nous allons utiliser la MSI de machine virtuelle pour obtenir un jeton d’accès afin de s’authentifier sur Key Vault :
+Tout d’abord, nous utilisons l’identité MSI de machine virtuelle pour obtenir un jeton d’accès permettant de s’authentifier auprès de Key Vault :
  
 1. Dans le portail, accédez à **Machines virtuelles** et accédez à votre machine virtuelle Windows. Puis, dans **Vue d’ensemble**, cliquez sur **Connecter**.
 2. Entrez le **Nom d’utilisateur** et le **Mot de passe** que vous avez ajoutés lorsque vous avez créé la **machine virtuelle Windows**.  

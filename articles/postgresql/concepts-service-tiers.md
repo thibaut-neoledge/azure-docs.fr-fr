@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/31/2017
-ms.openlocfilehash: 59ac187e50527517c402a5cc2aa871717dde5650
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ebdced6ac748245faed90949fd0e76c0eacb2d3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Options et performances de Base de données Azure pour PostgreSQL : comprendre les éléments disponibles dans chaque niveau tarifaire
 Quand vous créez un serveur Azure Database pour le serveur PostgreSQL, vous choisissez entre trois options principales pour configurer les ressources allouées pour ce serveur. Ces choix ont un impact sur les performances et la mise à l’échelle du serveur.
@@ -27,7 +27,7 @@ Pour chaque niveau tarifaire, vous choisissez dans une plage de niveaux de perfo
 > [!IMPORTANT]
 > Le service étant en préversion publique, il n’existe pas de contrat de niveau de service (SLA) garanti.
 
-Dans une Base de données Azure pour serveur PostgreSQL, vous pouvez avoir une ou plusieurs bases de données. Vous pouvez choisir de créer une seule base de données par serveur pour utiliser toutes les ressources, ou de créer plusieurs bases de données pour partager les ressources. 
+Dans une Base de données Azure pour serveur PostgreSQL, vous pouvez avoir une ou plusieurs bases de données. Vous pouvez choisir de créer une seule base de données par serveur pour que la base de données puisse exploiter toutes les ressources du serveur, ou de créer plusieurs bases de données qui se partageront les ressources du serveur. 
 
 ## <a name="choose-a-pricing-tier"></a>Sélectionnez un niveau tarifaire
 En phase de préversion, le service Base de données Azure pour PostgreSQL offre deux niveaux tarifaires : De base et Standard. Le niveau Premium n’est pas encore disponible, mais il le sera bientôt. 
@@ -58,7 +58,7 @@ Lorsque vous créez une base de données Azure pour PostgreSQL à l’intérieur
 ## <a name="choose-a-performance-level-compute-units"></a>Choisir un niveau de performances (unités de calcul)
 Une fois que vous avez déterminé le niveau tarifaire de votre serveur Azure Database pour PostgreSQL, vous êtes prêt à déterminer le niveau de performances en sélectionnant le nombre d’unités de calcul nécessaires. Un bon point de départ est 200 ou 400 unités de calcul pour les applications qui ont besoin d’accès concurrentiels en nombre plus élevé pour leurs charges de travail web ou d’analyse, puis d’ajuster par palier au fil des besoins. 
 
-Les unités de calcul sont une mesure de débit de traitement processeur garanti disponible pour un serveur Azure Database pour PostgreSQL unique. Une unité de calcul est une mesure mélangée de ressources processeur et mémoire.  Pour plus d’informations, voir [Présentation des unités de calcul](concepts-compute-unit-and-storage.md)
+Les unités de calcul sont une mesure de débit de traitement processeur garanti disponible pour un serveur Azure Database pour PostgreSQL unique. Une unité de calcul est une mesure mélangée de ressources processeur et mémoire.  Pour plus d’informations, consultez [Présentation des unités de calcul](concepts-compute-unit-and-storage.md).
 
 ### <a name="basic-pricing-tier-performance-levels"></a>Niveaux de performances du niveau tarifaire De base :
 
@@ -97,7 +97,7 @@ Vous choisissez initialement le niveau tarifaire et le niveau de performances qu
 
 La mise à l’échelle des unités de calcul se fait indépendamment de la taille maximale de stockage que vous avez choisie.
 
-En réalité, un changement du niveau tarifaire d’une base de données crée un réplica de la base de données d’origine avec le nouveau niveau de performances, puis bascule les connexions vers ce réplica. Aucune donnée n’est perdue au cours de ce processus. Pendant le bref instant où nous basculons vers le réplica, les connexions à la base de données sont désactivées, de sorte que certaines transactions en cours sont susceptibles d’être annulées. Cette fenêtre de désactivation varie, mais dure moins de 4 secondes en moyenne, et ne dépasse pas 30 secondes dans plus de 99 % des cas. Cette durée peut se révéler supérieure, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
+En réalité, un changement du niveau tarifaire d’une base de données crée un réplica de la base de données d’origine avec le nouveau niveau de performances, puis bascule les connexions vers ce réplica. Aucune donnée n’est perdue au cours de ce processus. Pendant le bref instant où nous basculons vers le réplica, les connexions à la base de données sont désactivées, de sorte que certaines transactions en cours sont susceptibles d’être annulées. Cette fenêtre de désactivation varie, mais elle dure moins de 4 secondes en moyenne et ne dépasse pas 30 secondes dans plus de 99 % des cas. Cette durée peut se révéler supérieure, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
 
 La durée de la totalité du processus de mise à l’échelle dépend de la taille et du niveau tarifaire du serveur avant et après le changement. Par exemple, le changement des unités de calcul au sein du niveau tarifaire Standard ne demande normalement que quelques minutes. Les nouvelles propriétés du serveur ne sont appliquées qu’une fois les modifications terminées.
 

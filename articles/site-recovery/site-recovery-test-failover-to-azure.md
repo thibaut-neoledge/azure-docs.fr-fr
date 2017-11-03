@@ -12,116 +12,112 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 54f62af6abcdd38254fd5379b95baa05656dc90b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9902af83125f596f6dd5a1a6c955d00e9b5a87bc
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Test de basculement vers Azure dans Site Recovery
 
 
 
-Cet article fournit des informations et des instructions relatives à l’exécution d’un test de basculement ou d’un test de récupération d’urgence de machines virtuelles et de serveurs physiques protégés par Site Recovery en utilisant Azure comme site de récupération.
+Cet article explique comment exécuter une simulation de récupération d’urgence vers Azure, à l’aide d’un test de basculement Site Recovery.  
 
-Publier des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-Le test de basculement permet de valider votre stratégie de réplication ou d’effectuer un test de récupération d’urgence sans perte de données ou temps d’arrêt. L’exécution d’un test de basculement n’a aucun impact sur la réplication en continu ou sur votre environnement de production. Le test de basculement peut être effectué sur une machine virtuelle ou sur un [plan de récupération](site-recovery-create-recovery-plans.md). Lors du déclenchement d’un test de basculement, vous devez spécifier le réseau auquel les machines virtuelles de test se connecteraient. Une fois le test de basculement déclenché, vous pouvez suivre la progression dans la page **Tâches**.  
-
-
-## <a name="supported-scenarios"></a>Scénarios pris en charge
-Le test de basculement est pris en charge dans tous les scénarios de déploiement autres que le [déploiement d’un site VMware hérité vers Azure](site-recovery-vmware-to-azure-classic-legacy.md). Le test de basculement n’est pas non plus pris en charge lorsque la machine virtuelle a été basculée vers Azure.  
+Vous exécutez un test de basculement afin de valider votre stratégie de réplication et de récupération d’urgence sans perte de données ni temps d’arrêt. Un test de basculement n’a aucun effet sur la réplication en cours ni sur votre environnement de production. Vous pouvez exécuter un test de basculement sur une machine virtuelle spécifique ou sur un [plan de récupération](site-recovery-create-recovery-plans.md) contenant plusieurs machines virtuelles. 
 
 
 ## <a name="run-a-test-failover"></a>Exécution d’un test de basculement
-Cette procédure explique comment exécuter un test de basculement pour un plan de récupération. Vous pouvez également exécuter un test de basculement pour une machine unique en utilisant l’option appropriée sur celle-ci.
+Cette procédure explique comment exécuter un test de basculement pour un plan de récupération. 
 
 ![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
-1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Test de basculement**.
-1. Sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
-    1.  **Dernier point dans le temps traité** : cette option permet de basculer toutes les machines virtuelles du plan de récupération vers le dernier point de récupération ayant déjà été traité par le service Site Recovery. Lorsque vous effectuez un test de basculement d’une machine virtuelle, la date et l’heure du dernier point de récupération traité sont également affichées. Si vous effectuez le basculement d’un plan de récupération, vous pouvez accéder à une machine virtuelle individuelle et consulter la vignette **Latest Recovery Points** (Derniers points de récupération) pour obtenir ces informations. Comme aucun temps n’est passé à traiter les données non traitées, cette option assure un basculement avec un objectif de délai récupération (RTO) faible.
-    1.  **Dernier point dans le temps cohérent de l’application** : cette option permet de basculer toutes les machines virtuelles du plan de récupération vers le dernier point de récupération cohérent d’application ayant déjà été traité par le service Site Recovery. Lorsque vous effectuez un test de basculement d’une machine virtuelle, la date et l’heure du dernier point de récupération cohérent d’application sont également affichées. Si vous effectuez le basculement d’un plan de récupération, vous pouvez accéder à une machine virtuelle individuelle et consulter la vignette **Latest Recovery Points** (Derniers points de récupération) pour obtenir ces informations.
-    1.  **Dernier point dans le temps** : cette option permet de traiter d’abord toutes les données qui ont été envoyées au service de récupération de site afin de créer un point de récupération pour chaque machine virtuelle avant de basculer les machines virtuelles vers celui-ci. Cette option offre l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement disposera de toutes les données qui ont été répliquées vers le service de récupération de site lorsque le basculement a été déclenché.
-    1.  **Latest multi-VM processed** (Dernier point multimachine virtuelle traité) : cette option est disponible uniquement pour les plans de récupération qui incluent au moins une machine virtuelle avec la cohérence multimachine virtuelle activée. Les machines virtuelles appartenant à un groupe de réplication basculent vers le point de récupération multimachine virtuelle cohérent commun. Les autres machines virtuelles basculent vers leur dernier point de récupération traité.  
-    1.  **Latest multi-VM app-consistent** (Dernier point d’application multimachine virtuelle cohérent) : cette option est disponible uniquement pour les plans de récupération qui incluent au moins une machine virtuelle avec la cohérence multimachine virtuelle activée. Les machines virtuelles appartenant à un groupe de réplication basculent vers le dernier point de récupération d’application multimachine virtuelle cohérent commun. Les autres machines virtuelles basculent vers leur dernier point de récupération d’application cohérent. 
-    1.  **Personnalisé** : si vous effectuez un test de basculement d’une machine virtuelle, vous pouvez utiliser cette option pour réaliser le basculement vers un point de récupération spécifique.
-1. **Réseau virtuel Azure** : spécifiez le réseau virtuel Azure où les machines virtuelles seront créées. Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom et à l’aide de la même adresse IP que dans les paramètres **Calcul et réseau** de la machine virtuelle. Si le réseau virtuel Azure indiqué pour le test de basculement ne contient pas de sous-réseau du même nom, la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique. Si la même adresse IP n’est pas disponible dans le sous-réseau, la machine virtuelle reçoit une autre adresse IP disponible dans le sous-réseau. Pour plus d’informations, consultez [cette section](#creating-a-network-for-test-failover).
-1. Si vous effectuez le basculement vers Azure et la fonction de chiffrement des données est activée, accédez à la zone **Clé de chiffrement** et sélectionnez le certificat émis lorsque vous avez activé le chiffrement des données pendant l’installation du fournisseur. Vous pouvez ignorer cette étape si vous n’avez pas activé le chiffrement sur la machine virtuelle.
-1. Effectuez un suivi de l’opération sur l’onglet **Tâches** . Vous devriez voir apparaître l’ordinateur virtuel de réplication de test sur le portail Microsoft Azure.
-1. Pour initialiser une connexion RDP sur la machine virtuelle, vous devez [ajouter une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) sur l’interface réseau de la machine virtuelle basculée. Si vous effectuez un basculement vers une machine virtuelle classique, vous devez [ajouter un point de terminaison](../virtual-machines/windows/classic/setup-endpoints.md) sur le port 3389
-1. Une fois que vous avez terminé, cliquez sur **Nettoyer le test de basculement de nettoyage** sur le plan de récupération. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations associées au test de basculement. Cette opération permet de supprimer les machines virtuelles qui ont été créés au cours du test de basculement.
+1. Dans Site Recovery dans le portail Azure, cliquez sur **Plans de récupération** > *nom_plan_récupération* > **Test de basculement**.
+2. Sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
+    - **Dernier point traité** : cette option bascule toutes les machines virtuelles du plan vers le dernier point de récupération traité par Site Recovery. Pour voir le dernier point de récupération d’une machine virtuelle spécifique, cochez **Derniers points de récupération** dans les paramètres de la machine virtuelle. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
+    - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles du plan vers le dernier point de récupération de cohérence des applications traité par Site Recovery. Pour voir le dernier point de récupération d’une machine virtuelle spécifique, cochez **Derniers points de récupération** dans les paramètres de la machine virtuelle. 
+    - **Dernier point dans le temps** : cette option permet de traiter d’abord toutes les données qui ont été envoyées au service Site Recovery afin de créer un point de récupération pour chaque machine virtuelle avant de basculer les machines virtuelles vers celui-ci. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement comporte toutes les données répliquées vers Site Recovery au moment où le basculement a été déclenché.
+    - **Dernier point multimachine virtuelle traité** : cette option est disponible pour les plans de récupération qui comportent une ou plusieurs machines virtuelles pour laquelle ou lesquelles la cohérence multimachine virtuelle est activée. Les machines virtuelles pour lesquelles ce paramètre est activé basculent vers le dernier point de récupération de cohérence multimachine virtuelle commun. Les autres machines virtuelles basculent vers le dernier point de récupération traité.  
+    - **Dernière cohérence des applications multimachines virtuelles** : cette option est disponible pour les plans de récupération qui comportent une ou plusieurs machines virtuelles pour laquelle ou lesquelles la cohérence multimachine virtuelle est activée. Les machines virtuelles qui font partie d’un groupe de réplication basculent vers le dernier point de récupération de cohérence des applications multimachine virtuelle commun. Les autres machines virtuelles basculent vers leur dernier point de récupération de cohérence des applications. 
+    - **Personnalisé** : utilisez cette option pour basculer une machine virtuelle spécifique vers un point de récupération particulier.
+3. Sélectionnez un réseau virtuel Azure dans lequel des machines virtuelles de test seront créées.
 
+    - Site Recovery essaie de créer des machines virtuelles de test dans un sous-réseau avec le même nom et la même adresse IP que ceux fournis dans les paramètres **Calcul et réseau** de la machine virtuelle.
+    - Si aucun sous-réseau portant le même nom n’est disponible dans le réseau virtuel Azure utilisé pour le test de basculement, alors la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique.
+    - Si la même adresse IP n’est pas disponible dans le sous-réseau, alors la machine virtuelle reçoit une autre adresse IP disponible dans le sous-réseau. [En savoir plus](#creating-a-network-for-test-failover).
+4. Si vous effectuez le basculement vers Azure alors que le chiffrement des données est activé, accédez à la zone **Clé de chiffrement** et sélectionnez le certificat émis lorsque vous avez activé le chiffrement pendant l’installation du fournisseur. Vous pouvez ignorer cette étape si le chiffrement n’est pas activé.
+5. Effectuez un suivi de l’opération sur l’onglet **Tâches** . Vous devriez voir apparaître l’ordinateur virtuel de réplication de test sur le portail Microsoft Azure.
+6. Pour lancer une connexion RDP à la machine virtuelle Azure, vous devez [ajouter une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) sur l’interface réseau de la machine virtuelle basculée. 
+7. Lorsque tout fonctionne comme prévu, cliquez sur **Nettoyer le test de basculement**. Cette opération supprime les machines virtuelles qui ont été créées au cours du test de basculement.
+8. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations sur le test de basculement. 
 
-> [!TIP]
-> Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom et à l’aide de la même adresse IP que dans les paramètres **Calcul et réseau** de la machine virtuelle. Si le réseau virtuel Azure indiqué pour le test de basculement ne contient pas de sous-réseau du même nom, la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique. Si l’adresse IP cible fait partie du sous-réseau choisi, la récupération de site tente alors de créer la machine virtuelle de test de basculement à l’aide de l’adresse IP cible. Si l’adresse IP cible ne fait pas partie du sous-réseau choisi, la machine virtuelle de test de basculement est créée à l’aide de toute adresse IP disponible dans le sous-réseau sélectionné.
->
->
-
-## <a name="test-failover-job"></a>Tâche du test de basculement
 
 ![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
-Le déclenchement d’un test basculement implique les étapes suivantes :
+Quand vous déclenchez un test de basculement, voici ce qui se produit :
 
-1. Vérification des conditions requises : cette étape s’assure que toutes les conditions requises pour le basculement sont satisfaites.
-1. Basculement : cette étape consiste à traiter les données et à les préparer pour les utiliser pour la création d’une machine virtuelle Azure. Si vous avez choisi le **dernier** point de récupération, cette étape crée un point de récupération à partir des données envoyées au service.
-1. Démarrer : cette étape crée une machine virtuelle Azure à l’aide des données traitées à l’étape précédente.
+1. **Prérequis** : une vérification des prérequis est effectuée pour garantir que toutes les conditions nécessaires pour le basculement sont respectées.
+2. **Basculement** : le basculement se produit et prépare les données, afin qu’une machine virtuelle Azure puisse être créée.
+3. **Dernier point de récupération** : si vous avez choisi le dernier point de récupération, un point de récupération est créé à partir des données envoyées au service.
+4. **Démarrer** : cette étape crée une machine virtuelle Azure à l’aide des données traitées à l’étape précédente.
 
-## <a name="time-taken-for-failover"></a>Durée du basculement
+### <a name="failover-timing"></a>Durée du basculement
 
-Dans certains cas, le basculement des machines virtuelles nécessite une étape supplémentaire intermédiaire qui dure généralement de 8 à 10 minutes. Il s’agit des cas suivants :
+Dans les scénarios suivants, le basculement nécessite une étape intermédiaire supplémentaire qui prend généralement entre 8 et 10 minutes pour s’accomplir :
 
-* Machines virtuelles VMware utilisant une version du service Mobilité antérieure à la version 9.8
+* Machines virtuelles VMware exécutant une version du service Mobility antérieure à 9.8
 * Serveurs physiques
 * Machines virtuelles VMware Linux
 * Machines virtuelles Hyper-V protégées en tant que serveurs physiques
-* Machines virtuelles où les pilotes suivants ne sont pas présents en tant que pilotes de démarrage
+* Machines virtuelles VMware où les pilotes suivants ne sont pas des pilotes de démarrage :
     * storvsc
     * vmbus
     * storflt
     * intelide
     * atapi
-* Machines virtuelles VMware qui n’ont pas de service DHCP activé, que vous utilisiez des adresses IP statiques ou DHCP
+* Machines virtuelles VMware pour lesquelles DHCP n’est pas activé, selon qu’elles utilisent DHCP ou des adresses IP statiques.
 
-Dans tous les autres cas, cette étape intermédiaire n’est pas nécessaire et le temps nécessaire au basculement est nettement plus faible.
-
-
-## <a name="creating-a-network-for-test-failover"></a>Création d’un réseau pour le test de basculement
-Lorsque vous effectuez un test de basculement, nous vous conseillons de choisir un réseau isolé de celui du site de récupération de production que vous avez indiqué dans les paramètres **Calcul et réseau** de la machine virtuelle. Lorsque vous créez un réseau virtuel Azure, celui-ci est par défaut isolé des autres réseaux. Ce réseau doit reproduire votre réseau de production :
-
-1. Le réseau de test doit présenter le même nombre et les mêmes noms de sous-réseaux que votre réseau de production.
-1. Le réseau de test doit utiliser la même plage d’adresses IP que votre réseau de production.
-1. Remplacez le DNS du réseau de test par l’adresse IP que vous avez indiquée comme adresse IP cible de la machine virtuelle DNS dans les paramètres **Calcul et réseau**. Consultez la rubrique [Considérations en matière de test de basculement](site-recovery-active-directory.md#test-failover-considerations) pour plus de détails.
+Dans tous les autres cas, aucune étape intermédiaire n’est exigée et le basculement prend beaucoup moins de temps.
 
 
-## <a name="test-failover-to-a-production-network-on-recovery-site"></a>Test de basculement vers un réseau de production sur le site de récupération
-Lorsque vous effectuez un test de basculement, nous vous conseillons de choisir un réseau différent de celui du site de récupération de production que vous avez indiqué dans les paramètres **Calcul et réseau** de la machine virtuelle. Cependant, si vous voulez vraiment valider la connectivité réseau de bout en bout dans une machine virtuelle basculée, tenez compte des points suivants :
+## <a name="create-a-network-for-test-failover"></a>Créer un réseau pour le test de basculement
 
-1. Assurez-vous que la machine virtuelle principale est arrêtée lorsque vous effectuez le test de basculement. Si ce n’est pas le cas, deux machines virtuelles avec la même identité seront exécutées simultanément dans le même réseau, ce qui peut avoir des conséquences indésirables.
-1. Les modifications apportées aux machines virtuelles du test de basculement seront perdues au moment du nettoyage de ces dernières. Ces modifications ne seront pas répliquées vers la machine virtuelle principale.
-1. Cette manière d’effectuer faire le test entraîne un temps d’arrêt de votre application de production. Les utilisateurs de l’application doivent être invités à ne pas utiliser l’application au cours du test de récupération d’urgence.  
+Pour le test de basculement, nous vous recommandons de choisir un réseau isolé du réseau du site de récupération de production indiqué dans les paramètres **Calcul et réseau** de chaque machine virtuelle. Lorsque vous créez un réseau virtuel Azure, celui-ci est par défaut isolé des autres réseaux. Le réseau de test doit reproduire votre réseau de production :
+
+- Le réseau de test doit avoir le même nombre de sous-réseaux que votre réseau de production. Les sous-réseaux doivent porter les mêmes noms.
+- Le réseau de test doit utiliser la même plage d’adresses IP.
+- Mettez à jour le DNS du réseau de test avec l’adresse IP spécifiée pour la machine virtuelle DNS dans les paramètres **Calcul et réseau**. Pour plus d’informations, consultez [Considérations relatives au test de basculement pour Active Directory](site-recovery-active-directory.md#test-failover-considerations).
+
+
+## <a name="test-failover-to-a-production-network-in-the-recovery-site"></a>Test de basculement vers un réseau de production sur le site de récupération
+
+Bien que nous vous recommandions d’utiliser un réseau de test distinct de votre réseau de production, si vous ne souhaitez pas exécuter une simulation de récupération d’urgence dans votre réseau de production, notez les points suivants : 
+
+- Vérifiez que la machine virtuelle principale est arrêtée quand vous exécutez le test de basculement. Si vous ne le faites pas, deux machines virtuelles avec la même identité s’exécuteront simultanément sur le même réseau. Les conséquences risquent alors d’être inattendues.
+- Toute modification apportée aux machines virtuelles créées pour le test de basculement est perdue quand vous nettoyez le basculement. Ces modifications ne sont pas répliquées vers la machine virtuelle principale.
+- Les tests effectués dans votre environnement de production entraînent un temps d’arrêt de votre application de production. Les utilisateurs ne doivent pas utiliser des applications qui s’exécutent sur des machines virtuelles quand le test de basculement est en cours d’exécution.  
 
 
 
 ## <a name="prepare-active-directory-and-dns"></a>Préparer Active Directory et DNS
-Pour exécuter un test de basculement afin de tester des applications, vous devez créer une copie de l’environnement Active Directory de production dans votre environnement de test. Consultez la rubrique [Considérations en matière de test de basculement](site-recovery-active-directory.md#test-failover-considerations) pour plus de détails.
+
+Pour exécuter un test de basculement afin de tester des applications, vous devez créer une copie de votre environnement Active Directory de production dans votre environnement de test. Pour plus d’informations, consultez [Considérations relatives au test de basculement pour Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement
 
-Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de RDP après le basculement, assurez-vous que vous effectuez les actions indiquées dans le tableau.
+Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de RDP après le basculement, respectez les exigences récapitulées dans le tableau.
 
 **Type de basculement** | **Emplacement** | **Actions**
 --- | --- | ---
-**Machine virtuelle Azure exécutant Windows** | Sur la machine locale, avant le basculement | Pour accéder à la machine virtuelle Azure par Internet, activez la fonction RDP, vérifiez que les règles TCP et UDP sont ajoutées pour **Public** et que RDP est autorisé dans le champ **Pare-feu Windows** > **Applications autorisées**, pour tous les profils.<br/><br/> Pour permettre l’accès via une connexion site à site, activez RDP sur la machine, en vérifiant que ce dernier est autorisé dans le champ **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux de types **Domaine et Privé**.<br/><br/>  Vérifiez que la stratégie SAN du système d’exploitation est définie sur la valeur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135)<br/><br/> Assurez-vous qu’aucune mise à jour de Windows n’est en attente sur la machine virtuelle lorsque vous déclenchez un basculement. Il est possible qu’une mise à jour Windows s’exécute lors du basculement, auquel cas vous ne pourrez plus vous connecter à la machine virtuelle tant que la mise à jour ne sera pas terminée. <br/><br/>
-**Machine virtuelle Azure exécutant Windows** | Sur la machine virtuelle Azure après le basculement | Pour une machine virtuelle classique, [ajoutez un point de terminaison public](../virtual-machines/windows/classic/setup-endpoints.md) pour le protocole RDP (port 3389)<br/><br/>  Pour une machine virtuelle Resource Manager, [ajoutez une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine).<br/><br/> Les règles des groupes de sécurité réseau figurant sur la machine virtuelle basculée et le sous-réseau Azure auquel elle est connectée doivent autoriser les connexions entrantes avec le port RDP.<br/><br/> Pour une machine virtuelle Resource Manager, vous pouvez vérifier les **diagnostics de démarrage** pour examiner une capture d’écran de la machine virtuelle<br/><br/> Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle est en cours d’exécution, puis suivez ces [conseils de dépannage](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).<br/><br/>
-**Machine virtuelle Azure exécutant Linux** | Sur la machine locale, avant le basculement | Assurez-vous que le service Secure Shell, sur la machine virtuelle Azure, est défini pour démarrer automatiquement au démarrage du système.<br/><br/> Vérifiez que les règles de pare-feu autorisent une connexion SSH à ce dernier.
-**Machine virtuelle Azure exécutant Linux** | Machine virtuelle Azure après le basculement | Les règles des groupes de sécurité réseau figurant sur la machine virtuelle basculée et le sous-réseau Azure auquel elle est connectée doivent autoriser les connexions entrantes avec le port SSH.<br/><br/> Pour une machine virtuelle Classic, [ajoutez un point de terminaison public](../virtual-machines/windows/classic/setup-endpoints.md) pour autoriser les connexions entrantes sur le port SSH (port TCP 22 par défaut).<br/><br/> Pour une machine virtuelle Resource Manager, [ajoutez une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine).<br/><br/> Pour une machine virtuelle Resource Manager, vous pouvez vérifier les **diagnostics de démarrage** pour examiner une capture d’écran de la machine virtuelle<br/><br/>
+**Machine virtuelle Azure exécutant Windows** | Machine locale avant le basculement | Pour accéder à la machine virtuelle Azure par Internet, activez la fonction RDP, vérifiez que les règles TCP et UDP sont ajoutées pour **Public** et que RDP est autorisé pour tous les profils dans **Pare-feu Windows** > **Applications autorisées**.<br/><br/> Pour accéder à la machine virtuelle Azure via une connexion de site à site, activez RDP sur la machine, en vérifiant que ce dernier est autorisé dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées**, pour les réseaux de types **Domaine et Privé**.<br/><br/>  Vérifiez que la stratégie SAN du système d’exploitation est définie sur la valeur **OnlineAll**. [En savoir plus](https://support.microsoft.com/kb/3031135).<br/><br/> Vérifiez qu’aucune mise à jour de Windows n’est en attente sur la machine virtuelle quand vous déclenchez un basculement. Une mise à jour de Windows peut démarrer quand vous procédez au basculement, et vous ne pouvez pas ouvrir de session sur la machine virtuelle tant que la mise à jour n’est pas terminée. 
+**Machine virtuelle Azure exécutant Windows** | Machine virtuelle Azure après le basculement |  [Ajoutez une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) pour la machine virtuelle.<br/><br/> Les règles des groupes de sécurité réseau figurant sur la machine virtuelle basculée (et le sous-réseau Azure auquel elle est connectée) doivent autoriser les connexions entrantes avec le port RDP.<br/><br/> Cochez **Diagnostics de démarrage** pour examiner une capture d’écran de la machine virtuelle.<br/><br/> Si vous ne parvenez pas à vous connecter, vérifiez que la machine virtuelle est en cours d’exécution et consultez ces [conseils de résolution des problèmes](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Machine virtuelle Azure exécutant Linux** | Machine locale avant le basculement | Vérifiez que le service Secure Shell, sur la machine virtuelle, est défini pour démarrer automatiquement au démarrage du système.<br/><br/> Vérifiez que les règles de pare-feu autorisent une connexion SSH à ce dernier.
+**Machine virtuelle Azure exécutant Linux** | Machine virtuelle Azure après le basculement | Les règles des groupes de sécurité réseau figurant sur la machine virtuelle basculée (et le sous-réseau Azure auquel elle est connectée) doivent autoriser les connexions entrantes avec le port SSH.<br/><br/> [Ajoutez une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) pour la machine virtuelle.<br/><br/> Cochez **Diagnostics de démarrage** pour obtenir une capture d’écran de la machine virtuelle.<br/><br/>
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois que votre tentative de test de basculement a réussi, vous pouvez essayer d’effectuer un [basculement](site-recovery-failover.md).
+Une fois que vous avez exécuté une simulation de récupération d’urgence, découvrez les autres types de [basculement](site-recovery-failover.md).

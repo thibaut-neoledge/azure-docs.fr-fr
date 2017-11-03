@@ -13,11 +13,11 @@ ms.devlang: terminal
 ms.topic: quickstart
 ms.date: 07/27/2017
 ms.author: denlee
-ms.openlocfilehash: ef1a54b6b9245ad091171d5c9b2966f8596edbab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB : Créer, interroger et parcourir la console Gremlin
 
@@ -46,7 +46,7 @@ Vous devez également installer la [console Gremlin](http://tinkerpop.apache.org
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connexion à votre App Service
-1. Avant de démarrer la console Gremlin, créez ou modifiez le fichier config remote-secure.yaml dans le répertoire apache-tinkerpop-gremlin-console-3.2.5/conf.
+1. Avant de démarrer la console Gremlin, créez ou modifiez le fichier config remote-secure.yaml dans le répertoire `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Renseignez vos configurations *hôte*, *port*, *nom d’utilisateur*, *mot de passe*, *connectionPool* et *sérialiseur* :
 
     Paramètre|Valeur suggérée|Description
@@ -62,6 +62,18 @@ Vous devez également installer la [console Gremlin](http://tinkerpop.apache.org
 
     Pour la valeur Mot de passe, copiez la **clé primaire** dans la page **Clés** : ![Afficher et copier votre clé primaire dans le portail Azure, la page Clés](./media/create-graph-gremlin-console/keys.png)
 
+Votre fichier remote-secure.yaml doit ressembler à ceci :
+
+```
+hosts: [your_database_server.graphs.azure.com]
+port: 443
+username: /dbs/your_database_account/colls/your_collection
+password: your_primary_key
+connectionPool: {
+  enableSsl: true
+}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+```
 
 3. Dans votre terminal, exécutez `bin/gremlin.bat` ou `bin/gremlin.sh` pour démarrer la [console Gremlin](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. Dans votre terminal, exécutez `:remote connect tinkerpop.server conf/remote-secure.yaml` pour vous connecter à votre service d’application.

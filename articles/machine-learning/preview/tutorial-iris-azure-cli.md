@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: c2a3b9702afd99c29b64133a05515a1b5f395130
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/15/2017
+ms.openlocfilehash: 453c774c97b77dd7829a50fa5e5668d06f817a1d
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Didacticiel : Classification Iris à l’aide de l’interface de ligne de commande
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -73,86 +73,91 @@ La première étape consiste à ouvrir l’interface de ligne de commande à par
 
 Ensuite, nous devons définir le bon contexte dans votre CLI pour accéder à des ressources Azure et les gérer.
  
-```bash
-az login
-az account set -s d128f140-94e6-1206-80a7-954b9d27d007
+```azure-cli
+# log in
+$ az login
+
+# list all subscriptions
+$ az account list -o table
+
+# set the current subscription
+$ az account set -s <subscription id or name>
 ```
 
-> [!TIP]
-> Pour obtenir la liste de tous vos abonnements, exécutez : 
->```
->az account list -o table
->```
-
 ## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>Étape 2. Créer un compte et un espace de travail Azure Machine Learning - Expérimentation
-Nous commençons par créer un compte d’expérimentation et un espace de travail. Consultez [Concepts Azure Machine Learning](overview-general-concepts.md) pour plus d’informations sur les comptes d’expérimentation et les espaces de travail. 
+Nous commençons par créer un compte d’expérimentation et un espace de travail. Consultez [Concepts Azure Machine Learning](overview-general-concepts.md) pour plus d’informations sur les comptes d’expérimentation et les espaces de travail.
 
 > [!NOTE]
-> Les comptes d’expérimentation nécessitent un compte de stockage, lequel est utilisé pour stocker les résultats de vos exécutions d’expérimentations. Le nom du compte de stockage doit être globalement unique dans Azure car une URL y est associée. Le nom de votre compte d’expérimentation sert à créer, en votre nom, un compte de stockage. Veillez à utiliser un nom unique, sans quoi vous obtenez une erreur comme _« Le compte de stockage portant le nom amlsampleexp est déjà pris. »_ Autrement, vous pouvez utiliser l’argument `--storage` pour utiliser un compte de stockage existant.
+> Les comptes d’expérimentation nécessitent un compte de stockage, lequel est utilisé pour stocker les résultats de vos exécutions d’expérimentations. Le nom du compte de stockage doit être globalement unique dans Azure car une URL y est associée. Si vous ne spécifiez pas un compte de stockage existant, le nom de votre compte d’expérimentation sert à créer un compte de stockage. Veillez à utiliser un nom unique, sans quoi vous obtenez une erreur semblable à celle-ci : _« Le compte de stockage portant le nom \<nom_compte_stockage> est déjà pris. »_ Autrement, vous pouvez utiliser l’argument `--storage` pour fournir un compte de stockage existant.
 
-```bash
-az group create --name amlsample --location eastus2
-az ml account experimentation create --name amlsampleexp --resource-group amlsample
-az ml account experimentation create --name amlsampleexp --resource-group amlsample --storage /subscriptions/6d48cffb-b787-47bd-8d20-1696afa33b67/resourceGroups/existing/providers/Microsoft.Storage/storageAccounts/mystorageacct
-az ml workspace create --name amlsamplew --account amlsampleexp --resource-group amlsample
+```azure-cli
+# create a resource group 
+$ az group create --name <resource group name> --location <supported Azure region>
+
+# create a new experimentation account with a new storage account
+$ az ml account experimentation create --name <experimentation account name> --resource-group <resource group name>
+
+# create a new experimentation account with an existing storage account
+$ az ml account experimentation create --name <experimentation account name>  --resource-group <resource group name> --storage <storage account Azure Resource ID>
+
+# create a workspace in the experimentation account
+az ml workspace create --name <workspace name> --account <experimentation account name> --resource-group <resource group name>
 ```
 
 ## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>Étape 2.a. (facultative) Partager un espace de travail avec un collaborateur
 Ici, nous expliquons comment partager l’accès à un espace de travail avec un collègue. Les étapes permettant de partager l’accès à un compte d’expérimentation ou à un projet sont identiques. Seule la façon d’obtenir l’ID de ressource Azure a besoin d’être mise à jour.
 
-```bash
-az ml workspace show --name amlsamplew --account amlsampleexp --resource-group amlsample 
-az role assignment create --assignee ahgyger@microsoft.com --role owner --scope "/subscriptions/d128f140-94e6-4175-87a7-954b9d27db16/resourceGroups/amlsample/providers/Microsoft.MachineLearningExperimentation/accounts/amlsampleexp/workspaces/amlsamplew"
+```azure-cli
+# find the workspace Azure Resource ID
+$az ml workspace show --name <workspace name> --account <experimentation account name> --resource-group <resource group name>
+
+# add Bob to this workspace as a new owner
+$az role assignment create --assignee bob@contoso.com --role owner --scope <workspace Azure Resource ID>
 ```
 
 > [!TIP]
-> Vous devez utiliser la véritable adresse e-mail du collaborateur, et non un alias. 
+> Dans la commande ci-dessus, `bob@contoso.com` doit être une identité Azure AD valide dans le répertoire auquel l’abonnement actuel appartient.
 
 ## <a name="step-3-create-a-new-project"></a>Étape 3. Création d'un projet
 Notre prochaine étape consiste à créer un projet. Il existe plusieurs façons de démarrer un nouveau projet.
 
 ### <a name="create-a-new-blank-project"></a>Créer un projet vide
 
-```bash
-az ml project create --name 9_25_1 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\AMLworkbench_Demo\9_25\
+```azure-cli
+# create a new project
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path>
 ```
 
-### <a name="create-a-new-project-with-template-files"></a>Créer un projet avec des fichiers de modèle
-Les fichiers de modèle ne sont pas des exemples, mais ils donnent une structure à votre nouveau projet. Le projet est prérempli avec deux fichiers : `train.py` et `score.py`.
+### <a name="create-a-new-project-with-a-default-project-template"></a>Créer un projet avec un modèle de projet par défaut
+Vous pouvez créer un projet avec un modèle par défaut.
 
-```bash
-az ml project create --name 9_25_1 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\AMLworkbench_Demo\ --template
+```azure-cli
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Créer un projet associé à un dépôt Git cloud
-Nous pouvons créer un projet associé à un dépôt Git cloud. Chaque fois qu’une expérimentation est envoyée, un instantané du contenu du projet est capturé à titre de validation Git dans votre branche d’historique des exécutions. Pour plus d’informations, consultez [Utilisation d’un dépôt Git avec un projet Azure Machine Learning Workbench](using-git-ml-project.md).
+Nous pouvons créer un projet associé à un dépôt Git VSTS (Visual Studio Team Service). Chaque fois qu’une expérience est soumise, un instantané de l’ensemble du dossier du projet est validé dans le dépôt Git distant. Pour plus d’informations, consultez [Utilisation d’un dépôt Git avec un projet Azure Machine Learning Workbench](using-git-ml-project.md).
 
 > [!NOTE]
-> Azure Machine Learning prend uniquement en charge un projet d’équipe vide (VSTS) avec Git comme gestion des versions.
+> Azure Machine Learning prend uniquement en charge les dépôts Git vides créés dans VSTS.
 
+```azure-cli
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
+```
 > [!TIP]
-> Si vous obtenez une erreur qui stipule que l’URL du dépôt n’est peut-être pas valide ou que l’utilisateur n’a peut-être pas accès, vous pouvez créer un jeton de sécurité dans VSTS (Sécurité, ajouter des jetons d’accès personnels) et utiliser l’argument __vststoken__ lors de la création de votre projet. 
+> Si vous obtenez une erreur qui stipule que l’URL du dépôt n’est peut-être pas valide ou que l’utilisateur n’a peut-être pas accès, vous pouvez créer un jeton de sécurité dans VSTS (sous _Sécurité_, _Ajouter des jetons d’accès personnels_) et utiliser l’argument `--vststoken` lors de la création de votre projet. 
 
-```bash
-az ml project create --name 9_25_2 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\AMLworkbench_Demo\ --repo https://ahgyger.visualstudio.com/AMLWorkbench/_git/9_25 --vststoken m2fholwwrcn7u4nrdqfxx007u5rztjfhgofnemvuvtue6pbwo3sa
+### <a name="sample_create"></a>Créer un projet à partir d’un exemple
+Dans cet exemple, nous allons créer un projet à l’aide d’un exemple de projet comme modèle.
+
+```azure-cli
+# List the project samples, find the Classifying Iris sample
+$ az ml project sample list
+
+# Create a new project from the sample
+az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template-url https://github.com/MicrosoftDocs/MachineLearningSamples-Iris
 ```
-
-### <a name="sample_create"></a>Créer un projet à partir d’un exemple en ligne
-Dans cet exemple, nous utilisons un modèle provenant d’un projet Git Hub et nous l’utilisons lors de la création de notre projet. 
-
-```bash
-# List the project samples
-az ml project sample list
-
-# Create a new project from a sample
-az ml project create --name 9_25_3 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\AMLworkbench_Demo\ --repo https://ahgyger.visualstudio.com/AMLWorkbench/_git/9_25 --template-url https://github.com/MicrosoftDocs/MachineLearningSamples-Iris
-```
-
-Une fois votre projet créé, modifiez votre répertoire avant de passer à l’étape suivante.
-
-```bash
-cd c:\Users\ahgyger\Documents\AMLworkbench_Demo\9_25\9_25_1
-```
+Une fois que votre projet est créé, utilisez la commande `cd` pour entrer dans le répertoire du projet.
 
 ## <a name="step-4-run-the-training-experiment"></a>Étape 4. Exécuter l’expérimentation de formation 
 Les étapes ci-dessous partent du principe que vous avez un projet qui utilise l’exemple Iris (consultez [Créer un projet à partir d’un exemple en ligne](#sample_create)).
@@ -160,95 +165,95 @@ Les étapes ci-dessous partent du principe que vous avez un projet qui utilise l
 ### <a name="prepare-your-environment"></a>Préparation de votre environnement 
 Pour l’exemple Iris, nous devons installer matplotlib.
 
-```bash
-pip install matplotlib
+```azure-cli
+$ pip install matplotlib
 ```
 
 ###  <a name="submit-the-experiment"></a>Soumettre l’expérimentation
 
-```bash
+```azure-cli
 # Execute the file
-az ml experiment submit --run-configuration local iris_sklearn.py
+$ az ml experiment submit --run-configuration local iris_sklearn.py
 ```
 
 ### <a name="iterate-on-your-experiment-with-descending-regularization-rates"></a>Itérer au sein de votre expérimentation avec des taux de régularisation décroissants
-En étant quelque peu créatif, il est facile de former un script python qui envoie des expérimentations avec des taux de régularisation différents. (Vous devrez peut-être modifier le fichier pour pointer vers le chemin de projet approprié.)
+En faisant preuve d’un peu de créativité, vous pouvez facilement former un script Python qui envoie des expérimentations avec des taux de régularisation différents. (Vous devrez peut-être modifier le fichier pour pointer vers le chemin de projet approprié.)
 
-```bash
-python run.py
+```azure-cli
+$ python run.py
 ```
 
 ## <a name="step-5-view-run-history"></a>Étape 5. Afficher l’historique des exécutions
 La commande suivante liste toutes les exécutions précédentes qui ont eu lieu. 
 
-```bash
-az ml history list -o table
+```azure-cli
+$ az ml history list -o table
 ```
 L’exécution de la commande ci-dessus affiche la liste de toutes les exécutions qui appartiennent à ce projet. Vous pouvez voir que les mesures des taux de précision et de régularisation sont également listées. Ainsi, vous identifiez facilement la meilleure exécution dans la liste.
 
 ## <a name="step-5a-view-attachment-created-by-a-given-run"></a>Étape 5.a. Afficher la pièce jointe créée par une exécution donnée 
-Pour afficher la pièce jointe associée à une exécution donnée, nous pouvons utiliser la commande info de l’historique des exécutions.
+Pour afficher la pièce jointe associée à une exécution donnée, nous pouvons utiliser la commande info de l’historique des exécutions. Recherchez l’ID d’une exécution spécifique dans la liste ci-dessus.
 
-```bash
-az ml history info --run 9_16_4_1505589545267 --artifact driver_log
+```azure-cli
+$ az ml history info --run <run id> --artifact driver_log
 ```
 
 Pour télécharger les artefacts d’une exécution, vous pouvez utiliser la commande ci-dessous :
 
-```bash
+```azure-cli
 # Stream a given attachment 
-az ml history info --run <run id> --artifact <artifact location>
+$ az ml history info --run <run id> --artifact <artifact location>
 ```
 
 ## <a name="step-6-promote-artifacts-of-a-run"></a>Étape 6. Promouvoir les artefacts d’une exécution 
 L’une de nos exécutions présente un meilleur AUC, nous voulons donc l’utiliser pour créer un service web d’évaluation à déployer en production. Pour cela, nous devons d’abord promouvoir les artefacts dans une ressource.
 
-```bash
-az ml history promote --run 9_25_1505346632975 --artifact-path outputs/model.pkl --name model.pkl
+```azure-cli
+$ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name model.pkl
 ```
 
-Cette opération crée un dossier __assets__ dans le répertoire de votre projet qui contient pickle.link. Ce fichier link est utilisé pour suivre la version du fichier promu.
+Cette opération crée un dossier `assets` dans votre répertoire de projet avec un fichier `model.pkl.link`. Ce fichier de liaison est utilisé pour faire référence à une ressource promue.
 
 ## <a name="step-7-download-the-files-to-be-operationalized"></a>Étape 7. Télécharger les fichiers à opérationnaliser
-Nous devons maintenant télécharger les fichiers promus et les utiliser pour créer notre service web de prédiction. 
+Nous devons maintenant télécharger le modèle promu et l’utiliser pour créer notre service web de prédiction. 
 
-```bash
-az ml asset download --link-file assets\pickle.link -d asset_download
+```azure-cli
+$ az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
 ## <a name="step-8-setup-your-model-management-environment"></a>Étape 8 : Configurer votre environnement de gestion des modèles 
 Nous créons un environnement pour déployer des services web. Nous pouvons exécuter le service web sur l’ordinateur local à l’aide de Docker. Ou bien, déployez-le sur un cluster ACS pour les opérations à grande échelle. 
 
-```bash
-# Create new environment
-az ml env setup -l eastus2 -n amlsamplesenv
+```azure-cli
+# Create new local operationalization environment
+$ az ml env setup -l <supported Azure region> -n <env name>
 # Once setup is complete, set your environment for current context
-az ml env set -g amlsamplesenvrg -n amlsamplesenv
+$ az ml env set -g <resource group name> -n <env name>
 ```
 
 ## <a name="step-9-create-a-model-management-account"></a>Étape 9. Créer un compte de gestion des modèles 
 Un compte de gestion des modèles est exigé pour déployer et suivre vos modèles en production. 
 
-```bash
-az ml account modelmanagement create -n amlsamplesacct -g amlsamplesenvrg -l eastus2
+```azure-cli
+$ az ml account modelmanagement create -n <model management account name> -g <resource group name> -l <supported Azure region>
 ```
 
 ## <a name="step-10-create-a-web-service"></a>Étape 10. Création d’un service web
 Ensuite, nous créons un service web qui retourne une prédiction en utilisant le modèle que nous avons déployé. 
 
-```bash
-az ml service create realtime -m modelfilename -f score.py -r python –n amlsamplews
+```azure-cli
+$ az ml service create realtime -m asset_download/model.pkl -f score.py -r python –n <web service name>
 ```
 
 ## <a name="step-10-run-the-web-service"></a>Étape 10. Exécuter le service web
 À l’aide de l’ID de service web issu de la sortie de l’étape précédente, nous pouvons appeler le service web et le tester. 
 
-```
+```azure-cli
 # Get web service usage infomration
-az ml service usage realtime -i <web service id>
+$ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:
-az ml service run realtime -i <web service id> -d <input data>
+$ az ml service run realtime -i <web service id> -d <input data>
 ```
 
 ## <a name="deleting-all-the-resources"></a>Suppression de toutes les ressources 
@@ -256,9 +261,8 @@ Terminons ce didacticiel en supprimant toutes les ressources que nous avons cré
 
 Pour cela, nous supprimons simplement le groupe de ressources qui contient toutes nos ressources. 
 
-```bash
-az group delete --name amlsample
-az group delete --name amlsamplesenvrg
+```azure-cli
+az group delete --name <resource group name>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -271,4 +275,3 @@ Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités Azure Mac
 > * Créer un compte de gestion des modèles pour la gestion des modèles
 > * Créer un environnement pour déployer un service web
 > * Déployer un service web et l’évaluer avec de nouvelles données
-

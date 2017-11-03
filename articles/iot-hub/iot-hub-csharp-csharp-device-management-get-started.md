@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: v-jamebr
-ms.openlocfilehash: 8cb61028d60c238927e46aa75d4d6ca4b4eb64e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08ff972349c7763d71acdd11ce5a1359403e1fa0
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="get-started-with-device-management-netnet"></a>Bien démarrer avec la gestion des appareils (.NET/.NET)
 
@@ -61,12 +61,12 @@ Dans cette section, vous créez une application console .NET (à l’aide de C#)
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion pour le IoT Hub créé dans la section précédente et l’appareil cible.
+5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion IoT Hub du hub créé dans la section « Créer un hub IoT ». 
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
-        static string targetDevice = "{deviceIdForTargetDevice}";
+        static string targetDevice = "myDeviceId";
         
 6. Ajoutez la méthode suivante à la classe **Program**.  Ce code obtient la représentation d’appareil pour le redémarrage de l’appareil et renvoie les propriétés signalées.
    

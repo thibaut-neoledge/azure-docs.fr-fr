@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4f4fa884694dc8dad6349e3835e7c7ba2c4d2bdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -43,7 +43,11 @@ Vérifiez que les prérequis suivants sont remplis :
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
 1. Identifiez un serveur Windows Server 2012 R2 ou ultérieur sur lequel exécuter Azure AD Connect. Ajoutez ce serveur à la même forêt Active Directory que celle des utilisateurs dont les mots de passe doivent être validés.
-2. Installez la [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) sur le serveur identifié à l’étape précédente. Si Azure AD Connect est déjà en cours d’exécution, vérifiez que la version est 1.1.557.0 ou ultérieure.
+2. Installez la [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) sur le serveur identifié à l’étape précédente. Si vous exécutez déjà Azure AD Connect, vérifiez que la version est 1.1.644.0 ou ultérieure.
+
+    >[!NOTE]
+    >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la **synchronisation de hachage de mot de passe**. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) pour en savoir plus.
+
 3. Identifiez un autre serveur Windows Server 2012 R2 ou ultérieur sur lequel exécuter l’agent d’authentification autonome. La version de l’agent d’authentification doit être 1.5.193.0 ou ultérieure. Ce serveur est nécessaire pour garantir une haute disponibilité des demandes de connexion. Ajoutez ce serveur à la même forêt Active Directory que celle des utilisateurs dont les mots de passe doivent être validés.
 4. S’il existe un pare-feu entre vos serveurs et Azure AD, vous devez configurer les éléments suivants :
    - Assurez-vous que les agents d’authentification peuvent effectuer des requêtes **sortantes** vers Azure AD sur les ports suivants :
@@ -87,7 +91,7 @@ Si vous installez Azure AD Connect pour la première fois, choisissez le [chemin
 
 ![Azure AD Connect - Connexion de l’utilisateur](./media/active-directory-aadconnect-sso/sso3.png)
 
-Si vous avez déjà installé Azure AD Connect (à l’aide du chemin [d’installation rapide](active-directory-aadconnect-get-started-express.md) ou [d’installation personnalisée](active-directory-aadconnect-get-started-custom.md)), sélectionnez **Modifier la connexion utilisateur** sur Azure AD Connect, puis cliquez sur **Suivant**. Ensuite, sélectionnez **Authentification directe** comme mode d’authentification. Si l’opération réussit, un agent d’authentification directe est installé sur le même serveur qu’Azure AD Connect et la fonctionnalité est activée sur votre locataire.
+Si vous avez déjà installé Azure AD Connect (à l’aide du chemin [d’installation rapide](active-directory-aadconnect-get-started-express.md) ou [d’installation personnalisée](active-directory-aadconnect-get-started-custom.md)), sélectionnez la tâche **Modifier la connexion utilisateur** dans Azure AD Connect, puis cliquez sur **Suivant**. Ensuite, sélectionnez **Authentification directe** comme mode d’authentification. Si l’opération réussit, un agent d’authentification directe est installé sur le même serveur qu’Azure AD Connect et la fonctionnalité est activée sur votre locataire.
 
 ![Azure AD Connect - Changer la connexion utilisateur](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

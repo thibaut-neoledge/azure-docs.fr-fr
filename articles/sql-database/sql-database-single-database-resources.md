@@ -1,6 +1,6 @@
 ---
 title: "Base de données Azure SQL Database unique | Microsoft Docs"
-description: "Gérez une base de données SQL Azure unique."
+description: "Gérer le niveau de service, le niveau de performance et le volume de stockage pour une base de données Azure SQL unique."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 70f512ef5742346df742e0718e2ccffd076a979e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 8393d175f58b031dff2ab4c00b73c09b2e4908d5
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gérer les ressources pour une base de données unique dans Azure SQL Database
 
@@ -101,7 +101,7 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 |[Bases de données - Lister par pool élastique](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
 |[Bases de données - Lister par pool élastique recommandé](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourne une liste de bases de données à l’intérieur d’un pool élastique recommandé.|
 |[Bases de données - Lister par serveur](/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
-|[Base de données - Mise à jour] ((/ rest/api/sql/bases de données/mise à jour)|Met à jour une base de données existante.|
+|[Bases de données - Mettre à jour](/rest/api/sql/databases/update)|Met à jour une base de données existante.|
 
 
 

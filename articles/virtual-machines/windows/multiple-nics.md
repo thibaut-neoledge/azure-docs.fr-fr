@@ -14,16 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 9e84e18c5d6c205d320c6c9c565ce6723d8fa6e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Créer et gérer une machine virtuelle Windows équipée de plusieurs cartes d’interface réseau
 Les machines virtuelles (VM) dans Azure peuvent être équipées de plusieurs cartes d’interface réseau (NIC) virtuelles. Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article explique comment créer une machine virtuelle équipée de plusieurs cartes d’interface réseau. Il explique également comment ajouter ou supprimer des cartes d’interface réseau d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
-
-Pour plus d’informations, notamment sur la création de plusieurs cartes d’interface réseau dans vos propres scripts PowerShell, voir [Déploiement de machines virtuelles avec plusieurs cartes d’interface réseau](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
 
 ## <a name="prerequisites"></a>Composants requis
 Vérifiez que vous disposez de la [dernière version d’Azure PowerShell installée et configurée](/powershell/azure/overview).
@@ -78,7 +76,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-En général, vous créez également un [groupe de sécurité réseau](../../virtual-network/virtual-networks-nsg.md) ou un [équilibreur de charge](../../load-balancer/load-balancer-overview.md) pour faciliter la gestion et la répartition du trafic entre vos machines virtuelles. L’article [Machines virtuelles équipées de plusieurs cartes d’interface réseau](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) explique comment créer un groupe de sécurité réseau et affecter des cartes d’interface réseau.
+En général, vous créez également un [groupe de sécurité réseau](../../virtual-network/virtual-networks-nsg.md) pour filtrer le trafic vers la machine virtuelle, ainsi qu’un [équilibreur de charge](../../load-balancer/load-balancer-overview.md) pour répartir le trafic entre plusieurs machines virtuelles.
 
 ### <a name="create-the-virtual-machine"></a>Créer la machine virtuelle
 Maintenant, commencez à élaborer la configuration de votre machine virtuelle. La taille d’une machine virtuelle détermine le nombre maximal de cartes réseau qu’elle peut accueillir. Pour plus d’informations, voir [Tailles des machines virtuelles Windows](sizes.md).

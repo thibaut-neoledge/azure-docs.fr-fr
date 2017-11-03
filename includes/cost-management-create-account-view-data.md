@@ -31,3 +31,5 @@ L’illustration suivante montre les coûts pour les ressources Azure chez Conto
 Cliquez avec le bouton droit de la souris sur un type de ressource, puis sélectionnez **Entités de coût** pour afficher les entités et les services qui ont utilisé la ressource. Les services VM et Workers dans DevOps ont dépensé 486,60 $ et 435,71 $ dans cet exemple. Le total pour les deux est de 922 $.
 
 ![entités de coût et services](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+Pour visionner un didacticiel vidéo sur vos données de facturation cloud, consultez [Analyse des données de facturation cloud avec Azure Cost Management de Cloudyn](https://youtu.be/G0pvI3iLH-Y).

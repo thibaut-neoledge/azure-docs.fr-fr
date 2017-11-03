@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: d2214b914899b24dfb36873e0083632a7deaba52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ee171708364c3e29476302bef04a715df650b9b
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
 
@@ -51,7 +51,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
 ## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>Terminer l’installation hors connexion d’App Service sur Azure Stack
 
-1. Sur l’ordinateur hôte Azure Stack déconnecté, exécutez appservice.exe en tant que azurestack\administrator.
+1. Sur l’ordinateur hôte Azure Stack déconnecté, exécutez appservice.exe en tant que azurestack\clouadmin.
 
 2. Cliquez sur **Avancé** > **Effectuer l’installation hors connexion**.
 
@@ -72,7 +72,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 7. Sur la page suivante :
     1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
         - Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous indiqués lors du déploiement d’Azure Stack. Cliquez sur **Se connecter**.
-        - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple, azurestackadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
+        - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple, cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
     2. Sélectionnez votre abonnement dans la zone **Abonnements Azure Stack**.
     3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
     4. Entrez un **Nom du groupe de ressources** pour votre déploiement App Service. Par défaut, il est défini sur **APPSERVICE\<MOBILE\>**.
@@ -81,7 +81,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
     ![Programme d’installation App Service](media/azure-stack-app-service-deploy/image03.png)
 
-8. Entrez les informations du partage de fichiers, puis cliquez sur **Suivant**.
+8. Entrez les informations du partage de fichiers, puis cliquez sur **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet de votre serveur de fichiers, par exemple \\\appservicefileserver.local.cloudapp.azurestack.external\websites ou l’adresse IP, par exemple \\\10.0.0.1\websites.
 
     ![Programme d’installation App Service](media/azure-stack-app-service-deploy/image04.png)
 
@@ -110,20 +110,25 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
     ![Programme d’installation App Service](media/azure-stack-app-service-deploy/image07.png)    
 
-12. Passez en revue de l’instance de rôle et les options de la référence SKU. Les valeurs par défaut sont renseignées avec les références d’instance minimale recommandée pour chaque rôle. Un résumé des exigences de base et de mémoire est fourni pour vous aider à planifier votre déploiement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
+12. Passez en revue de l’instance de rôle et les options de la référence SKU. Les valeurs par défaut sont remplies avec le nombre minimal d’instance et la référence (SKU) minimale pour chaque rôle dans un déploiement ASDK. Un résumé des exigences de base et de mémoire est fourni pour vous aider à planifier votre déploiement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
 
-    | Rôle | Instances minimales recommandées | Référence SKU recommandée | Remarques |
+     > [!NOTE]
+     > Pour les déploiements de production, suivez le guide dans [Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack](azure-stack-app-service-capacity-planning.md).
+     > 
+     >
+
+    | Rôle | Nombre minimal d’instances | Nombre minimal de références (SKU) | Remarques |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Gère et maintient l’intégrité du Cloud App Service. |
     | Gestion | 1 | Standard_A2 - (2 cœurs, 3 584 Mo) | Gère les points de terminaison App Service Azure Resource Manager et d’API, les extensions du portail (admin, locataire, portail Functions) et du service des données. Pour prendre en charge le basculement, augmenter les instances recommandées à 2. |
     | Éditeur | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Publie du contenu via FTP et un déploiement web. |
     | FrontEnd | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Achemine les demandes vers les applications App Service. |
-    | Worker partagé | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Héberge les applications web ou d’API et Azure Functions. Vous souhaiterez peut-être ajouter d’autres instances. En tant qu’opérateur, vous pouvez définir votre offre et choisir n’importe quel niveau de référence. Les niveaux doivent avoir au minimum un cœur. |
+    | Worker partagé | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Héberge les applications web ou d’API et Azure Functions. Il peut être nécessaire d’ajouter plus d’instances. En tant qu’opérateur, vous pouvez définir votre offre et choisir n’importe quel niveau de référence. Les niveaux doivent avoir au minimum un cœur. |
 
     ![Programme d’installation App Service](media/azure-stack-app-service-deploy/image08.png)    
 
     > [!NOTE]
-    > Dans les préversions techniques, le programme d’installation du fournisseur de ressources App Service déploie également une instance A1 Standard pour fonctionner en tant que serveur de fichiers simple pour prendre en charge Azure Resource Manager. Cette instance est conservée pour le kit de développement à un seul nœud. Pour les charges de production, lors de la disponibilité générale, le programme d’installation App Service permet d’utiliser un serveur de fichiers à haute disponibilité.
+    > **Windows Server 2016 Core n’est pas une image de plateforme prise en charge pour une utilisation avec Azure App Service sur Azure Stack**.
 
 13. Dans la zone **Sélectionnez l’image de plate-forme**, choisissez votre image de machine virtuelle Windows Server 2016 de déploiement parmi celles disponibles dans le fournisseur de ressources de calcul pour le cloud App Service. Cliquez sur **Suivant**.
 
@@ -150,19 +155,11 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Valider l’installation App Service sur Azure Stack
 
-1. Dans le portail d’administration Azure Stack, accédez au groupe de ressources créé par le programme d’installation. Par défaut, ce groupe est **APPSERVICE-LOCAL**.
+1. Dans le portail administrateur d’Azure Stack, allez dans **Administration - App Service**.
 
-2. Recherchez **CN0-VM**. Pour vous connecter à la machine virtuelle, cliquez sur **Se connecter** dans le panneau **Machine virtuelle**.
+2. Dans la vue d’ensemble, sous les statuts, vérifiez que le **Statut** affiche **Tous les rôles sont prêts**.
 
-3. Sur le bureau de cette machine virtuelle, cliquez deux fois sur **Console de gestion cloud web**.
-
-4. Accédez à **Serveurs gérés**.
-
-5. Lorsque toutes les machines affichent l’état **Prêt** pour un ou plusieurs Workers, passez à l’étape 6.
-
-6. Fermez l’ordinateur Bureau à distance et revenez à l’ordinateur où vous avez exécuté le programme d’installation App Service.
-
-    ![Programme d’installation App Service](media/azure-stack-app-service-deploy/managed-servers.png)    
+    ![Gestion d’App Service](media/azure-stack-app-service-deploy/image12.png)    
 
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Tester App Service sur Azure Stack

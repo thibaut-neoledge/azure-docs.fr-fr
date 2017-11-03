@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9e48d490b998fb57c604f2f5b2717e65d28dce1a
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7f9991d2254011080185a555f5351dce85f73704
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Déployer un cluster Azure Container Service (ACS)
 
@@ -38,6 +38,15 @@ Dans les didacticiels suivants, l’application Azure Vote est déployée sur le
 
 Dans les didacticiels précédents, une image conteneur a été créée et chargée dans une instance Azure Container Registry. Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur](./tutorial-kubernetes-prepare-app.md).
 
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Activation de la préversion d’AKS pour votre abonnement Azure
+Tant que AKS est en préversion, la création de nouveaux clusters exige un indicateur de fonctionnalité dans votre abonnement. Vous pouvez demander cette fonctionnalité pour les abonnements que vous souhaitez utiliser, quel qu’en soit le nombre. Utilisez la commande `az provider register` pour inscrire le fournisseur AKS :
+
+```azurecli-interactive
+az provider register -n Microsoft.ContainerService
+```
+
+Une fois celui-ci inscrit, vous êtes prêt à créer un cluster Kubernetes avec AKS.
+
 ## <a name="create-kubernetes-cluster"></a>Créer un cluster Kubernetes
 
 L’exemple suivant crée un cluster nommé `myK8sCluster` dans le groupe de ressources `myResourceGroup`. Vous avez créé le groupe de ressources au [tutoriel précédent](./tutorial-kubernetes-prepare-acr.md).
@@ -50,12 +59,12 @@ Au bout de quelques minutes, le déploiement se termine et retourne des informat
 
 ## <a name="install-the-kubectl-cli"></a>Installer l’interface de ligne de commande kubectl
 
-Pour vous connecter au cluster Kubernetes à partir de votre ordinateur client, utilisez [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), le client de ligne de commande Kubernetes. 
+Pour vous connecter au cluster Kubernetes à partir de votre ordinateur client, utilisez [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), le client de ligne de commande Kubernetes.
 
 Si vous utilisez Azure CloudShell, l’outil kubectl est déjà installé. Si vous souhaitez l’installer localement, exécutez la commande suivante :
 
 ```azurecli
-az aks install-cli 
+az aks install-cli
 ```
 
 ## <a name="connect-with-kubectl"></a>Se connecter avec kubectl

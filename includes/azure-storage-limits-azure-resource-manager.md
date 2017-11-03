@@ -1,4 +1,4 @@
-Les limites suivantes s’appliquent uniquement lorsque vous utilisez Azure Resource Manager et les groupes de ressources Azure.
+Les limites suivantes s’appliquent seulement quand vous effectuez des opérations de gestion avec Azure Resource Manager.
 
 | Ressource | Limite par défaut |
 | --- | --- |

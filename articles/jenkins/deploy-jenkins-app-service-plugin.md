@@ -15,24 +15,25 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 778fe746f1e8dff1d1c80b6ba7d8f10cc2bfacee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
+
 Pour déployer une application web Java sur Azure, vous pouvez utiliser Azure CLI dans [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) ou vous pouvez utiliser le [plug-in Azure App Service Jenkins](https://plugins.jenkins.io/azure-app-service). Le plug-in Jenkins version 1.0 prend en charge le déploiement continu à l’aide de la fonctionnalité Web Apps d’Azure App Service par le biais de :
 * Git et FTP.
 * Docker pour Web Apps sur Linux.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> * Configurer Jenkins pour déployer Web Apps via Git et FTP. 
-> * Configurer Jenkins pour déployer Web Apps pour Containers. 
-
+> * Configurer Jenkins pour déployer Web Apps via Git et FTP.
+> * Configurer Jenkins pour déployer Web App pour conteneurs.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Créer et configurer une instance Jenkins
+
 Si vous ne disposez pas encore d’un serveur maître Jenkins, commencez par utiliser le [modèle de solution](install-jenkins-solution-template.md), qui inclut le Kit de développement Java (JDK) version 8 et les plug-ins Jenkins requis suivants :
 
 * [Plug-in du client Git Jenkins](https://plugins.jenkins.io/git-client) version 2.4.6 
@@ -51,7 +52,7 @@ sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-Pour déployer sur Web Apps pour Containers, installez Docker sur le serveur maître Jenkins ou l’agent de machine virtuelle qui est utilisé pour la génération. Pour obtenir des instructions, consultez [Installer Docker sur Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
+Pour déployer sur Web App pour conteneurs, installez Docker sur le serveur maître Jenkins ou l’agent de machine virtuelle qui est utilisé pour la génération. Pour obtenir des instructions, consultez [Installer Docker sur Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
 ##<a name="service-principal"></a> Ajouter un principal de service Azure aux informations d’identification Jenkins
 
@@ -128,7 +129,7 @@ Le plug-in Jenkins Azure App Service est compatible avec un pipeline. Vous pouve
 6. Mettez à jour la valeur **Chemin du script** sur **Jenkinsfile_ftp_plugin**.
 7. Sélectionnez **Enregistrer** et exécutez le travail.
 
-## <a name="configure-jenkins-to-deploy-web-apps-for-containers"></a>Configurer Jenkins pour déployer Web Apps pour Containers
+## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Configurer Jenkins pour déployer Web App pour conteneurs
 
 Web Apps sur Linux prend en charge le déploiement à l’aide de Docker. Pour déployer votre application web à l’aide de Docker, vous devez fournir un fichier Docker qui intègre votre application web et un runtime du service dans une image Docker. Le plug-in Jenkins crée ensuite l’image, l’insère dans un registre Docker et déploie l’image sur votre application web.
 
@@ -168,7 +169,7 @@ Pour la valeur **URL de Registre Docker**, entrez l’URL à l’aide du format 
 12. À l’instar de l’approche par chargement de fichier, vous pouvez choisir un nom **Emplacement** autre que **production**.
 13. Enregistrez et générez le projet. Votre image conteneur est placée dans votre registre et l’application web est déployée.
 
-### <a name="deploy-web-apps-for-containers-by-using-jenkins-pipeline"></a>Déployer Web Apps pour Containers à l’aide du pipeline Jenkins
+### <a name="deploy-web-app-for-containers-by-using-jenkins-pipeline"></a>Déployer Web App pour conteneurs à l’aide du pipeline Jenkins
 
 1. Dans l’interface GitHub, ouvrez le fichier **Jenkinsfile_container_plugin**. Pour modifier le fichier, sélectionnez l’icône en forme de crayon. Mettez à jour les définitions **resourceGroup** et **webAppName** pour votre application web sur les lignes 11 et 12, respectivement :
     ```java
@@ -176,15 +177,15 @@ Pour la valeur **URL de Registre Docker**, entrez l’URL à l’aide du format 
     def webAppName = '<myAppName>'
     ```
 
-2. Remplacez la ligne 13 par votre serveur de registre de conteneurs :   
+2. Remplacez la ligne 13 par votre serveur de registre de conteneurs :
     ```java
     def registryServer = '<registryURL>'
-    ```    
+    ```
 
-3. Modifiez la ligne 16 pour utiliser l’ID des informations d’identification dans votre instance Jenkins :  
+3. Modifiez la ligne 16 pour utiliser l’ID des informations d’identification dans votre instance Jenkins :
     ```java
     azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
-    ```    
+    ```
 
 ### <a name="create-a-jenkins-pipeline"></a>Créer un pipeline Jenkins    
 
@@ -234,4 +235,4 @@ Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Configurer Jenkins pour déployer Azure App Service via FTP 
-> * Configurer Jenkins pour déployer sur Web Apps pour Containers 
+> * Configurer Jenkins pour déployer sur Web App pour conteneurs 

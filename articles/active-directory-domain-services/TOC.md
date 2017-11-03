@@ -1,6 +1,8 @@
 # Vue d'ensemble
 ## [Présentation d’Azure AD Domain Services](active-directory-ds-overview.md)
-## [Est-il vrai pour vous ?](active-directory-ds-comparison.md)
+## Est-il adapté pour vous ?
+### [Comparer avec Windows Server AD](active-directory-ds-comparison.md)
+### [Comparer avec la jonction Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Caractéristiques](active-directory-ds-features.md)
 ## [Scénarios](active-directory-ds-scenarios.md)
 ## [Fonctionnement de la synchronisation](active-directory-ds-synchronization.md)
@@ -36,6 +38,7 @@
 ### [Configurer la prise en charge de la synchronisation de profil pour SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Configurer a délégation Kerberos contrainte](active-directory-ds-enable-kcd.md)
 ### [Déployer l’activation du Proxy d’application Azure AD :](active-directory-ds-deploy-azure-app-proxy.md)
+## [Supprimer un domaine géré](active-directory-ds-disable-aadds.md)
 ## Résolution des problèmes
 ### [FAQ](active-directory-ds-faqs.md)
 ### [Guide de résolution des problèmes](active-directory-ds-troubleshooting.md)

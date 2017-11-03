@@ -3,7 +3,7 @@ title: "Comparaison des plans d’hébergement Azure Functions | Microsoft Docs"
 description: "Découvrez comment choisir entre le plan Consommation et le plan App Service d’Azure Functions."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -17,17 +17,17 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1aa05bffb711351e0ddc544a476751690265de9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Comparaison des plans d’hébergement Azure Functions
 
 ## <a name="introduction"></a>Introduction
 
-Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul pendant l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis descend en puissance quand le code n’est pas en cours d’exécution. Vous n’avez donc pas à payer pour des machines virtuelles inactives ni à disposer d’une capacité de réserve à l’avance. Cet article est consacré au plan Consommation. Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul pendant l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis descend en puissance quand le code n’est pas en cours d’exécution. Vous n’avez donc pas à payer pour des machines virtuelles inactives ni à disposer d’une capacité de réserve à l’avance. Cet article est consacré au plan Consommation, un modèle d’application [sans serveur](https://azure.microsoft.com/overview/serverless-computing/). Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 Si vous n’êtes pas familiarisé avec Azure Functions, consultez [Vue d’ensemble d’Azure Functions](functions-overview.md).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication Azure vers Azure
 
@@ -145,8 +145,8 @@ Machines virtuelles migrées à l’aide de Site Recovery | Prises en charge | S
 
 **Configuration** | **Prise en charge/Non prise en charge** | **Notes**
 --- | --- | ---
-Taille maximale du disque du système d’exploitation | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
-Taille maximale de disque de données | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
+Taille maximale du disque du système d’exploitation | 2048 GB | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
+Taille maximale de disque de données | 4095 Go | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
 Nombre de disques de données | Jusqu’à 64, tel que pris en charge par une taille spécifique de machine virtuelle Azure | Voir [Tailles de machine virtuelle Azure](../virtual-machines/windows/sizes.md).
 Disque temporaire | Toujours exclus de la réplication | Le disque temporaire est exclu de la réplication. Dans les recommandations Azure, il est stipulé que vous ne devez pas placer de données persistantes sur un disque temporaire. Pour plus d’informations, consultez [Disque temporaire sur des machines virtuelles Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
 Taux de modification des données sur le disque | Au plus 6 Mbits/s par disque | Si le taux moyen de modification des données sur le disque est en permanence supérieur à 6 Mbits/s, la réplication ne pourra pas suivre. Toutefois, s’il s’agit d’une rafale de données occasionnelle, que le taux de modification des données est supérieur à 6 Mbits/s pendant un certain laps de temps, et qu’il redescend par la suite, la réplication pourra rattraper le retard. Dans ce cas, certains points de récupération pourront être légèrement différés.

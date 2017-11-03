@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 35b7f026aa05fb16d57f49b93edff831b43268db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Bibliothèques de connexions de la base de données Azure pour PostgreSQL
 Cette rubrique liste les bibliothèques et les pilotes que les développeurs peuvent utiliser pour programmer des applications qui se connectent à Azure Database pour PostgreSQL et l’interrogent.
@@ -37,4 +37,4 @@ La plupart des bibliothèques clientes de langages qui permettent de se connecte
 ## <a name="next-steps"></a>Étapes suivantes
 Lisez ces guides de démarrage rapide pour savoir comment se connecter à Azure Database for PostgreSQL et l’interroger dans le langage de votre choix :
 
-[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 10/17/2017
 ms.author: mimig
-ms.openlocfilehash: b84fe1036a50b5672f5b5f4d6df2f67a25a1be4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d6ba5794e4a3e431abd72a780b60b9e59e9f4db
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>API Graph .NET Azure Cosmos DB : Télécharger et notes de publication
 
@@ -32,6 +32,15 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-préversion
+
+#### <a name="bug-fixes"></a>Résolution des bogues
+* Correctif pour charger éventuellement `appsettings.json` (`netstandard1.6`)
+
+#### <a name="whats-new"></a>Nouveautés
+* Modification de Microsoft.Azure.Graphs pour cibler la plateforme AnyCPU.
+* Suppression de l’assembly Mono du manifeste de package `net461`.
 
 ### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-préversion
 
@@ -60,7 +69,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-préversion
 
-### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-préversion
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 * Préversion initiale.
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
@@ -74,12 +83,13 @@ Toute requête envoyée à Azure Cosmos DB qui utilise un SDK supprimé est reje
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [0.3.1-préversion](#0.3.1-preview) |17 octobre 2017 |--- |
 | [0.3.0-préversion](#0.3.0-preview) |2 octobre 2017 |--- |
 | [0.2.4-préversion](#0.2.4-preview) |4 août 2017 |--- |
 | [0.2.2-préversion](#0.2.2-preview) |23 juin 2017 |--- |
 | [0.2.1-préversion](#0.2.2-preview) |8 juin 2017 |--- |
 | [0.2.0-préversion](#0.2.2-preview) |10 mai 2017 |--- |
-| [0.1.0-préversion](#0.1.0-preview) |8 mai 2017 |--- |
+| [0.1.0-preview](#0.1.0-preview) |8 mai 2017 |--- |
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur l’API Graph Azure Cosmos DB, consultez [Présentation d’Azure Cosmos DB : API Graph](graph-introduction.md). 

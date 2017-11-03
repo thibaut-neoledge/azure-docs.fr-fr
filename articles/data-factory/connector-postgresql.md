@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: f2670be1af310ecd57952465fdf7ebd21513eb63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9395ab077a112e64811b860dd5aa2345a3206fc
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copier des données de PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,8 +40,8 @@ Plus précisément, ce connecteur PostgreSQL prend en charge PostgreSQL **versio
 
 Pour utiliser ce connecteur PostgreSQL, vous devez :
 
-- Configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md).
-- Installer le [fournisseur de données Ngpsql pour PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 ou version ultérieure sur l’ordinateur exécutant le runtime d’intégration.
+- Configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
+- Installer le [fournisseur de données Ngpsql pour PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) avec une version comprise entre 2.0.12 et 3.1.9 sur l’ordinateur exécutant le runtime d’intégration.
 
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec l’activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Consultez le [Didacticiel de l’activité de copie](quickstart-create-data-factory-dot-net.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie.

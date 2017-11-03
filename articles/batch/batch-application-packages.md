@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1f9951c9cc1b9380e166834afaeb18a4687e2d8
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
@@ -262,11 +262,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Sur des nœuds Linux, le format est légèrement différent. Les points (.), les tirets (-) et les signes dièse (#) sont aplatis en traits de soulignement dans la variable d’environnement. Par exemple :
+Sur des nœuds Linux, le format est légèrement différent. Les points (.), les tirets (-) et les signes dièse (#) sont aplatis en traits de soulignement dans la variable d’environnement. En outre, notez que la casse de l’ID d’application est conservée. Par exemple :
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_APPLICATIONID_version
+AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
 `APPLICATIONID` et `version` sont des valeurs qui correspondent à la version de l’application et du package que vous avez spécifiées pour le déploiement. Par exemple, si vous spécifiez que la version 2.7 de l’application *blender* doit être installée sur des nœuds Windows, vos lignes de commande de tâche utilisent cette variable d’environnement pour accéder aux fichiers de l’application :
@@ -276,11 +276,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-Sur des nœuds Linux, spécifiez la variable d’environnement au format suivant :
+Sur des nœuds Linux, spécifiez la variable d’environnement au format suivant. Aplatissez les points (.), les tirets (-) et les signes dièse (#) en traits de soulignement et conservez la casse de l’ID d’application :
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_BLENDER_2_7
+AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
 Lorsque vous téléchargez un package d’application, vous pouvez spécifier une version par défaut à déployer sur vos nœuds de calcul. Si vous avez spécifié une version par défaut pour une application, vous pouvez omettre le suffixe de version lorsque vous faites référence à l’application. Vous pouvez spécifier la version d’application par défaut sur le portail Azure, sur le panneau Applications, tel qu’illustré dans la section [Téléchargement et gestion des applications](#upload-and-manage-applications).

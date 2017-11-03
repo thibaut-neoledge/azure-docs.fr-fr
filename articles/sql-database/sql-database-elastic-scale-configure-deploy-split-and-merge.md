@@ -1,6 +1,6 @@
 ---
 title: "Déployer un service de fractionnement et de fusion | Microsoft Docs"
-description: "Fractionnement et fusion avec les outils de bases de données élastiques"
+description: "Utilisez l’outil de fractionnement et de fusion pour déplacer les données entre les différentes bases de données partitionnées."
 services: sql-database
 documentationcenter: 
 author: ddove
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 6e2fea882c248fa095a9d450ed54a7b4e64b45e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db26b7a99a7fd8bb7cb5c3d4937c44686fc68222
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="deploy-a-split-merge-service"></a>Déployer un service de fractionnement et de fusion
 L’outil de fractionnement et de fusion vous permet de déplacer les données entre les différentes bases de données partitionnées. Consultez [Déplacement de données entre des bases de données cloud montées en charge](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -32,11 +32,11 @@ L’outil de fractionnement et de fusion vous permet de déplacer les données e
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\splitmerge\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les .dll clients requis) dans le sous-répertoire **content\splitmerge\powershell**.
+Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\splitmerge\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les dll clientes nécessaires) dans le sous-répertoire **content\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure](https://portal.azure.com). Créez une **base de données SQL**. Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
-2. Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Dans le portail, dans **Paramètres du pare-feu**, assurez-vous que le paramètre **Autoriser l’accès aux services Azure** est défini sur **Activé**. Cliquez sur l’icône « Enregistrer ».
+2. Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Dans le portail, dans **Paramètres du pare-feu**, vérifiez que le paramètre **Autoriser l’accès aux services Azure** a la valeur **Activé**. Cliquez sur l’icône « Enregistrer ».
    
    ![Services autorisés][1]
 3. Créez un compte de Stockage Azure qui sera utilisé comme emplacement de destination pour les diagnostics. Accédez au portail Azure. Dans la barre à gauche, cliquez successivement sur **Nouveau**, **Données + stockage** et **Stockage**.
@@ -44,7 +44,7 @@ Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDataba
 
 ## <a name="configure-your-split-merge-service"></a>Configurer votre service de fractionnement et de fusion
 ### <a name="split-merge-service-configuration"></a>Configuration du service de fractionnement/fusion
-1. Dans le dossier où vous avez téléchargé les assemblys de fractionnement et de fusion, créez une copie du fichier **ServiceConfiguration.Template.cscfg** fourni avec **SplitMergeService.cspkg** et renommez-le **ServiceConfiguration.cscfg**.
+1. Dans le dossier où vous avez téléchargé les assemblys de fractionnement et de fusion, créez une copie du fichier **ServiceConfiguration.Template.cscfg** fourni avec **SplitMergeService.cspkg**, puis renommez-la **ServiceConfiguration.cscfg**.
 2. Ouvrez **ServiceConfiguration.cscfg** dans un éditeur de texte de type Visual Studio qui valide les entrées telles que le format des empreintes numériques de certificat.
 3. Créez une base de données ou sélectionnez-en une qui fera office de base de données d’état pour les opérations de fractionnement-fusion et qui permettra de récupérer la chaîne de connexion de la base de données concernée. 
    
@@ -128,8 +128,8 @@ Veuillez noter que pour les déploiements de production, des certificats distinc
 3. Cliquez sur **Tableau de bord**.
 4. Choisissez l’environnement intermédiaire, puis cliquez sur **Télécharger un nouveau déploiement intermédiaire**.
    
-   ![Staging][3]
-5. Dans la boîte de dialogue, entrez une étiquette de déploiement. Pour « Package » et « Configuration », cliquez sur « À partir de local » et choisissez le fichier **SplitMergeService.cspkg** et le fichier .cscfg que vous avez configuré précédemment.
+   ![Déploiement intermédiaire][3]
+5. Dans la boîte de dialogue, entrez une étiquette de déploiement. Pour Package et Configuration, cliquez sur À partir de local, puis choisissez le fichier **SplitMergeService.cspkg** et le fichier cscfg que vous avez configuré précédemment.
 6. Assurez-vous que la case **Déployer même si un ou plusieurs rôles contiennent une seule instance** est cochée.
 7. Appuyez sur le bouton en forme de coche dans le coin inférieur droit pour commencer le déploiement. Cette opération peut prendre plusieurs minutes.
 
@@ -140,7 +140,7 @@ Si votre rôle web ne parvient pas à être en ligne, il s’agit probablement d
 
 Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôle web réussit, il s’agit probablement d’un problème de connexion à la base de données d’états que vous avez créée précédemment.
 
-* Assurez-vous que la chaîne de connexion du fichier .cscfg ne contient aucune erreur.
+* Vérifiez que la chaîne de connexion du fichier cscfg ne contient aucune erreur.
 * Vérifiez que le serveur et la base de données existent et que l’identifiant utilisateur et le mot de passe sont corrects.
 * Dans Azure SQL DB, la chaîne de connexion doit se présenter sous la forme suivante :
 

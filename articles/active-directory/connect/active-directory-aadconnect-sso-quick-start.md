@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8975a82c5573cc0c284e1fc76cd0ef2c19fbbd72
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -32,10 +32,13 @@ Pour déployer l’authentification unique transparente, vous devez procéder co
 
 Vérifiez que les prérequis suivants sont remplis :
 
-1. Configurez votre serveur Azure AD Connect : si vous utilisez l’[authentification directe](active-directory-aadconnect-pass-through-authentication.md) comme méthode de connexion, aucune action supplémentaire n’est nécessaire. Si vous utilisez la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) comme méthode de connexion, et s’il existe un pare-feu entre Azure AD Connect et Azure AD, vérifiez les points suivants :
-- Vous utilisez la version 1.1.484.0 ou une version ultérieure d’Azure AD Connect.
-- Azure AD Connect peut communiquer avec les URL `*.msappproxy.net` et sur le port 443. Cette condition préalable est applicable uniquement lorsque vous activez cette fonctionnalité, et pas pour les connexions d’utilisateur réelles.
-- Azure AD Connect peut aussi établir des connexions IP directes vers les [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Là encore, cette condition préalable est applicable uniquement lorsque vous activez la fonctionnalité.
+1. Configurez votre serveur Azure AD Connect : si vous utilisez [l’authentification directe](active-directory-aadconnect-pass-through-authentication.md) comme méthode de connexion utilisateur, aucune vérification de prérequis n’est nécessaire. Si vous utilisez la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) comme méthode de connexion, et s’il existe un pare-feu entre Azure AD Connect et Azure AD, vérifiez les points suivants :
+- Vous utilisez la version 1.1.644.0 ou ultérieure d’Azure AD Connect. 
+- Si votre pare-feu ou votre proxy permettent la mise en liste verte DNS, mettez dans la liste verte les connexions aux URL **\*.msappproxy.net** via le port 443. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine. Cette condition préalable est applicable uniquement lorsque vous activez cette fonctionnalité, et pas pour les connexions d’utilisateur réelles.
+
+    >[!NOTE]
+    >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) pour en savoir plus.
+
 2. Vous devez fournir les informations d’identification de l’administrateur de domaine pour chaque forêt AD que vous synchronisez avec Azure AD (au moyen d’Azure AD Connect) et pour les utilisateurs dont vous souhaitez activer l’authentification unique transparente.
 
 ## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
@@ -73,6 +76,8 @@ Pour déployer la fonctionnalité sur les systèmes de vos utilisateurs, ajoutez
 - https://autologon.microsoftazuread-sso.com
 - https://aadg.windows.net.nsatc.net
 
+En outre, vous devez activer un paramètre de stratégie Zone intranet (à l’aide de la stratégie de groupe) appelé « Autoriser les mises à jour de la barre d’état via le script ».
+
 >[!NOTE]
 > Les instructions suivantes ne valent que pour les navigateurs Internet Explorer et Google Chrome sur Windows (si ce dernier partage l’ensemble des URL de sites de confiance avec Internet Explorer). Lisez la section suivante pour savoir comment configurer Mozilla Firefox et Google Chrome sur Mac.
 
@@ -85,7 +90,7 @@ Par défaut, le navigateur calcule automatiquement la zone appropriée (Internet
 1. Ouvrez l’outil de gestion de stratégie de groupe.
 2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Dans cet exemple, nous utilisons la **stratégie de domaine par défaut**.
 3. Accédez à **Configuration utilisateur\Modèles d’administration\Composants Windows\Internet Explorer\Panneau de configuration Internet\Page de sécurité** et sélectionnez **Liste des attributions de sites aux zones**.
-![Authentification unique](./media/active-directory-aadconnect-sso/sso6.png)  
+![Authentification unique](./media/active-directory-aadconnect-sso/sso6.png)
 4. Activez la stratégie, puis entrez les valeurs (les URL Azure AD où les tickets Kerberos sont transférés) et les données suivantes (*1* indique la zone Intranet) dans la boîte de dialogue.
 
         Value: https://autologon.microsoftazuread-sso.com
@@ -96,8 +101,11 @@ Par défaut, le navigateur calcule automatiquement la zone appropriée (Internet
 > Si vous souhaitez interdire à certains utilisateurs l’utilisation de l’authentification unique transparente - par exemple, si ces utilisateurs se connectent sur des bornes partagées - définissez les valeurs précédentes sur *4*. Cette action ajoute les URL Azure AD aux Sites sensibles et rend l’authentification unique transparente inutilisable en permanence.
 
 5. Cliquez sur **OK**, puis de nouveau sur **OK**.
-
 ![Authentification unique](./media/active-directory-aadconnect-sso/sso7.png)
+6. Accédez à **Configuration utilisateur\Modèles d’administration\Composants Windows\Internet Explorer\Panneau de configuration Internet\Page de sécurité\Intranet Zone**, puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
+![Authentification unique](./media/active-directory-aadconnect-sso/sso11.png)
+7. Activez le paramètre de stratégie, puis cliquez sur **OK**.
+![Authentification unique](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### <a name="browser-considerations"></a>Considérations sur le navigateur
 
@@ -151,7 +159,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [**Immersion technique**](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [**Forum aux questions**](active-directory-aadconnect-sso-faq.md) : réponses aux questions fréquentes.
-- [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
+- [Immersion technique](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
+- [Questions fréquentes (FAQ)](active-directory-aadconnect-sso-faq.md) : réponses aux questions fréquentes.
+- [Résolution des problèmes](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

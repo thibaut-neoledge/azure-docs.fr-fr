@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ad25663f97b83f11f14eeb8bb07dac46f6c080d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Services de domaine Azure Active Directory : Forum aux questions (FAQ)
 Cette page répond aux questions fréquemment posées sur les services de domaine Azure Active Directory. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -49,7 +49,7 @@ Le service lui-même ne prend pas directement en charge ce scénario. Votre doma
 Le déploiement à l’aide de PowerShell ou automatisé des services de domaine Azure AD n’est pas disponible actuellement.
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Les services de domaine Azure AD sont-ils disponibles dans le nouveau portail Azure ?
-Oui. Azure AD Domain Services peut être configuré sur le [Portail Azure](https://portal.azure.com). Nous prévoyons d’arrêter la prise en charge du [Portail Azure Classic](https://manage.windowsazure.com) à l’avenir.
+Oui. Azure AD Domain Services peut être configuré sur le [Portail Azure](https://portal.azure.com). Le [portail Azure Classic](https://manage.windowsazure.com) n’est plus pris en charge.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Puis-je activer Azure AD Domain Services à l’aide d’un modèle Resource Manager ?
 Non. Certaines tâches doivent être effectuées dans le cadre de l’activation d’Azure AD Domain Services. Ces tâches ne sont pas possibles via un modèle Resource Manager. Utilisez le nouveau portail Azure pour activer Azure AD Domain Services dans votre annuaire.

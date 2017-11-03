@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1ba4d68ba93073ebe3516c4fe886c7845080c534
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="durable-functions-overview-azure-functions"></a>Vue d’ensemble de Fonctions durables (Azure Functions)
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 Étant donné que l’état est géré par le runtime de Fonctions durables, vous n’avez pas à implémenter votre propre mécanisme de suivi de l’état.
 
-Même si l’extension Fonctions durables intègre des webhooks pour la gestion des orchestrations de longue durée, vous pouvez implémenter ce modèle vous-même à l’aide de vos propres déclencheurs de fonction (par exemple HTTP, une file d’attente ou Event Hub) et la liaison `orchestrationClient`.
+Même si l’extension Fonctions durables intègre des webhooks pour la gestion des orchestrations de longue durée, vous pouvez implémenter ce modèle vous-même à l’aide de vos propres déclencheurs de fonction (par exemple HTTP, une file d’attente ou Event Hub) et la liaison `orchestrationClient`. Ainsi, vous pouvez utiliser un message de file d’attente pour déclencher l’arrêt.  Sinon, servez-vous d’un déclencheur HTTP protégé par une stratégie d’authentification Azure Active Directory à la place des webhooks intégrés qui utilisent une clé générée pour l’authentification. 
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -161,7 +161,7 @@ Le diagramme suivant illustre une fonction qui s’exécute dans une boucle infi
 
 ![Diagramme Singleton avec état](media/durable-functions-overview/stateful-singleton.png)
 
-Même si Fonctions durables n’est pas une implémentation du modèle acteur, les fonctions d’orchestrateur partagent plusieurs des mêmes caractéristiques d’exécution. Par exemple, elles sont de longue durée (voire infinies), avec état, fiables, monothread, transparentes au niveau de leur emplacement et globalement adressables. Ces fonctions d’orchestrateur peuvent donc être utilisées dans des scénarios de type « acteur » qui ne nécessitent aucune infrastructure distincte.
+Même si Fonctions durables n’est pas une implémentation du modèle acteur, les fonctions d’orchestrateur partagent plusieurs des mêmes caractéristiques d’exécution. Par exemple, elles sont de longue durée (voire infinies), avec état, fiables, monothread, transparentes au niveau de leur emplacement et globalement adressables. Ces fonctions d’orchestrateur peuvent donc être utiles dans des scénarios de type « acteur ».
 
 Les fonctions ordinaires sont sans état et par conséquent pas adaptées à l’implémentation d’un modèle de singleton avec état. Mais avec l’extension Fonctions durables, le modèle de singleton avec état est relativement simple à implémenter. Le code suivant est une fonction d’orchestrateur simple qui implémente un compteur.
 

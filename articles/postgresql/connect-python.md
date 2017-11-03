@@ -11,11 +11,11 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/15/2017
-ms.openlocfilehash: 342e7dfd35ce890cda4a1d98613592353a63d7e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de Python pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure pour PostgreSQL. Il explique aussi comment utiliser des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS, Ubuntu Linux et Windows. Cet article suppose que vous connaissez les bases du développement via Python, et que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.
@@ -61,8 +61,8 @@ Cette rubrique contient un total de quatre exemples de code, qui effectuent chac
 
 - Dans l’éditeur de texte que vous préférez, créez un nouveau fichier.
 - Dans le fichier texte, copiez et collez un des exemples de code présents dans les sections suivantes. Remplacez les paramètres **host**, **dbname**, **user** et **password** par les valeurs spécifiées lors de la création du serveur et de la base de données.
-- Enregistrez le fichier avec l’extension .py (par exemple postgres.py) dans votre dossier de projet. Si vous êtes sous un système d’exploitation Windows, veillez à sélectionner l’encodage UTF-8 lors de l’enregistrement du fichier. 
-- Lancer l’invite de commande ou l’interpréteur de commandes Bash, puis modifiez le répertoire de votre dossier de projet, par exemple `cd postgres`.
+- Enregistrez le fichier avec l’extension .py (par exemple postgres.py) dans votre dossier de projet. Si vous utilisez Windows, veillez à sélectionner l’encodage UTF-8 lors de l’enregistrement du fichier. 
+- Lancez l’invite de commande, le terminal ou l’interpréteur de commandes Bash, puis modifiez le répertoire de votre dossier de projet, par exemple `cd postgres`.
 -  Pour exécuter le code, tapez la commande Python suivie du nom de fichier, par exemple `Python postgres.py`.
 
 > [!NOTE]

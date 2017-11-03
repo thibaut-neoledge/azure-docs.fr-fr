@@ -9,19 +9,19 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Déployer la Gestion des API avec Service Fabric
-Ce didacticiel est le deuxième d’une série. Il vous montre comment configurer la [Gestion des API Azure](../api-management/api-management-key-concepts.md) avec Service Fabric pour acheminer le trafic vers un service principal dans Service Fabric.  Lorsque vous aurez terminé, vous aurez déployé la Gestion des API sur un réseau virtuel et configuré une opération d’API pour qu’elle envoie le trafic aux services sans état principaux. Pour en savoir plus sur les scénarios de gestion des API Azure avec Service Fabric, consultez l’article [Vue d’ensemble](service-fabric-api-management-overview.md).
+Ce didacticiel est le deuxième d’une série. Il vous montre comment configurer la [Gestion des API Azure](../api-management/api-management-key-concepts.md) avec Service Fabric pour acheminer le trafic vers un service principal dans Service Fabric.  Lorsque vous avez terminé, vous avez déployé la Gestion des API sur un réseau virtuel et configuré une opération d’API pour qu’elle envoie le trafic aux services sans état principaux. Pour en savoir plus sur les scénarios de gestion des API Azure avec Service Fabric, consultez l’article [Vue d’ensemble](service-fabric-api-management-overview.md).
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -42,11 +42,11 @@ Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
 - Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure
+- Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](http://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
+- Si vous déployez un cluster Linux, configurez un environnement de développement Java sur [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md). 
 
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>Se connecter à Azure et sélectionner un abonnement
-Ce didacticiel utilise [Azure PowerShell][azure-powershell]. Lorsque vous démarrez une nouvelle session PowerShell, connectez-vous à votre compte Azure et sélectionnez votre abonnement avant d’exécuter des commandes Azure.
- 
-Connectez-vous à votre compte Azure et sélectionnez votre abonnement :
+## <a name="sign-in-to-azure-and-select-your-subscription"></a>Connexion à Azure et sélection de votre abonnement
+Connectez-vous à votre compte Azure, sélectionnez votre abonnement avant d’exécuter des commandes Azure.
 
 ```powershell
 Login-AzureRmAccount
@@ -99,7 +99,7 @@ L’API REST de Gestion des API est actuellement la seule solution permettant de
  2. Cochez la case **Activer l’API REST Gestion des API**.
  3. Notez **l’URL de l’API Gestion**, que nous utiliserons ultérieurement pour configurer le principal Service Fabric.
  4. Générez un **Jeton d’accès** en sélectionnant une date d’expiration et une clé, puis cliquez sur le bouton **Générer** en bas de la page.
- 5. Copiez le **jeton d’accès** et enregistrez-le.  Nous l’utiliserons dans les étapes suivantes. Notez qu’il est différent de la clé primaire et de la clé secondaire.
+ 5. Copiez le **jeton d’accès** et enregistrez-le.  Nous l’utilisons dans les étapes suivantes. Notez qu’il est différent de la clé primaire et de la clé secondaire.
 
 #### <a name="upload-a-service-fabric-client-certificate"></a>Chargement d’un certificat client Service Fabric
 
@@ -193,19 +193,17 @@ print(response.text)
 
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Déploiement d’un service principal de Service Fabric
 
-Maintenant que Service Fabric est configuré comme principal pour Gestion des API, vous pouvez créer des stratégies de serveur principal pour vos API qui envoient le trafic vers vos services Service Fabric. Pour accepter les requêtes, vous devez d’abord avoir un service qui s’exécute dans Service Fabric.
+Maintenant que Service Fabric est configuré comme principal pour Gestion des API, vous pouvez créer des stratégies de serveur principal pour vos API qui envoient le trafic vers vos services Service Fabric. Pour accepter les requêtes, vous devez d’abord avoir un service qui s’exécute dans Service Fabric.  Si vous avez déjà créé un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md), déployez un service .NET Service Fabric.  Si vous avez déjà créé un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md), déployez un service Java Service Fabric.
 
-### <a name="create-a-service-fabric-service-with-an-http-endpoint"></a>Création d’un service Service Fabric avec un point de terminaison HTTP
+### <a name="deploy-a-net-service-fabric-service"></a>Déployer un service .NET Service Fabric
 
-Pour ce didacticiel, nous allons créer un service fiable ASP.NET Core sans état basique à l’aide du modèle de projet API Web par défaut. Vous créerez ainsi un point de terminaison HTTP pour votre service, que vous exposerez via Gestion des API Azure :
+Dans ce didacticiel, nous allons créer un service fiable ASP.NET Core sans état basique à l’aide du modèle de projet API Web par défaut. Vous créez ainsi un point de terminaison HTTP pour votre service, que vous exposez via Gestion des API Azure :
 
 ```
 /api/values
 ```
 
-Commencez par [configurer votre environnement de développement pour le développement d’ASP.NET Core](service-fabric-add-a-web-frontend.md#set-up-your-environment-for-aspnet-core).
-
-Une fois votre environnement de développement configuré, démarrez Visual Studio en tant qu’administrateur et créez un service ASP.NET Core :
+Démarrez Visual Studio en tant qu’administrateur et créez un service ASP.NET Core :
 
  1. Dans Visual Studio, sélectionnez Fichier -> Nouveau projet.
  2. Sélectionnez le modèle d’application Service Fabric sous Cloud et nommez-le **« ApiApplication »**.
@@ -231,11 +229,47 @@ Une fois votre environnement de développement configuré, démarrez Visual Stud
     ["value1", "value2"]`
     ```
 
-    Il s’agit du point de terminaison que vous exposerez via Gestion des API dans Azure.
+    Il s’agit du point de terminaison que vous exposez via Gestion des API dans Azure.
 
- 7. Enfin, déployez l’application sur votre cluster dans Azure. [Dans Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), cliquez avec le bouton droit sur le projet Application, puis sélectionnez **Publier**. Fournissez le point de terminaison de votre cluster (par exemple, `mycluster.westus.cloudapp.azure.com:19000`) pour déployer l’application sur votre cluster Service Fabric dans Azure.
+ 7. Enfin, déployez l’application sur votre cluster dans Azure. [Dans Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), cliquez avec le bouton droit sur le projet Application, puis sélectionnez **Publier**. Fournissez le point de terminaison de votre cluster (par exemple, `mycluster.southcentralus.cloudapp.azure.com:19000`) pour déployer l’application sur votre cluster Service Fabric dans Azure.
 
 Un service ASP.NET Core sans état nommé `fabric:/ApiApplication/WebApiService` doit maintenant s’exécuter dans votre cluster Service Fabric dans Azure.
+
+### <a name="create-a-java-service-fabric-service"></a>Créer un service Java Service Fabric
+Dans ce didacticiel, nous déployons un serveur web de base qui renvoie des messages à l’utilisateur. L’exemple d’application de serveur écho contient un point de terminaison HTTP pour votre service, que vous exposez via Gestion des API dans Azure.
+
+1. Clonez les exemples Java de mise en route.
+
+   ```bash
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+   cd service-fabric-java-getting-started
+   ```
+
+2. Modifiez *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Mettez à jour le point de terminaison pour que le service écoute le port 8081.
+
+   ```xml
+   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+   ```
+
+3. Enregistrez *ServiceManifest.xml*, puis générez l’application EchoServer1.0.
+
+   ```bash
+   cd Services/EchoServer/EchoServer1.0/
+   gradle
+   ```
+
+4. Déployez l’application sur le cluster.
+
+   ```bash
+   cd Scripts
+   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   ./install.sh
+   ```
+
+   Un service sans état Java nommé `fabric:/EchoServerApplication/EchoServerService` doit maintenant s’exécuter dans votre cluster Service Fabric dans Azure.
+
+5. Ouvrez un navigateur et tapez http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Vous devez voir « [version 1.0] Hello World ! » .
+
 
 ## <a name="create-an-api-operation"></a>Création d’une opération d’API
 
@@ -253,7 +287,7 @@ Nous pouvons maintenant créer une opération dans Gestion des API que les clien
  
 4. Sélectionnez **Application Service Fabric** dans la liste des API et cliquez sur **+ Ajouter une opération** pour ajouter une opération d’API frontale. Renseignez les valeurs :
     
-    - **URL** : sélectionnez **GET** et entrez un chemin d’accès de l’URL pour l’API. Dans le cadre de ce didacticiel, utilisez « /api/values ».  Par défaut, le chemin d’accès de l’URL spécifié ici est celui envoyé au service principal Service Fabric. Si vous utilisez ici le même chemin d’accès que votre service, dans le cas présent « /api/values », l’opération fonctionne sans modification supplémentaire. Vous pouvez également spécifier ici un chemin d’accès d’URL différent de celui utilisé par votre service Service Fabric principal, auquel cas vous devrez également spécifier une réécriture de chemin d’accès dans votre stratégie d’opération ultérieurement.
+    - **URL** : sélectionnez **GET** et entrez un chemin d’accès de l’URL pour l’API. Dans le cadre de ce didacticiel, utilisez « /api/values ».  Par défaut, le chemin d’accès de l’URL spécifié ici est celui envoyé au service principal Service Fabric. Si vous utilisez ici le même chemin d’accès que votre service, dans le cas présent « /api/values », l’opération fonctionne sans modification supplémentaire. Vous pouvez également spécifier ici un chemin d’URL différent de celui utilisé par votre service Service Fabric principal, auquel cas vous devez également spécifier une réécriture de chemin dans votre stratégie d’opération ultérieurement.
     - **Nom d’affichage** : entrez un nom pour l’API. Dans le cadre de ce didacticiel, utilisez « Values ».
 
 5. Cliquez sur **Enregistrer**.
@@ -306,7 +340,7 @@ Vous pouvez maintenant essayer d’envoyer une requête à votre service princip
 
  1. Dans le service Gestion des API, sélectionnez **API**.
  2. Dans l’API **Application Service Fabric** que vous avez créée aux étapes précédentes, sélectionnez l’onglet **Test**, puis l’opérateur **Values**.
- 3. Cliquez sur le bouton **Envoyer** pour envoyer une requête test au service principal.  La réponse HTTP devrait être de ce type :
+ 3. Cliquez sur le bouton **Envoyer** pour envoyer une requête test au service principal.  La réponse HTTP devrait être de ce type :
 
     ```http
     HTTP/1.1 200 OK

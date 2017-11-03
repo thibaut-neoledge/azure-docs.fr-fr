@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: 0b6f9e8192a4c6808beb61acb0f93ef5ec73e956
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff3a0b5f64adff535123cf0ea8ca766ed2b8d5be
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : questions fréquentes
 
@@ -104,7 +104,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 * Requêtes HTTP
 * [Dépendances](app-insights-asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure Cosmos DB, table, stockage d’objets blob et file d’attente. 
 * [Exceptions](app-insights-asp-net-exceptions.md) et arborescences des appels de procédure.
-* [Compteurs de performances](app-insights-performance-counters.md) : si vous utilisez [Status Monitor](app-insights-monitor-performance-live-website-now.md), la surveillance Azure (app-insights-azure-web-apps.md) ou le [writer collectd d’Application Insights](app-insights-java-collectd.md).
+* [Compteurs de performances](app-insights-performance-counters.md) : si vous utilisez [Status Monitor](app-insights-monitor-performance-live-website-now.md), la [surveillance Azure](app-insights-azure-web-apps.md) ou le [writer collectd d’Application Insights](app-insights-java-collectd.md).
 * [Événements et mesures personnalisés](app-insights-api-custom-events-metrics.md) que vous codez.
 * [Journaux de suivi](app-insights-asp-net-trace-logs.md) si vous configurez le collecteur approprié.
 
@@ -186,7 +186,7 @@ Utilisez une ressource unique pour tous les composants ou rôles dans un systèm
 * Le SDK JavaScript définit un cookie utilisateur sur le client web pour identifier les utilisateurs récurrents, ainsi qu’un cookie de session pour regrouper des activités.
 * S’il n’existe aucun script côté client, vous pouvez [définir des cookies sur le serveur](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Si un utilisateur réel utilise votre site dans différents navigateurs, ou s’il utilise une navigation privée ou encore des ordinateurs différents, il sera comptabilisé plusieurs fois.
-* Pour identifier un utilisateur connecté sur différents ordinateurs et navigateurs, ajoutez un appel à [setAuthenticatedUserContect()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* Pour identifier un utilisateur connecté sur différents ordinateurs et navigateurs, ajoutez un appel à [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Comment savoir si j'ai activé tout ce qu'il faut pour utiliser Application Insights ?
 | Ce qui suit doit s'afficher | Comment y accéder | Utilité |

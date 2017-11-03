@@ -3,7 +3,7 @@ title: "Utiliser l’identité du service administré d’une machine virtuelle 
 description: "Ce didacticiel vous guide tout au long du processus consistant à utiliser l’identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,19 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fcce3b557b7105abcd704f740823c0cb4441b43
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-managed-service-identity-msi-with-a-linux-vm-to-access-azure-key-vault"></a>Utiliser l’identité du service administré (MSI) avec une machine virtuelle Linux pour accéder à Azure Key Vault 
+# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous montre comment activer l’identité du service administré (MSI) pour une machine virtuelle Windows et comment l’utiliser pour accéder à l’API d’Azure Key Vault. Les identités du service administré sont gérées automatiquement par Azure et vous permettent de vous authentifier sur les services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
+Ce didacticiel vous montre comment activer l’identité MSI (Managed Service Identity) sur une machine virtuelle Windows et comment l’utiliser pour accéder à l’API d’Azure Key Vault. En agissant comme un amorçage, le coffre de clés permet à votre application cliente d’utiliser le secret pour accéder aux ressources non sécurisées par Azure Active Directory (AD). Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. 
+
+Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Activer l’identité du service administré sur une machine virtuelle Linux 
@@ -63,14 +65,14 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 
     ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Si vous souhaitez vérifier les extensions présentes sur cette **Machine virtuelle Linux**, cliquez sur **Extensions**. Si l’identité du service administré est activée, **ManagedIdentityExtensionforLinux** apparaît dans la liste.
+5. Si vous souhaitez vérifier les extensions présentes sur cette **Machine virtuelle Linux**, cliquez sur **Extensions**. Si l’identité MSI est activée, **ManagedIdentityExtensionforLinux** apparaît dans la liste.
 
     ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault  
 
-À l’aide de l’identité de service administré, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD. Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser l’identité du service administré avec les services qui ne prennent pas l’authentification Azure AD en charge, vous pouvez stocker les informations d’identification dont vous avez besoin pour ces services dans Azure Key Vault, puis utiliser l’identité du service administré pour vous authentifier sur Key Vault et récupérer les informations d’identification. 
+À l’aide de l’identité de service administré, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD. Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser l’identité MSI avec ces services, stockez les informations d’identification des services dans Azure Key Vault, puis utilisez l’identité MSI pour accéder au coffre de clés pour récupérer les informations d’identification. 
 
 Tout d’abord, nous devons créer un Key Vault et accorder l’accès au Key Vault à l’identité de la machine virtuelle.   
 
@@ -87,16 +89,16 @@ Tout d’abord, nous devons créer un Key Vault et accorder l’accès au Key Va
 
 Ensuite, ajoutez un secret à Key Vault, afin de pouvoir le retrouver à l’aide du code en cours d’exécution dans votre machine virtuelle : 
 
-1. Sélectionnez **Toutes les ressources**, puis recherchez et sélectionnez le Key Vault créé précédemment. 
+1. Sélectionnez **Toutes les ressources**, puis sélectionnez le coffre de clés créé précédemment. 
 2. Sélectionnez **Secret**, puis cliquez sur **Ajouter**. 
 3. Dans les **Options de chargement**, sélectionnez **Manuel**. 
 4. Entrez un nom et une valeur pour le secret.  Vous pouvez choisir la valeur de votre choix. 
 5. Laissez les champs pour la date d’activation et la date d’expiration vides, puis pour **Activé**, laissez la valeur **Oui**. 
 6. Cliquez sur **Créer** pour créer le secret. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-retrieve-the-secret-from-the-key-vault"></a>Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault  
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault  
 
-Pour effectuer cette procédure, vous avez besoin d'un client SSH.  Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about).   
+Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about).   
  
 1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**. 
 2. **Connectez-vous** à la machine virtuelle à l’aide du client SSH de votre choix. 

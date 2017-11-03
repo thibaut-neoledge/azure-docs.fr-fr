@@ -3,7 +3,7 @@ title: "FAQ et problèmes connus liés à l’identité du service administré (
 description: "Problèmes connus liés à l’identité du service administré pour Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: bryanla
 manager: mbaldwin
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -12,19 +12,23 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/07/2017
-ms.author: skwan
-ms.openlocfilehash: c091ea7cec35099d8ad2ab47361cd4c1278fdab6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/20/2017
+ms.author: bryanla
+ms.openlocfilehash: 859cfbeae6701336699b4f3f7a96d6b08c599340
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Forum Aux Questions (FAQ)
+
+### <a name="does-msi-work-with-azure-cloud-services"></a>MSI est-il compatible avec Azure Cloud Services ?
+
+Non, et nous ne prévoyons pas de rendre possible l’utilisation de MSI dans Azure Cloud Services.
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>L’identité du service administré fonctionne-t-elle avec la bibliothèque d’authentification Active Directory (ADAL) et la bibliothèque d’authentification Microsoft (MSAL) ?
 

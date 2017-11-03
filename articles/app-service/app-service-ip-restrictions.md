@@ -12,19 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 54c0c5050c812c2a59631541d94c553974acd2f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fbd308e9f037038ad867f3d242da6573bc67081
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrictions d’adresse IP statique avec Azure App Service #
 
 Les restrictions d’adresse IP permettent de définir une liste d’adresses IP pouvant accéder à votre application. La liste d’autorisation peut inclure des adresses IP individuelles ou une plage d’adresses IP définie par un masque de sous-réseau.
 
 Quand une demande à destination de l’application est générée à partir d’un client, l’adresse IP est recherchée dans la liste d’autorisation. Si l’adresse IP n’est pas dans la liste, l’application répond avec un code d’état [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
+
+Les restrictions IP sont définies dans le fichier web.config que votre application consomme lors de l’exécution. Dans certaines circonstances, un module peut être exécuté avant la logique de restrictions IP dans le pipeline HTTP. Dans ce cas, la requête échoue avec un autre code d’erreur HTTP.
 
 Les restrictions d’adresse IP sont évaluées sur les mêmes instances de plan App Service que celles assignées à votre application.
 

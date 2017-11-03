@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/11/2017
 ms.author: bwren
-ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Trouver des données avec les recherches de journaux dans Log Analytics
 
 >[!NOTE]
-> Cet article détaille les recherches de journaux via le langage de requête actuel dans Log Analytics.  Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), voir [Comprendre les recherches de journaux dans Log Analytics (nouveau)](log-analytics-log-search-new.md).
+> Cet article détaille les recherches dans les journaux via le langage de requête hérité de Log Analytics.  Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), voir [Comprendre les recherches de journaux dans Log Analytics (nouveau)](log-analytics-log-search-new.md).
 
 
 La fonctionnalité de recherche de journal se trouve au cœur de Log Analytics et vous permet de combiner et de mettre en corrélation des données machine de plusieurs sources dans votre environnement. Des solutions sont également alimentées par la recherche de journal pour vous proposer des mesures cernant un domaine problématique en particulier.

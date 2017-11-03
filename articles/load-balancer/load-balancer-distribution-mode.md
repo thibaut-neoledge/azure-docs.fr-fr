@@ -1,6 +1,6 @@
 ---
-title: "Configuration d’un mode de distribution d’équilibrage de charge | Microsoft Docs"
-description: "Procédure de configuration du mode de distribution d’équilibrage de charge Azure pour prendre en charge l'affinité d’IP source"
+title: "Configuration d’un mode de distribution Azure Load Balancer | Microsoft Docs"
+description: "Comment configurer le mode de distribution pour Azure Load Balancer pour prendre en charge l’affinité d’IP source."
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,57 +13,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d04a469c04553b7d6a14df7054ad5ef795baa500
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="configure-the-distribution-mode-for-load-balancer"></a>Configuration du mode de distribution de l’équilibrage de charge
+# <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configuration du mode de distribution pour Azure Load Balancer
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>Mode de distribution basé sur le hachage
 
-L’algorithme de distribution par défaut est un hachage à 5 tuples (IP source, port source, IP de destination, port de destination, type de protocole) pour mapper le trafic vers des serveurs disponibles. Il fournit l’adhérence uniquement dans une session de transport. Les paquets de la même session sont dirigés vers la même instance IP (DIP) de centre de données derrière le point de terminaison d’équilibrage de charge. Lorsque le client démarre une nouvelle session à partir du même IP source, le port source change et contraint le trafic à se diriger vers un autre point de terminaison DIP.
+Par défaut, le mode de distribution pour Azure Load Balancer est un hachage à 5 tuples. Le tuple est composé de l’IP source, du port source, de l’IP de destination, du port de destination et du type de protocole. Le hachage est utilisé pour mapper le trafic vers les serveurs disponibles, et l’algorithme fournit l’adhérence uniquement dans une session de transport. Les paquets de la même session sont dirigés vers la même instance IP de centre de données (DIP) derrière le point de terminaison d’équilibrage de charge. Lorsque le client démarre une nouvelle session à partir du même IP source, le port source change et contraint le trafic à se diriger vers un autre point de terminaison DIP.
 
-![équilibrage de charge basé sur le hachage](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
-
-Figure 1 : distribution 5 tuples
+![Mode de distribution basé sur le hachage à 5 tuples](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 ## <a name="source-ip-affinity-mode"></a>Mode d’affinité d’IP source
 
-Nous vous avons un autre mode de distribution appelé « affinité d’IP source » (également connu sous le nom d’« affinité de session » ou d’« affinité d’IP client »). L’équilibrage de charge Azure peut être configuré pour utiliser 2 tuples (IP source, IP de destination) ou 3 tuples (IP Source, adresse de destination, protocole) pour mapper le trafic vers les serveurs disponibles. En utilisant l’affinité d’IP source, les connexions initiées depuis le même ordinateur client s’orientent vers le même point de terminaison DIP.
+Load Balancer peut également être configuré à l’aide du mode de distribution d’affinité d’IP source. Ce mode de distribution est également connu sous le nom d’affinité de session ou d’affinité d’IP client. Il utilise un hachage à 2 tuples (IP source et IP de destination) ou à 3 tuples (IP source, IP de destination et type de protocole) pour mapper le trafic vers les serveurs disponibles. En utilisant l’affinité d’IP source, les connexions initiées depuis le même ordinateur client s’orientent vers le même point de terminaison DIP.
 
-Le schéma suivant illustre une configuration à 2 tuples. Notez comment la distribution 2 tuples passe de l’équilibrage de charge à la machine virtuelle 1 (VM1), puis est sauvegardée par VM2 et VM3.
+L’image suivante illustre une configuration à 2 tuples. Notez comment la distribution à 2 tuples passe de l’équilibrage de charge à la machine virtuelle 1 (VM1). La machine virtuelle VM1 est ensuite sauvegardée par VM2 et VM3.
 
-![affinité de session](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
+![Mode de distribution d’affinité de session à 2 tuples](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
-Figure 2 : distribution 2 tuples
+Le mode d’affinité d’IP source permet de résoudre une incompatibilité entre Azure Load Balancer et la Passerelle des services Bureau à distance. En utilisant ce mode, vous pouvez générer une batterie de Passerelle des services Bureau à distance dans un seul service cloud.
 
-L’affinité d’IP source permet de résoudre une incompatibilité entre l’équilibrage de charge Azure et la passerelle du Bureau à distance (RD). Vous pouvez maintenant générer une batterie de passerelles des services Bureau à distance dans un seul service cloud.
+Le chargement de médias constitue un autre scénario d’utilisation. Le chargement des données se produit via UDP, mais le plan de contrôle est obtenu via TCP :
 
-Le chargement de médias constitue un autre cas d’utilisation où le chargement des données se produit via UDP, mais le plan de contrôle via TCP :
-
-* Un client établit d’abord une session TCP avec l'adresse publique d'équilibrage de charge et est ensuite dirigé vers une adresse DIP spécifique. Ce canal est laissé actif pour surveiller l'état de connexion
-* Une nouvelle session UDP à partir du même ordinateur client est initialisée au niveau du même point de terminaison public de l’équilibrage de charge, le but ici étant que cette connexion soit également dirigée vers le même point de terminaison DIP que la connexion TCP précédente afin que le téléchargement de média puisse être exécuté à haut débit tout en conservant un canal de contrôle via le TCP.
+* Un client initie une session TCP à l’adresse publique à charge équilibrée et est dirigé vers une adresse DIP spécifique. Ce canal reste actif, de sorte que l’intégrité de la connexion puisse être surveillée.
+* Une nouvelle session UDP issue du même ordinateur client est initiée sur le même point de terminaison public d’équilibrage de charge. La connexion est dirigée vers le même point de terminaison DIP que la connexion TCP précédente. Le chargement de médias peut être exécuté à débit élevé alors que le canal de contrôle via TCP est maintenu.
 
 > [!NOTE]
-> Lorsqu’un jeu d'équilibrage de charge (suppression ou ajout d'une machine virtuelle) est modifié, la distribution des demandes du client est recalculée. Vous ne pouvez pas dépendre de nouvelles connexions à partir de clients existants qui se retrouvent sur le même serveur. En outre, le mode de distribution d'affinité d’IP source peut entraîner une distribution inégale du trafic. Les clients qui s’exécutent derrière des serveurs proxy peuvent être vu comme une application cliente unique.
+> Lorsqu’un jeu d’équilibrage de charge est modifié (suppression ou ajout d’une machine virtuelle), la distribution des demandes du client est recalculée. Vous ne pouvez pas dépendre de nouvelles connexions à partir de clients existants qui se retrouvent sur le même serveur. En outre, le mode de distribution d’affinité d’IP source peut entraîner une distribution inégale du trafic. Les clients qui s’exécutent derrière des serveurs proxy peuvent être vus comme une application cliente unique.
 
-## <a name="configuring-source-ip-affinity-settings-for-load-balancer"></a>Configuration des paramètres d'affinité d’IP source pour l'équilibrage de charge
+## <a name="configure-source-ip-affinity-settings"></a>Configurer les paramètres d’affinité IP source
 
-Pour les machines virtuelles, vous pouvez utiliser PowerShell pour modifier les paramètres de délai d'attente :
-
-Ajouter un point de terminaison Azure à une machine virtuelle et définir le mode de distribution d'équilibrage de charge
+Pour les machines virtuelles, utilisez Azure PowerShell pour modifier les paramètres de délai d’expiration. Ajoutez un point de terminaison Azure à une machine virtuelle et configurez le mode de distribution de l’équilibreur de charge :
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-LoadBalancerDistribution peut être défini avec la valeur sourceIP pour un équilibrage de charge à 2 tuples (IP source, IP de destination), sourceIPProtocol pour un équilibrage de charge à 3 tuples (IP source, IP de destination, protocole) ou none si vous préférez le comportement par défaut de l’équilibrage de charge à 5 tuples.
+Définissez la valeur de l’élément `LoadBalancerDistribution` sur le volume d’équilibrage de charge souhaité. Spécifiez sourceIP pour l’équilibrage de charge à 2 tuples (IP source et IP de destination). Spécifiez sourceIPProtocol pour l’équilibrage de charge à 3 tuples (IP source, IP de destination et type de protocole) . Spécifiez none pour le comportement par défaut de l’équilibrage de charge à 5 tuples.
 
-Utilisez ce qui suit pour récupérer la configuration du mode de distribution d'équilibrage de charge d'un point de terminaison :
+Récupérez la configuration du mode de distribution d’équilibrage de charge d’un point de terminaison en utilisant ces paramètres :
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -85,19 +79,20 @@ Utilisez ce qui suit pour récupérer la configuration du mode de distribution d
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Si l'élément LoadBalancerDistribution n'est pas présent, l'équilibrage de charge Azure utilise alors l'algorithme par défaut à 5 tuples.
+Si l’élément `LoadBalancerDistribution` n’est pas présent, Azure Load Balancer utilise l’algorithme par défaut à 5 tuples.
 
-### <a name="set-the-distribution-mode-on-a-load-balanced-endpoint-set"></a>Définir le mode de distribution sur un jeu de points de terminaison d'équilibrage de charge
+### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configurer le mode de distribution sur un jeu de points de terminaison d’équilibrage de charge
 
-Si les points de terminaison font partie d'un jeu de points de terminaison d'équilibrage de charge, le mode de distribution doit être défini sur le jeu de points de terminaison d'équilibrage de charge :
+Lorsque les points de terminaison font partie d’un jeu de points de terminaison d’équilibrage de charge, le mode de distribution doit être configuré sur ce jeu :
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### <a name="cloud-service-configuration-to-change-distribution-mode"></a>Configuration du service cloud pour modifier le mode de distribution
+### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Configurer le mode de distribution pour les points de terminaison de services cloud
 
-Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.5 afin de mettre à jour votre service cloud. Les paramètres de point de terminaison des services cloud sont définis dans .csdef. Pour mettre à jour le mode de distribution d'équilibrage de charge pour un déploiement de services cloud, une mise à niveau du déploiement s'impose.
+Utilisez le Kit de développement logiciel (SDK) Azure pour .NET 2.5 pour mettre à jour votre service cloud. Les paramètres de point de terminaison des services cloud sont définis dans le fichier .csdef. Pour mettre à jour le mode de distribution d’équilibrage de charge pour un déploiement de services cloud, une mise à niveau du déploiement s’impose.
+
 Voici un exemple de modifications apportées aux paramètres de point de terminaison dans .csdef :
 
 ```xml
@@ -120,11 +115,13 @@ Voici un exemple de modifications apportées aux paramètres de point de termina
 
 ## <a name="api-example"></a>Exemple d’API
 
-Vous pouvez configurer la distribution d’équilibrage de charge à l’aide de l’API Gestion des services. Veillez à ajouter l’en-tête `x-ms-version` et à le définir sur la version `2014-09-01` ou une version ultérieure.
+L’exemple suivant montre comment reconfigurer le mode de distribution d’équilibrage de charge pour un jeu d’équilibrage de charge spécifié dans un déploiement. 
 
-### <a name="update-the-configuration-of-the-specified-load-balanced-set-in-a-deployment"></a>Mettre à jour la configuration du jeu d'équilibrage de la charge spécifié dans un déploiement
+### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>Modifier le mode de distribution pour un jeu d’équilibrage de charge déployé
 
-#### <a name="request-example"></a>Exemple de demande
+Utilisez le modèle de déploiement Azure Classic pour modifier une configuration de déploiement existante. Ajoutez l’en-tête `x-ms-version` et définissez la valeur sur la version 2014-09-01 ou une version ultérieure.
+
+#### <a name="request"></a>Demande
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
@@ -147,7 +144,7 @@ Vous pouvez configurer la distribution d’équilibrage de charge à l’aide de
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 2 tuples, sourceIPProtocol pour une affinité à 3 tuples ou none (aucune affinité. par exemple 5 tuples)
+Comme décrit précédemment, définissez l’élément `LoadBalancerDistribution` sur sourceIP pour une affinité à 2 tuples, sur sourceIPProtocol pour une affinité à 3 tuples ou sur none pour ne définir aucune affinité (affinité à 5 tuples).
 
 #### <a name="response"></a>Réponse
 
@@ -161,8 +158,6 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Présentation de l’équilibrage de charge interne](load-balancer-internal-overview.md)
-
-[Prise en main de la configuration d’un équilibrage de charge sur Internet](load-balancer-get-started-internet-arm-ps.md)
-
-[Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
+* [Présentation de l’équilibrage de charge interne](load-balancer-internal-overview.md)
+* [Prise en main de la configuration d’un équilibreur de charge sur Internet](load-balancer-get-started-internet-arm-ps.md)
+* [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)

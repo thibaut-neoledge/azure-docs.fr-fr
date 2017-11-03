@@ -1,7 +1,7 @@
 ---
 title: "Azure Data Lake Tools : Utiliser Azure Data Lake Tools pour Visual Studio Code | Microsoft Docs"
 description: "Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code pour créer, tester et exécuter des scripts U-SQL. "
-Keywords: "VScode,Azure Data Lake Tools,exécution locale,débogage local,Débogage local,aperçu du fichier de stockage,charger vers le chemin de stockage"
+Keywords: "VScode,Azure Data Lake Tools,exécution locale,débogage local,Débogage local,aperçu du fichier de stockage,charger vers le chemin de stockage,télécharger,charger"
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/14/2017
+ms.date: 10/10/2017
 ms.author: jejiang
-ms.openlocfilehash: 4be6e2ef1cfba31dd3cf06f44e6a71ffd5900856
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e724a8db4424a1e608ae7ee5625cd4cc16f6078f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utiliser Azure Data Lake Tools pour Visual Studio Code
 
@@ -30,43 +30,13 @@ Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code (VS Co
 
 ## <a name="prerequisites"></a>Composants requis
 
-Vous pouvez installer Data Lake Tools sur les plateformes prises en charge par VS Code. Les plateformes prises en charge incluent Windows, Linux et MacOS. Les différentes plateformes ont les prérequis suivants :
+Azure Data Lake Tools pour VSCode prend en charge Windows, Linux et MacOS.  
 
-- Windows
+- [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 
-    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx).
-    - [Java SE Runtime Environment version 8 mise à jour 77 ou ultérieure](https://java.com/download/manual.jsp). Ajoutez le chemin java.exe à la variable d’environnement système Path. Pour obtenir des instructions sur la configuration, consultez [Comment définir ou modifier la variable système Path ?]( https://www.java.com/download/help/path.xml). Le chemin est semblable à C:\Program Files\Java\jdk1.8.0_77\jre\bin.
-    - [Kit SDK .NET Core 1.0.3 ou runtime .NET Core 1.1](https://www.microsoft.com/net/download).
-    
-- Linux (nous recommandons Ubuntu 14.04 LTS)
-
-    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx). Pour installer le code, entrez la commande suivante :
-
-              sudo dpkg -i code_<version_number>_amd64.deb
-
-    - [Mono 4.2.x](http://www.mono-project.com/docs/getting-started/install/linux/). 
-
-        - Pour mettre à jour la source du package deb, entrez les commandes suivantes :
-
-                sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-                echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots 4.2.4.4/main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-                sudo apt-get update
-
-        - Pour installer Mono, entrez la commande suivante :
-
-                sudo apt-get install mono-complete
-
-            > [!NOTE] 
-            > Mono 4.6 n’est pas pris en charge. Désinstallez entièrement la version 4.6 avant d’installer la version 4.2.x.  
-
-        - [Java SE Runtime Environment version 8 mise à jour 77 ou ultérieure](https://java.com/download/manual.jsp). Pour obtenir des instructions sur l’installation, consultez la page [Instructions d’installation de Java pour Linux 64 bits ]( https://java.com/en/download/help/linux_x64_install.xml).
-        - [Kit SDK .NET Core 1.0.3 ou runtime .NET Core 1.1](https://www.microsoft.com/net/download).
-- MacOS
-
-    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx).
-    - [Mono 4.2.4](http://download.mono-project.com/archive/4.2.4/macos-10-x86/). 
-    - [Java SE Runtime Environment version 8 mise à jour 77 ou ultérieure](https://java.com/download/manual.jsp). Pour obtenir des instructions sur l’installation, consultez la page [Instructions d’installation de Java pour Linux 64 bits ](https://java.com/en/download/help/mac_install.xml).
-    - [Kit SDK .NET Core 1.0.3 ou runtime .NET Core 1.1](https://www.microsoft.com/net/download).
+Pour MacOS et Linux :
+- [SDK .NET Core 2.0](https://www.microsoft.com/net/download/core). 
+- [Mono 5.2.x](http://www.mono-project.com/download/).
 
 ## <a name="install-data-lake-tools"></a>Installer Data Lake Tools
 
@@ -75,49 +45,16 @@ Après avoir installé les prérequis, vous pouvez installer Data Lake Tools pou
 **Pour installer Data Lake Tools**
 
 1. Ouvrez Visual Studio Code.
-2. Sélectionnez Ctrl+P, puis entrez la commande suivante :
-```
-ext install usql-vscode-ext
-```
-Une liste des extensions de code Visual Studio s’affiche. L’une d’elles est **Azure Data Lake Tools**.
+2. Cliquez sur **Extensions** dans le volet gauche. Entrez **Azure Data Lake** dans la zone de recherche.
+3. Cliquez sur **Installer** en regard de **Azure Data Lake Tools**. Après quelques secondes, le bouton **Installer** change en **Recharger**.
+4. Cliquez sur **Recharger** pour activer l’extension **Azure Data Lake Tools**.
+5. Cliquez sur **Recharger la fenêtre** pour confirmer. **Azure Data Lake Tools** s’affiche dans le volet Extensions.
 
-3. Sélectionnez **Installer** en regard de **Azure Data Lake Tools**. Après quelques secondes, le bouton **Installer** est remplacé par le bouton **Recharger**.
-4. Sélectionnez **Recharger** pour activer l’extension.
-5. Sélectionnez **OK** pour confirmer. Azure Data Lake Tools s’affiche dans le volet **Extensions**.
     ![Volet Extensions de Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extensions.png)
 
+ 
 ## <a name="activate-azure-data-lake-tools"></a>Activer Azure Data Lake Tools
 Créez un fichier .usql ou ouvrez un fichier .usql existant pour activer l’extension. 
-
-## <a name="connect-to-azure"></a>Connexion à Azure
-
-Avant de pouvoir compiler et exécuter des scripts U-SQL dans Data Lake Analytics, vous devez vous connecter à votre compte Azure.
-
-**Pour vous connecter à Azure**
-
-1.  Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes. 
-2.  Entrez **ADL: Login**. Les informations de connexion s’affichent dans le volet **Output**.
-
-    ![Palette de commandes de Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
-    ![Informations de connexion d’appareil Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3. Sélectionnez Ctrl+clic sur l’URL de connexion : https://aka.ms/devicelogin pour ouvrir la page web de connexion. Entrez le code **G567LX42V** dans la zone de texte, puis sélectionnez **Continuer**.
-
-   ![Data Lake Tools pour Visual Studio Code - Coller le code de connexion](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
-4.  Suivez les instructions pour vous connecter à partir de la page web. Une fois connecté, le nom de votre compte Azure s’affiche dans la barre d’état dans le coin inférieur gauche de la fenêtre **VS Code**. 
-
-    > [!NOTE] 
-    > Si votre compte a deux facteurs activés, nous vous recommandons d’utiliser l’authentification par téléphone plutôt qu’un code PIN.
-
-Pour vous déconnecter, entrez la commande **ADL: Logout**.
-
-## <a name="list-your-data-lake-analytics-accounts"></a>Répertorier vos comptes Data Lake Analytics
-
-Pour tester la connexion, obtenez une liste de vos comptes Data Lake Analytics.
-
-**Pour répertorier les comptes Data Lake Analytics dans votre abonnement Azure**
-
-1. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes.
-2. Entrez **ADL: List Accounts**. Les comptes s’affichent dans le panneau **Sortie**.
 
 ## <a name="open-the-sample-script"></a>Ouvrir l’exemple de script
 Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **ADL: Open Sample Script**. Une autre instance de cet exemple s’ouvre. Vous pouvez également modifier, configurer et envoyer un script sur cette instance.
@@ -162,11 +99,11 @@ Vous devez ouvrir un dossier ou un fichier U-SQL pour utiliser U-SQL.
         > [!NOTE] 
         > Si les paramètres ne sont pas valides, les valeurs par défaut sont utilisées.
 
-    ![Fichier de configuration de Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
+        ![Fichier de configuration de Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
 
-    Un compte Data Lake Analytics de calcul est nécessaire pour compiler et exécuter des travaux U-SQL. Vous devez configurer le compte d’ordinateur avant de compiler et d’exécuter des travaux U-SQL.
+        Un compte Data Lake Analytics de calcul est nécessaire pour compiler et exécuter des travaux U-SQL. Vous devez configurer le compte d’ordinateur avant de compiler et d’exécuter des travaux U-SQL.
     
-Une fois la configuration enregistrée, les informations de compte, de base de données et de schéma s’affichent dans la barre d’état dans l’angle inférieur gauche du fichier .usql correspondant. 
+        Une fois la configuration enregistrée, les informations de compte, de base de données et de schéma s’affichent dans la barre d’état dans l’angle inférieur gauche du fichier .usql correspondant. 
  
  
 Par rapport à l’ouverture d’un fichier, quand vous ouvrez un dossier, vous pouvez :
@@ -214,6 +151,8 @@ Les deux captures d’écran suivantes illustrent un fichier code-behind et le f
 
 ![Data Lake Tools pour Visual Studio Code - fichier de script code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
 
+Nous prenons en charge l’exécution locale et le débogage local. Pour obtenir des instructions, consultez [Exécution locale et débogage local U-SQL avec Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
+
 ## <a name="use-assemblies"></a>Utiliser les assemblys
 
 Pour plus d’informations sur le développement d’assemblys, consultez [Développement d’assemblys U-SQL pour les tâches d’Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
@@ -244,7 +183,7 @@ Une autre méthode pratique pour déclencher la commande **ADL: Register Assembl
 ![Data Lake Tools pour Visual Studio Code - code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
 >[!NOTE]
 >- Dépendances de l’assembly : Azure Data Lake Tools détecte automatiquement si la DLL a des dépendances. Une fois détectées, les dépendances s’affichent dans le fichier JSON. 
->- Ressources : vous pouvez charger vos ressources DLL (par exemple .txt, .png et .csv) dans le cadre de l’inscription de l’assembly. 
+>- Ressources : vous pouvez charger vos ressources DLL (par exemple .txt, .png et .csv) dans le cadre de l’inscription de l’assembly. 
 
 Une autre méthode pour déclencher la commande **ADL: Register Assembly through Configuration** consiste à cliquer avec le bouton droit sur le fichier .dll dans l’Explorateur de fichiers. 
 
@@ -281,6 +220,36 @@ OUTPUT @d1
     USING Outputters.Tsv();
 ```
 
+## <a name="connect-to-azure"></a>Connexion à Azure
+
+Avant de pouvoir compiler et exécuter des scripts U-SQL dans Data Lake Analytics, vous devez vous connecter à votre compte Azure.
+
+**Pour vous connecter à Azure**
+
+1.  Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes. 
+2.  Entrez **ADL: Login**. Les informations de connexion s’affichent dans le volet **Output**.
+
+    ![Palette de commandes de Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
+    ![Informations de connexion d’appareil Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
+3. Sélectionnez Ctrl+clic sur l’URL de connexion : https://aka.ms/devicelogin pour ouvrir la page web de connexion. Entrez le code **G567LX42V** dans la zone de texte, puis sélectionnez **Continuer**.
+
+   ![Data Lake Tools pour Visual Studio Code - Coller le code de connexion](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
+4.  Suivez les instructions pour vous connecter à partir de la page web. Une fois connecté, le nom de votre compte Azure s’affiche dans la barre d’état dans le coin inférieur gauche de la fenêtre **VS Code**. 
+
+    > [!NOTE] 
+    > Si votre compte a deux facteurs activés, nous vous recommandons d’utiliser l’authentification par téléphone plutôt qu’un code PIN.
+
+Pour vous déconnecter, entrez la commande **ADL: Logout**.
+
+## <a name="list-your-data-lake-analytics-accounts"></a>Répertorier vos comptes Data Lake Analytics
+
+Pour tester la connexion, obtenez une liste de vos comptes Data Lake Analytics.
+
+**Pour répertorier les comptes Data Lake Analytics dans votre abonnement Azure**
+
+1. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes.
+2. Entrez **ADL: List Accounts**. Les comptes s’affichent dans le panneau **Sortie**.
+
 
 ## <a name="access-the-data-lake-analytics-catalog"></a>Accès au catalogue Data Lake Analytics
 
@@ -301,144 +270,51 @@ Une fois connecté à Azure, vous pouvez utiliser les étapes suivantes pour acc
 3.  Attendez que la liste des travaux pour le compte apparaisse.
 4.  Sélectionnez un travail dans la liste, Data Lake Tools ouvre les détails du travail dans le portail et affiche le fichier JobInfo dans VS Code.
 
-![Data Lake Tools pour Visual Studio Code - Types d’objets IntelliSense](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
+    ![Data Lake Tools pour Visual Studio Code - Types d’objets IntelliSense](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
 ## <a name="azure-data-lake-storage-integration"></a>Intégration d’Azure Data Lake Storage
 
 Vous pouvez utiliser les commandes Azure Data Lake Storage pour :
- - Parcourir les ressources de stockage Azure Data Lake Storage 
- - Afficher un aperçu du fichier de stockage Azure Data Lake Storage  
- - Charger le fichier directement sur Azure Data Lake Storage dans VS Code 
+ - Parcourir les ressources de stockage Azure Data Lake Storage [Répertorier le chemin de stockage](#list-the-storage-path) 
+ - Afficher un aperçu du fichier de stockage Azure Data Lake Storage [Afficher un aperçu du fichier de stockage](#preview-the-storage-file) 
+ - Charger le fichier directement sur Azure Data Lake Storage dans VS Code [Charger le fichier](#upload-file)
+ - Télécharger le fichier directement à partir d’Azure Data Lake Storage dans VS Code [Télécharger le fichier](#download-file)
 
-### <a name="list-the-storage-path"></a>Répertorier le chemin de stockage 
-Vous pouvez répertorier le chemin de stockage par le biais de la palette de commandes ou avec un clic sur le bouton droit.
+## <a name="list-the-storage-path"></a>Répertorier le chemin de stockage 
 
 **Pour répertorier le chemin de stockage par le biais de la palette de commandes**
 
-1.  Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **ADL: List Storage Path**.
+Cliquez avec le bouton droit sur l’éditeur de script et sélectionnez **ADL: List Storage Path** (Répertorier le chemin de stockage).
 
-    ![Data Lake Tools pour Visual Studio Code - Répertorier le chemin de stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-storage.png)
+Choisissez le dossier dans la liste ou cliquez sur **Enter Path** (Entrer le chemin) ou **Browse from Root** (Naviguer à partir de la racine) (Enter Path est utilisé en guise d’exemple). -> Sélectionnez votre compte ADLA (**ADLA Account**). -> Entrez ou accédez au chemin du dossier de stockage (par exemple : /output/). -> La palette de commandes répertorie les informations sur le chemin en fonction des informations que vous avez entrées.
 
-2.  Sélectionnez la façon dont vous voulez répertorier le chemin de stockage. Cette section utilise **Entrer un chemin d’accès** comme exemple.
-
-    ![Data Lake Tools pour Visual Studio Code - Une façon de répertorier le chemin de stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
-
-    > [!NOTE]
-    >- VS Code conserve le dernier chemin visité dans chaque compte Data Lake Analytics. Par exemple : /tt/ss.
-    >- Browser from root path : chemin racine de liste à partir de votre compte Data Lake Analytics sélectionné ou un chemin local.
-    >- Enter a path : indiquez un chemin spécifié à partir de votre compte Data Lake Analytics sélectionné ou un chemin local.
-    
-3. Sélectionnez un compte à partir du chemin local ou un compte Data Lake Analytics.
-
-    ![Data Lake Tools pour Visual Studio Code - Sélectionner Plus](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
-
-4. Sélectionnez **more** pour répertorier davantage de comptes Data Lake Analytics, puis sélectionnez un compte Data Lake Analytics.
-
-    ![Data Lake Tools pour Visual Studio Code - Sélectionner un compte](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-adla-account.png)
-
-5.  Entrez un chemin de stockage Azure. Par exemple : /output.
-
-    ![Data Lake Tools pour Visual Studio Code - Entrer le chemin de stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-path.png)
-
-6.  Résultats : la palette de commandes répertorie les informations sur le chemin en fonction des informations que vous avez entrées.
-
-    ![Data Lake Tools pour Visual Studio Code - Répertorier le chemin de stockage, résultats](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-path.png)
+![Data Lake Tools pour Visual Studio Code - Répertorier le chemin de stockage, résultats](./media/data-lake-analytics-data-lake-tools-for-vscode/list-storage-path.png)
 
 Il est plus pratique d’utiliser le menu contextuel accessible par un clic droit pour répertorier le chemin relatif.
 
 **Pour répertorier le chemin de stockage par le biais d’un clic droit**
 
-1.  Cliquez avec le bouton droit sur la chaîne du chemin pour sélectionner **List Storage Path**.
+Cliquez avec le bouton droit sur la chaîne du chemin pour sélectionner **List Storage Path** (Répertorier le chemin de stockage) pour continuer.
 
-       ![Data Lake Tools pour Visual Studio Code - Menu contextuel accessible par un clic droit](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
+![Data Lake Tools pour Visual Studio Code - Menu contextuel accessible par un clic droit](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
-2. Le chemin relatif sélectionné apparaît dans la palette de commandes.
 
-   ![Data Lake Tools pour Visual Studio Code - Chemin relatif sélectionné](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-relative-path.png)
+## <a name="preview-the-storage-file"></a>Afficher un aperçu du fichier de stockage
 
-3.  Sélectionnez un compte à partir du chemin local ou un compte Data Lake Analytics.
+Cliquez avec le bouton droit sur l’éditeur de script et sélectionnez **ADL: Preview Storage File** (Afficher un aperçu du fichier de stockage).
 
-       ![Data Lake Tools pour Visual Studio Code - Sélectionner un compte](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
+Sélectionnez votre compte ADLA (**ADLA Account**). -> Entrez un chemin de fichier de stockage Azure (par exemple, /output/SearchLog.txt). -> Résultat : le fichier s’ouvre dans VSCode.
 
-4.  Résultats : la palette de commandes répertorie les dossiers et les fichiers correspondant au chemin actuel.
+   ![Data Lake Tools pour Visual Studio Code - Aperçu du fichier, résultats](./media/data-lake-analytics-data-lake-tools-for-vscode/preview-storage-file.png)
 
-       ![Data Lake Tools pour Visual Studio Code - Répertorier le chemin actuel](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-current.png)
+Vous pouvez également afficher un aperçu du fichier de stockage à l’aide du menu accessible par un clic droit sur le chemin complet ou le chemin relatif du fichier dans l’éditeur de script. 
 
-### <a name="preview-the-storage-file"></a>Afficher un aperçu du fichier de stockage
-Vous pouvez afficher un aperçu du fichier de stockage par le biais de la palette de commandes ou avec un clic sur le bouton droit.
-
-**Pour afficher un aperçu du fichier de stockage par le biais de la palette de commandes**
-
-1.  Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **ADL: Preview Storage File**.
-
-       ![Data Lake Tools pour Visual Studio Code - Aperçu du fichier de stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-preview.png)
-
-2.  Sélectionnez un compte à partir du chemin local ou un compte Data Lake Analytics.
-
-       ![Data Lake Tools pour Visual Studio Code - Répertorier un compte](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
-
-3.  Sélectionnez **more** pour répertorier davantage de comptes Data Lake Analytics, puis sélectionnez un compte Data Lake Analytics.
-
-       ![Data Lake Tools pour Visual Studio Code - Sélectionner un compte](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-adla-account.png)
-
-4.  Entrez un fichier ou chemin de stockage Azure. Par exemple : /output/SearchLog.txt.
-
-       ![Data Lake Tools pour Visual Studio Code - Entrer le fichier et le chemin de stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
-
-5.  Résultats : la palette de commandes répertorie les informations sur le chemin en fonction des informations que vous avez entrées.
-
-       ![Data Lake Tools pour Visual Studio Code - Aperçu du fichier, résultats](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
-
-**Pour répertorier le chemin de stockage par le biais d’un clic droit**
-
-1.  Pour afficher un aperçu d’un fichier, cliquez avec le bouton droit sur le chemin de fichier.
-
-   ![Data Lake Tools pour Visual Studio Code - Menu contextuel accessible par un clic droit](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-preview.png) 
-
-2.  Sélectionnez un compte à partir du chemin local ou un compte Data Lake Analytics.
-
-       ![Data Lake Tools pour Visual Studio Code - Sélectionner un compte](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
-
-3.  Résultats : VS Code affiche les résultats de l’aperçu du fichier.
-
-       ![Data Lake Tools pour Visual Studio Code - Aperçu du fichier, résultats](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
-
-### <a name="upload-a-file"></a>Charger un fichier 
+## <a name="upload-file"></a>Charger le fichier 
 
 Vous pouvez charger des fichiers en entrant la commande **ADL: Upload File** ou **ADL: Upload File through Configuration**.
 
-**Pour charger des fichiers par le biais de la commande ADL: Upload File**
-1. Sélectionnez sur Ctrl+Maj+P pour ouvrir la palette de commandes ou cliquez avec le bouton droit sur l’éditeur de script, puis entrez **Upload File**.
-2.  Pour charger le fichier, entrez un chemin local.
-
-    ![Data Lake Tools pour Visual Studio Code - Entrer un chemin local](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
-
-3. Sélectionnez l’une des manières de répertorier le chemin de stockage. Cette section utilise **Entrer un chemin d’accès** comme exemple.
-
-    ![Data Lake Tools pour Visual Studio Code - Répertorier le chemin de stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
-    >[!NOTE]
-    >- VS Code conserve le dernier chemin visité dans chaque compte Data Lake Analytics. Par exemple : /tt/ss.
-    >- Browser from root path : chemin racine de liste à partir de votre compte Data Lake Analytics sélectionné ou un chemin local.
-    >- Enter a path : indiquez un chemin spécifié à partir de votre compte Data Lake Analytics sélectionné ou un chemin local.
-
-4. Sélectionnez un compte à partir du chemin local ou un compte Data Lake Analytics.
-
-    ![Data Lake Tools pour Visual Studio Code - Stockage accessible par un clic droit](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
-
-5. Entrez un chemin de stockage Azure. Par exemple : /output.
-
-       ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
-
-6. Recherchez votre chemin de stockage Azure. Sélectionnez **Choisir le dossier actuel**.
-
-    ![Data Lake Tools pour Visual Studio Code - Sélectionner un dossier](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-choose-current-folder.png)
-
-7.  Résultats : la fenêtre **Output** affiche l’état de chargement du fichier.
-
-       ![Data Lake Tools pour Visual Studio Code - État du chargement](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)    
-
 **Pour charger des fichiers par le biais de la commande ADL: Upload File through Configuration**
-1.  Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes ou cliquez avec le bouton droit sur l’éditeur de script, puis entrez **Upload File through Configuration**.
+1.  Cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **Upload File through Configuration** (Charger le fichier par le biais de la configuration).
 2.  VS Code affiche un fichier JSON. Vous pouvez entrer des chemins de fichiers et charger plusieurs fichiers en même temps. Les instructions s’affichent dans la fenêtre **Output**. Pour continuer à charger le fichier, enregistrez (Ctrl+S) le fichier JSON.
 
        ![Chemin de fichier Data Lake Tools pour Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
@@ -447,9 +323,58 @@ Vous pouvez charger des fichiers en entrant la commande **ADL: Upload File** ou 
 
        ![Data Lake Tools pour Visual Studio Code - État du chargement](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
 
-Vous pouvez également charger un fichier dans le stockage à l’aide du menu accessible par un clic droit sur le chemin complet du fichier ou le chemin relatif du fichier dans l’éditeur de script. Entrez le chemin de fichier local, puis sélectionnez le compte. La fenêtre **Output** affiche l’état du chargement. 
+En même temps, vous pouvez surveiller [l’état du chargement](#check-storage-tasks-status).
 
-### <a name="open-azure-storage-explorer"></a>Ouvrir l’Explorateur de stockage Azure
+**Pour charger des fichiers par le biais de la commande ADL: Upload File**
+
+Cliquez avec le bouton droit sur l’éditeur de script et sélectionnez **Upload File** (Charger le fichier).
+
+Entrez votre chemin local (**Local File Path**). -> Choisissez le dossier dans la liste ou cliquez sur **Enter Path** (Entrer le chemin) ou **Browse from Root** (Naviguer à partir de la racine) (Enter Path est utilisé en guise d’exemple). -> Sélectionnez votre compte ADLA (**ADLA Account**). -> Entrez ou accédez au chemin du dossier de stockage (par exemple : /output/). -> Cliquez sur **Choose Current Folder** (Choisir le dossier actuel) pour spécifier la destination du chargement.
+
+![Data Lake Tools pour Visual Studio Code - État du chargement](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
+
+
+Vous pouvez également charger un fichier dans le stockage à l’aide du menu accessible par un clic droit sur le chemin complet du fichier ou le chemin relatif du fichier dans l’éditeur de script.
+
+En même temps, vous pouvez surveiller [l’état du chargement](#check-storage-tasks-status).
+
+## <a name="download-file"></a>Télécharger un fichier 
+Vous pouvez télécharger des fichiers en entrant les commandes **ADL: Download Storage File** (Télécharger un fichier de stockage) ou **ADL: Download Storage File through Configuration** (Télécharger un fichier de stockage par le biais de la configuration).
+
+**Pour télécharger des fichiers par le biais de la commande ADL: Download File through Configuration**
+1. Cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **Download Storage File through Configuration** (Télécharger un fichier de stockage par le biais de la configuration).
+2. VS Code affiche un fichier JSON. Vous pouvez entrer des chemins de fichiers et télécharger plusieurs fichiers en même temps. Les instructions s’affichent dans la fenêtre **Output**. Pour continuer à télécharger le fichier, enregistrez (Ctrl+S) le fichier JSON.
+
+    ![Téléchargement de fichiers Data Lake Tools pour Visual Studio Code avec la configuration](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
+
+3.  Résultats : la fenêtre **Output** affiche l’état de chargement du fichier.
+
+    ![Téléchargement de plusieurs fichiers Data Lake Tools pour Visual Studio Code - Résultats](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-file-result.png)     
+
+En même temps, vous pouvez surveiller [l’état du téléchargement](#check-storage-tasks-status).
+
+**Pour télécharger des fichiers par le biais de la commande ADL: Download Storage File**
+
+Cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **Download Storage File** (Télécharger un fichier de stockage).
+
+Choisissez le dossier dans la liste ou cliquez sur **Enter Path** (Entrer le chemin) ou **Browse from Root** (Naviguer à partir de la racine) (Enter Path est utilisé en guise d’exemple). -> Sélectionnez votre compte ADLA (**ADLA Account**). -> Entrez ou accédez au chemin du dossier de stockage (par exemple : /output/) -> choisissez un fichier à télécharger.
+
+   ![Data Lake Tools pour Visual Studio Code - État du téléchargement](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
+
+   Dans l’image de résultat, le fichier est enregistré en tant que dossier temporaire. Vous pouvez définir vous-même un chemin de téléchargement par défaut pour le paramètre **usql.defaultLocalFolderForDownload**, par le biais du menu VSCode **Fichier** -> **Préférences** -> **Paramètre**.
+
+Vous pouvez également télécharger des fichiers de stockage à l’aide du menu accessible par un clic droit sur le chemin complet ou le chemin relatif du fichier dans l’éditeur de script.
+
+En même temps, vous pouvez surveiller [l’état du téléchargement](#check-storage-tasks-status).
+
+## <a name="check-storage-tasks-status"></a>Vérifier l’état des tâches de stockage
+L’état s’affiche en bas de la barre d’état à l’issue du téléchargement et du chargement.
+1. Cliquez sur la barre d’état ci-dessous pour afficher l’état du téléchargement et du chargement dans le panneau **OUTPUT**.
+
+   ![Data Lake Tools pour Visual Studio Code - Vérifier l’état du stockage](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
+
+
+## <a name="open-azure-storage-explorer"></a>Ouvrir l’Explorateur de stockage Azure
 Vous pouvez ouvrir l’**Explorateur de stockage Azure** en entrant la commande **ADL: Open Web Azure Storage Explorer** ou en le sélectionnant dans le menu contextuel accessible par un clic droit.
 
 **Pour ouvrir l’Explorateur de stockage Azure**
@@ -460,7 +385,7 @@ Vous pouvez ouvrir l’**Explorateur de stockage Azure** en entrant la commande 
 
 Data Lake Tools ouvre le chemin de stockage Azure dans le portail Azure. Vous pouvez rechercher le chemin et afficher un aperçu du fichier à partir du web.
 
-### <a name="local-run-and-local-debug-for-windows-users"></a>Exécution locale et débogage local pour les utilisateurs de Windows
+## <a name="local-run-and-local-debug-for-windows-users"></a>Exécution locale et débogage local pour les utilisateurs de Windows
 L’exécution locale de U-SQL teste vos données locales et valide votre script localement, avant que votre code soit publié dans Data Lake Analytics. La fonctionnalité de débogage local vous permet d’effectuer les tâches suivantes avant que votre code soit soumis à Data Lake Analytics : 
 - Déboguer votre code-behind C# 
 - Examiner le code 

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8c2248c064a7ec934dd8ef3e926f3325a05395
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
-Cet article vous aide à configurer la solution Haute disponibilité et scalabilité avec la passerelle de gestion des données.    
+Cet article vous aide à configurer la solution de haute disponibilité et scalabilité avec la passerelle de gestion des données / intégration.    
 
 > [!NOTE]
-> Cet article part du principe que vous connaissez déjà les bases de la passerelle de gestion des données. Si ce n’est pas le cas, consultez [Passerelle de gestion des données](data-factory-data-management-gateway.md).
+> Cet article part du principe que vous connaissez déjà les bases du runtime d’intégration (anciennement passerelle de gestion des données). Si ce n’est pas le cas, consultez [Passerelle de gestion des données](data-factory-data-management-gateway.md).
 
 >**Cette fonctionnalité en version préliminaire est officiellement prise en charge sur les versions 2.12.xxxx.x et ultérieures de la passerelle de gestion des données**. Assurez-vous que vous utilisez la version 2.12.xxxx.x ou une version supérieure. Téléchargez [ici](https://www.microsoft.com/download/details.aspx?id=39717) la dernière version de la passerelle de gestion des données.
 
@@ -155,14 +155,21 @@ Vous pouvez mettre à niveau une passerelle existante pour utiliser la fonctionn
 - Ajoutez au moins deux nœuds pour garantir la haute disponibilité.  
 
 ### <a name="tlsssl-certificate-requirements"></a>Configuration requise des certificats TLS/SSL
-Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuriser les communications entre les nœuds de passerelle :
+Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuriser les communications entre les nœuds de runtime d’intégration :
 
-- Le certificat doit être un certificat X509 v3 approuvé publiquement.
-- Tous les nœuds de passerelle doivent approuver ce certificat. 
-- Nous vous recommandons d’utiliser des certificats émis par une autorité de certification (tierce) publique.
+- Le certificat doit être un certificat X509 v3 approuvé publiquement. Nous vous recommandons d’utiliser des certificats émis par une autorité de certification (tierce) publique.
+- Chaque nœud de runtime d’intégration doit approuver ce certificat, ainsi que l’ordinateur client qui exécute l’application du gestionnaire d’informations d’identification. 
+> [!NOTE]
+> L’application du gestionnaire d’informations d’identification est utilisée lors de la définition en toute sécurité des informations d’identification à partir de l’Assistant Copie / portail Azure. Et elle peut être déclenchée à partir de n’importe quel ordinateur sur le même réseau que le magasin de données local / privé.
+- Les certificats utilisant des caractères génériques sont pris en charge. Si votre nom de domaine complet est **node1.domain.contoso.com**, vous pouvez utiliser ***.domain.contoso.com** comme nom du sujet du certificat.
+- Les certificats SAN ne sont pas recommandés, car seul le dernier élément des Autres noms de l’objet sera utilisé et tous les autres seront ignorés en raison d’une limitation actuelle. Par exemple, si vous avez un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous ne pouvez utiliser ce certificat que sur l’ordinateur dont le FQDN est **node2.domain.contoso.com**.
 - Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
-- Non-prise en charge des certificats qui utilisent des clés CNG.
-- Les certificats utilisant des caractères génériques sont pris en charge. 
+- Les certificat utilisant des clés CNG ne sont pas pris en charge. Non-prise en charge des certificats qui utilisent des clés CNG.
+
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Forum aux questions : quand faut-il ne pas activer ce chiffrement ?
+L’activation du chiffrement peut ajouter certains coûts à votre infrastructure (possession d’un certificat public). Par conséquent, vous pouvez ignorer l’activation du chiffrement dans les cas ci-dessous :
+- Quand le runtime d’intégration s’exécute sur un réseau approuvé ou sur un réseau avec un chiffrement transparent comme IP/SEC. Étant donné que ce canal de communication se limite uniquement à votre réseau approuvé, vous n’aurez peut-être pas besoin d’un chiffrement supplémentaire.
+- Quand le runtime d’intégration ne s’exécute pas dans un environnement de production. Cela peut aider à réduire le coût du certificat TLS/SSL.
 
 
 ## <a name="monitor-a-multi-node-gateway"></a>Surveiller une passerelle à plusieurs nœuds

@@ -9,34 +9,34 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: faa6d72645fafeb2551795effd87232f0e3e0fe0
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: a80b27dc8f1a15bf2e62c9992be8bfa02cacb2f6
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensions PostgreSQL dans une base de données Azure pour PostgreSQL
 PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions permettent de regrouper plusieurs objets SQL liés dans un package unique ; elles peuvent être chargées ou supprimées de votre base de données d’une seule commande. Une fois chargées dans la base de données, les extensions peuvent fonctionner comme des fonctionnalités intégrées. Pour plus d’informations sur les extensions PostgreSQL, consultez la page [Empaqueter des objets liés dans une extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## <a name="how-to-use-postgresql-extensions"></a>Guide pratique pour utiliser les extensions PostgreSQL
-Les extensions PostgreSQL doivent être installées pour votre base de données pour être utilisables. Pour installer une extension donnée, exécutez la commande [CRÉER UNE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) dans l’outil psql pour charger les objets empaquetés dans votre base de données.
+Les extensions PostgreSQL doivent être installées dans votre base de données pour être utilisables. Pour installer une extension donnée, exécutez la commande [CRÉER UNE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) dans l’outil psql pour charger les objets empaquetés dans votre base de données.
 
-La base de données Azure pour PostgreSQL prend en charge un sous-ensemble d’extensions clés, comme indiqué ici. Les extensions qui ne sont pas mentionnées ici ne sont pas prises en charge ; vous ne pouvez pas créer votre propre extension avec le service de base de données Azure pour PostgreSQL.
+Azure Database pour PostgreSQL prend actuellement en charge un sous-ensemble d’extensions de clé, comme indiqué ici. Les extensions qui ne sont pas mentionnées ici ne sont pas prises en charge ; vous ne pouvez pas créer votre propre extension avec le service de base de données Azure pour PostgreSQL.
 
 ## <a name="extensions-supported-by-azure-database-for-postgresql"></a>Extensions prises en charge par la base de données Azure pour PostgreSQL
-Les tables suivantes répertorient les extensions PostgreSQL standard actuellement prises en charge par la base de données Azure pour PostgreSQL. Ces informations sont également disponibles en interrogeant pg\_available\_extensions.
+Les tables suivantes répertorient les extensions PostgreSQL standard actuellement prises en charge par la base de données Azure pour PostgreSQL. Ces informations sont également disponibles en interrogeant `pg\_available\_extensions`.
 
 ### <a name="data-types-extensions"></a>Extensions de types de données
 
 > [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
 |---|---|
-| [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | Fournit un type de données pour les mots de passe chiffrés automatiquement |
+| [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | Fournit un type de données pour les mots de passe chiffrés automatiquement. |
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Fournit un type de chaîne de caractères avec respect de la casse. |
-| [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Fournit un type de données pour les cubes multidimensionnels |
-| [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Fournit un type de données permettant de stocker des ensembles de paires clé/valeur |
-| [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Fournit des types de données pour les standards internationaux de numérotation de produits |
-| [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Fournit un type de données pour les structures hiérarchiques de type arborescence |
+| [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Fournit un type de données pour les cubes multidimensionnels. |
+| [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Fournit un type de données permettant de stocker des ensembles de paires clé/valeur. |
+| [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Fournit des types de données pour les standards internationaux de numérotation de produits. |
+| [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Fournit un type de données pour les structures hiérarchiques de type arborescence. |
 
 ### <a name="functions-extensions"></a>Extensions de fonctions
 
@@ -87,7 +87,7 @@ Les tables suivantes répertorient les extensions PostgreSQL standard actuelleme
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Fournit un moyen d’afficher les statistiques au niveau du tuple. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Wrapper de données externes permettant d’accéder aux données stockées dans des serveurs externes PostgreSQL. |
 
-### <a name="postgis"></a>PostGIS
+### <a name="postgis-extensions"></a>Extensions PostGIS
 
 > [!div class="mx-tableFixed"]
 | **Extension** | **Description** |

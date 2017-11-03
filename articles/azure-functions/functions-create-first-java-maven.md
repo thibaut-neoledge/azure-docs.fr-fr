@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 10/03/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: dba73992c22dced8574e9d98de15a7b5713c5b46
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 50fd59c288312c7aa5ffe6abf1318a5ec2f406e6
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Créer votre première fonction dans Azure avec Java et Maven (aperçu)
 
-Ce démarrage rapide vous guide dans la création d’un projet de fonction sans serveur avec Maven, le test de ce projet localement et son déploiement sur Azure Functions. Quand vous avez terminé, vous disposez d’une application de fonction déclenchée par HTTP qui s’exécute dans Azure.
+Ce démarrage rapide vous guide dans la création d’un projet de fonction [sans serveur](https://azure.microsoft.com/overview/serverless-computing/) avec Maven, dans le test de ce projet localement et son déploiement sur Azure Functions. Quand vous avez terminé, vous disposez d’une application de fonction déclenchée par HTTP qui s’exécute dans Azure.
 
  ![Accéder à une fonction Hello World à partir de la ligne de commande avec cURL](media/functions-create-java-maven/hello-azure.png)
 

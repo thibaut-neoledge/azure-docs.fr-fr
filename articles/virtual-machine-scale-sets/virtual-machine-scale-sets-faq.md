@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/14/2017
+ms.date: 10/20/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: cc5a0ba5474827cedc5b6a42651c206d5f2540b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -459,11 +459,6 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Pour exécuter un script personnalisé qui est hébergé dans un compte de stockage privé, configurez les paramètres protégés avec le nom et la clé du compte de stockage. Pour plus d’informations, consultez [Extension de script personnalisé pour Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
-
-
-
-
-
 ## <a name="networking"></a>Mise en réseau
  
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>Est-il possible d’affecter un groupe de sécurité réseau (NSG) à un groupe identique, afin de l’appliquer à toutes les cartes réseau de machines virtuelles du groupe ?
@@ -648,7 +643,15 @@ Oui, vous pouvez utiliser l’opération de réinitialisation pour réinitialise
 
 Pour plus d’informations, consultez [Gérer toutes les machines virtuelles dans un groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Est-il possible d’intégrer des groupes identiques avec Azure OMS (Operations Management Suite) ?
 
+Oui, vous pouvez, en installant l’extension OMS sur les machines virtuelles du groupe identique. Voici un exemple d’interface de ligne de commande Azure :
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+Vous trouverez les éléments workspaceId et workspaceKey requis dans le portail OMS. Dans la page de présentation, cliquez sur la vignette Paramètres. Cliquez sur l’onglet Sources connectées, situé en haut de la page.
+
+Remarque : si la valeur _upgradePolicy_ du groupe identique est définie sur Manuel, vous devez appliquer l’extension à toutes les machines virtuels du groupe en appelant la mise à niveau. Dans l’interface de ligne de commande, cela se traduirait par _az vmss update-instances_.
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 

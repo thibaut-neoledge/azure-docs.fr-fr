@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5751cd111d2b1c8a4db2fc3b39f2108e73e9508f
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -251,6 +251,10 @@ Traffic Manager répond avec le nom DNS du point de terminaison. Pour prendre en
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Puis-je utiliser Traffic Manager avec plusieurs applications web dans la même région ?
 
 En règle générale, Traffic Manager est utilisé pour diriger le trafic vers des applications déployées dans des régions différentes. Vous pouvez toutefois l’utiliser dans les applications comportant plusieurs déploiements dans la même région. Les points de terminaison Azure Traffic Manager ne permettent pas d’ajouter au même profil Traffic Manager plusieurs points de terminaison d’application web provenant de la même région Azure.
+
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Comment déplacer les points de terminaison Azure de mon profil Traffic Manager vers un autre groupe de ressources ?
+
+Les points de terminaison Azure qui sont associés à un profil Traffic Manager sont suivis à l’aide de leur ID de ressource. Lorsqu’une ressource Azure qui est utilisée comme point de terminaison (par exemple, une adresse IP publique, un service cloud classique, une application web ou un autre profil Traffic Manager utilisé de façon imbriquée) est déplacée vers un autre groupe de ressources, son ID de ressource est modifié. Dans ce scénario, vous devez mettre à jour le profil Traffic Manager en commençant par supprimer les points de terminaison du profil avant de les ajouter à nouveau. 
 
 ##  <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 

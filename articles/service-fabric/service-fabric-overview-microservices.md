@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 91f4d1658875245f023e7546650e7b2592b48af1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Pourquoi une approche de microservices pour la conception d’applications ?
 Pour les développeurs de logiciels que nous sommes, il n’y a rien de nouveau dans notre conception de l’affacturage d’une application en composants. Il s’agit du paradigme central de l’orientation des objets, des abstractions de logiciel et de la modularité. Aujourd’hui, cette factorisation tend à prendre la forme de classes et d’interfaces entre les couches de technologies et les bibliothèques partagées. En règle générale, une approche hiérarchisée est adoptée avec un magasin principal, une logique métier de couche intermédiaire et une interface utilisateur frontale. Ce qui *a changé* au cours des dernières années, c’est que nous, en tant que développeurs, créons des applications distribuées pour le cloud, qui sont pilotées par l’entreprise.
@@ -147,10 +147,10 @@ Service Fabric fournit trois grands domaines pour vous aider à créer des appli
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrer des applications existantes vers Service Fabric
 Une approche clé de Service Fabric consiste à réutiliser le code existant, ce qui peut ensuite être modernisé à l’aide de nouveaux microservices. La modernisation d’une application comporte cinq étapes. Il est possible de commencer et d’arrêter à n’importe quelle étape. Ces composants sont les suivants :
 
-1) Prenez une application monolithique classique
-2) Lift and Shift - Utilisation de conteneurs ou d’exécutables invités pour héberger le code existant dans Service Fabric.
-3) Modernisation - Ajout de nouveaux microservices en plus du code en conteneur existant. 
-4) Innovation - Transformation d’applications monolithiques en microservices exclusivement basés sur les besoins.
+1) Prenez une application monolithique classique  
+2) Lift and Shift - Utilisation de conteneurs ou d’exécutables invités pour héberger le code existant dans Service Fabric.  
+3) Modernisation - Ajout de nouveaux microservices en plus du code en conteneur existant.  
+4) Innovation - Transformation d’applications monolithiques en microservices exclusivement basés sur les besoins.  
 5) Transformation en microservices - Transformation d’applications monolithiques existantes ou création de nouvelles applications greenfield.
 
 ![Migration vers les microservices][Image3]
@@ -162,7 +162,7 @@ Il est important d’insister à nouveau sur le fait que vous pouvez **commencer
 - Une réduction des coûts liée à la consolidation et à la suppression de matériel existant ou d’applications en cours d’exécution à une densité plus élevée. 
 - Un contrat de déploiement cohérent entre le développement et les opérations.
 
-Les réductions de coûts sont compréhensibles et au sein de Microsoft un grand nombre d’applications existantes sont placées simplement en conteneur pour économiser des millions de dollars. Un déploiement cohérent est plus difficile à évaluer, mais tout aussi important. Il permet aux développeurs de toujours rester libres de choisir la technologie qui leur convient le mieux. Toutefois, les opérations acceptent uniquement un moyen simple pour déployer et gérer ces applications. Ainsi, les opérations n’ont pas à gérer la complexité liée à de nombreuses technologies différentes ou à obliger les développeurs à ne choisir que certaines d’entre elles. En principe, chaque application est placée dans des images de déploiement autonomes.
+Les réductions de coûts sont compréhensibles et, au sein de Microsoft, un grand nombre d’applications existantes sont placées en conteneur simplement pour économiser des millions de dollars. Un déploiement cohérent est plus difficile à évaluer, mais tout aussi important. Il permet aux développeurs de toujours rester libres de choisir la technologie qui leur convient le mieux. Toutefois, les opérations acceptent uniquement un moyen simple pour déployer et gérer ces applications. Ainsi, les opérations n’ont pas à gérer la complexité liée à de nombreuses technologies différentes ou à obliger les développeurs à ne choisir que certaines d’entre elles. En principe, chaque application est placée dans des images de déploiement autonomes.
 
 De nombreuses organisations ne vont pas plus loin. Elles bénéficient déjà des avantages liés aux conteneurs et Service Fabric offre l’expérience de gestion complète du déploiement, des mises à niveau, du contrôle de version, des restaurations, du contrôle d’intégrité, etc.
 

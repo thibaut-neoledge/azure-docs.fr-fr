@@ -8,18 +8,15 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 1a489f199bcc955fd14e82d16670d854305b00c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Acheminer des événements de stockage Blob Azure vers un point de terminaison Web personnalisé (version préliminaire)
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure CLI pour vous abonner à des événements de stockage Blob et déclencher l’événement pour afficher le résultat. 
-
-> [!IMPORTANT]
-> Pour effectuer ce tutoriel, vous devez être inscrit à la version préliminaire des événements de stockage Blob.  Pour en savoir plus sur le programme en version préliminaire, [cliquez ici](storage-blob-event-overview.md#join-the-preview).
 
 En règle générale, vous envoyez des événements à un point de terminaison qui répond à l’événement, comme un webhook ou une fonction Azure. Pour simplifier l’exemple présenté dans cet article, nous envoyons les événements à une URL qui collecte seulement les messages. Vous créez cette URL à l’aide d’un outil tiers en open-source nommé [RequestBin](https://requestb.in/).
 
@@ -55,7 +52,7 @@ Pour utiliser le Stockage Azure, vous avez besoin d’un compte de stockage.  Le
 Un compte de stockage d’objets blob est un compte de stockage spécialisé pour le stockage des données non structurées en tant qu’objets blob dans Azure Storage. Les comptes de stockage d’objets blob sont similaires à vos comptes de stockage à usage général existants et offrent les excellents niveaux de durabilité, disponibilité, évolutivité et performances dont vous bénéficiez aujourd’hui. Ils assurent notamment la cohérence d’API à 100 % pour les objets blob de blocs et d’ajout. Pour les applications qui requièrent uniquement le stockage d’objets blob de blocs ou d’objets blob d’ajout, nous recommandons d’utiliser des comptes de stockage d’objets blob.
 
 > [!NOTE]
-> À la sortie de la version préliminaire, les événements de stockage Blob ne sont disponibles que pour les comptes de stockage situés à l’emplacement **westcentralus**.
+> La préversion d’Event Grid est actuellement disponible uniquement pour les comptes de stockage situés dans les régions **westcentralus** et **westus2**.
 
 Remplacez `<storage_account_name>` par un nom unique pour votre compte de stockage, et `<resource_group_name>` par le groupe de ressources que vous avez créé précédemment.
 

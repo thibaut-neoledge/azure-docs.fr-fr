@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
+ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Guide pratique pour créer et configurer le runtime d’intégration autohébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md).
@@ -69,9 +68,9 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 
 ## <a name="prerequisites"></a>Composants requis
 
-- Les versions de **système d’exploitation** prises en charge sont Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. L’installation du runtime d’intégration autohébergé sur un **contrôleur de domaine n’est pas prise en charge**.
+- Les versions de **système d’exploitation** prises en charge sont Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016. L’installation du runtime d’intégration autohébergé sur un **contrôleur de domaine n’est pas prise en charge**.
 - **.NET Framework 4.6.1 ou version ultérieure** est requis. Si vous installez un runtime d’intégration autohébergé sur un ordinateur Windows 7, installez .NET Framework 4.6.1 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](/dotnet/framework/get-started/system-requirements) pour plus d’informations.
-- La **configuration** recommandée pour l’ordinateur du runtime d’intégration autohébergé est la suivante : au moins 2 GHz, quatre cœurs, 8 Go de RAM et 80 Go d’espace disque.
+- La **configuration** recommandée pour l’ordinateur du runtime d’intégration autohébergé est la suivante : au moins 2 GHz, 4 cœurs, 8 Go de RAM et 80 Go d’espace disque.
 - Si l’ordinateur hôte est en veille prolongée, le runtime d’intégration autohébergé ne répond pas à la demande de données. Vous devez donc configurer un plan de gestion de l’alimentation approprié sur l’ordinateur avant d’installer le runtime d’intégration autohébergé. L’installation du runtime d’intégration autohébergé ouvre un message si l’ordinateur est configuré pour la mise en veille prolongée.
 - Vous devez être administrateur sur la machine pour installer et configurer le runtime d’intégration autohébergé avec succès.
 - Étant donné que l’activité de copie s’exécute selon une fréquence spécifique, l’utilisation des ressources (processeur, mémoire) sur l’ordinateur suit également le même modèle avec des pics et des baisses d’inactivité. L'utilisation des ressources dépend également en grande partie de la quantité de données déplacées. Lorsque plusieurs travaux sont en cours, vous constaterez une augmentation des ressources utilisées pendant les heures de pointe.
@@ -240,4 +239,3 @@ Si vous préférez ne pas ouvrir le port 8060 sur l’ordinateur du runtime int�
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez le didacticiel suivant pour obtenir des instructions pas à pas : [didacticiel : copier des données locales dans le cloud](tutorial-hybrid-copy-powershell.md).
-

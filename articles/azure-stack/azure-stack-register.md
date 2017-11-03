@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: erikje
-ms.openlocfilehash: b5f112f2d5b96843e7863aa664eec4847c58e950
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3282b9d4cdf67035d966cf934a7d8574eae6ae34
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Inscrire Azure Stack auprès de votre abonnement Azure
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Pour les déploiements Azure Active Directory, vous pouvez inscrire [Azure Stack](azure-stack-poc.md) auprès d’Azure pour télécharger des éléments de la Place de Marché à partir d’Azure et configurer la génération de rapports de données commerciales envoyés à Microsoft. 
+Vous pouvez inscrire [Azure Stack](azure-stack-poc.md) auprès d’Azure pour télécharger des éléments de la Place de Marché à partir d’Azure et configurer la génération de rapports de données commerciales envoyés à Microsoft. 
 
 > [!NOTE]
 >L’inscription est recommandée, car elle vous permet de tester des fonctionnalités Azure Stack importantes, telles que la syndication de la Place de Marché et les rapports d’utilisation. Après avoir inscrit Azure Stack, l’utilisation est signalée à Azure Commerce. Vous pouvez la consulter sous l’abonnement utilisé pour l’inscription. Toute utilisation que les utilisateurs du kit de développement Azure Stack signalent ne leur sera pas facturée.
@@ -56,7 +56,7 @@ Si vous n’avez pas d’abonnement Azure répondant à ces exigences, vous pouv
 Exemple : 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
 
@@ -73,22 +73,21 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
     - *YourCloudAdminCredential* est un objet PowerShell qui contient les informations d’identification de domaine local pour domain\cloudadmin (pour le kit de développement, il s’agit d’azurestack\cloudadmin).
     - *YourAzureSubscriptionID* est l’ID d’abonnement Azure que vous voulez utiliser pour inscrire Azure Stack.
     - *YourAzureDirectoryTenantName* est le nom de l’annuaire de locataire Azure dans lequel vous souhaitez créer votre enregistrement de ressource.
-    - *YourPrivilegedEndpoint* est le nom de l’ordinateur Just-Enough-Access, également connu en tant que machine virtuelle de la console d’urgence.
+    - *YourPrivilegedEndpoint* est le nom du [point de terminaison privilégié](azure-stack-privileged-endpoint.md).
 
     ```powershell
     Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
     ```
- 
-5. Aux deux invites, appuyez sur Entrée.
-6. Dans la fenêtre de connexion indépendante, entrez les informations d’identification de votre abonnement Azure.
-
-
+5. Dans la fenêtre de connexion indépendante, entrez les informations d’identification de votre abonnement Azure.
 
 ## <a name="verify-the-registration"></a>Vérifier l’inscription
 
 1. Connectez-vous au portail d’administration (https://adminportal.local.azurestack.external).
 2. Cliquez sur **Plus de services** > **Gestion de la Place de Marché** > **Ajouter à partir d’Azure**.
 3. Si une liste d’éléments disponibles dans Azure (tels que WordPress) s’affiche, l’activation a réussi.
+
+> [!NOTE]
+> Une fois l’inscription terminée, l’avertissement relatif à la non-inscription n’apparaît plus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

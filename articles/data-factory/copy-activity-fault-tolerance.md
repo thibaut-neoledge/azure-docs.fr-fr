@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jingwang
-ms.openlocfilehash: d96c89ed3650c09ac6465e30754ef1155b06d601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,13 +86,13 @@ Une fois l’activité de copie exécutée, vous pouvez voir le nombre de lignes
 ```
 Si vous effectuez la configuration de manière à enregistrer les lignes incompatibles, vous pouvez trouver le fichier journal sous le chemin d’accès suivant : `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
 
-Le fichier journal affiche les lignes qui ont été ignorées et la cause racine de l’incompatibilité.
+Les fichiers journaux peuvent être uniquement les fichiers csv. Les données d’origine ignorées seront enregistrées avec la virgule comme délimiteur de colonne si nécessaire. Nous ajoutons deux colonnes supplémentaires « ErrorCode » et « ErrorMessage » en plus des données sources d’origine dans le fichier journal, où vous pouvez voir la cause racine de l’incompatibilité. Les valeurs ErrorCode et ErrorMessage figurent entre guillemets doubles. 
 
-Les données d’origine et l’erreur correspondante sont consignées dans le fichier journal. Voici un exemple de contenu de fichier journal :
+Voici un exemple de contenu de fichier journal :
 
 ```
-data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.,
-data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
+data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'."
+data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4)."
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

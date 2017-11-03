@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Basculement régional automatique pour la continuité des activités dans Azure Cosmos DB
 Azure Cosmos DB simplifie la distribution globale de données en gérant complètement les [comptes de bases de données multirégions](distribute-data-globally.md) qui fournissent des compromis clairs entre cohérence, disponibilité et performance, le tout avec les garanties correspondantes. Les comptes Cosmos DB offrent des capacités de haute disponibilité, des latences inférieures à 10 millisecondes, des [niveaux de cohérence bien définis](consistency-levels.md), un basculement régional transparent avec des API multihébergement et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible. 
@@ -85,19 +85,40 @@ Une fois que la région affectée récupère après une panne, tous les comptes 
 
 **Que se passe-t-il si une région d'écriture connaît une panne ?**
 
-Si la région affectée est la zone d’écriture en cours d’un compte Cosmos DB donné, la région est automatiquement marquée comme hors connexion. Ensuite, une autre région est promue comme région d’écriture de chaque compte Cosmos DB affecté. Vous pouvez contrôler totalement l’ordre de sélection des régions pour vos comptes Cosmos DB par le biais du portail Azure ou [par programme](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Si la région affectée est la zone d’écriture actuelle et que le basculement automatique est activé pour le compte Azure Cosmos DB, la région est automatiquement marquée comme hors connexion. Ensuite, une autre région est promue comme région d’écriture pour le compte Azure Cosmos DB affecté. Vous pouvez activer le basculement automatique et contrôler totalement l’ordre de sélection des régions pour vos comptes Azure Cosmos DB par le biais du portail Azure ou [par programmation](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Priorités de basculement pour Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
-Pendant les basculements automatiques, Cosmos DB choisit automatiquement la prochaine région d’écriture d’un compte Cosmos DB donné selon l’ordre de priorité spécifié. 
+Pendant les basculements automatiques, Azure Cosmos DB choisit automatiquement la prochaine région d’écriture d’un compte Azure Cosmos DB donné en fonction de l’ordre de priorité spécifié. Les applications peuvent utiliser la propriété WriteEndpoint de la classe DocumentClient pour détecter le changement de région d’écriture.
 
 ![Défaillances de la région d’écriture dans Azure Cosmos DB](./media/regional-failover/write-region-failures.png)
 
 Une fois que la région affectée récupère après une panne, tous les comptes Cosmos DB affectés dans la région sont récupérés automatiquement par le service. 
 
-* Des comptes Cosmos DB avec leur région d’écriture précédente dans la région affectée restent en mode hors connexion avec une disponibilité de lecture même après la récupération de la région. 
-* Vous pouvez interroger cette région pour calculer toutes les opérations d'écriture non répliquées pendant une panne en les comparant avec les données disponibles dans la région d'écriture en cours. En fonction des besoins de votre application, vous pouvez effectuer une fusion et/ou une résolution de conflit et écrire l’ensemble final des modifications apportées à la zone d’écriture en cours. 
-* Une fois que vous avez effectué la fusion des modifications, vous pouvez remettre la région affectée en ligne en la supprimant et en l’ajoutant de nouveau à votre compte Cosmos DB. Une fois la région à nouveau ajoutée, vous pouvez la configurer de nouveau comme zone d’écriture en effectuant un basculement manuel par le biais du portail Azure ou [par programme](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Les données présentes dans la région d’écriture précédente qui n’ont pas été répliquées vers les régions de lecture pendant la panne sont publiées en tant que flux de conflit. Les applications peuvent lire le flux de conflit, résoudre les conflits en fonction de la logique propre à l’application, et réécrire les données mises à jour dans le compte Azure Cosmos DB comme il convient. 
+* La région d’écriture précédente est recréée en tant que région de lecture et remise en ligne automatiquement. 
+* Vous pouvez reconfigurer la région de lecture qui a été remise en ligne automatiquement en tant que région d’écriture en effectuant un basculement manuel par le biais du portail Azure ou [par programmation](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+
+L’extrait de code suivant montre comment traiter les conflits une fois que la région affectée a récupéré suite à la panne.
+
+```cs
+string conflictsFeedContinuationToken = null;
+do
+{
+    FeedResponse<Conflict> conflictsFeed = client.ReadConflictFeedAsync(collectionLink,
+        new FeedOptions { RequestContinuation = conflictsFeedContinuationToken }).Result;
+
+    foreach (Conflict conflict in conflictsFeed)
+    {
+        Document doc = conflict.GetResource<Document>();
+        Console.WriteLine("Conflict record ResourceId = {0} ResourceType= {1}", conflict.ResourceId, conflict.ResourceType);
+
+        // Perform application specific logic to process the conflict record / resource
+    }
+
+    conflictsFeedContinuationToken = conflictsFeed.ResponseContinuation;
+} while (conflictsFeedContinuationToken != null);
+```
 
 ## <a id="ManualFailovers"></a>Basculements manuels
 

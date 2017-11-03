@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: c58cf6485a8a7248e5b8ffce0d279485a80f36ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Envoyer, recevoir et traiter par lots des messages dans les applications logiques
 
@@ -60,7 +60,7 @@ Les applications logiques expéditrices doivent savoir où envoyer les élément
 3. Fournissez un nom pour le lot, puis spécifiez des critères pour son déclenchement, par exemple :
 
    * **Nom du lot** : nom utilisé pour identifier le lot (« TestBatch » dans cet exemple).
-   * **Critères de lancement** : critères de lancement, liés au nombre de messages, à la planification ou aux deux.
+   * **Critères de déclenchement** : critères de déclenchement du lot, liés au nombre de messages, à la planification ou aux deux.
    
      ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
 
@@ -115,6 +115,10 @@ Les applications logiques expéditrices doivent savoir où envoyer les élément
 7.  Maintenant que vous avez créé l’application logique réceptrice de lots, enregistrez-la.
 
     ![Enregistrer votre application logique](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > Une partition a une limite de 5 000 messages ou 80 Mo. Si l’une des conditions est remplie, le lot peut être libéré, même si la condition définie par l’utilisateur n’est pas remplie.
+
 
 <a name="batch-sender"></a>
 

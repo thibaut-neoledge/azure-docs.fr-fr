@@ -1,6 +1,6 @@
 ---
 title: "Effectuer des opérations sur Stockage File d’attente Azure avec PowerShell | Microsoft Docs"
-description: "Didacticiel : effectuer des opérations sur Stockage File d’attente Azure avec PowerShell"
+description: "Guide pratique pour effectuer des opérations sur un Stockage File d’attente Azure avec PowerShell"
 services: storage
 documentationcenter: storage
 author: robinsh
@@ -11,18 +11,18 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 357d8db329a6a3c782753804d681029fdb07b5f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 85678452e84a65bd81472396f8ebbb91091a2095
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 
-Stockage File d’attente Azure est un service permettant de stocker un grand nombre de messages accessibles n’importe où dans le monde au moyen d’appels authentifiés avec HTTP ou HTTPS. Pour plus d’informations, consultez [Présentation des files d’attente Azure](storage-queues-introduction.md). Ce didacticiel décrit les opérations courantes liées au stockage de files d’attente. Vous allez apprendre à effectuer les actions suivantes :
+Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Pour plus d’informations, consultez [Présentation des files d’attente Azure](storage-queues-introduction.md). Cet article sur les procédures décrit les opérations courantes liées au Stockage File d’attente. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Création d’une file d’attente
@@ -32,7 +32,9 @@ Stockage File d’attente Azure est un service permettant de stocker un grand no
 > * Supprimer un message 
 > * Suppression d'une file d'attente
 
-Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Il nécessite le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+Il n’existe aucune applet de commande PowerShell pour le plan de données des files d’attente. Pour effectuer des opérations de plan de données comme l’ajout, la lecture et la suppression d’un message, vous devez utiliser la bibliothèque cliente de stockage .NET exposée dans PowerShell. Vous créez un objet de message et vous pouvez alors utiliser des commandes comme AddMessage pour effectuer des opérations sur ce message. Cet article vous explique comment procéder.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -44,7 +46,7 @@ Login-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>Récupérer la liste des régions
 
-Si vous ne savez pas quelle région utiliser, listez celles qui sont disponibles. Dans la liste qui s’affiche, trouvez celle que vous souhaitez utiliser. Ce didacticiel utilise **eastus**. Stockez cette région dans la variable **location** pour une utilisation ultérieure.
+Si vous ne savez pas quelle région utiliser, listez celles qui sont disponibles. Dans la liste, trouvez celle que vous souhaitez utiliser. Cet exercice utilise **eastus**. Stockez cette région dans la variable **location** pour une utilisation ultérieure.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -71,8 +73,7 @@ $storageAccountName = "howtoqueuestorage"
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
-  -SkuName Standard_LRS `
-  -Kind Storage
+  -SkuName Standard_LRS
 
 $ctx = $storageAccount.Context
 ```
@@ -104,7 +105,7 @@ Get-AzureStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Ajout d'un message à une file d'attente
 
-Pour ajouter un message à une file d’attente, créez d’abord une instance de la classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Appelez ensuite la méthode [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . Un CloudQueueMessage peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
+Les opérations ayant un impact sur les messages réels dans la file d’attente utilisent la bibliothèque cliente de stockage .NET exposée dans PowerShell. Pour ajouter un message à une file d’attente, créez une instance de l’objet de message, la classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Appelez ensuite la méthode [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . Un CloudQueueMessage peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
 
 L’exemple suivant montre comment ajouter un message à votre file d’attente.
 
@@ -124,7 +125,7 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessage($QueueMessage)
 ```
 
-Si vous utilisez l’[Explorateur Stockage Azure](http://storageexplorer.com), vous pouvez vous connecter à votre compte Azure et afficher les files d’attente dans le compte de stockage, puis en explorer une au niveau du détail pour afficher les messages qu’elle contient. 
+Si vous utilisez [l’Explorateur Stockage Azure](http://storageexplorer.com), vous pouvez vous connecter à votre compte Azure et afficher les files d’attente dans le compte de stockage, puis en explorer une au niveau du détail pour afficher les messages qu’elle contient. 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Lire un message de la file d’attente, puis le supprimer
 
@@ -134,7 +135,7 @@ Cette **période d’invisibilité** définit la durée d’invisibilité du mes
 
 Votre code lit un message dans la file d’attente en deux étapes. Quand vous appelez la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), vous obtenez le message suivant dans la file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d’attente, vous devez également appeler la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). 
 
-Dans l’exemple suivant, vous lisez les trois messages de la file d’attente, puis attendez 10 secondes (période d’invisibilité). Ensuite, quand vous relisez les trois messages, vous les supprimez un à un en appelant **DeleteMessage**. Si vous essayez de lire la file d’attente une fois les messages supprimés, $queueMessage retourne NULL.
+Dans l’exemple suivant, vous lisez les trois messages de la file d’attente, puis attendez 10 secondes (période d’invisibilité). Ensuite, quand vous relisez les trois messages, vous les supprimez un à un en appelant **DeleteMessage**. Si vous essayez de lire la file d’attente une fois les messages supprimés, $queueMessage retourne NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -178,7 +179,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous a présenté les bases de la gestion de Stockage File d’attente avec PowerShell. Vous avez notamment appris à effectuer les tâches suivantes :
+Cet article sur les procédures vous a présenté les bases de la gestion de Stockage File d’attente avec PowerShell. Vous avez notamment appris à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Création d’une file d’attente

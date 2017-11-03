@@ -1,6 +1,6 @@
 ---
-title: "Créer une application web PHP dans un conteneur Linux dans Azure | Microsoft Docs"
-description: "Déployez votre premier programme Hello World PHP dans Azure App Service Web Apps en quelques minutes."
+title: "Créer une application web PHP et la déployer sur App Service sur Linux | Microsoft Docs"
+description: "Déployez votre premier site Hello World en PHP sur App Service sur Linux en quelques minutes."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ff1b0bdd2397387910c31e25ddbc50ffc0bd1c4
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Créer une application web PHP dans un conteneur Linux dans Azure
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Créer une application web PHP dans App Service sur Linux
 
-[Web App for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce didacticiel de démarrage rapide vous montre comment déployer une application PHP dans Azure Web App for Containers. Vous allez créer l’application web via [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) dans Cloud Shell et utiliser Git pour déployer le code PHP dans l’application web.
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce guide de démarrage rapide vous indique comment déployer une application PHP sur Azure App Service sur Linux. Vous allez créer l’application web avec une image intégrée via [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) dans Cloud Shell et utiliser Git pour déployer le code PHP sur l’application web.
 
 ![Exemple d’application s’exécutant dans Azure]](media/quickstart-php/hello-world-in-browser.png)
 
-Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux. 
+Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -71,11 +71,11 @@ Dans la fenêtre de terminal, appuyez sur **Ctrl + C** pour quitter le serveur
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Créer une application web
+## <a name="create-a-web-app-with-built-in-image"></a>Créer une application web avec une image intégrée
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
 
-Accédez au site pour voir votre nouvelle application web. Remplacez _&lt;app name>_ par un nom d’application unique.
+Accédez au site pour voir votre nouvelle application web avec une image intégrée. Remplacez _&lt;app name>_ par un nom d’application unique.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -83,9 +83,9 @@ http://<app name>.azurewebsites.net
 
 ![Page d’application web vide](media/quickstart-php/app-service-web-service-created.png)
 
-Vous avez créé une application web vide dans un conteneur Linux avec le déploiement Git activé.
+Vous avez créé une application web vide avec une image intégrée, avec le déploiement Git activé.
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
 ```bash
 Counting objects: 2, done.
@@ -120,11 +120,11 @@ Accédez à l’application déployée à l’aide de votre navigateur web.
 http://<app_name>.azurewebsites.net
 ```
 
-L’exemple de code PHP s’exécute dans une application web Azure App Service.
+L’exemple de code PHP s’exécute dans une application web avec une image intégrée.
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**Félicitations !** Vous avez déployé votre première application en PHP dans App Service.
+**Félicitations !** Vous avez déployé votre première application en PHP sur App Service sur Linux.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Mettre à jour localement et redéployer le code
 

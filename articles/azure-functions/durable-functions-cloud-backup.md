@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa7c0738120ecda8d43669725748585e1ad5a581
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>Composants requis
 
-* Suivez les instructions indiquées dans [Installer des fonctions durables](durable-functions-install.md) pour configurer l’exemple.
+* Suivez les instructions indiquées dans la section [Installer des fonctions durables](durable-functions-install.md) pour configurer l’exemple.
 * Cet article suppose que vous avez déjà parcouru l’exemple de procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Présentation du scénario
@@ -97,12 +97,12 @@ L’implémentation charge le fichier à partir du disque et transmet de manièr
 > [!NOTE]
 > Il s’agit d’un exemple parfait de déplacement d’opérations d’E/S vers une fonction `activityTrigger`. Non seulement le travail peut être réparti sur plusieurs machines virtuelles différentes, mais vous avez également la possibilité de créer des points de contrôle tout au long de la progression. Si le processus hôte est interrompu pour une raison quelconque, vous savez que les chargements ont déjà été effectués.
 
-## <a name="running-the-sample"></a>Exécution de l’exemple
+## <a name="run-the-sample"></a>Exécution de l'exemple
 
-En utilisant les fonctions déclenchées via HTTP incluses dans l’exemple, vous pouvez démarrer l’orchestration à l’aide de la requête HTTP POST suivante.
+Vous pouvez démarrer l’orchestration en envoyant la requête HTTP POST suivante.
 
 ```
-POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
+POST http://{host}/orchestrators/E2_BackupSiteContent
 Content-Type: application/json
 Content-Length: 20
 
@@ -112,7 +112,7 @@ Content-Length: 20
 > [!NOTE]
 > La fonction `HttpStart` que vous appelez fonctionne uniquement avec un contenu au format JSON. Pour cette raison, l’en-tête `Content-Type: application/json` est requis, et le chemin d’accès au répertoire est encodé sous forme de chaîne JSON.
 
-Cette opération déclenche l’orchestrateur `E2_BackupSiteContent` et transmet la chaîne `D:\home\LogFiles` en tant que paramètre. La réponse fournit un lien pour obtenir l’état de cette opération de sauvegarde :
+Cette requête HTTP déclenche l’orchestrateur `E2_BackupSiteContent` et transmet la chaîne `D:\home\LogFiles` en tant que paramètre. La réponse fournit un lien pour obtenir l’état de l’opération de sauvegarde :
 
 ```
 HTTP/1.1 202 Accepted
@@ -152,15 +152,13 @@ Vous pouvez maintenant voir que l’orchestration est terminée et la durée app
 
 ## <a name="visual-studio-sample-code"></a>Code d’exemple Visual Studio
 
-Voici l’orchestration comme un seul fichier C# dans un projet Visual Studio :
+Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À ce stade, vous aurez une meilleure compréhension des principales capacités d’orchestration de Fonctions durables. Les exemples suivants présentent des scénarios et des fonctionnalités plus avancées.
+Cet exemple a montré comment implémenter le modèle fan-out/fan-in. L’exemple suivant montre comment implémenter le modèle [singleton avec état](durable-functions-singletons.md) dans une [orchestration externe](durable-functions-eternal-orchestrations.md).
 
 > [!div class="nextstepaction"]
 > [Exécuter l’exemple de singleton avec état](durable-functions-counter.md)
-
-

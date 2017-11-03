@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 88c052c3a22611b796559d4dd62c763445aa6210
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e6687e4e868ae998c77bba231437d52fdbe719c
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Déploiement d’un Runbook Worker hybride Linux
-Dans Azure Automation, les Runbooks ne peuvent pas accéder aux ressources d’autres clouds ou dans votre environnement local car ils s'exécutent dans le cloud Azure.  La fonctionnalité de Runbook Worker hybride d’Azure Automation vous permet d’exécuter des Runbooks directement sur l’ordinateur qui héberge le rôle et par rapport aux ressources de l’environnement afin de gérer ces ressources locales. Les Runbooks sont stockés et gérés dans Azure Automation, puis remis à un ou plusieurs ordinateurs désignés.  
+
+Dans Azure Automation, les Runbooks ne peuvent pas accéder aux ressources d’autres clouds ou dans votre environnement local car ils s'exécutent dans le cloud Azure. La fonctionnalité de Runbook Worker hybride d’Azure Automation vous permet d’exécuter des Runbooks directement sur l’ordinateur qui héberge le rôle et par rapport aux ressources de l’environnement afin de gérer ces ressources locales. Les Runbooks sont stockés et gérés dans Azure Automation, puis remis à un ou plusieurs ordinateurs désignés.
 
 Cette fonctionnalité est illustrée dans l’image suivante :<br>  
 
@@ -48,13 +49,21 @@ Avant de continuer, vous devez noter l’espace de travail Log Analytics auquel 
          $null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-2.  Exécutez la commande suivante en remplaçant les valeurs de paramètres *-w* et *-k* sur votre ordinateur Linux.
+2.  Exécutez la commande suivante en remplaçant les valeurs des paramètres *-w*, *-k*, *-g* et *-e*. Pour le paramètre *-g*, remplacez la valeur par le nom du groupe Runbook Worker hybride auquel le nouveau Runbook Worker hybride Linux doit se joindre. Si le nom n’existe pas déjà dans votre compte Automation, un nouveau groupe Runbook Worker hybride est constitué avec ce nom.
     
     ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> --groupname <hybridgroupname> -e <automationendpoint>
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. Une fois la commande terminée, le panneau Groupes de Workers hybrides du portail Azure affiche le nouveau groupe et le nombre de membres, ou, si le groupe existe déjà, incrémente le nombre de membres.  Vous pouvez sélectionner le groupe dans la liste du panneau **Groupes de Workers hybrides** et sélectionner la vignette **Workers hybrides**.  Le panneau **Workers hybrides** affiche chaque membre du groupe listé.  
 
+
+## <a name="turning-off-signature-validation"></a>Désactivation de la validation de signature 
+Par défaut, les Runbooks Workers hybrides Linux nécessitent la validation de signature. Si vous exécutez un runbook non signé sur un rôle de travail, une erreur contenant « Échec de la validation de la signature » s’affiche. Pour désactiver la validation de signature, exécutez la commande suivante, en remplaçant le deuxième paramètre par votre ID d’espace de travail OMS :
+
+    ```
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
+    ```
+   
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez [exécuter des runbooks sur un Runbook Worker hybride](automation-hrw-run-runbooks.md) pour apprendre comment configurer vos runbooks afin d’automatiser les processus dans votre centre de données local ou un autre environnement cloud.

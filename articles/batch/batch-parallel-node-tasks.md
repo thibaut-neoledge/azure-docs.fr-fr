@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15854aa0f2665f921f3435bc298737671f2e1a6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eae6359b5fb36bd0317391ce2330afb7dd7bfe3b
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Exécuter des tâches simultanément pour optimiser l’utilisation des nœuds de calcul Batch 
 
@@ -124,16 +124,13 @@ La deuxième exécution de l'exemple montre une diminution significative de la d
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
-### <a name="batch-explorer-heat-map"></a>Carte thermique Batch Explorer
-[Azure Batch Explorer][batch_explorer], l’un des [exemples d’applications][github_samples] Azure Batch, contient une fonctionnalité *Carte thermique* qui permet de visualiser l’exécution des tâches. Lorsque vous exécutez l’exemple d’application [ParallelTasks][parallel_tasks_sample], utilisez la fonctionnalité Carte thermique pour visualiser l’exécution de tâches parallèles sur chaque nœud.
+### <a name="batchlabs-heat-map"></a>Carte thermique BatchLabs
+[BatchLabs][batch_labs] est un outil client autonome, gratuit et doté de nombreuses fonctionnalités, aidant à créer, déboguer et surveiller les applications Azure Batch. BatchLabs contient une fonctionnalité *Carte thermique* qui fournit une visualisation de l’exécution des tâches. Lorsque vous exécutez l’exemple d’application [ParallelTasks][parallel_tasks_sample], utilisez la fonctionnalité Carte thermique pour visualiser l’exécution de tâches parallèles sur chaque nœud.
 
-![Carte thermique Batch Explorer][1]
-
-*Carte thermique Batch Explorer affichant un pool de quatre nœuds, chaque nœud exécutant quatre tâches*
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
@@ -144,4 +141,3 @@ La deuxième exécution de l'exemple montre une diminution significative de la d
 [poolcreate_net]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
-[1]: ./media/batch-parallel-node-tasks\heat_map.png

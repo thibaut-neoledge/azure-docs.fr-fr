@@ -39,19 +39,24 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Groupes de sécurité d’application qui peuvent être spécifiés dans toutes les règles de sécurité d’un groupe de sécurité réseau |50 |100 |
 | Tables d'itinéraires définis par l'utilisateur |100 |200 |
 | Itinéraires définis par l'utilisateur par table d'itinéraire |100 |400 |
-| Adresses IP publiques (dynamiques) |(Basic) |60 |contacter le support technique |
+| Adresses IP publiques (dynamiques) |(De base) 60 |contacter le support technique |
 | Adresses IP publiques (statiques) |(Basic) 20 |contacter le support technique |
 | Adresses IP publiques (statiques) |(Standard) 20 |contacter le support technique |
-| Équilibreurs de charge (accès interne et Internet, Basic et Standard) |100 |1 000 |
-| Règles d’équilibreur de charge (Basic) par équilibreur de charge |150 |250 |
-| Règles d’équilibreur de charge (Standard) par équilibreur de charge | 1250 | 1 500|
-| Règles d’équilibreur de charge (Basic) par configuration IP |250 |250 |
-| Protocole Internet frontal public par équilibreur de charge (Basic) |10 |30 |
-| Protocole Internet frontal public par équilibreur de charge (Standard) | 10 | 600 |
-| Protocole Internet frontal privé par équilibreur de charge (Basic) |10 |contacter le support technique |
-| Protocole Internet frontal privé par équilibreur de charge (Standard) | 10 | 600 |
 | Certificats racines point à site pour chaque passerelle VPN |20 |20 |
 
+#### <a name="load-balancer"></a>Limites de l’équilibreur de charge
+
+| Ressource | Limite par défaut | Limite maximale |
+| --- | --- | --- |
+| Équilibreurs de charge | 100 | 1 000 |
+| Règles par ressource, De base | 150 | 250 |
+| Règles par ressource, Standard | 1250 | 1 500 |
+| Règles par configuration IP | 299 |299 |
+| Configurations d’adresses IP frontales, De base | 10 | contacter le support technique |
+| Configurations d’adresses IP frontales, Standard | 10 | 600 |
+| Pool principal, De base | 100, un seul groupe à haute disponibilité | - |
+| Pool principal, Standard | 1000, un seul réseau virtuel | contacter le support technique |
+| Ports à haute disponibilité, Standard | 1 par serveur frontal interne | - |
 
 Pour accroître les limites par défaut, [contactez le support technique](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

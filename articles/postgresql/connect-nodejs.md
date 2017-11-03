@@ -11,14 +11,14 @@ ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.openlocfilehash: e115a9a5f925dc038aca4e403d678cce06262ab0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c16705c89c36452a28ab0547dc6b5277f57dd6d5
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de Node.js pour se connecter et interroger des données
-Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant [Node.js](https://nodejs.org/). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement via Node.js, et que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.
+Ce guide de démarrage rapide vous explique comment vous connecter à Azure Database pour PostgreSQL en utilisant une application [Node.js](https://nodejs.org/). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement via Node.js, et que vous ne savez pas utiliser Azure Database pour PostgreSQL.
 
 ## <a name="prerequisites"></a>Composants requis
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
@@ -52,7 +52,7 @@ Obtenez les informations de connexion requises pour vous connecter à la base de
 5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Exécution du code JavaScript dans Node.js
-Vous pouvez lancer Node.js à partir de l’interpréteur de commandes Bash ou de l’invite de commandes Windows, en saisissant `node`, puis exécutez l’exemple de code JavaScript de manière interactive, en le copiant et en le collant dans l’invite. Vous pouvez également enregistrer le code JavaScript dans un fichier texte, puis lancez `node filename.js` en indiquant le nom de fichier en tant que paramètre pour l’exécuter.
+Vous pouvez lancer Node.js à partir de l’interpréteur de commandes Bash, du terminal ou de l’invite de commandes Windows, en saisissant `node`, puis exécuter l’exemple de code JavaScript de manière interactive, en le copiant et en le collant dans l’invite. Vous pouvez également enregistrer le code JavaScript dans un fichier texte, puis lancez `node filename.js` en indiquant le nom de fichier en tant que paramètre pour l’exécuter.
 
 ## <a name="connect-create-table-and-insert-data"></a>Se connecter, créer des tables et insérer des données
 Utilisez le code suivant pour vous connecter et charger les données à l’aide d’instructions SQL **CREATE TABLE** et **INSERT INTO**.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 26fa86d166c54f48621ccbab13d1d17f465b7568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a476e5228fc7fb83c1fe0b7ae0989a7752be09e1
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 
@@ -31,7 +31,11 @@ Reportez-vous à [Considérations relatives à la mise en réseau pour Azure Act
 La tâche de configuration suivante consiste à créer un réseau virtuel Azure et un sous-réseau dédié à l’intérieur de celui-ci. Vous activez Azure Active Directory Domain Services dans ce sous-réseau de votre réseau virtuel. Vous pouvez également sélectionner un réseau virtuel actuel et créez le sous-réseau dédié à l’intérieur de celui-ci.
 
 1. Cliquez sur **Réseau virtuel** pour choisir un réseau virtuel.
-2. Dans le panneau **Choisir un réseau virtuel**, vous voyez tous les réseaux virtuels actuels. Vous voyez uniquement les réseaux virtuels qui appartiennent au groupe de ressources et à l’emplacement Azure que vous avez sélectionnés dans la page **Fonctions de base** de l’Assistant.
+    > [!NOTE]
+    > **Les réseaux virtuels classiques ne sont pas pris en charge pour les nouveaux déploiements.** Les réseaux virtuels classiques ne sont pas pris en charge pour les nouveaux déploiements. Les domaines managés existants déployés dans des réseaux virtuels classiques continuent à être pris en charge. Nous prévoyons de fournir prochainement la possibilité de migrer un domaine managé existant depuis un réseau virtuel Classic vers un réseau virtuel Resource Manager.
+    >
+
+2. Dans la page **Choisir un réseau virtuel**, vous voyez tous les réseaux virtuels actuels. Vous voyez uniquement les réseaux virtuels qui appartiennent au groupe de ressources et à l’emplacement Azure que vous avez sélectionnés dans la page **Fonctions de base** de l’Assistant.
 3. Choisissez le réseau virtuel dans lequel Azure AD Domain Services doit être activé. Vous pouvez choisir un réseau virtuel existant ou en créer un.
 
   > [!TIP]

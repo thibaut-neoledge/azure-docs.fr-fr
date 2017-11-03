@@ -4,7 +4,7 @@ description: "Décrit comment utiliser le service StorSimple Device Manager pour
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2017
+ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: c8f731502d6589bfa908aa26cf418a65b18be635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Utilisation du service StorSimple Device Manager pour surveiller votre appareil StorSimple
+
 ## <a name="overview"></a>Vue d'ensemble
 Vous pouvez utiliser le service StorSimple Device Manager pour surveiller des appareils spécifiques dans votre solution StorSimple. Vous pouvez créer des graphiques personnalisés basés sur les performances E/S, l’utilisation de la capacité, le débit du réseau et les mesures de performances de l’appareil, et les épingler au tableau de bord. Pour plus d’informations, consultez la section décrivant comment [personnaliser votre tableau de bord sur le portail](../azure-portal/azure-portal-dashboards.md).
 
@@ -44,6 +45,19 @@ Par défaut, l’utilisation des dernières 24 heures est indiquée. Vous pouvez
 * 90 derniers jours
 * Année dernière
 
+La croissance et la plage des deux clés mesure sont rapportées dans les graphiques d’utilisation. La plage représente la valeur maximum et les valeurs minimums d’utilisation rapportées durant la période choisie (pour les 7 derniers jours, par exemple).
+
+La croissance représente l’augmentation d’utilisation du premier au dernier jour de la période choisie. 
+
+La croissance et la plage peuvent aussi être représentées par les équations suivantes :
+
+```
+Range = {Usage(minimum), Usage(maximum)}
+
+Growth = Usage(Last day) - Usage(first day)
+
+Growth (%) = [{Usage(last day) - Usage(first day)} X 100]/Usage(first day)
+```
 
 Le stockage principal, cloud et local utilisé peut être décrit comme suit :
 

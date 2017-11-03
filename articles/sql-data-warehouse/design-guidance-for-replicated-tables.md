@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/14/2017
+ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 9599752c649acb191344fc32d1606adf888b44f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39ac9aa678464c497d9f7963bab802141ce9e854
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Guide de conception pour l’utilisation de tables répliquées dans Azure SQL Data Warehouse
 Cet article vous fournit des recommandations relatives à la conception de tables répliquées dans votre schéma SQL Data Warehouse. Utilisez ces recommandations pour améliorer les performances des requêtes en réduisant le déplacement de données et la complexité des requêtes.
@@ -28,7 +28,7 @@ Cet article vous fournit des recommandations relatives à la conception de table
 > 
 
 ## <a name="prerequisites"></a>Composants requis
-Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez [Données distribuées](sql-data-warehouse-distributed-data.md). 
+Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md). 
 
 Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
 

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: aca9f0b3320f298987cf39172fd4b043326a2f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="assign-access-to-cost-management-data"></a>Autoriser l’accès aux données de gestion des coûts
 
@@ -49,6 +49,8 @@ En principe, les utilisateurs ayant besoin d’accéder à des données de gesti
 
 ![ajouter un nouvel utilisateur avec un accès utilisateur](.\media\tutorial-user-access\new-user-access.png)
 
+Pour visionner un didacticiel vidéo sur l’ajout d’utilisateurs, consultez [Ajout d’utilisateurs à la gestion des coûts Azure de Cloudyn](https://youtu.be/Nzn7GLahx30).
+
 ## <a name="create-entities"></a>Créer des entités
 
 Quand vous définissez la hiérarchie des entités de coût, une meilleure pratique consiste à identifier la structure de votre organisation.
@@ -67,6 +69,10 @@ En regard de **Entities (Entités)**, cliquez sur **Add Entity (Ajouter une enti
 
 Quand vous avez terminé, **enregistrez** l’entité.
 
+
+Pour visionner un didacticiel vidéo sur la création d’une hiérarchie d’entités de coût, consultez [Création d’une hiérarchie d’entités de coût dans la gestion des coûts Azure de Cloudyn](https://youtu.be/dAd9G7u0FmU).
+
+Si vous êtes un utilisateur Azure Enterprise Agreement, regardez un didacticiel vidéo sur l’association des comptes et des abonnements à des entités à l’adresse [Connexion à Azure Resource Manager avec la gestion des coûts Azure de Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

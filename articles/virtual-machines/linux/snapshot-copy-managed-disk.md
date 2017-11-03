@@ -1,8 +1,8 @@
 ---
-title: "Copier un disque géré Azure pour la sauvegarde | Microsoft Docs"
-description: "Apprenez à créer une copie de disque géré Azure à utiliser pour la sauvegarde ou la résolution des problèmes de disque."
+title: "Créer une capture instantanée d’un disque dur virtuel dans Azure | Microsoft Docs"
+description: "Découvrez comment créer une copie d’un disque dur virtuel dans Azure pour l’utiliser comme sauvegarde ou pour la résolution de problèmes."
 documentationcenter: 
-author: squillace
+author: cynthn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -11,27 +11,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 2/6/2017
-ms.author: rasquill
-ms.openlocfilehash: c91367ef11c9d531bebac7c069d2df586607ec29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/09/2017
+ms.author: cynthn
+ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
-# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Créer une copie d’un disque dur virtuel stocké en tant que disque Azure géré à l’aide de captures instantanées gérées
-Prenez une capture instantanée d’un disque géré pour la sauvegarde ou créez un disque géré à partir de la capture instantanée et attachez-le à une machine virtuelle de test pour résoudre les problèmes. Une capture instantanée gérée est une copie complète d’un disque géré de machine virtuelle à un moment donné. Elle crée une copie en lecture seule de votre disque dur virtuel et, par défaut, le stocke sous la forme d’un disque géré Standard. 
+# <a name="create-a-snapshot"></a>Créer un instantané 
 
-Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
-
-Utilisez le Portail Azure ou Azure CLI 2.0 pour prendre une capture instantanée du disque géré.
+Prenez une capture instantanée d’un disque dur virtuel de système d’exploitation ou de données pour la sauvegarde ou pour résoudre les problèmes liés à la machine virtuelle. Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel. 
 
 ## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Utiliser Azure CLI 2.0 pour prendre une capture instantanée
 
-> [!NOTE] 
-> L’exemple suivant nécessite l’installation d’Azure CLI 2.0 et la connexion à votre compte Azure.
+L’exemple suivant nécessite l’installation d’Azure CLI 2.0 et la connexion à votre compte Azure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Les étapes suivantes montrent comment obtenir et prendre une capture instantanée d’un disque de système d’exploitation géré en utilisant la commande `az snapshot create` avec le paramètre `--source-disk`. L’exemple suivant suppose qu’il existe une machine virtuelle nommée `myVM` créée avec un disque de système d’exploitation géré dans le groupe de ressources `myResourceGroup`.
+Les étapes suivantes montrent comment effectuer une capture instantanée à l’aide de la commande `az snapshot create` avec le paramètre `--source-disk`. L’exemple suivant suppose qu’il existe une machine virtuelle nommée `myVM` créée avec un disque de système d’exploitation géré dans le groupe de ressources `myResourceGroup`.
 
 ```azure-cli
 # take the disk id with which to create a snapshot
@@ -80,4 +76,8 @@ Le résultat suivant doit s’afficher :
 
 Si vous envisagez d’utiliser la capture instantanée pour créer un disque géré et l’attacher à une machine virtuelle qui doit être hautement performante, utilisez le paramètre `--sku Premium_LRS` avec la commande `az snapshot create`. Cela permet de créer la capture instantanée et de la stocker en tant que disque géré Premium. Les disques gérés Premium sont plus performants, car il s’agit de disques SSD, mais ils coûtent plus cher que des disques Standard (HDD).
 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+ Créez une machine virtuelle à partir d’une capture instantanée en créant un disque managé à partir de la capture instantanée, puis en attachant le nouveau disque managé comme disque de système d’exploitation. Pour plus d’informations, consultez le script [Créer une machine virtuelle à partir d’une capture instantanée](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json).
 

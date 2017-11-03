@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b64413e9cc916837dc779b92117f90293c4f1d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1cffe40c14b931485cc5cec48a95e02ae770764e
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # Protocoles v2.0 : flux du code d’autorisation OAuth 2.0
 L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API Web.  Avec la mise en œuvre du modèle d’application v2.0 d’OAuth 2.0, vous pouvez ajouter une connexion et un accès API à vos applications mobiles et de bureau.  Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l'une de nos bibliothèques open source.
@@ -167,9 +167,8 @@ Une réponse de jeton réussie se présente ainsi :
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. |
 | expires_in |La durée de validité (en secondes) du jeton d’accès. |
 | scope |L’étendue de validité du jeton d’accès. |
-| refresh_token |Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel.  Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées.  Pour plus d'informations, consultez la page de [référence sur les jetons v2.0](active-directory-v2-tokens.md). |
-| id_token |Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité.  Pour en savoir plus sur les id_tokens, consultez la page de [référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md). |
-
+| refresh_token |Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel.  Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées.  Pour plus d'informations, consultez la page de [référence sur les jetons v2.0](active-directory-v2-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `offline_access` a été demandée. |
+| id_token |Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité.  Pour en savoir plus sur les id_tokens, consultez la page de [référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `openid` a été demandée. |
 #### Réponse d’erreur
 Les réponses d’erreur se présentent comme suit :
 
@@ -273,8 +272,8 @@ Une réponse de jeton réussie se présente ainsi :
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. |
 | expires_in |La durée de validité (en secondes) du jeton d’accès. |
 | scope |L’étendue de validité du jeton d’accès. |
-| refresh_token |Un nouveau jeton d’actualisation OAuth 2.0. Vous devez remplacer l’ancien jeton d’actualisation par ce nouveau jeton d’actualisation nouvellement acquis, afin de vous assurer que vos jetons d’actualisation demeurent valident le plus longtemps possible. |
-| id_token |Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité.  Pour en savoir plus sur les id_tokens, consultez la page de [référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md). |
+| refresh_token |Un nouveau jeton d’actualisation OAuth 2.0. Vous devez remplacer l’ancien jeton d’actualisation par ce nouveau jeton d’actualisation nouvellement acquis, afin de vous assurer que vos jetons d’actualisation demeurent valident le plus longtemps possible. <br> **Remarque :** Fourni uniquement si l’étendue `offline_access` a été demandée. |
+| id_token |Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité.  Pour en savoir plus sur les id_tokens, consultez la page de [référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `openid` a été demandée. |
 
 #### Réponse d’erreur
 ```

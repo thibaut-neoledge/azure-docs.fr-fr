@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 9e75f83755424b1b89e7649af98c0347fc5e1c59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdaf09d5558e0453b826b9a3e52500379ced5422
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Créer un ASE à l’aide d’un modèle Azure Resource Manager
 
@@ -48,7 +48,7 @@ Un modèle Azure Resource Manager permettant de créer un ASE et son fichier d
 
 Si vous souhaitez créer un ASE ILB, utilisez ces [exemples][quickstartilbasecreate] de modèle Resource Manager. Ils sont destinés à ce cas d’usage. La plupart des paramètres définis dans le fichier *azuredeploy.parameters.json* sont communs à la création des ASE ILB et des ASE externes. La liste suivante énonce les paramètres appelant un commentaire particulier ou qui sont uniques, en lien avec la création d’un ASE ILB :
 
-* *interalLoadBalancingMode* : dans la plupart des cas, définissez ce paramètre sur 3, ce qui signifie que le trafic HTTP/HTTPS sur les ports 80/443 ainsi que les ports de canaux de contrôle/données écoutés par le service FTP sur l’ASE seront liés à une adresse interne du réseau virtuel allouée à l’ILB. Si ce paramètre est défini sur 2, seuls les ports associés au service FTP (canaux de contrôle et de données) sont liés à une adresse d’ILB. Le trafic HTTP/HTTPS reste sur l’adresse IP virtuelle publique.
+* *internalLoadBalancingMode* : dans la plupart des cas, définissez ce paramètre sur 3, ce qui signifie que le trafic HTTP/HTTPS sur les ports 80/443 ainsi que les ports de canaux de contrôle/données écoutés par le service FTP sur l’ASE sont liés à une adresse interne du réseau virtuel allouée à l’ILB. Si ce paramètre est défini sur 2, seuls les ports associés au service FTP (canaux de contrôle et de données) sont liés à une adresse d’ILB. Le trafic HTTP/HTTPS reste sur l’adresse IP virtuelle publique.
 * *dnsSuffix*: ce paramètre définit le domaine racine par défaut affecté à l’ASE. Dans la version publique d’Azure App Service, le domaine racine par défaut pour toutes les applications web est *azurewebsites.net*. Étant donné qu’un ASE ILB est interne au réseau virtuel d’un client, il n’est pas pertinent d’utiliser le domaine racine par défaut du service public. Au lieu de cela, un ILB ASE doit avoir un domaine racine par défaut approprié pour une utilisation au sein du réseau virtuel interne d’une société. Par exemple, une société nommée Contoso Corporation peut utiliser le domaine racine par défaut *internal-contoso.com* pour les applications qui sont destinées à être résolues et accessibles uniquement au sein du réseau virtuel de Contoso. 
 * *ipSslAddressCount*: ce paramètre est automatiquement défini par défaut sur la valeur 0 dans le fichier *azuredeploy.json*, car les ASE ILB disposent d’une seule adresse d’ILB. Il n’existe pas d’adresse IP SSL explicite pour un ASE ILB. Par conséquent, le pool d’adresses IP SSL pour un ASE ILB doit être défini sur zéro. Autrement, une erreur d’approvisionnement se produit. 
 

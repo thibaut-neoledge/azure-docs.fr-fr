@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: d47c219dfd1e62351d7113d930b17ac45f64c369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Structurer des projets avec le modèle de processus TDSP (Team Data Science Process)
 
@@ -28,23 +28,24 @@ Ce document fournit des instructions sur la création de projets de science des 
 ## <a name="what-is-the-team-data-science-process"></a>Qu’est-ce que le processus Team Data Science Process ?
 Le processus TDSP (Team Data Science Process) est un processus de science des données agile et itératif qui permet d’exécuter et de proposer des solutions d’analyse avancées. Il est conçu pour améliorer la collaboration et l’efficacité des équipes de science des données au sein des entreprises. Il tient ces objectifs avec quatre composants clés :
 
-   * Une définition du [cycle de vie de la science des données](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md) standard.
+   * Une définition du [cycle de vie de la science des données](../team-data-science-process/lifecycle.md) standard.
    * Une structure de projet normalisée, ainsi que des [modèles de documentation et de rapports de projet](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
-   * Une infrastructure et des ressources pour l’exécution du projet, comme une infrastructure de calcul et de stockage, ainsi que des référentiels de code.
+   * Une infrastructure et des ressources pour l’exécution du projet, comme une infrastructure de calcul et de stockage et des référentiels de code, respectivement.
    * Des [outils et utilitaires](https://github.com/Azure/Azure-TDSP-Utilities) pour les tâches du projet de science des données, telles que :
-      - Gestion de version et révision du code collaboratives
+      - Gestion de version collaborative
+      - Révision du code
       - Exploration et modélisation des données
       - Planification du travail
 
-Pour obtenir une description plus complète du processus TDSP, consultez [Vue d’ensemble du processus TDSP (Team Data Science Process)](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/README.md).
+Pour obtenir une description plus complète du processus TDSP, consultez [Vue d’ensemble du processus TDSP (Team Data Science Process)](../team-data-science-process/overview.md).
 
 ## <a name="why-should-you-use-the-tdsp-structure-and-templates"></a>Pourquoi utiliser la structure et les modèles de processus TDSP ?
-La normalisation de la structure, du cycle de vie et de la documentation des projets de science des données est primordiale pour favoriser une collaboration efficace au sein des équipes de science des données. La possibilité de créer des projets Machine Learning avec un modèle de processus TDSP offre une infrastructure pour un travail d’équipe coordonné.
+La normalisation de la structure, du cycle de vie et de la documentation des projets de science des données est primordiale pour favoriser une collaboration efficace au sein des équipes de science des données. Créez des projets Machine Learning avec le modèle TDSP afin de fournir l’infrastructure nécessaire à un travail d’équipe coordonné.
 
 Nous avons précédemment publié un [référentiel GitHub pour la structure et les modèles du projet TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate) afin de vous aider à atteindre ces objectifs. Mais il n’était pas possible, avant aujourd’hui, d’instancier la structure et les modèles TDSP dans un outil de science des données. Il est désormais possible de créer un projet Machine Learning qui instancie la structure et les modèles de documentation TDSP. 
 
 ## <a name="things-to-note-before-creating-a-new-project"></a>Points à noter avant de créer un projet
-*Avant* de créer un projet, notez ou consultez les informations suivantes :
+*Avant* de créer un projet, passez en revue les éléments suivants :
 * Examinez le [modèle](https://aka.ms/tdspamlgithubrepo) Machine Learning TDSP.
 * La taille du contenu (autre que celui déjà présent dans le dossier « docs ») doit être inférieure à 25 Mo. Consultez la remarque qui suit cette liste.
 * Le dossier sample\_data est uniquement destiné aux petits fichiers de données (de taille inférieure à 5 Mo) avec lesquels vous pouvez tester votre code ou démarrer les premières phases du développement.
@@ -52,7 +53,7 @@ Nous avons précédemment publié un [référentiel GitHub pour la structure et 
 * Pour plus d’informations sur le traitement des fichiers volumineux et des sorties dans Machine Learning, consultez l’article [Persistance des modifications et traitement de fichiers volumineux](http://aka.ms/aml-largefiles).
 
 > [!NOTE]
-> Vérifiez qu’en dehors du fichier readme.md, tout le contenu lié à la documentation (texte, fichiers Markdown, images et autres fichiers de document) qui n’est *pas* utilisé pendant l’exécution du projet réside dans le dossier nommé « docs » (tout en minuscules). Le dossier « docs » est un dossier spécial ignoré par l’exécution de Machine Learning afin que le contenu de ce dossier ne soit pas copié dans les cibles de calcul inutilement. En outre, les objets figurant dans ce dossier ne sont pas pris en compte dans la limite de 25 Mo appliquée à la taille du projet. Par exemple, le dossier « docs » est l’emplacement de stockage des fichiers images volumineux requis dans la documentation. Ces fichiers font malgré tout l’objet d’un suivi par Git par le biais de l’historique des exécutions. 
+> En dehors du fichier readme.md, tout le contenu lié à la documentation (texte, fichiers Markdown, images et autres fichiers de document) qui n’est *pas* utilisé pendant l’exécution du projet doit résider dans le dossier nommé « docs » (tout en minuscules). Le dossier « docs » est un dossier spécial ignoré par l’exécution de Machine Learning afin que le contenu de ce dossier ne soit pas copié dans les cibles de calcul inutilement. En outre, les objets figurant dans ce dossier ne sont pas pris en compte dans la limite de 25 Mo appliquée à la taille du projet. Par exemple, le dossier « docs » est l’emplacement de stockage des fichiers images volumineux requis dans la documentation. Ces fichiers font malgré tout l’objet d’un suivi par Git par le biais de l’historique des exécutions. 
 
 ## <a name="instantiate-the-tdsp-structure-and-templates-from-the-machine-learning-template-gallery"></a>Instancier la structure et les modèles TDSP à partir de la galerie de modèles Machine Learning
 Pour créer un projet avec la structure et les modèles de documentation de processus TDSP, exécutez les procédures ci-après.
@@ -94,7 +95,7 @@ Le modèle de projet TDSP contient les dossiers de premier niveau suivants :
 
 
 ## <a name="use-the-tdsp-structure-and-templates"></a>Utiliser la structure et les modèles de processus TDSP
-Vous devez remplir la structure et les modèles avec des informations propres au projet. Vous êtes censé remplir ces éléments avec le code et les informations nécessaires à l’exécution et à la remise de votre projet. Le fichier [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) est un modèle que vous devez modifier directement à l’aide des informations concernant votre projet. Il est fourni avec un ensemble de questions qui vous aident à remplir les informations pour chacune des quatre phases du [cycle de vie du processus TDSP](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md).
+Vous devez remplir la structure et les modèles avec des informations propres au projet. Vous êtes censé remplir ces éléments avec le code et les informations nécessaires à l’exécution et à la remise de votre projet. Le fichier [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) est un modèle que vous devez modifier directement à l’aide des informations concernant votre projet. Il est fourni avec un ensemble de questions qui vous aident à remplir les informations pour chacune des quatre phases du [cycle de vie du processus TDSP](../team-data-science-process/lifecycle.md).
 
 Un exemple de structure de projet telle qu’elle apparaît pendant l’exécution ou une fois terminée est illustré dans le panneau gauche de la figure ci-après. Ce projet provient de [l’exemple de projet Team Data Science Process portant sur la classification des revenus à partir de données de recensement aux États-Unis dans Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).
 

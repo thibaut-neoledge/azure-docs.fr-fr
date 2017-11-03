@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: dobett
-ms.openlocfilehash: 86ffacae9265b68e8adfeb8f7d8c72626f872dba
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: fd823194f6e51600b9d4ca1daa053db837871fef
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Serveur de publication OPC pour Azure IoT Edge
 
@@ -44,11 +44,11 @@ Comme cette application utilise la pile de référence OPC UA d’OPC Foundation
 
 Le code source du serveur de publication OPC se trouve dans le dépôt GitHub du [Serveur de publication OPC pour Azure IoT Edge](https://github.com/Azure/iot-edge-opc-publisher).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour générer l’application, vous avez besoin du kit [.NET Core SDK 1.1](https://docs.microsoft.com/dotnet/core/sdk) correspondant à votre système d’exploitation.
 
-## <a name="build-the-application"></a>Générer l’application
+## <a name="build-the-application"></a>Création de l'application
 
 ### <a name="as-native-windows-application"></a>En tant qu’application Windows native
 
@@ -121,7 +121,7 @@ La syntaxe du fichier de configuration est la suivante :
 ]
 ```
 
-## <a name="run-the-application"></a>Exécuter l’application
+## <a name="run-the-application"></a>Exécution de l'application
 
 ### <a name="command-line-options"></a>Options de ligne de commande
 
@@ -382,7 +382,14 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>Utilisation de montages de liaisons (système de fichiers partagé)
 
-Dans certains scénarios, vous souhaitez lire des informations de configuration à partir de, ou écrire des fichiers journaux vers, des emplacements sur l’hôte au lieu d’utiliser le système de fichiers du conteneur. Pour configurer ce comportement, utilisez l’option `-v` de `docker run` en mode de montage de liaison.
+Dans certains scénarios, vous souhaitez lire des informations de configuration à partir de, ou écrire des fichiers journaux vers, des emplacements sur l’hôte au lieu d’utiliser le système de fichiers du conteneur. Pour configurer ce comportement, utilisez l’option `-v` de `docker run` en mode de montage de liaison. Par exemple :
+
+```cmd/sh
+-v //D/docker:/build/out/Logs
+-v //D/docker:/build/out/CertificateStores
+-v //D/docker:/shared
+-v //D/docker:/root/.dotnet/corefx/cryptography/x509stores
+```
 
 #### <a name="store-for-x509-certificates"></a>Magasin pour les certificats X509
 

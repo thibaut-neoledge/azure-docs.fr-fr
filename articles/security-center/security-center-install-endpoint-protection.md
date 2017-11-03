@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/23/2017
 ms.author: terrylan
-ms.openlocfilehash: b3b4a6df431ccdb882dd354aac9cb86a96a81b11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abbcb0a8e0206d78ca94520dfa81ab92506c47af
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gérer les problèmes de protection du point de terminaison avec Azure Security Center
 Azure Security Center surveille l’état de protection des logiciels anti-programme malveillant et l’indique dans le panneau Endpoint protection issues (Problèmes de protection du point de terminaison). Security Center met en évidence les problèmes, tels que les menaces détectées et une protection insuffisante, qui peuvent rendre vos machines virtuelles et ordinateurs vulnérables aux menaces des logiciels anti-programme malveillant. En utilisant les informations dans **Endpoint protection issues** (Problèmes de protection du point de terminaison), vous pouvez déterminer un plan pour résoudre les problèmes identifiés.
@@ -33,6 +33,11 @@ Security Center signale les problèmes de protection du point de terminaison sui
    - Pas de protection en temps réel : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle n’est pas configurée pour la protection en temps réel.   Le service peut être désactivé ou Security Center peut ne pas être en mesure d’obtenir l’état, car la solution n’est pas prise en charge. Consultez [Intégration des partenaires dans Azure Security Center](security-center-partner-integration.md) pour obtenir la liste de solutions prises en charge.
    - Pas de rapport : une solution anti-programme malveillant est installée, mais ne crée pas de rapport de données.
    - Inconnu : une solution anti-programme malveillant est installée, mais son état est inconnu ou signale une erreur inconnue.
+
+   > [!NOTE]
+   > Consultez [Intégrer des solutions de sécurité](security-center-partner-integration.md#integrated-azure-security-solutions) pour obtenir la liste des solutions de sécurité de protection de point de terminaison intégrées à Security Center.
+   >
+   >
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 Les problèmes de protection du point de terminaison sont présentés sous forme de recommandations dans Security Center.  Si votre environnement est vulnérable aux menaces de logiciels anti-programme malveillant, cette recommandation s’affichera dans **Recommandations** et dans **Calcul**. Pour consulter le **tableau de bord Endpoint protection issues** (Problèmes de protection du point de terminaison), vous devez suivre le flux de travail Calcul.

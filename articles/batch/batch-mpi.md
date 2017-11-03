@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77d12d6d48b22dfb3e7f09f273dffc11401bb15f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Batch
 
@@ -268,7 +268,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 L’exemple de code [MultiInstanceTasks][github_mpi] sur GitHub montre comment une tâche multi-instances permet d’exécuter une application [MS-MPI][msmpi_msdn] sur des nœuds de calcul Batch. Pour exécuter l’exemple, suivez les étapes de [préparation](#preparation) et d’[exécution](#execution).
 
 ### <a name="preparation"></a>Préparation
-1. Suivez les deux premières étapes dans [How to compile and run a simple MS-MPI program][msmpi_howto] (Comment compiler et exécuter un simple programme MS-MPI). Ces étapes permettent de satisfaire les conditions requises pour l’étape suivante.
+1. Suivez les deux premières étapes dans [How to compile and run a simple MS-MPI program][msmpi_howto] (Comment compiler et exécuter un simple programme MS-MPI). Ces étapes permettent de satisfaire les prérequis pour l’étape suivante.
 2. Créez une version de *mise en production* de l’exemple de programme MPI [MPIHelloWorld][helloworld_proj]. Il s’agit du programme qui sera exécuté par la tâche multi-instances sur des nœuds de calcul.
 3. Créez un fichier .zip contenant `MPIHelloWorld.exe` (que vous avez créé à l’étape 2) et `MSMpiSetup.exe` (que vous avez téléchargé à l’étape 1). À l’étape suivante, vous allez télécharger ce fichier .zip en tant que package d’application.
 4. Utilisez le [Portail Azure][portal] pour créer une [application](batch-application-packages.md) Batch appelée « MPIHelloWorld » et spécifiez le fichier .zip que vous avez créé à l’étape précédente en tant que version « 1.0 » du package d’application. Pour plus d’informations, consultez [Téléchargement et gestion des applications](batch-application-packages.md#upload-and-manage-applications).
@@ -285,7 +285,7 @@ L’exemple de code [MultiInstanceTasks][github_mpi] sur GitHub montre comment u
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Entrez vos informations d’identification de compte Batch et Stockage dans `AccountSettings.settings` dans le projet **Microsoft.Azure.Batch.Samples.Common**.
 4. **Générez et exécutez** la solution MultiInstanceTasks pour exécuter l’exemple d’application MPI sur des nœuds de calcul dans un pool Batch.
-5. *Facultatif*: utilisez le [Portail Azure][portal] ou [Batch Explorer][batch_explorer] pour examiner les exemples de pool, de travail et de tâche (« MultiInstanceSamplePool », « MultiInstanceSampleJob », « MultiInstanceSampleTask ») avant de supprimer les ressources.
+5. *Facultatif* : utilisez le [Portail Azure][portal] ou [BatchLabs][batch_labs] pour examiner les exemples de pool, de travail et de tâche (« MultiInstanceSamplePool », « MultiInstanceSampleJob », « MultiInstanceSampleTask ») avant de supprimer les ressources.
 
 > [!TIP]
 > Vous pouvez télécharger [Visual Studio Community][visual_studio] gratuitement si vous n’avez pas Visual Studio.
@@ -335,7 +335,7 @@ Sample complete, hit ENTER to exit...
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd

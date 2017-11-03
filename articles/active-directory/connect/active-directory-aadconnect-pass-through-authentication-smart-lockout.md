@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Authentification directe Azure Active Directory : Verrouillage intelligent
 
@@ -42,6 +42,9 @@ Pour vous assurer que les comptes AD locaux de vos utilisateurs sont correctemen
 
 1.  le seuil de verrouillage d’Azure AD est _inférieur_ au seuil de verrouillage du compte AD. Nous vous recommandons de définir les valeurs de sorte que le seuil de verrouillage du compte AD soit au moins deux ou trois fois égal au seuil de verrouillage d’Azure AD.
 2.  La durée de verrouillage d’Azure AD (représentée en secondes) est _plus longue_ que Réinitialiser le compteur de verrouillage du compte après (exprimée en minutes) d’AD.
+
+>[!IMPORTANT]
+>Actuellement, un administrateur ne peut pas déverrouiller les comptes cloud des utilisateurs si ceux-ci ont été verrouillés à l’aide de la fonctionnalité Smart Lockout. Ils doivent attendre que la durée de verrouillage expire.
 
 ## <a name="verify-your-ad-account-lockout-policies"></a>Vérifiez vos stratégies de verrouillage de compte AD
 

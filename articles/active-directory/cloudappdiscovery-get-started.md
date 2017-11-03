@@ -1,35 +1,35 @@
 ---
-title: "Configurer Cloud App Discovery dans Azure Active Directory | Microsoft Docs"
-description: Fournit une vue d'ensemble de la recherche et de la gestion d'applications avec Cloud App Discovery, ainsi que des informations sur ses avantages et son fonctionnement.
+title: Configurer le service Cloud App Discovery dans Azure Active Directory | Microsoft Docs
+description: "Recherchez et gérez des applications avec Cloud App Discovery pour fournir des informations actionnables concernant l’utilisation du cloud et l’informatique fantôme."
 services: active-directory
 keywords: "détection d'applications cloud, gestion d'applications"
 documentationcenter: 
 author: curtand
 manager: femila
+tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurer Cloud App Discovery dans Azure AD
 
-Les améliorations de Cloud App Discovery dans Azure AD sont désormais disponibles avec une licence Azure Active Directory Premium P1. Ces améliorations sont basées sur l’intégration à Microsoft Cloud App Security. Cloud App Discovery compare vos journaux de trafic au catalogue Cloud App Security de plus de 15 000 applications cloud pour vous fournir des informations en continu sur l’utilisation du cloud et l’informatique fantôme. 
+Cloud App Discovery dans Azure AD est désormais basé sur l’intégration des données disponibles de Microsoft Cloud App Security. Pour fournir des informations en continu sur l’utilisation du cloud et l’informatique fantôme, Cloud App Discovery compare vos journaux de trafic au catalogue Cloud App Security comprenant plus de 15 000 applications cloud. Cet article décrit le processus d’installation et fournit des liens vers des informations détaillées sur chacune des étapes. Il aborde également les informations de proxy et de pare-feu, ainsi que la prise en charge des fichiers journaux.
 
 ## <a name="prerequisites"></a>Composants requis
 
-Votre organisation doit disposer d’une licence Azure AD Premium P1 pour utiliser le produit. Pour plus d’informations, consultez [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
-
-Pour configurer Cloud App Discovery, vous devez être administrateur général ou lecteur sécurité dans Azure Active Directory. Un utilisateur à qui un rôle d’administrateur est affecté a les mêmes autorisations pour toutes les applications cloud auxquelles votre organisation s’est abonnée.
+* Votre organisation doit disposer d’une licence Azure AD Premium P1 pour utiliser le produit. Pour plus d’informations, consultez [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+* Pour configurer Cloud App Discovery, vous devez être administrateur général ou lecteur sécurité dans Azure Active Directory.
 
 ## <a name="setup-steps"></a>Étapes de configuration
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: fc4d793bcf402a3e742fae2b2c0052f2d60d1b47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b2f806b81bbc6d9328ab179644b79b97d68e7b9
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="consuming-web-services"></a>Utilisation de services web
 Après avoir déployé un modèle en tant que service web en temps réel, vous pouvez lui envoyer des données et obtenir les prédictions de diverses plateformes et applications. Le service web en temps réel expose une API REST pour obtenir les prédictions. Vous pouvez envoyer des données au service web dans un format à une ou plusieurs lignes pour obtenir une ou plusieurs prédictions à la fois.
@@ -102,6 +102,7 @@ namespace MyFirstService
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(SERVICE_URL);
+            //For local web service, comment out this line.
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", API_KEY);
 
             var inputJson = new List<RequestPayload>();
@@ -147,7 +148,7 @@ namespace MyFirstService
 Utilisez Python pour envoyer une demande à votre service web en temps réel. 
 
 1. Copiez l’exemple de code suivant dans un nouveau fichier Python.
-2. Mettez à jour les paramètres data, url et api_key.
+2. Mettez à jour les paramètres data, url et api_key. Pour les services web locaux, supprimez l’en-tête « Authorization ».
 3. Exécutez le code. 
 
 ```python

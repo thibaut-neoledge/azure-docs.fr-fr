@@ -1,6 +1,6 @@
 ---
-title: "Créer une application web .NET Core et SQL Database dans Azure Web App for Containers | Microsoft Docs"
-description: "Découvrez comment faire fonctionner une application .NET Core dans Azure Web App for Containers en établissant une connexion à une instance SQL Database."
+title: "Créer une application web .NET Core et SQL Database dans Azure App Service sur Linux | Microsoft Docs"
+description: "Découvrez comment faire fonctionner une application .NET Core dans Azure App Service sur Linux en établissant une connexion à une instance SQL Database."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/31/2017
+ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 365747f9f9c765e8db1ab86946ba578c321ec732
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 424d46f31717e28bb341f6a96201a32efc1eb5a9
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-app-for-containers"></a>Créer une application web .NET Core et SQL Database dans Azure Web App for Containers
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Créer une application web .NET Core et SQL Database dans Azure App Service sur Linux
 
-[Web App for Containers](app-service-linux-intro.md) est un service d’hébergement web hautement scalable qui applique automatiquement des mises à jour correctives et utilise le système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web .NET Core et comment la connecter à une instance SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core en cours d’exécution dans Web App for Containers. 
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web .NET Core et comment la connecter à une instance SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core en cours d’exécution dans App Service sur Linux.
 
-![application en cours d’exécution dans Web App for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![Application exécutée dans App Service sur Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 Vous apprendrez à :
 
@@ -52,7 +52,7 @@ Cette étape consiste à configurer le projet .NET Core local.
 
 ### <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
-Dans la fenêtre de terminal, `cd` vers un répertoire de travail.  
+Dans la fenêtre de terminal, `cd` vers un répertoire de travail.
 
 Exécutez les commandes suivantes pour cloner l’exemple de référentiel et modifier son répertoire racine.
 
@@ -61,7 +61,7 @@ git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
 cd dotnetcore-sqldb-tutorial
 ```
 
-Cet exemple de projet contient une simple application CRUD (Create-Read-Update-Delete) basée sur [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/).
+Cet exemple de projet contient une simple application CRUD (Create-Read-Update-Delete) basée sur [Entity Framework Core](https://docs.microsoft.com/ef/core/).
 
 ### <a name="run-the-application"></a>Exécution de l'application
 
@@ -77,7 +77,7 @@ Dans un navigateur, accédez à `http://localhost:5000`. Sélectionnez le lien *
 
 ![se connecte correctement à SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
-Pour arrêter .NET Core à tout moment, appuyez sur `Ctrl+C` dans le terminal. 
+Pour arrêter .NET Core à tout moment, appuyez sur `Ctrl+C` dans le terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -85,11 +85,11 @@ Pour arrêter .NET Core à tout moment, appuyez sur `Ctrl+C` dans le terminal.
 
 Dans cette étape, vous allez créer une instance SQL Database dans Azure. Lorsque votre application est déployée sur Azure, elle utilise cette base de données cloud.
 
-Pour l’instance SQL Database, ce didacticiel utilise [Azure SQL Database](/azure/sql-database/). 
+Pour l’instance SQL Database, ce didacticiel utilise [Azure SQL Database](/azure/sql-database/).
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### <a name="create-a-sql-database-logical-server"></a>Créer un serveur logique SQL Database
 
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Créer une base de données
 
-Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers.md) sur le serveur avec la commande [az sql db create](/cli/azure/sql/db#create). 
+Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers.md) sur le serveur avec la commande [az sql db create](/cli/azure/sql/db#create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -150,19 +150,19 @@ Chaîne de connexion pour votre application .NET Core. Copiez-la pour une utilis
 
 ## <a name="deploy-app-to-azure"></a>Déployer des applications dans Azure
 
-Dans cette étape, vous déployez votre application .NET Core connectée à SQL Database dans Web App for Containers.
+Dans cette étape, vous déployez votre application .NET Core connectée à SQL Database sur App Service sur Linux.
 
-### <a name="configure-local-git-deployment"></a>Configurer le déploiement Git local 
+### <a name="configure-local-git-deployment"></a>Configurer le déploiement Git local
 
 [!INCLUDE [Configure a deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-an-app-service-plan"></a>Créer un plan App Service
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### <a name="create-a-web-app"></a>Créer une application web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-dotnetcore-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-dotnetcore-no-h.md)]
 
 ### <a name="configure-an-environment-variable"></a>Configurer une variable d’environnement
 
@@ -172,7 +172,7 @@ Pour définir les chaînes de connexion pour votre application Azure, utilisez l
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-Définissez ensuite le paramètre d’application `ASPNETCORE_ENVIRONMENT` sur _Production_. Ce paramètre vous permet de savoir si vous exécutez dans Azure car vous utilisez SQLLite pour votre environnement de développement local et SQL Database pour votre environnement Azure. 
+Définissez ensuite le paramètre d’application `ASPNETCORE_ENVIRONMENT` sur _Production_. Ce paramètre vous permet de savoir si vous exécutez dans Azure car vous utilisez SQLLite pour votre environnement de développement local et SQL Database pour votre environnement Azure.
 
 L’exemple suivant configure un paramètre d’application `ASPNETCORE_ENVIRONMENT` dans votre application web Azure. Remplacez l’espace réservé *\<appname>*.
 
@@ -204,9 +204,9 @@ else
 services.BuildServiceProvider().GetService<DotNetCoreSqlDbContext>().Database.Migrate();
 ```
 
-Si ce code détecte qu’il s’exécute en production (indiquant l’environnement Azure), il utilise alors la chaîne de connexion que vous avez configurée pour se connecter à SQL Database. 
+Si ce code détecte qu’il s’exécute en production (indiquant l’environnement Azure), il utilise alors la chaîne de connexion que vous avez configurée pour se connecter à SQL Database.
 
-L’appel `Database.Migration()` vous aide lorsqu’il est exécuté dans Azure car il crée automatiquement les bases de données dont votre application .NET Core a besoin, en fonction de sa configuration de migration. 
+L’appel `Database.Migrate()` vous aide lorsqu’il est exécuté dans Azure car il crée automatiquement les bases de données dont votre application .NET Core a besoin, en fonction de sa configuration de migration. 
 
 Enregistrez vos modifications.
 
@@ -238,21 +238,21 @@ remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
-``` 
+```
 
-### <a name="browse-to-the-azure-web-app"></a>Rechercher l’application web Azure 
+### <a name="browse-to-the-azure-web-app"></a>Rechercher l’application web Azure
 
-Accédez à l’application web déployée à l’aide de votre navigateur web. 
+Accédez à l’application web déployée à l’aide de votre navigateur web.
 
-```bash 
-http://<app_name>.azurewebsites.net 
-``` 
+```bash
+http://<app_name>.azurewebsites.net
+```
 
 Ajoutez quelques tâches.
 
-![application en cours d’exécution dans Web App for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![Application exécutée dans App Service sur Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**Félicitations !** Vous exécutez une application .NET Core pilotée par les données dans Web App for Containers.
+**Félicitations !** Vous exécutez une application .NET Core pilotée par les données dans App Service sur Linux.
 
 ## <a name="update-locally-and-redeploy"></a>Mise à jour locale et redéploiement
 
@@ -268,7 +268,7 @@ public bool Done { get; set; }
 
 ### <a name="run-code-first-migrations-locally"></a>Exécuter la fonction Code First Migrations en local
 
-Exécutez quelques commandes pour mettre à jour votre base de données locale. 
+Exécutez quelques commandes pour mettre à jour votre base de données locale.
 
 ```bash
 dotnet ef migrations add AddProperty
@@ -324,13 +324,13 @@ Recherchez l’élément `<td>` contenant les assistances de balise `asp-action`
 </td>
 ```
 
-Voilà tout ce que vous avez à faire pour voir les modifications dans les vues `Index` et `Create`. 
+Voilà tout ce que vous avez à faire pour voir les modifications dans les vues `Index` et `Create`.
 
 ### <a name="test-your-changes-locally"></a>Tester vos modifications en local
 
 Exécutez l’application localement.
 
-```
+```bash
 dotnet run
 ```
 
@@ -379,5 +379,5 @@ Vous avez appris à effectuer les opérations suivantes :
 
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)

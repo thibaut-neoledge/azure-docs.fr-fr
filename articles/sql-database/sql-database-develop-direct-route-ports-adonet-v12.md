@@ -1,6 +1,6 @@
 ---
 title: "Ports au-delà de 1433 pour SQL Database | Microsoft Docs"
-description: "Parfois, les connexions clientes entre ADO.NET et Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants."
+description: "Les connexions clientes entre ADO.NET et Azure SQL Database peuvent ignorer le proxy et interagir directement avec la base de données en utilisant des ports autres que 1433."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: d47ee8c794d1e231507dae6bb4aa88bf19ce6418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7900a81c61ceeb9009f5671cef717a6d95cbe20
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
 Cette rubrique décrit le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure. 

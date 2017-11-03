@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 10/12/2017
 ms.author: chrande
-ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -95,7 +95,7 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 3. Accédez à `D:\home\site\wwwroot\` pour mettre à jour *host.json* ou `D:\home\site\wwwroot\<function_name>` pour mettre à jour les fichiers d’une fonction.
 4. Glissez-déplacez un fichier à télécharger dans le dossier approprié dans la grille de fichiers. La grille de fichiers offre deux zones dans lesquelles vous pouvez déposer un fichier. Pour les fichiers *.zip* , une zone s’affiche avec le libellé « Faites glisser ici pour charger et décompresser ». Pour les autres types de fichier, déposez le fichier dans la grille de fichiers, mais en dehors de cette zone.
 
-<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
 #### <a name="to-use-continuous-deployment"></a>Pour utiliser le déploiement continu
 Suivez les instructions de la rubrique [Déploiement continu pour Azure Functions](functions-continuous-deployment.md).
@@ -105,7 +105,7 @@ Lorsque plusieurs événements de déclenchement se produisent plus rapidement q
 
 ## <a name="functions-runtime-versioning"></a>Contrôle de version du runtime Functions
 
-Vous pouvez configurer la version du runtime Functions en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION`. Par exemple, la valeur « ~ 1 » indique que votre application de fonction utilise 1 comme version principale. Les applications Function sont mises à niveau pour chaque nouvelle version secondaire lorsqu’elles sont disponibles. Vous pouvez voir la version exacte de votre application de fonction dans l’onglet **Paramètres** du portail Azure.
+Vous pouvez configurer la version du runtime Functions en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION`. Par exemple, la valeur « ~ 1 » indique que votre application de fonction utilise 1 comme version principale. Les applications Function sont mises à niveau pour chaque nouvelle version secondaire lorsqu’elles sont disponibles. Pour obtenir plus d’informations, notamment sur la façon d’afficher la version exacte de votre application de fonction, consultez [Guide pratique pour cibler des versions du runtime Azure Functions](functions-versions.md).
 
 ## <a name="repositories"></a>Référentiels
 Le code pour Azure Fonctions est open source et stocké dans des dépôts GitHub :

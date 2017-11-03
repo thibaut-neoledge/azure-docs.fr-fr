@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 033ef0cdd607ced5de6c975e071e0ce37e677201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Créer un registre de conteneur à l’aide du portail Azure
 
-Un registre Azure Container Registry est un registre Docker privé dans Azure, dans lequel vous pouvez stocker et gérer vos images conteneurs Docker privées. Dans ce guide de démarrage rapide, vous créez un registre de conteneurs avec le portail Azure.
+Un registre Azure Container Registry est un registre Docker privé dans Azure, dans lequel vous pouvez stocker et gérer vos images conteneurs Docker privées. Dans ce guide de démarrage rapide, vous allez créer un registre de conteneurs à partir du portail Azure.
 
 Pour suivre cette procédure de démarrage rapide, Docker doit être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
@@ -39,11 +39,13 @@ Sélectionnez **Nouveau** > **Conteneurs** > **Azure Container Registry**.
 
 ![Création d’un registre de conteneur dans le portail Azure][qs-portal-01]
 
-Entrez les valeurs **Nom du registre** et **Groupe de ressources**. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Créez un groupe de ressources nommé `myResourceGroup`, et pour **Référence SKU**, sélectionnez « Classique ». Sélectionnez **Créer** pour déployer l’instance ACR.
+Entrez les valeurs **Nom du registre** et **Groupe de ressources**. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Créez un groupe de ressources nommé `myResourceGroup`, et pour **Référence SKU**, sélectionnez « De base ». Sélectionnez **Créer** pour déployer l’instance ACR.
 
 ![Création d’un registre de conteneur dans le portail Azure][qs-portal-03]
 
-Azure Container Registry est disponible dans plusieurs références SKU : `Classic`, `Basic`, `Standard` et `Premium`. Bien que `Basic`, `Standard` et `Premium` offrent des fonctions avancées telles que le stockage géré et les Webhooks, elles sont actuellement en préversion et ne sont pas disponibles dans certaines régions Azure. Pour ce démarrage rapide, nous sélectionnons la référence SKU `Classic`, car elle est disponible dans toutes les régions.
+Dans le cadre de ce guide de démarrage rapide, nous allons créer un registre *De base*. Azure Container Registry est disponible dans plusieurs références SKU, qui sont brièvement décrites dans le tableau suivant. Pour plus d’informations sur chaque référence, consultez [Références SKU de registres de conteneurs](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Lorsque le message **Déploiement réussi** s’affiche, sélectionnez le registre de conteneurs dans le portail, puis sélectionnez **Clés d’accès**.
 

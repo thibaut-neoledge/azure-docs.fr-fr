@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 67fbc1f18dd168e2fad8011bc30b895894d98942
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Liaisons pour Fonctions durables (Azure Functions)
 
@@ -196,7 +196,7 @@ Si vous utilisez des scripts de langage (par exemple, des fichiers *.csx*) pour 
 * `connectionName` : nom d’un paramètre d’application contenant une chaîne de connexion de stockage. Le compte de stockage représenté par cette chaîne de connexion doit être le même que celui utilisé par les fonctions d’orchestrateur cible. Si elle n’est pas spécifiée, la chaîne de connexion par défaut pour l’application de la fonction est utilisée.
 
 > [!NOTE]
-> Dans la plupart des cas, il est recommandé d’omettre ces propriétés et de s’appuyer sur le comportement par défaut.
+> Dans la plupart des cas, nous vous recommandons d’omettre ces propriétés et de vous appuyer sur le comportement par défaut.
 
 ### <a name="client-usage"></a>Utilisation du client
 

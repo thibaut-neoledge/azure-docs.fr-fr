@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 34c46fb282ad154225f5ee8ef544bc8da1c50016
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Journalisation des diagnostics Azure Cosmos DB
 
-Lorsque vous avez commencé à utiliser une ou plusieurs bases de données Azure Cosmos DB, vous pouvez surveiller comment et quand vos bases de données font l’objet d’un accès. La journalisation des diagnostics dans Azure Cosmos DB vous permet d’effectuer cette analyse. En activant la journalisation des diagnostics, vous pouvez envoyer des journaux au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) et/ou les exporter dans un espace de travail [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) via [Log Analytics](https://azure.microsoft.com/services/log-analytics/).
+Lorsque vous avez commencé à utiliser une ou plusieurs bases de données Azure Cosmos DB, vous pouvez surveiller comment et quand vos bases de données font l’objet d’un accès. La journalisation des diagnostics dans Azure Cosmos DB vous permet d’effectuer cette analyse. En activant la journalisation des diagnostics, vous pouvez envoyer des journaux au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et/ou les exporter vers [Log Analytics](https://azure.microsoft.com/services/log-analytics/), inclus dans [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
 
 ![Journalisation des diagnostics dans le Stockage, Event Hubs ou Operations Management Suite via Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -40,7 +40,7 @@ Pour suivre ce didacticiel, vous avez besoin des ressources suivantes :
 
 * Un compte, une base de données et un conteneur Azure Cosmos DB existants. Pour obtenir des instructions sur la création de ces ressources, consultez [Créer un compte de base de données à l’aide du portail Azure](create-documentdb-dotnet.md#create-a-database-account), [Exemples d’interface CLI](cli-samples.md) ou [Exemples PowerShell](powershell-samples.md).
 
-
+<a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Activer la journalisation dans le portail Azure
 
 1. Dans le [portail Azure](https://portal.azure.com), dans votre compte Azure Cosmos DB, cliquez sur **Journaux de diagnostic** dans le volet de navigation de gauche, puis sur **Activer les diagnostics**.
@@ -53,12 +53,16 @@ Pour suivre ce didacticiel, vous avez besoin des ressources suivantes :
 
     * **Archive vers un compte de stockage**. Pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Pour créer un compte de stockage dans le portail, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md) et suivez les instructions pour créer un compte Resource Manager à usage général. Puis revenez à cette page dans le portail pour sélectionner votre compte de stockage. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
     * **Transmettre à un Event Hub**. Pour utiliser cette option, vous avez besoin d’un espace de noms Event Hub existant et d’un Event Hub auquel vous connecter. Pour créer un espace de noms Event Hubs, consultez [Créer un espace de noms Event Hubs et un Event Hub à l’aide du portail Azure](../event-hubs/event-hubs-create.md). Puis revenez à cette page dans le portail pour sélectionner l’espace de noms Event Hub et le nom de la stratégie.
-    * **Envoyer à Log Analytics**. Pour utiliser cette option, utilisez un espace de travail existant ou créez un espace de travail Operations Management Suite en suivant les invites dans le portail.
-    * **Journaliser DataPlaneRequests**. Si vous archivez vers un compte de stockage, vous pouvez sélectionner la période de rétention pour les journaux de diagnostic en sélectionnant **DataPlaneRequests** et en choisissant le nombre de jours pendant lesquels conserver les journaux. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention. 
+    * **Envoyer à Log Analytics**.     Pour utiliser cette option, utilisez un espace de travail existant ou créez un espace de travail Log Analytics en suivant les étapes permettant de [créer un espace de travail](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) dans le portail. Pour plus d’informations sur l’affichage de vos journaux dans Log Analytics, consultez la section [Afficher les journaux dans Log Analytics](#view-in-loganalytics).
+    * **Journaliser DataPlaneRequests**. Sélectionnez cette option pour journaliser des diagnostics pour les comptes d’API DocumentDB, Graph et Table. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
+    * **Log MongoRequests** (Journal MongoRequests). Sélectionnez cette option pour journaliser des diagnostics pour les comptes d’API MongoDB. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
+    * **Metric Requests** (Demandes de métrique). Sélectionnez cette option pour stocker des données détaillées dans les [métriques Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
 
 3. Cliquez sur **Enregistrer**.
 
-    Vous pouvez revenir à cette page à tout moment pour modifier les paramètres de journalisation des diagnostics pour votre compte.
+    Si vous recevez une erreur indiquant « Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights » (Échec de la mise à jour des diagnostics pour <nom de l’espace de travail>. L’abonnement <id d’abonnement> n’est pas inscrit pour utiliser microsoft.insights), suivez les instructions de la page [Résoudre les problèmes d’Azure Diagnostics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) pour inscrire le compte, puis recommencez cette procédure.
+
+    Si vous souhaitez modifier la façon dont vos journaux de diagnostic seront enregistrés à l’avenir, vous pouvez revenir à cette page à tout moment et modifier les paramètres de journal de diagnostic pour votre compte.
 
 ## <a name="turn-on-logging-using-cli"></a>Activation de la journalisation à l’aide de l’interface CLI
 
@@ -279,59 +283,35 @@ Pour télécharger les objets blob de façon sélective, utilisez des caractère
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
-Vous êtes maintenant prêt à commencer les recherches dans le contenu des journaux. Mais avant de passer à cette étape, il peut s’avérer utile de connaître deux autres paramètres de `Get-AzureRmDiagnosticSetting` :
+Par ailleurs :
 
 * Pour interroger l’état des paramètres de diagnostic de votre ressource de base de données : `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 * Pour désactiver la journalisation de la catégorie **DataPlaneRequests** pour votre ressource de compte de base de données : `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
 
-## <a id="interpret"></a>Interpréter vos journaux Azure Cosmos DB
-Les objets blob individuels sont stockés sous forme de texte en tant qu’objet blob JSON. Ce JSON est un exemple d’entrée de journal :
 
-    {
-        "records":
-        [
-            {
-               "time": "Fri, 23 Jun 2017 19:29:50.266 GMT",
-               "resourceId": "contosocosmosdb",
-               "category": "DataPlaneRequests",
-               "operationName": "Query",
-               "resourceType": "Database",
-               "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
-               "userAgent": "documentdb-dotnet-sdk/1.12.0 Host/64-bit MicrosoftWindowsNT/6.2.9200.0 AzureSearchIndexer/1.0.0",`
-               "resourceType": "Database","statusCode": "200","documentResourceId": "",`
-               "clientIpAddress": "13.92.241.0","requestCharge": "2.260","collectionRid": "",`
-               "duration": "9250","requestLength": "72","responseLength": "209", "resourceTokenUserRid": ""}
-            }
-        ]
-    }
+Les blobs retournés dans chacune de ces requêtes sont stockés sous forme de blob JSON au format texte, comme indiqué dans le code suivant. 
 
+```json
+{
+    "records":
+    [
+        {
+           "time": "Fri, 23 Jun 2017 19:29:50.266 GMT",
+           "resourceId": "contosocosmosdb",
+           "category": "DataPlaneRequests",
+           "operationName": "Query",
+           "resourceType": "Database",
+           "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
+           "userAgent": "documentdb-dotnet-sdk/1.12.0 Host/64-bit MicrosoftWindowsNT/6.2.9200.0 AzureSearchIndexer/1.0.0",`
+           "resourceType": "Database","statusCode": "200","documentResourceId": "",`
+           "clientIpAddress": "13.92.241.0","requestCharge": "2.260","collectionRid": "",`
+           "duration": "9250","requestLength": "72","responseLength": "209", "resourceTokenUserRid": ""}
+        }
+    ]
+}
+```
 
-Le tableau suivant répertorie les noms de champ et les descriptions.
-
-| Nom du champ | Description |
-| --- | --- |
-| time |Date et heure (UTC) de l’opération. |
-| resourceId |Le compte Azure Cosmos DB pour lequel les journaux sont activés.|
-| category |Pour les journaux Azure Cosmos DB, DataPlaneRequests est la seule valeur disponible. |
-| operationName |Nom de l’opération. Cette valeur peut être l’une des opérations suivantes : Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed ou Upsert.   |
-| properties |Le contenu de ce champ est décrit dans le tableau suivant. |
-
-Le tableau suivant répertorie les champs journalisés dans le champ des propriétés.
-
-| Nom de champ de propriété | Description |
-| --- | --- |
-| activityId | GUID unique de l’opération journalisée. |
-| userAgent |Chaîne qui spécifie l’agent utilisateur client effectuant la demande. Le format est {nom de l’agent utilisateur}/{version}.|
-| resourceType | Type de la ressource faisant l’objet de l’accès. Cette valeur peut être l’un des types de ressources suivants : Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
-| statusCode |État de réponse de l’opération. |
-| requestResourceId | L’ID de ressource se rapportant à la demande, peut pointer vers databaseRid, collectionRid ou documentRid en fonction de l’opération.|
-| clientIpAddress |Adresse IP du client. |
-| requestCharge | Nombre d’unités de requête utilisées par l’opération. |
-| collectionRid | ID unique de la collection.|
-| duration | Durée de l’opération, en cycles. |
-| requestLength |Longueur de la demande, en octets. |
-| responseLength | Longueur de la réponse, en octets.|
-| resourceTokenUserRid | Ce champ n’est pas vide lorsque des [jetons de ressource](https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data#resource-tokens) sont utilisés pour l’authentification et pointe vers l’ID de ressource de l’utilisateur. |
+Pour en savoir plus sur les données de chaque blob JSON, consultez [Interpréter vos journaux Azure Cosmos DB](#interpret).
 
 ## <a name="managing-your-logs"></a>Gestion de vos journaux
 
@@ -341,10 +321,116 @@ Les journaux sont disponibles dans votre compte dans les deux heures suivant le 
 * Supprimez les journaux que vous ne souhaitez plus conserver dans votre compte de stockage.
 * La période de rétention pour les demandes de plan de données archivées dans un compte de stockage est configurée dans le portail lorsque l’option **Journaliser DataPlaneRequests** est sélectionnée. Pour modifier ce paramètre, consultez [Activer la journalisation dans le portail Azure](#turn-on-logging-in-the-azure-portal).
 
+
+<a id="#view-in-loganalytics"></a>
+## <a name="view-logs-in-log-analytics"></a>Afficher les journaux dans Log Analytics
+
+Si vous avez sélectionné l’option **Send to Log Analytics** (Envoyer à Log Analytics) lorsque vous avez activé la journalisation, les données de diagnostic de votre collection sont transférées à Log Analytics sous deux heures. Par conséquent, si vous consultez Log Analytics immédiatement après l’activation de la journalisation, aucune donnée ne s’affichera. Il vous suffit alors d’attendre deux heures et de réessayer. 
+
+Avant de consulter vos journaux, il est utile de vérifier que votre espace de travail Log Analytics a été mis à niveau pour utiliser le nouveau langage de requête Log Analytics. Pour effectuer cette vérification, ouvrez le [portail Azure](https://portal.azure.com), cliquez sur **Log Analytics** tout à gauche, puis sélectionnez le nom de l’espace de travail, comme indiqué dans l’image suivante. La page **Espace de travail OMS** s’affiche comme illustré dans l’image suivante.
+
+![Log Analytics dans le portail Azure](./media/logging/azure-portal.png)
+
+Si le message suivant s’affiche dans la page **Espace de travail OMS**, cela signifie que votre espace de travail n’a pas été mis à niveau pour utiliser le nouveau langage. Pour plus d’informations sur la mise à niveau vers le nouveau langage de requête, consultez [Mise à niveau de votre espace de travail Azure Log Analytics vers la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md). 
+
+![Notification de mise à niveau de Log Analytics](./media/logging/upgrade-notification.png)
+
+Pour afficher vos données de diagnostic dans Log Analytics, ouvrez la page Recherche dans les journaux à partir du menu de gauche ou de la zone de gestion de la page, comme indiqué dans l’image suivante.
+
+![Options de recherche dans les journaux dans le portail Azure](./media/logging/log-analytics-open-log-search.png)
+
+Maintenant que vous avez activé la collecte de données, exécutez une recherche dans les journaux en utilisant le nouveau langage de requête comme indiqué dans l’exemple suivant. Cet exemple permet d’afficher les dix derniers journaux `AzureDiagnostics | take 10`.
+
+![Exemple de recherche (10 journaux)](./media/logging/log-analytics-query.png)
+
+<a id="#queries"></a>
+### <a name="queries"></a>Requêtes
+
+Voici quelques requêtes supplémentaires que vous pouvez entrer dans la zone **Recherche dans les journaux**. Elles vous aideront à surveiller vos conteneurs Azure Cosmos DB. Ces requêtes fonctionnent avec le [nouveau langage](../log-analytics/log-analytics-log-search-upgrade.md). 
+
+Pour en savoir plus sur la signification des données retournées par chaque recherche dans les journaux, consultez [Interpréter vos journaux Azure Cosmos DB](#interpret).
+
+* Tous les journaux de diagnostic issus d’Azure Cosmos DB pour la période spécifiée
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    ```
+
+* Les dix derniers événements consignés
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10
+    ```
+
+* Toutes les opérations regroupées par type
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName
+    ```
+
+* Toutes les opérations regroupées par ressource
+
+    ```
+    AzureActivity | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    ```
+
+* Toutes les activités des utilisateurs regroupées par ressource. Notez qu’il s’agit d’un journal d’activité et non d’un journal de diagnostic.
+
+    ```
+    AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    ```
+
+* Opérations durant plus de 3 millisecondes.
+
+    ```
+    AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    ```
+
+* Agent exécutant les opérations
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s
+    ```
+
+* Moment auquel des opérations de longue durée ont été exécutées
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    ```
+
+Pour plus d’informations sur l’utilisation du nouveau langage de recherche dans les journaux, consultez [Présentation des recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
+
+## <a id="interpret"></a>Interpréter vos journaux
+
+Les données de diagnostic stockées dans le stockage Azure et Log Analytics suivent un schéma très similaire. 
+
+Le tableau suivant décrit le contenu de chaque entrée de journal.
+
+| Propriété ou champ du stockage Azure | Propriété de Log Analytics | Description |
+| --- | --- | --- |
+| time | TimeGenerated | Date et heure (UTC) de l’opération. |
+| resourceId | Ressource | Le compte Azure Cosmos DB pour lequel les journaux sont activés.|
+| category | Catégorie | Pour les journaux Azure Cosmos DB, DataPlaneRequests est la seule valeur disponible. |
+| operationName | Nom d'opération | Nom de l’opération. Cette valeur peut être l’une des opérations suivantes : Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed ou Upsert.   |
+| properties | n/a | Le contenu de ce champ est décrit dans les lignes suivantes. |
+| activityId | activityId_g | GUID unique de l’opération journalisée. |
+| userAgent | userAgent_s | Chaîne qui spécifie l’agent utilisateur client effectuant la demande. Le format est {nom de l’agent utilisateur}/{version}.|
+| resourceType | ResourceType | Type de la ressource faisant l’objet de l’accès. Cette valeur peut être l’un des types de ressources suivants : Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
+| statusCode |statusCode_s | État de réponse de l’opération. |
+| requestResourceId | ResourceId | L’ID de ressource se rapportant à la demande, peut pointer vers databaseRid, collectionRid ou documentRid en fonction de l’opération.|
+| clientIpAddress | clientIpAddress_s | Adresse IP du client. |
+| requestCharge | requestCharge_s | Nombre d’unités de requête utilisées par l’opération. |
+| collectionRid | collectionId_s | ID unique de la collection.|
+| duration | duration_s | Durée de l’opération, en cycles. |
+| requestLength | requestLength_s | Longueur de la demande, en octets. |
+| responseLength | responseLength_s | Longueur de la réponse, en octets.|
+| resourceTokenUserRid | resourceTokenUserRid_s | Ce champ n’est pas vide lorsque des [jetons de ressource](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) sont utilisés pour l’authentification et pointe vers l’ID de ressource de l’utilisateur. |
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour comprendre non seulement comment activer la journalisation, mais aussi les métriques et les catégories de journaux prises en charge par les différents services Azure, consultez les articles [Vue d’ensemble des métriques dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 - Pour en savoir plus sur les concentrateurs d’événements, lisez les articles suivants :
-   - [Qu’est-ce qu’Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) ?
+   - [Qu’est-ce qu’Azure Event Hubs ?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Consultez [Télécharger les journaux de métriques et diagnostics de Stockage Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+- Consultez [Présentation des recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-search-new.md).

@@ -1,5 +1,5 @@
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Le protocole BGP est-il pris en charge sur toutes les références de passerelle VPN Azure ?
-Non. Le protocole BGP est pris en charge sur les passerelles VPN Azure **Standard** et **HighPerformance**. La référence **De base** N’EST PAS prise en charge.
+Non, le protocole BGP est pris en charge sur les passerelles VPN Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** et **HighPerformance**. La référence **De base** N’EST PAS prise en charge.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>Puis-je utiliser le protocole BGP avec les passerelles VPN Azure basées sur des stratégies ?
 Non. Le protocole BGP est pris en charge uniquement sur les passerelles VPN basées sur des itinéraires.

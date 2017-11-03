@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3d9e7a4eb6d94067af6b5c64e71910694d5a6077
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio
 
-Azure Functions vous permet d’exécuter votre code dans un environnement sans serveur et sans avoir à créer une machine virtuelle ou à publier une application web au préalable.
+Azure Functions vous permet d’exécuter votre code dans un environnement [sans serveur](https://azure.microsoft.com/overview/serverless-computing/) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable.
 
 Dans cette rubrique, vous allez apprendre à vous servir des outils Visual Studio 2017 pour Azure Functions afin de créer et tester en local une fonction « Hello World ». Vous allez ensuite publier le code de la fonction vers Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2017version 15.3 ou ultérieure.
 
@@ -35,12 +35,11 @@ Dans cette rubrique, vous allez apprendre à vous servir des outils Visual Stud
 
 Pour suivre ce didacticiel, installez le logiciel suivant :
 
-* [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), y compris la charge de travail de **développement Azure**.
+* [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/) ou version ultérieure, y compris la charge de travail de **développement Azure**.
 
     ![Installer Visual Studio 2017 avec la charge de travail de développement Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-    >[!NOTE]  
-    >Après avoir installé ou mis à niveau vers Visual Studio 2017 version 15.3, vous devez mettre à jour manuellement les outils Visual Studio 2017 pour Azure Functions. Vous pouvez mettre à jour les outils à partir du menu **Outils** sous **Extensions et mises à jour...**  > **Mises à jour** > **Visual Studio Marketplace** > **Azure Functions et Web Jobs Tools** > **Mettre à jour**. 
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

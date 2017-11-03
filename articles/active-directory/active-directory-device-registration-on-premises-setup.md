@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b695a6e07007d4a4cad2d58795e279c5d30fcd4d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuration d’un accès conditionnel en local à l’aide du service Azure Active Directory Device Registration
 Quand vous demandez aux utilisateurs de joindre leurs appareils à l’espace de travail du service Azure Active Directory Device Registration, leurs appareils peuvent être marqués comme étant connus de votre organisation. Vous trouverez ci-dessous un guide pas à pas visant à activer l’accès conditionnel pour des applications locales à l’aide des services de fédération Active Directory (AD FS) dans Windows Server 2012 R2.
@@ -220,8 +220,5 @@ Dans les commandes précédentes, **relying party trust name** correspond au nom
 Et **yourdomain.com** correspond au nom de domaine que vous avez configuré avec Azure Active Directory (par exemple, contoso.com).
 Veillez à supprimer les sauts de ligne éventuels dans le contenu HTML que vous transmettez à l’applet de commande **Set-AdfsRelyingPartyWebContent**.
 
-Désormais, quand les utilisateurs accèderont à votre application à partir d’un appareil qui n’est pas enregistré auprès d’Azure Active Directory Device Registration Service, ils verront s’afficher une page qui ressemble à la capture d’écran suivante.
-
-![Capture d’écran d’une erreur qui s’affiche quand les utilisateurs n’ont pas enregistré leur appareil auprès d’Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
+Désormais, quand les utilisateurs accèderont à votre application à partir d’un appareil qui n’est pas enregistré auprès d’Azure Active Directory Device Registration Service, ils verront s’afficher une erreur.
 

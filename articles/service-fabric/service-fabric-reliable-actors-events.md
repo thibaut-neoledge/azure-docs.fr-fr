@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/13/2017
+ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: d936670c548ff709fc2e935d3f28d94e4bde8a04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 779d39e2910d0de25ee07b8fae3ca7a0e9772776
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="actor-events"></a>Événements d’acteurs
 Les événements d’acteur sont un moyen d’envoyer des notifications Meilleur effort de l’acteur aux clients. Les événements d’acteur sont conçus pour la communication acteur-client et ne doivent pas être utilisés pour la communication acteur-acteur.
@@ -95,7 +95,7 @@ return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler()
 
 En cas de basculement, l’acteur peut basculer sur un nœud ou processus différent. Le proxy de l’acteur gère les abonnements actifs et s’y réabonne automatiquement. Vous pouvez contrôler l’intervalle de réabonnement via l’API `ActorProxyEventExtensions.SubscribeAsync<TEvent>` . Pour vous désabonner, utilisez l’API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` .
 
-Sur l'acteur, publiez simplement les événements à mesure qu'ils se produisent. Le runtime Actors envoie la notification aux abonnés à l’événement, le cas échéant.
+Sur l’acteur, publiez les événements à mesure qu’ils se produisent. Le runtime Actors envoie la notification aux abonnés à l’événement, le cas échéant.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 722657c9bbae23a051a63972a8800d3cc40e7e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Didacticiel BikeShare : Préparation de données avancée avec Azure Machine Learning Workbench
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -210,7 +210,7 @@ Vous n’avez plus besoin de la colonne __REPORTTYPE__. Cliquez avec le bouton d
    ![Image de l’option de suppression d’une colonne](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Modifier les types de données et supprimer des erreurs
-1. Appuyer sur __Ctrl__ pendant la sélection d’en-têtes de colonne vous permet de sélectionner plusieurs colonnes à la fois. Utilisez cette technique pour sélectionner les en-têtes de colonne suivants :
+1. Appuyer sur __Ctrl (Command ⌘ sur Mac)__ pendant la sélection d’en-têtes de colonne vous permet de sélectionner plusieurs colonnes à la fois. Utilisez cette technique pour sélectionner les en-têtes de colonne suivants :
    * **HOURLYDRYBULBTEMPF**
    * **HOURLYRelativeHumidity**
    * **HOURLYWindSpeed**
@@ -262,6 +262,9 @@ Pour utiliser les données dans une prévision par bloc de deux heures, vous dev
    > [!NOTE]
    > Azure Machine Learning Workbench synthétise un programme basé sur les exemples que vous fournissez et applique le même programme sur les lignes restantes. Toutes les autres lignes sont automatiquement renseignées en fonction de l’exemple que vous avez fourni. Workbench analyse également vos données et tente d’identifier les cas marginaux. 
 
+   > [!IMPORTANT]
+   > Identification des cas marginaux peut ne pas fonctionner sur Mac dans la version actuelle de Workbench. Ignorez l’__étape 3__ et l’__étape 4__ ci-dessous sur Mac. Au lieu de cela, appuyez sur __OK__ une fois toutes les lignes remplies avec les valeurs dérivées.
+   
 3. Le texte **Analyse des données** au-dessus de la grille indique que Workbench tente de détecter les cas marginaux. Une fois l’opération terminée, l’état passe à **Passer en revue la ligne suggérée suivante** ou **Aucune suggestion**. Dans cet exemple, **Passer en revue la ligne suggérée suivante** est retourné.
 
 4. Pour passer en revue les modifications suggérées, sélectionnez **Passer en revue la ligne suggérée suivante**. La cellule que vous devez passer en revue et corriger (si besoin) est mise en surbrillance dans l’affichage.
@@ -290,6 +293,12 @@ Pour utiliser les données dans une prévision par bloc de deux heures, vous dev
    Workbench détermine la transformation en fonction de l’exemple que vous fournissez. Dans cet exemple, le résultat est que le format de la date est modifié et concaténé avec la fenêtre de deux heures.
 
    ![Image de l’exemple Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
+
+   > [!IMPORTANT]
+   > Sur Mac, effectuez l’étape suivante au lieu de l’__étape 8__ ci-dessous.
+   >
+   > * Accédez à la première cellule qui contient `Feb 01, 2015 12AM-2AM`. Il doit s’agir de la __ligne 15__. Remplacez la valeur par `Jan 02, 2015 12AM-2AM`, puis appuyez sur __Entrée__. 
+   
 
 8. Attendez que l’état passe de **Analyse des données** à **Passer en revue la ligne suggérée suivante**. L’attente peut durer plusieurs secondes. Sélectionnez le lien d’état pour accéder à la ligne suggérée. 
 
@@ -392,7 +401,7 @@ Pour préparer les données, il existe de nombreuses visualisations utiles appel
 1. Sélectionnez plusieurs colonnes **start station latitude** et **start station longitude**. Cliquez avec le bouton droit sur l’une des colonnes, puis sélectionnez **Carte**.
 
     > [!TIP]
-    > Pour activer la sélection multiple, maintenez la touche __Ctrl__ enfoncée et sélectionnez l’en-tête de chaque colonne.
+    > Pour activer la sélection multiple, maintenez la touche __Ctrl (Command ⌘ sur Mac)__ enfoncée et sélectionnez l’en-tête de chaque colonne.
 
     ![Image de la visualisation de la carte](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -506,6 +515,11 @@ Pour résumer la demande de vélos pendant une période de 2 heures, utilisez d
 
     ![Image de l’exemple de données](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
 
+   > [!IMPORTANT]
+   > Sur Mac, effectuez l’étape suivante au lieu de l’__étape 3__ ci-dessous.
+   >
+   > * Accédez à la première cellule qui contient `Jan 01, 2017 1AM-2AM`. Il doit s’agir de la __ligne 14__. Remplacez la valeur par `Jan 01, 2017 12AM-2AM`, puis appuyez sur __Entrée__. 
+
 3. Attendez que l’application calcule les valeurs par rapport à toutes les lignes. L’attente peut durer plusieurs secondes. Une fois l’analyse terminée, utilisez le lien __Passer en revue la ligne suggérée suivante__ pour passer en revue les données.
 
    ![Image de l’analyse terminée avec un lien de passage en revue](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -557,7 +571,7 @@ Pour joindre les données météorologiques aux données de trajet, effectuez le
 
     ![Image de la colonne Période](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Pour supprimer les colonnes **Date Plage horaire** et **rDate Plage horaire**, appuyez sur **Ctrl** et sélectionnez chaque en-tête de colonne. Cliquez avec le bouton droit et sélectionnez **Supprimer la colonne**.
+3. Pour supprimer les colonnes **Date Hour Range** et **rDate Hour Range**, appuyez sur **Ctrl (Command ⌘ sur Mac)** et sélectionnez chaque en-tête de colonne. Cliquez avec le bouton droit et sélectionnez **Supprimer la colonne**.
 
 ## <a name="read-data-from-python"></a>Lire les données à partir de Python
 

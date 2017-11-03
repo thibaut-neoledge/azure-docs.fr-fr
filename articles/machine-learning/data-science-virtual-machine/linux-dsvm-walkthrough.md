@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 0decb8918a544114316569720aa5deede692d5f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données avec la machine virtuelle de science des données Linux. La machine virtuelle de science des données Linux est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans la rubrique [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md) . L’image de la machine virtuelle facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Le cas échéant, vous pouvez facilement faire monter en puissance la machine virtuelle, et l’arrêter lorsqu’elle est inutilisée. Cette ressource est donc flexible et économique.
@@ -32,7 +32,8 @@ Avant de pouvoir utiliser une machine virtuelle de science des données Linux, v
 
 * Un **abonnement Azure**. Si vous n’en avez pas déjà un, voir [Créez votre compte Azure gratuit](https://azure.microsoft.com/free/).
 * Une [**machine virtuelle de science des données Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Pour plus d’informations sur l’approvisionnement de cette machine virtuelle, consultez [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) installé sur votre ordinateur et une session XFCE ouverte. Pour plus d’informations sur l’installation et la configuration d’un **client X2Go**, consultez [Installation et configuration du client X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
+* [X2Go](http://wiki.x2go.org/doku.php) installé sur votre ordinateur et une session XFCE ouverte. Pour plus d’informations sur l’installation et la configuration d’un **client X2Go**, consultez [Installation et configuration du client X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* Pour un défilement plus fluide, basculez l’indicateur gfx.xrender.enabled dans about:config, dans le navigateur FireFox des machines virtuelles. [Cliquez ici pour en savoir plus.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Envisagez également de définir *mousewheel.enable_pixel_scrolling* sur False. [Cliquez ici pour obtenir des instructions.](https://support.mozilla.org/en-US/questions/981140)
 * Un **compte AzureML**. Si vous n’avez pas déjà un, inscrivez-vous pour en obtenir un nouveau sur la [page d’accueil AzureML](https://studio.azureml.net/). Il existe un niveau d’utilisation gratuit pour vous aider à commencer.
 
 ## <a name="download-the-spambase-dataset"></a>Télécharger le jeu de données spambase

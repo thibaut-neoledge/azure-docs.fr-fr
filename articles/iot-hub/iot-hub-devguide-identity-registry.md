@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6e9c7b71fa6fc78f97c0144c735fc44778181d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -28,8 +28,6 @@ Chaque IoT Hub a un registre des identités contenant des informations sur les a
 L’ID d’appareil stocké dans le registre des identités respecte la casse.
 
 À un niveau supérieur, le registre des identités est une collection compatible REST de ressources d’identité d’appareil. Lorsque vous ajoutez une entrée au registre des identités, IoT Hub crée un jeu de ressources par appareil, comme une file d’attente contenant des messages cloud vers appareil en transit.
-
-### <a name="when-to-use"></a>Quand utiliser
 
 Utilisez le registre des identités lorsque vous avez besoin d’effectuer les actions suivantes :
 
@@ -76,12 +74,11 @@ Vous pouvez désactiver les appareils en mettant à jour la propriété **status
 
 ## <a name="import-and-export-device-identities"></a>Importer et exporter les identités des appareils
 
-Vous pouvez exporter des identités d’appareils en bloc à partir du registre des identités d’un IoT Hub, par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub][lnk-endpoints]. Les exportations sont des tâches à long terme qui utilisent un conteneur d’objets blob fourni par le client pour enregistrer les données relatives à l’identité des appareils lues dans le registre des identités.
+Vous pouvez exporter des identités d’appareils en bloc à partir du registre des identités d’un IoT Hub par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub][lnk-endpoints]. Les exportations sont des tâches à long terme qui utilisent un conteneur d’objets blob fourni par le client pour enregistrer les données relatives à l’identité des appareils lues dans le registre des identités.
 
-Vous pouvez importer des identités d’appareils en bloc dans le registre des identités d’un IoT Hub, par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub][lnk-endpoints]. Les importations sont des tâches à long terme qui utilisent des données dans un conteneur d’objets blob, fourni par le client, pour écrire les données relatives à l’identité des appareils dans le registre des identités.
+Vous pouvez importer des identités d’appareils en bloc dans le registre des identités d’un IoT Hub par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub][lnk-endpoints]. Les importations sont des tâches à long terme qui utilisent des données dans un conteneur d’objets blob, fourni par le client, pour écrire les données relatives à l’identité des appareils dans le registre des identités.
 
-* Pour plus d’informations sur l’importation et l’exportation d’API, voir [IoT Hub - API REST de fournisseur de ressources][lnk-resource-provider-apis].
-* Pour en savoir plus sur l’exécution de tâches d’importation et d’exportation, voir [Gestion en bloc des identités d’appareils IoT Hub][lnk-bulk-identity].
+Pour plus d’informations sur l’importation et l’exportation d’API, voir [IoT Hub - API REST de fournisseur de ressources][lnk-resource-provider-apis]. Pour en savoir plus sur l’exécution de tâches d’importation et d’exportation, voir [Gestion en bloc des identités d’appareils IoT Hub][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Approvisionnement des appareils
 
@@ -143,17 +140,13 @@ Corps : cette section est au format JSON et représente le double de l’identi
 }
 ```
 
-## <a name="reference-topics"></a>Rubriques de référence :
-
-Les rubriques de référence suivantes fournissent des informations supplémentaires sur le registre des identités.
-
 ## <a name="device-identity-properties"></a>Propriétés d’identité des appareils
 
 Les identités des appareils sont représentées sous forme de documents JSON avec les propriétés suivantes :
 
 | Propriété | Options | Description |
 | --- | --- | --- |
-| deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | generationId |obligatoire, en lecture seule |Une chaîne qui respecte la casse, générée par IoT Hub, d’une longueur maximale de 128 caractères. Cette valeur permet de distinguer les appareils dotés du même **deviceId**lorsqu’ils ont été supprimés et recréés. |
 | etag |obligatoire, en lecture seule |Une chaîne représentant un ETag faible pour l’identité d’appareil, conformément à [RFC7232][lnk-rfc7232]. |
 | auth |facultatif |Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
@@ -180,7 +173,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À présent que vous savez comment utiliser le registre des identités IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur Iot Hub :
+À présent que vous savez comment utiliser le registre des identités IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur Iot Hub :
 
 * [Contrôler l’accès à IoT Hub][lnk-devguide-security]
 * [Utiliser des représentations d’appareil pour synchroniser les données d’état et de configuration][lnk-devguide-device-twins]

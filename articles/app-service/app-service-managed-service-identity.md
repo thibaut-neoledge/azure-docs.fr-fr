@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: fd63d53697ccd529c144482202e2fd8c6b184991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28965ec8290c8ab22255f9001cc6c3905dda4b8b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Guide pratique pour utiliser l’identité de service managée (préversion publique) dans App Service et Azure Functions
 
@@ -149,6 +149,9 @@ Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivan
 
 
 Cette réponse est la même que la [réponse pour la demande de jeton d’accès de service à service AAD](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+
+> [!NOTE] 
+> Les variables d’environnement sont configurées au premier démarrage du processus, ainsi après l’activation de Managed Service Identity pour votre application, vous devrez peut-être redémarrer votre application, ou redéployer son code avant que `MSI_ENDPOINT` et `MSI_SECRET` soient disponibles pour votre code.
 
 ### <a name="rest-protocol-examples"></a>Exemples de protocole REST
 Voici un exemple de demande :

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 53ab4c04901994982b451149c4a82a5b72c9fc82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00acc192e868a7c1ade9fc68cf4d3ca04f1a070
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Objets application et principal du service dans Azure Active Directory (Azure AD)
 Parfois, la signification du terme « application » peut être mal comprise lorsqu’il est utilisé dans le contexte d’Azure AD. Cet article a pour objectif de clarifier les aspects conceptuels et concrets de l’intégration des applications dans Azure AD, en donnant un exemple d’inscription et de consentement pour une [application multi-locataire](active-directory-dev-glossary.md#multi-tenant-application).
@@ -34,7 +34,9 @@ Lorsque vous inscrivez une application Azure AD dans le [portail Azure][AZURE-Po
 Une application Azure AD est définie par son seul et unique objet application, qui réside dans le client Azure AD dans lequel l’application a été inscrite, appelé client « de base » de l’application. [L’entité Application][AAD-Graph-App-Entity] d’Azure AD Graph définit le schéma pour les propriétés d’un objet application. 
 
 #### <a name="service-principal-object"></a>Objet principal du service
-L’objet principal du service définit la stratégie et les autorisations pour l’utilisation d’une application dans un client spécifique, fournissant la base d’un principal de sécurité pour représenter l’application au moment de l’exécution. [L’entité ServicePrincipal][AAD-Graph-Sp-Entity] d’Azure AD Graph définit le schéma pour les propriétés d’un objet principal du service. 
+Pour accéder aux ressources qui sont sécurisées par un locataire Azure AD, l’entité qui nécessite l’accès doit être représentée par un principal de sécurité. Ceci est valable aussi bien pour les utilisateurs (principal d’utilisateur) que pour les applications (principal de service). Le principal de sécurité définit la stratégie d’accès et les autorisations pour l’utilisateur ou l’application du locataire. Cela rend possibles les fonctionnalités de base, telles que l’authentification de l’application ou de l’utilisateur lors de la connexion, et l’autorisation lors de l’accès aux ressources.
+
+Lorsqu’une application reçoit l’autorisation d’accéder aux ressources d’un locataire (après inscription ou [consentement](active-directory-dev-glossary.md#consent)), un objet de principal de service est créé. [L’entité ServicePrincipal][AAD-Graph-Sp-Entity] d’Azure AD Graph définit le schéma pour les propriétés d’un objet de principal de service.  
 
 #### <a name="application-and-service-principal-relationship"></a>Relation entre l’application et le principal de service
 Considérez l’objet application comme la représentation *globale* de votre application pour une utilisation sur tous les clients et le principal du service comme la représentation *locale* pour une utilisation sur un client spécifique. L’objet application fait office de modèle à partir duquel les propriétés communes et par défaut sont *dérivées* pour une utilisation visant à créer des objets de principal de service correspondants. Un objet application présente donc une relation un-à-un avec l’application logicielle et une relation un-à-plusieurs avec chaque objet de principal de service correspondant.

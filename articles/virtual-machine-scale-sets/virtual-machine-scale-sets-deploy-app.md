@@ -1,10 +1,10 @@
 ---
-title: "Déployer une application sur des groupes de machines virtuelles identiques"
-description: "Utilisez des extensions pour déployer une application sur des groupes de machines virtuelles identiques Azure."
+title: "Déployez une application sur un groupe de machines virtuelles identiques Azure | Microsoft Docs"
+description: "Découvrez comment déployer des applications sur des instances de machine virtuelle Linux et Windows d’un groupe identique"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: thraka
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
@@ -13,217 +13,214 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
-ms.author: adegeo
-ms.openlocfilehash: 371295efea1eab66361b9aba21a55bbd2826c69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/13/2017
+ms.author: iainfou
+ms.openlocfilehash: 0ff8a178d883e3b51294485e556e65da52dbf327
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Déployer votre application sur des groupes de machines virtuelles identiques
+Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Cet article présente des méthodes pour créer une image de machine virtuelle personnalisée d’un groupe identique, ou pour exécuter automatiquement des scripts d’installation sur des instances de machine virtuelle existantes. Vous apprendrez également à gérer des applications ou des mises à jour du système d’exploitation sur un groupe identique.
 
-Cet article décrit les différentes façons d’installer un logiciel au moment où le groupe identique est approvisionné.
 
-Vous pouvez consulter l’article [Vue d’ensemble de la conception des groupes identiques](virtual-machine-scale-sets-design-overview.md), qui décrit certaines des limites imposées par les groupes de machines virtuelles identiques.
+## <a name="build-a-custom-vm-image"></a>Créer une image de machine virtuelle personnalisée
+Lorsque vous utilisez une des images de plateforme Azure pour créer les instances de votre groupe identique, aucun logiciel supplémentaire n’est installé ou configuré. Vous pouvez automatiser l’installation de ces composants, mais cela augmente le temps nécessaire pour configurer des instances de machine virtuelle sur vos groupes identiques. Si vous appliquez plusieurs modifications de configuration aux instances de machine virtuelle, vous surchargez la gestion de ces scripts de configuration et tâches.
 
-## <a name="capture-and-reuse-an-image"></a>Capturer et réutiliser une image
+Pour simplifier la gestion de la configuration et accélérer la configuration d’une machine virtuelle, vous pouvez créer une image de machine virtuelle personnalisée prête à exécuter votre application dès qu’une instance est configurée dans le groupe identique. Voici le processus global permettant de créer une instance de machine virtuelle personnalisée pour des groupes identiques :
 
-Vous pouvez utiliser une machine virtuelle que vous avez dans Azure pour préparer une image de base pour votre groupe identique. Ce processus crée un disque managé dans votre compte de stockage, que vous pouvez référencer comme image de base pour votre groupe identique. 
+1. Pour créer une image de machine virtuelle personnalisée pour vos instances de groupe identique, vous créez et vous connectez à une machine virtuelle, puis installez et configurez l’application. Vous pouvez utiliser Packer pour définir et créer une image de machine virtuelle [Linux](../virtual-machines/linux/build-image-with-packer.md) ou [Windows](../virtual-machines/windows/build-image-with-packer.md). Ou vous pouvez manuellement créer et configurer la machine virtuelle :
 
-Effectuez également les étapes suivantes :
+    - Créez une machine virtuelle Linux avec [Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md), [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md), ou le [portail](../virtual-machines/linux/quick-create-portal.md).
+    - Créez une machine virtuelle Windows avec [Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md), [Azure CLI 2.0](../virtual-machines/windows/quick-create-cli.md), ou le [portail](../virtual-machines/windows/quick-create-portal.md).
+    - Connectez-vous à une machine virtuelle [Linux](../virtual-machines/linux/mac-create-ssh-keys.md#use-the-ssh-key-pair) ou [Windows](../virtual-machines/windows/connect-logon.md).
+    - Installez et configurez les applications et les outils nécessaires. Si vous avez besoin de versions spécifiques d’une bibliothèque ou d’un runtime, une image de machine virtuelle personnalisée vous permet de définir une version 
 
-1. Créer une machine virtuelle Azure
-   * [Linux][linux-vm-create]
-   * [Windows][windows-vm-create]
+2. Capturez votre machine virtuelle avec [Azure CLI 2.0](../virtual-machines/linux/capture-image.md) ou [Azure PowerShell](../virtual-machines/windows/capture-image.md). Cette étape crée l’image de machine virtuelle personnalisée qui sert ensuite à déployer des instances sur un groupe identique.
 
-2. Connectez-vous à distance à la machine virtuelle et personnalisez le système à votre convenance.
+3. [Créez un groupe identique](virtual-machine-scale-sets-create.md) et spécifiez l’image de machine virtuelle personnalisée créée dans les étapes précédentes.
 
-   Si vous le souhaitez, vous pouvez installer votre application maintenant. Notez cependant qu’en installant votre application maintenant, vous pouvez rendre sa mise à niveau plus complexe, car vous devrez peut-être d’abord la supprimer. Au lieu de cela, vous pouvez utiliser cette étape pour installer les prérequis nécessaires à votre application, comme un runtime spécifique ou une fonctionnalité du système d’exploitation.
 
-3. Suivez le didacticiel « Capturer une machine » pour [Linux][linux-vm-capture] ou pour [Windows][windows-vm-capture].
+## <a name="already-provisioned"></a>Installer une application avec l’extension de script personnalisé
+L’extension de script personnalisé télécharge et exécute des scripts sur des machines virtuelles Azure. Cette extension est utile pour la configuration post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion. Des scripts peuvent être téléchargés à partir de Stockage Azure ou de GitHub, ou fournis dans le portail Azure lors de l’exécution de l’extension.
 
-4. Créez un [groupe de machines virtuelles identiques][vmss-create] avec l’URI de l’image que vous avez capturée à l’étape précédente.
+L’extension de script personnalisé s’intègre aux modèles Azure Resource Manager et peut être exécutée à l’aide de l’interface de ligne de commande Azure, de PowerShell, du portail Azure ou de l’API REST de machine virtuelle Azure. 
 
-Pour plus d’informations sur les disques, consultez [Vue d’ensemble de Managed Disks](../virtual-machines/windows/managed-disks-overview.md) et [Utiliser des disques de données attachés](virtual-machine-scale-sets-attached-disks.md).
+Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/windows/extensions-customscript.md).
 
-## <a name="already-provisioned"></a>Installer quand le groupe identique est approvisionné
 
-Les extensions de machine virtuelle peuvent être appliquées à un groupe de machines virtuelles identiques. Avec une extension de machine virtuelle, vous pouvez personnaliser les machines virtuelles d’un groupe identique comme un tout. Pour plus d’informations sur les extensions, consultez [Extensions de machine virtuelle](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+### <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
+PowerShell utilise une table de hachage pour stocker le fichier à télécharger et la commande à exécuter. L’exemple suivant permet :
 
-Il existe trois extensions principales que vous pouvez utiliser, selon que votre système d’exploitation est Linux ou Windows.
+- Demande aux instances de machine virtuelle pour télécharger un script à partir de GitHub - *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
+- Définit l’extension pour exécuter un script d’installation - `powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1`
+- Obtient des informations sur un groupe identique avec [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
+- Applique l’extension aux instances de machine virtuelle avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
 
-### <a name="windows"></a>Windows
-
-Pour un système d’exploitation Windows, utilisez l’extension **Script personnalisé 1.8** ou l’extension **DSC PowerShell**.
-
-#### <a name="custom-script"></a>Script personnalisé
-
-L’extension Script personnalisé exécute un script sur chaque instance de machine virtuelle dans le groupe identique. Un fichier de configuration ou une variable indique quels fichiers sont téléchargés sur la machine virtuelle, puis quelle commande exécuter. Vous pouvez l’utiliser par exemple pour exécuter un programme d’installation, un script, un fichier de commandes ou un fichier exécutable.
-
-PowerShell utilise une table de hachage pour les paramètres. Cet exemple configure l’extension Script personnalisé pour exécuter un script PowerShell qui installe IIS.
+L’extension de script personnalisé est appliquée aux instances de machine virtuelle *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*. Saisissez vos propres noms, comme suit :
 
 ```powershell
-# Setup extension configuration hashtable variable
+# Define the script for your Custom Script Extension to run
 $customConfig = @{
-  "fileUris" = @("https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1");
-  "commandToExecute" = "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> `"%TEMP%\StartupLog.txt`" 2>&1";
-};
+    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
+    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
+}
 
-# Add the extension to the config
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Compute -Type CustomScriptExtension -TypeHandlerVersion 1.8 -Name "customscript1" -Setting $customConfig
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+                -ResourceGroupName "myResourceGroup" `
+                -VMScaleSetName "myScaleSet"
 
-# Send the new config to Azure
-Update-AzureRmVmss -ResourceGroupName $rg -Name "MyVmssTest143"  -VirtualMachineScaleSet $vmssConfig
+# Add the Custom Script Extension to install IIS and configure basic website
+$vmss = Add-AzureRmVmssExtension `
+    -VirtualMachineScaleSet $vmss `
+    -Name "customScript" `
+    -Publisher "Microsoft.Compute" `
+    -Type "CustomScriptExtension" `
+    -TypeHandlerVersion 1.8 `
+    -Setting $customConfig
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
 ```
 
->[!IMPORTANT]
->Utilisez le commutateur `-ProtectedSetting` pour les paramètres qui peuvent contenir des informations sensibles.
-
----------
+Si la stratégie de mise à niveau de votre groupe identique est *manuelle*, mettez à jour vos instances de machine virtuelle avec [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Cette applet de commande applique la configuration du groupe identique mis à jour aux instances de machine virtuelle, puis installe votre application.
 
 
-Azure CLI utilise un fichier JSON pour les paramètres. Cet exemple configure l’extension Script personnalisé pour exécuter un script PowerShell qui installe IIS. Enregistrez le fichier JSON suivant sous _settings.json_.
+### <a name="use-azure-cli-20"></a>Utiliser Azure CLI 2.0
+Pour utiliser l’extension de script personnalisé avec l’interface CLI Azure, vous créez un fichier JSON qui définit les fichiers à obtenir et les commandes à exécuter. Ces définitions JSON peuvent être réutilisées sur plusieurs déploiements de groupe identique pour garantir des installations d’applications cohérentes.
+
+Dans l’interpréteur de commandes actuel, créez un fichier nommé *customConfig.json* et collez la configuration suivante. Par exemple, créez le fichier dans l’interpréteur de commandes Cloud et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloudConfig.json` pour créer le fichier et afficher la liste des éditeurs disponibles.
 
 ```json
 {
-  "fileUris": [
-    "https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1"
-  ],
-  "commandToExecute": "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> \"%TEMP%\StartupLog.txt\" 2>&1"
+  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
+  "commandToExecute": "./automate_nginx.sh"
 }
 ```
 
-Ensuite, exécutez cette commande Azure CLI.
+Appliquez la configuration de l’extension de script personnalisé aux instances de machine virtuelle dans votre groupe identique avec [az vmss extension set](/cli/azure/vmss/extension#set). L’exemple suivant applique la configuration *customConfig.json* aux instances de machine virtuelle *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*. Saisissez vos propres noms, comme suit :
 
 ```azurecli
-az vmss extension set --publisher Microsoft.Compute --version 1.8 --name CustomScriptExtension --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+az vmss extension set \
+    --publisher Microsoft.Azure.Extensions \
+    --version 2.0 \
+    --name CustomScript \
+    --resource-group myResourceGroup \
+    --vmss-name myScaleSet \
+    --settings @customConfig.json
 ```
 
->[!IMPORTANT]
->Utilisez le commutateur `--protected-settings` pour les paramètres qui peuvent contenir des informations sensibles.
+Si la stratégie de mise à niveau de votre groupe identique est *manuelle*, mettez à jour vos instances de machine virtuelle avec [az vmss update-instances](/cli/azure/vmss#update-instances). Cette applet de commande applique la configuration du groupe identique mis à jour aux instances de machine virtuelle, puis installe votre application.
 
-### <a name="powershell-dsc"></a>DSC PowerShell
 
-Vous pouvez utiliser DSC PowerShell pour personnaliser les instances de machine virtuelle du groupe identique. L’extension **DSC** publiée par **Microsoft.Powershell** déploie et exécute la configuration DSC fournie sur chaque instance de machine virtuelle. Une variable ou un fichier de configuration indique l’extension où se trouve le package *.zip* et quelle combinaison _script-fonction_ exécuter.
+## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installer une application sur une machine virtuelle Windows avec PowerShell DSC
+La [Configuration d’état souhaité (DSC) PowerShell](https://msdn.microsoft.com/en-us/powershell/dsc/overview) est une plateforme de gestion qui définit la configuration des machines cibles. Les configurations d’état souhaité définissent les éléments à installer sur une machine et la procédure à suivre pour configurer l’hôte. Un moteur du Gestionnaire de configuration local (LCM) s’exécute sur chaque nœud cible qui traite les actions demandées en fonction des configurations envoyées.
 
-PowerShell utilise une table de hachage pour les paramètres. Cet exemple déploie un package DSC qui installe IIS.
+L’extension PowerShell DSC vous permet de personnaliser les instances de machine virtuelle d’un groupe identique avec PowerShell. L’exemple suivant permet :
+
+- Demande aux instances de machine virtuelle de télécharger un package DSC à partir de GitHub - *https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip*
+- Définit l’extension pour exécuter un script d’installation - `configure-http.ps1`
+- Obtient des informations sur un groupe identique avec [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
+- Applique l’extension aux instances de machine virtuelle avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
+
+L’extension DSC est appliquée aux instances de machine virtuelle *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*. Saisissez vos propres noms, comme suit :
 
 ```powershell
-# Setup extension configuration hashtable variable
+# Define the script for your Desired Configuration to download and run
 $dscConfig = @{
   "wmfVersion" = "latest";
   "configuration" = @{
-    "url" = "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip";
+    "url" = "https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip";
     "script" = "configure-http.ps1";
     "function" = "WebsiteTest";
   };
 }
 
-# Add the extension to the config
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Powershell -Type DSC -TypeHandlerVersion 2.24 -Name "dsc1" -Setting $dscConfig
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+                -ResourceGroupName "myResourceGroup" `
+                -VMScaleSetName "myScaleSet"
 
-# Send the new config to Azure
-Update-AzureRmVmss -ResourceGroupName $rg -Name "myscaleset1"  -VirtualMachineScaleSet $vmssConfig
+# Add the Desired State Configuration extension to install IIS and configure basic website
+$vmss = Add-AzureRmVmssExtension `
+    -VirtualMachineScaleSet $vmss `
+    -Publisher Microsoft.Powershell `
+    -Type DSC `
+    -TypeHandlerVersion 2.24 `
+    -Name "DSC" `
+    -Setting $dscConfig
+
+# Update the scale set and apply the Desired State Configuration extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet"  `
+    -VirtualMachineScaleSet $vmss
 ```
 
->[!IMPORTANT]
->Utilisez le commutateur `-ProtectedSetting` pour les paramètres qui peuvent contenir des informations sensibles.
+Si la stratégie de mise à niveau de votre groupe identique est *manuelle*, mettez à jour vos instances de machine virtuelle avec [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Cette applet de commande applique la configuration du groupe identique mis à jour aux instances de machine virtuelle, puis installe votre application.
 
------------
 
-Azure CLI utilise un fichier JSON pour les paramètres. Cet exemple déploie un package DSC qui installe IIS. Enregistrez le fichier JSON suivant sous _settings.json_.
+## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Installer une application sur une machine virtuelle Linux avec cloud-init
+[Cloud-init](https://cloudinit.readthedocs.io/latest/) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. Comme cloud-init s’exécute pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration.
 
-```json
-{
-  "wmfVersion": "latest",
-  "configuration": {
-    "url": "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip",
-    "script": "configure-http.ps1",
-    "function": "WebsiteTest"
-  }
-}
-```
+Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vous n’utilisez pas **apt-get install** ou **yum install** pour installer un package. Au lieu de cela, vous pouvez définir une liste des packages à installer, après quoi cloud-init se charge d’utiliser automatiquement l’outil de gestion de package natif correspondant à la distribution que vous sélectionnez.
 
-Ensuite, exécutez cette commande Azure CLI.
+Pour plus d’informations, y compris un exemple de fichier *cloud-init.txt*, consultez [Utiliser cloud-init pour personnaliser des machines virtuelles Azure](../virtual-machines/linux/using-cloud-init.md).
 
-```azurecli
-az vmss extension set --publisher Microsoft.Powershell --version 2.24 --name DSC --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
-```
-
->[!IMPORTANT]
->Utilisez le commutateur `--protected-settings` pour les paramètres qui peuvent contenir des informations sensibles.
-
-### <a name="linux"></a>Linux
-
-Linux peut utiliser l’extension **Script personnalisé v2.0** ou utiliser **cloud-init** lors de la création.
-
-Un script personnalisé est une extension simple qui télécharge des fichiers sur les instances de machine virtuelle et exécute une commande.
-
-#### <a name="custom-script"></a>Script personnalisé
-
-Enregistrez le fichier JSON suivant sous _settings.json_.
-
-```json
-{
-  "fileUris": [
-    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
-  ],
-  "commandToExecute": "bash installserver.sh"
-}
-```
-
-Utilisez Azure CLI pour ajouter cette extension à un groupe de machines virtuelles identiques. Chaque machine virtuelle du groupe identique exécute automatiquement l’extension.
-
-```azurecli
-az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
-```
-
->[!IMPORTANT]
->Utilisez le commutateur `--protected-settings` pour les paramètres qui peuvent contenir des informations sensibles.
-
-#### <a name="cloud-init"></a>Cloud-Init
-
-Cloud-Init est utilisé lors de la création du groupe identique. Créez d’abord un fichier local nommé _cloud-init.txt_ et ajoutez-y votre configuration. Par exemple, consultez [ce Gist](https://gist.github.com/Thraka/27bd66b1fb79e11904fb62b7de08a8a6#file-cloud-init-txt)
-
-Utilisez Azure CLI pour créer un groupe identique. Le champ `--custom-data` accepte le nom de fichier d’un script cloud-init.
+Pour créer un groupe identique et utiliser un fichier cloud-init, ajoutez le paramètre `--custom-data` à la commande [az vmss create](/cli/azure/vmss#create) et spécifiez le nom d’un fichier cloud-int. L’exemple suivant crée un groupe identique nommé *myScaleSet* dans *myResourceGroup* et configure des instances de machine virtuelle avec un fichier nommé *cloud-init.txt*. Saisissez vos propres noms, comme suit :
 
 ```azurecli
 az vmss create \
-  --resource-group myResourceGroupScaleSet \
+  --resource-group myResourceGroup \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
-  --generate-ssh-keys      
+  --generate-ssh-keys
 ```
 
-## <a name="how-do-i-manage-application-updates"></a>Comment gérer les mises à jour de l’application ?
 
-Si vous avez déployé votre application via une extension, modifiez quelque chose dans la définition de l’extension. Cette modification entraîne le redéploiement de l’extension sur toutes les instances de machine virtuelle. Vous **devez** modifier quelque chose qui concerne l’extension, par exemple renommer un fichier référencé. Sinon, Azure ne détecte pas que l’extension a été modifiée.
+## <a name="install-applications-as-a-set-scales-out"></a>Installer des applications lorsqu’un groupe identique monte en charge
+Les groupes identiques vous permettent d’augmenter le nombre d’instances de machine virtuelle qui exécutent votre application. Ce processus de montée en charge peut être démarré manuellement ou automatiquement en fonction de métriques telles que l’utilisation du processeur ou de la mémoire.
 
-Si vous avez intégré l’application de votre propre image du système d’exploitation, utilisez un pipeline de déploiement automatisé pour les mises à jour de l’application. Concevez votre architecture de façon à faciliter le passage rapide en production d’un groupe identique intermédiaire. Un bon exemple de cette approche est le [fonctionnement du pilote Azure Spinnaker](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
+Si vous avez appliqué une extension de script personnalisé au groupe identique, l’application est installée sur chaque nouvelle instance de machine virtuelle. Si le groupe identique est basé sur une image personnalisée avec l’application préinstallée, chaque nouvelle instance de machine virtuelle est déployée dans un état utilisable. 
 
-[Packer](https://www.packer.io/) et [Terraform](https://www.terraform.io/) prennent en charge Azure Resource Manager. Vous pouvez donc également définir vos images « en tant que code » et les générer dans Azure, puis utiliser le disque dur virtuel dans votre groupe identique. Cependant, cette opération devient problématique pour les images de place de marché, pour lesquelles les extensions / scripts personnalisés deviennent plus importants, car vous ne manipulez pas directement les éléments exécutables de la Place de marché.
-
-## <a name="what-happens-when-a-scale-set-scales-out"></a>Que se passe-t-il quand le nombre de machines virtuelles d’un groupe de machines virtuelles identiques augmente ?
-Quand vous ajoutez une ou plusieurs machines virtuelles à un groupe identique, l’application est automatiquement installée. Par exemple, si des extensions sont définies pour le groupe identique, elles s’exécutent sur une nouvelle machine virtuelle chaque fois qu’elle est créée. Si le groupe identique est basé sur une image personnalisée, toute nouvelle machine virtuelle est une copie de l’image personnalisée source. Si les machines virtuelles du groupe identique sont des hôtes de conteneurs, vous pouvez avoir du code exécuté au démarrage pour charger les conteneurs dans une extension de script personnalisé. Une extension peut aussi installer un agent qui s’inscrit auprès d’un orchestrateur de cluster, comme Azure Container Service.
+Si les instances de machine virtuelle du groupe identique sont des hôtes de conteneur, vous pouvez utiliser l’extension de script personnalisé pour extraire et exécuter des images de conteneur requises. L’extension de script personnalisé peut également enregistrer la nouvelle instance de machine virtuelle avec un orchestrateur, par exemple Azure Container Service.
 
 
-## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Comment déployer une mise à jour du système d’exploitation sur plusieurs domaines de mise à jour ?
-Supposons que vous voulez mettre à jour votre image de système d’exploitation tout en conservant le groupe de machines virtuelles identiques en cours d’exécution. PowerShell et Azure CLI peuvent mettre à jour les images de machine virtuelle, une seule machine virtuelle à la fois. L’article [Mettre à niveau un groupe de machines virtuelles identiques](./virtual-machine-scale-sets-upgrade-scale-set.md) fournit également plus d’informations sur les options disponibles pour effectuer une mise à niveau du système d’exploitation sur un groupe de machines virtuelles identiques.
+## <a name="deploy-application-updates"></a>Déployer des mises à jour de l’application
+Si vous mettez à jour le code de votre application, des bibliothèques ou des packages, vous pouvez transmettre le dernier état de l’application aux instances de machine virtuelle d’un groupe identique. Si vous utilisez l’extension de script personnalisé, les mises à jour de votre application ne sont pas automatiquement déployées. Modifiez la configuration du script personnalisé afin de pointer vers un script d’installation avec un nom de version mis à jour. Dans un exemple précédent, l’extension de script personnalisé utilise un script nommé *automate_nginx.sh* comme suit :
+
+```json
+{
+  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
+  "commandToExecute": "./automate_nginx.sh"
+}
+```
+
+Toutes les mises à jour que vous apportez à votre application ne sont pas exposées dans l’extension de script personnalisé, sauf en cas de modification de ce script d’installation. Une approche consiste à inclure un numéro de version qui s’incrémente à chaque nouvelle version de votre application. L’extension de script personnalisé peut désormais référencer *automate_nginx_v2.sh* comme suit :
+
+```json
+{
+  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx_v2.sh"],
+  "commandToExecute": "./automate_nginx_v2.sh"
+}
+```
+
+L’extension de script personnalisé s’exécute désormais sur les instances de machine virtuelle pour appliquer les dernières mises à jour de l’application.
+
+
+### <a name="install-applications-with-os-updates"></a>Installer des applications avec des mises jour du système d’exploitation
+Lorsque de nouvelles versions du système d’exploitation sont disponibles, vous pouvez utiliser ou créer une nouvelle image personnalisée et [déployer des mises à niveau du système d’exploitation](virtual-machine-scale-sets-upgrade-scale-set.md) sur un groupe identique. Chaque instance de machine virtuelle est mise à niveau avec la dernière image que vous spécifiez. Vous pouvez utiliser une image personnalisée avec l’application préinstallée, l’extension de script personnalisé ou DSC PowerShell, pour que votre application soit automatiquement disponible lorsque vous effectuez la mise à niveau. Vous devrez peut-être planifier la maintenance de l’application lorsque vous effectuez cette procédure pour éviter tout problème de compatibilité de version.
+
+Si vous utilisez une image de machine virtuelle personnalisée avec l’application préinstallée, vous pouvez intégrer les mises à jour de l’application dans un pipeline de déploiement pour créer les nouvelles images et déployer des mises à niveau du système d’exploitation sur l’ensemble du groupe identique. Avec cette approche, le pipeline peut récupérer les dernières versions de l’application, créer et valider une image de machine virtuelle, puis mettre à niveau les instances de machine virtuelle dans le groupe identique. Pour exécuter un pipeline de déploiement qui crée et déploie des mises à jour de l’application sur des images de machine virtuelle personnalisées, vous pouvez utiliser [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/) ou [Jenkins](https://jenkins.io/).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-* [Utilisez PowerShell pour gérer votre groupe identique](virtual-machine-scale-sets-windows-manage.md).
-* [Créez un modèle de groupe identique](virtual-machine-scale-sets-mvss-start.md).
-
-
-[linux-vm-create]: ../virtual-machines/linux/tutorial-manage-vm.md
-[windows-vm-create]: ../virtual-machines/windows/tutorial-manage-vm.md
-[linux-vm-capture]: ../virtual-machines/linux/capture-image.md
-[windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
-[vmss-create]: virtual-machine-scale-sets-create.md
-
+Lorsque vous générez et déployez des applications sur vos groupes identiques, vous pouvez consulter [Vue d’ensemble de la conception de groupes identiques](virtual-machine-scale-sets-design-overview.md). Pour plus d’informations sur la façon de gérer votre groupe identique, consultez [Utiliser PowerShell pour gérer votre groupe identique](virtual-machine-scale-sets-windows-manage.md).

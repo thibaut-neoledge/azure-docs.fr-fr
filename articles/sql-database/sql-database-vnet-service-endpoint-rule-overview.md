@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 10/09/2017
+ms.date: 10/13/2017
 ms.author: genemi
-ms.openlocfilehash: f62184d97b18d72b91d63db0e449bbab6c20a179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b15727ae6c7b4d0f1595d506cb8d0f66ec3abfe4
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
 
@@ -125,6 +125,9 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 ## <a name="limitations"></a>Limites
 
 Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
+
+- À l’heure actuelle, une application web Azure dans un sous-réseau dont les **points de terminaison de service** sont activés ne fonctionne pas encore comme prévu. Nous travaillons à activer cette fonctionnalité sous peu.
+    - Tant que cette fonctionnalité n’est pas entièrement implémentée, nous vous recommandons de déplacer votre application web vers un autre sous-réseau qui ne dispose pas de points de terminaison de service activés pour SQL.
 
 - Dans le pare-feu pour votre base de données SQL Database, chaque règle de réseau virtuel fait référence à un sous-réseau. Tous ces sous-réseaux référencés doivent être hébergés dans la même région géographique qui héberge la base de données SQL Database.
 
@@ -288,9 +291,6 @@ La fonctionnalité de points de terminaison de service de réseau virtuel Micros
 
 <!-- ??2
 #### Syntax related articles
-
-- PowerShell cmdlets
-
 - REST API Reference, including JSON
 
 - Azure CLI

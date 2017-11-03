@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 2424aa2cd5b6c7935338a593fa25a6a5772f4e62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07c4ddd59942889e9fe9c65343da2df59b64a1b
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 Cet article fournit des schémas JSON et des exemples pour la définition des entités Azure Data Factory (pipeline, activité, jeu de données et service lié).  
@@ -82,9 +82,9 @@ Le tableau suivant décrit les propriétés dans la définition JSON du pipeline
 | Tag | Description | Requis |
 | --- | --- | --- |
 | name |Nom de l’activité. Spécifiez un nom qui représente l’action pour laquelle l’activité est configurée<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |Oui |
-| Description |Texte décrivant la raison motivant l’activité. |Oui |
+| Description |Texte décrivant la raison motivant l’activité. |Non |
 | type |Spécifie le type de l'activité. Consultez les sections [MAGASINS DE DONNÉS](#data-stores) et [ACTIVITÉS DE TRANSFORMATION DES DONNÉES](#data-transformation-activities) pour en savoir plus sur les différents types d’activités. |Oui |
-| inputs |Les tables d’entrée utilisées par l’activité<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Oui |
+| inputs |Les tables d’entrée utilisées par l’activité<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Non pour les activités HDInsightStreaming et SqlServerStoredProcedure <br/> <br/> Oui pour toutes les autres |
 | outputs |Les tables de sortie utilisées par l’activité.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Oui |
 | linkedServiceName |Nom du service lié utilisé par l’activité. <br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. |Oui pour les activités HDInsight, les activités de Azure Machine Learning et les activités de procédure stockée. <br/><br/>Non pour toutes les autres |
 | typeProperties |Les propriétés de la section typeProperties dépendent du type de l’activité. |Non |

@@ -1,6 +1,6 @@
 ---
 title: "Créer des rapports sur des bases de données cloud avec montée en charge (partitionnement horizontal) | Microsoft Docs"
-description: "comment utiliser des requêtes entre plusieurs bases de données"
+description: "Utilisez des requêtes de base de données croisées pour créer des rapports sur plusieurs bases de données."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: 8eb56d44c3a261f6325d4fc91f169d09bf108160
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb5c39a600fb55dffc342535386f8049c9f4ca5a
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Créer des rapports sur des bases de données cloud avec montée en charge (version préliminaire)
 Vous pouvez créer des rapports tirés de plusieurs bases de données SQL Azure à partir d’un point de connexion unique par le biais d’une [requête élastique](sql-database-elastic-query-overview.md). Les bases de données doivent être partitionnées horizontalement.

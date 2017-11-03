@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0eb031893d53f09097b696e18f6c129be061136a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 913805901bf8131e4908be03e9213539a26205ed
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Chaînage de fonctions dans Fonctions durables - Exemple de séquence Hello
 
@@ -71,13 +71,16 @@ L’implémentation de `E1_SayHello` est une opération de mise en forme de cha�
 
 Cette fonction a un paramètre [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), qu’il utilise pour obtenir une entrée qui lui a été passée par l’appel de la fonction d’orchestrateur à [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)>.
 
-## <a name="running-the-orchestration"></a>Exécution de l’orchestration
+## <a name="run-the-sample"></a>Exécution de l'exemple
 
-Pour exécuter l’orchestration `E1_HelloSequence`, effectuez l’appel HTTP suivant.
+Pour exécuter l’orchestration `E1_HelloSequence`, envoyez la requête HTTP POST suivante.
 
 ```
-POST http://{app-name}.azurewebsites.net/orchestrators/E1_HelloSequence
+POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+Par exemple, si vous exécutez l’exemple dans une application de fonction nommée « myfunctionapp », remplacez « {hôte} » par « myfunctionapp.azurewebsites.net ».
+
 Le résultat est une réponse HTTP 202, comme celle-ci (ajustée par souci de concision) :
 
 ```
@@ -120,7 +123,7 @@ Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À ce stade, vous avez une connaissance élémentaire des mécanismes de base pour les fonctions durables. Cet exemple était banal et seules quelques-unes des fonctionnalités disponibles étaient montrées. Les exemples suivants sont plus « réels » et montre un éventail de fonctionnalités plus large.
+Cet exemple a illustré une orchestration simple de chaînage de fonction. L’exemple suivant montre comment implémenter le modèle fan-out/fan-in. 
 
 > [!div class="nextstepaction"]
 > [Exécuter l’exemple Fan-out/fan-in](durable-functions-cloud-backup.md)

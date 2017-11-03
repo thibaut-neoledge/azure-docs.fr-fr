@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/17/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eacecb9f084ead76633cf802751d3a603cb2f0d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Déplacer des données depuis DB2 à l’aide de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,7 +82,7 @@ Le tableau suivant répertorie les propriétés JSON spécifiques d’un service
 
 | Propriété | Description | Requis |
 | --- | --- | --- |
-| **type** |La propriété doit être définie sur **OnPremisesDB2**. |Oui |
+| **type** |Cette propriété doit être définie sur **OnPremisesDb2**. |Oui |
 | **server** |Nom du serveur DB2. |Oui |
 | **database** |Nom de la base de données DB2. |Oui |
 | **schema** |Nom du schéma dans la base de données DB2. Cette propriété est sensible à la casse. |Non |
@@ -110,11 +110,7 @@ Pour l’activité de copie, lorsque la source est de type **RelationalSource** 
 | **query** |Utilise la requête personnalisée pour lire les données. |Chaîne de requête SQL. Par exemple : `"query": "select * from "MySchema"."MyTable""` |Non (si la propriété **tableName** d’un jeu de données est spécifié) |
 
 > [!NOTE]
-> Les noms de schéma et de table respectent la casse. Dans l’instruction de requête, mettez les noms de propriétés entre "" (guillemets doubles). Par exemple :
->
-> ```sql
-> "query": "select * from "DB2ADMIN"."Customers""
-> ```
+> Les noms de schéma et de table respectent la casse. Dans l’instruction de requête, mettez les noms de propriétés entre "" (guillemets doubles).
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Exemple JSON : copie de données de DB2 vers le stockage Azure Blob
 Cet exemple présente des exemples de définition JSON, que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). L’exemple montre comment copier des données depuis une base de données DB2 dans le stockage Blob. Les données peuvent toutefois être copiées dans [tout magasin de données récepteur pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie dans Azure Data Factory.

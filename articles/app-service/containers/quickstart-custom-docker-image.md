@@ -1,6 +1,6 @@
 ---
-title: "Exécuter une image Docker Hub personnalisée dans Azure Web App for Containers | Microsoft Docs"
-description: "Comment utiliser une image Docker personnalisée pour Azure Web App for Containers."
+title: "Exécuter une image Docker Hub personnalisée dans Web App pour conteneurs | Microsoft Docs"
+description: "Comment utiliser une image Docker personnalisée pour Web App pour conteneurs."
 keywords: azure app service, application web, linux, docker, conteneur
 services: app-service
 documentationcenter: 
@@ -16,25 +16,25 @@ ms.topic: quickstart
 ms.date: 09/05/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 28b0b50c68fa7c16a354fd16b7dfd930436c6b4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eadc0f7eb20b9e8d1cacc79b2907559e2b2535a2
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Exécuter une image Docker Hub personnalisée dans Azure Web App for Containers #
+# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Exécuter une image Docker Hub personnalisée dans Web App pour conteneurs
 
-App Service fournit des piles d’applications prédéfinies sur Linux avec la prise en charge de versions spécifiques, comme PHP 7.0 et Node.js 4.5. Vous pouvez également utiliser une image Docker personnalisée pour déployer votre application web sur une pile d’applications qui n’est pas encore définie dans Azure. Ce guide de démarrage rapide vous montre comment créer une application web et y déployer une image Python. Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+App Service fournit des piles d’applications prédéfinies sur Linux avec la prise en charge de versions spécifiques, comme PHP 7.0 et Node.js 4.5. Vous pouvez également utiliser une image Docker personnalisée pour déployer votre application web sur une pile d’applications qui n’est pas encore définie dans Azure. Ce guide de démarrage rapide vous montre comment créer une application web et y déployer une image Docker basée sur Python. Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Créer une application web
+## <a name="create-a-web-app-for-container"></a>Créer une application Web App pour conteneurs
 
 Créez une [application web](../app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#create). N’oubliez pas de remplacer `<app name>` par un nom d’application unique.
 

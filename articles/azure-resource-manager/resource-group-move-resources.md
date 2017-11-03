@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 326039c58466e65183a594e222db24e998f151b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -320,6 +320,11 @@ Par exemple, supposons que vous avez configuré la réplication de vos machines 
 Vous pouvez déplacer des clusters HDInsight vers un nouvel abonnement ou groupe de ressources. Toutefois, vous ne pouvez pas déplacer sur différents abonnements les ressources réseau liées au cluster HDInsight (par exemple le réseau virtuel, une carte réseau ou un équilibrage de charge). En outre, vous ne pouvez pas déplacer vers un nouveau groupe de ressources une carte réseau connectée à une machine virtuelle pour le cluster.
 
 Lorsque vous déplacez un cluster HDInsight vers un nouvel abonnement, déplacez tout d’abord les autres ressources (le compte de stockage, par exemple). Puis, déplacez le cluster HDInsight par lui-même.
+
+## <a name="search-limitations"></a>Limitations de recherche
+
+Vous ne pouvez pas déplacer simultanément plusieurs ressources de recherche placés dans des régions différentes.
+Dans ce cas, vous devez les déplacer séparément.
 
 ## <a name="use-portal"></a>Utilisation du portail
 

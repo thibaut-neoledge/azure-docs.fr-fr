@@ -12,23 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ce50c678247226b629490a2bd8ba2935ed229f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f661dba2e647ac905e7d84927fdbf6dbc76094f
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Windows Server à un domaine géré
-> [!div class="op_single_selector"]
-> * [Portail Azure - Windows](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-> * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
->
->
-
-<br>
-
 Cet article explique comment déployer une machine virtuelle Windows Server à l’aide du portail Azure. Il indique également comment joindre une machine à un domaine managé Azure AD Domain Services.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>Étape 1 : créer la machine virtuelle Windows Server
@@ -57,7 +49,7 @@ Pour créer une machine virtuelle Windows jointe au réseau virtuel au sein duqu
 
     > [!TIP]
     > **Choisissez les sous-réseau et réseau virtuel adaptés.**
-    > Sélectionnez le réseau virtuel que dans lequel est déployé votre domaine managé, ou un réseau virtuel qui lui est connecté à l’aide de l’homologation de réseau virtuel. Si vous sélectionnez un autre réseau virtuel, vous ne serez pas en mesure de joindre le réseau virtuel au domaine managé.
+    > Sélectionnez le réseau virtuel que dans lequel est déployé votre domaine managé, ou un réseau virtuel qui lui est connecté à l’aide de l’homologation de réseau virtuel. Si vous sélectionnez un réseau virtuel non connecté, vous ne pouvez pas joindre la machine virtuelle au domaine managé.
     > Nous vous recommandons de déployer votre domaine managé dans un sous-réseau dédié. Par conséquent, ne choisissez pas le sous-réseau dans lequel vous avez activé votre domaine managé.
 
 7. Sur la page **Achat**, vérifiez les paramètres et cliquez sur **OK** pour déployer la machine virtuelle.
@@ -128,7 +120,7 @@ Si une boîte de dialogue s’affiche, vous demandant de saisir vos informations
 Reportez-vous à la procédure suivante si vous rencontrez des problèmes concernant les informations d’identification et que vous ne parvenez pas à joindre le domaine.
 
 * Essayez d’utiliser le format UPN pour spécifier les informations d’identification. S’il existe plusieurs utilisateurs présentant le même préfixe UPN sur votre locataire, ou si votre préfixe UPN est trop long, la valeur SAMAccountName de votre compte peut être générée automatiquement. Par conséquent, le format SAMAccountName de votre compte peut différer de ce à quoi vous vous attendiez ou de ce que vous utilisez dans votre domaine local.
-* Essayez d’utiliser les informations d’identification d’un compte d’utilisateur appartenant au groupe « AAD DC Administrators » pour joindre des machines au domaine géré.
+* Essayez d’utiliser les informations d’identification d’un compte d’utilisateur qui appartient au groupe « AAD DC Administrators ».
 * Assurez-vous d'avoir [activé la synchronisation du mot de passe](active-directory-ds-getting-started-password-sync.md) selon les étapes décrites dans le guide de mise en route.
 * Veillez à utiliser l’UPN de l’utilisateur tel que configuré dans Azure AD (par exemple, bob@domainservicespreview.onmicrosoft.com) pour vous connecter.
 * Vérifiez que vous avez bien attendu la fin de la synchronisation des mots de passe, comme indiqué dans le guide de prise en main.

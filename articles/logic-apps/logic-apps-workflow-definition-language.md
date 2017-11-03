@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf078a0cebf3c36d5916035fb5fd7e47d231abe
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Schéma du langage de définition du flux de travail pour Azure Logic Apps
 
@@ -167,7 +167,7 @@ Vous pouvez également appeler des fonctions dans des expressions. Le tableau su
 |Expression|Évaluation|  
 |----------------|----------------|  
 |« @function('Hello') »|Appelle la fonction membre de la définition avec la chaîne littérale Hello comme premier paramètre.|  
-|« @function('C’est cool !') »|Appelle la fonction membre de la définition avec la chaîne littérale C’est cool comme premier paramètre.|  
+|« @function('C’est cool !') »|Appelle la fonction membre de la définition avec la chaîne littérale C’est cool comme premier paramètre.|  
 |« @function().prop1 »|Retourne la valeur de la propriété prop1 du membre `myfunction` de la définition.|  
 |« @function('Hello').prop1 »|Appelle la fonction membre de la définition avec la chaîne littérale Hello comme premier paramètre, et retourne la propriété prop1 de l’objet.|  
 |« @function(parameters('Hello')) »|Évalue le paramètre Hello et transmet la valeur à la fonction.|  

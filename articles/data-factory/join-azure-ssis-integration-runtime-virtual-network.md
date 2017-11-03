@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
-ms.openlocfilehash: 02d9102bfc9b0d8084988609282f2c78b5789e7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a58f55bd627594145661e1c8d5c1da360cd1e30
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 Vous devez joindre le runtime d’intégration Azure-SSIS (IR) à un réseau virtuel Azure (VNet) si l’une des conditions suivantes est satisfaite : 
@@ -26,6 +26,9 @@ Vous devez joindre le runtime d’intégration Azure-SSIS (IR) à un réseau vir
 - Vous voulez vous connecter à des banques de données locales à partir de packages SSIS qui s’exécutent sur un runtime d’intégration Azure-SSIS.
 
  Azure Data Factory version 2 (préversion) vous permet de joindre votre runtime d’intégration Azure-SSIS à un réseau virtuel classique. Sachez que le réseau virtuel Azure Resource Manager n’est actuellement pas pris en charge. Toutefois, vous pouvez contourner ce point comme indiqué dans la section suivante. 
+
+ > [!NOTE]
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 Si les packages SSIS accèdent uniquement aux banques de données cloud publiques, vous n’avez pas besoin de joindre le runtime d’intégration Azure-SSIS à un réseau virtuel. Si les packages SSIS accèdent aux banques de données locales, vous devez joindre le runtime d’intégration Azure-SSIS à un réseau virtuel qui est connecté au réseau local. Si le catalogue SSIS est hébergé dans Azure SQL Database qui ne se trouve pas dans le réseau virtuel, vous devez ouvrir les ports appropriés. Si le catalogue SSIS est hébergé dans une instance Azure SQL Managed qui se trouve dans un réseau virtuel classique, vous pouvez joindre le runtime d’intégration Azure-SSIS à ce même réseau (ou) à un autre réseau virtuel classique à condition qu’il possède une connexion VNet de type classique vers classique avec celui sur lequel l’instance Azure SQL Managed est installée. Pour plus d’informations, lisez les sections suivantes.  
 

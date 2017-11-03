@@ -9,16 +9,16 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/20/2017
-ms.openlocfilehash: 3fbdb7741481bd3620466c3489d3609f9ea6961f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f1ffa20b58c52558e880ed6a0ef4ca674173973
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure
 
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
-Lorsque vous utilisez Azure Database pour PostgreSQL, le service de base de données crée automatiquement une sauvegarde du service toutes les 5 minutes. 
+Lorsque vous utilisez Azure Database pour PostgreSQL, le service de base de données crée automatiquement une sauvegarde du serveur toutes les 5 minutes. 
 
 Les sauvegardes sont disponibles pendant 7 jours avec le niveau De base et 35 jours lors de l’utilisation de niveau Standard. Pour plus d’informations, consultez [Niveaux de service d’Azure Database pour PostgreSQL](concepts-service-tiers.md)
 
@@ -31,20 +31,20 @@ Par exemple, si une table a été accidentellement supprimée à midi aujourd'hu
 
 Les étapes suivantes restaurent l’exemple de serveur à un point dans le temps :
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Recherchez votre serveur Azure Database pour PostgreSQL. Dans le portail Azure, cliquez sur **Toutes les ressources** à partir du menu de gauche et saisissez le nom, par exemple **mypgserver-20170401**, pour rechercher votre serveur existant. Cliquez sur le nom du serveur répertorié dans les résultats de la recherche. La page **Présentation** pour votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
+2. Recherchez votre serveur Azure Database pour PostgreSQL. Dans le portail Azure, cliquez sur **Toutes les ressources** à partir du menu de gauche et saisissez le nom du serveur, par exemple **mypgserver-20170401**, pour rechercher votre serveur existant. Cliquez sur le nom du serveur figurant dans les résultats de la recherche. La page **Présentation** pour votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
 
    ![Portail Azure - Recherche pour localiser votre serveur](media/postgresql-howto-restore-server-portal/1-locate.png)
 
-3. En haut du panneau de vue d’ensemble du serveur, cliquez sur **Restaurer** dans la barre d’outils. Le panneau de restauration s’ouvre.
+3. Dans la barre d’outils du panneau de vue d’ensemble du serveur, cliquez sur **Restaurer**. Le panneau de restauration s’ouvre.
 
    ![Azure Database pour PostgreSQL - Vue d’ensemble - Bouton Restaurer](./media/postgresql-howto-restore-server-portal/2_server.png)
 
 4. Remplissez le formulaire Restaurer avec les informations requises :
 
    ![Azure Database pour PostgreSQL - Informations de restauration ](./media/postgresql-howto-restore-server-portal/3_restore.png)
-  - **Point de restauration** : Sélectionnez une heure avant la modification du serveur
-  - **Serveur cible** : fournissez un nouveau nom de serveur sur lequel vous souhaitez effectuer la restauration.
-  - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
+  - **Point de restauration :** sélectionnez un point dans le temps avant la modification du serveur.
+  - **Serveur cible :** spécifiez un nouveau nom de serveur sur lequel vous souhaitez effectuer la restauration.
+  - **Emplacement :** vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
   - **Niveau tarifaire** : vous ne pouvez pas modifier cette valeur lors de la restauration d’un serveur. Identique au serveur source. 
 
 5. Cliquez sur **OK** pour restaurer le serveur à restaurer à un moment donné. 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 0a5a783751e4f0fa9f5fb43b22fa221dd9bf3444
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Intégration au centre de données Azure Stack - DNS
 
@@ -48,7 +48,7 @@ Afin d’utiliser cet exemple d’espace de noms DNS pour un déploiement d’Az
 - Le domaine enfant `cloud.fabrikam.com` existe sous la zone `fabrikam.com`.
 - Les serveurs DNS qui hébergent les zones `fabrikam.com` et `cloud.fabrikam.com` sont accessibles depuis le déploiement d’Azure Stack.
 
-Afin de résoudre les noms DNS pour les points de terminaison Azure Stack et les instances en dehors d’Azure Stack, vous devez intégrer les serveurs DNS qui hébergent la zone DNS externe pour Azure Stack aux serveurs DNS qui hébergent la zone parente que vous souhaitez utiliser.
+Afin de résoudre les noms DNS pour les points de terminaison Azure Stack et les instances en dehors d’Azure Stack, vous devez intégrer les serveurs DNS qui hébergent la zone DNS externe pour Azure Stack aux serveurs DNS qui hébergent la zone parent que vous souhaitez utiliser.
 
 
 ## <a name="resolution-and-delegation"></a>Résolution et délégation
@@ -140,4 +140,4 @@ La plupart des bureaux d’enregistrement DNS requièrent que vous fournissiez a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Intégration au centre de données Azure Stack : publier des points de terminaison](azure-stack-integrate-endpoints.md)
+[Intégration au centre de données Azure Stack - Identité](azure-stack-integrate-identity.md)

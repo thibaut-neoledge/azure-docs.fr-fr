@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 3fa6f4f850fc67d41f619d46bd61a19fe890b0fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 > [!div class="op_single_selector"]
@@ -204,7 +204,13 @@ Lors du choix de l’option à utiliser, le compromis se situe entre la facilit�
 | Serveur proxy HTTP |Contrôle granulaire dans le proxy sur les URL de stockage autorisées.<br>Un seul point d’accès Internet aux machines virtuelles.<br>Non soumis aux modifications d’adresse IP Azure. |Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Mettez sur liste approuvée les plages IP du centre de données Azure
-Pour mettre sur liste approuvée les plages d’adresses IP des centres de données Azure, mais aussi obtenir plus d’informations sur les plages d’adresses IP et des instructions, voir le [site web Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) .
+* Pour mettre sur liste approuvée les plages d’adresses IP des centres de données Azure, mais aussi obtenir plus d’informations sur les plages d’adresses IP et des instructions, voir le [site web Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) .
+* Vous pouvez utiliser des balises de service pour autoriser les connexions au stockage de la région spécifique à l’aide de [Balises de service](../virtual-network/security-overview.md#service-tags). Vérifiez que la règle qui autorise l’accès au compte de stockage a une priorité plus élevée que la règle bloquant l’accès à internet. 
+
+  ![Groupe de sécurité réseau avec des balises de stockage pour une région](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Les balises de stockage sont en préversion et disponibles uniquement dans des régions spécifiques. Pour obtenir la liste des régions, consultez [Balises de service pour le stockage](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>Utilisation d’un proxy HTTP pour les sauvegardes de machine virtuelle
 Lorsque vous sauvegardez une machine virtuelle, l’extension de sauvegarde sur la machine virtuelle envoie les commandes de gestion de capture instantanée vers le stockage Azure à l’aide d’une API HTTPS. Acheminez le trafic de l’extension de sauvegarde via le proxy HTTP, car c’est le seul composant configuré pour l’accès à l’Internet public.

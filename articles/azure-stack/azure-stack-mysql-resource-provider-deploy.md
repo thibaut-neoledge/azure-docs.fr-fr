@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 30ab634620cbb38315bd331b38d47c26cdd1eb8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c74eea3a121c35689add6cd835f6a7bbe95f595
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utiliser des bases de données MySQL sur Microsoft Azure Stack
 
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez déployer un fournisseur de ressources MySQL sur Azure Stack. Après avoir déployé le fournisseur de ressources, vous pouvez créer des serveurs et des bases de données MySQL avec des modèles de déploiement Azure Resource Manager et fournir des bases de données MySQL en tant que service. Les bases de données MySQL, qui sont courantes sur les sites web, prennent en charge de nombreuses plateformes de site web. Par exemple, après avoir déployé le fournisseur de ressources, vous pouvez créer des sites web WordPress à partir du module complémentaire PaaS (Platform as a Service) Azure Web Apps pour Azure Stack.
 
@@ -53,10 +54,12 @@ Le compte système doit disposer des privilèges suivants :
 
 
 2. Connectez-vous à un hôte qui peut accéder à la machine virtuelle de point de terminaison privilégié.
+
     a. Sur les installations Azure Stack Development Kit, connectez-vous à l’hôte physique.
+
     b. Sur les systèmes à plusieurs nœuds, l’hôte doit être un système qui peut accéder au point de terminaison privilégié.
 
-3. [Téléchargez le fichier binaire du fournisseur de ressources MySQL](https://aka.ms/azurestackmysqlrp) et extrayez-le vers un répertoire temporaire.
+3. [Téléchargez le fichier binaire du fournisseur de ressources MySQL](https://aka.ms/azurestackmysqlrp)et exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire.
 
 4.  Le certificat racine Azure Stack est récupéré à partir du point de terminaison privilégié. Pour ASDK, un certificat auto-signé est créé dans le cadre de ce processus. Pour plusieurs nœuds, vous devez fournir un certificat approprié.
 
@@ -90,39 +93,41 @@ Voici un exemple que vous pouvez exécuter à partir de l’invite PowerShell (m
 
 
 ```
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = "AzureStack"
-# Extract the downloaded file by executing it and pointing to a temp directory
-$tempDir = "C:\TEMP\MySQLRP"
-# The service admin (can be AAD or ADFS)
-$serviceAdmin = "admin@mydomain.onmicrosoft.com"
-
-# Install the AzureRM.Bootstrapper module
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
 Install-Module -Name AzureRm.BootStrapper -Force
-
-# Install and imports the API Version Profile required by Azure Stack into the current PowerShell session.
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Create the credentials needed for the deployment - local VM
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+$domain = 'AzureStack'
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\MYSQLRP'
 
-# and the Service Admin credential
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# and the cloud admin credential required for Privleged Endpoint access
+# Set the credentials for the Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privleged Endpoint access
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
 # change the following as appropriate
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change directory to the folder where you extracted the installation files
-# and adjust the endpoints
-$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath <path to certificate and other dependencies> -AcceptLicense
-
+# Run the installation script from the folder where you extracted the installation files
+# Find the ERCS01 IP address first and make sure the certificate
+# file is in the specified directory
+$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint '10.10.10.10' `
+  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
 
  ```
 
@@ -138,7 +143,7 @@ Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le 
 | **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _obligatoire_ |
 | **AzCredential** | Fournissez les informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _obligatoire_ |
 | **VMLocalCredential** | Définissez les informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources MySQL. | _obligatoire_ |
-| **PrivilegedEndpoint** | Fournir l’adresse IP ou le nom DNS du point de terminaison privilégié. |  _obligatoire_ |
+| **PrivilegedEndpoint** | Spécifiez l’adresse IP ou le nom DNS du point de terminaison privilégié. |  _obligatoire_ |
 | **DependencyFilesLocalPath** | Chemin vers un partage local contenant [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Si vous les fournissez, le fichier de certificat doit également être placé dans ce répertoire. | _facultatif_ (_obligatoire_ pour plusieurs nœuds) |
 | **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _obligatoire_ |
 | **MaxRetryCount** | Définissez le nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 |
@@ -163,7 +168,7 @@ En fonction de la vitesse de téléchargement et des performances système, l’
 
 1. Connectez-vous au portail d’administration en tant qu’administrateur de service.
 
-2. Vérifiez que le déploiement a réussi. Recherchez **Groupes de ressources** &gt;, cliquez sur le groupe de ressources **system.<location>.mysqladapter** et vérifiez que les cinq déploiements ont réussi.
+2. Vérifiez que le déploiement a réussi. Recherchez **Groupes de ressources** &gt;, cliquez sur le groupe de ressources **system.\<location\>.mysqladapter** et vérifiez que les quatre déploiements ont réussi.
 
       ![Vérifier le déploiement du fournisseur de ressources MySQL](./media/azure-stack-mysql-rp-deploy/mysqlrp-verify.png)
 

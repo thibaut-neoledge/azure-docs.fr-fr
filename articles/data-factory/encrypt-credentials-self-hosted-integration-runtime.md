@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: abnarain
-ms.openlocfilehash: 72a928455e4710b43553fc596a94f6c55a6b5bfa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb07deab834f63b48b7441f32521c48b27e549ca
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Chiffrer des informations d’identification pour vos magasins de données locaux dans Azure Data Factory
 Vous pouvez chiffrer et stocker des informations d’identification pour vos magasins de données locaux (services associés avec des informations sensibles) sur une machine avec runtime d’intégration auto-hébergé. 
 
 Vous passez un fichier de définition JSON avec des informations d’identification à l’ <br/>applet de commande [**New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) pour générer un fichier de définition JSON de sortie avec les informations d’identification chiffrées. Ensuite, utilisez la définition JSON mise à jour pour créer les services liés.
+
+> [!NOTE]
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="author-sql-server-linked-service"></a>Rédiger un service lié SQL Server
 Créez un fichier JSON nommé **StorageLinkedService.json** dans n’importe quel dossier avec le contenu suivant :  

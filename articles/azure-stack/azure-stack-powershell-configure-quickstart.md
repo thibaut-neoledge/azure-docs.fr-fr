@@ -12,32 +12,35 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/24/2017
 ms.author: sngun
-ms.openlocfilehash: 6e5c420ed80127213e38849ac1999bba199e36c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 039806e164be29b80e604bbcf0f2997e635664e5
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Devenez rapidement opérationnel avec PowerShell dans Azure Stack.
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Cet article est un guide de démarrage rapide pour installer et configurer l’environnement Azure Stack avec PowerShell. La portée du script fourni dans cet article est définie uniquement par l’**opérateur Azure Stack**.
+Ce démarrage rapide vous aide à installer et configurer un environnement Azure Stack avec PowerShell. La portée du script fourni dans cet article est définie seulement pour **l’opérateur Azure Stack**.
 
-Cet article est une version condensée des étapes décrites dans les articles [Installer PowerShell]( azure-stack-powershell-install.md), [Télécharger les outils]( azure-stack-powershell-download.md) et [Configurer l’environnement PowerShell de l’opérateur Azure Stack]( azure-stack-powershell-configure-admin.md). Les scripts fournis dans cette rubrique permettent de configurer PowerShell pour les environnements Azure Stack qui sont déployés avec Azure Active Directory ou Active Directory Federation Services.  
+Cet article est une version condensée des étapes décrites dans les articles [Installer PowerShell]( azure-stack-powershell-install.md), [Télécharger les outils]( azure-stack-powershell-download.md) et [Configurer l’environnement PowerShell de l’opérateur Azure Stack]( azure-stack-powershell-configure-admin.md). Les scripts fournis dans cette rubrique permettent de configurer PowerShell pour les environnements Azure Stack qui sont déployés avec Azure Active Directory ou Active Directory Federation Services (AD FS).  
 
 
-## <a name="set-up-powershell-for-aad-based-deployments"></a>Configurer PowerShell pour les déploiements basés sur AAD
+## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Configurer PowerShell pour les déploiements basés sur Azure Active Directory
 
-Connectez-vous à votre Kit de développement Azure Stack, ou à un client externe Windows si vous êtes connecté par le biais d’un VPN. Ouvrez une session PowerShell ISE avec élévation de privilèges et exécutez le script suivant (veillez à mettre à jour les variables TenantName, ArmEndpoint et GraphAudience conformément à la configuration de votre environnement) :
+Connectez-vous à votre Kit de développement Azure Stack, ou à un client externe Windows si vous êtes connecté par le biais d’un VPN. Ouvrez une session PowerShell ISE avec élévation de privilèges et exécutez le script suivant. Veillez à mettre à jour les variables **TenantName**, **ArmEndpoint** et **GraphAudience** en fonction des besoins de la configuration de votre environnement :
+
+> [!IMPORTANT]
+> La version du module PowerShell AzureRM 1.2.11 est fournie avec une liste des modifications importantes. Pour mettre à niveau à partir de la version 1.2.10, consultez le [guide de migration](https://aka.ms/azspowershellmigration).
 
 ```powershell
-# Specify Azure Active Directory tenant name
+# Specify Azure Active Directory tenant name.
 $TenantName = "<mydirectory>.onmicrosoft.com"
 
-# Set the module repository and the execution policy
+# Set the module repository and the execution policy.
 Set-PSRepository `
   -Name "PSGallery" `
   -InstallationPolicy Trusted
@@ -45,12 +48,12 @@ Set-PSRepository `
 Set-ExecutionPolicy RemoteSigned `
   -force
 
-# Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command:
+# Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
 Get-Module -ListAvailable | `
   where-Object {$_.Name -like “Azure*”} | `
   Uninstall-Module
 
-# Install PowerShell for Azure Stack
+# Install PowerShell for Azure Stack.
 Install-Module `
   -Name AzureRm.BootStrapper `
   -Force
@@ -61,10 +64,10 @@ Use-AzureRmProfile `
 
 Install-Module `
   -Name AzureStack `
-  -RequiredVersion 1.2.10 `
+  -RequiredVersion 1.2.11 `
   -Force 
 
-# Download Azure Stack tools from GitHub and import the connect module
+# Download Azure Stack tools from GitHub and import the connect module.
 cd \
 
 invoke-webrequest `
@@ -77,42 +80,38 @@ expand-archive master.zip `
 
 cd AzureStack-Tools-master
 
-Import-Module `
-  .\Connect\AzureStack.Connect.psm1
+Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-$ArmEndpoint = "<Resource Manager endpoint for your environment>"
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-$GraphAudience = "<GraphAuidence endpoint for your environment>"
+# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
+$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
 
-# Configure the Azure Stack operator’s PowerShell environment.
-Add-AzureRMEnvironment `
-  -Name "AzureStackAdmin" `
-  -ArmEndpoint $ArmEndpoint
 
-Set-AzureRmEnvironment `
-  -Name "AzureStackAdmin" `
-  -GraphAudience $GraphAudience
+# Register an AzureRM environment that targets your Azure Stack instance
+  Add-AzureRMEnvironment `
+    -Name "AzureStackAdmin" `
+    -ArmEndpoint $ArmEndpoint
 
-$TenantID = Get-AzsDirectoryTenantId `
-  -AADTenantName $TenantName `
-  -EnvironmentName AzureStackAdmin
+# Get the Active Directory tenantId that is used to deploy Azure Stack
+  $TenantID = Get-AzsDirectoryTenantId `
+    -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+    -EnvironmentName "AzureStackAdmin"
 
-# Sign-in to the operator's portal.
-Login-AzureRmAccount `
-  -EnvironmentName "AzureStackAdmin" `
-  -TenantId $TenantID 
-
+# Sign in to your environment
+  Login-AzureRmAccount `
+    -EnvironmentName "AzureStackAdmin" `
+    -TenantId $TenantID 
 ```
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Configurer PowerShell pour les déploiements basés sur AD FS 
 
-Connectez-vous à votre Kit de développement Azure Stack, ou à un client externe Windows si vous êtes connecté par le biais d’un VPN. Ouvrez une session PowerShell ISE avec élévation de privilèges et exécutez le script suivant (veillez à mettre à jour les variables ArmEndpoint et GraphAudience conformément à la configuration de votre environnement) :
+Connectez-vous à votre Kit de développement Azure Stack, ou à un client externe Windows si vous êtes connecté par le biais d’un VPN. Ouvrez une session PowerShell ISE avec élévation de privilèges et exécutez le script suivant. Veillez à mettre à jour les variables **ArmEndpoint** et **GraphAudience** en fonction des besoins de la configuration de votre environnement :
 
 ```powershell
 
-# Set the module repository and the execution policy
+# Set the module repository and the execution policy.
 Set-PSRepository `
   -Name "PSGallery" `
   -InstallationPolicy Trusted
@@ -125,7 +124,7 @@ Get-Module -ListAvailable | `
   where-Object {$_.Name -like “Azure*”} | `
   Uninstall-Module
 
-# Install PowerShell for Azure Stack
+# Install PowerShell for Azure Stack.
 Install-Module `
   -Name AzureRm.BootStrapper `
   -Force
@@ -136,12 +135,11 @@ Use-AzureRmProfile `
 
 Install-Module `
   -Name AzureStack `
-  -RequiredVersion 1.2.10 `
+  -RequiredVersion 1.2.11 `
   -Force 
 
-# Download Azure Stack tools from GitHub and import the connect module
+# Download Azure Stack tools from GitHub and import the connect module.
 cd \
-
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -152,34 +150,28 @@ expand-archive master.zip `
 
 cd AzureStack-Tools-master
 
-Import-Module `
-  .\Connect\AzureStack.Connect.psm1
+Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-$GraphAudience = "<GraphAuidence endpoint for your environment>"
+# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
+$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
 
-# Configure the cloud administrator’s PowerShell environment.
+# Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
-  -Name "AzureStackAdmin" `
-  -ArmEndpoint $ArmEndpoint
+    -Name "AzureStackAdmin" `
+    -ArmEndpoint $ArmEndpoint
 
-Set-AzureRmEnvironment `
-  -Name "AzureStackAdmin" `
-  -GraphAudience $GraphAudience `
-  -EnableAdfsAuthentication:$true
-
+# Get the Active Directory tenantId that is used to deploy Azure Stack     
 $TenantID = Get-AzsDirectoryTenantId `
-  -ADFS `
-  -EnvironmentName "AzureStackAdmin"
+    -ADFS `
+    -EnvironmentName "AzureStackAdmin"
 
-# Sign-in to the operator's portal.
+# Sign in to your environment
 Login-AzureRmAccount `
-  -EnvironmentName "AzureStackAdmin" `
-  -TenantId $TenantID 
-
+    -EnvironmentName "AzureStackAdmin" `
+    -TenantId $TenantID
 ```
 
 ## <a name="test-the-connectivity"></a>Tester la connectivité
@@ -190,7 +182,7 @@ Maintenant que vous avez configuré PowerShell, vous pouvez tester la configurat
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
-Quand le groupe de ressources est créé, la sortie de l’applet de commande indique que la valeur de la propriété d’état d’approvisionnement est « Succeeded ».
+Une fois le groupe de ressources créé, la propriété **État de l’approvisionnement** est définie sur **Réussi**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

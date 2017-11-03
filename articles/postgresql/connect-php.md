@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.openlocfilehash: 9beb92895056b51f40988fc6c47dfa6f80ca3294
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20dbc4bbe66ec311afcc238b25a6c1f6f6a40829
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de PHP pour se connecter et interroger des données
-Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application [PHP](http://php.net/manual/intro-whatis.php). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement à l’aide de PHP, mais que vous ne connaissez pas la base de données Azure pour PostgreSQL.
+Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application [PHP](http://php.net/manual/intro-whatis.php). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement via PHP, et que vous ne savez pas utiliser Azure Database pour PostgreSQL.
 
 ## <a name="prerequisites"></a>Composants requis
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :

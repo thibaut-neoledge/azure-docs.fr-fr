@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: c760cf5a9bdd4b64a60470fa48cb9b57ec4ab5fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Réagir aux événements de stockage d’objets Blob (version préliminaire)
 
@@ -20,21 +20,9 @@ Les événements de stockage Blob Azure permettent aux applications de réagir �
 
 Les scénarios d’événements de stockage d’objets Blob courants incluent le traitement d’images ou de vidéos, l’indexation pour la recherche ou n’importe quel flux de travail orienté fichier.  Les téléchargements de fichier asynchrones sont parfaitement adaptés aux événements.  Lorsque les modifications sont peu fréquentes, mais que votre scénario requiert une réactivité immédiate, une architecture basée sur des événements peut être particulièrement efficace.
 
+La préversion d’Event Grid est actuellement disponible pour les comptes situés dans les régions ***États-Unis Centre-Ouest*** ou ***États-Unis de l’Ouest 2***.  Examinons [Acheminer des événements de stockage Blob Azure vers un point de terminaison Web personnalisé ](storage-blob-event-quickstart.md) pour obtenir un exemple rapide.
+
 ![Modèle de Event Grid](./media/storage-blob-event-overview/event-grid-functional-model.png)
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="join-the-preview"></a>Rejoindre la version préliminaire
-Les événements de stockage d’objets Blob sont disponibles dans la version préliminaire.  Les utilisateurs peuvent demander à rejoindre la version préliminaire en exécutant les commandes suivantes sur leur abonnement :
-```azurecli-interactive
-az provider register --namespace  Microsoft.EventGrid
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-Les abonnements sont ajoutés à ce programme en version préliminaire lorsque de la capacité est disponible.  L’état de la demande peut être surveillé en émettant la commande suivante :
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-Une fois que votre état d’enregistrement passe à « Enregistré », vous avez été admis pour le programme en préversion et vous pouvez vous abonner aux événements de stockage d’objets Blob pour les comptes dans les emplacements ***Ouest des États-Unis*** ou ***Ouest des États-Unis 2***.  Examinons [Acheminer des événements de stockage Blob Azure vers un point de terminaison Web personnalisé ](storage-blob-event-quickstart.md) pour obtenir un exemple rapide.
 
 ## <a name="blob-storage-accounts"></a>Comptes de stockage d’objets blob
 Les événements de stockage d’objets Blob sont disponibles dans [Comptes de stockage d’objets Blob](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (et non dans les comptes de stockage à usage général).  Un compte de stockage d’objets blob est un compte de stockage spécialisé pour le stockage des données non structurées en tant qu’objets blob dans Azure Storage. Les comptes de stockage d’objets blob sont comme vos comptes de stockage à usage général existants et offrent les excellents niveaux de durabilité, disponibilité, évolutivité et performances dont vous bénéficiez aujourd’hui. Ils assurent notamment la cohérence d’API à 100 % pour les objets blob de blocs et d’ajout. Pour les applications qui requièrent uniquement le stockage d’objets blob de blocs ou d’objets blob d’ajout, nous recommandons d’utiliser des comptes de stockage d’objets blob.

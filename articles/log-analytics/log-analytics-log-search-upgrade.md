@@ -1,5 +1,5 @@
 ---
-title: "Mise à niveau d’Azure Log Analytics pour la nouvelle fonctionnalité de recherche dans les journaux | Microsoft Docs"
+title: "Mise à niveau d’Azure Log Analytics avec la nouvelle recherche dans les journaux | Microsoft Docs"
 description: "Le nouveau langage de requête Log Analytics sera bientôt disponible. En attendant, vous pouvez participer à la préversion publique.  Cet article décrit les avantages du nouveau langage et explique comment convertir votre espace de travail."
 services: log-analytics
 documentationcenter: 
@@ -11,22 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
-# <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Mettre à niveau de votre espace de travail Azure Log Analytics pour la nouvelle fonctionnalité de recherche dans les journaux
+# <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux
 
-> [!NOTE]
-> La mise à niveau vers le nouveau langage de requête Log Analytics est actuellement facultative, afin de vous laisser le temps de vous [familiariser avec le nouveau langage](https://go.microsoft.com/fwlink/?linkid=856078).  
-
-Le nouveau langage de requête Log Analytics est désormais disponible et vous devez mettre à niveau votre espace de travail pour pouvoir l’utiliser.  Cet article décrit les avantages du nouveau langage et explique comment convertir votre espace de travail.  Si vous choisissez de ne pas procéder à la mise à niveau pour le moment, votre espace de travail continuera de fonctionner exactement comme avant. Toutefois, il sera automatiquement converti à une date ultérieure.  Vous serez averti bien à l’avance de cette conversion.
-
-Cet article fournit des informations détaillées sur le nouveau langage et le processus de mise à niveau.
+Le nouveau langage de requête Log Analytics est disponible, vous devez mettre à niveau votre espace de travail pour pouvoir l’utiliser.  Vous pouvez mettre à niveau votre espace de travail vous-même ou attendre qu’il soit automatiquement mis à niveau pendant la période de lancement (entre la fin octobre et la fin de l’année).  Cet article décrit les avantages du nouveau langage et explique comment convertir votre espace de travail.  
 
 ## <a name="why-the-new-language"></a>Pourquoi un nouveau langage ?
 Nous sommes conscients que toute transition implique des efforts. Sachez, toutefois, que cette modification était nécessaire.  Cette modification présente de nombreux avantages pour les utilisateurs Log Analytics.
@@ -44,36 +39,58 @@ Nous sommes conscients que toute transition implique des efforts. Sachez, toutef
 
 
 ## <a name="when-can-i-upgrade"></a>À quel moment puis-je effectuer la mise à niveau ?
-La mise à niveau va être déployée dans toutes les régions Azure, et peut être disponible dans certaines régions avant d’autres.  Vous saurez que votre espace de travail est prêt pour la mise à niveau lorsque vous verrez une bannière violette en haut de votre espace de travail vous invitant à effectuer la mise à niveau.
+La mise à niveau va être déployée dans toutes les régions Azure et sera certainement disponible dans certaines régions avant d’autres.  Vous savez que votre espace de travail est prêt à être mis à niveau quand vous voyez une bannière en haut de votre espace de travail vous invitant à effectuer la mise à niveau.
 
 ![Mise à niveau 1](media/log-analytics-log-search-upgrade/upgrade-01a.png)
 
-## <a name="what-happens-when-i-upgrade"></a>Que se passe-t-il quand j’effectue la mise à niveau ?
-Lorsque vous convertissez votre espace de travail, toutes les recherches enregistrées, les règles d’alerte et les vues que vous avez créées avec le Concepteur de vues sont automatiquement converties dans le nouveau langage.  Les recherches incluses dans les solutions de recherche ne sont pas automatiquement converties. Elles le sont, cependant, lorsque vous les ouvrez.  Cela se fait de manière totalement transparente.
+Si votre espace de travail est automatiquement mis à niveau, une bannière s’affiche pour confirmer la mise à niveau et signaler les éventuels problèmes rencontrés.
 
-## <a name="can-i-go-back-after-i-upgrade"></a>Puis-je annuler la mise à niveau ?
-Lorsque vous effectuez la mise à niveau, une sauvegarde complète de votre espace de travail est créée. La sauvegarde est constituée de la capture instantanée de toutes vos recherches enregistrées, de vos règles d’alerte et de vos vues.  Vous pouvez ainsi restaurer votre ancien espace de travail si vous le souhaitez.
+ ![Mise à jour automatique](media/log-analytics-log-search-upgrade/auto-upgrade.png)
 
-Pour restaurer votre ancien espace de travail, accédez à **Paramètres** dans votre espace de travail, puis à **Résumé de la mise à niveau**.  Vous pouvez ensuite sélectionner l’option **Restaurer l’espace de travail hérité**.  
 
-![Restaurer l’espace de travail hérité](media/log-analytics-log-search-upgrade/restore-legacy-b.png)
+## <a name="what-happens-after-the-upgrade"></a>Que se passe-t-il après la mise à niveau ?
+Les changements suivants sont apportés à votre espace de travail quand il est converti :
 
-## <a name="how-do-i-perform-the-upgrade"></a>Comment effectuer la mise à niveau ?
-Lorsque vous voyez la bannière violette en haut du portail, vous êtes prêt à mettre à niveau votre espace de travail.  
+- Toutes les recherches enregistrées, les règles d’alerte et les vues que vous avez créées avec le Concepteur de vues sont automatiquement converties dans le nouveau langage.  Les recherches incluses dans les solutions de recherche ne sont pas automatiquement converties. Elles le sont, cependant, lorsque vous les ouvrez.  
+- La fonctionnalité [Mon tableau de bord](log-analytics-dashboards.md) est dépréciée. Elle va être remplacée par le [Concepteur de vues](log-analytics-view-designer.md) et les [tableaux de bord Azure](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Les vignettes que vous avez ajoutées à Mon tableau de bord sont toujours disponibles, mais elles sont en lecture seule.
+- La fonctionnalité [Intégration Power BI](log-analytics-powerbi.md) est remplacée par un nouveau processus.  Toutes les planifications de Power BI existantes que vous avez créées sont désactivées, et vous devez les remplacer par le nouveau processus.
+- Les réponses des [actions d’alerte](log-analytics-alerts-actions.md) utilisant des webhooks et des runbooks ont un nouveau format qui va peut-être vous obliger à mettre à jour vos règles d’alerte.
+- Consultez les [questions fréquentes (FAQ) sur la recherche dans les journaux](log-analytics-log-search-faq.md) pour voir les questions couramment posées sur la mise à niveau.
 
-1.  Démarrer le processus de mise à niveau en cliquant sur la bannière violette intitulée **En savoir plus et mise à niveau**.<br>![Mise à niveau 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
-2.  Pour plus d’informations sur la mise à niveau, consultez la page d’informations sur la mise à niveau.<br>![Mise à niveau 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
-3.  Pour démarrer la mise à niveau, cliquez sur **Mettre à niveau maintenant**.<br>![Mettre à niveau 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>L’état est affiché dans la zone de notification située dans le coin supérieur droit.<br>![Mettre à niveau 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
-4.  Et voilà !  Passez en revue la page Recherche dans les journaux pour voir à quoi ressemble votre nouvel espace de travail.<br>![Mise à jour 6](media/log-analytics-log-search-upgrade/upgrade-06.png)<br>
+## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>Comment savoir si des problèmes se sont produits pendant la mise à niveau ?
+Une fois la mise à niveau terminée, une section **Résumé de la mise à niveau** apparaît dans les paramètres de l’espace de travail.  Consultez cette section pour obtenir plus d’informations sur la mise à niveau et afficher le
+
+ ![Résumé de la mise à niveau](media/log-analytics-log-search-upgrade/upgrade-summary.png)
+
+## <a name="how-do-i-manually-perform-the-upgrade"></a>Comment effectuer manuellement la mise à niveau ?
+Quand vous voyez la bannière en haut du portail, vous pouvez mettre à niveau votre espace de travail.  
+
+1.  Pour lancer le processus de mise à niveau, cliquez sur la bannière intitulée **En savoir plus et mise à niveau**.
+
+    ![Mise à niveau 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
+
+2.  Pour plus d’informations sur la mise à niveau, consultez la page d’informations sur la mise à niveau.
+
+    ![Mise à niveau 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
+
+3.  Pour démarrer la mise à niveau, cliquez sur **Mettre à niveau maintenant**.
+
+    ![Mise à niveau 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>L’état est affiché dans la zone de notification située dans le coin supérieur droit.
+    
+    ![Mise à niveau 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
+
+4.  Et voilà !  Passez en revue la page Recherche dans les journaux pour voir à quoi ressemble votre nouvel espace de travail.
+
+    ![Mise à jour 6](media/log-analytics-log-search-upgrade/upgrade-06.png)
 
 Si vous rencontrez un problème qui provoque l’échec de la mise à niveau, vous pouvez accéder au [Forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et envoyer votre question. Vous pouvez également [créer une demande de support](../azure-supportability/how-to-create-azure-support-request.md) dans le portail Azure.
 
 ## <a name="how-do-i-learn-the-new-language"></a>Comment en savoir plus sur le nouveau langage ?
-Dans la mesure où il est utilisé par plusieurs services, nous avons créé un [site externe pour héberger la documentation](https://docs.loganalytics.io/) relative au nouveau langage.  Cette documentation inclut des didacticiels, des exemples, ainsi qu’une référence complète sur le langage, afin de vous aider à améliorer vos connaissances. Pour lire un didacticiel sur le nouveau langage, consultez le [Guide pratique sur les requêtes](https://go.microsoft.com/fwlink/?linkid=856078). Pour accéder à la référence du langage, consultez [Langage de requête Log Analytics](https://go.microsoft.com/fwlink/?linkid=856079).  
+Dans la mesure où il est utilisé par plusieurs services, nous avons créé un [site externe pour héberger la documentation](https://docs.loganalytics.io/) relative au nouveau langage.  Cette documentation inclut des didacticiels, des exemples, ainsi qu’une référence complète sur le langage, afin de vous aider à améliorer vos connaissances. Pour suivre un didacticiel sur le nouveau langage, consultez le [Guide pratique sur les requêtes](https://go.microsoft.com/fwlink/?linkid=856078). Pour accéder à la référence du langage, consultez [Langage de requête Log Analytics](https://go.microsoft.com/fwlink/?linkid=856079).  
 
-Si vous êtes déjà familiarisé avec l’ancien langage de requête Log Analytics, vous pouvez utiliser le convertisseur de langage qui est ajouté à votre espace de travail dans le cadre de la mise à niveau.
+Si vous souhaitez essayer le nouveau langage dans un environnement de démonstration comprenant un ensemble d’exemples de données, visitez l’[environnement de test](https://portal.loganalytics.io/demo#/discover/home).
 
-Il vous suffit de taper votre requête dans l’ancien langage, puis de cliquer sur **Convertir** pour afficher la version traduite en nouveau langage.  Vous pouvez ensuite cliquer sur le bouton de recherche pour exécuter la recherche, ou copier-coller la requête convertie pour l’utiliser ailleurs (par exemple, dans une règle d’alerte).
+Si vous êtes déjà familiarisé avec l’ancien langage de requête Log Analytics, vous pouvez utiliser le convertisseur de langage qui est ajouté à votre espace de travail dans le cadre de la mise à niveau.  Il vous suffit de taper votre requête dans l’ancien langage, puis de cliquer sur **Convertir** pour afficher la version traduite en nouveau langage.  Vous pouvez ensuite cliquer sur le bouton de recherche pour exécuter la recherche, ou copier-coller la requête convertie pour l’utiliser ailleurs (par exemple, dans une règle d’alerte).  Vous pouvez également examiner notre [aide-mémoire](log-analytics-log-search-transition.md) qui compare directement les requêtes courantes du langage hérité.
 
 ![Convertisseur de langage](media/log-analytics-log-search-upgrade/language-converter.png)
 

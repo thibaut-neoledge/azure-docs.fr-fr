@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: sethm
-ms.openlocfilehash: 2c509b56282ace92e536dc85f1a28f83a4701940
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 49f2992245d694f85b7b1f1c34339f1445c9d699
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-service-bus-geo-disaster-recovery-preview"></a>Géorécupération d’urgence Azure Service Bus (préversion)
 
@@ -29,7 +29,7 @@ La préversion de la fonctionnalité de géorécupération d’urgence est dispo
 
 L’article [Meilleures pratiques pour protéger les applications contre les pannes et les sinistres de Service Bus](service-bus-outages-disasters.md) établit une distinction entre les « pannes » et les « sinistres ». Cette distinction a son importance. Une *panne* se définit comme l’indisponibilité temporaire d’Azure Service Bus. La panne impacte certains composants du service, comme une banque de messages, ou le centre de données entier. Toutefois, une fois le problème résolu, Service Bus redevient disponible. En règle générale, une panne ne provoque aucune perte de messages ou d’autres données. Une coupure de courant dans le centre de données est un exemple de panne.
 
-Un *sinistre* se définit comme la perte définitive d’une [unité d’échelle](service-bus-architecture.md#service-bus-scale-units) ou d’un centre de données Service Bus. Le centre de données peut redevenir disponible ou pas, et rester arrêté pendant plusieurs heures ou jours. Un sinistre provoque généralement la perte d’une partie ou de la totalité des messages ou autres données. Les incendies, les inondations ou les tremblements de terre sont des exemples de sinistres.
+Un *sinistre* se définit comme une perte définitive ou à long terme d’une [unité d’échelle](service-bus-architecture.md#service-bus-scale-units) ou d’un centre de données Service Bus. Le centre de données peut redevenir disponible ou pas, et rester arrêté pendant plusieurs heures ou jours. Les incendies, les inondations ou les tremblements de terre sont des exemples de sinistres. Un sinistre qui devient permanent peut entraîner la perte de certains messages ou d’autres données. Toutefois, dans la plupart des cas, il ne doit y avoir aucune perte de données et les messages peuvent être récupérés une fois que le centre de données est sauvegardé.
 
 La fonctionnalité de géorécupération d’urgence d’Azure Service Bus est une solution de récupération d’urgence. Les concepts et le workflow décrits dans cet article concernent des scénarios de sinistres, pas des pannes temporaires ou transitoires.  
 
@@ -45,7 +45,7 @@ Cet article emploie les termes suivants :
 
 -  *Métadonnées* : votre représentation des objets dans Azure Service Bus. Seules les métadonnées sont prises en charge pour le moment.
 
--  *Basculement* : processus d’activation de l’espace de noms secondaire. Vous devez tirer (pull) les messages à partir de votre espace de noms qui était le principal une fois qu’il est redevenu disponible, puis supprimer l’espace de noms. Pour créer un autre basculement, ajoutez un nouvel espace de noms secondaire à l’association.
+-  *Basculement* : processus d’activation de l’espace de noms secondaire. Vous devez tirer (pull) les messages à partir de votre espace de noms qui était le principal une fois qu’il est redevenu disponible, puis supprimer l’espace de noms. Pour créer un autre basculement, ajoutez un nouvel espace de noms secondaire à l’association. Si vous souhaitez réutiliser l’ancien espace de noms principal après un basculement, vous devez d’abord supprimer toutes les entités existantes de l’espace de noms. Assurez-vous de recevoir tous les messages avant de procéder.
 
 ## <a name="failover-workflow"></a>Workflow du basculement
 
@@ -159,7 +159,7 @@ Thread.Sleep(1000 * 60);
 
 À ce stade, vous êtes prêt à ajouter des entités par le biais du portail ou d’Azure Resource Manager, et vérifier que la synchronisation se déroule correctement. Sauf si vous prévoyez d’effectuer le basculement manuellement, vous devez créer une application qui surveille l’espace de noms principal et démarre le basculement en cas d’indisponibilité de cet espace de noms. 
 
-## <a name="initiate-a-failover"></a>Démarrage d’un basculement
+## <a name="initiate-a-failover"></a>Initialisation d’un basculement
 
 Le code suivant montre comment démarrer un basculement :
 

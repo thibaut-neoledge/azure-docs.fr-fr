@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 28c589b6821526fa6b91dc558a08ef2fb68f97df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Points de contrôle et réexécution dans Fonctions durables (Azure Functions)
 
@@ -115,7 +115,7 @@ Le comportement de réexécution crée des contraintes concernant le type de cod
 
   Les opérations non déterministes doivent être effectuées dans les fonctions d’activité. Cela inclut toutes les interactions avec d’autres liaisons d’entrée ou de sortie. Cela permet de s’assurer que les valeurs non déterministes ne seront générées qu’une seule fois durant la première exécution, puis enregistrées dans l’historique d’exécution. Les exécutions suivantes utiliseront automatiquement la valeur enregistrée.
 
-* Le code d’orchestrateur doit être **non bloquant**. Par exemple, pas de `Thread.Sleep` ni d’API équivalentes.
+* Le code d’orchestrateur doit être **non bloquant**. Cela signifie, par exemple, aucune e/s et aucun appel à `Thread.Sleep` ou à une API équivalente.
 
   Si un orchestrateur doit être différé, il peut utiliser l’API [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_).
 

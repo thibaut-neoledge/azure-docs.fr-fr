@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: 21f04c1b01033adcef7b7d73c710dd2b4590f76f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utiliser les rapports d’intégrité du système pour la résolution des problèmes
 Les composants Azure Service Fabric fournissent des rapports d’intégrité du système prêts à l’emploi pour toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
@@ -101,6 +101,13 @@ L’équilibrage de charge de Service Fabric indique un avertissement quand il d
 * **SourceId**: System.PLB
 * **Property** : commence par **Capacity**.
 * **Étapes suivantes**: contrôlez les mesures fournies et examinez la capacité actuelle sur le nœud.
+
+### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Incompatibilité des capacités de nœud pour les mesures de gouvernance des ressources
+System.Hosting transmet un avertissement si les capacités de nœud définies dans le manifeste de cluster sont supérieures aux capacités de nœud réelles pour les mesures de gouvernance des ressources (cœurs du processeur et mémoire). Le rapport d’intégrité s’affiche lorsque le premier package de service qui utilise la [gouvernance des ressources](service-fabric-resource-governance.md) s’inscrit sur un nœud spécifié.
+
+* **SourceId**: System.Hosting
+* **Propriété :** ResourceGovernance
+* **Étapes suivantes :** cela peut poser un problème, car les packages de service ne seront pas appliqués comme prévu et la [gouvernance des ressources](service-fabric-resource-governance.md) ne fonctionnera pas correctement. Mettez à jour le manifeste de cluster en indiquant les capacités de nœud appropriées pour ces mesures ou ne les spécifiez pas et laissez Service Fabric détecter automatiquement les ressources disponibles.
 
 ## <a name="application-system-health-reports"></a>Rapports d’intégrité du système sur les applications
 **System.CM**, qui représente le service Cluster Manager, est l’autorité qui gère les informations sur une application.
@@ -815,6 +822,13 @@ System.Hosting indique une erreur en cas d’échec de la validation lors la mis
 * **SourceId**: System.Hosting
 * **Property** : utilise le préfixe **FabricUpgradeValidation** et contient la version de la mise à niveau.
 * **Description** : désigne l’erreur rencontrée.
+
+### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Capacités de nœud non définies pour les mesures de gouvernance des ressources
+System.Hosting transmet un avertissement si les capacités de nœud ne sont pas définies dans le manifeste de cluster et si la configuration de la détection automatique est désactivée. Service Fabric émettra un avertissement d’intégrité si un package de service qui utilise la [gouvernance des ressources](service-fabric-resource-governance.md) s’inscrit sur un nœud spécifié.
+
+* **SourceId**: System.Hosting
+* **Propriété :** ResourceGovernance
+* **Étapes suivantes**: la meilleure façon de résoudre ce problème consiste à modifier le manifeste de cluster pour activer la détection automatique des ressources disponibles. Une autre méthode consiste à mettre à jour le manifeste de cluster en indiquant les capacités de nœud appropriées pour ces mesures.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Affichage rapports d’intégrité de Service Fabric](service-fabric-view-entities-aggregated-health.md)

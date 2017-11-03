@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
 
@@ -29,10 +29,9 @@ La grande majorité des violations de sécurité ont lieu lorsque des cybercrimi
 - [Utilisateurs dont les informations d’identification ont fait l’objet d’une fuite](#leaked-credentials) 
 - [Connexions depuis des adresses IP anonymes](#sign-ins-from-anonymous-ip-addresses) 
 - [Voyage impossible vers des emplacements inhabituels](#impossible-travel-to-atypical-locations) 
-- [Connexions depuis des emplacements inconnus](#sign-in-from-unfamiliar-locations)
 - [Connexions depuis des périphériques infectés](#sign-ins-from-infected-devices) 
 - [Connexions depuis des adresses IP avec une activité suspecte](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-
+- [Connexions depuis des emplacements non connus](#sign-in-from-unfamiliar-locations) (uniquement dans les éditions **Azure Active Directory Premium P2**)
 
 ![Événement à risque](./media/active-directory-reporting-risk-events/91.png)
 

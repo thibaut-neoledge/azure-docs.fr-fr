@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
+ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 2f6cf4709c77ca1bb051b7d5c9e7d1d5d125c343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour se connecter et obtenir des jetons 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Une fois que vous avez activé l’identité du service administré sur une machine virtuelle Azure, vous pouvez l’utiliser pour vous connecter et pour demander un jeton d’accès. Cet article vous montre plusieurs façons d’utiliser un [principal du service](develop/active-directory-dev-glossary.md#service-principal-object) MSI pour vous connecter et obtenir un [jeton d’accès de l’application uniquement](develop/active-directory-dev-glossary.md#access-token) pour accéder à d’autres ressources, y compris :
@@ -183,14 +183,14 @@ Content-Type: application/json
 | `resource` | La ressource pour laquelle le jeton d’accès a été demandé, correspondant au paramètre de chaîne de requête `resource` de la requête. |
 | `token_type` | Le type de jeton, qui est un jeton d’accès « du porteur », ce qui signifie que la ressource peut donner l’accès au porteur de ce jeton. |
 
-## <a name="how-to-sign-in-with-azure-sdk-libraries-using-msi"></a>Comment se connecter avec les bibliothèques SDK Azure à l’aide de MSI
+## <a name="how-to-use-msi-with-azure-sdk-libraries"></a>Utilisation de l’identité MSI avec les bibliothèques du SDK Azure
 
-Azure prend en charge plusieurs plates-formes de programmation via une série de [Kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads). Plusieurs d'entre eux ont été mis à jour pour prendre en charge l’authentification à l’aide de MSI, et donnent des exemples illustrant leur utilisation. Cette liste est mise à jour car une prise en charge supplémentaire a été ajoutée :
+Azure prend en charge plusieurs plates-formes de programmation via une série de [Kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads). Plusieurs d'entre eux ont été mis à jour pour prendre en charge l’authentification à l’aide de MSI, et donnent des exemples illustrant leur utilisation. Cette liste a été mise à jour, suite à l’ajout d’une prise en charge supplémentaire :
 
 | Foundation | Exemple |
 | --- | ------ | 
-| .NET   | [Gérer une ressource à partir d’une machine virtuelle avec le paramètre MSI activé](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Gérer le stockage à partir d’une machine virtuelle avec le paramètre MSI activé](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| .NET | [Déployer un modèle ARM à partir d’une machine virtuelle Windows à l’aide de Managed Service Identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
+| .NET Core | [Appeler les services Azure à partir d’une machine virtuelle Linux à l’aide de Managed Service Identity](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Node.js| [Gérer des ressources à l’aide d’une identité du service administré](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
 | Python | [Utiliser une identité du service administré pour s’authentifier simplement depuis l’intérieur d’une machine virtuelle](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
 | Ruby   | [Gérer des ressources à partir d’une machine virtuelle avec le paramètre MSI activé](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | 

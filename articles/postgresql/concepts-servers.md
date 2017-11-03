@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/06/2017
-ms.openlocfilehash: c79603a11fa23ad775783157675c07ab67102057
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09b8634160c35f3c6a48812358ec872e52d8b21c
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Serveurs de base de données Azure pour PostgreSQL
 Cette rubrique propose des considérations et des instructions relatives à l’utilisation des serveurs de base de données Azure pour PostgreSQL.
@@ -33,7 +33,7 @@ Un serveur de base de données Azure pour PostgreSQL :
 - est disponible dans plusieurs versions (pour plus d’informations, consultez la page [Versions prises en charge des bases de données PostgreSQL](concepts-supported-versions.md)) ;
 - peut être étendu par les utilisateurs (pour plus d’informations, consultez la page [Extensions de PostgreSQL](concepts-extensions.md)).
 
-Dans une base de données Azure Database pour serveur PostgreSQL, vous pouvez créer une ou plusieurs bases de données. Vous pouvez choisir de créer une seule base de données par serveur pour utiliser toutes les ressources, ou de créer plusieurs bases de données pour partager les ressources. La tarification est structurée par serveur, en fonction de la configuration du niveau tarifaire, des unités de calcul, du stockage (Go). Pour plus d’informations, consultez [Niveaux tarifaires](./concepts-service-tiers.md).
+Dans une base de données Azure Database pour serveur PostgreSQL, vous pouvez créer une ou plusieurs bases de données. Vous pouvez choisir de créer une seule base de données par serveur pour utiliser toutes les ressources, ou de créer plusieurs bases de données pour partager les ressources. La tarification est structurée par serveur, en fonction de la configuration du niveau tarifaire, des unités de calcul et du stockage (Go). Pour plus d’informations, consultez [Niveaux tarifaires](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Comment se connecter et s’authentifier auprès d’un serveur de base de données Azure pour PostgreSQL ?
 Les éléments suivants permettent de garantir un accès sécurisé à votre base de données.
@@ -43,7 +43,7 @@ Les éléments suivants permettent de garantir un accès sécurisé à votre bas
 | **Authentification et autorisation** | Le serveur de base de données Azure pour PostgreSQL prend en charge l’authentification PostgreSQL native. Vous pouvez vous connecter et vous authentifier auprès du serveur avec les informations de connexion d’administrateur du serveur. |
 | **Protocole** | Le service prend en charge un protocole par messages utilisé par PostgreSQL. |
 | **TCP/IP** | Le protocole est pris en charge via TCP/IP et des sockets du domaine Unix. |
-| **Pare-feu** | Pour aider à protéger vos données, une règle de pare-feu empêche tout accès à votre serveur de base de données ou à ses bases de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Consultez la page [Règles de pare-feu d’un serveur de base de données Azure pour PostgreSQL](concepts-firewall-rules.md). |
+| **Pare-feu** | Pour renforcer la protection de vos données, une règle de pare-feu empêche tout accès à votre serveur de base de données et à ses bases de données jusqu’à ce que vous spécifiiez les ordinateurs autorisés. Consultez la page [Règles de pare-feu d’un serveur de base de données Azure pour PostgreSQL](concepts-firewall-rules.md). |
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Comment gérer un serveur ?

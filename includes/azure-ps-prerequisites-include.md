@@ -1,6 +1,6 @@
-## <a name="prerequisite-install-the-azure-powershell-module"></a>Condition préalable : installer le module Azure PowerShell
+## <a name="prerequisite-install-the-azure-powershell-module"></a>Prérequis : Installer le module Azure PowerShell
 
-Pour effectuer les étapes indiquées dans cet article, vous devez [Installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs) et suivre les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+Pour exécuter la procédure indiquée dans cet article, vous devez [installer et configurer le module Azure PowerShell](/powershell/azureps-cmdlets-docs). Veillez à suivre toutes les instructions. Une fois l’installation terminée, connectez-vous à Azure, puis sélectionnez votre abonnement.
 
 > [!NOTE]
-> Si vous n’avez pas de compte Azure, vous devez vous en procurer un. Inscrivez-vous à un [essai gratuit ici](../articles/active-directory/sign-up-organization.md).
+> Pour effectuez ces étapes, vous avez besoin d’un compte Azure. Si vous n’en avez pas, vous pouvez demander un [essai gratuit](../articles/active-directory/sign-up-organization.md).

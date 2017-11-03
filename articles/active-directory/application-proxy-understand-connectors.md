@@ -11,21 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/12/2017
 ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fdee5703adc76e750aebd83d4122e7b79244c0e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9dce8c3132b60b0b0c44f9f9d1e9cf01f68fa280
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
 Les connecteurs rendent possible le proxy d’application Azure AD. Ils sont très puissants, simples et faciles à déployer et maintenir. Cet article présente les connecteurs, leur fonctionnement et des suggestions pour optimiser le déploiement. 
 
-## <a name="what-is-an-application-proxy-connector"></a>Qu’est-ce qu’un connecteur de proxy d’application ?
+## <a name="what-is-an-application-proxy-connector"></a>Qu’est-ce qu’un connecteur de proxy d’application ?
 
 Les connecteurs sont des agents légers présent en local et qui facilitent la connexion sortante vers le service de proxy d’application. Les connecteurs doivent être installés sur un serveur Windows Server qui a accès à l’application principale. Vous pouvez organiser des connecteurs dans les groupes de connecteurs, et chaque groupe gère le trafic vers des applications spécifiques. Les connecteurs équilibrent la charge automatiquement et peuvent aider à optimiser la structure du réseau. 
 
@@ -78,10 +78,10 @@ Alors que les connecteurs équilibreront automatiquement la charge au sein d’u
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\*Cette machine a une limite de 200 connexions. Pour toutes les autres machines, nous avons utilisé la limite de 200 connexions par défaut.
+\* Cette machine a une limite de 800 connexions. Pour toutes les autres machines, nous avons utilisé la limite de 200 connexions par défaut.
  
 >[!NOTE]
->La limite de configuration par défaut est 200 (pour 2, 4 et 8 cœurs).  Pendant le test avec 16 cœurs, la limite de connexion est passée à 800. L’utilisation d’une machine utilisant 4, 8 ou 16 cœurs n’entraîne pas de grandes différences au niveau des TPS maximales. La principale différence entre ces machines se situe au niveau de la latence attendue.  
+>L’utilisation d’une machine utilisant 4, 8 ou 16 cœurs n’entraîne pas de grandes différences au niveau des TPS maximales. La principale différence entre ces machines se situe au niveau de la latence attendue.  
 
 ## <a name="security-and-networking"></a>Sécurité et mise en réseau
 

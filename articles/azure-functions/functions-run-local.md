@@ -3,7 +3,7 @@ title: "Développer et exécuter des fonctions Azure en local | Microsoft Docs"
 description: "Apprenez à coder et à tester des fonctions Azure sur votre ordinateur local avant de les exécuter dans Azure Functions."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
@@ -48,7 +48,7 @@ La version 2.x des outils utilise le runtime d’Azure Functions 2.x qui repo
 >[!IMPORTANT]   
 > Avant d’installer Azure Functions Core Tools, [installez .NET Core 2.0](https://www.microsoft.com/net/core).  
 >
-> Le Runtime Azure Functions 2.0 est en préversion ; pour le moment, toutes les fonctionnalités d’Azure Functions ne sont pas prises en charge. Pour plus d’informations, consultez l’article [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) (Problèmes connus du runtime d’Azure Functions 2.0). 
+> Le runtime d’Azure Functions 2.0 est en préversion ; pour le moment, les fonctionnalités d’Azure Functions ne sont pas toutes prises en charge. Pour plus d’informations, consultez l’article [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) (Problèmes connus du runtime d’Azure Functions 2.0). 
 
  Pour installer les outils de la version 2.0, utilisez la commande suivante :
 
@@ -142,7 +142,7 @@ Les paramètres dans le fichier local.settings.json sont uniquement utilisés pa
 
 Si aucune chaîne de connexion de stockage valide n’est définie pour **AzureWebJobsStorage**, le message d’erreur suivant s’affiche :  
 
->Valeur manquante pour AzureWebJobsStorage dans local.settings.json. Cette valeur est nécessaire pour tous les déclencheurs autres que HTTP. Vous pouvez exécuter 'func azure functionary fetch-app-settings <functionAppName>' ou spécifier une chaîne de connexion dans local.settings.json.
+>Valeur manquante pour AzureWebJobsStorage dans local.settings.json. Cette valeur est nécessaire pour tous les déclencheurs autres que HTTP. Vous pouvez exécuter 'func azure functionapp fetch-app-settings <functionAppName>' ou spécifier une chaîne de connexion dans local.settings.json.
   
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
@@ -266,13 +266,13 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 Notez que vous pouvez faire des demandes GET depuis un navigateur en passant des données dans la chaîne de requête. Pour toutes les autres méthodes HTTP, vous devez utiliser cURL, Fiddler, Postman ou un outil de test HTTP similaire.  
 
 #### <a name="non-http-triggered-functions"></a>Fonctions non déclenchées via HTTP
-Pour tous les types de fonctions autres que les déclencheurs et Webhooks HTTP, vous pouvez tester vos fonctions localement en appelant un point de terminaison d’administration. L’appel de ce point de terminaison sur le serveur local déclenche la fonction. Vous pouvez éventuellement passer des données de test à l’exécution. Cette fonctionnalité est similaire à l’onglet **Test** dans le portail Azure.  
+Pour tous les types de fonctions autres que les déclencheurs et Webhooks HTTP, vous pouvez tester vos fonctions localement en appelant un point de terminaison d’administration. L’appel de ce point de terminaison au moyen d’une requête HTTP POST sur le serveur local déclenche la fonction. Vous pouvez éventuellement passer des données de test à l’exécution dans le corps de la requête POST. Cette fonctionnalité est similaire à l’onglet **Test** dans le portail Azure.  
 
-Vous appelez le point de terminaison d’administrateur suivant pour déclencher des fonctions non-HTTP avec une requête HTTP POST :
+Vous appelez le point de terminaison d’administrateur suivant pour déclencher des fonctions non-HTTP :
 
     http://localhost:{port}/admin/functions/{function_name}
 
-Bien que vous puissiez passez des données de test au point de terminaison d’administrateur d’une fonction, vous devez fournir les données dans le corps d’un message de demande POST. Le corps du message doit avoir le format JSON suivant :
+Pour passer des données de test au point de terminaison d’administrateur d’une fonction, vous devez fournir les données dans le corps d’un message de requête POST. Le corps du message doit avoir le format JSON suivant :
 
 ```JSON
 {

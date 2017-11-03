@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: 6e526e10ac5e3307aeefcdd22840a3e6a6ec843d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 370f8973b9b8a0cd0c5220a35218efe81bfd07e0
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
 
 Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
-
->[!IMPORTANT]
->À partir de la version 1.1.484, Azure AD Connect a introduit un bogue de régression qui nécessite des autorisations d’administrateur système pour mettre à niveau la base de données SQL.  Ce bogue est toujours présent dans la dernière version, 1.1.614.  Si vous effectuez une mise à jour vers cette version, vous aurez besoin des autorisations d’administrateur système.  Les autorisations dbo ne sont pas suffisantes.  Si vous tentez de mettre à niveau Azure AD Connect sans avoir les autorisations d’administrateur système, la mise à niveau échoue et Azure AD Connect ne fonctionne plus correctement.  Microsoft en est conscient et recherche actuellement une solution.
 
 Voici la liste des rubriques connexes :
 
@@ -37,12 +34,77 @@ Rubrique |  Détails
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Télécharger| [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+
+## <a name="116470"></a>1.1.647.0
+Statut : 19 octobre 2017
+
+> [!IMPORTANT]
+> Il existe un problème de compatibilité connu entre la version 1.1.647.0 d’Azure AD Connect et la version 3.0.127.0 d’Azure AD Connect Health Agent (pour la synchronisation). Ce problème empêche Health Agent d’envoyer des données d’intégrité sur le service de synchronisation Azure AD Connect (y compris les données relatives aux erreurs de synchronisation d’objets et à l’historique des exécutions) au service de contrôle d’intégrité Azure AD. Avant de mettre à niveau manuellement votre déploiement d’Azure AD Connect vers la version 1.1.647.0, vérifiez la version d’Azure AD Connect Health Agent qui est actuellement installée sur votre serveur Azure AD Connect. Pour cela, accédez au *Panneau de configuration → Ajout/Suppression de programmes*, puis recherchez l’application *Microsoft Azure AD Connect Health Agent pour la synchronisation*. Si sa version est 3.0.127.0, il est recommandé d’attendre que la prochaine version d’Azure AD Connect soit disponible avant d’effectuer la mise à niveau. Si la version d’Health Agent n’est pas 3.0.127.0, vous pouvez procéder à la mise à niveau sur place manuellement. Notez que ce problème n’affecte pas les mises à niveau de type « swing », ni les nouvelles installations d’Azure AD Connect.
+>
+>
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problèmes résolus
+* Résolution d’un problème concernant la tâche *Modifier la connexion utilisateur* dans l’Assistant Azure AD Connect :
+
+  * Ce problème se produit lorsque la synchronisation de mot de passe est **activée** dans votre déploiement Azure AD Connect, et que vous tentez de définir la méthode de connexion utilisateur sur *Authentification directe*. Avant que la modification ne soit appliquée, l’Assistant affiche à tort le message suivant *Désactiver la synchronisation de mot de passe*. Toutefois, la synchronisation de mot de passe reste activée une fois la modification appliquée. Avec ce correctif, l’Assistant n’affiche plus ce message.
+
+  * Par défaut, l’Assistant ne désactive pas la synchronisation de mot de passe lorsque vous mettez à jour la méthode de connexion utilisateur à l’aide de la tâche *Modifier la connexion utilisateur*. Cela permet d’éviter une interruption pour les clients qui souhaitent conserver la synchronisation de mot de passe, même s’ils choisissent d’activer l’authentification directe ou la fédération comme méthode principale d’authentification utilisateur.
+  
+  * Si vous souhaitez désactiver la synchronisation de mot de passe après avoir modifié la méthode d’authentification utilisateur, exécutez la tâche *Personnaliser la configuration de la synchronisation* dans l’Assistant. Lorsque vous accédez à la page *Fonctionnalités facultatives*, désactivez l’option *Synchronisation de mot de passe*.
+  
+  * Notez que le même problème se produit également si vous tentez d’activer ou de désactiver l’authentification unique transparente. Mettons que vous disposiez d’un déploiement d’Azure AD Connect existant dans lequel est activée la synchronisation de mot de passe et que la méthode d’authentification utilisateur soit déjà configurée sur *Authentification directe*. À l’aide de la tâche *Modifier la connexion utilisateur*, vous tentez de cocher ou de décocher l’option *Activer l’authentification unique transparente* alors que la méthode d’authentification utilisateur est configurée sur « Authentification directe ». Avant que la modification ne soit appliquée, l’Assistant affiche à tort le message suivant *Désactiver la synchronisation de mot de passe*. Toutefois, la synchronisation de mot de passe reste activée une fois la modification appliquée. Avec ce correctif, l’Assistant n’affiche plus ce message.
+
+* Résolution d’un problème concernant la tâche *Modifier la connexion utilisateur* dans l’Assistant Azure AD Connect :
+
+   * Ce problème se produit lorsque la synchronisation de mot de passe est **désactivée** dans votre déploiement Azure AD Connect, et que vous tentez de définir la méthode de connexion utilisateur sur *Authentification directe*. Lorsque la modification est appliquée, l’Assistant active à la fois l’authentification directe et la synchronisation de mot de passe. Avec ce correctif, l’Assistant n’active plus la synchronisation de mot de passe.
+
+  * Auparavant, la synchronisation de mot de passe était un prérequis pour l’activation de l’authentification directe. Lorsque vous définissiez la méthode de connexion utilisateur sur *Authentification directe*, l’Assistant activait à la fois l’authentification directe et la synchronisation de mot de passe. Depuis peu, la synchronisation de mot de passe ne fait plus partie des prérequis. Dans la version 1.1.557.0 d’Azure AD Connect, la synchronisation de mot de passe n’était plus activée lorsque vous définissiez la méthode de connexion utilisateur sur *Authentification directe*. Toutefois, cette modification concernait uniquement les installations Azure AD Connect. Avec ce correctif, cette même modification s’applique désormais à la tâche *Modifier la connexion utilisateur*.
+  
+  * Notez que le même problème se produit également si vous tentez d’activer ou de désactiver l’authentification unique transparente. Mettons que vous disposiez d’un déploiement d’Azure AD Connect existant dans lequel est désactivée la synchronisation de mot de passe et que la méthode d’authentification utilisateur soit déjà configurée sur *Authentification directe*. À l’aide de la tâche *Modifier la connexion utilisateur*, vous tentez de cocher ou de décocher l’option *Activer l’authentification unique transparente* alors que la méthode d’authentification utilisateur est configurée sur « Authentification directe ». Lorsque la modification est appliquée, l’Assistant active la synchronisation de mot de passe. Avec ce correctif, l’Assistant n’active plus la synchronisation de mot de passe. 
+
+* Résolution d’un problème qui provoquait l’échec de la mise à niveau d’Azure AD Connect avec l’erreur *Impossible de mettre à niveau le service de synchronisation*. En outre, le service de synchronisation ne peut plus démarrer et affiche l’erreur d’événement*Le service n’a pas pu démarrer, car la version de la base de données est plus récente que celle des binaires installés*. Ce problème se produit lorsque l’administrateur qui effectue la mise à niveau ne dispose pas de privilèges sysadmin pour le serveur SQL qui est utilisé par Azure AD Connect. Avec ce correctif, Azure AD Connect nécessite uniquement que l’administrateur dispose de privilèges db_owner pour la base de données ADSync pendant la mise à niveau.
+
+* Résolution d’un problème avec la mise à niveau d’Azure AD Connect qui affecte les clients ayant activé l’option [Authentification unique transparente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). Après la mise à niveau d’Azure AD Connect, l’authentification unique transparente apparaît à tort comme étant désactivée dans l’Assistant Azure AD Connect, alors qu’elle est toujours activée et entièrement fonctionnelle. Avec ce correctif, cette fonctionnalité apparaît désormais comme étant activée dans l’Assistant.
+
+* Résolution d’un problème lié à l’affichage du message *Configurer l’ancre source* dans la page *Prêt à configurer* de l’Assistant Azure AD Connect, même lorsqu’aucune modification liée à l’ancre source n’avait été apportée.
+
+* Lorsqu’il effectue manuellement une mise à niveau sur place d’Azure AD Connect, le client doit fournir les informations d’identification d’administrateur général du locataire Azure AD correspondant. Auparavant, la mise à niveau pouvait se poursuivre, même si les informations d’identification d’administrateur général fournies appartenaient à un autre locataire Azure AD. Même si la mise à niveau semblait se terminer correctement, certaines configurations n’étaient pas conservées après la mise à niveau. Avec ce correctif, l’Assistant ne permet plus d’effectuer la mise à niveau si les informations d’identification fournies ne correspondent pas au locataire client Azure AD.
+
+* Suppression d’une logique redondante qui redémarrait inutilement le service Azure AD Connect Health au début d’une mise à niveau manuelle.
+
+
+#### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+* Ajout d’une logique pour simplifier les étapes de configuration d’Azure AD Connect avec Microsoft Germany Cloud. Auparavant, vous étiez invité à mettre à jour certaines clés de Registre sur le serveur Azure AD Connect pour que celui-ci fonctionne correctement avec Microsoft Germany Cloud, comme décrit dans cet article. Désormais, Azure AD Connect peut détecter automatiquement si votre locataire se trouve dans Microsoft Germany Cloud, en se basant sur les informations d’identification d’administrateur général fournies pendant l’installation.
+
+### <a name="azure-ad-connect-sync"></a>Synchronisation d’Azure AD Connect
+>[!NOTE]
+> Remarque : Le service de synchronisation comprend une interface WMI qui vous permet de développer votre propre planificateur personnalisé. Cette interface est désormais dépréciée et sera supprimée des prochaines versions d’Azure AD Connect après le 30 juin 2018. Les clients qui souhaitent personnaliser le calendrier de synchronisation doivent utiliser le planificateur intégré (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+
+#### <a name="fixed-issues"></a>Problèmes résolus
+* Lorsque l’Assistant Azure AD Connect créait le compte de connecteur AD pour la synchronisation des modifications apportées dans l’instance locale d’Active Directory, il n’attribuait pas l’autorisation au compte pour lire les objets PublicFolder. Ce problème concernait l’installation Express et l’installation personnalisée. Ce problème a été résolu.
+
+* Résolution d’un problème concernant la page de résolution des problèmes de l’Assistant Azure AD Connect qui ne s’affichait pas correctement pour les administrateurs utilisant Windows Server 2016.
+
+#### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+* Désormais, lorsque l’utilisateur cherche à résoudre des problèmes liés à la synchronisation des mots de passe à l’aide de la page Résolution des problèmes de l’Assistant Azure AD Connect, cette page retourne l’état spécifique au domaine.
+
+* Auparavant, si vous tentiez d’activer la synchronisation de hachage de mot de passe, Azure AD Connect ne vérifiait pas si le compte de connecteur AD disposait des autorisations nécessaires pour synchroniser les hachages de mot de passe avec l’instance locale d’AD. Désormais, l’Assistant Azure AD Connect vérifie et vous avertit si le compte de connecteur AD ne dispose pas d’autorisations suffisantes.
+
+### <a name="ad-fs-management"></a>Gestion AD FS
+#### <a name="fixed-issue"></a>Problème résolu
+* Résolution d’un problème lié à l’utilisation de la fonctionnalité [msDS-ConsistencyGuid en tant que sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor). Ce problème affectait les clients ayant sélectionné *Fédération avec AD FS* comme méthode d’authentification utilisateur. Lorsque vous exécutiez la tâche *Configurer l’ancre source* dans l’Assistant, Azure AD Connect se mettait à utiliser *ms-DS-ConsistencyGuid en tant qu’attribut de source pour immutableId. Avec ce correctif, Azure AD Connect tente désormais de mettre à jour les règles de revendication pour ImmutableId dans AD FS. Auparavant, cette étape échouait, car Azure AD Connect ne disposait pas des informations d’identification administrateur nécessaires pour configurer AD FS. Avec ce correctif, Azure AD Connect invite désormais l’utilisateur à entrer les informations d’identification d’administrateur pour AD FS lorsque vous exécutez la tâche *Configurer l’ancre source*.
+
+
+
 ## <a name="116140"></a>1.1.614.0
 Statut : 5 septembre 2017
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="known-issues"></a>Problèmes connus
+* Il existe un problème connu qui provoque l’échec de la mise à niveau d’Azure AD Connect avec l’erreur *Impossible de mettre à niveau le service de synchronisation*. En outre, le service de synchronisation ne peut plus démarrer et affiche l’erreur d’événement*Le service n’a pas pu démarrer, car la version de la base de données est plus récente que celle des binaires installés*. Ce problème se produit lorsque l’administrateur qui effectue la mise à niveau ne dispose pas de privilèges sysadmin pour le serveur SQL qui est utilisé par Azure AD Connect. Les autorisations dbo ne sont pas suffisantes.
+
 * Il existe un problème connu avec la mise à niveau d’Azure AD Connect qui affecte les clients ayant activé l’[authentification unique transparente](active-directory-aadconnect-sso.md). Après la mise à niveau d’Azure AD Connect, la fonctionnalité apparaît comme étant désactivée dans l’Assistant, même si elle reste activée. Un correctif pour ce problème sera fourni dans une version ultérieure. Vous pouvez résoudre ce problème d’affichage manuellement en activant l’authentification unique transparente dans l’Assistant.
 
 #### <a name="fixed-issues"></a>Problèmes résolus

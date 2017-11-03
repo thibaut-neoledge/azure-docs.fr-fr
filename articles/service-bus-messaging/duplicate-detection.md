@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: sethm
-ms.openlocfilehash: 470246469297d5fa95eba2b147d5304e74c0003f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="duplicate-detection"></a>Détection des doublons
 
@@ -43,7 +43,7 @@ Dans le portail, activez la fonctionnalité au moment de la création de l’ent
 
 Par programmation, définissez l’indicateur avec la propriété [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) sur l’API .NET Framework complète. Avec l’API Azure Resource Manager, la valeur se définit avec la propriété [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 
-L’historique de la durée de détection des doublons est de 30 secondes par défaut pour les files d’attente et les rubriques, et de 40 minutes au maximum. Vous pouvez modifier ce paramètre dans la fenêtre des propriétés de file d’attente et de rubrique dans le portail Azure.
+L’historique de la durée de détection des doublons est de 30 secondes par défaut pour les files d’attente et les rubriques, et de 7 jours au maximum. Vous pouvez modifier ce paramètre dans la fenêtre des propriétés de file d’attente et de rubrique dans le portail Azure.
 
 ![][2]
 
@@ -55,7 +55,7 @@ En maintenant la fenêtre à une petite taille, vous avez moins d’ID de messag
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes :
+Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)

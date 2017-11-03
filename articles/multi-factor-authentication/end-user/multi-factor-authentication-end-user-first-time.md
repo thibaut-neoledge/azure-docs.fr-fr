@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 492d5dc4e20f67bcb9f72a022fec19f5ba86caac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b5233b7b667998f6fd3ff8a5db1946b120211c1
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurer mon compte pour la vérification en deux étapes
 La vérification en deux étapes est une mesure de sécurité supplémentaire qui renforce la protection de votre compte contre les tentatives d’intrusion. Si vous lisez cet article, c’est que vous avez probablement reçu un e-mail de la part de l’administrateur de votre entreprise ou établissement scolaire concernant Multi-Factor Authentication. Ou peut-être avez-vous reçu un message vous invitant à configurer la vérification de sécurité supplémentaire à la suite d’une tentative de connexion. Si tel est le cas, **vous devez compléter le processus d’inscription automatique avant de pouvoir vous connecter**.
@@ -29,7 +29,7 @@ Cet article vous aide à configurer votre **compte professionnel ou scolaire**. 
 
 ## <a name="set-up-your-account"></a>Configurer votre compte
 
-Si votre service informatique vous impose d’utiliser la vérification en deux étapes, un écran apparaît, indiquant **Votre administrateur exige que ce compte soit configuré pour une vérification de sécurité supplémentaire** :
+Si le support de votre entreprise vous impose d’utiliser la vérification en deux étapes, un écran apparaît, indiquant **Votre administrateur exige que ce compte soit configuré pour une vérification de sécurité supplémentaire** :
 
 ![Paramétrage](./media/multi-factor-authentication-end-user-first-time/first.png)
 

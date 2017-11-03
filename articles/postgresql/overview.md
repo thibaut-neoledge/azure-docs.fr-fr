@@ -9,20 +9,23 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 08/01/2017
-ms.openlocfilehash: 0dba4db0ae62a4f7e8440e80e830e5f64f5b49e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/20/2017
+ms.openlocfilehash: 5b5da758e966cc5ca536d7b291be74409f02ca73
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Qu’est-ce qu’Azure Database pour PostgreSQL ?
 
 Azure Database pour PostgreSQL est un service de base de données relationnelle dans le cloud de Microsoft conçu pour les développeurs basés sur la version de la communauté du moteur de base de données [PostgreSQL](https://www.postgresql.org/) open source. Ce service est en version préliminaire publique. Azure Database pour PostgreSQL offre :
-- Performances prévisibles sur plusieurs niveaux de service
-- Évolutivité dynamique sans interruption de l’application
-- Haute disponibilité intégrée
-- Protection des données
+
+- Une haute disponibilité intégrée sans coût supplémentaire ;
+- Des performances prévisibles, grâce aux tarifs du paiement à l’utilisation ;
+- Une mise à l’échelle à la volée en quelques secondes ;
+- La protection des données sensibles au repos et en mouvement ;
+- Des sauvegardes automatiques et une restauration à un point dans le temps jusqu’à 35 jours ;
+- Une sécurité et une conformité de classe Entreprise.
 
 Toutes ces fonctionnalités ne nécessitent presque aucune administration, et toutes sont fournies sans coût supplémentaire. Ces fonctionnalités vous permettent de vous concentrer sur le développement rapide de vos applications et d’accélérer leur mise sur le marché, plutôt que de consacrer du temps et des ressources à la gestion des machines virtuelles et de leur infrastructure. En outre, vous pouvez continuer à développer votre application avec les outils open source et la plateforme de votre choix et fournir avec la vitesse et l’efficacité que vos activités professionnelles exigent sans avoir à acquérir de nouvelles compétences. 
 
@@ -31,16 +34,15 @@ Cet article présente les principaux concepts et fonctionnalités d’Azure Data
 - [Création d’une instance d’Azure Database pour PostgreSQL à l’aide du portail Azure](quickstart-create-server-database-portal.md)
 - [Création d’une instance d’Azure Database pour PostgreSQL à l’aide de la CLI Azure](quickstart-create-server-database-azure-cli.md)
 
-Pour accéder à des exemples Azure CLI et PowerShell, consultez :
+Pour accéder à des exemples Azure CLI, consultez :
 
 - [Exemples Azure CLI pour base de données pour PostgreSQL](./sample-scripts-azure-cli.md)
 
-## <a name="adjust-performance-and-scale-without-downtime"></a>Ajustez les performances et la mise à l'échelle sans interruption de service
-
-Azure Database pour le service PostgreSQL propose actuellement deux niveaux de service : De base et Standard. Chaque niveau de service offre [différents niveaux de performances, de garanties d’E/S par seconde et de fonctionnalités](concepts-service-tiers.md) pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur un petit serveur pour quelques euros par mois et [modifier le niveau de performances](scripts/sample-scale-server-up-or-down.md) au sein du service manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Cette opération ne perturbe pas le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustez les performances et la mise à l’échelle en quelques secondes
+Dans la préversion, le service Azure Database pour MySQL propose deux niveaux de service : De base et Standard. Chaque niveau offre différentes performances et fonctionnalités pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur une petite base de données pour un faible coût mensuel, puis adapter l’échelle aux besoins de votre solution. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous payez uniquement pour les ressources dont vous avez besoin et seulement quand vous en avez besoin. Pour plus d’informations, consultez [Niveaux tarifaires](concepts-service-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Surveillance et alerte
-Comment savoir quand augmenter ou diminuer la taille des instances ? Vous utilisez les fonctionnalités intégrées de surveillance et d’alerte de performances, combinées avec les évaluations de performance basées sur les unités de calcul. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle d’unités de calcul (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. Pour plus de détails, consultez [Options et performances d’Azure Database pour PostgrSQL : comprendre ce qui est disponible dans chaque niveau de service](./concepts-service-tiers.md).
+Comment savoir quand augmenter ou diminuer la taille des instances ? Vous utilisez les fonctionnalités intégrées de surveillance et d’alerte de performances, combinées avec les évaluations de performance basées sur les unités de calcul. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle d’unités de calcul (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. Pour plus d’informations, consultez [Alertes](howto-alert-on-metric.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Votre application et votre activité ne s’arrêtent jamais
 Avec un temps de disponibilité de 99,99 % (non disponible dans la version préliminaire), l’excellent contrat de niveau de service (SLA) d’Azure, soutenu par un réseau mondial de centres de données gérés par Microsoft, permet d’exécuter votre application 24 heures sur 24, 7 jours sur 7. Avec chaque serveur Azure Database pour PostgreSQL, vous tirez parti de la sécurité intégrée, d’une tolérance en cas de panne et de la protection des données que vous seriez de toute manière contraint d’acheter ou de concevoir, de créer et de gérer. Avec Azure Database pour PostgreSQL, chaque niveau de service offre un ensemble complet de fonctionnalités et d’options assurant la continuité des activités, que vous pouvez utiliser pour démarrer votre base de données et vous assurer qu’elle fonctionne de manière continue. Vous pouvez utiliser la [limite de restauration dans le temps](howto-restore-server-portal.md) pour renvoyer une base de données à un état antérieur, jusqu’à 35 jours. En outre, si le centre de données hébergeant vos bases de données connaît une panne, vous pouvez restaurer les bases de données à partir de copies géo-redondantes des sauvegardes récentes.

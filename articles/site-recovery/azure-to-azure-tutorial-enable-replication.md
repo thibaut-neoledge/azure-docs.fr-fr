@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 9a92bf402863fd1ee688fba7c20d3a2cd3e299da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9cb2bfe459421ee6e28b9d83dffc569b7592c1f
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire (préversion)
 
@@ -129,7 +129,11 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 
 Site Recovery crée les paramètres par défaut et la stratégie de réplication pour la région cible. Vous pouvez changer les paramètres selon vos besoins.
 
+1. Cliquez sur **Paramètres** pour afficher les paramètres de la cible.
+2. Pour remplacer les paramètres de la cible par défaut, cliquez sur **Personnaliser**. 
+
 ![Configurer les paramètres](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+
 
 - **Emplacement cible** : région cible utilisée pour la récupération d’urgence. Il est recommandé que l’emplacement cible corresponde à l’emplacement du coffre Site Recovery.
 
@@ -142,7 +146,7 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
 
 - **Comptes de stockage cibles** : par défaut, Site Recovery crée un compte de stockage dans la région cible qui reflète le compte de stockage de la machine virtuelle source.
 
-- **Groupes à haute disponibilité cibles** : par défaut, Site Recovery crée un groupe à haute disponibilité dans la région cible avec le suffixe « asr ».
+- **Groupes à haute disponibilité cibles** : par défaut, Site Recovery crée un groupe à haute disponibilité dans la région cible avec le suffixe « asr ». Vous pouvez uniquement ajouter des groupes à haute disponibilité si les machines virtuelles font partie d’un ensemble de la région source.
 
 - **Nom de la stratégie de réplication** : nom de la stratégie.
 

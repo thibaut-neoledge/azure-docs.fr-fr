@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 10/25/2017
 ms.author: larryfr
-ms.openlocfilehash: 7f6985b80a88fd2e5d1fe0dafae47b95358d012d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38035e42b70766f3766bee55f1195994b6d37c2c
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Utilisation d’Oozie avec Hadoop pour définir et exécuter un flux de travail dans HDInsight
 
@@ -71,29 +71,41 @@ Le workflow utilisé dans ce document comporte deux actions. Les actions sont de
 
 ## <a name="create-the-working-directory"></a>Création du répertoire de travail
 
-Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise **wasb:///tutorials/useoozie**. Utilisez la commande suivante pour créer ce répertoire et le répertoire de données qui contient la nouvelle table Hive créée par ce workflow :
+Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise **wasb:///tutorials/useoozie**. Pour créer ce répertoire, suivez les étapes ci-dessous :
 
-```
-hdfs dfs -mkdir -p /tutorials/useoozie/data
-```
+1. Connectez-vous au cluster HDInsight à l’aide de SSH :
 
-> [!NOTE]
-> Le paramètre `-p` a provoqué la création de tous les répertoires dans le chemin d’accès. Le répertoire **data** est utilisé pour contenir les données utilisées par le script **useooziewf.hql**.
+    ```bash
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```
 
-Exécutez également la commande suivante, qui garantit que Oozie peut emprunter l’identité de votre compte d'utilisateur lors de l’exécution de travaux Hive et Sqoop. Remplacez **USERNAME** par votre nom de connexion :
+    Remplacez `sshuser` par le nom d’utilisateur SSH pour le cluster. Remplacez `clustername` par le nom du cluster. Pour plus d’informations, consultez le document [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-```
-sudo adduser USERNAME users
-```
+2. Pour créer le répertoire, utilisez la commande suivante :
 
-> [!NOTE]
-> Vous pouvez ignorer les erreurs indiquant que l’utilisateur est déjà membre du groupe `users`.
+    ```bash
+    hdfs dfs -mkdir -p /tutorials/useoozie/data
+    ```
+
+    > [!NOTE]
+    > Le paramètre `-p` a provoqué la création de tous les répertoires dans le chemin d’accès. Le répertoire **data** est utilisé pour contenir les données utilisées par le script **useooziewf.hql**.
+
+3. Pour vous assurer qu’Oozie peut emprunter l’identité de votre compte d’utilisateur, utilisez la commande suivante :
+
+    ```bash
+    sudo adduser username users
+    ```
+
+    Remplacez `username` par votre nom d’utilisateur SSH.
+
+    > [!NOTE]
+    > Vous pouvez ignorer les erreurs indiquant que l’utilisateur est déjà membre du groupe `users`.
 
 ## <a name="add-a-database-driver"></a>Ajout d’un pilote de base de données
 
-Étant donné que ce flux de travail utilise Sqoop pour exporter des données vers la base de données SQL, vous devez fournir une copie du pilote JDBC utilisé pour communiquer avec la base de données SQL. Pour le copier dans le répertoire de travail, utilisez la commande suivante :
+Étant donné que ce flux de travail utilise Sqoop pour exporter des données vers la base de données SQL, vous devez fournir une copie du pilote JDBC utilisé pour communiquer avec la base de données SQL. Pour copier le pilote JDBC dans le répertoire de travail, utilisez la commande suivante à partir de la session SSH :
 
-```
+```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
@@ -103,17 +115,9 @@ Si votre flux de travail utilisait d’autres ressources, par exemple un fichier
 
 Utilisez les étapes suivantes pour créer un script HiveQL qui définit une requête qui est utilisée dans un workflow Oozie plus loin dans ce document.
 
-1. Connectez-vous au cluster à l'aide de SSH. La commande suivante est un exemple d’utilisation de la commande `ssh`. Remplacez __USERNAME__ par l’utilisateur SSH pour le cluster. Remplacez __CLUSTERNAME__ par le nom du cluster HDInsight.
+1. À partir de la connexion SSH, utilisez la commande suivante pour créer un fichier nommé `useooziewf.hql` :
 
-    ```
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-    ```
-
-    Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. À partir de la connexion SSH, utilisez la commande suivante pour créer un fichier :
-
-    ```
+    ```bash
     nano useooziewf.hql
     ```
 
@@ -128,21 +132,21 @@ Utilisez les étapes suivantes pour créer un script HiveQL qui définit une req
 
     Deux variables sont utilisées dans le script :
 
-    * **${hiveTableName}** : contient le nom de la table à créer.
+    * `${hiveTableName}` : contient le nom de la table à créer.
 
-    * **${hiveDataFolder}** : contient l’emplacement où stocker les fichiers de données pour la table.
+    * `${hiveDataFolder}` : contient l’emplacement où stocker les fichiers de données pour la table.
 
     Le fichier de définition du workflow (workflow.xml dans ce didacticiel) transmet ces valeurs à ce script HiveQL au moment de l’exécution.
 
-4. Appuyez sur Ctrl+X pour quitter l’éditeur. Lorsque vous y êtes invité, sélectionnez **Y** pour enregistrer le fichier, puis sélectionnez **Entrée** pour utiliser le nom de fichier **useooziewf.hql**.
+4. Appuyez sur Ctrl+X pour quitter l’éditeur. Lorsque vous y êtes invité, sélectionnez `Y` pour enregistrer le fichier, puis `Enter` pour utiliser le nom de fichier `useooziewf.hql`.
 
-5. Utilisez les commandes suivantes pour copier **useooziewf.hql** vers **wasb:///tutorials/useoozie/useooziewf.hql** :
+5. Exécutez les commandes suivantes pour copier `useooziewf.hql` vers `wasb:///tutorials/useoozie/useooziewf.hql` :
 
-    ```
+    ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    Ces commandes stockent le fichier **useooziewf.hql** sur le stockage compatible avec HDFS pour le cluster.
+    Cette commande stocke le fichier `useooziewf.hql` sur le stockage compatible avec HDFS pour le cluster.
 
 ## <a name="define-the-workflow"></a>Définition du flux de travail
 
@@ -150,7 +154,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 1. Pour créer et modifier un fichier, utilisez l’instruction suivante :
 
-    ```
+    ```bash
     nano workflow.xml
     ```
 
@@ -211,19 +215,19 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
     Deux actions sont définies dans le flux de travail :
 
-   * **RunHiveScript** : il s’agit de l’action de départ, qui exécute le script Hive **useooziewf.hql**
+   * `RunHiveScript` : il s’agit de l’action de départ, qui exécute le script Hive `useooziewf.hql`.
 
-   * **RunSqoopExport** : cette action exporte les données créées à partir du script Hive vers la base de données SQL à l’aide de Sqoop. Elle n’est exécutée que si l’action **RunHiveScript** a abouti.
+   * `RunSqoopExport` : cette action exporte les données créées à partir du script Hive vers la base de données SQL à l’aide de Sqoop. Elle n’est exécutée que si l’action `RunHiveScript` a abouti.
 
      Le workflow a plusieurs entrées, telle que `${jobTracker}`. Ces entrées sont remplacées par les valeurs que vous utilisez dans la définition du travail. La définition du travail est créée ultérieurement dans ce document.
 
      Notez également l’entrée `<archive>sqljdbc4.jar</arcive>` dans la section Sqoop. Celle-ci indique à Oozie de rendre cette archive disponible pour Sqoop lors de l’exécution de cette action.
 
-3. Utilisez Ctrl-X, puis **Y** et **Entrée** pour enregistrer le fichier.
+3. Cliquez sur Ctrl + X, puis sur `Y` et `Enter` pour enregistrer le fichier.
 
-4. Utilisez la commande suivante pour copier le fichier **workflow.xml** vers **/tutorials/useoozie/workflow.xml** :
+4. Utilisez la commande suivante pour copier le fichier `workflow.xml` vers `/tutorials/useoozie/workflow.xml` :
 
-    ```
+    ```bash
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
     ```
 
@@ -239,13 +243,13 @@ Suivez les étapes du document [Création d’une base de données SQL](../sql-d
 
 1. Utilisez la commande suivante pour installer FreeTDS sur le cluster HDInsight :
 
-    ```
+    ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 2. Une fois FreeTDS installé, utilisez la commande suivante pour vous connecter au serveur de base de données SQL créé précédemment :
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
     ```
 
@@ -259,7 +263,7 @@ Suivez les étapes du document [Création d’une base de données SQL](../sql-d
 
 3. À l’invite de commandes `1>` , entrez les lignes suivantes :
 
-    ```
+    ```sql
     CREATE TABLE [dbo].[mobiledata](
     [deviceplatform] [nvarchar](50),
     [count] [bigint])
@@ -272,17 +276,15 @@ Suivez les étapes du document [Création d’une base de données SQL](../sql-d
 
     Vérifiez que la table a été créée à l’aide des éléments suivants :
 
-    ```
+    ```sql
     SELECT * FROM information_schema.tables
     GO
     ```
 
     Le résultat est similaire au texte suivant :
 
-    ```
-    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-    oozietest       dbo     mobiledata      BASE TABLE
-    ```
+        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+        oozietest       dbo     mobiledata      BASE TABLE
 
 4. Pour quitter l’utilitaire psql, entrez `exit` at the `1>` .
 
@@ -292,7 +294,7 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
 1. Utilisez la commande suivante pour obtenir l’adresse complète du stockage par défaut. Nous nous en servirons dans le fichier de configuration dans un moment :
 
-    ```
+    ```bash
     sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
     ```
 
@@ -308,25 +310,13 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
     Enregistrez le contenu de l’élément `<value>`, tel qu’il est utilisé dans les prochaines étapes.
 
-2. Utilisez la commande suivante pour obtenir le nom de domaine complet du nœud principal du cluster. Il est utilisé comme adresse JobTracker pour le cluster :
+2. Utilisez la commande suivante pour créer la configuration de définition de travail Oozie :
 
-    ```
-    hostname -f
-    ```
-
-    Cette commande renvoie des informations semblables au texte suivant :
-
-    ```hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net```
-
-    Le port utilisé pour JobTracker est 8050. Ainsi, l’adresse complète à utiliser pour JobTracker est la suivante : `hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050`.
-
-3. Utilisez la commande suivante pour créer la configuration de définition de travail Oozie :
-
-    ```
+    ```bash
     nano job.xml
     ```
 
-4. Une fois que l’éditeur nano est ouvert, utilisez le code XML suivant comme contenu du fichier :
+3. Une fois que l’éditeur nano est ouvert, utilisez le code XML suivant comme contenu du fichier :
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -339,7 +329,7 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
         <property>
         <name>jobTracker</name>
-        <value>JOBTRACKERADDRESS</value>
+        <value>headnodehost:8050</value>
         </property>
 
         <property>
@@ -389,21 +379,20 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
     </configuration>
     ```
 
-   * Remplacez toutes les instances de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment pour le stockage par défaut.
+   * Remplacez toutes les instances de `wasb://mycontainer@mystorageaccount.blob.core.windows.net` par la valeur que vous avez reçue précédemment pour le stockage par défaut.
 
      > [!WARNING]
      > Si le chemin d’accès est un chemin `wasb`, vous devez utiliser le chemin d’accès complet. Ne le limitez pas simplement à `wasb:///`.
 
-   * Remplacez **JOBTRACKERADDRESS** par l’adresse de JobTracker/ResourceManager reçue précédemment.
-   * Remplacez **YourName** par votre nom de connexion pour le cluster HDInsight.
-   * Remplacez **serverName**, **adminLogin** et **adminPassword** par les informations de votre Azure SQL Database.
+   * Remplacez `YourName` par votre nom de connexion pour le cluster HDInsight.
+   * Remplacez `serverName`, `adminLogin` et `adminPassword` par les informations de votre base de données SQL Azure.
 
      La plupart des informations de ce fichier sont utilisées pour remplir les valeurs utilisées dans les fichiers workflow.xml ou ooziewf.hql (comme ${nameNode}).
 
      > [!NOTE]
-     > L’entrée **oozie.wf.application.path** définit l’emplacement du fichier workflow.xml, qui contient le flux de travail exécuté par ce travail.
+     > L’entrée `oozie.wf.application.path` définit l’emplacement du fichier workflow.xml, qui contient le flux de travail exécuté par ce travail.
 
-5. Utilisez Ctrl-X, puis **Y** et **Entrée** pour enregistrer le fichier.
+5. Cliquez sur Ctrl + X, puis sur `Y` et `Enter` pour enregistrer le fichier.
 
 ## <a name="submit-and-manage-the-job"></a>Soumission et gestion du travail
 
@@ -415,7 +404,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 
 1. Utilisez la commande suivante pour obtenir l’URL du service Oozie :
 
-    ```
+    ```bash
     sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
     ```
 
@@ -430,24 +419,24 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 
 2. Pour créer une variable d’environnement pour l’URL de manière à ne pas être obligé de la taper pour chaque commande :
 
-    ```
+    ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
     Remplacez l’URL par celle reçue précédemment.
 3. Pour envoyer le travail, utilisez la commande suivante :
 
-    ```
+    ```bash
     oozie job -config job.xml -submit
     ```
 
-    Cette commande charge les informations du travail à partir de **job.xml** et les envoie à Oozie, mais n’exécute pas le travail.
+    Cette commande charge les informations du travail à partir de `job.xml` et les envoie à Oozie, mais n’exécute pas le travail.
 
     Une fois la commande terminée, elle retourne normalement l’ID du travail. Par exemple, `0000005-150622124850154-oozie-oozi-W`. Cet ID est utilisé pour gérer le travail.
 
 4. Affichez l’état du travail à l’aide de la commande suivante :
 
-    ```
+    ```bash
     oozie job -info <JOBID>
     ```
 
@@ -456,28 +445,26 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 
     Cette commande renvoie des informations semblables au texte suivant :
 
-    ```
-    Job ID : 0000005-150622124850154-oozie-oozi-W
-    ------------------------------------------------------------------------------------------------------------------------------------
-    Workflow Name : useooziewf
-    App Path      : wasb:///tutorials/useoozie
-    Status        : PREP
-    Run           : 0
-    User          : USERNAME
-    Group         : -
-    Created       : 2015-06-22 15:06 GMT
-    Started       : -
-    Last Modified : 2015-06-22 15:06 GMT
-    Ended         : -
-    CoordAction ID: -
-    ------------------------------------------------------------------------------------------------------------------------------------
-    ```
+        Job ID : 0000005-150622124850154-oozie-oozi-W
+        ------------------------------------------------------------------------------------------------------------------------------------
+        Workflow Name : useooziewf
+        App Path      : wasb:///tutorials/useoozie
+        Status        : PREP
+        Run           : 0
+        User          : USERNAME
+        Group         : -
+        Created       : 2015-06-22 15:06 GMT
+        Started       : -
+        Last Modified : 2015-06-22 15:06 GMT
+        Ended         : -
+        CoordAction ID: -
+        ------------------------------------------------------------------------------------------------------------------------------------
 
     Ce travail a le statut `PREP`, Cet état indique que le travail a été créé, mais qu’il n’a pas commencé.
 
 5. Utilisez la commande suivante pour démarrer le travail :
 
-    ```
+    ```bash
     oozie job -start JOBID
     ```
 
@@ -488,13 +475,13 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 
 6. Une fois le travail terminé correctement, vous pouvez vérifier que les données ont été générées et exportées vers la table de base de données SQL en utilisant les commandes suivantes :
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
     ```
 
     À l’invite de commandes `1>` , entrez la requête suivante :
 
-    ```
+    ```sql
     SELECT * FROM mobiledata
     GO
     ```
@@ -520,7 +507,7 @@ L’API REST Oozie vous permet de créer vos propres outils fonctionnant avec Oo
 
 * **Authentification** : authentifiez-vous à l’API en utilisant le compte HTTP (admin) et le mot de passe du cluster. Par exemple :
 
-    ```
+    ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
@@ -542,7 +529,7 @@ Pour accéder à l'interface utilisateur web Oozie, procédez comme suit :
 
 1. Créez un tunnel SSH vers le cluster HDInsight. Pour plus d’informations, consultez le document [Utilisation du tunnel SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web. L’URI du site Ambari est **https://CLUSTERNAME.azurehdinsight.net**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight basé sur Linux.
+2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web. L’URI pour le site Ambari est : `https://CLUSTERNAME.azurehdinsight.net`. Remplacez `CLUSTERNAME` par le nom de votre cluster HDInsight basé sur Linux.
 
 3. Sur le côté gauche de la page, sélectionnez **Oozie**, puis **Liens rapides**, et enfin **Interface utilisateur web Oozie**.
 
@@ -578,7 +565,7 @@ Le coordinateur vous permet de spécifier le début, la fin et la fréquence d�
 
 1. Utilisez la commande suivante pour créer un fichier nommé **coordinator.xml** :
 
-    ```
+    ```bash
     nano coordinator.xml
     ```
 
@@ -603,15 +590,15 @@ Le coordinateur vous permet de spécifier le début, la fin et la fréquence d�
     > * `${coordTimezone}`: les travaux du coordinateur se trouvent dans un fuseau horaire fixe sans passage à l’heure d’été (généralement représenté par UTC). Ce fuseau horaire est appelé le « fuseau horaire du traitement d’Oozie ».
     > * `${wfPath}` : chemin d’accès au fichier workflow.xml.
 
-2. Sélectionnez Ctrl+X, **Y**, puis **Entrée** pour enregistrer le fichier.
+2. Pour enregistrer le fichier, cliquez sur Ctrl + X, puis sur `Y` et `Enter`.
 
 3. Pour le copier dans le répertoire de travail pour ce travail, utilisez la commande suivante :
 
-    ```
+    ```bash
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. Utilisez la commande suivante pour modifier le fichier **job.xml** :
+4. Utilisez la commande suivante pour modifier le fichier `job.xml` :
 
     ```
     nano job.xml
@@ -658,7 +645,7 @@ Le coordinateur vous permet de spécifier le début, la fin et la fréquence d�
 
        Ces valeurs définissent l’heure de début sur 12 h 00 le 10 mai 2017 et la fin sur le 12 mai 2017. L’intervalle d’exécution de ce travail est quotidien. La fréquence est exprimée en minutes, par conséquent, 24 heures x 60 minutes = 1 440 minutes. Enfin, le fuseau horaire est défini au format UTC.
 
-5. Utilisez Ctrl-X, puis **Y** et **Entrée** pour enregistrer le fichier.
+5. Cliquez sur Ctrl + X, puis sur `Y` et `Enter` pour enregistrer le fichier.
 
 6. Utilisez la commande suivante pour exécuter le travail :
 
@@ -732,13 +719,13 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 Par exemple, pour le travail de ce document, vous utiliseriez les étapes suivantes :
 
-1. Copier le fichier sqljdbc4.1.jar dans le répertoire /tutorials/useoozie :
+1. Copiez le fichier `sqljdbc4.1.jar` dans le répertoire /tutorials/useoozie :
 
-    ```
+    ```bash
     hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
     ```
 
-2. Modifier le fichier workflow.xml pour ajouter le code XML suivant sur une nouvelle ligne au-dessus de `</sqoop>` :
+2. Modifiez le fichier `workflow.xml` pour ajouter le code XML suivant sur une nouvelle ligne au-dessus de `</sqoop>` :
 
     ```xml
     <archive>sqljdbc41.jar</archive>

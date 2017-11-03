@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
-ms.openlocfilehash: ebf3062ab0600b0ae722c78d07095970001a0a23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1f3f01f896cc03fde13f11457be4740fa2720a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS
 Microsoft Azure s’engage fermement à préserver la confidentialité, la souveraineté de vos données et vous permet de contrôler vos données Azure hébergées via une suite de technologies servant à chiffrer, contrôler et gérer les clés de chiffrement, le contrôle et l’audit de l’accès aux données. Les clients Azure ont ainsi la possibilité de choisir la solution qui répond le mieux à leurs besoins professionnels. Dans ce document, nous allons vous présenter une nouvelle solution technologique « Azure Disk Encryption for Windows and Linux IaaS VM’s » pour protéger et sauvegarder vos données afin de répondre aux engagements de votre sécurité en matière d’organisation et les exigences de conformité. Cet article fournit des instructions détaillées sur la façon d’utiliser les fonctionnalités de cryptage de disque Azure, notamment sur les scénarios pris en charge et sur les expériences utilisateur.
@@ -40,8 +40,8 @@ Azure Disk Encryption prend en charge les scénarios client suivants :
 * Désactivation du chiffrement sur les machines virtuelles IaaS Windows.
 * Désactivation du chiffrement sur les lecteurs de données pour les machines virtuelles IaaS Linux
 * Activation du chiffrement des machines virtuelles avec disque managé
-* Mise à jour des paramètres de chiffrement d’une machine virtuelle de stockage non Premium chiffrée existante
-* Sauvegarde et restauration de machines virtuelles chiffrées avec une clé de chiffrement de clé
+* Mise à jour des paramètres de chiffrement d’une machine virtuelle de stockage non Premium et Premium chiffrée existante
+* Sauvegarde et restauration de machines virtuelles chiffrées
 
 La solution prend en charge les scénarios de machines virtuelles IaaS suivants lorsqu’ils sont activés dans Microsoft Azure :
 
@@ -54,8 +54,10 @@ La solution prend en charge les scénarios de machines virtuelles IaaS suivants 
 * Activation du chiffrement sur les volumes avec chemins d’accès de montage.
 * Activation du chiffrement sur des machines virtuelles Linux configurées avec une agrégation de disques (RAID) utilisant mdadm
 * Activation du chiffrement sur des machines virtuelles Linux en utilisant LVM pour les disques de données
+* Activer le chiffrement sur Linux LVM 7.3 pour le système d’exploitation et les disques de données 
 * Activation du chiffrement sur les machines virtuelles Windows configurées avec des espaces de stockage
-* Mise à jour des paramètres de chiffrement d’une machine virtuelle de stockage non Premium chiffrée existante
+* Mise à jour des paramètres de chiffrement d’une machine virtuelle de stockage non Premium et Premium chiffrée existante
+* Sauvegarde et restauration de machines virtuelles chiffrées, pour les scénarios KEK et non-KEK (KEK - clé de chiffrement de clé)
 * Toutes les régions publiques Azure et AzureGov sont prises en charge
 
 La solution ne prend pas en charge les scénarios, fonctionnalités et technologies suivants :
@@ -64,15 +66,9 @@ La solution ne prend pas en charge les scénarios, fonctionnalités et technolog
 * Désactivation du chiffrement sur un lecteur de système d’exploitation pour les machines virtuelles IaaS Linux
 * Désactivation du chiffrement sur un lecteur de données lorsque le lecteur du système d’exploitation est chiffré pour les machines virtuelles Iaas Linux
 * Machines virtuelles IaaS créées à l’aide de la méthode classique de création de machines virtuelles
-* L’activation du chiffrement sur les images client personnalisées de machines virtuelles Iaas Windows et Linux n’est PAS prise en charge. L’activation du chiffrement sur des disques de système d’exploitation LVM Linux n’est pas prise en charge actuellement. Elles seront bientôt prise en charge.
+* L’activation du chiffrement sur les images client personnalisées de machines virtuelles Iaas Windows et Linux n’est PAS prise en charge.
 * Intégration à votre service de gestion de clés local
 * Azure Files (système de partage de fichiers), NFS (Network File System), volumes dynamiques et machines virtuelles Windows configurées avec des systèmes RAID logiciels
-* Sauvegarde et restauration de machines virtuelles chiffrées sans clé de chiffrement de clé
-* Mise à jour des paramètres de chiffrement d’une machine virtuelle de stockage Premium chiffrée existante
-
-> [!NOTE]
-> La sauvegarde et la restauration de machines virtuelles chiffrées sont prises en charge uniquement pour les machines virtuelles chiffrées à l’aide de la configuration de clé de chiffrement à clé (KEK). Elles ne sont pas prises en charge pour les machines virtuelles chiffrées sans KEK. KEK est un paramètre facultatif permettant d’activer le chiffrement d’une machine virtuelle. Cette prise en charge sera bientôt disponible.
-> La mise à jour des paramètres de chiffrement d’une machine virtuelle de stockage Premium chiffrée ne sont pas pris en charge. Cette prise en charge sera bientôt disponible.
 
 ### <a name="encryption-features"></a>Fonctionnalités de chiffrement
 Lorsque vous activez et déployez Azure Disk Encryption pour les machines virtuelles IaaS Azure, les fonctionnalités suivantes sont activées en fonction de la configuration fournie :
@@ -85,9 +81,6 @@ Lorsque vous activez et déployez Azure Disk Encryption pour les machines virtue
 * Création de rapports concernant l’état du chiffrement des machines virtuelles IaaS chiffrées
 * Suppression des paramètres de configuration de chiffrement de disque à partir de la machine virtuelle IaaS
 * Sauvegarde et restauration des machines virtuelles chiffrées à l’aide du service Sauvegarde Azure
-
-> [!NOTE]
-> La sauvegarde et la restauration de machines virtuelles chiffrées sont prises en charge uniquement pour les machines virtuelles chiffrées à l’aide de la configuration de clé de chiffrement à clé (KEK). Elles ne sont pas prises en charge pour les machines virtuelles chiffrées sans KEK. KEK est un paramètre facultatif permettant d’activer le chiffrement d’une machine virtuelle.
 
 La solution Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux comprend :
 
@@ -157,6 +150,7 @@ Voici les conditions requises pour activer Azure Disk Encryption sur les machine
 | Ubuntu | 12.10 | Disque de données |
 | Ubuntu | 12.04 | Disque de données |
 | RHEL | 7.3 | Disque de système d’exploitation et de données |
+| RHEL | LVM 7.3 | Disque de système d’exploitation et de données |
 | RHEL | 7,2 | Disque de système d’exploitation et de données |
 | RHEL | 6,8 | Disque de système d’exploitation et de données |
 | RHEL | 6.7 | Disque de données |
@@ -223,7 +217,7 @@ Voici les conditions requises pour activer Azure Disk Encryption sur les machine
 * La stratégie BitLocker, sur les machines virtuelles jointes à un domaine et ayant une stratégie de groupe personnalisée, doit inclure le paramètre suivant : `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key` Azure Disk Encryption échoue lorsque les paramètres de stratégie de groupe personnalisée pour Bitlocker sont incompatibles. Sur les machines dont le paramètre de stratégie n’était pas correct, l’application de la nouvelle stratégie, la mise à jour forcée de la nouvelle stratégie (gpupdate.exe /force) et le redémarrage peuvent être nécessaires.  
 * Pour créer l’application Azure AD, créer un coffre de clés ou en configurer un existant et activer le chiffrement, consultez la rubrique [Script PowerShell prérequis pour Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * Pour configurer les composants requis de chiffrement de disque à l’aide de l’interface de ligne de commande Azure, consultez [ce script bash](https://github.com/ejarvi/ade-cli-getting-started).
-* Pour utiliser le service Sauvegarde Azure afin de sauvegarder et de restaurer des machines virtuelles chiffrées, lorsque le chiffrement est activé avec Azure Disk Encryption, chiffrez vos machines virtuelles à l’aide de la configuration de clé Azure Disk Encryption. Le service de sauvegarde prend en charge les machines virtuelles chiffrées à l’aide de la configuration de clé de chiffrement à clé [KEK] uniquement. Voir [Guide pratique de sauvegarde et restauration des machines virtuelles chiffrées avec Sauvegarde Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+* Pour utiliser le service Sauvegarde Azure afin de sauvegarder et de restaurer des machines virtuelles chiffrées, lorsque le chiffrement est activé avec Azure Disk Encryption, chiffrez vos machines virtuelles à l’aide de la configuration de clé Azure Disk Encryption. Le service de sauvegarde prend en charge les machines virtuelles chiffrées à l’aide des configurations KEK et non-KEK. Voir [Guide pratique de sauvegarde et restauration des machines virtuelles chiffrées avec Sauvegarde Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
 
 * Lors du chiffrement d’un volume de système d’exploitation Linux, notez qu’un redémarrage de la machine virtuelle est actuellement nécessaire à la fin du processus. Il est possible de le faire via le portail, Powershell ou CLI.   Pour suivre la progression du chiffrement, consultez régulièrement le message d’état retourné par Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Une fois le chiffrement terminé, le message d’état retourné par cette commande indique le résultat de cette opération.  Par exemple, « ProgressMessage : le chiffrement du disque du système d’exploitation s’est correctement déroulé, veuillez redémarrer la machine virtuelle ». À ce stade, la machine virtuelle peut être redémarrée et utilisée.  
 
@@ -234,9 +228,6 @@ Voici les conditions requises pour activer Azure Disk Encryption sur les machine
 * Azure Disk Encryption est uniquement pris en charge sur les images de la galerie Azure prises en charge qui remplissent les conditions préalables susmentionnées. Les images client personnalisées ne sont pas prises en charge en raison de comportements de processus et de schémas de partition personnalisés pouvant exister sur ces images. De plus, même les machines virtuelles d’image de galerie, qui initialement remplissaient les conditions préalables demandées, mais qui ont été modifiées depuis leur création, peuvent être incompatibles.  Ainsi, la procédure suggérée pour chiffrer une machine virtuelle Linux consiste à démarrer depuis une nouvelle image de galerie, à chiffrer la machine virtuelle, puis à ajouter en fonction des besoins les données ou les logiciels personnalisés à cette machine virtuelle.  
 
 * Azure Disk Encryption permet de configurer un volume de données local (volume Bek pour Windows et /mnt/azure_bek_disk pour Linux) pour y stocker en toute sécurité la clé de chiffrement d’une machine virtuelle IaaS. Vous ne devez pas supprimer ni modifier le contenu de ce disque. Vous ne devez pas non plus démonter ce disque, car les clés de chiffrement qui y sont stockées sont nécessaires pour effectuer les opérations de chiffrement sur les machines virtuelles IaaS. Consultez le fichier LISEZMOI fourni avec le volume pour obtenir plus d’informations.
-
-> [!NOTE]
-> La sauvegarde et la restauration de machines virtuelles chiffrées sont prises en charge uniquement pour les machines virtuelles chiffrées à l’aide de la configuration de clé de chiffrement à clé (KEK). Elles ne sont pas prises en charge pour les machines virtuelles chiffrées sans KEK. KEK est un paramètre facultatif qui active une machine virtuelle.
 
 #### <a name="set-up-the-azure-ad-application-in-azure-active-directory"></a>Configurer l’application Azure AD dans Azure Active Directory
 Lorsque le chiffrement doit être activé sur une machine virtuelle en cours d’exécution dans Azure, Azure Disk Encryption génère et écrit les clés de chiffrement dans votre coffre de clés. La gestion des clés de chiffrement dans votre coffre de clés nécessite l’authentification Azure AD.
@@ -606,7 +597,7 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 | AADClientSecret | Clé secrète de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
 | keyVaultName | Nom du coffre de clés dans lequel la clé BitLocker doit être téléchargée. Vous pouvez l’obtenir à l’aide de l’applet de commande `(Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname`. |
 |  keyEncryptionKeyURL | URL de la clé de chiffrement à clé utilisée pour chiffrer la clé BitLocker générée. Ce paramètre est facultatif si vous sélectionnez **nokek** dans la liste déroulante UseExistingKek. Si vous sélectionnez **kek** dans la liste déroulante UseExistingKek, vous devez entrer la valeur _keyEncryptionKeyURL_. |
-| volumeType | Type de volume sur lequel l’opération de chiffrement est effectuée. Les valeurs valides prises en charge sont _Système d’exploitation_ ou _Tous_ (pour RHEL 7.2, CentOS 7.2 et Ubuntu 16.04) et _Données_ (pour toutes les autres distributions). |
+| volumeType | Type de volume sur lequel l’opération de chiffrement est effectuée. Les valeurs prises en charge valides sont _Système d’exploitation_ ou _Toutes_ (voir les versions de Linux prises en charge et leurs versions pour système d’exploitation et disques de données dans la section des prérequis ci-dessus). |
 | sequenceVersion | Version de séquence de l’opération BitLocker. Incrémentez ce numéro de version à chaque fois qu’une opération de chiffrement de disque est exécutée sur la même machine virtuelle. |
 | vmName | Nom de la machine virtuelle sur laquelle l’opération de chiffrement doit être effectuée. |
 | passPhrase | Saisissez une phrase secrète forte comme clé de chiffrement de données. |
@@ -749,7 +740,7 @@ Utiliser le modèle ARM de disque managé Azure pour créer une nouvelle machine
   >Il est impératif de réaliser un instantané et/ou une sauvegarde d’une instance de machine virtuelle basée sur un disque géré en dehors d’Azure Disk Encryption et avant d’activer ce service de chiffrement.  Un instantané du disque géré peut être réalisé à partir du portail, sinon il est possible d’utiliser le service Sauvegarde Microsoft Azure.  Les sauvegardes vous garantissent une possibilité de récupération en cas de défaillance inattendue pendant le chiffrement.  Une fois la sauvegarde effectuée, il est possible d’utiliser l’applet de commande Set-AzureRmVMDiskEncryptionExtension pour chiffrer des disques gérés en spécifiant le paramètre - skipVmBackup.  Cette commande échoue sur les machines virtuelles de disques gérés tant qu’une sauvegarde n’a pas été effectuée et que ce paramètre n’a pas été spécifié.    
  
 ### <a name="update-encryption-settings-of-an-existing-encrypted-non-premium-vm"></a>Mettre à jour les paramètres de chiffrement d’une machine virtuelle non Premium chiffrée existante
-  Utilisez les interfaces prises en charge de chiffrement de disque Azure existant pour une machine virtuelle en cours d’exécution [applets de commande PS, CLI ou modèles ARM] afin de mettre à jour des paramètres de chiffrement tels que ID client/secret AAD, clé de chiffrement de clé [KEK], clé de chiffrement BitLocker pour machine virtuelle Windows ou Phrase secrète pour machine virtuelle Linux, etc. Le paramètre de mise à jour de chiffrement est pris en charge uniquement pour les machines virtuelles s’appuyant sur un stockage non Premium. Il n’est PAS pris en charge pour des machines virtuelles s’appuyant sur un stockage Premium.
+  Utilisez les interfaces prises en charge de chiffrement de disque Azure existant pour une machine virtuelle en cours d’exécution [applets de commande PS, CLI ou modèles ARM] afin de mettre à jour des paramètres de chiffrement tels que ID client/secret AAD, clé de chiffrement de clé [KEK], clé de chiffrement BitLocker pour machine virtuelle Windows ou Phrase secrète pour machine virtuelle Linux, etc. Le paramètre de mise à jour de chiffrement est pris en charge pour les machines virtuelles de stockage Premium et non Premium.
 
 ## <a name="appendix"></a>Annexe
 ### <a name="connect-to-your-subscription"></a>Connexion à votre abonnement

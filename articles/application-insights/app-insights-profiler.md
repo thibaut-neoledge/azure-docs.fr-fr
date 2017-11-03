@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.openlocfilehash: 5d9a5b0dbd0b2a95bbb3cae37aea27908addc3c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca593890b6b030caa0acb9ede90ca24fe136ca0
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profilage des applications web dynamiques Azure avec Application Insights
 
@@ -45,9 +45,9 @@ Les applications web configurées avec Application Insights sont listées dans l
 
 Utilisez les boutons *Activer le profileur* ou *Désactiver le profileur* dans le panneau Configurer pour contrôler le profileur dans toutes vos applications web liées.
 
-
-
 ![Panneau Configurer][linked app services]
+
+Contrairement aux applications web hébergées par le biais de plans App Service, les applications hébergées dans des ressources *Azure Compute* (par exemple, une machine virtuelle, un groupe identique de machines virtuelles, Service Fabric et les services cloud) ne sont pas gérées directement par Azure. Dans ce cas, il n’existe aucune application web à lier ici et vous devez uniquement cliquer pour activer Profiler dans l’écran.
 
 ## <a name="disable-the-profiler"></a>Désactiver le profileur
 Pour arrêter ou redémarrer le profileur pour une App Service individuelle, vous devez vous rendre **dans la ressource App Service**, sous **Tâches web**. Pour le supprimer, allez dans **Extensions**.

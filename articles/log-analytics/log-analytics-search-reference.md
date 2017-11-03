@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 10/11/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc9c9b0a6292dab256997a86a6db16367fc48cd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 264ea071dc0b15964af07c68cbf0dee896b07a3e
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="log-analytics-search-reference"></a>Référence de recherche Log Analytics
 
 >[!NOTE]
-> Cet article détaille les recherches dans les journaux via le langage de requête actuel de Log Analytics.  Si vous avez mis a niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), référez-vous à [la référence du nouveau langage](https://go.microsoft.com/fwlink/?linkid=856079).
+> Cet article détaille les recherches dans les journaux via le langage de requête hérité de Log Analytics.  Si vous avez mis a niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), référez-vous à [la référence du nouveau langage](https://go.microsoft.com/fwlink/?linkid=856079).
 
 La section d’informations de référence suivante sur le langage de recherche décrit les options de syntaxe de requête générales que vous pouvez utiliser lorsque vous recherchez des données et que vous filtrez des expressions pour affiner votre recherche. Elle décrit également les commandes que vous pouvez utiliser pour effectuer une opération sur les données récupérées.
 

@@ -1,6 +1,6 @@
 ---
 title: "Directives pour l’optimisation des performances Azure SQL Database | Microsoft Docs"
-description: "Cet article vous aide à déterminer le niveau de service adapté à votre application. Il vous présente également des moyens de paramétrer votre application pour tirer le meilleur parti de votre instance Azure SQL Database."
+description: "Découvrez l’utilisation des recommandations pour améliorer le niveau de performance des requêtes Azure SQL Database."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: carlrab
-ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31130c261bb7ee12b38e199c2a3bb71d7f8fc4b8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Optimisation des performances dans Azure SQL Database
 
@@ -30,26 +30,26 @@ Si aucune recommandation n’est applicable et si vous avez toujours des problè
 2. Paramétrez votre application et appliquez quelques meilleures pratiques susceptibles d’améliorer les performances. 
 3. Paramétrez la base de données en modifiant les index et les requêtes afin d’utiliser plus efficacement les données.
 
-Ce sont des méthodes manuelles, car vous devez déterminer quels [niveaux de service](sql-database-service-tiers.md) vous devrez choisir ou vous seront indispensables pour réécrire le code de l’application ou de la base de données et déployer les modifications.
+Ce sont des méthodes manuelles, car vous devez déterminer quels [niveaux de service](sql-database-service-tiers.md) vous devez choisir ou vous sont indispensables pour réécrire le code de l’application ou de la base de données et déployer les changements.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Augmentation du niveau de performance de votre base de données
 
-Azure SQL Database propose quatre [niveaux de service](sql-database-service-tiers.md) : De base, Standard, Premium et Premium RS. Les performances sont mesurées en unités de débit de base de données, ou [DTU](sql-database-what-is-a-dtu.md). Chaque niveau de service isole strictement les ressources pouvant être utilisées par votre base de données SQL et garantit des performances prévisibles. Dans cet article, nous vous offrons des recommandations qui vous aideront à choisir le niveau de service adapté à votre application. Nous abordons également des modes de paramétrage de votre application destinés à tirer le meilleur de Microsoft Azure SQL Database.
+Azure SQL Database offers four [service tiers](sql-database-service-tiers.md) that you can choose from: Basic, Standard, Premium, and Premium RS (performance is measured in database throughput units, or [DTUs](sql-database-what-is-a-dtu.md). Chaque niveau de service isole strictement les ressources pouvant être utilisées par votre base de données SQL et garantit des performances prévisibles. Dans cet article, nous vous offrons des recommandations qui vous aideront à choisir le niveau de service adapté à votre application. Nous abordons également des modes de paramétrage de votre application destinés à tirer le meilleur de Microsoft Azure SQL Database.
 
 > [!NOTE]
 > Cet article se concentre sur les recommandations de performances pour les bases de données uniques dans Microsoft Azure SQL Database. Pour un guide des performances relatives aux pools élastiques, consultez [Considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool-guidance.md). Notez, cependant, que vous pouvez appliquer un grand nombre des recommandations de cet article sur les bases de données d’un pool élastique, afin d’obtenir des avantages similaires en matière de performances.
 > 
 
-* **De base** : le niveau de service De base est conçu de manière à assurer une bonne prévisibilité des performances pour chaque base de données, heure après heure. Dans une base de données De base, des ressources suffisantes prennent en charge de bonnes performances au sein d’une petite instance qui ne présente pas plusieurs requêtes simultanées. Voici quelques cas d’usage classiques pour lesquels vous devez utiliser le niveau de service De base :
+* **Basic**: The Basic service tier offers good performance predictability for each database, hour over hour. Dans une base de données De base, des ressources suffisantes prennent en charge de bonnes performances au sein d’une petite instance qui ne présente pas plusieurs requêtes simultanées. Voici quelques cas d’usage classiques pour lesquels vous devez utiliser le niveau de service De base :
   * **Vous débutez juste avec Azure SQL Database**. Bien souvent, les applications en cours de développement ne requièrent pas de hauts niveaux de performances. Les bases de données De base constituent un environnement idéal pour le développement ou le test des bases de données, et ce, à moindre coût.
   * **Vous disposez d’une base de données avec un utilisateur unique**. Généralement, les applications qui associent un seul utilisateur à une base de données n’ont pas des exigences élevées en matière d’accès concurrentiel et de performances. Les applications de ce type font des candidates idéales pour le niveau de service De base.
-* **Standard** : le niveau de service Standard offre une meilleure prévisibilité des performances et fournit de bonnes performances pour les bases de données avec plusieurs requêtes simultanées, par exemple les applications web ou de groupe de travail. Lorsque vous choisissez une base de données de niveau de service Standard, vous pouvez dimensionner votre application de base de données en fonction de performances prévisibles, minute après minute.
+* **Standard**: The Standard service tier offers improved performance predictability and provides good performance for databases that have multiple concurrent requests, like workgroup and web applications. Lorsque vous choisissez une base de données de niveau de service Standard, vous pouvez dimensionner votre application de base de données en fonction de performances prévisibles, minute après minute.
   * **Votre base de données présente de multiples requêtes simultanées**. Les applications utilisées simultanément par plusieurs utilisateurs requièrent généralement des niveaux de performances plus élevés. Par exemple, un groupe de travail ou des applications web avec des exigences de trafic d’E/S faibles à moyennes et prenant en charge plusieurs requêtes simultanées sont parfaitement adaptés au niveau de service Standard.
-* **Premium** : le niveau de service Premium offre des performances prévisibles seconde après seconde pour chaque base de données Premium. Lorsque vous choisissez le niveau de service Premium, vous pouvez dimensionner votre application de base de données en fonction de la charge maximale de votre instance. Le plan supprime les scénarios dans lesquels l’écart de performances peut allonger le traitement des petites requêtes dans les opérations sensibles à la latence. Ce modèle simplifie considérablement les cycles de validation de développement et de produit nécessaires pour les applications qui doivent appliquer des instructions fortes concernant les besoins maximum en ressources, l’écart de performances ou la latence des requêtes. La plupart des cas d’utilisation du niveau de service Premium présentent une ou plusieurs de ces caractéristiques :
+* **Premium**: The Premium service tier provides predictable performance, second over second, for each Premium database. Lorsque vous choisissez le niveau de service Premium, vous pouvez dimensionner votre application de base de données en fonction de la charge maximale de votre instance. Le plan supprime les scénarios dans lesquels l’écart de performances peut allonger le traitement des petites requêtes dans les opérations sensibles à la latence. Ce modèle simplifie considérablement les cycles de validation de développement et de produit nécessaires pour les applications qui doivent appliquer des instructions fortes concernant les besoins maximum en ressources, l’écart de performances ou la latence des requêtes. La plupart des cas d’utilisation du niveau de service Premium présentent une ou plusieurs de ces caractéristiques :
   * **Pic de charge élevés**. Une application qui nécessite un volume élevé d’UC, de mémoire ou d’entrée/sortie (E/S) pour exécuter ses opérations requiert un niveau de performances élevé, dédié. Par exemple, si une opération de base de données est connue pour utiliser plusieurs cœurs d’UC pendant une période prolongée, l’utilisation du niveau de service Premium est appropriée.
   * **Plusieurs requêtes simultanées**. Certaines applications de base de données gèrent de nombreuses demandes simultanées, par exemple un site web avec un volume de trafic élevé. Les niveaux de service De base et Standard présentent des limites au nombre de demandes simultanées par base de données. Les applications qui requièrent plus de connexions doivent choisir une taille de réservation appropriée pour traiter le nombre maximum de demandes nécessaires.
   * **Latence faible**. Certaines applications doivent garantir une réponse de la base de données dans un délai minimum. Si une procédure stockée donnée est appelée dans le cadre d’une opération client plus large, il existe peut-être une exigence de renvoi depuis l’appel en moins de 20 millisecondes 99 % du temps. Ce type d’application bénéficie du niveau de service Premium afin de garantir la disponibilité de la puissance de calcul.
-* **Premium RS** : le niveau Premium RS est conçu pour les charges de travail intensives en E/S qui ne nécessitent pas de garanties de disponibilité maximale. Parmi les exemples, on peut citer les charges de travail hautes performances ou une charge de travail analytique où la base de données n’est pas le système d’enregistrement.
+* **Premium RS**: The Premium RS tier is designed for IO-intensive workloads that do not require the highest availability guarantees. Parmi les exemples, on peut citer les charges de travail hautes performances ou une charge de travail analytique où la base de données n’est pas le système d’enregistrement.
 
 Le niveau exact dont vous avez besoin pour votre base de données SQL dépend des exigences de charge maximale pour chaque dimension de ressource. Certaines applications utilisent une quantité insignifiante pour une ressource mais ont des exigences considérables pour d’autres.
 

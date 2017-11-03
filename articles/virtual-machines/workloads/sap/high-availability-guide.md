@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65236f527b62b4990b062fb6a54ce13b3c182e93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6a68ad090789c95dda6d18f649ae3bcfa671c5
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
 
@@ -418,13 +418,13 @@ ms.lasthandoff: 10/11/2017
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
-[virtual-network-deploy-multinic-arm-cli]:../../../virtual-network/virtual-network-deploy-multinic-arm-cli.md
-[virtual-network-deploy-multinic-arm-ps]:../../../virtual-network/virtual-network-deploy-multinic-arm-ps.md
+[virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
+[virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-networks-multiple-nics.md
+[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
@@ -522,7 +522,6 @@ Lorsque vous utilisez le clustering de basculement Windows Server, vous pouvez c
 * **Nœud et disque majoritaires** : chaque nœud et un disque désigné dans l’espace de stockage en cluster (disque témoin) peuvent voter lorsqu’ils sont disponibles et en communication. Le cluster fonctionne uniquement avec une majorité de voix, c’est-à-dire plus de la moitié. Ce mode est pertinent dans un environnement de cluster comprenant un nombre pair de nœuds. Si la moitié des nœuds et le disque sont en ligne, le cluster conserve son état d’intégrité.
 * **Nœud et partage de fichiers majoritaires** : chaque nœud et un partage de fichiers désigné (témoin de partage de fichiers) créé par l’administrateur peuvent voter, que les nœuds et le partage de fichiers soient ou non disponibles et en communication. Le cluster fonctionne uniquement avec une majorité de voix, c’est-à-dire plus de la moitié. Ce mode est pertinent dans un environnement de cluster comprenant un nombre pair de nœuds. Il est similaire au mode Nœud et disque majoritaires, mais il utilise un témoin de partage de fichiers au lieu d’un disque témoin. Ce mode est facile à implémenter, mais si le partage de fichiers lui-même n’est pas hautement disponible, il risque de devenir un point de défaillance unique.
 * **Pas de majorité : disque uniquement** : un quorum est atteint pour le cluster si un nœud est disponible et en communication avec un disque spécifique dans l’espace de stockage en cluster. Seuls les nœuds qui sont également en communication avec ce disque peuvent rejoindre le cluster. Nous vous déconseillons d’utiliser ce mode.
- 
 
 ## <a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Clustering de basculement Windows Server local
 La figure 1 illustre un cluster de deux nœuds. Si la connexion réseau entre les nœuds échoue et les deux nœuds restent opérationnels, un disque ou un partage de fichiers quorum détermine quel nœud continuera de fournir les applications et services du cluster. Le nœud qui a accès au disque ou au partage de fichiers quorum est celui qui garantit que les services restent disponibles.
@@ -1385,7 +1384,7 @@ Après avoir installé SIOS DataKeeper sur les deux nœuds, vous devez commencer
 
 ## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> Installer le système SAP NetWeaver
 
-Nous ne décrirons pas l’installation du SGBD, car celle-ci varie en fonction du SGBD utilisé. Toutefois, nous partons du principe que la haute disponibilité du SGBD est assurée par les fonctionnalités prises en charge par les différents fournisseurs de SGBD pour Azure, par exemple Always On ou la mise en miroir de base de données pour SQL Server, et Oracle Data Guard pour bases de données Oracle. Dans le scénario utilisé dans cet article, nous n’avons pas ajouté de protection supplémentaire au SGBD.
+Nous ne décrirons pas l’installation du système SGBD, car celle-ci varie en fonction du système utilisé. Toutefois, nous partons du principe que la haute disponibilité du SGBD est assurée par les fonctionnalités prises en charge par les différents fournisseurs de SGBD pour Azure, par exemple Always On ou la mise en miroir de base de données pour SQL Server, et Oracle Data Guard pour bases de données Oracle. Dans le scénario utilisé dans cet article, nous n’avons pas ajouté de protection supplémentaire au SGBD.
 
 Il n’existe pas de considérations particulières lorsque différents services de SGBD interagissent avec ce type de configuration SAP ASCS/SCS en cluster dans Azure.
 

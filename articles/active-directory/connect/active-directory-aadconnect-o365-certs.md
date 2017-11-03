@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 675f5b31eb60a75e060a397f01777e427c068c64
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renouvellement des certificats de fédération pour Office 365 et Azure Active Directory
 ## <a name="overview"></a>Vue d'ensemble
@@ -158,9 +158,18 @@ Mettez Office 365 à jour avec les nouveaux certificats de signature de jeton de
 > [!NOTE]
 > Si vous avez besoin de prendre en charge plusieurs domaines de premier niveau, par exemple contoso.com et fabrikam.com, vous devez utiliser le commutateur **SupportMultipleDomain** avec les applets de commande. Pour plus d’informations, consultez [Prise en charge de plusieurs domaines de premier niveau](active-directory-aadconnect-multiple-domains.md).
 >
->
+
 
 ## Réparer l’approbation Azure AD à l’aide d’Azure AD Connect <a name="connectrenew"></a>
 Si vous avez configuré votre batterie de serveurs AD FS et l’approbation Azure AD à l’aide d’Azure AD Connect, vous pouvez utiliser Azure AD Connect afin de vérifier si vous devez agir ou non pour vos certificats de signature de jeton. Si vous devez renouveler les certificats, vous pouvez le faire à l’aide d’Azure AD Connect.
 
 Pour plus d’informations, consultez [Réparation de l’approbation](active-directory-aadconnect-federation-management.md).
+
+## <a name="ad-fs-and-azure-ad-certificate-update-steps"></a>Étapes de mise à jour des certificats AD FS et Azure AD
+Les certificats de signature de jetons sont des certificats X509 standard qui sont utilisés pour signer de manière sécurisée tous les jetons émis par le serveur de fédération. Les certificats de déchiffrement de jetons sont des certificats X509 standard qui sont utilisés pour déchiffrer les jetons entrants. 
+
+Par défaut, AD FS est configuré pour générer automatiquement des certificats de signature et de déchiffrement de jetons, lors de la configuration initiale et lorsque les certificats approchent de leur date d’expiration.
+
+Azure AD tente de récupérer un nouveau certificat à partir de vos métadonnées de service de fédération 30 jours avant l’expiration du certificat actuel. Si aucun nouveau certificat n’est disponible à ce moment-là, Azure AD va continuer à surveiller les métadonnées de manière quotidienne. Dès que le nouveau certificat est disponible dans les métadonnées, les paramètres de fédération du domaine sont mis à jour avec les informations du nouveau certificat. Vous pouvez utiliser `Get-MsolDomainFederationSettings` pour voir si le nouveau certificat est présent dans NextSigningCertificate ou SigningCertificate.
+
+Pour plus d’informations sur les certificats de signature de jetons dans AD FS, consultez [Obtenir et configurer des certificats de signature et de déchiffrement de jetons pour AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs).

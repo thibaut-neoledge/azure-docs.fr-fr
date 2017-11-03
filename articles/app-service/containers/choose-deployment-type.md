@@ -1,6 +1,6 @@
 ---
-title: "Déploiement d’Azure Web App sur Linux : image personnalisée ou image de plateforme intégrée ?  | Microsoft Docs"
-description: "Comment choisir entre le déploiement de conteneur Docker personnalisé et un framework d’application intégré"
+title: "Déploiement d’Azure App Service sur Linux : image personnalisée ou image de plateforme intégrée ?  | Microsoft Docs"
+description: "Comment choisir entre le déploiement de conteneur Docker personnalisé et un framework d’application intégré pour App Service sur Linux"
 keywords: azure app service, application web, linux, oss
 services: app-service
 documentationCenter: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: nickwalk
-ms.openlocfilehash: 322533a9dce54222943f8b2a3d653780a674c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a04bba2375b5a107bc3cb8cdc1a75d037c50af6
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="custom-image-or-built-in-platform-image"></a>Image personnalisée ou image de plateforme intégrée ?
 
-[Web App sur Linux](app-service-linux-intro.md) offre deux moyens de publier votre application sur le web :
+[App Service sur Linux](app-service-linux-intro.md) offre deux moyens de publier votre application sur le web :
 
 - **Déploiement d’image personnalisée** : « Dockerisez » votre application dans une image Docker qui contient tous les fichiers et dépendances dans un package prêt à s’exécuter.
 - **Déploiement d’application avec une image de plateforme intégrée** : nos images de plateforme intégrées contiennent des runtimes et des dépendances Web App courants, tels que Node et PHP. Appliquez l’une des [méthodes de déploiement Azure App Service](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) pour déployer votre application sur le stockage de votre application web, puis utilisez une image de plateforme intégrée pour l’exécuter.

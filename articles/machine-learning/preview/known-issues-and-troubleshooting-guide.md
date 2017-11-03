@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f79910ba4fea81e88fce90dd67ba7cb4db2e8220
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
@@ -25,7 +25,7 @@ Cet article vous permet de rechercher et corriger les erreurs ou défaillances r
 ![vérifier le numéro de version](media/known-issues-and-troubleshooting-guide/buildno.png)
 
 ## <a name="machine-learning-msdn-forum"></a>Forum MSDN Machine Learning
-Nous avons un forum MSDN sur lequel vous pouvez poster des questions. L’équipe produit surveille le forum activement. L’URL du forum est la suivante : [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+Nous avons un forum MSDN sur leque vous pouvez poster des questions. L’équipe produit surveille le forum activement. L’URL du forum est la suivante : [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
 
 ## <a name="gather-diagnostics-information"></a>Collecter des informations de diagnostic
 Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Les fichiers journaux se trouvent aux emplacements suivants :
@@ -82,7 +82,10 @@ Lorsque vous utilisez Azure ML Workbench, vous pouvez également nous envoyer un
 
 - Les transformations de clustering de texte ne sont pas prises en charge sur Mac.
 
-- La bibliothèque RevoScalePy n’est pas prise en charge uniquement sur Windows ou Linux (dans des conteneurs Docker). Pas de prise en charge sur macOS.
+- La bibliothèque RevoScalePy est uniquement prise en charge sous Windows ou Linux (dans des conteneurs Docker). Pas de prise en charge sur macOS.
+
+## <a name="file-name-too-long-on-windows"></a>Nom de fichier trop long sous Windows
+Si vous utilisez Workbench sous Windows, vous risquez de vous heurter à la limite maximale de longueur de nom de fichier par défaut (260 caractères), qui peut être indiquée de façon trompeuse comme si « le système ne trouve pas le chemin d’accès spécifié ». Vous pouvez modifier un paramètre de clé de Registre pour permettre des noms de chemin de fichier beaucoup plus longs. Consultez [cet article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) pour plus d’informations sur la façon de définir la clé de Registre _MAX_PATH_.
 
 ## <a name="docker-error-read-connection-refused"></a>Erreur Docker « read: connection refused »
 Lors de l’exécution avec un conteneur Docker local, l’erreur suivante est susceptible de s’afficher : 

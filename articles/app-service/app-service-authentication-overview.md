@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: 4ba4155515e587038ffe2dbca064ad27aca97445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0d2644903181cd2e20166feae4f90ddd4037fa8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 ## <a name="what-is-app-service-authentication--authorization"></a>Qu’est-ce que l’authentification/autorisation App Service ?
@@ -26,10 +26,7 @@ L’authentification/autorisation App Service est une fonctionnalité qui permet
 
 App Service utilise l’identité fédérée, dans laquelle un fournisseur d’identité tiers stocke les comptes et authentifie les utilisateurs. L’application utilise les informations sur cette identité pour qu’elle n’ait pas à stocker ces informations elle-même. App Service prend en charge cinq fournisseurs d’identité prêts à l’emploi : Azure Active Directory, Facebook, Google, Compte Microsoft et Twitter. Votre application peut exploiter plusieurs de ces fournisseurs d’identité, afin de proposer à vos utilisateurs plusieurs options de connexion. Vous pouvez étendre cette prise en charge intégrée en ajoutant un autre fournisseur d’identité ou [votre propre solution d’identité personnalisée][custom-auth].
 
-Si vous voulez commencer tout de suite, consultez l’un des didacticiels suivants :
-
-* [Ajout de l’authentification à votre application iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou encore [Cordova])
-* [Authentification utilisateur pour API Apps dans Azure App Service] [apia-user]
+Si vous souhaitez commencer immédiatement, consultez un des didacticiels suivants [Ajout de l’authentification à votre application iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova]).
 
 ## <a name="how-authentication-works-in-app-service"></a>Fonctionnement de l’authentification dans App Service
 Pour s’authentifier à l’aide d’un des fournisseurs d’identité, vous devez d’abord configurer le fournisseur d’identité pour qu’il reconnaisse votre application. Le fournisseur d’identité vous fournit alors des ID et des secrets, que vous devez fournir à votre tour à App Service. Cela termine la relation d’approbation pour qu’App Service puisse valider des assertions d’utilisateur du fournisseur d’identité, telles que les jetons d’authentification.
@@ -79,7 +76,7 @@ Vous bénéficiez d’un contrôle absolu sur les requêtes pouvant accéder à 
 
 * Autoriser uniquement les requêtes authentifiées à accéder à votre application.
   
-    Si un navigateur reçoit une requête anonyme, App Service la redirige vers la page de connexion du fournisseur d’identité de votre choix pour que les utilisateurs puissent se connecter. Si la requête provient d’un appareil mobile, une réponse HTTP du type *401 non autorisé* est renvoyée.
+    Si un navigateur envoie une requête anonyme, App Service la redirige vers la page de connexion du fournisseur d’identité de votre choix pour que les utilisateurs puissent se connecter. Si la requête provient d’un appareil mobile, une réponse HTTP du type *401 non autorisé* est renvoyée.
   
     Grâce à cette option, vous n’avez pas besoin d’écrire du code d’authentification dans votre application. S’il vous faut une autorisation plus fine, vous pouvez tirer parti des informations sur l’utilisateur disponibles pour votre code.
 * Autoriser toutes les requêtes à atteindre votre application, mais valider les requêtes authentifiées et transmettre les informations d’authentification dans les en-têtes HTTP.
@@ -114,11 +111,6 @@ Les didacticiels suivants montrent comment configurer App Service pour exploiter
 * [Comment configurer votre application App Service de manière à utiliser la connexion via Twitter][Twitter]
 
 Si vous voulez utiliser un système d’identité différent de ceux indiqués ici, vous pouvez également exploiter la [prise en charge de l’authentification personnalisée en version préliminaire dans le Kit de développement logiciel (SDK) du serveur .NET de Mobile Apps][custom-auth], qui peut être utilisée dans les applications web, Mobiles Apps ou API Apps.
-
-### <a name="web-applications"></a>Applications web
-Les didacticiels suivants montrent comment ajouter l’authentification à une application web :
-
-* [Prise en main d’Azure App Service, 2e partie][web-getstarted]
 
 ### <a name="mobile-applications"></a>Applications mobiles
 Les didacticiels suivants expliquent comment ajouter une fonctionnalité d’authentification à vos clients mobiles en utilisant le flux dirigé vers le serveur :

@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/10/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 874c1a5c4b399ff2254072b7282f05d83a005cc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 319ee2c0f7492389bc1767aa2669dd273f8cfa1b
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="monitoring-windows-server-containers-with-oms"></a>Surveiller les conteneurs Windows Server avec OMS
 
 ## <a name="oms-containers-solution"></a>Solution de conteneurs d’OMS
 
-L’équipe Operations Management Suite (OMS) a publié une solution de conteneurs pour le diagnostic et la surveillance des conteneurs. Allant de pair avec Service Fabric, cette solution est un outil formidable pour contrôler les déploiements de conteneurs orchestrés sur Service Fabric. Voici un exemple simple de l’aspect du tableau de bord dans la solution :
+OMS (Operations Management Suite) Log Analytics propose une solution de conteneurs qui permet de surveiller les conteneurs. Allant de pair avec Service Fabric, cette solution est un outil formidable pour contrôler les déploiements de conteneurs orchestrés sur Service Fabric. Voici un exemple simple de l’aspect du tableau de bord dans la solution :
 
 ![Tableau de bord OMS de base](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.png)
 
@@ -40,7 +40,7 @@ Cet article décrit les étapes requises pour configurer la surveillance de cont
 
 ## <a name="1-set-up-a-service-fabric-cluster"></a>1. Configuration d’un cluster Service Fabric
 
-Créez un cluster dans Azure à l’aide du modèle Azure Resource Manager qui se trouve [ici](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample). Veillez à ajouter un nom d’espace de travail OMS unique. Ce modèle déploie aussi par défaut un cluster dans la version préliminaire de Service Fabric (v255.255), ce qui signifie qu’il ne peut pas être utilisé en production et ne peut pas être mis à niveau vers une autre version de Service Fabric. Si vous décidez d’utiliser ce modèle pour une utilisation à long terme ou de production, modifiez la version sur un numéro de version stable.
+Créez un cluster dans Azure à l’aide du modèle Azure Resource Manager qui se trouve [ici](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows). Veillez à ajouter un nom d’espace de travail OMS unique. Ce modèle déploie aussi par défaut un cluster dans la version préliminaire de Service Fabric (v255.255), ce qui signifie qu’il ne peut pas être utilisé en production et ne peut pas être mis à niveau vers une autre version de Service Fabric. Si vous décidez d’utiliser ce modèle pour une utilisation à long terme ou de production, modifiez la version sur un numéro de version stable.
 
 Une fois le cluster configuré, vérifiez que vous avez installé le certificat approprié, et assurez-vous que vous êtes en mesure de vous connecter au cluster.
 

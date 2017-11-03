@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd95da36cd577ece8ad87d00c3e276f28ad340
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 960ea1540d644b6f41b95ab7df61cf91adcbb4ad
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
 ExpressRoute, qui étend un réseau local dans le cloud Microsoft par le biais d’une connexion privée qui est facilitée par un fournisseur de connectivité, implique les trois zones de réseau distinctes suivantes :
@@ -281,7 +281,7 @@ Pour obtenir les détails sur la configuration de l'homologation Microsoft, util
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validation de l'ARP entre Microsoft et le fournisseur de service
-Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, assurez-vous d’avoir un accès administrateur / coadministrateur à l’abonnement par le biais du [portail Azure Classic][OldPortal]. Pour le dépannage à l’aide des commandes Azure Resource Manager, veuillez vous reporter au document [Obtention de tables ARP dans le modèle de déploiement Resource Manager][ARP].
+Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, vérifiez que vous avez un accès administrateur/coadministrateur à l’abonnement. Pour le dépannage à l’aide des commandes Azure Resource Manager, veuillez vous reporter au document [Obtention de tables ARP dans le modèle de déploiement Resource Manager][ARP].
 
 >[!NOTE]
 >Vous pouvez utiliser le portail Azure et les commandes Azure Resource Manager PowerShell pour obtenir l’ARP. Si vous rencontrez des erreurs avec les commandes PowerShell Azure Resource Manager, les commandes PowerShell classiques peuvent fonctionner comme commandes PowerShell classiques et avec des circuits ExpressRoute Azure Resource Manager.
@@ -314,7 +314,7 @@ L’exemple suivant montre la réponse de la commande pour une homologation inex
 >
 
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>Validation de BGP et des itinéraires sur les MSEE
-Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, assurez-vous que vous avez un accès administrateur/coadministrateur à l’abonnement par le biais du [portail Azure classique][OldPortal]
+Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, vérifiez que vous avez un accès administrateur/coadministrateur à l’abonnement.
 
 >[!NOTE]
 >Vous pouvez utiliser le portail Azure et les commandes Azure Resource Manager PowerShell pour obtenir des informations BGP. Si vous rencontrez des erreurs avec les commandes PowerShell Azure Resource Manager, les commandes PowerShell classiques peuvent fonctionner comme commandes PowerShell classiques et avec des circuits ExpressRoute Azure Resource Manager.

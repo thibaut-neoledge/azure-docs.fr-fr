@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3657f222e1f52d341cd05532e29ed4924b308e6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 503657d6e6e22560b94d4a1cbbc2a74651d1ee7a
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="how-to-use-availability-sets"></a>Utilisation des groupes à haute disponibilité
 
@@ -32,6 +32,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Créer un groupe à haute disponibilité
 > * Créer une machine virtuelle dans un groupe à haute disponibilité
 > * Vérifier les tailles de machines virtuelles disponibles
+> * Vérifier Azure Advisor
 
 Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -88,9 +89,36 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAvailability `
     -Location EastUS `
-    -Name MYvNET `
+    -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
+    
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+    -Name myNetworkSecurityGroupRuleRDP `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 1000 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389 `
+    -Access Allow
+
+$nsg = New-AzureRmNetworkSecurityGroup `
+    -Location eastus `
+    -Name myNetworkSecurityGroup `
+    -ResourceGroupName myResourceGroupAvailability `
+    -SecurityRules $nsgRuleRDP
+    
+# Apply the network security group to a subnet
+Set-AzureRmVirtualNetworkSubnetConfig `
+    -VirtualNetwork $vnet `
+    -Name mySubnet `
+    -NetworkSecurityGroup $nsg `
+    -AddressPrefix 192.168.1.0/24
+
+# Update the virtual network
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 for ($i=1; $i -le 2; $i++)
 {
@@ -100,23 +128,6 @@ for ($i=1; $i -le 2; $i++)
         -Name "mypublicdns$(Get-Random)" `
         -AllocationMethod Static `
         -IdleTimeoutInMinutes 4
-
-   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-        -Name myNetworkSecurityGroupRuleRDP$i `
-        -Protocol Tcp `
-        -Direction Inbound `
-        -Priority 1000 `
-        -SourceAddressPrefix * `
-        -SourcePortRange * `
-        -DestinationAddressPrefix * `
-        -DestinationPortRange 3389 `
-        -Access Allow
-
-   $nsg = New-AzureRmNetworkSecurityGroup `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name myNetworkSecurityGroup$i `
-        -SecurityRules $nsgRuleRDP
 
    $nic = New-AzureRmNetworkInterface `
         -Name myNic$i `
@@ -176,6 +187,13 @@ Get-AzureRmVMSize `
    -ResourceGroupName myResourceGroupAvailability  
 ```
 
+## <a name="check-azure-advisor"></a>Vérifier Azure Advisor 
+
+Vous pouvez également utiliser Azure Advisor pour obtenir plus d’informations sur les façons d’améliorer la disponibilité de vos machines virtuelles. Azure Advisor décrit les meilleures pratiques à suivre pour optimiser vos déploiements Azure. Il analyse votre télémétrie de configuration et d’utilisation des ressources, puis recommande des solutions qui peuvent vous aider à améliorer la rentabilité, les performances, la haute disponibilité et la sécurité de vos ressources Azure.
+
+Connectez-vous au [portail Azure](https://portal.azure.com), sélectionnez **Plus de services** et saisissez **Advisor**. Le tableau de bord du conseiller affiche des recommandations personnalisées pour l’abonnement sélectionné. Pour plus d’informations, consultez [Bien démarrer avec Azure Advisor](../../advisor/advisor-get-started.md).
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
@@ -184,6 +202,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Créer un groupe à haute disponibilité
 > * Créer une machine virtuelle dans un groupe à haute disponibilité
 > * Vérifier les tailles de machines virtuelles disponibles
+> * Vérifier Azure Advisor
 
 Passez au didacticiel suivant pour en savoir plus sur les groupes de machines virtuelles identiques.
 

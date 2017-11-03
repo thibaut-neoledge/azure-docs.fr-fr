@@ -1,6 +1,6 @@
 ---
-title: "Guide pratique pour utiliser un instantané de partage de fichiers Azure (préversion) | Microsoft Docs"
-description: "Utilisez un instantané de partage de fichiers Azure. Les instantanés de partage de fichiers Azure sont une version en lecture seule d’un partage de fichiers Azure pris à un point dans le temps. Un instantané de partage peut être lu, copié ou supprimé, mais pas modifié. Les instantanés de partage sont une façon de sauvegarder le partage à un instant T."
+title: "Utiliser des instantanés de partage (préversion) | Microsoft Docs"
+description: "Un instantané de partage est une version en lecture seule d’un partage Azure Files enregistrée à un point dans le temps pour sauvegarder le partage."
 services: storage
 documentationcenter: .net
 author: renash
@@ -14,35 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: renash
-ms.openlocfilehash: 33b64e1ad3fd5a2a6954a02da0fb303acca54c40
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="work-with-azure-file-share-snapshots-preview"></a>Utiliser des instantanés de partage de fichiers Azure (préversion)
-Les instantanés de partage de fichiers Azure (préversion) sont une version en lecture seule d’un partage de fichiers Azure pris à un point dans le temps. Un instantané de partage peut être lu, copié ou supprimé, mais pas modifié. Les instantanés de partage sont une façon de sauvegarder le partage à un instant T. Dans cet article, vous allez découvrir comment créer, gérer et supprimer des instantanés de partage de fichiers Azure. Pour en savoir plus sur les instantanés de partage, consultez [Vue d’ensemble des instantanés de partage](storage-snapshots-files.md) ou [Forum aux questions sur les instantanés](storage-files-faq.md).
+# <a name="work-with-share-snapshots-preview"></a>Utiliser des instantanés de partage (préversion)
+Un instantané de partage (préversion) est une version en lecture seule d’un partage de fichiers Azure pris à un certain point dans le temps. Une fois créé, un instantané de partage peut être lu, copié ou supprimé, mais pas modifié. Un instantané de partage offre un moyen de sauvegarder le partage tel qu’il apparaît à un certain moment. 
 
-## <a name="create-azure-files-share-snapshots"></a>Créer des instantanés de partage de fichiers Azure
+Dans cet article, vous découvrez comment créer, gérer et supprimer des instantanés de partage. Pour plus d’informations, consultez la [vue d’ensemble des instantanés de partage](storage-snapshots-files.md) ou le [FAQ sur les instantanés](storage-files-faq.md).
 
-Vous pouvez créer un instantané de partage à l’aide du portail, de PowerShell, de l’interface CLI, de l’API REST ou de n’importe quel SDK Stockage. Les sections suivantes vous indiquent comment créer un instantané de partage à l’aide du portail, de l’interface CLI et de PowerShell. 
+## <a name="create-a-share-snapshot"></a>Créer un instantané de partage
 
-Vous pouvez prendre un instantané d’un partage de fichiers alors qu’il est en cours d’utilisation. Toutefois, les instantanés de partage capturent uniquement les données qui étaient déjà écrites dans le partage de fichiers Azure au moment de l’émission de la commande de l’instantané de partage. Ainsi, toutes les données mises en cache par les applications ou le système d’exploitation risquent d’être exclues.
+Vous pouvez créer un instantané de partage en utilisant le portail Azure, PowerShell, Azure CLI, l’API REST ou n’importe quel SDK de Stockage Azure. Les sections suivantes décrivent comment créer un instantané de partage avec le portail, l’interface CLI et PowerShell. 
 
-### <a name="create-share-snapshot-using-portal"></a>Créer un instantané de partage à l’aide du portail  
-Vous pouvez simplement accéder à votre partage de fichiers dans le portail, puis sélectionner le bouton `Create a Snapshot` pour créer un instantané de partage à un point dans le temps.
+Vous pouvez prendre un instantané d’un partage de fichiers alors qu’il est en cours d’utilisation. Toutefois, les instantanés de partage capturent seulement les données qui étaient déjà écrites dans un partage de fichiers au moment de l’émission de la commande de l’instantané de partage. Ainsi, toutes les données mises en cache par les applications ou le système d’exploitation risquent d’être exclues.
 
->   ![./media/storage-snapshots-create/portal-create-snapshot.png](./media/storage-snapshots-create/portal-create-snapshot.png)
+### <a name="create-a-share-snapshot-by-using-the-portal"></a>Créer un instantané de partage en utilisant le portail  
+Pour créer un instantané de partage à un point dans le temps, accédez à votre partage de fichiers dans le portail et sélectionnez **Créer un instantané**.
+
+>   ![Menu Instantané dans le portail](./media/storage-snapshots-create/portal-create-snapshot.png)
 
 
-### <a name="create-share-snapshot-using-cli-20"></a>Créer un instantané de partage à l’aide de CLI 2.0
-Vous pouvez créer un instantané de partage à l’aide de la commande `az storage share snapshot` :
+### <a name="create-a-share-snapshot-by-using-azure-cli-20"></a>Créer un instantané de partage en utilisant Azure CLI 2.0
+Vous pouvez supprimer un instantané de partage à l’aide de la commande `az storage share snapshot` :
 
 ```azurecli-interactive
 az storage share snapshot -n <share name>
 ```
 
-Exemple de sortie
+Exemple de sortie :
 ```json
 {
   "metadata": {},
@@ -56,7 +58,7 @@ Exemple de sortie
 }
 ```
 
-### <a name="create-share-snapshot-using-powershell"></a>Créer un instantané de partage à l’aide de PowerShell
+### <a name="create-a-share-snapshot-by-using-powershell"></a>Créer un instantané de partage en utilisant PowerShell
 Vous pouvez supprimer un instantané de partage à l’aide de la commande `$share.Snapshot()` :
 
 ```powershell
@@ -73,78 +75,79 @@ $snapshot=$share.Snapshot()
 
 ```
 
-## <a name="common-share-snapshot-operations"></a>Opérations courantes sur les instantanés de partage
+## <a name="perform-common-share-snapshot-operations"></a>Effectuer des opérations courantes sur les instantanés de partage
 
-Vous pouvez énumérer les instantanés de partage associés à votre partage de fichiers à l’aide de l’onglet « Versions précédentes » sous Windows, via l’API REST, la bibliothèque cliente, PowerShell et le portail. Une fois le partage de fichiers Azure monté, vous pouvez afficher toutes les versions antérieures du fichier à l’aide de l’onglet « Versions précédentes » sous Windows. Dans les sections suivantes, vous allez apprendre à utiliser le portail Azure, Windows et Azure CLI 2.0 pour répertorier, parcourir et restaurer des instantanés de partage.
+Vous pouvez énumérer les instantanés de partage associés à votre partage de fichiers en utilisant l’onglet **Versions précédentes** dans Windows, via l’API REST, la bibliothèque cliente, PowerShell et le portail. Une fois le partage de fichiers monté, vous pouvez afficher toutes les versions antérieures du fichier en utilisant l’onglet **Versions précédentes** dans Windows. 
 
-### <a name="share-snapshot-operations-in-portal"></a>Opérations sur les instantanés de partage dans le portail
+Les sections suivantes décrivent comment utiliser le portail Azure, Windows et Azure CLI 2.0 pour répertorier, accéder à et restaurer des instantanés de partage.
 
-Dans le portail, vous pouvez répertorier tous les instantanés de partage pour un partage de fichiers et les parcourir pour consulter leur contenu.
+### <a name="share-snapshot-operations-in-the-portal"></a>Opérations sur les instantanés de partage dans le portail
 
-#### <a name="view-share-snapshot"></a>Afficher un instantané de partage
-Sur votre partage de fichiers, sous Instantané, sélectionnez **Afficher les instantanés**.
+Dans le portail, vous pouvez répertorier tous les instantanés de partage pour un partage de fichiers et accéder à un instantané de partage pour afficher son contenu.
 
-![./media/storage-snapshots-list-browse/snapshot-view-portal.png](./media/storage-snapshots-list-browse/snapshot-view-portal.png)
+#### <a name="view-a-share-snapshot"></a>Afficher un instantané de partage
+Sur votre partage de fichiers, sous **Instantané**, sélectionnez **Afficher les instantanés**.
 
-#### <a name="list-and-browse-share-snapshot-content"></a>Répertorier les instantanés de partage et parcourir leur contenu
-Affichez la liste des instantanés de partage, puis parcourez directement le contenu de l’instantané de votre choix en sélectionnant son horodatage.
+![Commande « Afficher les instantanés » dans le portail](./media/storage-snapshots-list-browse/snapshot-view-portal.png)
 
-![./media/storage-snapshots-list-browse/snapshot-browsefiles-portal.png](./media/storage-snapshots-list-browse/snapshot-browsefiles-portal.png)
+#### <a name="list-and-browse-to-share-snapshot-content"></a>Répertorier et accéder au contenu d’un instantané de partage
+Affichez la liste des instantanés de partage, puis accédez directement au contenu d’un instantané en sélectionnant l’horodatage souhaité.
 
-Vous pouvez également sélectionner le bouton **Se connecter** dans la vue de la liste des instantanés pour obtenir la commande `net use` et le chemin du répertoire d’un instantané de partage particulier afin d’accéder directement à celui-ci.
+![Instantané sélectionné dans la liste des horodatages](./media/storage-snapshots-list-browse/snapshot-browsefiles-portal.png)
+
+Vous pouvez également sélectionner le bouton **Se connecter** dans la vue de la liste des instantanés pour obtenir la commande `net use` et le chemin du répertoire d’un instantané de partage particulier. Vous pouvez ensuite accéder directement à cet instantané.
 
 
-![./media/storage-snapshots-list-browse/snapshot-connect-portal.pngsnapshot-list-portal.png](./media/storage-snapshots-list-browse/snapshot-connect-portal.png)
+![Volet Se connecter avec la zone de commande](./media/storage-snapshots-list-browse/snapshot-connect-portal.png)
 
-#### <a name="download-or-restore-from-share-snapshot"></a>Effectuer un téléchargement ou une restauration à partir d’un instantané de partage
-Dans le portail, téléchargez ou restaurez le fichier approprié à partir d’un instantané.
+#### <a name="download-or-restore-from-a-share-snapshot"></a>Effectuer un téléchargement ou une restauration à partir d’un instantané de partage
+Dans le portail, téléchargez ou restaurez un fichier d’un instantané en utilisant le bouton **Télécharger** ou **Restaurer**, respectivement.
 
-![./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png](./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png)
+![Boutons Télécharger et Restaurer](./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png)
 
-### <a name="file-share-snapshot-operations-in-windows"></a>Opérations sur les instantanés de partage de fichiers dans Windows
-Si vous avez déjà pris des instantanés de votre partage de fichiers, vous pouvez afficher les versions précédentes d’un partage, d’un répertoire ou d’un fichier particulier à partir de votre partage de fichiers Azure monté sur Windows. Par exemple, voici comment vous pouvez utiliser la fonctionnalité **Versions précédentes** pour afficher et restaurer une version précédente d’un répertoire particulier dans Windows :
+### <a name="share-snapshot-operations-in-windows"></a>Opérations sur les instantanés de partage dans Windows
+Si vous avez déjà pris des instantanés de votre partage de fichiers, vous pouvez afficher les versions précédentes d’un partage, d’un répertoire ou d’un fichier particulier à partir de votre partage de fichiers monté sur Windows. Par exemple, voici comment vous pouvez utiliser la fonctionnalité Versions précédentes pour afficher et restaurer une version précédente d’un répertoire dans Windows.
 
 > [!Note]  
-> Vous pouvez effectuer les mêmes opérations au niveau des partages, ainsi que des fichiers. Seules sont répertoriées les versions qui contiennent des modifications pour ce répertoire ou fichier. Si un fichier ou un répertoire particulier n’a pas changé entre deux instantanés de partage, l’instantané de partage apparaît dans la liste des versions précédentes au niveau du partage, mais pas dans la liste des versions précédentes du répertoire ou du fichier.
+> Vous pouvez effectuer les mêmes opérations au niveau d’un partage et d’un fichier. Seule la version qui contient des modifications pour ce répertoire ou ce fichier figure dans la liste. Si un répertoire ou un fichier particulier n’a pas changé entre deux instantanés de partage, l’instantané de partage apparaît dans la liste des versions précédentes au niveau du partage, mais pas dans la liste des versions précédentes du répertoire ou du fichier.
 
-#### <a name="mount-file-share"></a>Monter le partage de fichiers
-Tout d’abord, montez le partage de fichiers à l’aide de la commande net use.
+#### <a name="mount-a-file-share"></a>Monter un partage de fichiers
+Pour commencer, montez le partage de fichiers avec la commande `net use`.
 
-#### <a name="open-mounted-share-in-explorer"></a>Ouvrir le partage monté dans l’Explorateur
+#### <a name="open-a-mounted-share-in-file-explorer"></a>Ouvrir un partage monté dans l’Explorateur de fichiers
 Accédez à l’Explorateur de fichiers, puis recherchez le partage monté.
 
-![./media/storage-snapshots-list-browse/snapshot-windows-mount.png](./media/storage-snapshots-list-browse/snapshot-windows-mount.png)
+![Partage monté dans l’Explorateur de fichiers](./media/storage-snapshots-list-browse/snapshot-windows-mount.png)
 
-#### <a name="list-previous-versions"></a>Répertorier les versions antérieures
- Accédez à l’élément ou à l’élément parent à restaurer. Double-cliquez sur pour accéder au répertoire souhaité. Cliquez avec le bouton droit et sélectionnez « Propriétés » dans le menu.
+#### <a name="list-previous-versions"></a>Répertorier les versions précédentes
+Accédez à l’élément ou à l’élément parent à restaurer. Double-cliquez pour accéder au répertoire souhaité. Cliquez avec le bouton droit et sélectionnez **Propriétés** dans le menu.
 
-![./media/storage-snapshots-list-browse/snapshot-windows-previous-versions.png](./media/storage-snapshots-list-browse/snapshot-windows-previous-versions.png)
+![Menu contextuel pour un répertoire sélectionné](./media/storage-snapshots-list-browse/snapshot-windows-previous-versions.png)
 
-Sélectionnez **Versions précédentes** pour afficher la liste des instantanés de partage associés à ce répertoire. L’affichage de la liste peut prendre quelques secondes, selon la vitesse du réseau et le nombre d’instantanés de partage.
+Sélectionnez **Versions précédentes** pour afficher la liste des instantanés de partage pour ce répertoire. Le chargement de la liste peut prendre quelques secondes, selon la vitesse du réseau et le nombre d’instantanés de partage du répertoire.
 
- ![./media/storage-snapshots-list-browse/snapshot-windows-list.png](./media/storage-snapshots-list-browse/snapshot-windows-list.png)
+![Onglet Versions précédentes](./media/storage-snapshots-list-browse/snapshot-windows-list.png)
 
-Vous pouvez sélectionner **Ouvrir** pour parcourir un instantané spécifique. 
+Vous pouvez sélectionner **Ouvrir** pour ouvrir un instantané particulier. 
 
- ![./media/storage-snapshots-list-browse/snapshot-browse-windows.png](./media/storage-snapshots-list-browse/snapshot-browse-windows.png)
+![Instantané ouvert](./media/storage-snapshots-list-browse/snapshot-browse-windows.png)
 
-#### <a name="restore-from-a-previous-version"></a>Effectuer une restauration à partir d’une version précédente
-Effectuez une **restauration** pour copier à l’emplacement d’origine le contenu de l’ensemble du répertoire de manière récursive à l’heure de création de l’instantané de partage.
- ![./media/storage-snapshots-list-browse/snapshot-windows-previous-versions.png](./media/storage-snapshots-list-browse/snapshot-windows-restore.png)
+#### <a name="restore-from-a-previous-version"></a>Restaurer à partir d’une version précédente
+Sélectionnez **Restaurer** pour copier à l’emplacement d’origine le contenu de l’ensemble du répertoire de façon récursive à l’heure de création de l’instantané de partage.
+ ![Bouton Restaurer dans un message d’avertissement](./media/storage-snapshots-list-browse/snapshot-windows-restore.png)
 
-### <a name="file-share-snapshot-operations-in-azure-cli-20"></a>Opérations sur les instantanés de partage de fichiers dans Azure CLI 2.0
-Vous pouvez utiliser Azure CI 2.0 pour effectuer les mêmes opérations, telles que répertorier les instantanés de partage, explorer le contenu des instantanés de partage, restaurer ou télécharger des fichiers à partir des instantanés de partage ou supprimer des instantanés de partage.
+### <a name="share-snapshot-operations-in-azure-cli-20"></a>Opérations sur les instantanés de partage dans Azure CLI 2.0
+Vous pouvez utiliser Azure CLI 2.0 pour effectuer des opérations comme répertorier les instantanés de partage, explorer le contenu des instantanés de partage, restaurer ou télécharger des fichiers à partir des instantanés de partage ou supprimer des instantanés de partage.
 
 #### <a name="list-share-snapshots"></a>Répertorier les instantanés de partage
 
-Vous pouvez répertorier les instantanés d’un partage spécifique à l’aide de la commande [`az storage share list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list) avec `--include-snapshots`.
+Vous pouvez répertorier les instantanés d’un partage spécifique avec la commande [`az storage share list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list) avec `--include-snapshots` :
 
 ```azurecli-interactive 
 az storage share list --include-snapshots
 ```
 
-#### <a name="sample-output"></a>Exemple de sortie
-La commande vous donne la liste des instantanés de partage, ainsi que toutes ses propriétés associées.
+La commande vous donne une liste d’instantanés de partage, ainsi que toutes leurs propriétés associées. Voici un exemple de sortie :
 
 ```json
 [
@@ -181,16 +184,14 @@ La commande vous donne la liste des instantanés de partage, ainsi que toutes se
 ]
 ```
 
-#### <a name="browse-share-snapshots"></a>Parcourir les instantanés de partage
-Vous pouvez également accéder à un instantané de partage spécifique pour afficher son contenu à l’aide de la commande [`az storage file list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Vous devez spécifier le nom de partage `--share-name` et l’horodatage auquel accéder (`--snapshot '2017-10-04T19:45:18.0000000Z'`).
+#### <a name="browse-to-a-share-snapshot"></a>Accéder à un instantané de partage
+Vous pouvez accéder à un instantané de partage spécifique et voir son contenu avec la commande [`az storage file list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Spécifiez le nom du partage et l’horodatage auquel vous voulez accéder, comme illustré dans l’exemple suivant :
 
 ```azurecli-interactive 
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
 ```
 
-#### <a name="sample-output"></a>Exemple de sortie
-
-Comme vous pouvez le constater, le contenu de l’instantané de partage est identique au contenu du partage au moment où cet instantané de partage a été créé.
+Dans la sortie, vous voyez que le contenu de l’instantané de partage est identique au contenu du partage au moment où cet instantané de partage a été créé :
 
 ```
 Name            Content Length    Type    Last Modified
@@ -205,17 +206,15 @@ IMG_1634.JPG    1495999           file
 IMG_1635.JPG    974058            file
 
 ```
-#### <a name="restore-from-share-snapshots"></a>Effectuer une restauration à partir d’instantanés de partage
+#### <a name="restore-from-a-share-snapshot"></a>Restaurer à partir d’un instantané de partage
 
-Vous pouvez restaurer un fichier en le copiant ou téléchargeant à partir de l’instantané de partage à l’aide de la commande `az storage file download`.
+Vous pouvez restaurer un fichier en le copiant ou le téléchargeant à partir de l’instantané de partage. Utilisez la commande `az storage file download`, comme illustré dans l’exemple suivant :
 
 ```azurecli-interactive 
 az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
 ```
 
-#### <a name="sample-output"></a>Exemple de sortie
-
-Comme vous pouvez le constater, le contenu du fichier téléchargé et ses propriétés sont identiques aux contenu et propriétés au moment de la création de l’instantané de partage.
+Dans la sortie, vous voyez que le contenu du fichier téléchargé et ses propriétés sont identiques au contenu et aux propriétés au moment de la création de l’instantané de partage :
 
 ```json
 {
@@ -247,36 +246,36 @@ Comme vous pouvez le constater, le contenu du fichier téléchargé et ses propr
 }
 ```
 
-## <a name="delete-azure-files-share-snapshot"></a>Supprimer un instantané de partage de fichiers Azure
+## <a name="delete-a-share-snapshot"></a>Supprimer un instantané de partage
 
-Vous pouvez supprimer des instantanés de partage de fichiers à l’aide du portail Azure, de PowerShell, de l’interface CLI, de l’API REST ou de n’importe quel SDK Stockage. Les sections suivantes vous indiquent comment supprimer des instantanés de partage à l’aide du portail Azure, de l’interface CLI et de PowerShell.
+Vous pouvez supprimer des instantanés de partage en utilisant le portail Azure, PowerShell, l’interface CLI, l’API REST ou n’importe quel SDK Stockage. Les sections suivantes décrivent comment supprimer un instantané de partage avec le portail Azure, l’interface CLI et PowerShell.
 
-Vous pouvez parcourir les instantanés de partage et afficher les différences entre deux instantanés de partage à l’aide de n’importe quel outil de comparaison pour déterminer l’instantané de partage à supprimer. 
+Vous pouvez accéder à des instantanés de partage et voir les différences entre deux instantanés avec n’importe quel outil de comparaison. Vous pouvez ensuite déterminer quel instantané de partage vous voulez supprimer. 
 
-Vous ne pouvez pas supprimer un partage qui a des instantanés de partage. Vous devez au préalable supprimer tous ses instantanés de partage.
+Vous ne pouvez pas supprimer un partage qui a un instantané de partage. Pour pouvoir supprimer le partage, vous devez d’abord supprimer tous ses instantanés de partage.
 
-### <a name="delete-share-snapshot-using-portal"></a>Supprimer un instantané de partage à l’aide du portail  
-Vous pouvez accéder au panneau des partages de fichier, puis sélectionner le bouton `delete` dans le portail pour supprimer un ou plusieurs instantanés de partage.
+### <a name="delete-a-share-snapshot-by-using-the-portal"></a>Supprimer un instantané de partage en utilisant le portail  
+Dans le portail, vous pouvez accéder au panneau des partages de fichier, puis utiliser le bouton **Supprimer** pour supprimer un ou plusieurs instantanés de partage.
 
->   ![./media/storage-snapshots-delete/portal-snapshots-delete.png](./media/storage-snapshots-delete/portal-snapshots-delete.png)
+>   ![Bouton Supprimer](./media/storage-snapshots-delete/portal-snapshots-delete.png)
 
 
-### <a name="delete-a-share-snapshot-using-azure-cli-20"></a>Supprimer un instantané de partage à l’aide d’Azure CLI 2.0
-Vous pouvez supprimer un instantané de partage à l’aide de la commande `[az storage share delete]` en définissant le paramètre `--snapshot '2017-10-04T23:28:35.0000000Z' ` sur l’horodatage de l’instantané de partage :
+### <a name="delete-a-share-snapshot-by-using-azure-cli-20"></a>Supprimer un instantané de partage en utilisant Azure CLI 2.0
+Vous pouvez supprimer un instantané de partage avec la commande `[az storage share delete]`. Utilisez l’horodatage de votre instantané de partage pour le paramètre `--snapshot '2017-10-04T23:28:35.0000000Z' ` dans l’exemple suivant :
 
 ```azurecli-interactive
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
 ```
 
-Exemple de sortie
+Exemple de sortie :
 ```json
 {
   "deleted": true
 }
 ```
 
-### <a name="delete-a-share-snapshot-using-powershell"></a>Supprimer un instantané de partage à l’aide de PowerShell
-Vous pouvez supprimer un instantané de partage à l’aide de la commande `Remove-AzureStorageShare -Share` :
+### <a name="delete-a-share-snapshot-by-using-powershell"></a>Supprimer un instantané de partage en utilisant PowerShell
+Vous pouvez supprimer un instantané de partage avec la commande `Remove-AzureStorageShare -Share` :
 
 ```powershell
 $connectionstring="DefaultEndpointsProtocol=http;FileEndpoint=http:<Storage Account Name>.file.core.windows.net /;AccountName=:<Storage Account Name>;AccountKey=:<Storage Account Key>"
@@ -284,7 +283,7 @@ $sharename=":<file share name>"
 
 $ctx = New-AzureStorageContext -ConnectionString $connectionstring
 
-##create snapshot
+##Create snapshot
 $share=Get-AzureStorageShare -Context $ctx -Name <file share name>
 $share.Properties.LastModified
 $share.IsSnapshot

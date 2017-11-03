@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/14/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b3359b4e175ca4c3a96b49ab55c224589dea9190
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dab783e574ef4f5507737d5004fd8d2a98629458
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Créer une machine virtuelle Linux avec Azure CLI
 
@@ -85,16 +85,14 @@ ssh <publicIpAddress>
 
 ## <a name="install-nginx"></a>Installer NGINX
 
-Utilisez le script Bash suivant pour mettre à jour les sources de package et installer le dernier package NGINX. 
+Utilisez les commandes suivantes pour mettre à jour les sources de package et installer le dernier package NGINX. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## <a name="view-the-nginx-welcome-page"></a>Afficher la page d’accueil NGINX

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: e6a0e480f7748f12f5e566cf4059b5b2c4242c09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f57fbb8e2a86b744808ee844e5f853bdb587a5d
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
-Cet article décrit comment utiliser la [messagerie Azure Service Bus](https://azure.microsoft.com/services/service-bus/) pour optimiser les performances lors de l’échange de messages répartis. La première partie de cette rubrique décrit les différents mécanismes qui sont proposés et qui permettent d’améliorer les performances. La deuxième partie fournit des conseils sur l’utilisation de Service Bus des services visant à offrir des performances optimales dans un scénario donné.
+Cet article décrit comment utiliser [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) pour optimiser les performances lors de l’échange de messages répartis. La première partie de cet article décrit les différents mécanismes proposés afin d’améliorer les performances. La deuxième partie fournit des conseils sur l’utilisation de Service Bus des services visant à offrir des performances optimales dans un scénario donné.
 
-Dans cette rubrique, le terme « client » fait référence à une entité qui accède à Service Bus. Un client peut jouer le rôle d’un expéditeur ou d’un destinataire. Le terme « expéditeur » est utilisé pour un client de file d’attente ou de rubrique Service Bus qui envoie des messages à une file d’attente ou une rubrique Service Bus. Le terme « destinataire » fait référence à un client de file d’attente ou d’abonnement de Bus de Service qui reçoit des messages de la part d’une file d’attente ou d’un abonnement Service Bus.
+Dans cette rubrique, le terme « client » fait référence à une entité qui accède à Service Bus. Un client peut jouer le rôle d’un expéditeur ou d’un destinataire. Le terme « expéditeur » est utilisé pour un client de file d’attente ou de rubrique Service Bus qui envoie des messages à une file d’attente ou un abonnement à une rubrique Service Bus. Le terme « destinataire » fait référence à un client de file d’attente ou d’abonnement de Bus de Service qui reçoit des messages de la part d’une file d’attente ou d’un abonnement Service Bus.
 
 Les sections suivantes présentent plusieurs concepts Service Bus utiles pour améliorer les performances.
 
@@ -117,7 +117,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 L’accès au stockage par lot n’affecte pas le nombre d’opérations de messagerie facturables et constitue une propriété de file d’attente, de rubrique ou d’abonnement. Il est indépendant du mode de réception et du protocole utilisé entre un client et le service Service Bus.
 
 ## <a name="prefetching"></a>Lecture anticipée
-La lecture anticipée permet au client de la file d’attente ou de l’abonnement de charger des messages supplémentaires à partir du service lorsqu’il effectue une opération de réception. Le client stocke ces messages en mémoire cache. La taille du cache est déterminée par la propriété [QueueClient.PrefetchCount][QueueClient.PrefetchCount] ou [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. Chaque client qui permet la lecture anticipée gère son propre cache. Un cache n’est pas partagé par plusieurs clients. Si le client initie une opération de réception et que sa mémoire cache est vide, le service transmet un lot de messages. La taille du lot est égale à la taille du cache ou à 256 Ko, la plus faible l’emportant. Si le client initie une opération de réception et que le cache contient un message, ce dernier est extrait de la mémoire cache.
+La [lecture anticipée](service-bus-prefetch.md) permet au client de la file d’attente ou de l’abonnement de charger des messages supplémentaires à partir du service quand il effectue une opération de réception. Le client stocke ces messages en mémoire cache. La taille du cache est déterminée par la propriété [QueueClient.PrefetchCount][QueueClient.PrefetchCount] ou [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. Chaque client qui permet la lecture anticipée gère son propre cache. Un cache n’est pas partagé par plusieurs clients. Si le client initie une opération de réception et que sa mémoire cache est vide, le service transmet un lot de messages. La taille du lot est égale à la taille du cache ou à 256 Ko, la plus faible l’emportant. Si le client initie une opération de réception et que le cache contient un message, ce dernier est extrait de la mémoire cache.
 
 Lorsqu’un message est lu par anticipation, le service le verrouille. Ce faisant, le message lu par anticipation ne peut pas être reçu par un autre destinataire. Si le destinataire ne peut pas terminer le message avant expiration du verrouillage, le message devient disponible pour les autres destinataires. La copie lue par anticipation du message reste dans le cache. Le destinataire qui consomme la copie mise en cache expirée reçoit une exception lorsqu’il essaie de terminer le message. Par défaut, le verrouillage du message expire au bout de 60 secondes. Cette valeur peut être étendue à 5 minutes. Pour empêcher la consommation des messages arrivés à expiration, la taille du cache doit toujours être inférieure au nombre de messages qui peuvent être utilisés par un client au sein de l’intervalle de délai d’expiration de verrouillage.
 
@@ -145,7 +145,7 @@ Si un message contenant des informations sensibles ne devant pas être égarées
 > Les entités rapides ne prennent pas en charge les transactions.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>Utilisation de files d’attente partitionnées ou de rubriques
-En interne, Service Bus utilise le même nœud et stockage de messagerie pour traiter et stocker tous les messages d’une entité de messagerie (file d’attente ou rubrique). Une file d’attente ou une rubrique partitionnée, elle, se répartit sur plusieurs nœuds et banques de messagerie. Les rubriques et files d’attente partitionnées donnent non seulement un débit plus élevé que les rubriques et files d’attente standard, mais ils présentent également une disponibilité supérieure. Pour créer une entité partitionnée, définissez la propriété [EnablePartitioning][EnablePartitioning] sur **true**, comme illustré dans l’exemple suivant. Pour plus d’informations sur les entités partitionnées, consultez [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
+En interne, Service Bus utilise le même nœud et stockage de messagerie pour traiter et stocker tous les messages d’une entité de messagerie (file d’attente ou rubrique). Une [file d’attente ou une rubrique partitionnée](service-bus-partitioning.md), elle, se répartit sur plusieurs nœuds et banques de messagerie. Les rubriques et files d’attente partitionnées donnent non seulement un débit plus élevé que les rubriques et files d’attente standard, mais ils présentent également une disponibilité supérieure. Pour créer une entité partitionnée, définissez la propriété [EnablePartitioning][EnablePartitioning] sur **true**, comme illustré dans l’exemple suivant. Pour plus d’informations sur les entités partitionnées, consultez [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
 
 ```csharp
 // Create partitioned queue.
@@ -248,16 +248,16 @@ Pour maximiser le débit, procédez comme suit :
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’optimisation des performances Service Bus, consultez [Entités de messagerie partitionnées][Partitioned messaging entities].
 
-[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
-[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
+[MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
 [MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
-[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
-[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
-[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
-[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
-[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
+[PeekLock]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.messagesender.batchflushinterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
-[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing

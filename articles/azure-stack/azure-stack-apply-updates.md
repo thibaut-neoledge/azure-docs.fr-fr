@@ -9,22 +9,22 @@ editor:
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/20/2017
 ms.author: twooley
-ms.openlocfilehash: 8fbed3c15b385e385e64093331df37363a558185
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00bd606faaffaad30ff6cea3bcf47dc85282f69
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="apply-updates-in-azure-stack"></a>Effectuer des mises à jour dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-En tant qu’opérateur Azure Stack, vous pouvez appliquer des mises à jour Microsoft pour Azure Stack à l’aide de la vignette Mise à jour dans le portail d’administration. Vous devez télécharger la mise à jour Microsoft, importer les fichiers du package dans Azure Stack, puis installer la mise à jour. 
+En tant qu’opérateur Azure Stack, vous pouvez appliquer des packages de mise à jour Microsoft pour Azure Stack en utilisant la vignette Mise à jour dans le portail d’administration. Vous devez télécharger la mise à jour Microsoft, importer les fichiers du package dans Azure Stack, puis installer la mise à jour. 
 
 ## <a name="download-the-update-package"></a>Télécharger la mise à jour
 
@@ -37,6 +37,9 @@ Lorsqu’une mise à jour Microsoft pour Azure Stack est disponible, télécharg
 ## <a name="import-and-install-updates"></a>Importer et installer des mises à jour
 
 La procédure suivante montre comment importer et installer des mises à jour dans le portail d’administration.
+
+> [!IMPORTANT]
+> Nous vous recommandons vivement d’informer les utilisateurs de toutes les opérations de maintenance, et de planifier dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les opérations du portail et les charges de travail des utilisateurs.
 
 1. Dans le portail d’administration, sélectionnez **Plus de services**. Ensuite, sous la catégorie **Données et stockage**, sélectionnez **Comptes de stockage**. (Ou, dans la zone de filtre, commencez à taper **comptes de stockage** et sélectionnez l’option correspondante.)
 
@@ -73,4 +76,5 @@ La procédure suivante montre comment importer et installer des mises à jour da
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](azure-stack-updates.md)
 - [Stratégie de maintenance d’Azure Stack](azure-stack-servicing-policy.md)

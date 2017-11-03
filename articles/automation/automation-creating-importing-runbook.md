@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 78df606568b941cf72b823c3715fefce1540c790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad070333b85b70d911a492a35cc89c8c4a60e5c1
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Création ou importation d’un runbook dans Azure Automation
 Vous pouvez ajouter un Runbook à Azure Automation en [en créant un](#creating-a-new-runbook) ou en important un Runbook à partir d’un fichier ou de la [galerie de Runbooks](automation-runbook-gallery.md). Cet article fournit des informations sur la création et l’importation des runbooks à partir d’un fichier.  Vous pouvez obtenir toutes les informations sur l’accès aux runbooks et modules communautaires dans [Galeries de runbooks et de modules pour Azure Automation](automation-runbook-gallery.md).
@@ -50,7 +50,7 @@ Les exemples de commandes suivants montrent comment créer un runbook vide.
     -Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
 
 ## <a name="importing-a-runbook-from-a-file-into-azure-automation"></a>Importation d’un runbook à partir d’un fichier dans Azure Automation
-Vous pouvez créer un runbook dans Azure Automation en important un script PowerShell, un workflow PowerShell (extension .ps1) ou un runbook graphique exporté (.graphrunbook).  Vous devez spécifier le [type de runbook](automation-runbook-types.md) qui sera créé à lors de l’importation et ce, en tenant compte des considérations suivantes.
+Vous pouvez créer un runbook dans Azure Automation en important un script PowerShell, un workflow PowerShell (extension .ps1), un runbook graphique exporté (.graphrunbook) ou un script Python 2 (extension .py).  Vous devez spécifier le [type de runbook](automation-runbook-types.md) qui sera créé à lors de l’importation et ce, en tenant compte des considérations suivantes.
 
 * Un fichier .graphrunbook peut uniquement être importé dans un nouveau [runbook graphique](automation-runbook-types.md#graphical-runbooks), et les runbooks graphiques ne peuvent être créés qu’à partir d’un fichier .graphrunbook.
 * Un fichier .ps1 contenant un workflow PowerShell peut uniquement être importé dans un [runbook de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).  Si le fichier contient plusieurs workflows PowerShell, l’importation échoue. Vous devez enregistrer chaque workflow dans son propre fichier, puis les importer séparément.

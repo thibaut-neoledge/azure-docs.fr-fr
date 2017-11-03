@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: d8ac076334a7ed9476b4830596d6ea54c29c0e3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: d626f71aa21cea562ef6c9554c05e6de027e7f4d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planification d’un déploiement Azure File Sync (préversion)
 La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -45,11 +45,14 @@ L’agent Azure File Sync est un package téléchargeable qui permet à un serve
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
+### <a name="server-endpoint"></a>Point de terminaison de serveur
+Un point de terminaison de serveur représente un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur ou la racine du volume. Plusieurs points de terminaison de serveur peuvent se trouver sur le même volume si leurs espaces de noms ne se chevauchent pas (par ex., F:\sync1 et F:\sync2). Vous pouvez configurer des stratégies de hiérarchisation cloud individuellement pour chaque point de terminaison de serveur. Si vous ajoutez un emplacement de serveur avec un ensemble de fichiers existants comme point de terminaison de serveur à un groupe de synchronisation, ces fichiers sont fusionnés avec tout autre fichier déjà présent sur les autres points de terminaison dans le groupe de synchronisation.
+
 ### <a name="cloud-endpoint"></a>Point de terminaison cloud
 Un point de terminaison cloud est un partage de fichiers Azure qui fait partie d’un groupe de synchronisation. L’intégralité du partage de fichiers Azure se synchronise. Un partage de fichiers Azure peut uniquement être membre d’un seul point de terminaison cloud et, par conséquent, d’un seul groupe de synchronisation. Si vous ajoutez un partage de fichiers Azure avec un ensemble de fichiers existants comme point de terminaison de serveur à un groupe de synchronisation, ces fichiers sont fusionnés avec tout autre fichier déjà présent sur les autres points de terminaison dans le groupe de synchronisation.
 
-### <a name="server-endpoint"></a>Point de terminaison de serveur
-Un point de terminaison de serveur représente un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur ou la racine du volume. Plusieurs points de terminaison de serveur peuvent se trouver sur le même volume si leurs espaces de noms ne se chevauchent pas (par ex., F:\sync1 et F:\sync2). Vous pouvez configurer des stratégies de hiérarchisation cloud individuellement pour chaque point de terminaison de serveur. Si vous ajoutez un emplacement de serveur avec un ensemble de fichiers existants comme point de terminaison de serveur à un groupe de synchronisation, ces fichiers sont fusionnés avec tout autre fichier déjà présent sur les autres points de terminaison dans le groupe de synchronisation.
+> [!Important]  
+> Azure File Sync prend en charge les modifications apportées directement au partage de fichiers Azure. Cependant, toute modification apportée directement au partage de fichiers Azure doit être détectée au préalable par une tâche de détection de modification d’Azure File Sync, qui est lancée pour un point de terminaison cloud seulement une fois toutes les 24 heures. Visitez le [FAQ d’Azure Files](storage-files-faq.md#afs-change-detection) pour plus d’informations.
 
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud 
 La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui permet aux fichiers rarement utilisés d’être hiérarchisés dans Azure Files. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier localement par un pointeur, ou point d’analyse, qui représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « hors connexion » défini dans NTFS, pour que les applications tierces puissent l’identifier. Quand un utilisateur ouvre un fichier hiérarchisé, Azure File Sync rappelle sans interruption les données de fichier dans Azure Files sans que l’utilisateur ait besoin de savoir que le fichier n’est pas stocké localement sur le système. Cette fonctionnalité est également appelée Gestion hiérarchique du stockage.

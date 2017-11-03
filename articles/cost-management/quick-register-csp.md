@@ -1,26 +1,28 @@
 ---
-title: "S’inscrire à l’aide des informations de partenaire CSP à la Gestion des coûts Azure | Microsoft Docs"
+title: "S’inscrire avec des informations de partenaire CSP à Azure Cost Management | Microsoft Docs"
 description: "Utilisez vos informations de partenaire CSP pour vous inscrire à la Gestion des coûts Azure par Cloudyn."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: a7bd4aed7dbcde803c2106b8c053e8a2412eea99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>S’inscrire au programme pour les partenaires CSP et afficher les données de coût
 
 En tant que partenaire CSP, vous pouvez vous inscrire à la Gestion des coûts Azure par Cloudyn. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
 
-Pour vous inscrire, vous devez être un administrateur de programme partenaires ayant accès à l’API Espace partenaires. La configuration de l’API Espace partenaires est requise pour l’authentification et l’accès aux données. Pour plus d’informations, consultez Se connecter à l’API Espace partenaires.
+
+>[!NOTE]
+>Pour vous inscrire, vous devez être un administrateur de programme partenaires ayant accès à l’API Espace partenaires. La configuration de l’API Espace partenaires est requise pour l’authentification et l’accès aux données. Pour plus d’informations, consultez [Se connecter à l’API Espace partenaires](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). En outre, les utilisateurs CSP indirects peuvent uniquement utiliser Cloudyn quand leur revendeur CSP direct s’inscrit auprès de Cloudyn pour fournir l’accès à ses clients et abonnements.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -46,11 +48,24 @@ Pour vous inscrire, vous devez être un administrateur de programme partenaires 
 7. L’option pour **inviter d’autres parties prenantes** permet d’ajouter des utilisateurs en tapant leurs adresses e-mail. Lorsque vous avez terminé, cliquez sur **Suivant**. L’ajout de toutes vos données de facturation à Cloudyn prend environ deux heures.
 8. Cliquez sur le bouton d’**accès à Cloudyn** pour ouvrir le portail Cloudyn. La page de **gestion des comptes cloud** devrait alors afficher les informations de votre compte CSP inscrit.
 
+## <a name="configure-indirect-csp-access-in-cloudyn"></a>Configurer l’accès CSP indirect dans Cloudyn
+
+Par défaut, l’API Espace partenaires est accessible uniquement aux fournisseurs de solutions Cloud (CSP, Cloud Solution Providers). Toutefois, un fournisseur CSP direct peut configurer l’accès pour ses clients ou partenaires CSP indirects à l’aide de groupes d’entités dans Cloudyn.
+
+Pour activer l’accès pour les clients ou partenaires CSP indirects, suivez les étapes décrites dans [Créer une inscription d’évaluation](#create-a-trial-registration) pour configurer une inscription d’évaluation. Effectuez les étapes suivantes pour segmenter les données CSP indirectes à l’aide de groupes d’entités Cloudyn. Ensuite, assignez les autorisations utilisateur appropriées pour les groupes d’entités.
+
+1. Créez un groupe d’entités avec les informations fournies dans [Créer des entités](tutorial-user-access.md#create-entities).
+2. Suivez les étapes fournies dans [Assigning subscriptions to Cost Entities (Affectation d’abonnements à des entités de coût)](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associez le compte du client CSP indirect et ses abonnements Azure à l’entité que vous avez créée.
+3. Suivez les étapes fournies dans [Créer un utilisateur avec un accès administrateur](tutorial-user-access.md#create-a-user-with-admin-access) pour créer un compte d’utilisateur avec un accès administrateur. Ensuite, vérifiez que le compte d’utilisateur dispose d’un accès administrateur aux entités spécifiques que vous avez créées pour le compte indirect.
+
+Les partenaires CSP indirects se connectent au portail Cloudyn à l’aide des comptes que vous avez créés pour eux.
+
+
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé vos informations CSP pour vous inscrire à la Gestion des coûts. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur la Gestion des coûts Azure par Cloudyn, poursuivez avec le didacticiel sur la Gestion des coûts.
+Dans ce guide de démarrage rapide, vous avez utilisé vos informations CSP pour vous inscrire à Cost Management. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur la Gestion des coûts Azure par Cloudyn, poursuivez avec le didacticiel sur la Gestion des coûts.
 
 > [!div class="nextstepaction"]
-> [Afficher les données de coût](./tutorial-review-usage.md)
+> [Réviser l’utilisation et les coûts](./tutorial-review-usage.md)

@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fca6023fedcfc64ecfe66c0f4ed60a495953cfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services
 ## <a name="overview"></a>Vue d’ensemble
@@ -40,7 +40,7 @@ Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Clo
 | Évolution vers des machines plus volumineuses sans redéploiement |X | | |X | |
 | Les instances de serveur web partagent le contenu et la configuration, ce qui fait que vous n'avez pas à refaire le déploiement ou la configuration en cas d'extension. |X | | |X | |
 | Plusieurs environnements de déploiement (de production et intermédiaire) |X |X | |X |Service Fabric vous permet d’avoir plusieurs environnements pour vos applications ou de déployer différentes versions de votre application côte à côte. |
-| Gestion automatique des mises à jour du système d'exploitation |X |X | | |Des mises à jour automatiques du système d’exploitation sont planifiées dans une version Service Fabric à venir. |
+| Gestion automatique des mises à jour du système d'exploitation |X |X | | |Partiellement via l’application d’orchestration des correctifs, et complètement à l’avenir. |
 | Migration transparente entre les plateformes (de 32 à 64 bits) |X |X | | | |
 | Déploiement de code avec GIT, FTP |X | |X | | |
 | Déploiement de code avec Web Deploy |X | |X | |Cloud Services prend en charge l'utilisation de Web Deploy pour déployer des mises à jour sur des instances de rôle. Cependant, vous ne pouvez pas l'utiliser pour le déploiement initial du rôle, et si vous utilisez Web Deploy pour une mise à jour, vous devez effectuer le déploiement séparément pour chaque instance du rôle. Plusieurs instances sont nécessaires afin de répondre aux exigences du contrat SLA Cloud Services pour les environnements de production. |

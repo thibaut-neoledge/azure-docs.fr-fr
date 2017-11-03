@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
-ms.openlocfilehash: 1ed933493da1842201bb9293f514ea4d0e7a75ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abaad01bbf7a11ad078c79d7c192ef3f84812178
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Objectifs de performance et évolutivité d'Azure Storage
 ## <a name="overview"></a>Vue d'ensemble
@@ -36,8 +36,27 @@ Cet article décrit l’extensibilité et les performances de Microsoft Azure 
 
 Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez concevoir votre application afin qu’elle utilise plusieurs comptes de stockage et partitionner vos objets de données sur ces comptes. Pour plus d’informations sur la tarification des licences en volume, consultez la page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/) .
 
-## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Objectifs d'évolutivité pour les objets Blob, les files d'attente, les tables et les fichiers
+## <a name="scalability-targets-for-a-storage-account"></a>Objectifs d’évolutivité de compte de stockage
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+## <a name="azure-blob-storage-scale-targets"></a>Objectifs de mise à l’échelle du stockage Blob Azure
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
+
+## <a name="azure-files-scale-targets"></a>Objectifs de mise à l’échelle de fichiers Azure
+Pour plus d’informations sur les objectifs d’évolutivité et de performances des fichiers Azure et d’Azure File Sync, consultez [Objectifs d’évolutivité et de performances des fichiers Azure](../files/storage-files-scale-targets.md).
+
+[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
+
+### <a name="azure-file-sync-scale-targets"></a>Objectifs de mise à l’échelle d’Azure File Sync
+[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
+
+## <a name="azure-queue-storage-scale-targets"></a>Objectifs de mise à l’échelle du stockage File d’attente Azure
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+
+## <a name="azure-table-storage-scale-targets"></a>Objectifs de mise à l’échelle du stockage Table Azure
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Objectifs d'évolutivité pour les disques de machines virtuelles
@@ -53,27 +72,6 @@ Pour plus d’informations, consultez la page [Tailles des machine virtuelles da
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
-
-## <a name="scalability-targets-for-azure-resource-manager"></a>Objectifs d'évolutivité pour Azure Resource Manager
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
-
-## <a name="partitions-in-azure-storage"></a>Partitions dans Azure Storage
-Chaque objet contenant des données stockées dans Azure Storage (blobs, messages, entités et fichiers) appartient à une partition et est identifié par une clé de partition. La partition détermine la manière dont Azure Storage équilibre la charge des blobs, des messages, des entités et des fichiers sur les serveurs pour répondre aux besoins de trafic de ces objets. La clé de partition est unique. Elle permet de localiser un blob, un message ou une entité.
-
-Le tableau présenté plus haut dans la section [Objectifs d'évolutivité des comptes de stockage standard](#standard-storage-accounts) répertorie les objectifs de performance pour une seule partition pour chaque service.
-
-Les partitions affectent l’extensibilité et l’équilibrage de charge de chacun des services de stockage comme suit :
-
-* **Blobs** : la clé de partition d’un blob est le nom du compte + le nom du conteneur + le nom du blob. Cela signifie que chaque objet peut avoir sa propre partition si la charge sur le blob en fait la demande. Les blobs peuvent être répartis sur plusieurs serveurs afin d’offrir un accès horizontal. Toutefois, un blob donné ne peut être servi que par un seul serveur. Si les blobs peuvent être regroupés de manière logique dans des conteneurs, ce regroupement n’a aucune incidence sur le partitionnement.
-* **Fichiers**: la clé de partition pour un fichier est le nom du compte + le nom de partage du fichier. Cela signifie que tous les fichiers dans un partage de fichiers sont également dans une seule partition.
-* **Messages**: la clé de partition d’un message est le nom du compte + le nom de la file d’attente : tous les messages d’une file d’attente sont regroupés en une seule partition et servis par un seul serveur. Plusieurs files d’attente peuvent être traitées par différents serveurs pour équilibrer la charge, quel que soit le nombre de files d’attente du compte de stockage.
-* **Entités** : la clé de partition d’une entité est le nom du compte + le nom de la table + la clé de partition, cette dernière correspondant à la valeur de la propriété **PartitionKey** requise et définie par l’utilisateur pour l’entité. Toutes les entités affichant la même valeur de clé de partition sont regroupées dans la même partition et sont servies sur le même serveur de partition. Il s’agit d’un point important de la conception de votre application. Votre application doit offrir un parfait équilibre entre les avantages de l’extensibilité de la répartition des entités sur plusieurs partitions et les avantages d’accès aux données du regroupement des entités en une seule partition.  
-
-Grâce au regroupement d’un ensemble d’entités d’une table en une seule partition, il est possible de mener des opérations atomiques par lots sur les entités d’une même partition, car une partition existe sur un serveur unique. Ainsi, si vous souhaitez effectuer des opérations par lot sur un groupe d’entités, pensez à les regrouper avec la même clé de partition. 
-
-Par contre, les entités qui se trouvent dans la même table mais qui ont différentes clés de partition peuvent être réparties sur plusieurs serveurs, ce qui permet de disposer d’une meilleure extensibilité.
-
-Des recommandations détaillées pour la conception d’une stratégie de partitionnement pour des tables sont disponibles [ici](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
 ## <a name="see-also"></a>Voir aussi
 * [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5ce000814f2f5899a7338fdefb39c4873c006b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -131,7 +131,7 @@ Lorsqu’un point de terminaison est détérioré, il n’est plus renvoyé en r
 
 * **Priorité**. Les points de terminaison forment une liste hiérarchisée. Le premier point de terminaison disponible sur la liste est toujours renvoyé. Si l’état d’un point de terminaison est Détérioré, alors le point de terminaison disponible suivant est renvoyé.
 * **Pondération**. Le point de terminaison de remplacement est choisi de façon aléatoire parmi tous les points de terminaison disponibles en fonction des pondérations qui leur ont été affectées et des pondérations des autres points de terminaison disponibles.
-* **Performances**. Le point de terminaison le plus proche de l’utilisateur final est renvoyé. Si ce point de terminaison est indisponible, un point de terminaison est choisi de façon aléatoire parmi tous les autres points de terminaison disponibles. En choisissant un point de terminaison aléatoire, le système évite une défaillance en cascade qui peut se produire lorsque le point de terminaison suivant le plus proche est surchargé. Vous pouvez configurer d’autres plans de basculement pour le routage du trafic à l’aide des [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
+* **Performances**. Le point de terminaison le plus proche de l’utilisateur final est renvoyé. Si ce point de terminaison n’est pas disponible, Traffic Manager déplace le trafic vers les points de terminaison dans la région Azure suivante la plus proche. Vous pouvez configurer d’autres plans de basculement pour le routage du trafic à l’aide des [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Géographique**. Le point de terminaison mappé pour servir la zone géographique en fonction de l’adresse IP de la requête est renvoyé. Si ce point de terminaison n’est pas disponible, aucun autre point de terminaison ne sera sélectionné pour le basculement, car un emplacement géographique ne peut être mappé qu’à un seul point de terminaison dans un profil (plus de détails dans la rubrique [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Lorsque le routage géographique est utilisé, nous recommandons aux clients d’utiliser des profiles Traffic Manager imbriqués avec plusieurs points de terminaison comme points de terminaison du profil.
 
 Pour plus d’informations, consultez la rubrique relative aux [méthodes de routage du trafic dans Traffic Manager](traffic-manager-routing-methods.md).

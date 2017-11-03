@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 10/11/2017
 ms.author: cynthn
-ms.openlocfilehash: 9ae27e6abc239fe76288e64a996ec39ba7782822
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 022f35a537076b72785d95bc812c10c0e43fe2dd
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Attacher un disque de données à une machine virtuelle Windows dans Azure à l’aide de PowerShell
 
-Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Windows à l’aide de PowerShell. Si votre machine virtuelle utilise des disques gérés, vous pouvez attacher des disques de données gérés supplémentaires. Vous pouvez également attacher des disques de données non gérés à une machine virtuelle qui utilise des disques non gérés dans un compte de stockage.
+Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Windows à l’aide de PowerShell. 
 
 Avant cela, passez en revue les conseils suivants :
 * La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Pour utiliser le stockage Premium, vous avez besoin d’une machine virtuelle de série DS ou GS, compatible avec ce type de stockage. Vous pouvez utiliser des disques de comptes de stockage Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Pour utiliser le stockage Premium, vous avez besoin d’une machine virtuelle de série DS ou GS, compatible avec ce type de stockage. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -43,7 +43,7 @@ Cet exemple montre comment ajouter un disque de données vide à une machine vir
 ```azurepowershell-interactive
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
-$location = 'West Central US' 
+$location = 'East US' 
 $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
@@ -75,15 +75,6 @@ $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
-```
-
-
-### <a name="using-unmanaged-disks-in-a-storage-account"></a>Utilisation de disques non gérés dans un compte de stockage
-
-```azurepowershell-interactive
-    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
-    Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 ```
 
 
@@ -120,25 +111,18 @@ Le fichier de script peut contenir les éléments de code suivants pour initiali
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Ajouter un disque de données existant à une machine virtuelle
 
-Vous pouvez également attacher un disque dur virtuel existant en tant que disque de données géré à une machine virtuelle. 
-
-### <a name="using-managed-disks"></a>Utilisation de disques gérés
+Vous pouvez attacher un disque géré existant à une machine virtuelle en tant que disque de données. 
 
 ```azurepowershell-interactive
-$rgName = 'myRG'
-$vmName = 'ContosoMdPir3'
-$location = 'West Central US' 
-$storageType = 'PremiumLRS'
-$dataDiskName = $vmName + '_datadisk2'
-$dataVhdUri = 'https://mystorageaccount.blob.core.windows.net/vhds/managed_data_disk.vhd' 
-
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $dataVhdUri -DiskSizeGB 128
-
-$dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+$rgName = "myResourceGroup"
+$vmName = "myVM"
+$location = "East US" 
+$dataDiskName = "myDisk"
+$disk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
 
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk2.Id -Lun 2
+$vm = Add-AzureRmVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
 
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```

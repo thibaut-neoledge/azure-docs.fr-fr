@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5bc6f90100e5c09eac2b6e5d0e114d4445daa7c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5eb16a92feee0937edeff1c00e0babe85176a79f
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Forum aux questions sur l’accès conditionnel Azure Active Directory
 
@@ -56,8 +56,8 @@ Actuellement, non.
 
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Comment les stratégies d’accès conditionnel fonctionnent-elles pour Microsoft Teams ?
 
-Microsoft Teams s’appuie fortement sur Exchange Online et SharePoint Online pour les principaux scénarios de productivité, tels que les réunions, les calendriers et le partage de fichiers. Les stratégies d’accès conditionnel définies pour ces applications cloud s’appliquent à Microsoft Teams quand un utilisateur se connecte.
+Microsoft Teams s’appuie fortement sur Exchange Online et SharePoint Online pour les principaux scénarios de productivité, tels que les réunions, les calendriers et le partage de fichiers. Les stratégies d’accès conditionnel définies pour ces applications cloud s’appliquent à Microsoft Teams quand un utilisateur s’y connecte directement.
 
-Microsoft Teams est également pris en charge séparément en tant qu’application cloud dans les stratégies d’accès conditionnel Azure Active Directory. Les stratégies d’accès conditionnel définies pour une application cloud s’appliquent à Microsoft Teams quand un utilisateur se connecte.
+Microsoft Teams est également pris en charge séparément en tant qu’application cloud dans les stratégies d’accès conditionnel Azure Active Directory. Les stratégies d’accès conditionnel définies pour une application cloud s’appliquent à Microsoft Teams quand un utilisateur se connecte. Toutefois, même sans que les stratégies appropriées ne soient appliquées dans les autres applications comme Exchange Online et SharePoint Online, les utilisateurs peuvent toujours être en mesure d’accéder directement à ces ressources.
 
-Les clients de bureau Microsoft Teams pour Windows et Mac prennent en charge l’authentification moderne. L’authentification moderne permet d’utiliser la connexion basée sur la bibliothèque ADAL (Azure Active Directory Authentication Library) pour les applications clientes Microsoft Office sur plusieurs plateformes. 
+Les clients de bureau Microsoft Teams pour Windows et Mac prennent en charge l’authentification moderne. L’authentification moderne permet d’utiliser la connexion basée sur la bibliothèque ADAL (Azure Active Directory Authentication Library) pour les applications clientes Microsoft Office sur plusieurs plateformes.

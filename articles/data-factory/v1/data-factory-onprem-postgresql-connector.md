@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/12/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f35030b90cbd854512fb6b9a8ef564584fc101b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data F
 
 Vous pouvez copier et coller les données d’un magasin de données PostgreSQL local dans tout magasin de données récepteur pris en charge. Consultez les [magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, les fabriques de données prennent en charge le déplacement des données d’une base de données PostgreSQL vers d’autres magasins de données, mais non l’inverse. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Composants requis
 
 Le service Data Factory prend en charge la connexion à des sources PostgreSQL locales à l'aide de la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle.
 
@@ -44,7 +44,7 @@ Une passerelle est requise même si la base de données PostgreSQL est hébergé
 > Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## <a name="supported-versions-and-installation"></a>Versions prises en charge et installation
-Pour que la passerelle de gestion des données puisse se connecter à la base de données PostgreSQL, installez le [fournisseur de données Ngpsql pour PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 ou version ultérieure sur le même système que la passerelle de gestion des données. PostgreSQL version 7.4 et ultérieures est pris en charge.
+Pour que la passerelle de gestion des données puisse se connecter à la base de données PostgreSQL, installez le [fournisseur de données Ngpsql pour PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) de version comprise entre 2.0.12 et 3.1.9 sur le même système que la passerelle de gestion des données. PostgreSQL version 7.4 et ultérieures est pris en charge.
 
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données PostgreSQL local à l’aide de différents outils/API. 
@@ -102,7 +102,7 @@ Lorsque la source est de type **RelationalSource** (ce qui inclut PostgreSQL), l
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
-| query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : "query": "select * from \"MySchema\".\"MyTable\"". |Non (si **tableName** de **dataset** est spécifiée) |
+| query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `"query": "select * from \"MySchema\".\"MyTable\""`. |Non (si **tableName** de **dataset** est spécifiée) |
 
 > [!NOTE]
 > Les noms de schéma et de table respectent la casse. Encadrez-les avec des guillemets doubles (`""`) dans la requête.  
@@ -310,13 +310,13 @@ Lors du déplacement de données vers PostgreSQL, les mappages suivants sont uti
 | abstime | |Datetime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [ (n) ] | |Byte[], String | &nbsp;
+| bit [(n)] | |Byte[], String | &nbsp;
 | bit varying [ (n) ] |varbit |Byte[], String |
 | booléenne |valeur booléenne |booléenne |
 | box | |Byte[], String |&nbsp;
 | bytea | |Byte[], String |&nbsp;
-| character [ (n) ] |char [ (n) ] |String |
-| character varying [ (n) ] |varchar [ (n) ] |String |
+| character [(n)] |char [(n)] |String |
+| character varying [(n)] |varchar [(n)] |String |
 | cid | |String |&nbsp;
 | cidr | |String |&nbsp;
 | circle | |Byte[], String |&nbsp;
@@ -328,14 +328,14 @@ Lors du déplacement de données vers PostgreSQL, les mappages suivants sont uti
 | int4range | |String |&nbsp;
 | int8range | |String |&nbsp;
 | integer |int, int4 |Int32 |
-| interval [ fields ] [ (p) ] | |Timespan |&nbsp;
+| interval [champs] [(p)] | |Timespan |&nbsp;
 | json | |String |&nbsp;
 | jsonb | |Byte[] |&nbsp;
 | line | |Byte[], String |&nbsp;
 | lseg | |Byte[], String |&nbsp;
 | macaddr | |Byte[], String |&nbsp;
 | money | |Décimal |&nbsp;
-| numeric [ (p, s) ] |decimal [ (p, s) ] |Décimal |
+| numeric [(p, s)] |decimal [(p, s)] |Décimal |
 | numrange | |String |&nbsp;
 | oid | |Int32 |&nbsp;
 | path | |Byte[], String |&nbsp;

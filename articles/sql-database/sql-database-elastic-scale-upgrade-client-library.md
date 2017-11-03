@@ -1,6 +1,6 @@
 ---
 title: "Effectuer une mise à niveau vers la dernière version de la bibliothèque cliente de bases de données élastiques | Microsoft Docs"
-description: "Mettre à niveau des applications et des bibliothèques à l’aide de Nuget"
+description: "Utilisez NuGet pour mettre à niveau la bibliothèque cliente de bases de données élastiques."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.openlocfilehash: 7e28d128645e856c0efa6e4f78d8f9f36982a76c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0334f701548d938c98aaa2a946b1e5e892c0700
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Mettre à niveau une application pour utiliser la dernière version de la bibliothèque cliente de bases de données élastiques
 Les nouvelles versions de la [bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md) sont disponibles via NuGet et l’interface du Gestionnaire de package NuGet dans Visual Studio. Les mises à niveau contiennent des résolutions de bogues et offrent une prise en charge des nouvelles fonctionnalités de la bibliothèque cliente.

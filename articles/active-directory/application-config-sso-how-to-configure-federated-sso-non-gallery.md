@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: da7bc05c6452cde4d0236806f249559f178dd4e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781d06d2a8234d4cedf546ef059d49b7ece8783d
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application non issue de la galerie
 
-Pour configurer une application non issue de la galerie, vous devez disposer d’Azure AD Premium, et l’application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Si vous voulez configurer l’authentification unique pour une application non issue de la galerie *sans écrire de code*, vous devez disposer d’un abonnement ou d’Azure AD Premium. De plus, l’application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="overview-of-steps-required"></a>Vue d’ensemble des étapes requises
-Vous trouverez ci-dessous une vue d’ensemble des étapes de haut niveau à suivre pour configurer l’authentification unique fédérée pour une application non issue de la galerie (p. ex. une application personnalisée).
+Vous trouverez ci-dessous une vue d’ensemble des étapes à suivre pour configurer l’authentification unique fédérée avec SAML 2.0 pour une application non issue de la galerie (telle qu’une application personnalisée).
 
 -   [Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)](#_Configuring_single_sign-on)
 

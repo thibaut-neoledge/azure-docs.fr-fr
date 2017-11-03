@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b677990efe49b666396728767ee59587a280efe
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 Un des défis de l’intégration de données modernes consiste à déplacer des données vers et depuis un site local et le cloud. Azure Data Factory effectue cette intégration avec la passerelle de gestion des données Microsoft, qui est un agent pouvant être installé en local pour activer le déplacement de données hybrides.
@@ -29,16 +29,19 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 *  [Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-21063477"></a>VERSION ACTUELLE (2.10.6347.7)
+## <a name="current-version"></a>VERSION ACTUELLE 
+Nous ne conservons plus les notes de publication ici. Pour obtenir les dernières notes de publication, cliquer [ici](https://go.microsoft.com/fwlink/?linkid=853077)
 
+
+
+
+## <a name="earlier-versions"></a>Versions antérieures
+## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Améliorations
 - Vous pouvez ajouter des entrées DNS à la liste blanche Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Vous pouvez trouver l’entrée DNS concernée sur le portail Azure (Data Factory -> Créer et déployer > Passerelles > ServiceUrls (dans JSON))
 - Le connecteur HDFS prend désormais en charge le certificat public auto-signé en vous permettant d’ignorer la validation SSL.
 - Résolu : problème lié à la passerelle en mode hors connexion pendant la mise à jour (en raison d’une différence d’heure)
 
-
-
-## <a name="earlier-versions"></a>Versions antérieures
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Améliorations

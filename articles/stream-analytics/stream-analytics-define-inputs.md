@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connexion de données : en savoir plus sur les entrées de flux de données pour Stream Analytics
 La connexion de données à un travail Stream Analytics est un flux d’événements provenant d’une source de données, qui est appelée *entrée* du travail. Stream Analytics propose une intégration de pointe aux sources de flux de données Azure, notamment [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) et le [stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/). Ces sources d’entrée peuvent provenir du même abonnement Azure que votre travail d’analyse ou d’un autre abonnement.
@@ -37,7 +37,7 @@ Pour découvrir comment créer des entrées de données de référence, voir [Ut
 
 ## <a name="compression"></a>Compression
 
-Azure Stream Analytics déploiera prochainement une fonctionnalité de compression pour toutes les sources d’entrée de flux de données (Event Hubs, IoT Hub et stockage Blob). Cette fonctionnalité ajoute une option de liste déroulante au panneau **Nouvelle entrée** dans le portail Azure pour vous permettre de choisir de compresser des flux de données. Les types actuellement pris en charge sont Aucun, GZip et Compression Deflate. 
+Azure Stream Analytics prend en charge la compression pour toutes les sources d’entrée de flux de données (Event Hubs, IoT Hub et stockage Blob). Cette fonctionnalité ajoute une option de liste déroulante au panneau **Nouvelle entrée** dans le portail Azure pour vous permettre de choisir de compresser des flux de données. Les types actuellement pris en charge sont Aucun, GZip et Compression Deflate. 
 
 La compression ne peut pas avoir lieu en même temps que la sérialisation Avro et ne s’applique pas aux données de référence. 
 
@@ -81,6 +81,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> Lorsque vous utilisez le concentrateur d’événements comme un point de terminaison pour les itinéraires IoT Hub, vous pouvez accéder à la métadonnée IoT Hub en utilisant la [fonction GetMetadataPropertyValue](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>Créer une entrée de flux de données à partir de IoT Hub
 Azure Iot Hub est un service de réception d’événements de publication/d’abonnement hautement évolutif optimisé pour les scénarios IoT.

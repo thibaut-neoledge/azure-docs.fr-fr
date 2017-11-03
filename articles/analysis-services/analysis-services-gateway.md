@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 10/11/2017
 ms.author: owend
-ms.openlocfilehash: 31e4913aceb1c4b51ddc7cde6381bc21b50187c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données Azure locale
 La passerelle de données locale agit comme un pont, en fournissant un transfert de données sécurisé entre des sources de données locales et vos serveurs Azure Analysis Services dans le cloud. Pouvant être utilisée avec plusieurs serveurs Azure Analysis Services dans la même région, la dernière version de la passerelle fonctionne également avec Azure Logic Apps, Power BI, Power Apps et Microsoft Flow. Vous pouvez associer plusieurs services dans la même région avec une passerelle unique. 
@@ -139,6 +139,9 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **R** : La clé de récupération permet de migrer ou de récupérer les paramètres de votre passerelle en cas de récupération d’urgence.
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
+
+**Q** : Pourquoi ne puis-je pas voir ma passerelle dans la liste des instances de passerelle quand j’essaie de créer la ressource de passerelle dans Azure ? <br/>
+**R** : Il existe deux raisons possibles. Tout d’abord, une ressource est déjà créée pour la passerelle dans l’abonnement en cours ou dans un autre. Pour éliminer cette hypothèse, énumérez les ressources du type **Passerelles de données locales** à partir du portail. Veillez à sélectionner tous les abonnements quand vous énumérez toutes les ressources. Notez qu’une fois la ressource créée, la passerelle ne s’affiche pas dans la liste des instances de passerelle quand vous utilisez le portail pour créer des ressources de passerelle. La seconde possibilité est que l’identité Azure AD de l’utilisateur qui a installé la passerelle est différente de l’utilisateur connecté au Portail Azure. Pour résoudre cette situation, connectez-vous au portail en utilisant le même compte que l’utilisateur qui a installé la passerelle.
 
 **Q** : Comment puis-je voir les requêtes qui sont envoyées à la source de données locale ? <br/>
 **R** : Vous pouvez activer le traçage de requête qui inclut les requêtes envoyées. N’oubliez pas de rétablir la valeur d’origine du traçage des requêtes une fois les problèmes résolus. Le fait de laisser activé le traçage des requêtes contribue à augmenter la taille des journaux.

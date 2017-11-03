@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 19b1d772236c14c8403d1056e5c9dcda7b741501
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Dépannage des problèmes courants dans Azure Automation 
 Cet article aide à dépanner les problèmes courants que vous pourriez rencontrer dans Azure Automation et suggère des solutions possibles pour les résoudre.
@@ -101,8 +101,8 @@ l’une des trois solutions suivante peut vous aider à corriger ce problème :
 
 1. Connectez-vous à votre abonnement Azure :  
 2. Sélectionnez le compte Automation que vous souhaitez mettre à niveau  
-3. Cliquez sur **Paramètres** > **Niveau tarifaire et utilisation** > **Niveau tarifaire**  
-4. Dans la page **Choisir votre niveau tarifaire**, sélectionnez **De base**    
+3. Cliquez sur **Paramètres** > **Tarifs**.
+4. Cliquez sur **Activer** en bas de page pour actualiser votre compte au niveau **De base**.
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>Scénario : l’applet de commande n’est pas reconnue lors de l’exécution d’un runbook
 **Erreur :** la tâche de runbook échoue en renvoyant l’erreur « ``<cmdlet name>`` : Le terme ``<cmdlet name>`` n’est pas reconnu comme nom d’applet de commande, fonction, fichier de script ou programme exécutable. »

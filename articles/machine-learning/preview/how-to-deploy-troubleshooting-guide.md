@@ -10,17 +10,39 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/05/2017
-ms.openlocfilehash: 066a6a223692055c7855abc63667e345ee8dc2d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/09/2017
+ms.openlocfilehash: b9287c7151c96aaccbcda81c111cfe36ead5ab38
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="model-management-troubleshooting"></a>Résolution des problèmes de gestion du modèle
+# <a name="troubleshooting-service-deployment-and-environment-setup"></a>Résolution des problèmes de configuration d’environnement et de déploiement de services
+Les informations suivantes peuvent vous aider à déterminer la cause des erreurs susceptibles de se produire lors de la configuration de l’environnement de gestion des modèles.
+
+## <a name="model-management-environment"></a>Environnement de gestion des modèles
+### <a name="owner-permission-required"></a>Autorisation du propriétaire requise
+Vous devez disposer de l’autorisation du propriétaire sur l’abonnement Azure pour inscrire la ressource Compute Machine Learning.
+
+Vous avez également besoin de l’autorisation du propriétaire pour configurer un cluster pour le déploiement de vos services web.
+
+### <a name="resource-availability"></a>Disponibilité des ressources
+Vous devez disposer de suffisamment de ressources disponibles dans votre abonnement pour approvisionner les ressources d’environnement.
+
+### <a name="subscription-caps"></a>Limites d’abonnement
+Votre abonnement peut faire l’objet d’une limite de facturation qui peut vous empêcher d’approvisionner les ressources d’environnement. Supprimez cette limite pour activer l’approvisionnement.
+
+### <a name="enable-debug-and-verbose-options"></a>Activation des options de débogage et mode détaillé
+Utilisez les indicateurs `--debug` et `--verbose` dans la commande de configuration pour afficher les informations de débogage et de traçage lors de l’approvisionnement de l’environnement.
+
+```
+az ml env setup -l <loation> -n <name> -c --debug --verbose 
+```
+
+## <a name="service-deployment"></a>Déploiement de services
 Les informations suivantes peuvent aider à déterminer la cause des erreurs qui se produisent lors du déploiement ou de l’appel du service web.
- 
-## <a name="1-service-logs"></a>1. Journaux de service
+
+### <a name="service-logs"></a>Journaux de service
 L’option `logs` de l’interface CLI du service fournit des données des journaux de Docker et de Kubernetes.
 
 ```
@@ -33,7 +55,7 @@ Pour connaître les autres paramètres des journaux, utilisez l’option `--help
 az ml service logs realtime -h
 ```
 
-## <a name="2-debug-and-verbose-options"></a>2. Option de débogage et mode détaillé
+### <a name="debug-and-verbose-options"></a>Option de débogage et mode détaillé
 Utilisez l’indicateur `--debug` pour afficher les journaux de débogage pendant le déploiement du service.
 
 ```
@@ -46,7 +68,7 @@ Utilisez l’indicateur `--verbose` pour afficher des détails supplémentaires 
 az ml service create realtime -m <modelfile>.pkl -f score.py -n <service name> -r python --verbose
 ```
 
-## <a name="3-app-insights"></a>3. App Insights
+### <a name="enable-request-logging-in-app-insights"></a>Activation de la journalisation des demandes dans Application Insights
 Donnez la valeur true à l’indicateur `-l` lors de la création d’un service web pour activer la journalisation au niveau des demandes. Les journaux des demandes sont écrits dans l’instance Application Insights de votre environnement dans Azure. Recherchez cette instance à partir du nom d’environnement que vous avez utilisé avec la commande `az ml env setup`.
 
 - Donnez la valeur true à `-l` lors de la création du service.
@@ -55,7 +77,7 @@ Donnez la valeur true à l’indicateur `-l` lors de la création d’un service
 - Vous pouvez également accéder à `Analytics` > `Exceptions` > `exceptions take | 10`.
 
 
-## <a name="4-error-handling-in-script"></a>4. Gestion des erreurs de script
+### <a name="add-error-handling-in-scoring-script"></a>Ajout de la gestion des erreurs dans le script de notation
 Utilisez la gestion des exceptions dans la fonction `scoring.py`run **de votre script**  pour renvoyer le message d’erreur dans la sortie de votre service web.
 
 Exemple Python :
@@ -66,7 +88,7 @@ Exemple Python :
         return(str(e))
 ```
 
-## <a name="5-other-common-problems"></a>5. Autres problèmes courants
+## <a name="other-common-problems"></a>Autres problèmes courants
 - Si la commande `env setup` échoue, vérifiez que votre abonnement comporte suffisamment de cœurs.
 - N’utilisez pas de trait de soulignement (_) dans le nom du service web (comme dans *mon_serviceweb*).
 - Réessayez si vous obtenez une erreur **502 Bad Gateway** en appelant le service web. Cela signifie normalement que le conteneur n’a pas encore été déployé sur le cluster.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: wgries
-ms.openlocfilehash: b11cd632fc4735648581e77eb2570dd32604067d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c4f997b994bb337ad8a886d7ad09791cb587d4f9
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole SMB standard. Comme Azure Files est entièrement managé, son déploiement dans des scénarios de production est beaucoup plus simple que le déploiement et la gestion d’un serveur de fichiers ou d’un appareil NAS. Cet article aborde les rubriques à prendre en compte lors du déploiement d’un partage de fichiers Azure pour la production dans votre organisation.
@@ -63,7 +63,7 @@ Azure Files propose plusieurs options intégrées pour garantir la sécurité de
     * Les clients qui prennent en charge le chiffrement SMB 3.0 envoient et reçoivent des données sur un canal chiffré.
     * Les clients qui ne prennent pas en charge SMB 3.0 peuvent communiquer au sein du centre de données sur SMB 2.1 ou SMB 3.0 sans chiffrement. Notez que les clients ne sont pas autorisés à communiquer entre centres de données sur SMB 2.1 ou SMB 3.0 sans chiffrement.
     * Les clients peuvent communiquer sur l’API REST de fichier avec HTTP ou HTTPS.
-* Chiffrement au repos : toutes les données sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
+* Chiffrement au repos ([Chiffrement du service de Stockage Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)) : nous sommes en train d’autoriser le chiffrement du service de stockage sur la plateforme de stockage Azure sous-jacente. Le chiffrement sera donc autorisé par défaut pour tous les comptes de stockage. Si vous créez un compte de stockage dans une région où le chiffrement est autorisé par défaut, vous n’avez pas à l’autoriser. Les données au repos sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
 * Spécification facultative des données chiffrées en transit : quand Azure Files est sélectionné, vous ne pouvez pas accéder aux données sur des canaux non chiffrés. Plus précisément, seules les connexions HTTPS et SMB 3.0 avec chiffrement sont autorisées. 
 
     > [!Important]  

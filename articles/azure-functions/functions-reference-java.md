@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: routlaw
-ms.openlocfilehash: f8812c2e8ac3398dabd17feaf97897efca5566f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 > [!div class="op_single_selector"]
@@ -218,16 +218,17 @@ Les sorties peuvent être exprimées en tant que paramètres de sortie ou de val
 
 La valeur renvoyée correspond à la forme de sortie la plus simple : vous renvoyez simplement la valeur de n’importe quel type, et le runtime Azure Functions tente de la marshaler vers le type réel (comme une réponse HTTP). Dans `functions.json`, vous utilisez l’élément `$return` en tant que nom de la liaison de sortie.
 
-Pour générer plusieurs valeurs de sortie, utilisez le type `OutputParameter<T>` défini dans le package `azure-functions-java-core`. Si vous devez créer une réponse HTTP et envoyer (push) un message vers une file d’attente, vous pouvez écrire quelque chose comme ce qui suit :
+Pour générer plusieurs valeurs de sortie, utilisez le type `OutputBinding<T>` défini dans le package `azure-functions-java-core`. Si vous devez créer une réponse HTTP et envoyer (push) un message vers une file d’attente, vous pouvez écrire quelque chose comme ce qui suit :
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputParameter;
+import com.microsoft.azure.serverless.functions.OutputBinding;
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
 
 public class MyClass {
-    public static String echo(String body, @BindingName("message") OutputParameter<String> queue) {
+    public static String echo(String body, 
+    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
         String result = "Hello, " + body + ".";
         queue.setValue(result);
         return result;
@@ -235,7 +236,7 @@ public class MyClass {
 }
 ```
 
-et définir la liaison de sortie dans le fichier `function.json` :
+qui doit définir la liaison de sortie dans le fichier `function.json` :
 
 ```json
 {
@@ -251,10 +252,10 @@ et définir la liaison de sortie dans le fichier `function.json` :
     },
     {
       "type": "queue",
-      "name": "message",
+      "name": "queue",
       "direction": "out",
-      "queueName": "myqueue",
-      "connection": "ExampleStorageAccount"
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
     },
     {
       "type": "http",

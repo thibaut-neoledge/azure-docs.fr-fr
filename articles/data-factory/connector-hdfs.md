@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 8db368017ef25603598ec92e8bbbb1fc69230145
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d28b82f892ac88c32ab3e04df19143d69a5a05b
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copier des données depuis/vers HDFS à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Les propriétés prises en charge pour le service lié HDFS sont les suivantes 
 | type | La propriété type doit être définie sur **Hdfs**. | Oui |
 | url |URL vers le système HDFS |Oui |
 | authenticationType | Valeurs autorisées : **Anonyme** ou **Windows**. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |Oui |
-| userName |Nom d’utilisateur de l’authentification Windows |Oui (pour l’authentification Windows) |
+| userName |Nom d’utilisateur de l’authentification Windows Pour l’authentification Kerberos, spécifiez `<username>@<domain>.com`. |Oui (pour l’authentification Windows) |
 | password |Mot de passe de l’authentification Windows Marquez ce champ comme SecureString. |Oui (pour l’authentification Windows) |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 

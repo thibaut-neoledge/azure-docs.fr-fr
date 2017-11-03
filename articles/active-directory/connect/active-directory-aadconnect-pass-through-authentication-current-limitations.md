@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 86c6459ae26a45cb3118cf53ce17ac3234551f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : limitations actuelles
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 Les scénarios suivants sont entièrement pris en charge :
 
 - L’utilisateur se connecte dans toutes les applications basées sur un navigateur web.
-- L’utilisateur se connecte dans les applications clientes Office 365 prenant en charge [l’authentification moderne](https://aka.ms/modernauthga).
+- L’utilisateur se connecte aux applications clientes Office 365 prenant en charge [l’authentification moderne](https://aka.ms/modernauthga) : Office 2016 et Office 2013 _avec_ authentification moderne.
 - Azure AD Join pour les appareils Windows 10.
 - Prise en charge d’Exchange ActiveSync.
 
@@ -38,14 +38,15 @@ Les scénarios suivants sont entièrement pris en charge :
 
 Les scénarios suivants ne sont _pas_ pris en charge :
 
-- Connexions des utilisateurs dans les applications clientes Office héritées (Office 2013 ou version antérieure). Nous recommandons aux entreprises de basculer si possible vers l’authentification moderne. L’authentification moderne permet non seulement de prendre en charge l’authentification directe, mais également de sécuriser les comptes d’utilisateur à l’aide des fonctionnalités [d’accès conditionnel](../active-directory-conditional-access.md), comme l’authentification multifacteur.
+- L’utilisateur se connecte aux applications clientes Office héritées : Office 2010 et Office 2013 _sans_ authentification moderne. Nous recommandons aux entreprises de basculer si possible vers l’authentification moderne. L’authentification moderne permet non seulement de prendre en charge l’authentification directe, mais également de sécuriser les comptes d’utilisateur à l’aide des fonctionnalités [d’accès conditionnel](../active-directory-conditional-access.md), comme l’authentification multifacteur.
 - Connexions des utilisateurs à des applications clientes Skype Entreprise, y compris Skype Entreprise 2016.
 - L’utilisateur se connecte dans PowerShell v1.0. Il est recommandé d’utiliser à la place PowerShell v2.0.
+- Azure AD Domain Services.
 - Mots de passe d’application pour MFA.
 - Détection des utilisateurs avec des [informations d’identification volées](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->Comme solution de contournement pour les scénarios non pris en charge, activez la synchronisation du hachage de mot de passe sur la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) dans l’Assistant Azure AD Connect. La synchronisation du hachage de mot de passe agit comme solution de secours _uniquement_ pour les scénarios précédents (et _non pas_ comme solution de secours générique pour l’authentification directe). L’activation de la synchronisation de hachage de mot de passe vous donne également la possibilité de basculer l’authentification (via le Support Microsoft) en cas d’interruption de votre infrastructure locale.
+>Comme solution de contournement _uniquement_ pour les scénarios non pris en charge, activez la synchronisation du hachage de mot de passe dans la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) de l’Assistant Azure AD Connect. L’activation de la synchronisation de hachage de mot de passe vous donne également la possibilité de basculer l’authentification en cas d’interruption complète de votre infrastructure locale. Ce basculement de l’authentification directe vers la synchronisation de hachage de mot de passe n’est pas automatique,et doit être effectué avec l’aide du Support Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
@@ -53,6 +54,6 @@ Les scénarios suivants ne sont _pas_ pris en charge :
 - [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Forum aux questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
-- [**Immersion dans la sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
+- [**Immersion dans la sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
 - [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.

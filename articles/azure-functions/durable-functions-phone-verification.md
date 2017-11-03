@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1dacbc59704d16451a5268c0aa4df2ab4e5b3112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
@@ -85,7 +85,7 @@ L’utilisateur reçoit un SMS incluant le code à quatre chiffres. Il doit renv
 > [!WARNING]
 > Vous devez [annuler les minuteurs en utilisant un paramètre CancellationTokenSource](durable-functions-timers.md) si vous n’avez plus besoin qu’ils arrivent à expiration, comme dans le cas de l’exemple ci-dessus, lorsqu’une réponse à la demande est acceptée.
 
-## <a name="sending-the-sms-message"></a>Envoi d’un SMS
+## <a name="send-the-sms-message"></a>Envoyer le message SMS
 
 La fonction **E4_SendSmsChallenge** utilise la liaison Twilio pour envoyer le SMS incluant le code à 4 chiffres à l’utilisateur. Le fichier *function.json* est défini comme suit :
 
@@ -97,7 +97,7 @@ Voici le code qui génère le code de demande d’accès à 4 chiffres, et envoi
 
 Cette fonction **E4_SendSmsChallenge** n’est appelée qu’une fois, même si le processus échoue ou est réexécuté. C’est une bonne chose, car cela évite que l’utilisateur reçoive plusieurs SMS. La valeur `challengeCode` renvoyée est automatiquement conservée, de sorte que la fonction d’orchestrateur sache toujours quel est le code correct.
 
-## <a name="running-the-sample"></a>Exécution de l’exemple
+## <a name="run-the-sample"></a>Exécution de l'exemple
 
 En utilisant les fonctions déclenchées via HTTP incluses dans l’exemple, vous pouvez démarrer l’orchestration en envoyant la requête HTTP POST suivante.
 
@@ -152,10 +152,6 @@ Content-Length: 145
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
 ```
 
-## <a name="wrapping-up"></a>Pour résumer
-
-À ce stade, vous en savez plus sur certaines fonctionnalités avancées de l’extension Fonctions durables, notamment `WaitForExternalEvent` et `CreateTimer`. Vous avez vu de quelle manière les combiner avec `Task.WaitAny` pour implémenter un système fiable de gestion du délai d’expiration, qui est souvent utile pour interagir avec des personnes.
-
 ## <a name="visual-studio-sample-code"></a>Exemple de code Visual Studio
 
 Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
@@ -164,6 +160,7 @@ Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [En savoir plus sur les liaisons de l’extension Fonctions durables](durable-functions-bindings.md)
+Cet exemple a illustré quelques-unes des fonctionnalités avancées de Fonctions durables, notamment `WaitForExternalEvent` et `CreateTimer`. Vous avez vu de quelle manière les combiner avec `Task.WaitAny` pour implémenter un système fiable de gestion du délai d’expiration, qui est souvent utile pour interagir avec des personnes. Vous pouvez approfondir vos connaissances se rapportant à l’utilisation de Fonctions durables par la lecture d’une série d’articles développant certaines rubriques spécifiques.
 
+> [!div class="nextstepaction"]
+> [Accéder au premier article de la série](durable-functions-bindings.md)

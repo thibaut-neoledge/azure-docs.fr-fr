@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -127,6 +127,10 @@ La configuration prend un certain temps pour entrer en vigueur : ce délai dép
 
 Selon le type de problème rencontré, vous devez regarder à différents emplacements pour trouver les journaux des agents d’authentification directe.
 
+### <a name="azure-ad-connect-logs"></a>Journaux Azure AD Connect
+
+Pour vérifier les erreurs liées à l’installation, consultez les journaux Azure AD Connect à l’emplacement suivant : **%ProgramData%\AADConnect\trace-\*.log**.
+
 ### <a name="authentication-agent-event-logs"></a>Journaux des événements des agents d’authentification
 
 Pour les erreurs relatives à l’agent d’authentification, ouvrez l’application Observateur d’événements sur le serveur et cherchez dans **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
@@ -135,7 +139,7 @@ Pour une analytique détaillée, activez le journal de la session. N’exécutez
 
 ### <a name="detailed-trace-logs"></a>Journaux de suivi détaillés
 
-Pour résoudre les problèmes d’échec de connexion de l’utilisateur, recherchez les journaux de suivi dans **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Ces journaux incluent les raisons de l’échec de connexion utilisateur à l’aide de la fonctionnalité d’authentification directe. Le [tableau](#sign-in-failure-reasons-on-the-Azure-portal) précédent établit une correspondance entre ces erreurs et les raisons des échecs de connexion. Vous trouverez ci-dessous un exemple d’entrée de journal :
+Pour résoudre les problèmes d’échec de connexion de l’utilisateur, consultez les journaux de suivi situés à l’emplacement **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Ces journaux incluent les raisons de l’échec de connexion utilisateur à l’aide de la fonctionnalité d’authentification directe. Le [tableau](#sign-in-failure-reasons-on-the-Azure-portal) précédent établit une correspondance entre ces erreurs et les raisons des échecs de connexion. Vous trouverez ci-dessous un exemple d’entrée de journal :
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

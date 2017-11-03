@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 831623b0fa0d8c03713f608116709e6a590d93c6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 13a75d5cafd94435346660614721399f2d77919b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>Inscrire/désinscrire un serveur à Azure File Sync (préversion)
 La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -58,6 +58,10 @@ Pour utiliser un serveur Windows Server comme *point de terminaison de serveur* 
 > Si le serveur est membre d’un cluster de basculement, l’agent Azure File Sync doit être installé sur chaque nœud du cluster.
 
 ### <a name="register-the-server-using-the-server-registration-ui"></a>Inscrire le serveur à l’aide de l’interface utilisateur d’inscription de serveur
+
+> [!Important]  
+> Les abonnements Fournisseur de solutions cloud ne peuvent pas utiliser l’interface utilisateur d’inscription de serveur. Au lieu de cela, utilisez PowerShell (sous cette section).
+
 1. Si l’interface utilisateur d’inscription de serveur n’a pas démarré immédiatement après la fin de l’installation de l’agent Azure File Sync, elle peut être démarrée manuellement en exécutant `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Cliquez sur *Connexion* pour accéder à votre abonnement Azure. 
 
@@ -73,6 +77,15 @@ Pour utiliser un serveur Windows Server comme *point de terminaison de serveur* 
 
 > [!Important]  
 > Si le serveur est membre d’un cluster de basculement, chaque serveur doit exécuter l’inscription de serveur. Quand vous affichez les serveurs inscrits dans le portail Azure, Azure File Sync reconnaît automatiquement chaque nœud comme un membre du même cluster de basculement et les regroupe en conséquence.
+
+### <a name="register-the-server-with-powershell"></a>Inscrire le serveur avec PowerShell
+Vous pouvez également effectuer l’inscription du serveur via PowerShell. Il s’agit de la seule méthode d’inscription de serveur prise en charge pour les abonnements Fournisseur de solutions cloud :
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+```
 
 ## <a name="unregister-the-server-with-storage-sync-service"></a>Désinscrire un serveur du service de synchronisation de stockage
 Plusieurs étapes sont nécessaires pour désinscrire un serveur du service de synchronisation de stockage. Voyons comment désinscrire correctement un serveur.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: e0c93cefb135d3ea1c5f0a3797602124aed85c5c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1bd58797124210f7c31e90fb20d728289a04ba2
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
@@ -30,7 +30,7 @@ Cela dépend de votre environnement local et des exigences de votre organisation
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>L’authentification directe est-elle une fonctionnalité gratuite ?
 
-L’authentification directe est gratuite et aucune édition payante d’Azure AD n’est nécessaire pour l’utiliser. Elle reste gratuite même une fois mise à la disponibilité générale.
+L’authentification directe est gratuite et aucune édition payante d’Azure AD n’est nécessaire pour l’utiliser.
 
 ## <a name="is-pass-through-authentication-available-in-microsoft-cloud-germanyhttpwwwmicrosoftdecloud-deutschland-and-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L’authentification directe est-elle disponible dans [Microsoft Cloud Allemagne](http://www.microsoft.de/cloud-deutschland) et [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/) ?
 
@@ -46,7 +46,7 @@ Oui. L’authentification directe prend en charge `Alternate ID` comme nom d’u
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 
-Non, la synchronisation du hachage de mot de passe n’est pas une solution de secours générique pour l’authentification directe. Elle agit uniquement comme solution de secours pour les [scénarios que l’authentification directe ne prend pas en charge aujourd'hui](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Non, l’authentification directe _ne bascule pas_ automatiquement vers la synchronisation de hachage de mot de passe. Elle agit uniquement comme solution de secours pour les [scénarios que l’authentification directe ne prend pas en charge aujourd'hui](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../active-directory-application-proxy-get-started.md) sur le même serveur qu’un agent d’authentification directe ?
 
@@ -97,7 +97,7 @@ Oui. Les environnements à plusieurs forêts sont pris en charge s’il existe d
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Combien d’agents d’authentification directe dois-je installer ?
 
-L’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Toutefois, elle n’assure pas l’équilibrage de charge. Un ou deux agents d’authentification peuvent mettre fin à la gestion de l’ensemble des requêtes de connexion.
+L’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Toutefois, cela ne fournit pas un équilibrage de charge déterministe entre les agents d’authentification.
 
 Envisagez la charge moyenne et les pics de charge lors des demandes de connexion que vous attendez de la part de votre locataire. À titre de référence, un seul agent d’authentification peut gérer entre 300 000 et 400 000 authentifications par seconde sur un serveur doté d’un CPU à 4 cœurs et de 16 Go de RAM. Pour la plupart des clients, deux ou trois agents d’authentification au total suffisent à offrir la haute disponibilité et suffisamment de capacité.
 
@@ -132,6 +132,6 @@ La désinstallation d’un agent d’authentification directe à partir d’un s
 - [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
-- [**Immersion dans la sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
+- [**Immersion dans la sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
 - [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.

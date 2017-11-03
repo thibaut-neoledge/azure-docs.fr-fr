@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d62bc24a0439aa8c11ced9d5f42917f9b6de1f24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Singletons avec état dans l’extension Fonctions durables - Échantillon de compteur
 
@@ -67,12 +67,12 @@ Cette fonction d’orchestrateur présente une caractéristique unique : elle n�
 > [!NOTE]
 > La méthode `ContinueAsNew` présente d’autres cas d’usage, en plus des orchestrations externes. Pour en savoir plus, consultez la section relative aux [orchestrations externes](durable-functions-eternal-orchestrations.md).
 
-## <a name="running-the-sample"></a>Exécution de l’exemple
+## <a name="run-the-sample"></a>Exécution de l'exemple
 
-En utilisant les fonctions déclenchées via HTTP incluses dans l’exemple, vous pouvez démarrer l’orchestration à l’aide de la requête HTTP POST suivante. Afin d’autoriser `counterState` à démarrer à partir de zéro (valeur par défaut de l’élément `int`), cette requête est vide.
+Vous pouvez démarrer l’orchestration en envoyant la requête HTTP POST suivante. Afin d’autoriser `counterState` à démarrer à partir de zéro (valeur par défaut de l’élément `int`), cette requête est vide.
 
 ```
-POST http://{host}/orchestrators/E3_Counter HTTP/1.1
+POST http://{host}/orchestrators/E3_Counter
 Content-Length: 0
 ```
 
@@ -82,13 +82,17 @@ Content-Length: 719
 Content-Type: application/json; charset=utf-8
 Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"id":"bcf6fb5067b046fbb021b52ba7deae5a","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
+{
+  "id":"bcf6fb5067b046fbb021b52ba7deae5a",
+  "statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
 L’instance **E3_Counter** démarre, puis attend qu’un événement lui soit envoyé à l’aide de l’élément `RaiseEventAsync` ou du Webhook HTTP POST **sendEventUrl** référencé dans la réponse 202. Les valeurs valides de l’élément `eventName` incluent *incr*, *decr*, et *end*.
 
 ```
-POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey} HTTP/1.1
+POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 Content-Type: application/json
 Content-Length: 6
 
@@ -128,14 +132,9 @@ Vous pouvez continuer à envoyer de nouvelles opérations à cette instance, et 
 > [!WARNING]
 > Au moment de l’écriture de cet article, il existe des conditions de concurrence connues lors de l’appel de l’élément `ContinueAsNew` en parallèle avec le traitement des messages, par exemple de demandes d’arrêt ou des événements externes. Pour en savoir plus sur ces conditions de concurrence, consultez cet [article de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/67).
 
-## <a name="wrapping-up"></a>Pour résumer
-
-À ce stade, vous en savez plus sur certaines fonctionnalités avancées de l’extension Fonctions durables, notamment `WaitForExternalEvent` et `ContinueAsNew`. Ces outils permettent d’écrire différentes formes de « simpletons avec état », par exemple des compteurs et des agrégateurs.
-
 ## <a name="next-steps"></a>Étapes suivantes
+
+Cet exemple a montré comment gérer les [événements externes](durable-functions-external-events.md) et implémenter les [orchestrations externes](durable-functions-eternal-orchestrations.md) dans les [singletons avec état](durable-functions-singletons.md). L’exemple suivant montre comment utiliser les événements externes et les [minuteurs durables](durable-functions-timers.md) pour gérer l’interaction humaine.
 
 > [!div class="nextstepaction"]
 > [Exécuter l’exemple d’interaction humaine](durable-functions-phone-verification.md)
-
-
-

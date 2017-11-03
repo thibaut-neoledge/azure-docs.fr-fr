@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: a2a9754b462e39713e6580baab84c064237306a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43cb2225d7fbf2fc7f8d93c78415f0f2c1a3fa25
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Authentification des utilisateurs finaux auprès de Data Lake Store avec le Kit SDK .NET
 > [!div class="op_single_selector"]
@@ -66,13 +66,17 @@ Dans cet article, vous allez apprendre à utiliser le Kit SDK .NET pour authenti
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
+        
 
 ## <a name="end-user-authentication"></a>Authentification de l’utilisateur final
 Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les valeurs d’espace réservé par les valeurs récupérées à partir d’une application native Azure AD (répertoriée comme prérequis). Cet extrait de code vous permet d’authentifier votre application **de manière interactive** auprès de Data Lake Store, ce qui signifie que vous êtes invité à entrer vos informations d’identification Azure.
@@ -81,18 +85,22 @@ Pour simplifier l’utilisation, l’extrait de code suivant utilise les valeurs
     
     private static void Main(string[] args)
     {
-        // User login via interactive popup
-        // Use the client ID of an existing AAD native application.
-        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-        var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
-        var nativeClientApp_applicationId = "1950a258-227b-4e31-a9cf-717495945fc2";
-        var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_applicationId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-        var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
+        //User login via interactive popup
+        string TENANT = "<AAD-directory-domain>";
+        string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
+        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+        string MY_DOCUMENTS = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+        string TOKEN_CACHE_PATH = System.IO.Path.Combine(MY_DOCUMENTS, "my.tokencache");
+        var tokenCache = GetTokenCache(TOKEN_CACHE_PATH);
+        var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
+        var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
 
 Voici quelques informations utiles concernant l’extrait de code précédent :
 
-* Pour vous aider à effectuer le didacticiel plus rapidement, l’extrait de code utilise un domaine et un ID client Azure AD qui sont disponibles par défaut pour tous les abonnements Azure. Vous pouvez donc **utiliser cet extrait de code en l’état dans votre application**.
+* L’extrait de code précédent utilise les fonctions d’assistance `GetTokenCache` et `GetCreds_User_Popup`. Le code de ces fonctions d’assistance est disponible [ici sur Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* Pour vous aider à effectuer le didacticiel plus rapidement, l’extrait de code utilise un ID client d’application native disponible par défaut pour tous les abonnements Azure. Vous pouvez donc **utiliser cet extrait de code en l’état dans votre application**.
 * Cependant, si vous souhaitez utiliser votre propre ID client application et domaine Azure AD, vous devez créer une application native Azure AD, puis utiliser l’ID locataire, l’ID client et l’URI de redirection Azure AD de l’application que vous avez créée. Consultez la page [créer une Application Active Directory pour l’authentification de l’utilisateur final avec Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) pour obtenir des instructions.
 
   

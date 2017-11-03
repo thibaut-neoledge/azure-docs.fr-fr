@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9f9ff0674fd4e3f9b0598a982d81681eaa6d1997
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b31b6ae413f72c626e2601ba860aad44ddaa29cd
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-to-deploy-azure-file-sync-preview"></a>Déploiement de la synchronisation de fichiers Azure (préversion)
 La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -117,6 +117,9 @@ Le volet « Ajouter un point de terminaison de serveur » qui s’affiche néces
 - **Espace libre du volume** : quantité d’espace libre à réserver sur le volume sur lequel se trouve le point de terminaison de serveur. Par exemple, si l’espace libre du volume est définie sur 50 % sur un volume avec un point de terminaison de serveur unique, environ la moitié de la quantité de données sera hiérarchisée dans Azure Files. Que la hiérarchisation cloud soit activée ou non, le partage de fichiers Azure dispose toujours d’une copie complète des données dans le groupe de synchronisation.
 
 Cliquez sur « Créer » pour ajouter le point de terminaison de serveur. Vos fichiers seront désormais synchronisés sur le partage de fichiers Azure et sur le serveur Windows Server. 
+
+> [!Important]  
+> Vous pouvez apporter des modifications à n’importe quel point de terminaison cloud ou de serveur dans le groupe de synchronisation, puis synchroniser vos fichiers avec les autres points de terminaison du groupe de synchronisation. Si vous apportez une modification au point de terminaison cloud (partage de fichiers Azure) directement, cette modification doit être détectée au préalable par une tâche de détection de modification d’Azure File Sync, qui est lancée pour un point de terminaison cloud seulement une fois toutes les 24 heures. Visitez le [FAQ d’Azure Files](storage-files-faq.md#afs-change-detection) pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Ajouter/supprimer un point de terminaison de serveur pour la synchronisation de fichiers Azure](storage-sync-files-server-endpoint.md)

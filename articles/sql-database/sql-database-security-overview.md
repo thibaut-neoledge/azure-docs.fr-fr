@@ -1,6 +1,6 @@
 ---
 title: "Vue d’ensemble de la sécurité d’Azure SQL Database | Microsoft Docs"
-description: "Découvrez plus d’informations sur la base de données SQL Microsoft Azure et la sécurité de la base de données SQL, y compris les différences entre le cloud et l’installation SQL Server sur site en termes d’authentification, d’autorisations, de sécurité des connexions, de chiffrement et de conformité."
+description: "Découvrez les aspects liés à la sécurité d’Azure SQL Database et de SQL Server, notamment les différences entre le cloud et SQL Server en local."
 services: sql-database
 documentationcenter: 
 author: tmullaney
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: de2b70a6a6bc557902fbe1fe1391696ec9998d70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c69b98e1abf0b6bc953c9c80b9e031319becff9f
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="securing-your-sql-database"></a>Sécurisation de votre base de données SQL
 

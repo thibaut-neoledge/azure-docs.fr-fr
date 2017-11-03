@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a5493282fa4a0b54ba551c48ae963a42b94dca
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -96,7 +96,7 @@ Deux options s’offrent à vous pour l’authentification sur votre compte Batc
 
     L’avantage d’Azure AD est que le contrôle d’accès se fait en fonction du rôle (RBAC). Avec RBAC, l’accès dont bénéficie un utilisateur dépend de son rôle, et non du fait qu’il possède ou non les clés du compte. Au lieu de gérer les clés de compte, vous pouvez gérer les rôles RBAC et permettre à Azure AD de gérer l’accès et l’authentification.  
 
-        To log in to your Batch account using Azure AD, call the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) command: 
+     Pour vous connecter à votre compte Batch à l’aide d’Azure AD, appelez la commande [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) : 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

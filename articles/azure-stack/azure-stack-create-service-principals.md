@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 10/17/2017
 ms.author: helaw
-ms.openlocfilehash: 5787b25fb1dd7331e561798152678ed187e24d54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fournir l’accès des applications à Azure Stack
 
@@ -42,7 +42,7 @@ Selon la façon dont vous avez déployé Azure Stack, commencez par créer un pr
 Si vous avez déployé Azure Stack avec Azure AD comme magasin d’identités, vous pouvez créer des principaux de service de la même façon que pour Azure.  Cette rubrique explique comment suivre ces étapes sur le portail.  Vérifiez que vous disposez des [autorisations Azure AD requises](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) avant de commencer.
 
 ### <a name="create-service-principal"></a>Créer un principal du service
-Dans cette section, vous allez créer une application (principal de service) dans Azure AD qui représentera votre application.
+Dans cette section, vous créez une application (principal de service) dans Azure AD qui représente votre application.
 
 1. Connectez-vous à votre compte Azure via le [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Azure Active Directory** > **Enregistrement d’applications** > **Ajouter**.   
@@ -55,7 +55,7 @@ Si vous vous connectez par programmation, utilisez l’ID de votre application e
 
 1. Dans **Inscriptions d’applications** dans Active Directory, sélectionnez votre application.
 
-2. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Les applications de la section [Exemples d’applications](#sample-applications) font référence à cette valeur en tant qu’ID de locataire.
+2. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Les applications de la section [Exemples d’applications](#sample-applications) font référence à cette valeur en tant qu’ID de client.
 
      ![ID CLIENT](./media/azure-stack-create-service-principal/image12.png)
 3. Pour générer une clé d’authentification, sélectionnez **Clés**.
@@ -72,32 +72,55 @@ Lorsque c’est fait, [attribuez un rôle à votre application](azure-stack-crea
 ## <a name="create-service-principal-for-ad-fs"></a>Créer un principal de service pour AD FS
 Si vous avez déployé Azure Stack avec AD FS, vous pouvez utiliser PowerShell pour créer un principal de service, attribuer un rôle pour l’accès et vous connecter à partir de PowerShell avec cette identité.
 
-### <a name="before-you-begin"></a>Avant de commencer
+Le script est exécuté depuis le point de terminaison privilégié sur une machine virtuelle ERCS.
 
-[Téléchargez les outils nécessaires pour travailler avec Azure Stack sur votre ordinateur local.](azure-stack-powershell-download.md)
 
-### <a name="import-the-identity-powershell-module"></a>Importer le module Identity PowerShell
-Après avoir téléchargé les outils, accédez au dossier téléchargé et importez le module Identity PowerShell avec la commande suivante :
+Requirements:
+- Un certificat est nécessaire.
 
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
+**Paramètres**
 
-Lorsque vous importez le module, il est possible que vous receviez une erreur indiquant « AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system » (AzureStack.Connect.psm1 n’est pas signé numériquement. Le script ne s’exécutera pas sur le système). Pour résoudre ce problème, vous pouvez définir la stratégie d’exécution de façon à permettre l’exécution du script avec la commande suivante dans une session PowerShell avec élévation de privilèges :
+Les informations suivantes sont nécessaires en entrée pour les paramètres Automation :
 
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
 
-### <a name="create-the-service-principal"></a>Créer le principal du service
-Vous pouvez créer un principal de service avec la commande suivante, en veillant à mettre à jour le paramètre *DisplayName* :
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-```
+|Paramètre|Description|Exemple|
+|---------|---------|---------|
+|Nom|Nom du compte SPN|MyAPP|
+|ClientCertificates|Tableau d’objets de certificat|Certificat X509|
+|ClientRedirectUris<br>(facultatif)|URI de redirection de l’application|         |
+
+**Exemple**
+
+1. Ouvrez une session Windows PowerShell avec élévation de privilèges et exécutez les commandes suivantes :
+
+   > [!NOTE]
+   > Cet exemple crée un certificat auto-signé. Quand vous exécutez ces commandes dans un déploiement de production, utilisez Get-Certificate pour récupérer l’objet de certificat pour le certificat que vous voulez utiliser.
+
+   ```
+   $creds = Get-Credential
+
+   $session = New-PSSession -ComputerName <IP Address of ECRS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
+
+   Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
+
+   $session|remove-pssession
+
+   ```
+
+2. Quand Automation a terminé, il affiche les informations nécessaires pour utiliser le SPN. 
+
+   Par exemple :
+
+   ```
+   ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+   ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+   Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+   ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   PSComputerName        : azs-ercs01
+   RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+   ```
 ### <a name="assign-a-role"></a>Attribuer un rôle
 Une fois le principal de service créé, vous devez [lui attribuer un rôle](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 

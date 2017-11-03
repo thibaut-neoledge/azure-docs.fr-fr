@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/13/2017
+ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 0a05f4ee86d2dcca40dc0b5ec2c503ba0b8bfe8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4907df15fddfb7d8d6128dc994b0920ca601f2c7
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>API DocumentDB Azure Cosmos DB : référence de syntaxe SQL
 
@@ -2446,12 +2446,12 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
- Retourne une valeur booléenne qui indique si le tableau contient la valeur spécifiée.  
-  
+Retourne une valeur booléenne qui indique si le tableau contient la valeur spécifiée. Peut spécifier si la correspondance est totale ou partielle. 
+
  **Syntaxe**  
   
 ```  
-ARRAY_CONTAINS (<arr_expr>, <expr>)  
+ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
 ```  
   
  **Arguments**  
@@ -2463,6 +2463,10 @@ ARRAY_CONTAINS (<arr_expr>, <expr>)
 -   `expr`  
   
      Peut être toute expression valide.  
+
+-   `bool_expr`  
+  
+     Peut être toute expression booléenne.       
   
  **Types de retour**  
   
@@ -2482,6 +2486,25 @@ SELECT
   
 ```  
 [{"$1": true, "$2": false}]  
+```  
+
+ L’exemple suivant montre comment rechercher une correspondance partielle de JSON dans un tableau avec ARRAY_CONTAINS.  
+  
+```  
+SELECT  
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true), 
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}),
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) 
+```  
+  
+ Voici le jeu de résultats obtenu.  
+  
+```  
+[{
+  "$1": true,
+  "$2": false,
+  "$3": false
+}] 
 ```  
   
 ####  <a name="bk_array_length"></a> ARRAY_LENGTH  

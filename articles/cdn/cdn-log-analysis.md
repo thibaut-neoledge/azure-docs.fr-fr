@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: v-semcev
-ms.openlocfilehash: af396e9f8847421d529c32956216cfc47294edb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04e5499011e72dfcc20dff370d5d837227ed29b6
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analyse des modèles d’utilisation CDN Azure
 
@@ -26,7 +26,11 @@ Après avoir activé le CDN pour votre application, vous pouvez surveiller l’u
 
 ## <a name="verizon-core-reports"></a>Rapports principaux de Verizon
 
-En tant qu’utilisateur d’Azure CDN avec un profil Standard ou Premium Verizon, vous pouvez afficher les rapports principaux de Verizon dans le portail supplémentaire Verizon. Le portail supplémentaire Verizon offre toute une variété de graphiques et de vues, et il est accessible via l’option **Gérer** du portail Azure. Pour plus d’informations, consultez [Rapports principaux de Verizon](cdn-analyze-usage-patterns.md).
+En tant qu’utilisateur d’Azure CDN avec un profil Standard ou Premium Verizon, vous pouvez afficher les rapports principaux de Verizon dans le portail supplémentaire Verizon. Les rapports principaux de Verizon sont accessibles par le biais de l’option **Gérer** du portail Azure. Ils offrent toute une variété de graphiques et de vues. Pour plus d’informations, consultez [Rapports principaux de Verizon](cdn-analyze-usage-patterns.md).
+
+## <a name="verizon-custom-reports"></a>Rapports personnalisés de Verizon
+
+En tant qu’utilisateur d’Azure CDN avec un profil Standard ou Premium Verizon, vous pouvez afficher les rapports personnalisés de Verizon dans le portail supplémentaire Verizon. Les rapports personnalisés de Verizon sont accessibles par le biais de l’option **Gérer** du portail Azure. La page des rapports personnalisés de Verizon indique le nombre d’accès ou les données transférées pour chaque CName de périphérie appartenant à un profil Azure CDN. Les données peuvent être groupées par code de réponse HTTP ou état du cache sur n’importe quelle période. Pour plus d’informations, consultez [Rapports personnalisés de Verizon](cdn-verizon-custom-reports.md).
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Analytique principale via les journaux de diagnostic Azure
 

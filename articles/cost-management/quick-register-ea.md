@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 5b2fa44eaf801715d50282b4c1460c58d3631637
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41a9df712b07253d9f5f9db8542fb9917592320f
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Inscrire un Accord Entreprise Azure et afficher les données de coût
 
@@ -41,6 +41,8 @@ Vous utilisez votre Accord Entreprise Azure pour vous inscrire auprès du servic
 7. L’option pour **inviter d’autres parties prenantes** permet d’ajouter des utilisateurs en tapant leurs adresses e-mail. Lorsque vous avez terminé, cliquez sur **Suivant**. L’ajout de toutes vos données de facturation à Cloudyn prend environ deux heures.
 8. Cliquez sur le bouton d’**accès à Cloudyn** pour ouvrir le portail Cloudyn. La page de **gestion des comptes cloud** devrait alors afficher les informations de votre compte EA inscrit.
 
+Pour visionner un didacticiel vidéo sur l’inscription de votre Contrat Entreprise, consultez [Comment trouver l’ID d’inscription EA et la clé API à utiliser dans la gestion des coûts Azure de Cloudyn](https://youtu.be/u_phLs_udig).
+
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -48,4 +50,4 @@ Vous utilisez votre Accord Entreprise Azure pour vous inscrire auprès du servic
 Dans ce guide de démarrage rapide, vous avez utilisé les informations de votre Accord Entreprise Azure pour vous inscrire au service Gestion des coûts. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur la Gestion des coûts Azure par Cloudyn, poursuivez avec le didacticiel sur la Gestion des coûts.
 
 > [!div class="nextstepaction"]
-> [Afficher les données de coût](./tutorial-review-usage.md)
+> [Réviser l’utilisation et les coûts](./tutorial-review-usage.md)

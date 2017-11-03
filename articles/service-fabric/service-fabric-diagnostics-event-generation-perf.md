@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="performance-metrics"></a>Mesures de performances
 
@@ -40,7 +40,7 @@ Pour les ordinateurs de votre cluster, veuillez collecter les compteurs de perfo
 | PhysicalDisk(per Disk) | Nb d’octets d’écriture de disque/s |
 | Mémoire | Nombre d’octets disponibles |
 | PagingFile | % utilisation |
-| Processus (total) | % temps processeur |
+| Processor(Total) | % temps processeur |
 | Processus (par service) | % temps processeur |
 | Processus (par service) | Traitement ID |
 | Processus (par service) | Octets privés |
@@ -48,6 +48,11 @@ Pour les ordinateurs de votre cluster, veuillez collecter les compteurs de perfo
 | Processus (par service) | Octets virtuels |
 | Processus (par service) | Plage de travail |
 | Processus (par service) | Plage de travail - Privée |
+| Network Interface(all-instances) | Longueur de la file d’attente de sortie |
+| Network Interface(all-instances) | Paquets sortants rejetés |
+| Network Interface(all-instances) | Paquets reçus et rejetés |
+| Network Interface(all-instances) | Paquets sortants, erreurs |
+| Network Interface(all-instances) | Paquets reçus, erreurs |
 
 ## <a name="net-applications-and-services"></a>Applications et services .NET
 

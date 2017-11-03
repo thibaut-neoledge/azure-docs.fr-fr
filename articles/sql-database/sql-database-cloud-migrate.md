@@ -1,6 +1,6 @@
 ---
 title: "Migration de base de données SQL Server vers Azure SQL Database | Microsoft Docs"
-description: "Découvrez comment migrer une base de données SQL Server vers Azure SQL Database dans le cloud. Utilisez les outils de migration de base de données pour tester la compatibilité avant de procéder à la migration de la base de données."
+description: "Découvrez comment migrer une base de données SQL Server vers Azure SQL Database dans le cloud."
 keywords: "migration de base de données, migration de base de données sql server, outils de migration de base de données, migrer la base de données, migrer la base de données sql"
 services: sql-database
 documentationcenter: 
@@ -9,18 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6147c5d24214933566e0a909ac99c817350578c7
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migration de base de données SQL Server vers SQL Database dans le cloud
 Cet article décrit les deux méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers Azure SQL Database. La première méthode est plus simple, mais elle implique un temps d’arrêt potentiellement important pendant la migration. La seconde méthode est plus complexe, mais elle élimine en grande partie les temps d’arrêt lors de la migration.
@@ -31,7 +31,7 @@ Dans les deux cas, vous devez vérifier que la base de données source est compa
 > Pour migrer une base de données non SQL Server, notamment Microsoft Access, Sybase, MySQL Oracle et DB2, vers une base de données SQL Azure, consultez l’ [Assistant Migration SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
 > 
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Méthode 1 : Migration avec un temps d’arrêt pendant l’opération
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Method 1: Migration with downtime during the migration
 
  Utilisez cette méthode si vous pouvez vous permettre un temps d’arrêt ou si vous effectuez un test de migration d’une base de données de production que vous envisagez de migrer. Pour un didacticiel, consultez [Migrer une base de données SQL Server](sql-database-migrate-your-sql-server-database.md).
 
@@ -44,14 +44,14 @@ La liste suivante contient le workflow général pour la migration d’une base 
 3. Faites une copie cohérente au niveau transactionnel de la base de données source à migrer et assurez-vous qu’aucune modification supplémentaire n’est apportée à cette dernière (ou vous pourrez appliquer les modifications requises manuellement une fois la migration terminée). Il existe de nombreuses méthodes pour suspendre une base de données, que ce soit en désactivant la connectivité des clients ou en créant un [instantané de base de données](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Déployez les scripts Transact-SQL pour appliquer les correctifs à la copie de base de données.
 5. [Exportez](sql-database-export.md) la copie de base de données vers un fichier BACPAC sur un lecteur local.
-6. [Importez](sql-database-import.md) le fichier BACPAC en tant que nouvelle base de données SQL Azure à l’aide de l’un des outils d’importation BACPAC disponibles, SQLPackage.exe étant recommandé pour optimiser les performances.
+6. [Importez](sql-database-import.md) le fichier BACPAC en tant que nouvelle base de données Azure SQL Database à l’aide de l’un des outils d’importation BACPAC disponibles, SQLPackage.exe étant recommandé pour optimiser les performances.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimisation des performances de transfert de données pendant la migration 
 
 La liste suivante contient des recommandations pour optimiser les performances pendant le processus d’importation.
 
 * Choisissez le niveau de service et le niveau de performance les plus élevés permis par votre budget pour maximiser les performances de transfert. Vous pourrez descendre en puissance une fois la migration terminée pour économiser de l’argent. 
-* Minimisez la distance entre votre fichier BACPAC et le centre de données de destination.
+* Réduisez la distance entre votre fichier BACPAC et le centre de données de destination.
 * Désactivez les statistiques automatiques pendant la migration.
 * Partitionnez les tables et les index.
 * Supprimez les vues indexées et recréez-les une fois la migration terminée.
@@ -61,7 +61,7 @@ La liste suivante contient des recommandations pour optimiser les performances p
 
 [Mettez à jour les statistiques](https://msdn.microsoft.com/library/ms187348.aspx) avec une analyse complète une fois la migration terminée.
 
-## <a name="method-2-use-transactional-replication"></a>Méthode 2: Utiliser la réplication transactionnelle
+## <a name="method-2-use-transactional-replication"></a>Method 2: Use Transactional Replication
 
 Quand vous ne pouvez pas vous permettre de sortir votre base de données SQL Server de la production pendant la migration, vous pouvez utiliser la réplication transactionnelle SQL Server comme solution de migration. Pour que vous puissiez utiliser cette méthode, la base de données source doit remplir les [conditions requises pour la réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx) et être compatible avec Azure SQL Database. Pour plus d’informations sur la réplication SQL avec AlwaysOn, consultez [Configurer la réplication pour les groupes de disponibilité AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
@@ -104,9 +104,9 @@ Avec la réplication transactionnelle, toutes les modifications apportées à vo
 Vous pouvez rencontrer une grande variété de problèmes de compatibilité, selon la version de SQL Server dans la base de données source et la complexité de la base de données que vous êtes en train de migrer. Les versions antérieures de SQL Server ont plus de problèmes de compatibilité. Utilisez les ressources suivantes en plus d’une recherche Internet ciblée dans le moteur de recherche de votre choix :
 
 * [Fonctionnalités de base de données SQL Server non prises en charge dans Azure SQL Database](sql-database-transact-sql-information.md)
-* [Discontinued Database Engine Functionality in SQL Server 2016 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2016)](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-* [Discontinued Database Engine Functionality in SQL Server 2014 (Fonctionnalités du moteur de base de données non disponibles dans SQL Server 2014)](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-* [Discontinued Database Engine Functionality in SQL Server 2012 (Fonctionnalités du moteur de base de données non disponibles dans SQL Server 2012)](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
+* [Discontinued Database Engine Functionality in SQL Server 2016 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2005)](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
+* [Discontinued Database Engine Functionality in SQL Server 2014 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2005)](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
+* [Discontinued Database Engine Functionality in SQL Server 2012 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2005)](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
 * [Discontinued Database Engine Functionality in SQL Server 2008 R2 (Fonctionnalités du moteur de base de données non disponibles dans SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 * [Discontinued Database Engine Functionality in SQL Server 2005 (Fonctionnalités du moteur de base de données supprimées dans SQL Server 2005)](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 

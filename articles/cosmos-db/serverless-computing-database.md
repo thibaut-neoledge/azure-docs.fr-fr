@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/24/2017
 ms.author: mimig
-ms.openlocfilehash: 192bdde86e12472a6fd87ba50fd597ea8b01247d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions
 
@@ -101,7 +101,7 @@ Dans les implémentations de vente au détail, lorsqu’un utilisateur ajoute un
 
 **Implémentation :** Déclencheurs Azure Cosmos DB multiples écoutant une collection
 
-1. Vous pouvez créer plusieurs fonctions Azure en ajoutant à chacune d’elles des déclencheurs Azure Cosmos DB, qui écoutent tous le même le flux de modification des données des paniers. 
+1. Vous pouvez créer plusieurs fonctions Azure en ajoutant à chacune d’elles des déclencheurs Azure Cosmos DB, qui écoutent tous le même flux de modification des données des paniers. Notez que lorsque plusieurs fonctions écoutent le même flux de modification, une nouvelle collection de baux est requise pour chaque fonction.
 2. Lorsqu’un utilisateur ajoute un nouvel élément à son panier, chaque fonction est appelée indépendamment par le flux de modification à partir du conteneur de panier.
     * Une fonction peut utiliser le contenu du panier actuel pour modifier l’affichage d’autres éléments qui pourraient intéresser l’utilisateur.
     * Une autre fonction peut mettre à jour les totaux des inventaires.

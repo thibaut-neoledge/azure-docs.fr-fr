@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: badfee15fba5822b383b09a6cc29d9944e64e007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a496059d1959a6c9e762e70dfbeff9bf961c4d4
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -36,7 +36,7 @@ Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios su
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour effectuer les étapes décrites dans cet article, vous devez avoir :
+Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
 + **Un abonnement Azure actif**.
 
@@ -45,7 +45,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez avoir :
 + **Une instance du service Gestion des API Azure**. Pour plus d'informations, consultez [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
 
 ## <a name="enable-vpn"> </a>Créer une Gestion des API dans un réseau virtuel interne
-Le service Gestion des API dans un réseau virtuel interne est hébergé derrière un équilibreur de charge interne. L’adresse IP de l’équilibreur se trouve dans la plage [RFC1918](http://www.faqs.org/rfcs/rfc1918.html).  
+Le service Gestion des API dans un réseau virtuel interne est hébergé derrière un équilibreur de charge interne.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Activer une connexion de réseau virtuel à l’aide du portail Azure
 
@@ -69,7 +69,7 @@ Vous pouvez également activer une connectivité de réseau virtuel à l’aide 
 * Déployer un service Gestion des API existant au sein d’un réseau virtuel : utilisez l’applet de commande [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) pour déplacer un service Gestion des API existant au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type réseau virtuel interne.
 
 ## <a name="apim-dns-configuration"></a>Configuration DNS
-Lorsque la Gestion des API se trouve en mode réseau virtuel externe, le DNS est géré par Azure. En mode réseau virtuel interne, vous devez gérer votre propre serveur DNS.
+Lorsque la Gestion des API se trouve en mode réseau virtuel externe, le DNS est géré par Azure. En mode réseau virtuel interne, vous devez gérer votre propre routage.
 
 > [!NOTE]
 > Le service Gestion des API n’écoute pas les demandes provenant des adresses IP. Il répond uniquement aux demandes pour le nom d’hôte configuré sur ses points de terminaison de service. Ces points de terminaison incluent la passerelle, le portail des développeurs, le portail des éditeurs, le point de terminaison de la gestion directe, et Git.
@@ -105,6 +105,11 @@ Vous pouvez alors accéder à tous les points de terminaison de service à parti
 
    2. Vous pouvez ensuite créer des enregistrements dans votre serveur DNS de façon à accéder aux points de terminaison qui ne sont accessibles qu’à partir de votre réseau virtuel.
 
+## <a name="routing"> </a> Routage
++ Une adresse IP virtuelle privée à charge équilibrée de la plage de sous-réseau est réservée et utilisée pour accéder aux points de terminaison du service Gestion des API service à partir du réseau virtuel.
++ Une adresse IP publique à charge équilibrée (adresse IP virtuelle) est également réservée pour fournir l’accès au point de terminaison de service de gestion uniquement sur le port 3443.
++ Une adresse IP d’une plage d’adresses IP de sous-réseau (adresse IP dynamique) est utilisée pour accéder aux ressources sur le réseau virtuel, tandis qu’une adresse IP publique (adresse IP virtuelle) est utilisée pour accéder aux ressources à l’extérieur du réseau virtuel.
++ Les adresses IP privée et publique à charge équilibrée se trouvent dans le panneau Vue d’ensemble/Bases sur le portail Azure.
 
 ## <a name="related-content"></a>Contenu connexe
 Pour en savoir plus, consultez les articles suivants :

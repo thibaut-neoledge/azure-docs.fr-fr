@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/16/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e49539e0ca3fb841f282b988bdf0db12068ebd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 650a7c5c6472e36a15988e1875634f31f0edfee0
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Transfert de données à partir de magasins de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,8 +67,8 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | Propriété | Description | Requis |
 | --- | --- | --- |
 | type |Le type de propriété doit être défini sur : **OnPremisesOdbc** |Oui |
-| connectionString |Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Consultez les exemples dans les sections suivantes. |Oui |
-| credential |Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Exemple : « Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>; ». |Non |
+| connectionString |Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Consultez les exemples dans les sections suivantes. <br/><br/>Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le système DSN (Data Source Name) que vous avez configuré sur l’ordinateur passerelle avec `"DSN=<name of the DSN>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié comme il convient). |Oui |
+| credential |Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Exemple : `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Non |
 | authenticationType |Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont : Anonyme et De base. |Oui |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
@@ -367,7 +367,7 @@ Vous créez un service lié ODBC pour lier un magasin de données [GE Proficy Hi
         "type": "OnPremisesOdbc",
         "typeProperties":
         {
-            "connectionString": "DSN=<name of the GE Historian store>",
+            "connectionString": "DSN=<name of the GE Historian store>;",
             "gatewayName": "<gateway name>",
             "authenticationType": "Basic",
             "userName": "<user name>",
