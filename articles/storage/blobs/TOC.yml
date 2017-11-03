@@ -18,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Travailler avec des objets BLOB - .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Travailler avec des objets BLOB - Java
+      href: storage-quickstart-blobs-java.md
     - name: Travailler avec des objets BLOB - Python
       href: storage-quickstart-blobs-python.md
 - name: Didacticiels

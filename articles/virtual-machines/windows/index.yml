@@ -73,6 +73,7 @@ sections:
           - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Surveiller les machines virtuelles</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Gérer la sécurité sur les machines virtuelles</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Créer un pipeline d’intégration continue avec Visual Studio</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">Installer une pile SQL\IIS\.NET</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Sécuriser un serveur Web avec SSL</a>
   - title: Formation vidéo gratuite Pluralsight
     items:

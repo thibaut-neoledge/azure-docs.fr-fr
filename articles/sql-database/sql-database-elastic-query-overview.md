@@ -8,17 +8,17 @@ author: MladjoA
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 7e245cf1fb28eef26739b55967de3f05128f38c6
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 6389702b1be5e52c7191e6e57d17b48289e800b2
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (version préliminaire)
 La fonctionnalité de requête élastique, en version préliminaire, vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données dans Azure SQL Database. Elle vous permet d’effectuer des requêtes de bases de données croisées pour accéder aux tables distantes et à connecter des outils Microsoft et tiers (Excel, PowerBI, Tableau, etc.) pour lancer des requêtes parmi des couches de données avec plusieurs bases de données. Cette fonctionnalité permet de mettre à l’échelle des requêtes à des couches Données de grande taille dans la base de données SQL et de visualiser les résultats dans les rapports de business intelligence (BI).
@@ -57,8 +57,8 @@ Une requête de base de données élastique offre un accès facile à un ensembl
 
 Les scénarios clients pour une requête élastique sont caractérisés par les topologies suivantes :
 
-* **Vertical partitioning - Cross-database queries** (Topology 1): The data is partitioned vertically between a number of databases in a data tier. En règle générale, les différents ensembles de tables résident sur des bases de données différentes. Cela signifie que le schéma est différent sur des bases de données différentes. Par exemple, toutes les tables d’inventaire se trouvent sur une base de données alors que toutes les tables liées à la comptabilité se trouvent dans une seconde base de données. Les scénarios d’utilisation courants avec cette topologie requièrent une interrogation ou la compilation de rapports englobant des tables de plusieurs bases de données.
-* **Horizontal Partitioning - Sharding** (Topology 2): Data is partitioned horizontally to distribute rows across a scaled out data tier. Avec cette approche, le schéma est identique sur toutes les bases de données participantes. Cette approche est également appelée « partitionnement ». Ce partitionnement est effectué et géré à l’aide de (1) la bibliothèque d’outils de base de données élastique ou (2) la fonction d’auto-partitionnement. Une requête élastique est utilisée pour interroger ou compiler des rapports sur plusieurs partitions.
+* **Partitionnement vertical - Requêtes de base de données croisées** (topologie 1) : les données sont partitionnées verticalement entre plusieurs bases de données dans une couche de données. En règle générale, les différents ensembles de tables résident sur des bases de données différentes. Cela signifie que le schéma est différent sur des bases de données différentes. Par exemple, toutes les tables d’inventaire se trouvent sur une base de données alors que toutes les tables liées à la comptabilité se trouvent dans une seconde base de données. Les scénarios d’utilisation courants avec cette topologie requièrent une interrogation ou la compilation de rapports englobant des tables de plusieurs bases de données.
+* **Partitionnement horizontal - partitionnement** (topologie 2) : les données sont partitionnées horizontalement pour répartir des lignes sur une mise à l’échelle vers la couche de données. Avec cette approche, le schéma est identique sur toutes les bases de données participantes. Cette approche est également appelée « partitionnement ». Ce partitionnement est effectué et géré à l’aide de (1) la bibliothèque d’outils de base de données élastique ou (2) la fonction d’auto-partitionnement. Une requête élastique est utilisée pour interroger ou compiler des rapports sur plusieurs partitions.
 
 > [!NOTE]
 > Une requête élastique est mieux adaptée aux scénarios de création de rapports occasionnels où la plus grande partie du traitement peut s’effectuer sur la couche de données. Pour les charges de travail de création de rapports intensive ou les scénarios d’entreposage de données avec des requêtes plus complexes, pensez à utiliser [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
@@ -74,13 +74,13 @@ Une requête élastique peut être utilisée pour mettre les données situées d
 > Vous devez posséder l’autorisation ALTER ANY EXTERNAL DATA SOURCE. Cette autorisation est incluse dans l’autorisation ALTER DATABASE. Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence à la source de données sous-jacente.
 >
 
-**Reference data**: The topology is used for reference data management. Dans la figure ci-dessous, deux tables (T1 et T2) avec des données de référence sont conservées dans une base de données dédiée. Avec une requête élastique, vous pouvez désormais accéder aux tables T1 et T2 à distance depuis d’autres bases de données, comme indiqué dans la figure. Utilisez Topologie 1 si les tables de référence sont des requêtes de petite taille ou distantes se trouvant dans la table de référence et ayant des prédicats sélectifs.
+**Données de référence**: la topologie est utilisée pour la gestion de données de référence. Dans la figure ci-dessous, deux tables (T1 et T2) avec des données de référence sont conservées dans une base de données dédiée. Avec une requête élastique, vous pouvez désormais accéder aux tables T1 et T2 à distance depuis d’autres bases de données, comme indiqué dans la figure. Utilisez Topologie 1 si les tables de référence sont des requêtes de petite taille ou distantes se trouvant dans la table de référence et ayant des prédicats sélectifs.
 
 **Figure 2** Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence
 
 ![Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence][3]
 
-**Cross-database querying**: Elastic queries enable use cases that require querying across several SQL databases. Figure 3 shows four different databases: CRM, Inventory, HR and Products. Les requêtes exécutées dans une des bases de données doivent également accéder à une ou à toutes les autres bases de données. Avec une requête élastique, vous pouvez configurer votre base de données pour ce cas en exécutant plusieurs instructions DDL simples sur chacune des quatre bases de données. Après cette configuration à usage unique, l’accès à une table distante se fait simplement en faisant référence à une table locale à partir de vos requêtes T-SQL ou de vos outils d’analyse décisionnelle. Cette approche est recommandée si les requêtes distantes ne renvoient pas de résultats volumineux.
+**Interrogation des bases de données croisées**: les requêtes élastiques permettent d’utiliser des cas nécessitant l’interrogation de plusieurs bases de données SQL. La figure 3 représente quatre bases de données différentes : Gestion de la relation client (CRM), Inventaire, Ressources humaines (RH) et Produits. Les requêtes exécutées dans une des bases de données doivent également accéder à une ou à toutes les autres bases de données. Avec une requête élastique, vous pouvez configurer votre base de données pour ce cas en exécutant plusieurs instructions DDL simples sur chacune des quatre bases de données. Après cette configuration à usage unique, l’accès à une table distante se fait simplement en faisant référence à une table locale à partir de vos requêtes T-SQL ou de vos outils d’analyse décisionnelle. Cette approche est recommandée si les requêtes distantes ne renvoient pas de résultats volumineux.
 
 **Figure 3** Partitionnement vertical - Utilisation de requête élastique pour l’interrogation de plusieurs bases de données
 

@@ -8,17 +8,17 @@ author: ddove
 ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d1b5a77782b64873a753f19863459f9cdfcd70cc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Prise en main de Tâches de bases de données élastiques
 Tâches de bases de données élastiques (version préliminaire) pour la base de données SQL Azure vous permet d’exécuter, de manière efficace, des scripts T-SQL qui s'étendent sur plusieurs bases de données, tout en apportant automatiquement de nouvelles tentatives et des garanties d’achèvement éventuel. Pour plus d’informations sur la fonctionnalité Tâches de base de données élastique, voir [Travaux élastiques](sql-database-elastic-jobs-overview.md).
@@ -28,7 +28,7 @@ Cet article développe l’exemple présenté dans [Prise en main des outils de 
 ## <a name="prerequisites"></a>Composants requis
 Téléchargez et exécutez l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Créer un gestionnaire des cartes de partitions à l’aide de l’exemple d’application
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Créez un gestionnaire des cartes de partitions à l’aide de l’exemple d’application
 Vous allez maintenant créer un gestionnaire de cartes de partitions avec plusieurs partitions, puis insérer des données dans les partitions. Si vos partitions comportent déjà des données partitionnées, vous pouvez ignorer ces étapes et passer à la section suivante.
 
 1. Créez et exécutez l’exemple d’application de la rubrique **Prise en main des outils de base de données élastique** . Suivez la procédure jusqu’à l’étape 7 dans la section [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). À la fin de l’étape 7, vous verrez l’invite de commande suivante :

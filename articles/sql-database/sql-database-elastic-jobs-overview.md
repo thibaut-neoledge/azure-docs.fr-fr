@@ -9,17 +9,17 @@ author: ddove
 ms.assetid: 6fa47cf2-1162-4534-a206-6e2d95b78580
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 74618179fe169b968e822cd9c563410560244848
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: f709cd38a690ba666ca290cc029caa2ce4f9dff0
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gestion des bases de données cloud avec montée en charge
 Pour gérer les bases de données partitionnées avec montée en charge, la fonction **Tâches de base de données élastique** (version préliminaire) vous permet d’exécuter un script Transact-SQL (T-SQL) fiable dans un groupe de bases de données, notamment :
@@ -71,13 +71,13 @@ Définir des groupes personnalisés de bases de données SQL Azure, ainsi que de
 * Collecter les résultats de la requête à partir d'un ensemble de bases de données dans une table centrale sur une base continue. Les requêtes de performances peuvent être exécutées en permanence et configurées pour déclencher des tâches supplémentaires à exécuter.
 * Exécuter des requêtes de traitement de données avec un temps d’exécution plus long sur un grand ensemble de bases de données, par exemple, la collection de télémétrie de client. Les résultats sont rassemblés dans une table de destination unique pour une analyse ultérieure.
 
-## <a name="elastic-database-jobs-end-to-end"></a>Elastic Database jobs: end-to-end
+## <a name="elastic-database-jobs-end-to-end"></a>Travaux de base de données élastique : de bout en bout
 1. Installez les composants de **travaux de bases de données élastiques** . Pour en savoir plus, consultez [Installation des tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md). Si l'installation échoue, voir [comment désinstaller](sql-database-elastic-jobs-uninstall.md).
 2. Utilisez les APIs PowerShell pour accéder à davantage de fonctionnalités, par exemple la création de collections de bases de données personnalisées, l’ajout de planifications et/ou la collecte des ensembles de résultats. Utilisez le portail pour une installation simple et la création/la surveillance de travaux limités à l’exécution par rapport à un **pool élastique**. 
 3. Créez des informations d’identification chiffrées pour l’exécution d’une tâche et [ajoutez l’utilisateur (ou le rôle) à chaque base de données du groupe](sql-database-security-overview.md).
 4. Créez un script T-SQL idempotent qui peut être exécuté sur chacune des bases de données du pool. 
-5. Follow these steps to create jobs using the Azure portal: [Creating and managing Elastic Database jobs](sql-database-elastic-jobs-create-and-manage.md). 
-6. Or use PowerShell scripts: [Create and manage a SQL Database elastic database jobs using PowerShell (preview)](sql-database-elastic-jobs-powershell.md).
+5. Procédez comme suit pour créer des travaux à l’aide du portail Azure : [Création et gestion des travaux de base de données élastiques](sql-database-elastic-jobs-create-and-manage.md) 
+6. Ou utilisez des scripts PowerShell : [Création et gestion des travaux de base de données SQL élastiques à l’aide de PowerShell (version préliminaire)](sql-database-elastic-jobs-powershell.md).
 
 ## <a name="idempotent-scripts"></a>Scripts idempotents
 Les scripts doivent être [idempotent](https://en.wikipedia.org/wiki/Idempotence). En termes simples, « idempotent » signifie que si le script réussit, et est réexécuté, le résultat est le même. Un script peut échouer en raison de problèmes réseau provisoires. Dans ce cas, le travail va automatiquement refaire des tentatives d’exécution du script un nombre prédéfini de fois. Un script idempotent a le même résultat, même s’il a été correctement exécuté deux fois. 
@@ -106,26 +106,26 @@ Les groupes personnalisés, quant à eux, sont définis de façon rigide. Vous d
 ## <a name="components-and-pricing"></a>Composants et tarification
 Les composants suivants fonctionnent en synergie pour créer un service Cloud Azure permettant l'exécution ad hoc de tâches administratives. Les composants sont installés et configurés automatiquement pendant l'installation, dans le cadre de votre abonnement. Vous pouvez identifier les services car ils portent tous le même nom généré automatiquement. Le nom est unique et se compose d'un préfixe « edj » suivi de 21 caractères générés de façon aléatoire.
 
-* **Azure Cloud Service**: elastic database jobs (preview) is delivered as a customer-hosted Azure Cloud service to perform execution of the requested tasks. À partir du portail, le service est déployé et hébergé dans votre abonnement Microsoft Azure. Par défaut, le service déployé s'exécute avec un minimum de deux rôles de travail pour garantir une haute disponibilité. La taille par défaut de chaque rôle de travail (ElasticDatabaseJobWorker) s'exécute sur une instance A0. Pour la tarification, voir [Tarification des services cloud](https://azure.microsoft.com/pricing/details/cloud-services/). 
-* **Azure SQL Database**: The service uses an Azure SQL Database known as the **control database** to store all of the job metadata. Le niveau de service par défaut est S0. Pour en savoir plus, voir [Tarification - SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
-* **Azure Service Bus**: An Azure Service Bus is for coordination of the work within the Azure Cloud Service. Voir [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
-* **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md)). Pour la tarification, voir [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+* **Service Cloud Azure**: les tâches de base de données élastiques (version préliminaire) sont fournies sous forme d'un service Cloud Azure hébergé par le client pour exécuter les tâches demandées. À partir du portail, le service est déployé et hébergé dans votre abonnement Microsoft Azure. Par défaut, le service déployé s'exécute avec un minimum de deux rôles de travail pour garantir une haute disponibilité. La taille par défaut de chaque rôle de travail (ElasticDatabaseJobWorker) s'exécute sur une instance A0. Pour la tarification, voir [Tarification des services cloud](https://azure.microsoft.com/pricing/details/cloud-services/). 
+* **Azure SQL Database** : le service utilise une base de données SQL Azure appelée **base de données de contrôle** pour stocker toutes les métadonnées de la tâche. Le niveau de service par défaut est S0. Pour en savoir plus, voir [Tarification - SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+* **Azure Service Bus**: Azure Service Bus sert à coordonner le travail au sein du service Cloud Azure. Voir [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+* **Azure Storage**: un compte Azure Storage sert à stocker la journalisation des résultats de diagnostic au cas où un problème nécessite un débogage supplémentaire (consultez [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)). Pour la tarification, voir [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-elastic-database-jobs-work"></a>Fonctionnement des tâches de bases de données élastiques
 1. Une base de données SQL Azure est conçue comme une **base de données de contrôle** qui stocke toutes les métadonnées et les données d’état.
 2. Pour accéder à la base de données de contrôle, accédez au **service des tâches** pour lancer les tâches à exécuter et en assurer le suivi.
 3. Deux rôles communiquent avec la base de données de contrôle : 
-   * Controller: Determines which jobs require tasks to perform the requested job, and retries failed jobs by creating new job tasks.
-   * Job Task Execution: Carries out the job tasks.
+   * Contrôleur : détermine les tâches qui nécessitent d’autres tâches pour effectuer la tâche demandée, ainsi que les tâches des nouvelles tentatives ayant échoué en créant de nouvelles tâches.
+   * Exécution de tâches de travail : exécute les tâches de travail.
 
 ### <a name="job-task-types"></a>Types de tâches de travail
 Il existe plusieurs types de tâches qui effectuent l'exécution des tâches :
 
-* ShardMapRefresh: Queries the shard map to determine all the databases used as shards
-* ScriptSplit: Splits the script across ‘GO’ statements into batches
-* ExpandJob: Creates child jobs for each database from a job that targets a group of databases
-* ScriptExecution: Executes a script against a particular database using defined credentials
-* Dacpac: Applies a DACPAC to a particular database using particular credentials
+* ShardMapRefresh : interroge la carte de partitions pour déterminer toutes les bases de données utilisées en tant que partitions
+* ScriptSplit : répartit le script sur l’instruction « GO » dans des lots
+* ExpandJob : crée des tâches enfants pour chaque base de données à partir d'une tâche qui cible un groupe de bases de données
+* ScriptExecution : exécute un script sur une base de données spécifique à l'aide des informations d'identification définies
+* Dacpac : applique un DACPAC à une base de données à spécifique à l'aide des informations d'identification spécifiques
 
 ## <a name="end-to-end-job-execution-work-flow"></a>Flux de travail de l'exécution de tâche de bout en bout
 1. Une tâche est insérée dans la **base de données de contrôle** à l’aide du portail ou de l’API PowerShell. La tâche demande l'exécution d'un script Transact-SQL sur un groupe de bases de données à l'aide des informations d'identification spécifiques.

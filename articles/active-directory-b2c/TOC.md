@@ -1,6 +1,9 @@
 # [Vue d'ensemble](active-directory-b2c-overview.md)
 
 # Prise en main
+## [Évaluer une application web Azure AD B2C](active-directory-b2c-quickstarts-web-app.md)
+## [Évaluer une application de bureau Azure AD B2C](active-directory-b2c-quickstarts-desktop-app.md)
+## [Évaluer une application de page unique Azure AD B2C](active-directory-b2c-quickstarts-spa.md)
 ## [Créer un répertoire Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Inscrivez votre application](active-directory-b2c-app-registration.md)
 ## [Stratégies intégrées](active-directory-b2c-reference-policies.md)

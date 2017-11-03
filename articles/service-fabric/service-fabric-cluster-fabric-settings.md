@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 8143cf739f475ebfa6e65dc43945174304ffbb3b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -228,7 +228,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ServiceDescriptionCacheLimit | Entier (valeur par défaut : 0) |statique| Nombre maximum d’entrées maintenues dans le cache de description du service LRU au niveau du magasin du Service d’attribution de noms (0 correspond à aucune limite). |
 |RepairInterval | Durée en secondes (valeur par défaut : 5) |statique| Spécifiez la durée en secondes. Durée pendant laquelle la réparation d’une incohérence d’attribution de noms entre le propriétaire de l’autorité et le propriétaire du nom démarre. |
 |MaxNamingServiceHealthReports | Entier (valeur par défaut : 10) |Dynamique|Nombre maximum d’opérations lentes que le magasin du Service d’attribution de noms signale comme défectueuses à la fois. Si vous spécifiez 0, toutes les opérations lentes sont envoyées. |
-| MaxMessageSize |Entier, valeur par défaut : 4*1024*1024 |statique|Taille maximale des messages pour la communication de nœuds clients lors de l’utilisation du service d’attribution de noms. Atténuation d’attaque par déni de service. Valeur par défaut : 4 Mo. |
+| MaxMessageSize |Entier, valeur par défaut : 4\*1024\*1024 |statique|Taille maximale des messages pour la communication de nœuds clients lors de l’utilisation du service d’attribution de noms. Atténuation d’attaque par déni de service. Valeur par défaut : 4 Mo. |
 | MaxFileOperationTimeout |Durée en secondes, la valeur par défaut est 30 |Dynamique|Spécifiez la durée en secondes. Délai d’attente maximum autorisé pour l’opération du service de magasin de fichiers. Les requêtes spécifiant un délai d’expiration supérieur seront rejetées. |
 | MaxOperationTimeout |Durée en secondes (valeur par défaut : 600) |Dynamique|Spécifiez la durée en secondes. Délai d’attente maximum autorisé pour les opérations du client. Les requêtes spécifiant un délai d’expiration supérieur seront rejetées. |
 | MaxClientConnections |Entier, valeur par défaut : 1000 |Dynamique|Nombre maximum autorisé de connexions clientes par passerelle. |
