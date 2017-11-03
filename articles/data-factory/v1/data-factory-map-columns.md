@@ -11,16 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f97e41b9ee614da7ca852a15f101da1c91c86efb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae092308c5d2579a5b513657787ae6dbbfadaf05
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapper des colonnes d’un jeu de données source sur des colonnes d’un jeu de données de destination
+> [!NOTE]
+> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). 
+
 Le mappage de colonnes peut être utilisé pour spécifier la façon dont les colonnes spécifiées dans la « structure » de la table source sont mappées vers les colonnes spécifiées dans la « structure » de la table du récepteur. La propriété **columnMapping** est disponible dans la section **typeProperties** de l’activité de copie.
 
 Le mappage de colonnes prend en charge les scénarios suivants :

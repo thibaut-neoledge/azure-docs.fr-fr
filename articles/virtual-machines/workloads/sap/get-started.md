@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 567a86f61c2d3c2a0164ed80e9951b4c7d9a0b25
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 17b157b723b4a4973d9bf95b4acbf7e76e797b8c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilisation d’Azure pour l’hébergement et l’exécution de scénarios de charge de travail SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -237,7 +237,7 @@ ms.lasthandoff: 10/24/2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -321,7 +321,7 @@ Titre : Infrastructure et connectivité à SAP HANA sur Azure (grandes instances
 
 Résumé : Une fois l’achat de SAP HANA sur Azure (grandes instances) finalisé entre vous et l’équipe des comptes d’entreprise Microsoft, des configurations réseau variées sont nécessaires pour garantir la connectivité.  Ce document décrit les informations qui doivent être partagées et les informations suivantes qui sont requises. Ce document décrit les informations qui doivent être collectées et les scripts de configuration qui doivent être exécutés.
 
-Mise à jour : juillet 2017
+Mise à jour : octobre 2017
 
 [Ce guide est disponible ici](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -348,7 +348,7 @@ Titre : Résolution des problèmes et surveillance de SAP HANA sur Azure (grande
 
 Résumé : Ce guide contient des informations utiles pour établir la surveillance de votre environnement SAP HANA sur Azure, ainsi que des informations de résolution des problèmes.
 
-Mise à jour : août 2017
+Mise à jour : octobre 2017
 
 [Ce document est disponible ici](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

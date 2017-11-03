@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: cynthn
-ms.openlocfilehash: 022f35a537076b72785d95bc812c10c0e43fe2dd
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 6bc52262105fd9b162ad8ada9ae5cc3dbf623df2
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Attacher un disque de données à une machine virtuelle Windows dans Azure à l’aide de PowerShell
 
@@ -27,7 +27,7 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 
 Avant cela, passez en revue les conseils suivants :
 * La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Pour utiliser le stockage Premium, vous avez besoin d’une machine virtuelle de série DS ou GS, compatible avec ce type de stockage. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Pour utiliser le stockage Premium, vous avez besoin d’une machine virtuelle de série DS ou GS, compatible avec ce type de stockage. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 

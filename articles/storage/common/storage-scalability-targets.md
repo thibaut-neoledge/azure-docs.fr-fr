@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
-ms.openlocfilehash: abaad01bbf7a11ad078c79d7c192ef3f84812178
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 805b0eee46846345ee1f33faf0c28393c3e8ebb1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Objectifs de performance et évolutivité d'Azure Storage
 ## <a name="overview"></a>Vue d'ensemble
@@ -76,7 +76,7 @@ Pour plus d’informations, consultez la page [Tailles des machine virtuelles da
 ## <a name="see-also"></a>Voir aussi
 * [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 * [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md)
-* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](../storage-premium-storage.md)
+* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](../../virtual-machines/windows/premium-storage.md)
 * [Réplication Azure Storage](../storage-redundancy.md)
 * [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](../storage-performance-checklist.md)
 * [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

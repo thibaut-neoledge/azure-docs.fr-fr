@@ -3,7 +3,7 @@ title: "Visite guidée d’Analytics dans Azure Application Insights | Microsoft
 description: "Courts exemples de toutes les requêtes principales dans Analytics, outil de recherche puissant d’Application Insights."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
-ms.author: bwren
-ms.openlocfilehash: ccea92dda99c3b76cbb7d37b20ce810b210a8217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Visite guidée d’Analytics dans Application Insights
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.

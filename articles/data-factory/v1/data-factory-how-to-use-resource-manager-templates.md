@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d0c047c17608635b0d5fb0fb1353c6f8515d7a71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilisation de modèles pour créer des entités Azure Data Factory
+> [!NOTE]
+> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). 
+
 ## <a name="overview"></a>Vue d'ensemble
 Lors de l’utilisation d’Azure Data Factory pour vos besoins d’intégration de données, vous pourriez être amené à réutiliser le même modèle dans différents environnements ou à implémenter la même tâche de façon répétée dans la même solution. Les modèles vous aident à implémenter et à gérer ces scénarios de manière simple. Les modèles dans Azure Data Factory sont parfaitement adaptés aux scénarios qui impliquent la réutilisation et la répétition.
 

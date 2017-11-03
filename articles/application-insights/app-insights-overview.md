@@ -3,7 +3,7 @@ title: "Qu’est-ce qu’Azure Application Insights ? | Microsoft Docs"
 description: "Gestion des performances et suivi de l’utilisation de votre application web en ligne.  Détectez, triez et diagnostiquez les problèmes et découvrez comment votre application est utilisée."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: overview
+ms.custom: mvc
 ms.date: 05/14/2017
-ms.author: bwren
-ms.openlocfilehash: 3cb85316fac2ee637eb5defcc9b0840bada267b3
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mbullwin
+ms.openlocfilehash: 7910540add4092e1b5822a7525bec912befd80e7
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
 Application Insights est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisez-le pour analyser votre application web en direct. Ce service détecte automatiquement les problèmes de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plates-formes, notamment .NET, Node.js et J2EE, hébergées sur site ou dans le cloud. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio Mobile Center et à HockeyApp.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: bwren
-ms.openlocfilehash: 13fca37303296355ce601333b13110d04fa5fa4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 064b1b10f2bd776e4ae88d8460e106a0318476c7
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analyse des tendances dans Visual Studio
 L’outil Tendances Application Insights visualise l’évolution des événements de télémétrie importants de votre application web au fil du temps, ce qui vous permet d’identifier rapidement les problèmes et les anomalies. En vous fournissant des informations de diagnostic plus détaillées, l’outil Tendances peut vous aider à améliorer les performances de votre application, à repérer les causes des exceptions et à découvrir les perspectives de vos événements personnalisés.

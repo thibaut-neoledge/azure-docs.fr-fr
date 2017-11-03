@@ -3,8 +3,8 @@ title: "Démarrage rapide d’Azure : sauvegarder une machine virtuelle avec Az
 description: "Découvrez comment sauvegarder vos machines virtuelles avec Azure CLI"
 services: backup, virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: markgalioto
+manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b6aac8a6adc2a59a54222fbe47587cd9187a0e79
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 63f4db61a82bdcefcaa71f494d733a3ac78bd505
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Sauvegarder une machine virtuelle dans Azure avec l’interface de ligne de commande
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. La sauvegarde Azure crée des points de récupération pouvant être stockés dans des coffres de récupération géo-redondants. Cet article explique comment sauvegarder une machine virtuelle (VM) dans Azure avec Azure CLI. Vous pouvez également effectuer ces étapes avec [Azure PowerShell](quick-backup-vm-powershell.md) ou dans le [portail Azure](quick-backup-vm-portal.md).

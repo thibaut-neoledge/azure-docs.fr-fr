@@ -3,8 +3,8 @@ title: Restaurer un disque de machine virtuelle avec Sauvegarde Azure | Microsof
 description: "Découvrez comment restaurer un disque et créer une machine virtuelle récupérée dans Azure avec le service Sauvegarde et Recovery Services."
 services: backup, virtual-machines
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: markgalioto
+manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/28/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 01c266fcede8e4783cdea529bd1e7e9301bb23e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9bc6da13786eb9eb6186ceadf0432b3a3ec2c941
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurer un disque et créer une machine virtuelle récupérée dans Azure
 Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer une machine virtuelle entière. Ce didacticiel vous explique comment effectuer les opérations suivantes :
