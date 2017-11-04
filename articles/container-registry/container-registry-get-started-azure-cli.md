@@ -17,17 +17,17 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure
 
 Azure Container Registry est un service de registre de conteneurs Docker géré utilisé pour stocker des images de conteneurs Docker privés. Ce guide décrit en détail la création d’une instance Azure Container Registry à l’aide de l’interface de ligne de commande Azure.
 
-Ce guide de démarrage rapide nécessite que vous exécutiez l’interface de ligne de commande Azure version 2.0.12 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
+Ce guide de démarrage rapide nécessite que vous exécutiez l’interface de ligne de commande Azure version 2.0.20 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
@@ -45,10 +45,7 @@ az group create --name myResourceGroup --location eastus
 
 Dans le cadre de ce guide de démarrage rapide, nous allons créer un registre *De base*. Azure Container Registry est disponible dans plusieurs références SKU, qui sont brièvement décrites dans le tableau suivant. Pour plus d’informations sur chaque référence, consultez [Références SKU de registres de conteneurs](container-registry-skus.md).
 
-Azure Container Registry est disponible dans plusieurs références SKU : `Basic`, `Managed_Basic`, `Managed_Standard` et `Managed_Premium`. Bien que les références SKU `Managed_*` offrent des fonctions avancées telles que le stockage géré et les Webhooks, elles sont actuellement indisponibles dans certaines régions Azure si vous utilisez l’interface de ligne de commande Azure. Pour ce démarrage rapide, nous sélectionnons la référence SKU `Basic`, car elle est disponible dans toutes les régions.
-
->[!NOTE]
-> Les registres gérés sont actuellement disponibles dans toutes les régions. Toutefois, la version actuelle de l’interface de ligne de commande Azure ne prend pas en charge la création d’un registre géré dans toutes les régions. Cette prise en charge sera assurée dans la prochaine version de l’interface de ligne de commande Azure. Dans l’attente, utilisez le [portail Azure](container-registry-get-started-portal.md) pour créer des registres managés.
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Créez une instance ACR à l’aide de la commande [az acr create](/cli/azure/acr#create).
 
