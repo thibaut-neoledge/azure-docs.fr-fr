@@ -35,9 +35,9 @@
 ### [Lier le client Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Payer pour les abonnements par facture](billing-how-to-pay-by-invoice.md)
 ## Résolution des problèmes
-### [Problèmes d’inscription](billing-troubleshoot-azure-sign-up-issues.md)
-### [Carte refusée](billing-credit-card-fails-during-azure-sign-up.md)
-### [Problèmes de connexion](billing-cannot-login-subscription.md)
+### [Problèmes d’inscription](https://support.microsoft.com/en-us/help/4042959)
+### [Carte refusée](https://support.microsoft.com/en-us/help/4042960)
+### [Problèmes de connexion](https://support.microsoft.com/en-us/help/4042961)
 ### [Aucun abonnement trouvé](billing-no-subscriptions-found.md)
 ### [Désactivation de l’affichage des coûts d’entreprise](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

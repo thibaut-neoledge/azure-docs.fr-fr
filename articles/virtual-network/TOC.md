@@ -1,14 +1,14 @@
 # Vue d'ensemble
 ## [Réseaux virtuels](virtual-networks-overview.md)
-## [Itinéraires définis par l’utilisateur et transfert IP](virtual-networks-udr-overview.md)
+## [Routage](virtual-networks-udr-overview.md)
 ## [Homologation de réseaux virtuels](virtual-network-peering-overview.md)
 ## [Points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md)
 ## [Réseau virtuel pour les services Azure](virtual-network-for-azure-services.md)
 ## [Sécurité](security-overview.md)
 ## [Continuité de l’activité](virtual-network-disaster-recovery-guidance.md)
-## [FAQ](virtual-networks-faq.md)
 ## [Adressage IP](virtual-network-ip-addresses-overview-arm.md)
 ## [Protection DDOS](ddos-protection-overview.md)
+## [FAQ](virtual-networks-faq.md)
 ## Classique
 ### [Adressage IP](virtual-network-ip-addresses-overview-classic.md)
 ### [Listes de contrôle d'accès](virtual-networks-acl.md)

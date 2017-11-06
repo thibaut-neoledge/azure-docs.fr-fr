@@ -79,8 +79,6 @@
   items:
     - name: Récupération d'urgence
       items:
-        - name: Machines virtuelles VMware avec l’architecture multilocataires vers Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Machines virtuelles Hyper-V vers Azure
           href: tutorial-hyper-v-to-azure.md
         - name: Serveurs physiques vers Azure
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Exécuter un basculement et une restauration automatique sur des sites locaux
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: Machines virtuelles VMware avec l’architecture multilocataires vers Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Capacité et mise à l’échelle
       items:
         - name: Planification de la capacité pour la réplication de VMware vers Azure
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: Serveur de fichiers
+          href: file-server-disaster-recovery.md
         - name: Applications web basées sur IIS
           href: site-recovery-iis.md
         - name: "Citrix\_XenApp et XenDesktop"

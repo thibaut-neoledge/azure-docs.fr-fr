@@ -71,15 +71,10 @@
 
 ## Définir des stratégies de ressources
 ### [Que sont les stratégies de ressources ?](resource-manager-policy.md)
-### [Utiliser le portail Azure pour attribuer la stratégie](resource-manager-policy-portal.md)
 ### [Utiliser des scripts pour attribuer la stratégie](resource-manager-policy-create-assign.md)
 ### Exemples
 #### [Balises](resource-manager-policy-tags.md)
 #### [Conventions d’affectation de noms](resource-manager-policy-naming-convention.md)
-#### [Réseau](resource-manager-policy-network.md)
-#### [Stockage](resource-manager-policy-storage.md)
-#### [Machine virtuelle Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Machine virtuelle Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Audit
 ### [Afficher les journaux d’activité](resource-group-audit.md)

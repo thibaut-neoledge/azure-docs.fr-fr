@@ -134,6 +134,8 @@
       items:
         - name: Archivage
           href: monitoring-archive-diagnostic-logs.md
+        - name: Envoyer à Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: Flux de concentrateurs d’événements
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Activer les paramètres de diagnostic à l’aide de modèles Resource Manager
