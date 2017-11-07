@@ -84,8 +84,20 @@
         - name: Espace de travail Azure Machine Learning
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: Configurer des machines virtuelles
-          href: virtual-machines.md
+        - name: Configurer une machine virtuelle DLVM
+          items:
+            - name: Créer une machine virtuelle DLVM Windows
+              href: ../data-science-virtual-machine/provision-vm.md
+              maintainContext: true
+            - name: Créer une machine virtuelle DLVM Ubuntu
+              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+              maintainContext: true
+            - name: Créer une machine virtuelle DLVM CentOS
+              href: ../data-science-virtual-machine/linux-dsvm-intro.md
+              maintainContext: true
+            - name: Créer une machine virtuelle d’apprentissage profond
+              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+              maintainContext: true
     - name: Analyser les besoins métier
       items:
         - name: Identifier votre scénario
@@ -96,7 +108,7 @@
           items:
             - name: Vue d'ensemble
               href: ingest-data.md
-            - name: Stockage d'objets blob
+            - name: Stockage blob
               href: move-azure-blob.md
             - name: Utiliser l’Explorateur Stockage
               href: move-data-to-azure-blob-using-azure-storage-explorer.md
@@ -255,7 +267,7 @@
       items:
         - name: Forum MSDN
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
-        - name: Dépassement de capacité de la pile
+        - name: Stack Overflow
           href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
         - name: Vidéos
           href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'

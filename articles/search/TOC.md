@@ -1,5 +1,5 @@
 # [Vue d'ensemble](search-what-is-azure-search.md)
-## [Présentation d’Azure Storage](search-what-is-azure-search.md)
+## [Présentation de Stockage Azure](search-what-is-azure-search.md)
 
 # Prise en main
 
@@ -21,7 +21,7 @@
 # Didacticiels
 
 ## [.NET](search-howto-dotnet-sdk.md)
-## [Version préliminaire des synonymes .NET](search-synonyms-tutorial-sdk.md)
+## [Synonymes .NET (préversion)](search-synonyms-tutorial-sdk.md)
 ## [Portail](search-get-started-portal.md)
 ## [Recherche de données semi-structurées](search-semi-structured-data.md)
 ## [Node.JS](search-get-started-nodejs.md)
@@ -35,7 +35,7 @@
 ### [Modèles de conception pour les architectures multi-locataires](search-modeling-multitenant-saas-applications.md)
 ## Développement
 ### [Versions d’API](search-api-versions.md)
-### [Mettre à niveau le kit de développement logiciel (SDK)](search-dotnet-sdk-migration.md)
+### [Mettre à niveau le kit SDK](search-dotnet-sdk-migration.md)
 ### [Mettre à niveau l’API REST](search-api-migration.md)
 ### [Modéliser les types de données complexes](search-howto-complex-data-types.md)
 ### [Gérer des mises à jour simultanées](search-howto-concurrency.md)
@@ -77,16 +77,17 @@
 ### [Score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Navigation à facettes](search-faceted-navigation.md)
-### [Version préliminaire des synonymes](search-synonyms.md)
+### [Synonymes (préversion)](search-synonyms.md)
+### [moreLikeThis (préversion)](search-more-like-this.md)
 
-# Référence
+# Informations de référence
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (Management)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [.NET Management](/rest/api/searchmanagement)
-## [REST Service (version préliminaire)](search-api-2015-02-28-preview.md)
+## [REST Service (préversion)](search-api-2016-09-01-preview.md)
 
 # Ressources
 

@@ -80,8 +80,15 @@
           href: sizes-general.md
     - name: Maintenance et mises à jour
       href: maintenance-and-updates.md
-    - name: Storage
+    - name: Stockage
       href: about-disks-and-vhds.md
+      items:
+        - name: Stockage Premium
+          href: premium-storage.md
+        - name: Performances de stockage Premium
+          href: premium-storage-performance.md
+        - name: Stockage Standard
+          href: standard-storage.md
     - name: Mise en réseau
       href: network-overview.md
     - name: Applications de mise à l’échelle automatique
@@ -235,13 +242,17 @@
           href: detach-disk.md
         - name: Redimensionner un disque
           href: expand-os-disk.md
+        - name: Sauvegarde et récupération d’urgence pour les disques
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Effectuer la capture instantanée d’un disque
           href: snapshot-copy-managed-disk.md
         - name: Sauvegarder des disques non managés
           href: incremental-snapshots.md
         - name: Convertir un disque Standard en disque Premium
           href: convert-disk-storage.md
-        - name: Utiliser le stockage de fichier File Storage
+        - name: Migrer vers le stockage Premium avec Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Utiliser le stockage Fichier
           href: mount-azure-file-storage.md
         - name: Déployer des disques avec un modèle
           href: using-managed-disks-template-deployments.md
@@ -399,7 +410,7 @@
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'

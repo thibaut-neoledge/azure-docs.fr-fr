@@ -309,6 +309,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
+        - name: Bonnes pratiques pour SQL Data Sync
+          href: sql-database-best-practices-data-sync.md
+        - name: Résoudre les problèmes de SQL Data Sync
+          href: sql-database-troubleshoot-data-sync.md
     - name: Montée en charge
       items:
         - name: Créer une application partitionnée
@@ -416,7 +420,7 @@
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/sql-azure'
     - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'

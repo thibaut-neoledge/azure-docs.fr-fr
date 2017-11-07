@@ -15,6 +15,14 @@
   items:
     - name: Créer et gérer une stratégie Azure
       href: create-manage-policy.md
+- name: Exemples
+  items:
+    - name: Modèles de stratégie
+      href: json-samples.md
+- name: Concepts
+  items:
+    - name: Structure de définition Azure Policy
+      href: policy-definition.md
 - name: Référence
   items:
     - name: Interface de ligne de commande Azure

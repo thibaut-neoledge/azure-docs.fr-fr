@@ -88,8 +88,15 @@
       href: endorsed-distros.md
     - name: Maintenance et mises à jour
       href: maintenance-and-updates.md
-    - name: Storage
+    - name: Stockage
       href: azure-vm-storage-overview.md
+      items:
+        - name: Stockage Premium
+          href: premium-storage.md
+        - name: Performances de stockage Premium
+          href: premium-storage-performance.md
+        - name: Stockage Standard
+          href: standard-storage.md
     - name: Mise en réseau
       href: network-overview.md
     - name: Applications de mise à l’échelle automatique
@@ -310,15 +317,19 @@
           href: expand-disks.md
         - name: Effectuer la capture instantanée d’un disque
           href: snapshot-copy-managed-disk.md
+        - name: Sauvegarde et récupération d’urgence pour les disques
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Sauvegarder des disques non managés
           href: incremental-snapshots.md
-        - name: Convertir vers Managed Disks
+        - name: Convertir en disques managés
           href: convert-unmanaged-to-managed-disks.md
         - name: Convertir un disque Standard en disque Premium
           href: convert-disk-storage.md
         - name: Copier des fichiers sur une machine virtuelle
           href: copy-files-to-linux-vm-using-scp.md
-        - name: Utiliser le stockage de fichier File Storage
+        - name: Migrer vers le stockage Premium avec Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Utiliser le stockage Fichier
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Déployer des disques avec un modèle
           href: using-managed-disks-template-deployments.md
@@ -435,19 +446,19 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
       href: /rest/api/compute
-- name: les ressources
+- name: Ressources
   items:
     - name: Créer des modèles
       href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Modèles fournis par la communauté
+    - name: Modèles de la communauté
       href: 'https://azure.microsoft.com/documentation/templates'
     - name: Tarification
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'

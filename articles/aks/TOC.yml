@@ -37,6 +37,8 @@
       href: kubernetes-helm.md
     - name: Développer des applications avec Draft
       href: kubernetes-draft.md
+    - name: Conserver les données avec Azure Files
+      href: azure-files.md
     - name: Utiliser le tableau de bord Kubernetes
       href: kubernetes-dashboard.md
     - name: Créer un principal du service
@@ -55,7 +57,7 @@
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

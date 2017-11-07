@@ -20,7 +20,7 @@
 ### [Créer avec le portail Azure](virtual-machine-scale-sets-portal-create.md)
 ### [Créer avec Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Créer avec Azure PowerShell ou Azure CLI](virtual-machine-scale-sets-create.md)
-### [Groupe de machines virtuelles identiques avec des disques gérés](virtual-machine-scale-sets-managed-disks.md)
+### [Groupe de machines virtuelles identiques avec des disques managés](virtual-machine-scale-sets-managed-disks.md)
 ### [Mettre à l’échelle un groupe identique](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Utiliser le portail Azure](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Utiliser Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
@@ -34,12 +34,13 @@
 ## Gérer
 ### Tâches de gestion courantes
 #### [Utiliser Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
-#### [Utilisation d'Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
+#### [Utiliser Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Mise à l’échelle verticale dans un groupe de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+### [Mises à niveau automatiques des systèmes d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md)
 ### [Mises à jour pour les groupes de machines virtuelles identiques](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Groupes de machines virtuelles identiques et configuration d’état souhaité](virtual-machine-scale-sets-dsc.md)
 ### [Mise en réseau pour les groupes identiques](virtual-machine-scale-sets-networking.md)
-### [Convertir un modèle en disques gérés](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Convertir un modèle en disques managés](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Résolution des problèmes
 ### [Mise à l’échelle automatique](virtual-machine-scale-sets-troubleshoot.md)

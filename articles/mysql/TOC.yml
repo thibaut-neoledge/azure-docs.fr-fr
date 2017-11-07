@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: Développement
       items:
-        - name: Bibliothèques de connexions
-          href: concepts-connection-libraries.md
+        - name: Compatibilité des pilotes et des outils
+          href: concepts-compatibility.md
         - name: Développement d’applications
           href: concepts-database-application-development.md
     - name: Migrer votre base de données
@@ -147,7 +147,7 @@
       href: 'https://azure.microsoft.com/pricing/details/mysql/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: Vidéos
       href: videos.md

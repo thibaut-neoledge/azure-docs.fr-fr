@@ -48,7 +48,6 @@
 #### [Exemples Azure PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
 #### [Référence pour les produits et les plans de service dans Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
-### [Réinitialiser un mot de passe](active-directory-users-reset-password-azure-portal.md)
 ### [Gérer les informations de travail utilisateur](active-directory-users-work-info-azure-portal.md)
 ### [Partager des comptes](active-directory-sharing-accounts.md)
 
@@ -116,7 +115,7 @@
 ### [Vue d’ensemble des mots de passe](active-directory-passwords-overview.md)
 ### Documents utilisateur
 #### [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md)
-#### [Meilleures pratiques relatives aux mots de passe](active-directory-secure-passwords.md)
+#### [Bonnes pratiques relatives aux mots de passe](active-directory-secure-passwords.md)
 #### [S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
 ### [Fonctionnement SSPR](active-directory-passwords-how-it-works.md)
 ### [Guide de déploiement SSPR](active-directory-passwords-best-practices.md)
@@ -126,7 +125,6 @@
 ### [SSPR Reporting](active-directory-passwords-reporting.md)
 ### Administrateurs informatiques : réinitialiser les mots de passe
 #### [Portail Azure](active-directory-users-reset-password-azure-portal.md)
-#### [portail Azure Classic](active-directory-create-users-reset-password.md)
 ### [Licence SSPR](active-directory-passwords-licensing.md)
 ### [Écriture différée du mot de passe](active-directory-passwords-writeback.md)
 ### [Résolution des problèmes](active-directory-passwords-troubleshoot.md)
@@ -242,6 +240,7 @@
 ### [Plusieurs répertoires](active-directory-licensing-directory-independence.md)
 ### [Répertoires O365](active-directory-manage-o365-subscription.md)
 ### [Inscription libre-service](active-directory-self-service-signup.md)
+#### [Reprendre un répertoire non managé](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Activer](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Paramètres de stratégie de groupe](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -299,8 +298,8 @@
 ## Sécuriser vos identités
 ### [Accès conditionnel](active-directory-conditional-access-azure-portal.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
-#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
-#### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
+#### [Bien démarrer](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Bonnes pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### Tâches
 ##### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)

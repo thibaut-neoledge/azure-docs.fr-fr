@@ -41,9 +41,10 @@
 ## Configurer un routeur pour ExpressRoute
 ### [Configurer un routeur](expressroute-config-samples-routing.md)
 ### [Exemples de configuration de routeur pour NAT](expressroute-config-samples-nat.md)
+## [Configurer Network Performance Monitor pour ExpressRoute](how-to-npm.md)
 
-## Meilleures pratiques
-### [Meilleures pratiques pour la sécurité réseau et les services cloud](../best-practices-network-security.md)
+## Bonnes pratiques
+### [Bonnes pratiques pour la sécurité réseau et les services cloud](../best-practices-network-security.md)
 ### [Optimiser le routage](expressroute-optimize-routing.md)
 ### [Routage asymétrique](expressroute-asymmetric-routing.md)
 ### [NAT pour ExpressRoute](expressroute-nat.md)

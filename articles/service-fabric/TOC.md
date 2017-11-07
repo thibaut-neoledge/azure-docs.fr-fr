@@ -6,6 +6,7 @@
 ## [Créer une application .NET](service-fabric-quickstart-dotnet.md)
 ## [Déployer une application de conteneur Linux](service-fabric-quickstart-containers-linux.md)
 ## [Déployer une application de conteneur Windows](service-fabric-quickstart-containers.md)
+## [Déployer une application Java](service-fabric-quickstart-java.md)
 
 # Didacticiels
 ## Déployer une application .NET
@@ -26,9 +27,11 @@
 
 ## Créer et gérer un cluster
 ### 1- Créer un cluster sur Azure
-#### [1a- Créer un cluser Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b- Créer un cluser Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2- Déployer Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+#### [1a- Créer un cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Créer un cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2- Mettre à l’échelle le cluster](service-fabric-tutorial-scale-cluster.md)
+### [3- Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Exemples
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=service-fabric)
@@ -48,7 +51,7 @@
 #### [Vue d'ensemble](service-fabric-choose-framework.md)
 #### Conteneurs
 ##### [Vue d'ensemble](service-fabric-containers-overview.md)
-##### [Docker Compose (version préliminaire)](service-fabric-docker-compose.md)
+##### [Docker Compose (préversion)](service-fabric-docker-compose.md)
 ##### [Gouvernance des ressources](service-fabric-resource-governance.md)
 #### Services fiables (Reliable Services)
 ##### [Vue d'ensemble](service-fabric-reliable-services-introduction.md)
@@ -157,7 +160,7 @@
 #### [Créer une application de conteneur Windows](service-fabric-get-started-containers.md)
 #### [Créer une application de conteneur Linux](service-fabric-get-started-containers-linux.md)
 #### [Sécurité du conteneur](service-fabric-securing-containers.md)
-#### [Docker Compose (version préliminaire)](service-fabric-docker-compose.md)
+#### [Docker Compose (préversion)](service-fabric-docker-compose.md)
 #### [Gestion des ressources pour les conteneurs et les services](service-fabric-resource-governance.md)
 #### [Pilotes de journalisation et de volume](service-fabric-containers-volume-logging-drivers.md)
 #### [Services à l’intérieur des conteneurs](service-fabric-services-inside-containers.md)

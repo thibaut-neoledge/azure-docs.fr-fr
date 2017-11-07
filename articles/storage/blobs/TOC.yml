@@ -12,16 +12,18 @@
       href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Créer un compte de stockage - CLI
       href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Travailler avec des objets BLOB - PowerShell
+    - name: Utiliser le stockage Blob - PowerShell
       href: storage-quickstart-blobs-powershell.md
-    - name: Travailler avec des objets BLOB - CLI
+    - name: Utiliser le stockage Blob - CLI
       href: storage-quickstart-blobs-cli.md
-    - name: Travailler avec des objets BLOB - .NET
+    - name: Utiliser le stockage Blob - .NET
       href: storage-quickstart-blobs-dotnet.md
-    - name: Travailler avec des objets BLOB - Java
+    - name: Utiliser le stockage Blob - Java
       href: storage-quickstart-blobs-java.md
-    - name: Travailler avec des objets BLOB - Python
+    - name: Utiliser le stockage Blob - Python
       href: storage-quickstart-blobs-python.md
+    - name: Utiliser le stockage Blob - .Node.js
+      href: storage-quickstart-blobs-nodejs.md
 - name: Didacticiels
   items:
     - name: Télécharger et traiter une image
@@ -118,9 +120,9 @@
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Procédures
   items:
-    - name: Créez un compte de stockage.
+    - name: Créer un compte de stockage
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Développement
+    - name: Développer
       items:
         - name: .NET
           href: storage-dotnet-how-to-use-blobs.md
@@ -166,7 +168,7 @@
           href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure Automation
           href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: chiffrement côté client
+    - name: Chiffrement côté client
       items:
         - name: .NET
           href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -331,7 +333,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
@@ -345,7 +347,7 @@
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Packages NuGet
       items:
-        - name: Bibliothèque cliente Azure Storage pour .NET
+        - name: Bibliothèque cliente Stockage Azure pour .NET
           href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
         - name: Bibliothèque de déplacement des données dans le stockage Azure
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
