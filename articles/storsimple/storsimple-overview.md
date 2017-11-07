@@ -216,7 +216,7 @@ Voici un tableau résumant les charges de travail StorSimple prises en charge.
 | Backup  |Sauvegarde de la cible principale |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
 | Backup  |Sauvegarde de la cible secondaire |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
 
-*Oui&amp;#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
+*Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 
 Les charges de travail suivantes ne sont pas prises en charge par les appareils StorSimple série 8000. En cas de déploiement sur StorSimple, ces charges de travail entraîneront une configuration non prise en charge.
 
@@ -239,7 +239,7 @@ Voici une liste des composants d’infrastructure pris en charge par StorSimple.
 | Généralités |Indexation |Oui* |Pour les volumes hiérarchisés, seule l’indexation des métadonnées est prise en charge (aucune donnée).<br>Pour les volumes épinglés localement, l’indexation complète est prise en charge. |Toutes les versions |
 | Généralités |Protection contre les virus |Oui* |Pour les volumes hiérarchisés, seule l’analyse des ouvertures et des fermetures est prise en charge.<br> Pour les volumes épinglés localement, l’analyse complète est prise en charge. |Toutes les versions |
 
-*Oui&amp;#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
+*Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 
 Voici une liste d’autres logiciels utilisés avec StorSimple pour concevoir des solutions.
 
