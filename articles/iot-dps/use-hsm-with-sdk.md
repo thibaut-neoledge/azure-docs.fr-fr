@@ -1,6 +1,6 @@
 ---
-title: "Procédure Azure - Utiliser différents modules de sécurité matériels avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure | Microsoft Docs"
-description: "Procédure Azure - Utiliser différents modules de sécurité matériels avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure"
+title: "Procédure Azure : utiliser différents modules de sécurité matériels avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure | Microsoft Docs"
+description: "Procédure Azure : utiliser différents modules de sécurité matériels avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure"
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,11 +12,11 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 184bbdc0a6bef74d0e5ac79afe3858354c6b1695
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Utilisation de différents modules de sécurité matériels avec le kit de développement logiciel (SDK) Device Provisioning Service Client
 Ces étapes vous montrent comment utiliser différents [modules de sécurité matériels (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) avec le kit de développement logiciel (SDK) Device Provisioning Service Client en C à l’aide d’un simulateur et d’un appareil physique.  Le service d’approvisionnement prend en charge deux modes d’authentification : X**.**509 et Module de plateforme sécurisée (TPM).

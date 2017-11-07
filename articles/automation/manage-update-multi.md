@@ -1,24 +1,24 @@
 ---
 title: "Gérer les mises à jour pour plusieurs machines virtuelles Azure | Microsoft Docs"
-description: "Intégrez des machines virtuelles Azure pour gérer les mises à jour."
-services: operations-management-suite
+description: "Cette rubrique décrit la gestion des mises à jour pour les machines virtuelles Azure."
+services: automation
 documentationcenter: 
 author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 89bf87f27fdf276068cba261fc6ae1660307e0b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/31/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gérer les mises à jour pour plusieurs machines virtuelles Azure
 
@@ -27,10 +27,46 @@ Dans votre compte [Azure Automation](automation-offering-get-started.md), vous p
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour effectuer les étapes décrites dans ce guide, vous avez besoin des éléments suivants :
+Pour utiliser la gestion de la mise à jour, vous devez avoir :
 
-* Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Authentifier des Runbooks avec un compte d’identification Azure](automation-sec-configure-azure-runas-account.md).
-* Une machine virtuelle Azure Resource Manager (non classique). Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Prise en main d’Azure Automation](automation-offering-get-started.md).
+
+* Une machine virtuelle ou un ordinateur virtuel avec l’un des systèmes d’exploitation pris en charge.
+
+## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
+
+La gestion de la mise à jour est prise en charge par les systèmes d’exploitation suivants.
+
+### <a name="windows"></a>Windows
+
+* Windows Server 2008 et versions ultérieures et déploiements de mise à jour par rapport à Windows Server 2008 R2 SP1 et versions ultérieures.  Les options d’installation Server Core et Nano Server ne sont pas prises en charge.
+
+    > [!NOTE]
+    > La prise en charge du déploiement des mises à jour vers Windows Server 2008 R2 SP1 nécessite .NET Framework 4.5 et WMF 5.0 ou une version ultérieure.
+    > 
+* Les systèmes d’exploitation clients Windows ne sont pas pris en charge.
+
+Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services) ou avoir accès à Microsoft Update.
+
+> [!NOTE]
+> L’agent Windows ne peut pas être géré simultanément par System Center Configuration Manager.
+>
+
+### <a name="linux"></a>Linux
+
+* CentOS 6 (x86/x64) et 7 (x 64)  
+* Red Hat Enterprise 6 (x86/x64) et 7 (x 64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)  
+* Ubuntu 12.04 LTS et x86/x64 plus récente   
+
+> [!NOTE]  
+> Pour éviter que les mises à jour soient appliquées en dehors d’une fenêtre de maintenance sur Ubuntu, reconfigurez le package Unattended-Upgrade pour désactiver les mises à jour automatiques. Pour plus d’informations sur cette configuration, consultez la [rubrique Mises à jour automatiques du Guide du serveur Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
+Les agents Linux doivent avoir accès à un référentiel de mise à jour.
+
+> [!NOTE]
+> Un agent OMS pour Linux configuré pour rapporter à plusieurs espaces de travail OMS n’est pas pris en charge avec cette solution.  
+>
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Activer la gestion des mises à jour pour les machines virtuelles Azure
 
@@ -45,9 +81,36 @@ Pour effectuer les étapes décrites dans ce guide, vous avez besoin des éléme
 
 La gestion des mises à jour est activée pour votre machine virtuelle.
 
+## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Activer la gestion des mises à jour pour les machines et ordinateurs virtuels non Azure
+
+Pour obtenir des instructions sur l’activation de la gestion de la mise à jour pour les machines et ordinateurs virtuels Windows non Azure, consultez [Connecter des ordinateurs Windows au service Log Analytics dans Azure](../log-analytics/log-analytics-windows-agents.md).
+
+Pour obtenir des instructions sur l’activation de la gestion de la mise à jour pour les machines et ordinateurs virtuels Linux non Azure, consultez [Connecter des ordinateurs Linux à Operations Management Suite (OMS)](../log-analytics/log-analytics-agent-linux.md).
+
 ## <a name="view-update-assessment"></a>Afficher l’évaluation des mises à jour
 
 Une fois la **gestion des mises à jour** activée, l’écran **Gestion des mises à jour** apparaît. Vous pouvez voir une liste des mises à jour manquantes sous l’onglet **Mises à jour manquantes**.
+
+## <a name="data-collection"></a>Collecte des données
+
+Les agents installés sur des machines et ordinateurs virtuels collectent des données sur les mises à jour et les envoient à la gestion de la mise à jour Azure.
+
+### <a name="supported-agents"></a>Agents pris en charge
+
+Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
+
+| Source connectée | Pris en charge | Description |
+| --- | --- | --- |
+| Agents Windows |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents et lance l’installation des mises à jour obligatoires. |
+| Agents Linux |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
+| Groupe d’administration d’Operations Manager |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
+| Compte Azure Storage |Non |Le stockage Azure n’inclut aucune information sur les mises à jour du système. |
+
+### <a name="collection-frequency"></a>Fréquence de collecte
+
+Pour chaque ordinateur Windows géré, une analyse est effectuée deux fois par jour. Les API Windows sont appelées toutes les 15 minutes pour rechercher l’heure de la dernière mise à jour afin de déterminer si l’état a changé et si une analyse de conformité est lancée.  Pour chaque ordinateur Linux géré, une analyse est effectuée toutes les 3 heures.
+
+L’affichage des données mises à jour des ordinateurs gérés dans le tableau de bord peut prendre de 30 minutes à 6 heures.
 
 ## <a name="schedule-an-update-deployment"></a>Planifier un déploiement de mises à jour
 
@@ -106,6 +169,8 @@ Cliquez sur **Tous les journaux** pour afficher toutes les entrées de journal c
 Cliquez sur la vignette **Sortie** pour voir le flux des tâches du runbook chargé de gérer le déploiement des mises à jour sur la machine virtuelle cible.
 
 Cliquez sur **Erreurs** pour afficher les informations détaillées sur les erreurs du déploiement.
+
+Pour obtenir des informations détaillées sur les journaux, les sorties et des informations sur les erreurs, consultez [Gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

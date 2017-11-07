@@ -3,8 +3,8 @@ title: "Délégation de votre domaine à Azure DNS | Microsoft Docs"
 description: "Découvrez comment modifier la délégation de domaine et les serveurs de noms Azure DNS pour fournir l’hébergement d’un domaine."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: gwallace
-ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: kumud
+ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Délégation de domaine à Azure DNS
 
@@ -30,11 +30,11 @@ Par exemple, supposons que vous achetez le domaine « contoso.net » et que vo
 ## <a name="create-a-dns-zone"></a>Création d’une zone DNS
 
 1. Connectez-vous au portail Azure.
-1. Dans le menu Hub, cliquez sur **Nouveau > Mise en réseau >**, puis cliquez sur **Zone DNS** pour ouvrir le panneau Créer une zone DNS.
+1. Dans le menu Hub, cliquez sur **Nouveau > Mise en réseau >**, puis cliquez sur **Zone DNS** pour ouvrir la page Créer une zone DNS.
 
     ![Zone DNS](./media/dns-domain-delegation/dns.png)
 
-1. Dans le panneau **Créer une zone DNS**, entrez les valeurs suivantes, puis cliquez sur **Créer** :
+1. Sur la page **Créer une zone DNS**, entrez les valeurs suivantes, puis cliquez sur **Créer** :
 
    | **Paramètre** | **Valeur** | **Détails** |
    |---|---|---|
@@ -50,9 +50,9 @@ Par exemple, supposons que vous achetez le domaine « contoso.net » et que vo
 
 Avant de pouvoir déléguer votre zone DNS à Azure DNS, vous devez d’abord connaître les noms de serveur de noms correspondant à votre zone. Azure DNS alloue des serveurs de noms à partir d’un pool chaque fois qu’une zone est créée.
 
-1. Une fois la zone DNS créée, allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur la zone DNS **contoso.net** dans le panneau **Toutes les ressources**. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **contoso.net** dans la case Filtrer par nom… pour accéder facilement à la passerelle d’application. 
+1. Une fois la zone DNS créée, allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur la zone DNS **contoso.net** sur la page **Toutes les ressources**. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **contoso.net** dans la case Filtrer par nom… pour accéder facilement à la passerelle d’application. 
 
-1. Récupérez les serveurs de noms à partir du panneau de zone DNS. Dans cet exemple, la zone « contoso.net » a été attribuée aux serveurs de noms « ns1-01.azure-dns.com », « ns2-01.azure-dns.net », « ns3-01.azure-dns.org » et « ns4-01.azure-dns.info » :
+1. Récupérez les serveurs de noms à partir de la page de la zone DNS. Dans cet exemple, la zone « contoso.net » a été attribuée aux serveurs de noms « ns1-01.azure-dns.com », « ns2-01.azure-dns.net », « ns3-01.azure-dns.org » et « ns4-01.azure-dns.info » :
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -122,7 +122,7 @@ Maintenant que la zone DNS est créée et que vous disposez des serveurs de noms
 
 Lors de la délégation d’un domaine à Azure DNS, vous devez utiliser les noms de serveur de noms fournis par Azure DNS. Nous vous recommandons d’utiliser les quatre noms de serveur de noms, quel que soit le nom de votre domaine. La délégation de domaine ne requiert pas que le nom du serveur de noms utilise le même domaine de premier niveau que votre domaine.
 
-Vous ne devez pas utiliser d’enregistrements de type glue pour pointer vers les adresses IP de serveur de noms Azure DNS, car ces adresses IP peuvent changer ultérieurement. Les délégations utilisant les noms de serveurs de noms dans votre propre zone (parfois appelés « serveurs de noms de redirection vers un microsite ») ne sont actuellement pas prises en charge dans Azure DNS.
+N’utiliser d’enregistrements de type glue pour pointer vers les adresses IP de serveur de noms Azure DNS, car ces adresses IP peuvent changer ultérieurement. Les délégations utilisant les noms de serveurs de noms dans votre propre zone (parfois appelés « serveurs de noms de redirection vers un microsite ») ne sont actuellement pas prises en charge dans Azure DNS.
 
 ## <a name="verify-name-resolution-is-working"></a>Vérifier le fonctionnement de la résolution de noms
 
@@ -161,11 +161,11 @@ Si vous souhaitez configurer une zone enfant distincte, vous pouvez déléguer u
 ### <a name="create-a-dns-zone"></a>Création d’une zone DNS
 
 1. Connectez-vous au portail Azure.
-1. Dans le menu Hub, cliquez sur **Nouveau > Mise en réseau >**, puis cliquez sur **Zone DNS** pour ouvrir le panneau Créer une zone DNS.
+1. Dans le menu Hub, cliquez sur **Nouveau > Mise en réseau >**, puis cliquez sur **Zone DNS** pour ouvrir la page Créer une zone DNS.
 
     ![Zone DNS](./media/dns-domain-delegation/dns.png)
 
-1. Dans le panneau **Créer une zone DNS**, entrez les valeurs suivantes, puis cliquez sur **Créer** :
+1. Sur la page **Créer une zone DNS**, entrez les valeurs suivantes, puis cliquez sur **Créer** :
 
    | **Paramètre** | **Valeur** | **Détails** |
    |---|---|---|
@@ -179,9 +179,9 @@ Si vous souhaitez configurer une zone enfant distincte, vous pouvez déléguer u
 
 ### <a name="retrieve-name-servers"></a>Récupérer les serveurs de noms
 
-1. Une fois la zone DNS créée, allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur la zone DNS **partners.contoso.net** dans le panneau **Toutes les ressources**. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **partners.contoso.net** dans la case Filtrer par nom… pour accéder facilement à la zone DNS.
+1. Une fois la zone DNS créée, allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur la zone DNS **partners.contoso.net** sur la page **Toutes les ressources**. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **partners.contoso.net** dans la case Filtrer par nom… pour accéder facilement à la zone DNS.
 
-1. Récupérez les serveurs de noms à partir du panneau de zone DNS. Dans cet exemple, la zone « contoso.net » a été attribuée aux serveurs de noms « ns1-01.azure-dns.com », « ns2-01.azure-dns.net », « ns3-01.azure-dns.org » et « ns4-01.azure-dns.info » :
+1. Récupérez les serveurs de noms à partir de la page de la zone DNS. Dans cet exemple, la zone « contoso.net » a été attribuée aux serveurs de noms « ns1-01.azure-dns.com », « ns2-01.azure-dns.net », « ns3-01.azure-dns.org » et « ns4-01.azure-dns.info » :
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -191,7 +191,7 @@ Azure DNS crée automatiquement des enregistrements NS faisant autorité dans un
 
 1. Accédez à la zone DNS **contoso.net** dans le portail Azure.
 1. Cliquez sur **+ Jeu d’enregistrements**.
-1. Dans le panneau **Ajouter un jeu d’enregistrements**, entrez les valeurs suivantes, puis cliquez sur **OK** :
+1. Sur la page **Ajouter un jeu d’enregistrements**, saisissez les valeurs suivantes, puis cliquez sur **OK** :
 
    | **Paramètre** | **Valeur** | **Détails** |
    |---|---|---|
@@ -297,8 +297,8 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 Pour supprimer toutes les ressources créées dans cet article, procédez comme suit :
 
-1. Allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur le groupe de ressources **contosorg** dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **contosorg** dans la case **Filtrer par nom...** pour accéder facilement au groupe de ressources.
-1. Dans le panneau **contosorg**, cliquez sur le bouton **Supprimer**.
+1. Allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur le groupe de ressources **contosorg** sur la page Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **contosorg** dans la case **Filtrer par nom...** pour accéder facilement au groupe de ressources.
+1. Sur la page **contosorg**, cliquez sur le bouton **Supprimer**.
 1. Le portail nécessite que vous saisissiez le nom du groupe de ressources pour confirmer la suppression. Tapez *contosorg* comme nom du groupe de ressources, puis cliquez sur **Supprimer**. La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Veuillez donc toujours vérifier le contenu d’un groupe de ressources avant de le supprimer. Le portail supprime toutes les ressources contenues dans le groupe de ressources, puis supprime le groupe de ressources lui-même. Cette opération prend plusieurs minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -13,31 +13,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4cfc1652377f0cfd059e336aec6994b40d32c559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="roll-out-password-reset-for-users"></a>Lancer la réinitialisation du mot de passe des utilisateurs
+# <a name="how-to-successfully-rollout-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
-De nombreux clients exécutent les étapes qui suivent pour garantir un lancement sans problèmes de la fonctionnalité de réinitialisation du mot de passe libre-service.
+De nombreux clients exécutent ces étapes pour garantir un lancement sans problème de la fonctionnalité de réinitialisation de mot de passe en libre-service.
 
 1. [Activez la réinitialisation du mot de passe dans votre répertoire](active-directory-passwords-getting-started.md).
-2. [Configurez les autorisations Active Directory locales pour l’écriture différée du mot de passe](active-directory-passwords-how-it-works.md#active-directory-permissions).
-3. [Configurez l’écriture différée du mot de passe](active-directory-passwords-writeback.md#configuring-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local
+2. [Configurez les autorisations Active Directory locales pour l’écriture différée du mot de passe](active-directory-passwords-writeback.md#active-directory-permissions).
+3. [Configurez l’écriture différée du mot de passe](active-directory-passwords-writeback.md#configuring-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local.
 4. [Affectez et vérifiez les licences requises](active-directory-passwords-licensing.md).
-5. Si vous souhaitez effectuer un lancement progressif, vous pouvez éventuellement limiter la réinitialisation du mot de passe à un groupe d’utilisateurs pour déployer la fonctionnalité lentement au fil du temps. Pour ce faire, définissez **Réinitialisation du mot de passe en libre-service activée** en le faisant basculer de **Tout le monde** à **Un groupe**, puis sélectionnez un groupe de sécurité pour l’activer pour la réinitialisation du mot de passe. Des licences doivent être affectées à tous les membres de ce groupe, et c’est un excellent moyen pour activer [Gestion des licences par groupe](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
-6. Renseignez l’ensemble minimal de [Données d’authentification](active-directory-passwords-data.md) en fonction de votre stratégie.
-7. Apprenez à vos utilisateurs à utiliser la réinitialisation du mot de passe libre-service, en leur envoyant les instructions à suivre pour s’inscrire et réinitialiser le mot de passe.
-    > [!NOTE]
-    > Testez la réinitialisation de mot de passe en libre-service avec un utilisateur et non un administrateur, car Microsoft applique des spécifications d’authentification forte pour les comptes Administrateur Azure. Pour plus d’informations sur la stratégie de mot de passe administrateur, consultez notre [article détaillé](active-directory-passwords-how-it-works.md).
+5. Si vous souhaitez lancer progressivement la réinitialisation de mot de passe en libre-service, vous pouvez limiter l’accès à un groupe d’utilisateurs afin que vous puissiez piloter un groupe spécifique. Pour ce faire, faites basculer **Réinitialisation du mot de passe en libre-service activée** à **Sélectionné**, puis sélectionnez le groupe de sécurité à activer pour la réinitialisation du mot de passe. 
+6. Remplissez les [Données d’authentification](active-directory-passwords-data.md) pour vos utilisateurs telles que leur téléphone de bureau, téléphone mobile et adresse de messagerie.
+7. [Personnalisez l’expérience de connexion Azure AD pour inclure la marque de votre société](active-directory-passwords-customize.md).
+8. Apprenez à vos utilisateurs à utiliser la réinitialisation du mot de passe libre-service, en leur envoyant les instructions à suivre pour s’inscrire et réinitialiser le mot de passe.
+9. Vous pouvez choisir d’appliquer l’inscription à tout moment et demander aux utilisateurs de reconfirmer leurs informations d’authentification après un certain laps de temps.
+10. Au fil du temps, passez en revue l’inscription et l’utilisation des utilisateurs en affichant les [rapports fournis par Azure AD](active-directory-passwords-reporting.md).
+11. Lorsque vous êtes prêt, activez la réinitialisation du mot de passe pour tous les utilisateurs, définissez **Réinitialisation du mot de passe en libre-service activée** en le faisant basculer en **Tout le monde**. 
 
-8. Vous pouvez choisir d’appliquer l’inscription à tout moment et demander aux utilisateurs de reconfirmer leurs informations d’authentification après un certain laps de temps. Si vous ne souhaitez pas que les utilisateurs s’inscrivent, vous pouvez [déployer une réinitialisation du mot de passe sans nécessiter d’inscription de l’utilisateur final](active-directory-passwords-data.md).
-9. Au fil du temps, passez en revue l’inscription et l’utilisation des utilisateurs en affichant les [rapports fournis par Azure AD](active-directory-passwords-reporting.md).
+    > [!IMPORTANT]
+    > Testez la réinitialisation de mot de passe en libre-service avec un utilisateur et non un administrateur, car Microsoft applique des spécifications d’authentification forte pour les comptes Administrateur Azure. Pour plus d’informations sur la stratégie de mot de passe administrateur, consultez notre [article détaillé](active-directory-passwords-how-it-works.md).
 
 ## <a name="email-based-rollout"></a>Déploiement par courrier électronique
 
@@ -47,13 +49,17 @@ De nombreux clients estiment qu’une campagne par courrier électronique, accom
 * **Disponible dès maintenant** : modèle de courrier électronique à utiliser le jour du lancement pour inciter les utilisateurs à s’inscrire et à confirmer leurs données d’authentification afin de pouvoir utiliser la réinitialisation du mot de passe libre-service lorsqu’ils en auront besoin.
 * **Rappel d’inscription** : modèle de courrier électronique à utiliser dans les jours ou les semaines qui suivent le déploiement pour rappeler aux utilisateurs de s’inscrire et de confirmer leurs données d’authentification.
 
+![E-mail][Email]
+
 ## <a name="creating-your-own-password-portal"></a>Création de votre propre portail de mot de passe
 
 Nombre de nos clients plus importants choisissent d’héberger une page web et de créer une entrée DNS racine, comme https://passwords.contoso.com. Ils renseignent cette page avec des liens vers les portails de réinitialisation de mot de passe Azure AD, d’inscription à la réinitialisation de mot de passe et de modification de mot de passe, et y indiquent d’autres informations propres à leur organisation. Dans toutes vos communications par courrier électronique ou prospectus, vous pouvez inclure une URL de marque, facile à retenir que les utilisateurs peuvent suivre quand ils doivent utiliser les services.
 
-* Portail de réinitialisation de mot de passe : https://passwordreset.microsoftonline.com/
+* Portail de réinitialisation de mot de passe : https://aka.ms/sspr
 * Portail d’inscription à la réinitialisation de mot de passe : http://aka.ms/ssprsetup
 * Portail de modification de mot de passe : https://account.activedirectory.windowsazure.com/ChangePassword.aspx
+
+Pour votre bénéfice, nous avons créé une page d’exemple que vous pouvez utiliser et personnaliser pour les besoins de votre organisation, et qui est téléchargeable sur [GitHub](https://github.com/ajamess/password-reset-page).
 
 ## <a name="using-enforced-registration"></a>Utilisation de l’inscription forcée
 
@@ -73,15 +79,15 @@ Pour désactiver la réinitialisation de mot de passe en libre-service, il vous 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
+* [Réinitialisez ou modifiez votre mot de passe](active-directory-passwords-update-your-own-password.md).
+* [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md).
+* [Vous avez une question relative à la licence ?](active-directory-passwords-licensing.md)
+* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](active-directory-passwords-data.md)
+* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-policy.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](active-directory-passwords-writeback.md)
+* [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-reporting.md)
+* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
+* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
+* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
 
-* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service Azure AD. 
-* [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
-* [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
-* [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
-* [**Stratégie**](active-directory-passwords-policy.md) : comprenez mieux et définissez les stratégies de mot de passe d’Azure AD.
-* [**Écriture différée du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de l’écriture différée du mot de passe avec votre répertoire local.
-* [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service.
-* [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qui se passe sous le capot pour mieux comprendre le fonctionnement.
-* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
-* [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
+[Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Personnalisez ces modèles de messages électroniques en fonction des exigences de votre organisation"

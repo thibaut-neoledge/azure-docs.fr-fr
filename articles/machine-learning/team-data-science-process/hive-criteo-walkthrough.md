@@ -165,7 +165,7 @@ Nous remarquons que toutes ces tables sont externes puisque nous désignons simp
         hive
    
      Dans la ligne de commande REPL, coupez-collez la requête qu’elle exécute.
-2. **Enregistrement des requêtes dans un fichier et exécution de la commande** : la seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&amp;#95;hive&amp;#95;create&amp;#95;criteo&amp;#95;database&amp;#95;and&amp;#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
+2. **Enregistrement des requêtes dans un fichier et exécution de la commande**: la seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) puis à utiliser la commande suivante pour exécuter la requête :
    
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -287,7 +287,7 @@ Cela génère le résultat suivant :
 La combinaison LATERAL VIEW - explode dans Hive permet de générer une sortie similaire à SQL au lieu de la liste habituelle. Notez que dans ce tableau, la première colonne correspond au centre de l’emplacement et le second à la fréquence de l’emplacement.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Les centiles approximatifs de certaines variables numériques dans le groupe de données de formation
-Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le « percentile\_approx» natif de Hive le fait pour nous. [sample&amp;#95;hive&amp;#95;criteo&amp;#95;approximate&amp;#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
+Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le «percentile\_approx» natif de Hive le fait pour nous. [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -310,7 +310,7 @@ Cela donne :
 
 Nous constatons que Col15 possède des valeurs uniques 19M ! L’utilisation des techniques naïves, telles que « l’encodage à chaud » pour encoder des variables catégorielles de grande dimension, est tout bonnement impossible. Nous mentionnons notamment une technique puissante et robuste appelée [Apprentissage à l’aide de compteurs](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) pour résoudre ce problème de manière efficace.
 
-Nous terminons cette sous-rubrique en examinant le nombre de valeurs uniques pour d'autres colonnes catégorielles. [sample&amp;#95;hive&amp;#95;criteo&amp;#95;unique&amp;#95;values&amp;#95;multiple&amp;#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) contient :
+Nous terminons cette sous-rubrique en examinant le nombre de valeurs uniques pour d'autres colonnes catégorielles. [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) contient:
 
         SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
         COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))

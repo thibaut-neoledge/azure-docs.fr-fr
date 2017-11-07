@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/13/2017
+ms.date: 10/17/2017
 ms.author: samacha
-ms.openlocfilehash: 57437875da80bb5eece650063b7c5c2b0ffd65f7
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 889aaa697a04a81075b85c834d534bfeb4faf79b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-stream-analytics"></a>Qu’est-ce que Stream Analytics ?
 
@@ -63,7 +63,7 @@ Stream Analytics se connecte directement à [Azure Event Hubs](https://azure.mic
 
 Acheminez la sortie du travail Stream Analytics dans plusieurs directions. Écrivez dans un dispositif de stockage, comme Azure Blob, Azure SQL Database, Azure Data Lake Stores, ou Azure Cosmos DB. À partir de là, vous pouvez exécuter des analyses par lots avec Azure HDinsight. Ou bien envoyer la sortie vers un autre service pour une utilisation par un autre processus, tels que des concentrateurs d’événements, Azure Service Bus, des files d’attente, ou bien vers Power BI pour une visualisation.
 
-### <a name="easy-to-use"></a>Facilité d’utilisation
+### <a name="simple-to-use"></a>Simple à utiliser
 
 Pour définir les transformations, vous utilisez un [langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) simple et déclaratif qui vous permet de créer des analyses complexes sans programmation. Le langage de requête considère les données de diffusion comme entrée. Vous pouvez ensuite filtrer et trier les données, agréger des valeurs, effectuer des calculs, joindre des données (au sein d’un flux de données ou à des données de référence) et utiliser des fonctions géospatiales. Vous pouvez modifier les requêtes dans le portail, à l’aide d’IntelliSense et de la vérification de la syntaxe, et tester les requêtes à l’aide d’exemples de données que vous pouvez extraire à partir du flux en direct.
 
@@ -71,22 +71,21 @@ Pour définir les transformations, vous utilisez un [langage de requête Stream 
 
 Vous pouvez étendre les fonctionnalités du langage de requête en définissant et en appelant des fonctions supplémentaires. Vous pouvez définir des appels de fonction dans le service Azure Machine Learning pour tirer parti des solutions d’Azure Machine Learning. Vous pouvez également intégrer des fonctions JavaScript définies par l’utilisateur afin d’effectuer des calculs complexes dans le cadre d’une requête Stream Analytics.
 
-### <a name="scalability"></a>Extensibilité
+### <a name="scalable"></a>Évolutif
 
 Stream Analytics peut gérer jusqu’à 1 Go de données entrantes par seconde. L’intégration à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) permet aux travaux d’ingérer des millions d’événements par seconde. Ces événements peuvent provenir d’appareils connectés, de flux de clics, de fichiers journaux, etc. À l’aide de la fonction de partition des concentrateurs d’événements, vous pouvez partitionner des calculs en étapes logiques, chacune avec la possibilité d’être partitionnées pour augmenter l’évolutivité.
 
 ### <a name="low-cost"></a>Faible coût
 
-Comme un service cloud, Stream Analytics est optimisé pour vous permettre de travailler à faible coût. Vous payez à l’utilisation en fonction de l’unité de diffusion et de la quantité de données traitées par le système. L’utilisation est définie en fonction du volume d’événements traités et de la quantité de puissance de calcul configurée dans le cluster pour gérer les travaux Stream Analytics.
+Comme un service cloud, Stream Analytics est optimisé pour réduire le coût. Payez à l’utilisation en fonction de l’unité de diffusion et de la quantité de données traitées. L’utilisation est définie en fonction du volume d’événements traités et de la quantité de puissance de calcul configurée dans le cluster de travail.
 
-### <a name="reliability-quick-recovery-and-repeatability"></a>Fiabilité, récupération rapide et répétabilité
+### <a name="reliable"></a>Fiable
 
-En tant que service géré dans le Cloud, Stream Analytics permet d’éviter la perte de données et d’assurer la continuité. En cas de panne, le service propose des capacités de récupération intégrées. Doté d’une capacité de conservation de l’état en interne, le service peut fournir des résultats reproductibles en assurant la possibilité d’archiver des événements et de recommencer un traitement ultérieurement, tout en obtenant les mêmes résultats. Cette fonctionnalité vous permet de revenir en arrière et d’examiner les calculs lors de l’analyse des causes premières, l’analyse de scénarios, etc.
+En tant que service géré, Stream Analytics permet d’éviter la perte de données et d’assurer la continuité. En cas de panne, le service propose des capacités de récupération intégrées. Doté d’une capacité de conservation de l’état en interne, le service peut fournir des résultats reproductibles en assurant la possibilité d’archiver des événements et de recommencer un traitement ultérieurement, tout en obtenant les mêmes résultats. Cette fonctionnalité vous permet de revenir en arrière et d’examiner les calculs lors de l’analyse des causes premières, l’analyse de scénarios, etc.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Commencez par l’[expérimentation d’entrées et de requêtes à partir d’appareils IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
 * Créez une [solution Stream Analytics de bout en bout](stream-analytics-real-time-fraud-detection.md) qui examine les métadonnées téléphoniques pour rechercher des appels frauduleux.
-* En savoir plus sur le langage de requête de type SQL pour Stream Analytics, ainsi que sur les concepts uniques comme les [fonctions de fenêtre](stream-analytics-window-functions.md).
 * Trouvez les réponses aux questions que vous vous posez sur Stream Analytics dans le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 

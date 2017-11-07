@@ -8,6 +8,7 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
 * Windows 8.1 (32 bits et 64 bits)
 * Windows Server 2012 (64 bits uniquement)
 * Windows Server 2012 R2 (64 bits uniquement)
+* Windows Server 2016 (64 bits uniquement)
 * Windows 10
 * OSX version 10.11 pour Mac (El Capitan)
 * MacOS version 10.12 pour Mac (Sierra)

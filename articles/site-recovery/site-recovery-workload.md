@@ -1,6 +1,6 @@
 ---
-title: "Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?"
-description: "Azure Site Recovery protège vos charges de travail et applications en coordonnant la réplication, le basculement et la récupération des machines virtuelles et serveurs physiques locaux sur Azure, ou sur un site local secondaire."
+title: "Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ? | Microsoft Docs"
+description: "Décrit les charges de travail qui peuvent être protégées à l’aide de la récupération d’urgence avec le service Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
-Cet article décrit les charges de travail et les applications que vous pouvez répliquer avec le service Azure Site Recovery.
 
-Publier des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Cet article décrit les charges de travail et les applications que vous pouvez répliquer avec le service [Azure Site Recovery](site-recovery-overview.md).
+
+
 
 ## <a name="overview"></a>Vue d'ensemble
+
 Les organisations ont besoin d’une stratégie de continuité des activités et de récupération d’urgence pour que les charges de travail et les données demeurent en sécurité et disponibles pendant les temps d’arrêt prévus et imprévus, et pour rétablir au plus vite des conditions de travail normales.
 
 Site Recovery est un service Azure qui participe à votre stratégie de continuité des activités et de récupération d’urgence. À l’aide de Site Recovery, vous pouvez déployer une réplication compatible avec les applications vers le cloud ou un site secondaire. Qu’il s’agisse d’applications Windows ou Linux s’exécutant sur des serveurs physiques ou des machines virtuelles VMware ou Hyper-V, vous pouvez utiliser Site Recovery pour orchestrer la réplication, effectuer un test de récupération d’urgence et exécuter des opérations de basculement et de restauration automatique.
@@ -33,6 +35,7 @@ Site Recovery est un service Azure qui participe à votre stratégie de continui
 Site Recovery s’intègre avec les applications Microsoft, y compris SharePoint, Exchange, Dynamics, SQL Server et Active Directory. Par ailleurs, Microsoft travaille en étroite collaboration avec les principaux fournisseurs, notamment Oracle, SAP et Red Hat. Vous pouvez personnaliser les solutions de réplication application par application.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Pourquoi utiliser Site Recovery pour la réplication des applications ?
+
 Site Recovery contribue à la protection des applications et à la récupération comme suit :
 
 * Service indépendant de l’application qui assure la réplication de n’importe quelle charge de travail exécutée sur une machine prise en charge.
@@ -157,4 +160,5 @@ Site Recovery permet de protéger vos déploiements Citrix XenApp XenDesktop, 
 [Apprenez-en plus](site-recovery-citrix-xenapp-and-xendesktop.md) sur la protection des déploiements de Citrix XenApp et XenDesktop. Vous pouvez également consulter le [livre blanc de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) détaillant les mêmes informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Vérifiez les composants requis](site-recovery-prereq.md)
+
+[Prise en main](azure-to-azure-quickstart.md) de la réplication d’une machine virtuelle Azure.

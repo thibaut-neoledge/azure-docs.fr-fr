@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -105,13 +105,13 @@ Une configuration facile vous permet d’exécuter vos expérimentations sur div
 
 Le service Expérimentation construit des environnements virtuels pour garantir que votre script peut être exécuté de manière isolée avec des résultats reproductibles. Il enregistre les informations de l’historique des exécutions et vous présente cet historique visuellement. Vous pouvez facilement sélectionner le meilleur modèle parmi vos exécutions d’expérimentations. 
 
-Pour plus d’informations, reportez-vous à [Configuration de l’exécution d’une expérimentation](experiment-execution-configuration.md).
+Pour plus d’informations, reportez-vous à [Configuration du service d’une expérimentation](experimentation-service-configuration.md).
 
 ## <a name="azure-machine-learning-model-management-service"></a>Service Gestion des modèles Azure Machine Learning
 
 Le service Gestion des modèles permet aux chercheurs de données et aux équipes des opérations de développement de déployer des modèles prédictifs dans un large éventail d’environnements. Le suivi du lignage et des versions de modèle est assuré depuis les exécutions d’apprentissage jusqu’aux déploiements. Les modèles sont stockés, inscrits et gérés dans le cloud. 
 
-À l’aide de commandes CLI simples, vous pouvez mettre en conteneur vos modèle, scripts de notation et dépendances dans des images Docker. Ces images sont inscrites dans votre propre registre Docker hébergé dans Azure (Azure Container Registry). Elles peuvent être déployées de manière fiable sur les cibles suivantes :
+À l’aide de commandes CLI simples, vous pouvez mettre en conteneur vos modèles, scripts de notation et dépendances dans des images Docker. Ces images sont inscrites dans votre propre registre Docker hébergé dans Azure (Azure Container Registry). Elles peuvent être déployées de manière fiable sur les cibles suivantes :
 
 - Ordinateurs locaux
 - Serveurs locaux

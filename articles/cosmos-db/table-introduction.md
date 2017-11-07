@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
 
@@ -38,10 +38,10 @@ Nous vous recommandons de visionner la vidéo suivante, dans laquelle Aravind Ra
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>API de table standard et Premium
-Si vous utilisez actuellement le stockage de table, vous bénéficiez des avantages suivants en passant à la préversion de « table Premium » d’Azure Cosmos DB :
+## <a name="table-offerings"></a>Offres de table
+Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des avantages suivants en passant à la préversion de l’API Table de Azure Cosmos DB :
 
-| | Stockage de tables Azure | Azure Cosmos DB : stockage de table (version préliminaire) |
+| | Stockage de table Azure | API Table de Azure Cosmos DB (version préliminaire) |
 | --- | --- | --- |
 | Latency | Rapide, mais aucune limite supérieure sur la latence. | Une latence de quelques millisecondes pour les lectures et écritures, appuyée par des lectures avec une latence de < 10 ms et des écritures avec une latence de < 15 ms au 99e centile, à n’importe quelle échelle, n’importe où dans le monde. |
 | Throughput | Modèle de débit variable. Les tables ont une limite d’évolutivité de 20 000 opérations/s. | Hautement évolutif avec un [débit dédié réservé par table](request-units.md), qui est appuyé par des contrats de niveau de service. Les comptes n’ont aucune limite supérieure sur le débit, et prennent en charge > 10 millions d’opérations/s par table. |

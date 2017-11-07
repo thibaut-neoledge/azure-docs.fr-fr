@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 10/25/2017
 ms.author: kaanan
-ms.openlocfilehash: b734181eafeec0ed38c0770baa996a398091f341
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef91f6f952b901bcda981e5375be0b84e1ca0a3
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -84,6 +84,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Pris en charge |Pris en charge |Chicago, Silicon Valley, Washington DC |
 | **[Console](https://www.consoleconnect.com/partners/cloudsaas/)**| Pris en charge | Pris en charge |Silicon Valley, Toronto |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Pris en charge |Pris en charge |Chicago, Denver, Los Angeles, New York, Silicon Valley, Washington DC |
+| **Communications globales EPSILON** |Pris en charge |Pris en charge |Singapour |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Pris en charge |Pris en charge |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Pris en charge |Pris en charge |Amsterdam |
 | **GÉANT** |Pris en charge |Pris en charge |Amsterdam |
