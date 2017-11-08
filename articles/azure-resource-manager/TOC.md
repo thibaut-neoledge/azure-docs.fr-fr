@@ -71,7 +71,6 @@
 
 ## Définir des stratégies de ressources
 ### [Que sont les stratégies de ressources ?](resource-manager-policy.md)
-### [Utiliser des scripts pour attribuer la stratégie](resource-manager-policy-create-assign.md)
 ### Exemples
 #### [Balises](resource-manager-policy-tags.md)
 #### [Conventions d’affectation de noms](resource-manager-policy-naming-convention.md)
