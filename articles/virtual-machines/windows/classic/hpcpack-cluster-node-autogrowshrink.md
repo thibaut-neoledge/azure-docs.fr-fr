@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0dc0d15c64d8951c3c457df73588c37418a3c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Augmenter ou diminuer automatiquement les ressources du cluster HPC Pack dans Azure en fonction de la charge de travail du cluster
 Si vous déployez des nœuds de rafale Azure dans votre cluster HPC Pack ou si vous créez un cluster HPC Pack dans des machines virtuelles Azure, un moyen d’augmenter ou de diminuer automatiquement les ressources du cluster, comme des nœuds ou des cœurs, en fonction de la charge de travail du cluster peut s’avérer utile. En mettant à l’échelle les ressources du cluster de cette façon, vous pouvez utiliser vos ressources Azure plus efficacement et contrôler leurs coûts.
@@ -178,7 +178,7 @@ Par défaut, HPC Pack augmente de 1 % les nœuds supplémentaires pour les trava
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
 ### <a name="soa-example"></a>Exemple SOA
-Par défaut, **SoaJobGrowThreshold** est réglé sur 50 000 et **SoaRequestsPerCore** sur 200 000. Si vous envoyez un travail SOA avec 70 000 demandes, il y a une tâche en attente et les demandes entrantes sont au nombre de 70 000. Dans ce cas, HPC Pack agrandit un cœur pour la tâche en attente et, pour les demandes entrantes, agrandit (70 000 - 50 000) / 20 000 = 1 cœur, soit au total deux cœurs pour ce travail SOA.
+Par défaut, **SoaJobGrowThreshold** est réglé sur 50000 et **SoaRequestsPerCore** sur 20000. Si vous envoyez un travail SOA avec 70 000 demandes, il y a une tâche en attente et les demandes entrantes sont au nombre de 70 000. Dans ce cas, HPC Pack agrandit un cœur pour la tâche en attente et, pour les demandes entrantes, agrandit (70 000 - 50 000) / 20 000 = 1 cœur, soit au total deux cœurs pour ce travail SOA.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>Exécuter le script AzureAutoGrowShrink.ps1
 ### <a name="prerequisites"></a>Composants requis

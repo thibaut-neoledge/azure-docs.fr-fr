@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 07759a590e3a4e061a1c5727428d2c7c2a655f51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Comment utiliser un bloc-notes Jupyter dans Azure Machine Learning Workbench
 
@@ -39,7 +39,7 @@ Pour plus d’informations, reportez-vous à la [documentation Jupyter](http://j
 Vous pouvez accéder à de nombreux noyaux différents dans Azure Machine Learning Workbench tout simplement en définissant des configurations d’exécution et des cibles de calcul dans le dossier `aml_config` de votre projet. Ajoutez une nouvelle cible de calcul en émettant une commande `az ml computetarget attach` revient à ajouter un nouveau noyau.
 
 >[!NOTE]
->Consultez [Configurer une exécution](experiment-execution-configuration.md) pour plus d’informations sur les configurations d’exécutions et les cibles de calcul.
+>Consultez [Configurer une exécution](experimentation-service-configuration.md) pour plus d’informations sur les configurations d’exécutions et les cibles de calcul.
 
 ### <a name="kernel-naming-convention"></a>convention de nommage de noyau
 Les noyaux sont généralement nommés selon le format « \<nom du projet> \<nom de la configuration d’exécution> ». Par exemple, si vous avez une configuration d’exécution nommée _docker-python_ dans un projet nommé _myIris_, vous pouvez trouver un noyau nommé « myIris docker-python » dans la liste des noyaux quand vous ouvrez un bloc-notes Jupyter.
@@ -107,5 +107,5 @@ Vous pouvez maintenant cliquer sur un fichier de bloc-notes `.ipynb`, l’ouvrir
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour savoir comment utiliser un bloc-notes Jupyter, consultez la [documentation officielle de Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    
-- Pour mieux comprendre l’environnement d’exécution d’une expérimentation Azure ML, consultez la [vue d’ensemble du service d’exécution des expérimentations Azure Machine Learning](experiment-execution-configuration.md).
+- Pour mieux comprendre l’environnement d’exécution d’une expérimentation Azure ML, consultez la [vue d’ensemble du service des expérimentations Azure Machine Learning](experimentation-service-configuration.md).
 

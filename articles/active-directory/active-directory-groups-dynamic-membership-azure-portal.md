@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory
 Dans Azure Active Directory (Azure AD), vous pouvez créer des règles avancées pour activer des appartenances dynamiques complexes basées sur les attributs pour les groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils.
@@ -30,7 +30,7 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 > [!NOTE]
 > - Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365.
 >
-> - Cette fonctionnalité nécessite une licence Azure AD Premium P1 pour chaque utilisateur membre ajouté à au moins un groupe dynamique.
+> - Cette fonctionnalité nécessite une licence Azure AD Premium P1 pour chaque utilisateur membre ajouté à au moins un groupe dynamique. Il n’est pas nécessaire d'attribuer réellement des licences aux utilisateurs pour qu’ils soient membres de groupes dynamiques, mais vous avez besoin d'un nombre suffisant de licences dans le client pour couvrir tous les utilisateurs de ce type. Par exemple, si vous avez un total de 1 000 utilisateurs uniques dans tous les groupes dynamiques de votre client, vous devez disposer d’au moins 1 000 licences pour Azure AD Premium P1, ou plus, pour répondre aux exigences de licence.
 >
 > - Vous pouvez créer un groupe dynamique pour les appareils ou utilisateurs, mais vous ne pouvez pas créer une règle qui contient à la fois des objets d’utilisateur et d’appareils.
 
@@ -306,7 +306,7 @@ Nous sommes en train de mettre à jour le portail Azure pour prendre en charge c
 **Utilisation de PowerShell pour modifier la gestion des appartenances d’un groupe**
 
 > [!NOTE]
-> Pour modifier les propriétés de groupe dynamique, vous devez utiliser les applets de commande de [Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Vous pouvez l’installer à partir d’ [ici](https://www.powershellgallery.com/packages/AzureADPreview).
+> Pour modifier les propriétés de groupe dynamique, vous devez utiliser les applets de commande de la **préversion** d'[Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Vous pouvez installer la préversion depuis [ici](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Voici un exemple de fonctions qui permettent de changer la gestion des appartenances d’un groupe existant. Notez qu’une attention particulière est nécessaire pour manipuler correctement la propriété GroupTypes et conserver toutes les valeurs qui peuvent exister ici, qui ne sont pas liées à l’appartenance dynamique.
 

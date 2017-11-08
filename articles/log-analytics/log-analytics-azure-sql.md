@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
-ms.author: banders
-ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/26/2017
+ms.author: magoedte;banders
+ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Surveiller Azure SQL Database à l’aide d’Azure SQL Analytics (version préliminaire) dans Log Analytics
 
@@ -42,13 +42,13 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | [Agents Linux](log-analytics-linux-agents.md) | Non | Les agents directs Linux ne sont pas utilisés par la solution. |
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non | La solution ne valorise aucune connexion directe entre l’agent SCOM et Log Analytics. |
 | [Compte Stockage Azure](log-analytics-azure-storage.md) | Non | Log Analytics ne lit pas les données du compte de stockage. |
-| [Diagnostics Azure](log-analytics-azure-storage.md) | Oui | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
+| [Azure Diagnostics](log-analytics-azure-storage.md) | Oui | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
 
 ## <a name="prerequisites"></a>Composants requis
 
 - Un abonnement Azure. Si vous n’en avez pas, créez-en un [gratuitement](https://azure.microsoft.com/free/).
-- Un espace de travail Log Analytics. Vous pouvez utiliser un élément existant, ou en [créez un nouveau](log-analytics-get-started.md) avant de commencer à utiliser cette solution.
-- Activez les diagnostics Azure pour vos instances Azure SQL Database et vos pools élastiques et [configurez-les pour l’envoi de leurs données vers Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+- Un espace de travail Log Analytics. Vous pouvez utiliser un élément existant, ou en [créez un nouveau](log-analytics-quick-create-workspace.md) avant de commencer à utiliser cette solution.
+- Activez les diagnostics Azure pour vos instances Azure SQL Database et vos pools élastiques et [configurez-les pour l’envoi de leurs données vers Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ## <a name="configuration"></a>Configuration
 
@@ -60,9 +60,9 @@ Exécutez la procédure suivante afin d’ajouter la solution Azure SQL Analytic
 3. Dans la liste **Surveillance et gestion**, cliquez sur **Afficher tout**.
 4. Dans la liste **Recommandé**, cliquez sur **Plus**. Ensuite, dans la nouvelle liste, recherchez **Azure SQL Analytics (version préliminaire)** et sélectionnez cet élément.  
     ![Solution Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. Dans le volet **Azure SQL Analytics (version préliminaire)**, cliquez sur **Créer**.  
+5. Dans le panneau **Azure SQL Analytics (version préliminaire)**, cliquez sur **Créer**.  
     ![Créer](./media/log-analytics-azure-sql/portal-create.png)
-6. Dans le volet **Créer une nouvelle solution**, sélectionnez l’espace de travail que vous souhaitez ajouter à la solution, puis cliquez sur **Créer**.  
+6. Dans le panneau **Créer une nouvelle solution**, sélectionnez l’espace de travail que vous souhaitez ajouter à la solution, puis cliquez sur **Créer**.  
     ![ajouter à l’espace de travail](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -83,7 +83,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ## <a name="using-the-solution"></a>Utilisation de la solution
 
 >[!NOTE]
-> Mettez à niveau votre espace de travail Log Analytics pour obtenir la version la plus récente d’Azure SQL Analytics.
+> Veuillez mettre à niveau Log Analytics pour obtenir la version la plus récente d’Azure SQL Analytics.
 >
 
 Lorsque vous ajoutez la solution à votre espace de travail, la vignette Azure SQL Analytics est également ajoutée ; elle apparaît dans la Vue d’ensemble. La vignette indique le nombre d’instances Azure SQL Database et de pools élastiques Azure SQL auxquels la solution est associée.
@@ -96,26 +96,17 @@ Cliquez sur la vignette **Azure SQL Analytics** afin d’ouvrir le tableau de bo
 
 ![Vue d’ensemble d’Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-En sélectionnant l’une des vignettes, vous ouvrez le rapport détaillé d’une perspective en particulier.
+En sélectionnant l’une des vignettes, vous ouvrez le rapport détaillé d’une perspective en particulier. Une fois la perspective sélectionnée, le rapport détaillé est ouvert.
 
 ![Délais d’expiration d’Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
 Chaque perspective fournit des récapitulatifs sur l’abonnement, le serveur, le pool de bases de données élastique et la base de données. En outre, sur la droite, chaque perspective présente un rapport qui lui est propre. Pour approfondir davantage, sélectionnez l’abonnement, le serveur, le pool ou la base de données dans la liste.
 
-| Perspective | Description |
-| --- | --- |
-| Ressource par type | Perspective comptabilisant toutes les ressources surveillées. Ce zoom fournit un récapitulatif des métriques de DTU et Go. |
-| Insights | Permet une exploration hiérarchique dans Intelligent Insights. Apprenez-en davantage sur l’intelligence artificielle intégrée. |
-| Errors | Permet une exploration hiérarchique des erreurs SQL qui se sont produites dans les bases de données. |
-| Délais d’expiration | Permet une exploration hiérarchique des délais d’expiration SQL qui se sont produits dans les bases de données. |
-| Blocages | Permet une exploration hiérarchique des blocages SQL qui se sont produits dans les bases de données. |
-| Attentes de la base de données | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. |
-| Durée de la requête | Permet une exploration hiérarchique des statistiques d’exécution de la requête, par exemple la durée de la requête, l’utilisation du processeur, l’utilisation des E/S de données, l’utilisation des E/S du journal. |
-| Attentes de requête | Permet une exploration hiérarchique des statistiques d’attente de requête par catégorie d’attente. |
+| Perspective | Description | | Resource by type | Perspective qui compte toutes les ressources surveillées. Ce zoom fournit un récapitulatif des métriques de DTU et Go. | | Insights | Permet une exploration hiérarchique dans Intelligent Insights. Apprenez-en davantage sur l’intelligence artificielle intégrée. | | Errors | Permet une exploration hiérarchique des erreurs SQL qui se sont produites dans les bases de données. | | Timeouts | Permet une exploration hiérarchique des délais d’expiration SQL qui se sont produits dans les bases de données. | | Blockings | Permet une exploration hiérarchique des blocages SQL qui se sont produits dans les bases de données. | | Database waits | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. | | Query duration | Permet une exploration hiérarchique des statistiques d’exécution de la requête, par exemple la durée de la requête, l’utilisation du processeur, l’utilisation des E/S de données, l’utilisation des E/S du journal. | | Query waits | Permet une exploration hiérarchique des statistiques d’attente de requête par catégorie d’attente. |
 
 ### <a name="intelligent-insights-report"></a>Rapport Intelligent Insights
 
-Toutes les analyses Intelligent Insights collectées peut être visualisées et sont accessibles par le biais de la perspective Insights. [Cliquez ici pour en savoir plus sur Intelligent Insights](../sql-database/sql-database-intelligent-insights.md).
+Toutes les analyses Intelligent Insights collectées peut être visualisées et sont accessibles par le biais de la perspective Insights. 
 
 ![Insights Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -136,6 +127,9 @@ En vous aidant de la durée de la requête et des attentes de requête, vous pou
 ### <a name="analyze-data-and-create-alerts"></a>Analyser les données et créer des alertes
 
 Vous pouvez facilement créer des alertes avec les données provenant de ressources Azure SQL Database. Voici quelques requêtes utiles de [Recherche dans les journaux](log-analytics-log-searches.md) que vous pouvez utiliser pour créer des alertes :
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 
 *DTU élevé sur Azure SQL Database*
 
@@ -162,7 +156,7 @@ Vous pouvez utiliser ces requêtes de type alertes pour signaler que certains se
 6. Sur la page **Ajouter une règle d’alerte**, configurez les propriétés appropriées et les seuils spécifiques, puis cliquez sur **Enregistrer**.  
 ![ajout d’une règle d’alerte](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 - Utilisez les [Recherches de journal](log-analytics-log-searches.md) dans Log Analytics pour afficher les données détaillées sur Azure SQL.
 - [Créer un tableau de bord personnalisé](log-analytics-dashboards.md) comportant les données Azure SQL.

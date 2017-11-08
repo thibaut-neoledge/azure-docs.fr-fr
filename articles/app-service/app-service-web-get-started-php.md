@@ -3,8 +3,8 @@ title: "Créer une application web PHP dans Azure | Microsoft Docs"
 description: "Déployez votre premier programme Hello World PHP dans Azure App Service Web Apps en quelques minutes."
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/21/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: a91f9b6693476f68ef0e64fb0283ded2cedec29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 929c8e3bd8e180148897c4a7808a90f5ca614c4e
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Créer une application web PHP dans Azure
 
@@ -71,13 +71,17 @@ Dans la fenêtre de terminal, appuyez sur **Ctrl + C** pour quitter le serveur
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## <a name="create-a-web-app"></a>Créer une application web
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+
+Accédez à votre nouvelle application web. Remplacez _&lt;app name>_ par un nom d’application unique.
+
+```bash
+http://<app name>.azurewebsites.net
+```
 
 ![Page d’application web vide](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-Vous avez créé une application web vide dans Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -128,7 +132,7 @@ L’exemple de code PHP s’exécute dans une application web Azure App Service.
 echo "Hello Azure!";
 ```
 
-Validez vos modifications dans Git, puis envoyez les modifications de code à Azure.
+Dans la fenêtre du terminal local, validez vos modifications dans Git, puis envoyez les modifications de code à Azure.
 
 ```bash
 git commit -am "updated output"

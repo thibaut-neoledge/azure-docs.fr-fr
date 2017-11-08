@@ -6,7 +6,7 @@
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nom de l’application** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. | 
+    | **Nom de l’application** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z`, `0-9` et `-`.  | 
     | **Abonnement** | Votre abonnement | Abonnement sous lequel cette nouvelle application de fonction sera créé. | 
     | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nom du nouveau groupe de ressources dans lequel créer votre Function App. | 
     | **[Plan d’hébergement](../articles/azure-functions/functions-scale.md)** |   Plan de consommation | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Dans la valeur par défaut **Plan de consommation**, les ressources sont ajoutées dynamiquement comme requis par vos fonctions. Vous payez uniquement pour la durée d’exécution de vos fonctions.   |

@@ -1,4 +1,4 @@
-Dans la fenêtre du terminal local, ajoutez un référentiel distant Azure dans votre référentiel Git local.
+Dans la fenêtre du terminal local, ajoutez un référentiel distant Azure dans votre référentiel Git local. Cette instance Azure distante a été créée pour vous dans [Créer une application web](#create-a-web-app).
 
 ```bash
 git remote add azure <URI from previous step>

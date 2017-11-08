@@ -4,7 +4,7 @@ description: "Présentation des services de domaine Azure Active Directory"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory-ds
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: c4a22b230cd630c413118ab798ff241527465554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be18ee0266a97057499baccc5bb39a35224336d7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-ad-domain-services"></a>Services de domaine Azure AD
+# <a name="azure-active-directory-ad-domain-services"></a>Services de domaine Azure Active Directory (AD)
 ## <a name="overview"></a>Vue d'ensemble
 Azure Infrastructure Services permet de déployer une large gamme de solutions informatiques de manière agile. Azure Virtual Machines permet un déploiement quasi instantané, et un paiement à la minute. Grâce à la prise en charge de Windows, Linux, SQL Server, Oracle, IBM, SAP et BizTalk, vous pouvez déployer n’importe quelle charge de travail et toutes les langues sur quasiment tous les systèmes d’exploitation. Ces avantages permettent de migrer des applications héritées déployées sur site vers Azure, tout en faisant des économies sur les dépenses d’exploitation.
 
@@ -35,6 +35,10 @@ Pour répondre aux besoins liés à l’identité de leurs applications déploy�
 Toutes ces approches pèchent par leur coût élevé et la surcharge administrative. Les administrateurs doivent déployer des contrôleurs de domaine en utilisant des machines virtuelles dans Azure. De plus, ils doivent gérer, assurer la sécurité, appliquer des correctifs, surveiller, sauvegarder et dépanner ces machines virtuelles. La dépendance vis-à-vis des connexions VPN dans l’annuaire sur site expose les charges de travail déployées dans Azure aux problèmes ou pannes réseau temporaires, qui réduisent les temps d’activité et affectent quelque peu la fiabilité de ces applications.
 
 Nous avons conçu les Services de domaine Active Directory Azure pour offrir une alternative plus simple.
+
+### <a name="watch-an-introductory-video"></a>Regarder une vidéo d’introduction
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
+
 
 ## <a name="introducing-azure-ad-domain-services"></a>Présentation des services de domaine Azure AD
 Les Services de domaine Active Directory Azure fournissent des services de domaine gérés tels que la jonction de domaine, la stratégie de groupe, le protocole LDAP, l’authentification Kerberos/NTLM, etc. totalement compatibles avec Windows Server Active Directory. Vous pouvez utiliser ces services de domaine sans avoir à déployer, gérer et apporter des correctifs aux contrôleurs de domaine dans le cloud. Les services de domaine Azure AD s’intègrent au locataire Azure AD existant, permettant ainsi aux utilisateurs de se connecter à l’aide de leurs informations d’identification d’entreprise. En outre, vous pouvez utiliser des comptes d’utilisateurs et des groupes existants pour sécuriser l’accès aux ressources, et garantir un « transfert » plus simple des ressources locales vers les services d’infrastructure Azure.

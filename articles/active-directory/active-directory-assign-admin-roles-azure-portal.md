@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/26/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 3cce18d7a5cb67a53a90bd7e13c9f4c7b8c2da89
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 260462e57c53d2d41bb2bfd8381a1c184303eea1
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Attribution de rôles d’administrateur dans Azure Active Directory
 
@@ -30,10 +30,12 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **Administrateur de facturation**: effectue les achats, gère les abonnements ainsi que les tickets de support et surveille l’état des services.
 
-* **Administrateur de conformité** : les utilisateurs disposant de ce rôle ont des autorisations de gestion dans le Centre de sécurité et conformité Office 365 et le Centre d'administration Exchange. Pour plus d’informations, consultez l’article [À propos des rôles d’administrateur Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Administrateur de conformité** : les utilisateurs disposant de ce rôle possèdent des autorisations de gestion dans le Centre de sécurité et conformité compatibilité de la sécurité Office 365 et le Centre d'administration Exchange. Pour plus d’informations, consultez l’article [À propos des rôles d’administrateur Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Administrateur de l’accès conditionnel** : les utilisateurs disposant de ce rôle peuvent gérer les paramètres d’accès conditionnel Azure Active Directory.
-
+  > [!NOTE]
+  > Pour déployer la stratégie d’accès conditionnel Exchange ActiveSync dans Azure, l’utilisateur doit également être administrateur général.
+  
 * **Administrateur de service CRM** : les utilisateurs disposant de ce rôle ont des autorisations globales dans Microsoft CRM Online, lorsque le service est présent. Ils peuvent également gérer les tickets de support et surveiller l’état des services. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Administrateurs d’appareil**: les utilisateurs disposant de ce rôle deviennent administrateurs d’ordinateur local sur tous les appareils Windows 10 qui sont joints à Azure Active Directory. Ils ne peuvent pas gérer des objets appareil dans Azure Active Directory.

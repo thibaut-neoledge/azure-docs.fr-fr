@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 8a1097353d24ad4c807803511e93c90394816138
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Utiliser des instances compatibles RDMA ou GPU dans les pools Batch
 
@@ -49,11 +49,11 @@ Les fonctionnalités RDMA et GPU des tailles nécessitant beaucoup de ressources
 
 | Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | HPC SUSE Linux Enterprise Server 12 ou<br/>HPC basé sur CentOS<br/>(Place de marché Azure) | Intel MPI 5 | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
-| [Série NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | GPU NVIDIA Tesla K80 | Ubuntu 16.04 LTS.<br/>Red Hat Enterprise Linux 7.3 ou<br/>Basé sur CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA Toolkit 8.0 | N/A | 
-| [Série NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3<br/>Basé sur CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA GRID 4.3 | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>HPC SUSE Linux Enterprise Server 12 ou<br/>HPC basé sur CentOS<br/>(Place de marché Azure) | Intel MPI 5 | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
+| [Série NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | GPU NVIDIA Tesla K80 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>Basé sur CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA Toolkit 9.0 | N/A | 
+| [Série NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>Basé sur CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA GRID 4.3 | N/A |
 
-*La connectivité RDMA sur les machines virtuelles NC24r est prise en charge sur HPC basé sur CentOS 7.3 avec Intel MPI.
+*La connectivité RDMA sur les machines virtuelles NC24r est prise en charge sur Ubuntu 16.04 LTS ou HPC 7.3 basé sur CentOS (depuis la Place de marché Azure) avec Intel MPI.
 
 
 
@@ -62,10 +62,10 @@ Les fonctionnalités RDMA et GPU des tailles nécessitant beaucoup de ressources
 | Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 ou<br/>Windows Server 2012 (Place de marché Azure) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/> Intel MPI 5<br/><br/>Extension de machine virtuelle Azure HpcVMDrivers | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
-| [Série NC*](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla K80 | Windows Server 2016 ou <br/>Windows Server 2012 R2 (Place de marché Azure) | Pilotes NVIDIA Tesla ou pilotes CUDA Toolkit 8.0| N/A | 
+| [Série NC*](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla K80 | Windows Server 2016 ou <br/>Windows Server 2012 R2 (Place de marché Azure) | Pilotes NVIDIA Tesla ou pilotes CUDA Toolkit 9.0| N/A | 
 | [Série NV](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 ou<br/>Windows Server 2012 R2 (Place de marché Azure) | Pilotes NVIDIA GRID 4.3 | N/A |
 
-*La connectivité RDMA sur les machines virtuelles NC24r est prise en charge sur Windows Server 2012 R2 avec l’extension HpcVMDrivers et Microsoft MPI ou Intel MPI.
+*La connectivité RDMA sur les machines virtuelles NC24r est prise en charge sur Windows Server 2012 R2 (depuis Azure Marketplace) avec l’extension HpcVMDrivers et Microsoft MPI ou Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Pools Windows - Configuration des services cloud
 
@@ -119,9 +119,9 @@ Pour exécuter des applications MPI Windows sur un pool de nœuds Azure A8, vous
 
 ## <a name="example-nvidia-tesla-drivers-on-nc-vm-pool"></a>Exemple : Pilotes NVIDIA Tesla sur un pool de machines virtuelles NC
 
-Pour exécuter des applications CUDA sur un pool de nœuds Linux NC, vous devez installer CUDA Toolkit 8.0 sur les nœuds. La boîte à outils installe les pilotes NVIDIA Tesla GPU nécessaires. Voici des exemples d’étapes permettant de déployer une image personnalisée d’Ubuntu 16.04 LTS avec les pilotes GPU :
+Pour exécuter des applications CUDA sur un pool de nœuds Linux NC, vous devez installer CUDA Toolkit 9.0 sur les nœuds. La boîte à outils installe les pilotes NVIDIA Tesla GPU nécessaires. Voici des exemples d’étapes permettant de déployer une image personnalisée d’Ubuntu 16.04 LTS avec les pilotes GPU :
 
-1. Déployez une machine virtuelle Azure NC6 exécutant Ubuntu 16.04 LTS. Par exemple, créez la machine virtuelle dans la région Sud-Centre des États-Unis. Veillez à créer la machine virtuelle avec un stockage standard et *sans* disques gérés.
+1. Déployez une machine virtuelle Azure NC6 exécutant Ubuntu 16.04 LTS. Par exemple, créez la machine virtuelle dans la région Sud-Centre des États-Unis. Assurez-vous que vous créez la machine virtuelle avec un disque géré.
 2. Suivez les étapes pour vous connecter à la machine virtuelle et [installer les pilotes CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
 3. Déprovisionnez l’agent Linux, puis [capturez l’image de machine virtuelle Linux](../virtual-machines/linux/capture-image.md).
 4. Créez un compte Batch dans une région qui prend en charge des machines virtuelles NC.

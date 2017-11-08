@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 10/26/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7615074ce3f5098d5155dfc28ada567ea6361878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) .NET Core Azure Cosmos DB : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -56,6 +56,10 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 > [!NOTE] 
 > Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB n’est pas encore compatible avec les applications de plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* Ajout de plusieurs améliorations et correctifs de fiabilité.
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1 
 
@@ -140,6 +144,7 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.6.0](#1.6.0) |17 octobre 2017 |--- |
 | [1.5.1](#1.5.1) |2 octobre 2017 |--- |
 | [1.5.0](#1.5.0) |10 août 2017 |--- | 
 | [1.4.1](#1.4.1) |7 août 2017 |--- |

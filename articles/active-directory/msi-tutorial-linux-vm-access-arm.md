@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
+ms.date: 10/30/2017
 ms.author: elkuzmen
-ms.openlocfilehash: c919947e15306ff17de90cbaedd19c7545cf02dc
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: a2ccae76ff548847b331c7993013f22a098525ce
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="use-managed-service-identity-with-a-linux-vm-to-access-azure-resource-manager"></a>Utiliser l’identité du service administré avec une machine virtuelle Linux pour accéder à Azure Resource Manager
+# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Utiliser une identité du service administré (MSI) pour une machine virtuelle Linux pour accéder à Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
@@ -80,9 +80,9 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 
     ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-resource-manager"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour appeler Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour appeler Gestionnaire des ressources 
 
-Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../virtual-machines/linux/ssh-from-windows.md) ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**.  
 2. **Connectez-vous** à la machine virtuelle avec le client SSH de votre choix. 

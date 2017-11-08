@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 062d82d1bb2126a5b135796a2b5fa00ccf02511d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Mettre à jour des modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
 Cet article vient s’ajouter à l’article principal sur l’intégration Azure Data Factory - Azure Machine Learning : [Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning](transform-data-using-machine-learning.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article. 
@@ -88,7 +88,7 @@ Pour que le flux de travail de bout en bout mentionné ci-dessus fonctionne, vou
 Pour le second service lié Azure Machine Learning, la configuration est différente quand votre service web Azure Machine Learning est un service web classique ou un nouveau service web. Les différences sont expliquées distinctement dans les sections suivantes. 
 
 ## <a name="web-service-is-a-classic-web-service"></a>Le service web est un service web classique
-Si le service web prédictif est un **service web classique**, créez le deuxième **point de terminaison (qui n’est pas le point de terminaison par défaut) pouvant être mis à jour** à l’aide du [portail Azure](https://manage.windowsazure.com). Pour connaître les étapes, consultez l’article [Créer des points de terminaison](../machine-learning/machine-learning-create-endpoint.md). Après avoir créé le point de terminaison non par défaut pouvant être mis à jour, procédez comme suit :
+Si le service Web anticipé est un **service Web classique**, créez le second **point de terminaison non par défaut et modifiable** à l’aide du portail Azure. Pour connaître les étapes, consultez l’article [Créer des points de terminaison](../machine-learning/machine-learning-create-endpoint.md). Après avoir créé le point de terminaison non par défaut pouvant être mis à jour, procédez comme suit :
 
 * Cliquez sur **EXÉCUTION PAR LOT** pour obtenir la valeur d’URI pour la propriété JSON **mlEndpoint**.
 * Cliquez sur le lien **RESSOURCE DE MISE À JOUR** pour obtenir la valeur d’URI pour la propriété JSON **updateResourceEndpoint**. La clé API est sur la page du point de terminaison même (dans le coin inférieur droit).

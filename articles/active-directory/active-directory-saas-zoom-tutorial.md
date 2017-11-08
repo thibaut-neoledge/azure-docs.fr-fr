@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: aab491f162fd4d24c6ff4d8858f2edd96dda30d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8d902b9170fee47afb038df739bbca6d2d025e0
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Didacticiel : Intégration d’Azure Active Directory à Zoom
 
@@ -110,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.zoom.us`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.zoom.us`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<companyname>.zoom.us`
 
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Zoom](https://support.zoom.us/hc). 
@@ -252,8 +252,6 @@ Quand vous cliquez sur la vignette Zoom dans le volet d’accès, vous devez êt
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

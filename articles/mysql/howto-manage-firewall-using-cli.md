@@ -10,16 +10,16 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: bc7763981c27a3d37cc1bd16c0f8efc0b4c01ce0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d192287eeaaaa82c0f61f8aa13b8bf7bf8cd47
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure
 Les règles de pare-feu au niveau du serveur permettent aux administrateurs de gérer l’accès à un serveur Azure Database pour MySQL à partir d’une adresse IP spécifique ou d’une plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d’ensemble des pare-feu Azure Database pour MySQL, consultez la rubrique [Règles de pare-feu d’Azure Database pour MySQL](./concepts-firewall-rules.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 * [Installez Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Installez le SDK Python Azure pour les services PostgreSQL et MySQL.
 * Installez le composant Azure CLI pour les services PostgreSQL et MySQL.
@@ -31,8 +31,8 @@ La commande **az mysql server firewall-rule** est utilisée à partir de l’int
 Commandes :
 - **create** : créez une règle de pare-feu du serveur Azure MySQL.
 - **delete** : supprimez une règle de pare-feu du serveur Azure MySQL.
-- **list : répertoriez les règles de pare-feu du serveur Azure MySQL.
-- **show : affichez les détails d’une règle de pare-feu du serveur Azure MySQL.
+- **list** : répertoriez les règles de pare-feu du serveur Azure MySQL.
+- **show** : affichez les détails d’une règle de pare-feu du serveur Azure MySQL.
 - **update**: mettez à jour une règle de pare-feu du serveur Azure MySQL.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Se connecter à Azure et répertorier vos serveurs Azure Database pour MySQL

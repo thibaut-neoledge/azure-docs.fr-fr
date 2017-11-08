@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/8/2017
-ms.openlocfilehash: dc5ad012398b7d07886cd22c20975e61f820d7e0
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 10/26/2017
+ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="limitations-in-azure-database-for-mysql-preview"></a>Limitations dans une base de données Azure pour MySQL (préversion)
 Le service de base de données Azure pour MySQL est en préversion publique. Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
@@ -30,7 +30,7 @@ Chaque niveau de service dans la préversion comporte un nombre maximal de conne
 | 100 unités de calcul de base    | 100 connexions   |
 | 100 unités de calcul standard | 200 connexions   |
 | 200 unités de calcul standard | 400 connexions   |
-| 400 unités de calcul standard | 400 connexions   |
+| 400 unités de calcul standard | 800 connexions   |
 | 800 unités de calcul standard | 1 600 connexions  |
 | **Nombre maximal d’unités de calcul**      |                   |
 | Niveau de service De base         | 100 unités de calcul |

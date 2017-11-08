@@ -13,11 +13,11 @@ caps.latest.revision: "60"
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b18b6f02f14db352289e3ab7e8b07a220868ce76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2873f61dcab9a14089949f27f40ca5bedaf14ee
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schéma WebRole de définition d’Azure Cloud Services
 Le rôle web Azure est un rôle personnalisé pour la programmation d’applications web, tel que pris en charge par IIS 7, ASP.NET, PHP, Windows Communication Foundation et FastCGI.
@@ -149,11 +149,11 @@ Le fichier de définition de service inclut ces éléments, ils sont détaillés
 
 [Startup](#Startup)
 
-[Task](#Task)
+[Tâche](#Task)
 
 [Contents](#Contents)
 
-[Content](#Content)
+[Contenu](#Content)
 
 [SourceDirectory](#SourceDirectory)
 
@@ -214,15 +214,15 @@ L’élément `InputEndpoint` décrit un point de terminaison externe pour un r�
 
 Vous pouvez définir plusieurs points de terminaison combinant à la fois des points de terminaison HTTP, HTTPS, UDP et TCP. Vous pouvez spécifier le numéro de port de votre choix pour un point de terminaison d’entrée, mais les numéros de port précisés pour chaque rôle dans le service doivent être uniques. Par exemple, si vous spécifiez qu’un rôle web utilise le port 80 pour HTTP, et le port 443 pour HTTPS, vous pouvez ensuite spécifier qu’un deuxième rôle web utilise le port 8080 pour HTTP, et le port 8043 pour HTTPS.
 
-Le tableau suivant décrit les attributs d’un de l’élément `InputEndpoint`.
+Le tableau suivant décrit les attributs de l’élément `InputEndpoint`.
 
 | Attribut | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|string|Obligatoire. Nom unique du point de terminaison externe.|  
 |protocol|string|Obligatoire. Protocole de transport du point de terminaison externe. Pour un rôle web, les valeurs possibles sont `HTTP`, `HTTPS`, `UDP` ou `TCP`.|  
-|port|int|Obligatoire. Port du point de terminaison externe. Vous pouvez spécifier le numéro de port de votre choix, mais les numéros de port précisés pour chaque rôle dans le service doivent être uniques.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (kit SDK Azure version 1.7 ou supérieure).|  
+|port|int|Obligatoire. Port du point de terminaison externe. Vous pouvez spécifier le numéro de port de votre choix, mais les numéros de port précisés pour chaque rôle dans le service doivent être uniques.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|  
 |certificat|string|Obligatoire pour un point de terminaison HTTPS. Nom d’un certificat défini par un élément `Certificate`.|  
-|localPort|int|facultatif. Spécifie le port utilisé pour les connexions internes sur le point de terminaison. L’attribut `localPort` mappe le port externe sur le point de terminaison à un port interne sur un rôle. Cela est utile dans les scénarios où un rôle doit communiquer avec un composant interne sur un port différent de celui qui est exposé en externe.<br /><br /> Si elle n’est pas spécifiée, la valeur de `localPort` est la même que celle de l’attribut `port`. Définissez la valeur de `localPort` sur « * » pour attribuer automatiquement un port non alloué, détectable à l’aide de l’API d’exécution.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (kit SDK Azure version 1.7 ou supérieure).<br /><br /> L’attribut `localPort` n’est disponible que par le biais du kit SDK Azure version 1.3 ou supérieure.|  
+|localPort|int|facultatif. Spécifie le port utilisé pour les connexions internes sur le point de terminaison. L’attribut `localPort` mappe le port externe sur le point de terminaison à un port interne sur un rôle. Cela est utile dans les scénarios où un rôle doit communiquer avec un composant interne sur un port différent de celui qui est exposé en externe.<br /><br /> Si elle n’est pas spécifiée, la valeur de `localPort` est la même que celle de l’attribut `port`. Définissez la valeur de `localPort` sur « * » pour attribuer automatiquement un port non alloué, détectable à l’aide de l’API d’exécution.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).<br /><br /> L’attribut `localPort` n’est disponible que par le biais du kit SDK Azure version 1.3 ou supérieure.|  
 |ignoreRoleInstanceStatus|booléenne|facultatif. Lorsque la valeur de cet attribut est définie sur `true`, l’état d’un service est ignoré et le point de terminaison n’est pas supprimé par l’équilibreur de charge. Définir cette valeur sur `true` est utile pour déboguer les instances occupées d’un service. La valeur par défaut est `false`. **Remarque :** Un point de terminaison peut toujours recevoir le trafic, même lorsque le rôle n’est pas à l’état Prêt.|  
 |loadBalancerProbe|string|facultatif. Nom de la sonde de l’équilibreur de charge associée au point de terminaison d’entrée. Pour plus d’informations, consultez [Schéma LoadBalancerProbe](schema-csdef-loadbalancerprobe.md).|  
 
@@ -235,7 +235,7 @@ Le tableau suivant décrit les attributs de l’élément `InternalEndpoint`.
 | --------- | ---- | ----------- |  
 |name|string|Obligatoire. Nom unique du point de terminaison interne.|  
 |protocol|string|Obligatoire. Protocole de transport du point de terminaison interne. Les valeurs possibles sont `HTTP`, `TCP`, `UDP` ou `ANY`.<br /><br /> La valeur `ANY` spécifie que tous les protocoles et tous les ports sont autorisés.|  
-|port|int|facultatif. Port utilisé pour les connexions internes à charge équilibrée sur le point de terminaison. Un point de terminaison à charge équilibrée utilise deux ports : le port utilisé pour l’adresse IP publique, et le port utilisé sur l’adresse IP privée. Ces adresses sont généralement définies sur le même port, mais vous pouvez utiliser des ports différents.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (kit SDK Azure version 1.7 ou supérieure).<br /><br /> L’attribut `Port` n’est disponible que par le biais du kit SDK Azure version 1.3 ou supérieure.|  
+|port|int|facultatif. Port utilisé pour les connexions internes à charge équilibrée sur le point de terminaison. Un point de terminaison à charge équilibrée utilise deux ports : le port utilisé pour l’adresse IP publique, et le port utilisé sur l’adresse IP privée. Ces adresses sont généralement définies sur le même port, mais vous pouvez utiliser des ports différents.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).<br /><br /> L’attribut `Port` n’est disponible que par le biais du kit SDK Azure version 1.3 ou supérieure.|  
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint  
 L’élément `InstanceInputEndpoint` décrit un point de terminaison d’entrée d’instance pour un rôle web. Un point de terminaison d’entrée d’instance est associé à une instance de rôle spécifique à l’aide du réacheminement de port dans l’équilibreur de charge. Chaque point de terminaison d’entrée d’instance est mappé à un port spécifique à partir d’une plage de ports possibles. Cet élément est le parent de l’élément `AllocatePublicPortFrom`.
@@ -264,7 +264,7 @@ Le tableau suivant décrit les attributs de l’élément `FixedPort`.
 
 | Attribut | Type | Description |  
 | --------- | ---- | ----------- |  
-|port|int|Obligatoire. Port du point de terminaison interne. Cela a le même effet que de définir les attributs min et max de l’élément `FixedPortRange` sur le même port.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (kit SDK Azure version 1.7 ou supérieure).|  
+|port|int|Obligatoire. Port du point de terminaison interne. Cela a le même effet que de définir les attributs min et max de l’élément `FixedPortRange` sur le même port.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|  
 
 ##  <a name="FixedPortRange"></a> FixedPortRange  
 L’élément `FixedPortRange` spécifie la plage de ports affectés au point de terminaison interne ou au point de terminaison d’entrée d’instance, et définit le port utilisé pour les connexions à charge équilibrée sur le point de terminaison.
@@ -278,8 +278,8 @@ Le tableau suivant décrit les attributs de l’élément `FixedPortRange`.
 
 | Attribut | Type | Description |  
 | --------- | ---- | ----------- |  
-|Min|int|Obligatoire. Port minimal dans la plage. Les valeurs possibles sont comprises entre 1 et 65535 inclus (kit SDK Azure version 1.7 ou supérieure).|  
-|max|string|Obligatoire. Port maximal dans la plage. Les valeurs possibles sont comprises entre 1 et 65535 inclus (kit SDK Azure version 1.7 ou supérieure).|  
+|Min|int|Obligatoire. Port minimal dans la plage. Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|  
+|max|string|Obligatoire. Port maximal dans la plage. Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|  
 
 ##  <a name="Certificates"></a> Certificates  
 L’élément `Certificates` décrit la collection de certificats pour un rôle web. Cet élément est le parent de l’élément `Certificate`. Un rôle peut avoir n’importe quel nombre de certificats associés. Pour plus d’informations sur l’utilisation de l’élément certificates, consultez [Modifier le fichier de définition de service avec un certificat](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
@@ -297,7 +297,7 @@ Le tableau suivant décrit les attributs de l’élément `Certificate`.
 |permissionLevel|string|facultatif. Spécifie les autorisations d’accès données aux processus de rôle. Si vous souhaitez que seuls les processus élevés puissent accéder à la clé privée, spécifiez l’autorisation `elevated`. Une autorisation `limitedOrElevated` permet à tous les processus de rôle d’accéder à la clé privée. Les valeurs possibles sont `limitedOrElevated` ou `elevated`. La valeur par défaut est `limitedOrElevated`.|  
 
 ##  <a name="Imports"></a> Imports  
-L’élément `Imports` décrit une collection de modules d’importation pour un rôle web qui ajoutent des composants au système d’exploitation invité. Cet élément est le parent de l’élément `Import`. Cet élément est facultatif, et un rôle ne peut avoir qu’un seul bloc runtime.
+L’élément `Imports` décrit une collection de modules d’importation pour un rôle web qui ajoutent des composants au système d’exploitation invité. Cet élément est le parent de l’élément `Import`. Cet élément est facultatif et un rôle ne peut avoir qu’un bloc d’importations. 
 
 L’élément `Imports` n’est disponible que par le biais du kit SDK Azure version 1.3 ou supérieure.
 
@@ -317,7 +317,7 @@ L’élément `Runtime` décrit une collection de paramètres de variables d’e
 
 L’élément `Runtime` n’est disponible que par le biais du kit SDK Azure version 1.3 ou supérieure.
 
-Le tableau suivant décrit les attributs de l’élément `Runtime`.  
+Le tableau suivant décrit les attributs de l’élément `Runtime` :  
 
 | Attribut | Type | Description |  
 | --------- | ---- | ----------- |  
@@ -425,7 +425,7 @@ L’élément `Binding` n’est disponible que par le biais du kit SDK Azure ver
 ##  <a name="Startup"></a> Startup  
 L’élément `Startup` décrit une collection de tâches qui s’exécutent au démarrage du rôle. Cet élément peut être le parent de l’élément `Variable`. Pour plus d’informations sur l’utilisation des tâches de démarrage de rôle, consultez [Guide pratique pour configurer des tâches de démarrage](cloud-services-startup-tasks.md). Cet élément est facultatif et un rôle peut n’avoir qu’un seul bloc startup.
 
-Le tableau suivant décrit les attributs de l’élément `Startup`.
+Le tableau suivant décrit l’attribut de l’élément `Startup`.
 
 | Attribut | Type | Description |  
 | --------- | ---- | ----------- |  

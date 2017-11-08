@@ -13,18 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 10963ab0b84b48c35df3022649363bbc8fc112a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
 Après le déploiement, de nombreuses organisations souhaitent savoir comment ou si la réinitialisation de mot de passe en libre-service est réellement utilisée. Azure AD fournit des fonctionnalités de création de rapports qui vous aident à répondre aux questions à l’aide de rapports prédéfinis et, si vous possédez les licences appropriées, vous permettent de créer des requêtes personnalisées.
+
+![Reporting][Reporting]
 
 Les questions suivantes peuvent trouvent réponse dans des rapports qui existent dans le [portail Azure] (https://portal.azure.com/).
 
@@ -39,6 +41,10 @@ Les questions suivantes peuvent trouvent réponse dans des rapports qui existent
 * Quels sont les problèmes courants rencontrés par les utilisateurs ou les administrateurs lors des tentatives d’utilisation de la fonctionnalité de réinitialisation des mots de passe ?
 * Quels sont les administrateurs qui réinitialisent fréquemment leurs mots de passe ?
 * Y a-t-il des activités suspectes en rapport avec la réinitialisation des mots de passe ?
+
+## <a name="power-bi-content-pack"></a>Pack de contenu Power BI
+
+Si vous utilisez Power BI, il existe un pack de contenu pour Azure AD qui permet de générer facilement des rapports pour SSPR. Pour plus d’informations sur l’utilisation et le déploiement du pack de contenu, consultez l’article [Utilisation du pack de contenu Power BI Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md). Vous pouvez ensuite créer vos propres tableaux de bord et les partager avec d’autres membres de votre organisation.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Comment visualiser les rapports de gestion des mots de passe dans le portail Azure
 
@@ -94,77 +100,6 @@ Le tableau suivant décrit les différentes valeurs autorisées pour chaque colo
 | des colonnes | Valeurs autorisées et leur signification |
 | --- | --- |
 | Données inscrites |**Adresse de messagerie de secours** : l’utilisateur a utilisé une autre adresse de messagerie électronique ou une adresse électronique d’authentification pour s’authentifier.<p><p>**Téléphone professionnel** : l’utilisateur a utilisé un téléphone professionnel pour s’authentifier.<p>**Téléphone mobile** : l’utilisateur a utilisé un téléphone portable ou un téléphone d’authentification pour s’authentifier.<p>**Questions de sécurité** : l’utilisateur a utilisé des questions de sécurité pour s’authentifier.<p>**Toute combinaison des éléments ci-dessus (par exemple, Adresse de messagerie de secours + Téléphone mobile)** : se produit lorsqu’une stratégie à 2 voies d’accès est spécifiée et indique les deux méthodes employées par l’utilisateur pour authentifier sa demande de réinitialisation de mot de passe. |
-
-## <a name="view-password-reset-activity-in-the-classic-portal"></a>Visualiser l’activité de réinitialisation de mot de passe dans le portail Classic
-
-Ce rapport montre toutes les tentatives de réinitialisation de mot de passe qui se sont produites dans votre organisation.
-
-* **Période max** : 30 jours
-* **Nombre max de lignes** : 75 000
-* **Téléchargeable**: Oui, via un fichier CSV
-
-### <a name="description-of-report-columns-in-azure-classic-portal"></a>Description des colonnes du rapport dans le portail Azure Classic
-
-La liste suivante décrit chacune des colonnes du rapport en détail :
-
-1. **Utilisateur** : utilisateur ayant tenté d’effectuer une opération de réinitialisation de mot de passe (basé sur le champ ID utilisateur fourni quand l’utilisateur demande à réinitialiser un mot de passe).
-2. **Rôle** : rôle de l’utilisateur dans l’annuaire.
-3. **Date et heure** : date et heure de la tentative.
-4. **Méthodes utilisées** : méthodes d’authentification employées par l’utilisateur pour cette opération de réinitialisation.
-5. **Résultat** : résultat de l’opération de réinitialisation de mot de passe.
-6. **Détails** : détails de la raison pour laquelle la réinitialisation de mot de passe a généré ce résultat.  Inclut également les étapes d’atténuation que vous pouvez suivre pour résoudre une erreur inattendue.
-
-### <a name="description-of-report-values-in-azure-classic-portal"></a>Description des valeurs du rapport dans le portail Azure Classic
-
-Le tableau suivant décrit les différentes valeurs autorisées pour chaque colonne :
-
-| des colonnes | Valeurs autorisées et leur signification |
-| --- | --- |
-| Méthodes utilisées |**Adresse de messagerie de secours** : l’utilisateur a utilisé une autre adresse de messagerie électronique ou une adresse électronique d’authentification pour s’authentifier.<p>**Téléphone professionnel** : l’utilisateur a utilisé un téléphone professionnel pour s’authentifier.<p>**Téléphone mobile** : l’utilisateur a utilisé un téléphone portable ou un téléphone d’authentification pour s’authentifier.<p>**Questions de sécurité** : l’utilisateur a utilisé des questions de sécurité pour s’authentifier.<p>**Toute combinaison des éléments ci-dessus (par exemple, Adresse de messagerie de secours + Téléphone mobile)** : se produit lorsqu’une stratégie à 2 voies d’accès est spécifiée et indique les deux méthodes employées par l’utilisateur pour authentifier sa demande de réinitialisation de mot de passe. |
-| Résultat |**Abandonné** : l’utilisateur a démarré la réinitialisation de mot de passe, puis s’est arrêté à mi-chemin sans terminer<p>**Bloqué** : le compte d’utilisateur n’a pas été autorisé à utiliser la réinitialisation de mot de passe, car il a tenté d’utiliser la page de réinitialisation de mot de passe ou une même méthode de réinitialisation de mot de passe un trop grand nombre de fois durant une période de 24 heures<p>**Annulé** : l’utilisateur a démarré la réinitialisation de mot de passe, puis il a cliqué sur le bouton Annuler pour annuler la session en cours <p>**Administrateur contacté** : l’utilisateur a rencontré un problème insoluble lors de sa session et il a cliqué sur le lien « Contactez votre administrateur » au lieu de terminer le flux de réinitialisation de mot de passe.<p>**Échec** : l’utilisateur n’a pas pu réinitialiser un mot de passe, probablement car il n’était pas configuré pour utiliser la fonctionnalité (par exemple, aucune licence, informations d’authentification manquantes, mot de passe géré localement mais écriture différée désactivée).<p>**Réussi** : la réinitialisation du mot de passe a réussi. |
-| Détails |Voir le tableau ci-dessous |
-
-### <a name="allowed-values-for-details-column"></a>Valeurs autorisées pour la colonne Détails
-
-Voici la liste des types de résultats que vous pouvez attendre lors de l’utilisation du rapport d’activité de réinitialisation du mot de passe :
-
-| Détails | Type de résultat |
-| --- | --- |
-| L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par e-mail. |Abandonné |
-| L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par SMS sur mobile. |Abandonné |
-| L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par appel vocal sur mobile. |Abandonné |
-| L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par appel vocal au bureau. |Abandonné |
-| L’utilisateur a abandonné avant d’avoir effectué complètement l’option de questions de sécurité. |Abandonné |
-| L’utilisateur a abandonné après avoir entré son ID utilisateur. |Abandonné |
-| L’utilisateur a abandonné après avoir commencé l’option de vérification par e-mail. |Abandonné |
-| L’utilisateur a abandonné après avoir commencé l’option de vérification par SMS sur mobile. |Abandonné |
-| L’utilisateur a abandonné après avoir commencé l’option de vérification par appel vocal sur mobile. |Abandonné |
-| L’utilisateur a abandonné après avoir commencé l’option de vérification par appel vocal au bureau. |Abandonné |
-| L’utilisateur a abandonné après avoir commencé l’option de vérification par questions de sécurité. |Abandonné |
-| L’utilisateur a abandonné avant de choisir un nouveau mot de passe. |Abandonné |
-| L’utilisateur a abandonné lors du choix d’un nouveau mot de passe. |Abandonné |
-| L’utilisateur a entré un trop grand nombre de codes de vérification par SMS non valides et est bloqué pour 24 heures. |Bloqué |
-| L’utilisateur a tenté un trop grand nombre de fois la vérification de la voix par appel sur mobile et est bloqué pour 24 heures. |Bloqué |
-| L’utilisateur a tenté un trop grand nombre de fois la vérification de la voix par appel au bureau et est bloqué pour 24 heures. |Bloqué |
-| L’utilisateur a tenté un trop grand nombre de fois de répondre à des questions de sécurité et est bloqué pour 24 heures. |Bloqué |
-| L’utilisateur a tenté un trop grand nombre de fois de vérifier un numéro de téléphone et est bloqué pour 24 heures. |Bloqué |
-| L’utilisateur a abandonné avant de se soumettre aux méthodes d’authentification requises |Canceled |
-| L’utilisateur a abandonné avant de soumettre un nouveau mot de passe |Canceled |
-| L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par e-mail. |Administrateur contacté |
-| L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par SMS sur mobile. |Administrateur contacté |
-| L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par appel vocal sur mobile. |Administrateur contacté |
-| L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par appel vocal au bureau. |Administrateur contacté |
-| L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par question de sécurité. |Administrateur contacté |
-| La réinitialisation du mot de passe n’est pas activée pour cet utilisateur. Activez-la sous l’onglet Configuration pour résoudre ce problème. |Échec |
-| L’utilisateur n’a pas de licence. Vous pouvez ajouter une licence à l’utilisateur pour résoudre ce problème. |Échec |
-| L’utilisateur a tenté de réinitialiser depuis un appareil où les cookies ne sont pas activés. |Échec |
-| Un nombre insuffisant de méthodes d’authentification sont définies pour le compte de l’utilisateur. Ajoutez des informations d’authentification pour résoudre ce problème. |Échec |
-| Le mot de passe de l’utilisateur est géré localement. Vous pouvez activer l’écriture en différé du mot de passe pour résoudre ce problème. |Échec |
-| Nous n’avons pas pu accéder au service de réinitialisation de votre mot de passe local. Vérifiez le journal des événements de votre ordinateur synchronisé. |Échec |
-| Nous avons rencontré un problème lors de la réinitialisation du mot de passe local de l’utilisateur. Vérifiez le journal des événements de votre ordinateur synchronisé. |Échec |
-| Cet utilisateur n’est pas membre du groupe utilisateurs de réinitialisation de mot de passe. Ajoutez cet utilisateur à ce groupe pour résoudre ce problème. |Échec |
-| La réinitialisation du mot de passe a été désactivée pour ce locataire. Voir [ici](http://aka.ms/ssprtroubleshoot) pour résoudre ce problème. |Échec |
-| L’utilisateur a réinitialisé le mot de passe. |Réussi |
 
 ## <a name="self-service-password-management-activity-types"></a>Types d’activités de gestion des mots de passe en libre-service
 
@@ -263,15 +198,16 @@ La liste suivante explique cette activité en détail :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD
+* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
+* [Réinitialisez ou modifiez votre mot de passe](active-directory-passwords-update-your-own-password.md).
+* [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md).
+* [Vous avez une question relative à la licence ?](active-directory-passwords-licensing.md)
+* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](active-directory-passwords-data.md)
+* [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-policy.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](active-directory-passwords-writeback.md)
+* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
+* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
+* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
 
-* [Raccourci vers les journaux d’audit de gestion utilisateur](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit) : accédez directement aux journaux d’audit de la gestion des utilisateurs de votre client
-* [**Démarrage rapide**](active-directory-passwords-getting-started.md) - soyez rapidement opérationnel avec la gestion de mots de passe en libre-service d’Azure AD 
-* [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
-* [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
-* [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service pour vos utilisateurs grâce aux conseils figurant ici.
-* [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
-* [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qu’il se passe sous le capot pour comprendre le fonctionnement
-* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
-* [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants que nous observons avec la réinitialisation de mot de passe en libre-service
-* [**Stratégie**](active-directory-passwords-policy.md) : comprenez et définissez les stratégies de mot de passe d’Azure AD
+[Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Exemple de journaux d’audit d’activité SSPR dans Azure AD"

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Création d’un pipeline d’intégration continue avec Visual Studio Team Services et IIS
 Pour automatiser les phases de création, de test et de déploiement du développement de l’application, vous pouvez utiliser un pipeline d’intégration et de déploiement continus (CI/CD). Dans ce didacticiel, vous créez un pipeline CI/CD à l’aide de Visual Studio Team Services et d’une machine virtuelle Windows (VM) dans Azure qui exécute IIS. Vous allez apprendre à effectuer les actions suivantes :
@@ -230,7 +230,7 @@ Dans ce didacticiel, vous avez créé une application web ASP.NET dans Team Serv
 > * Créer une définition de version pour publier les nouveaux packages de déploiement web sur IIS
 > * test du pipeline CI/CD
 
-Passez au didacticiel suivant pour savoir comment mieux protéger les serveurs SSL à l’aide des certificats SSL.
+Passez à l’étape suivante du didacticiel pour apprendre à installer la pile SQL&#92;IIS&#92;.NET sur deux machines virtuelles Windows.
 
 > [!div class="nextstepaction"]
-> [Sécuriser un serveur web avec SSL](tutorial-secure-web-server.md)
+> [Pile SQL&#92;IIS&#92;.NET](tutorial-iis-sql.md)

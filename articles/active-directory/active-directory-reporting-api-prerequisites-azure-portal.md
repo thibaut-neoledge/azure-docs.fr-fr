@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e233547ce2add2d3eab1e9c46c4d7e701df72495
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Configuration requise pour accéder à l’API de création de rapports Azure AD
 
@@ -110,6 +110,11 @@ L’objectif de cette étape consiste à accorder à votre application l’autor
 6. Dans la barre d’outils située en haut, cliquez sur **Enregistrer**.
 
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
+
+7. Cliquez sur **Accorder des autorisations** puis cliquez sur **Oui**.
+
+    ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
+
 
 ## <a name="gather-configuration-settings"></a>Rassembler les paramètres de configuration 
 Cette section vous montre comment obtenir les paramètres suivants à partir de votre annuaire :

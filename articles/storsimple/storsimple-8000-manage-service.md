@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 51db9539451afafe7eddaaeef0e02328431611de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Déployer le service StorSimple Device Manager pour les appareils de la gamme StorSimple 8000
 
@@ -74,7 +74,7 @@ Examinez l’impact de la migration vers le nouveau portail Azure avant de dépl
 
 #### <a name="before-you-transition"></a>Avant la transition
 
-* Votre appareil exécute Update 3.0 ou version ultérieure. Si votre appareil exécute une version antérieure, installez les dernières mises à jour. Pour plus d’informations, accédez à [Installer Update 5](storsimple-8000-install-update-5.md). Si vous utilisez une appliance StorSimple Cloud Appliance (8010/8020), vous ne pouvez pas mettre à jour une appliance cloud. Utilisez la version la plus récente du logiciel pour créer une appliance cloud avec Update 5.0 et basculez ensuite vers la nouvelle appliance cloud créée.
+* Votre appareil exécute Update 3.0 ou version ultérieure. Si votre appareil exécute une version antérieure, nous vous recommandons vivement d’installer Update 5 via la méthode du correctif logiciel. Pour plus d’informations, accédez à [Installer Update 5](storsimple-8000-install-update-5.md). Si vous utilisez une appliance StorSimple Cloud Appliance (8010/8020), vous ne pouvez pas mettre à jour une appliance cloud. Utilisez la version la plus récente du logiciel pour créer une appliance cloud avec Update 5.0 et basculez ensuite vers la nouvelle appliance cloud créée.
 
 * Une fois la transition effectuée vers le nouveau portail Azure, vous ne pouvez pas utiliser le portail Azure classique pour gérer votre appareil StorSimple.
 

@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/27/2017
 ms.author: anwestg
-ms.openlocfilehash: 54ba07d0bbe3f509411b0e45ff06f4fdf6db04cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack
 
@@ -88,16 +88,14 @@ Lorsque vous choisissez le nombre de rôles de travail partagés à utiliser, pa
 
 ## <a name="file-server-role"></a>Rôle de serveur de fichiers
 
-Pour le rôle de serveur de fichiers, vous pouvez utiliser le serveur de fichiers autonome à des fins de développement et de test. À des fins de production, vous devez utiliser un serveur de fichiers Windows préconfiguré ou un serveur de fichiers préconfiguré autre que Windows.
-
-Le serveur de fichiers autonome est inclus dans Windows Azure Pack par défaut : installation de sites Web. L’installation autonome approvisionne le rôle de serveur de fichiers sur une seule machine, place les listes ACL pour les comptes appropriés et crée les partages réseau nécessaires.
+Pour le rôle de serveur de fichiers, vous pouvez utiliser un serveur de fichiers autonome pour le développement et le test. Par exemple, lors du déploiement d’Azure App Service sur le Kit de développement Azure Stack, vous pouvez utiliser ce modèle : https://aka.ms/appsvconmasdkfstemplate. À des fins de production, vous devez utiliser un serveur de fichiers Windows préconfiguré ou un serveur de fichiers préconfiguré autre que Windows.
 
 Dans les environnements de production, le rôle de serveur de fichiers fait face à des E/S de disque intensives. Étant donné qu’il héberge tous les fichiers de contenu et d’application des sites web des utilisateurs, vous devez préconfigurer un des éléments suivants pour ce rôle :
 - Un serveur de fichiers Windows
 - Un cluster de serveur de fichiers
 - Un serveur de fichiers non Windows
 - Un cluster de serveur de fichiers
-- Un périphérique NAS (Network Attached Storage). Pour plus d’informations, consultez [Approvisionner un serveur de fichiers]().
+- Un périphérique NAS (Network Attached Storage). Pour plus d’informations, consultez [Approvisionner un serveur de fichiers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

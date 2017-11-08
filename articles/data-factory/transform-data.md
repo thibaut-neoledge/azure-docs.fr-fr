@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: b224f5b32c9a46f797e78644c731a9cd9341da2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 832c4f232a3821225c8086b636de713da2b967a0
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformer des données dans Azure Data Factory
 > [!div class="op_single_selector"]
@@ -35,6 +35,9 @@ ms.lasthandoff: 10/11/2017
 Cet article explique les activités de transformation des données dans Azure Data Factory, que vous pouvez utiliser pour transformer et traiter vos données brutes pour en tirer des prévisions et des informations. Une activité de transformation s’exécute dans un environnement de calcul comme un cluster Azure HDInsight ou un Azure Batch. Elle fournit des liens vers des articles contenant des informations détaillées sur chaque activité de transformation.
 
 Data Factory prend en charge les activités de transformation des données suivantes, qui peuvent être ajoutées à des [pipelines](concepts-pipelines-activities.md) , soit individuellement soit de façon chaînée avec une autre activité.
+
+> [!NOTE]
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Activités de transformation dans Data Factory version 1](v1/data-factory-data-transformation-activities.md).
  
 
 ## <a name="hdinsight-hive-activity"></a>Activité Hive HDInsight

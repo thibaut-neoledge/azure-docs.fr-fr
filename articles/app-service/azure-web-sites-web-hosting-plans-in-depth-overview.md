@@ -1,5 +1,5 @@
 ---
-title: "Présentation détaillée des plans Azure App Service | Microsoft Docs"
+title: Plans App Service dans Azure App Service Web Apps | Microsoft Docs
 description: "Découvrez comment fonctionnent les plans Azure App Service et comment ils peuvent améliorer votre gestion."
 keywords: "app service, azure app service, mise à l'échelle, évolutif, plan app service, coût d'app service"
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
-ms.openlocfilehash: 688f57de662fec6a04227c35d6578097c795c6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb5b782f09bdd8c8a862eddfbd65b0f86ef8d08c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="azure-app-service-plans-in-depth-overview"></a>Présentation détaillée des plans Azure App Service
+# <a name="app-service-plans-in-azure-app-service-web-apps"></a>Plans App Service dans Azure App Service Web Apps
 
 Les plans App Service représentent la collection des ressources physiques utilisées pour héberger vos applications.
 

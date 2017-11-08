@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 3f00cbfb5348919c38dc2dd905f1c141a39736f4
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 7d80049d4b6f7d57924522e3f273c42f4c887fee
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 Cet article explique comment activer Azure Active Directory Domain Services (Azure AD DS) au moyen du portail Azure.
@@ -45,30 +45,25 @@ Dans la page **Fonctions de base** de l’Assistant, vous pouvez spécifier le n
 
 1. Choisissez le **Nom de domaine DNS** pour votre domaine managé.
 
-   * Le nom de domaine par défaut du répertoire (avec un suffixe **.onmicrosoft.com**) est spécifié par défaut.
+   > [!NOTE]
+   > **Indications pour la sélection d’un nom de domaine DNS**
+   > * **Nom de domaine intégré :** par défaut, l’Assistant spécifie pour vous le nom de domaine par défaut/intégré du répertoire (avec un suffixe **.onmicrosoft.com**). Si vous choisissez d’activer l’accès LDAP sécurisé au domaine géré sur Internet, vous risquez de rencontrer des problèmes pour créer un enregistrement DNS public ou obtenir un certificat LDAP sécurisé d’une autorité de certification publique pour ce nom de domaine. Microsoft possède le domaine *.onmicrosoft.com* et les autorités de certification n’émettront pas de certificats pour ce domaine.
+   * **Noms de domaines personnalisés** : vous pouvez également entrer un nom de domaine personnalisé. Dans cet exemple, le nom de domaine personnalisé est *contoso100.com*.
+   * **Suffixes de domaine non routables :** nous déconseillons généralement l’utilisation d’un suffixe de nom de domaine non routable. Par exemple, il est préférable d’éviter de créer un domaine avec le nom de domaine DNS 'contoso.local'. Le suffixe DNS '.local' n’est pas routable et peut entraîner des problèmes de résolution DNS.
+   * **Restrictions de préfixe de domaine :** le préfixe du nom de domaine spécifié (par exemple, *contoso100* dans le nom de domaine *contoso100.com*) doit contenir au maximum 15 caractères. Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères.
+   * **Conflits de nom de réseau :** vérifiez que le nom de domaine DNS choisi pour le domaine géré n’existe pas au sein du réseau virtuel. Plus spécifiquement, vérifiez les poins suivants :
+       * Vous disposez d’un domaine Active Directory présentant le nom de domaine DNS au sein du réseau virtuel.
+       * Le réseau virtuel dans lequel vous envisagez d’activer le domaine managé a une connexion VPN avec votre réseau local. Dans ce scénario, veillez à ne pas avoir de domaine portant le même nom de domaine DNS sur votre réseau local.
+       * Il existe un service cloud portant ce nom sur le réseau virtuel.
+    >
 
-   * Vous pouvez également entrer un nom de domaine personnalisé. Dans cet exemple, le nom de domaine personnalisé est *contoso100.com*.
+2. Sélectionnez l’**Abonnement** Azure dans lequel vous souhaitez créer le domaine managé.
 
-     > [!WARNING]
-     > Le préfixe du nom de domaine spécifié (par exemple, *contoso100* dans le nom de domaine *contoso100.com*) doit contenir au maximum 15 caractères. Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères.
-     >
-     >
+3. Sélectionnez le **Groupe de ressources** auquel le domaine managé doit appartenir. Vous avez le choix entre les options **Créer** ou **Utiliser l’existant** pour sélectionner le groupe de ressources.
 
-2. Vérifiez que le nom de domaine DNS choisi pour le domaine géré n’existe pas au sein du réseau virtuel. Plus spécifiquement, vérifiez les poins suivants :
+4. Choisissez l’**Emplacement** Azure dans lequel créer le domaine managé. Dans la page **Réseau** de l’Assistant, vous voyez uniquement les réseaux virtuels appartenant à l’emplacement que vous avez sélectionné.
 
-   * Vous disposez d’un domaine présentant le nom de domaine DNS au sein du réseau virtuel.
-
-   * Le réseau virtuel dans lequel vous envisagez d’activer le domaine managé a une connexion VPN avec votre réseau local. Dans ce scénario, veillez à ne pas avoir de domaine portant le même nom de domaine DNS sur votre réseau local.
-
-   * Il existe un service cloud portant ce nom sur le réseau virtuel.
-
-3. Sélectionnez l’**Abonnement** Azure dans lequel vous souhaitez créer le domaine managé.
-
-4. Sélectionnez le **Groupe de ressources** auquel le domaine managé doit appartenir. Vous avez le choix entre les options **Créer** ou **Utiliser l’existant** pour sélectionner le groupe de ressources.
-
-5. Choisissez l’**Emplacement** Azure dans lequel créer le domaine managé. Dans la page **Réseau** de l’Assistant, vous voyez uniquement les réseaux virtuels appartenant à l’emplacement que vous avez sélectionné.
-
-6. Lorsque vous avez terminé, cliquez sur **OK** pour accéder à la page **Réseau** de l’Assistant.
+5. Lorsque vous avez terminé, cliquez sur **OK** pour accéder à la page **Réseau** de l’Assistant.
 
 
 ## <a name="next-step"></a>Étape suivante

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8398af10d4826373e16420be3309c6ae8246ca4b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a8b9efffd6373ee33026e915b0a14e15d41295b3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Présentation d'Azure Data Science Virtual Machine pour Linux et Windows
 
@@ -46,30 +46,30 @@ Les formateurs d’entreprise et les instructeurs qui enseignent la science des 
 Les concours de science des données ou la modélisation et l’exploration de données à grande échelle nécessitent une augmentation de la capacité matérielle, généralement sur une courte durée. La machine virtuelle Science des données permet de répliquer rapidement et à la demande l’environnement de science des données, sur des serveurs montés offrant ainsi des expériences d’exécution des ressources informatique hautes performances.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Expérimentation et évaluation à court terme
-La machine virtuelle Science des données peut être utilisée pour évaluer ou découvrir des outils tels que Microsoft R Server, SQL Server, Visual Studio, Jupyter, kits de ressources de formation approfondie / ML et de nouveaux outils populaires dans la communauté, avec un minimum d’efforts d’installation. Étant donné que la machine virtuelle Science des données peut être configurée rapidement, elle peut être appliquée dans d’autres scénarios d’utilisation à court terme comme la réplication d’expériences publiées, l’exécution de démonstrations, le suivi de procédures pas-à-pas dans des sessions en ligne ou des didacticiels de conférence.
+La machine virtuelle Science des données peut être utilisée pour évaluer ou découvrir des outils tels que Microsoft ML Server, SQL Server, Visual Studio, Jupyter, kits de ressources de formation approfondie / ML et de nouveaux outils populaires dans la communauté, avec un minimum d’efforts d’installation. Étant donné que la machine virtuelle Science des données peut être configurée rapidement, elle peut être appliquée dans d’autres scénarios d’utilisation à court terme comme la réplication d’expériences publiées, l’exécution de démonstrations, le suivi de procédures pas-à-pas dans des sessions en ligne ou des didacticiels de conférence.
 
 ### <a name="deep-learning"></a>Apprentissage approfondi
 La machine virtuelle de Science des données peut être utilisée pour le modèle d’apprentissage, grâce à des algorithmes d’apprentissage approfondis sur le matériel basé sur les processeurs graphiques (GPU). En utilisant les fonctionnalités de mise à l’échelle de machine virtuelle du cloud Azure, la machine virtuelle DSVM vous permet d’utiliser du matériel basé sur GPU dans le cloud. Vous pouvez basculer vers une machine virtuelle basée sur GPU lorsque vous formez de grands modèles ou lorsque vous avez besoin d’une grande rapidité de calcul, mais souhaitez garder le même disque de système d’exploitation.  L’édition Windows Server 2016 de la DSVM est préinstallée avec les pilotes GPU, les infrastructures et la version GPU d’algorithmes d’apprentissage approfondis. Sous Linux, l’apprentissage approfondi sur le processeur graphique n’est activé que sur la [machine virtuelle des sciences de données pour l’édition Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). Vous pouvez déployer l’édition DSVM Ubuntu ou Windows 2016 sur une machine virtuelle Azure non basée sur GPU. Dans ce cas, tous les frameworks d’apprentissage profond passent en mode UC. Nous avons publié précédemment un [kit de ressources d’apprentissage profond](http://aka.ms/dsvm/deeplearning) pour Windows Server 2012. Toutefois, nous recommandons l’utilisation de Windows Server 2016 pour les charges de travail d’apprentissage profond basées sur Windows. L’édition DSVM Linux CentOS contient uniquement les versions CPU de certains des outils d’apprentissage profond (Microsoft Cognitive Toolkit, Tensorflow, MXNet), et les frameworks et pilotes du GPU ne sont pas préinstallés. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Qu’est-ce qui est inclus dans la machine virtuelle Science des données ?
-De nombreux outils de science des données et d’apprentissage approfondi populaires sont déjà installés et configurés sur la machine virtuelle Science des données. Elle inclut également des outils simplifiant l’utilisation de différents produits de données et d’analyse Azure. Vous pouvez explorer et créer des modèles prédictifs sur des jeux de données d’envergure à l’aide de Microsoft R Server ou de SQL Server 2016. D’autres outils encore de la communauté open source et de Microsoft sont également inclus, ainsi qu’un exemple de code et des notebooks. Le tableau suivant détaille et compare les principaux composants inclus dans les éditions Windows et Linux de la machine virtuelle Science des données.
+De nombreux outils de science des données et d’apprentissage approfondi populaires sont déjà installés et configurés sur la machine virtuelle Science des données. Elle inclut également des outils simplifiant l’utilisation de différents produits de données et d’analyse Azure. Vous pouvez explorer et créer des modèles prédictifs sur des jeux de données d’envergure à l’aide de Microsoft ML Server (R, Python) ou de SQL Server 2017. D’autres outils encore de la communauté open source et de Microsoft sont également inclus, ainsi qu’un exemple de code et des notebooks. Le tableau suivant détaille et compare les principaux composants inclus dans les éditions Windows et Linux de la machine virtuelle Science des données.
 
 
 | **Outil**                                                           | **Édition Windows** | **Édition Linux** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) avec packages courants préinstallés   |O                      | O             |
-| [Microsoft R Server](https://msdn.microsoft.com/microsoft-r/) Developer Edition inclut : <br />  Framework R haute performance distribuée et parallèle &nbsp;&nbsp;&nbsp;&nbsp;* [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-getting-started)<br />  &nbsp;&nbsp;&nbsp;&nbsp;*   [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml-introduction) – nouveaux algorithmes ML de pointe de Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;*   [Opérationnalisation de R](https://msdn.microsoft.com/microsoft-r/operationalize/about)                                            |O                      | O <br/> (MicrosoftML n’est pas encore disponible)|
+| [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition inclut, <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) infrastructure hautes performances parallèle et distribuée (R & Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;*   [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) – nouveaux algorithmes ML de pointe de Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [Opérationnalisation R et Python](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |O                      | O |
 | [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus avec activation partagée : Excel, Word et PowerPoint   |O                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 avec packages populaires préinstallés    |O                      |O              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) avec packages populaires préinstallés                         |O                      |O              |
-| Bases de données relationnelles                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS uniquement) |
+| Bases de données relationnelles                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS uniquement) |
 | Outils de base de données                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * Pilotes ODBC/JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (outil de requête), <br /> * bcp, sqlcmd <br /> * Pilotes ODBC/JDBC|
-| Analytiques en base de données évolutives avec services SQL Server R | O     |N              |
+| Analytiques en base de données évolutives avec services SQL Server ML (R, Python) | O     |N              |
 | **[Serveur Bloc-notes Jupyter](http://jupyter.org/) avec noyaux suivants,**                                  | O     | O |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | O | O |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python 2.7 et 3.5 | O | O |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | O | O |
-|     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | N | O |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | O | O |
 |     &nbsp;&nbsp;&nbsp;&nbsp;*   [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | N | O (Ubuntu uniquement) |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | O |
 | JupyterHub (serveur de bloc-notes multi-utilisateur)| N | O |

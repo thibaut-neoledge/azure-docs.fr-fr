@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/26/2017
 ms.author: billmath
-ms.openlocfilehash: e8321c3d16253226a5931cacbce6fa5d50b697bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abf234caa4c26cf3554911aabb839c696b1ba8cb
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect : considérations spéciales relatives aux instances
 Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD et Office 365. Mais il existe également d’autres instances, qui ont des exigences différentes en matière d’URL et autres considérations spéciales.
@@ -50,15 +50,12 @@ Ce cloud a été pris en charge par des versions antérieures de DirSync. À par
 | --- |
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
-| \*.gov.us.microsoftonline.com |
+| \*.windows.net (requis pour la détection automatique d'un locataire de gouvernement Azure AD) |
+| \**.gov.us.microsoftonline.com |
 | + Listes de révocation de certificat |
 
-Azure AD Connect ne peut pas détecter automatiquement que votre locataire Azure AD se trouve dans le cloud Government. Au lieu de cela, vous devez effectuer les actions suivantes lorsque vous installez Azure AD Connect.
-
-1. Lancez l’installation d’Azure AD Connect.
-2. Quand vous voyez apparaître la première page où vous êtes censé accepter le CLUF, ne poursuivez pas, mais laissez l’Assistant Installation en cours d’exécution.
-3. Lancez regedit et modifiez la clé de registre de la valeur `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` à la valeur `2`.
-4. Revenez à l’Assistant Installation d’Azure AD Connect, acceptez le CLUF et continuez. Pendant l’installation, veillez à utiliser le chemin d’accès d’installation de la **configuration personnalisée** (et non l’installation rapide). Puis continuez l’installation normalement.
+> [!NOTE]
+> À compter de la version 1.1.647.0 d'AAD Connect, la définition de la valeur AzureInstance dans le Registre n’est plus nécessaire, à condition que *.windows.net soit ouvert sur vos serveurs proxy.
 
 Fonctionnalités actuellement absentes du cloud Microsoft Azure Government :
 

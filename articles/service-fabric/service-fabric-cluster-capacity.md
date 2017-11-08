@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.openlocfilehash: 04964175f06675a486fcf252f194f0d790acea4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7c4a00d2c9be2d6b4d3d0b4dfb152deb2d0e217
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -92,6 +92,11 @@ Vous devez choisir un niveau de durabilité pour chacun de vos types de nœuds. 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recommandations relatives au moment opportun pour utiliser les niveaux de durabilité Silver ou Gold
 
 Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds qui hébergent des services avec état dont vous prévoyez une diminution fréquente de la taille des instances (réduction du nombre d’instances de machine virtuelle), si vous préférez que les opérations de déploiement soient retardées au profit d’une simplification de ces opérations de diminution de la taille des instances. Les scénarios d’augmentation de la taille des instances (ajout d’instances de machine virtuelle) n’ayant aucune incidence sur le choix du niveau de durabilité, seuls les scénarios de diminution de la taille des instances doivent être pris en considération.
+
+### <a name="changing-durability-levels"></a>Modification des niveaux de durabilité
+- Les types de nœuds avec des niveaux de durabilité Argent ou Or ne peuvent pas être rétrogradés à Bronze.
+- La mise à niveau de Bronze vers Argent ou Or peut prendre quelques heures.
+- Lorsque vous modifiez le niveau de durabilité, veillez à le mettre à jour à la fois dans la configuration d’extension Service Fabric de votre ressource VMSS et dans la définition du type de nœud dans votre ressource de cluster Service Fabric. Ces valeurs doivent correspondre.
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recommandations opérationnelles concernant le type de nœud que vous avez défini sur le niveau de durabilité Silver ou Gold
 

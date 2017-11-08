@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 2cd3656156b77c71be85a1a18567232f4466fc68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e695cdd7c51e18a386764ab8444d3336366ae265
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure (préversion)
 
@@ -32,8 +32,11 @@ Dans cet article, vous apprenez à utiliser l’Explorateur Stockage pour gérer
 
 ## <a name="prerequisites"></a>Composants requis
 
-- Un compte Azure Cosmos DB pour une base de données MongoDB ou SQL (DocumentDB). Si vous n’avez pas de compte, vous pouvez en créer un dans le portail Azure, comme décrit dans [Azure Cosmos DB : Développer une application web API DocumentDB avec .NET et le portail Azure](create-documentdb-dotnet.md).
-- Installez la version la plus récente de l’Explorateur Stockage Azure. Vous pouvez l’installer en utilisant les liens suivants : [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
+Un compte Azure Cosmos DB pour une base de données MongoDB ou SQL (DocumentDB). Si vous n’avez pas de compte, vous pouvez en créer un dans le portail Azure, comme décrit dans [Azure Cosmos DB : Développer une application web API DocumentDB avec .NET et le portail Azure](create-documentdb-dotnet.md).
+
+## <a name="installation"></a>Installation
+
+Installez les derniers composants de l’Explorateur Stockage Microsoft Azure ici : [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), avec maintenant la prise en charge de la version Windows, Linux et Mac.
 
 ## <a name="connect-to-an-azure-subscription"></a>Connexion à un abonnement Azure
 
@@ -146,10 +149,8 @@ Modifiez le filtre de document en entrant une [requête SQL](documentdb-sql-quer
 
 * Les opérations pour les **déclencheurs** et les **fonctions définies par l’utilisateur** sont similaires à celles des **procédures stockées**.
 
-## <a name="demo"></a>Démonstration
-* Regardez la vidéo suivante pour savoir comment utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure : [Utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure](https://go.microsoft.com/fwlink/?linkid=858710).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez connecté l’Explorateur Stockage Azure à votre compte Azure Cosmos DB, découvrez plus d’informations sur l’Explorateur Stockage et connectez plus de services dans [Bien démarrer avec l’Explorateur Stockage (préversion)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Regardez la vidéo suivante pour savoir comment utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure : [Utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Pour en savoir plus sur l’Explorateur de stockage et se connecter à plusieurs services, consultez [Prise en main de l’Explorateur de stockage (préversion)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

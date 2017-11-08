@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel Azure Container Instances - Déployer des applications | Microsoft Docs"
+title: "Didacticiel Azure Container Instances - Déployer des applications"
 description: "Didacticiel Azure Container Instances - Déployer des applications"
 services: container-instances
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Déployer un conteneur sur Azure Container Instances
 
@@ -32,31 +32,39 @@ Il s’agit de la dernière partie d’un didacticiel en trois parties. Dans les
 > * Affichage de l’application dans le navigateur
 > * Affichage des journaux de conteneurs
 
+## <a name="before-you-begin"></a>Avant de commencer
+
+Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.20 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
+
+Pour terminer ce didacticiel, il vous faut un environnement de développement Docker. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+
+Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer chaque étape de ce didacticiel. Par conséquent, nous recommandons une installation locale de l’interface Azure CLI et de l’environnement de développement Docker.
+
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Déployer le conteneur à l’aide de l’interface CLI Azure
 
 L’interface CLI Azure permet de déployer un conteneur sur Azure Container Instances en une seule commande. L’image conteneur étant hébergée dans l’Azure Container Registry privé, vous devez inclure les informations d’identification requises pour y accéder. Si nécessaire, vous pouvez les interroger comme indiqué ci-dessous.
 
 Serveur de connexion au Registre de conteneurs (mettez-le à jour avec le nom de votre Registre) :
 
-```azurecli-interactive
+```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
 Mot de passe du Registre de conteneurs :
 
-```azurecli-interactive
+```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 Pour déployer votre image conteneur à partir du Registre de conteneurs avec une demande de ressource de 1 noyau de processeur et 1 Go de mémoire, exécutez la commande suivante :
 
-```azurecli-interactive
+```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Après quelques secondes, vous recevrez une réponse initiale de la part d’Azure Resource Manager. Pour afficher l’état du déploiement, exécutez :
+Après quelques secondes, vous devriez recevoir une réponse initiale de la part d’Azure Resource Manager. Pour afficher l’état du déploiement, exécutez :
 
-```azurecli-interactive
+```azurecli
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
@@ -78,7 +86,7 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 
 Vous pouvez également afficher la sortie du journal du conteneur :
 
-```azurecli-interactive
+```azurecli
 az container logs --name aci-tutorial-app -g myResourceGroup
 ```
 

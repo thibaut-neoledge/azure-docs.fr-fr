@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: 97bacc2c1285fe4a467a54f224bb9fabbd851fee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec .NET
 
@@ -29,7 +29,7 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser C#.NET pour charge
 
 Pour effectuer ce démarrage rapide :
 
-* Installez [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) avec la charge de travail suivante :
+* Installez [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) avec la charge de travail suivante :
     - **Développement Azure**
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -52,7 +52,7 @@ Commencez par créer un compte de stockage à usage général pour les besoins d
 12. Sélectionnez le paramètre `Location` à utiliser pour votre compte de stockage.
 13. Cochez **Épingler au tableau de bord** et cliquez sur **Créer** pour créer votre compte de stockage. 
 
-Une fois votre compte de stockage créé, il est épinglé au tableau de bord. Cliquez sur le compte pour l’ouvrir. Sous PARAMÈTRES, cliquez sur **Clés d’accès**. Sélectionnez une clé et copiez la CHAÎNE DE CONNEXION dans le Presse-papiers, puis collez-la dans le Bloc-notes pour l’utiliser plus tard.
+Une fois votre compte de stockage créé, il est épinglé au tableau de bord. Cliquez sur le compte pour l’ouvrir. Sous PARAMÈTRES, cliquez sur **Clés d’accès**. Sélectionnez une clé et copiez la CHAÎNE DE CONNEXION dans le Presse-papiers, puis collez-la dans un éditeur de texte pour l’utiliser plus tard.
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 
@@ -68,7 +68,7 @@ Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir la sol
 
 ## <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
 
-Dans l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. Ouvrez le fichier `app.config` à partir de l’Explorateur de solutions dans Visual Studio. Recherchez l’entrée StorageConnectionString. Dans le champ **valeur**, remplacez la valeur entière de la chaîne de connexion par celle que vous avez enregistrée à partir du portail Azure dans le Bloc-notes. Vous devez obtenir un résultat de ce type.
+Dans l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. Ouvrez le fichier `app.config` à partir de l’Explorateur de solutions dans Visual Studio. Recherchez l'entrée `StorageConnectionString`. Dans le champ **valeur**, remplacez la valeur entière de la chaîne de connexion par celle que vous avez enregistrée à partir du portail Azure. Votre `storageConnectionString` doit être semblable à ce qui suit :
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,8 +78,8 @@ Dans l’application, vous devez fournir la chaîne de connexion de votre compte
     </startup>
   <appSettings>
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;
-    AccountName=youraccountname;
-    AccountKey=7NGE5jasdfdRzASDFNOMEx1u20W/thisisjustC/anexampleZK/Rt5pz2xNRrDckyv8EjB9P1WGF==" />
+    AccountName=<NameHere>;
+    AccountKey=<KeyHere>" />
   </appSettings>
 </configuration>
 ```
@@ -98,7 +98,7 @@ https://mystorage.blob.core.windows.net/quickstartblobs/QuickStart_cbd5f95c-6ab8
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b8d2-a58e85d7a8e8_DOWNLOADED.txt
 ```
 
-Quand vous appuyez sur n’importe quelle touche pour continuer, le conteneur de stockage et les fichiers sont supprimés. Avant de continuer, recherchez les deux fichiers dans Mes documents : vous pouvez les ouvrir et vérifier qu’ils sont identiques. Copiez l’URL de l’objet blob en dehors de la fenêtre de console et collez-la dans un navigateur pour afficher le contenu du fichier dans Stockage Blob.
+Quand vous appuyez sur n’importe quelle touche pour continuer, le conteneur de stockage et les fichiers sont supprimés. Avant de continuer, recherchez les deux fichiers dans votre dossier Mes documents. Vous pouvez les ouvrir et constater qu’ils sont identiques. Copiez l’URL de l’objet blob en dehors de la fenêtre de console et collez-la dans un navigateur pour afficher le contenu du fichier dans Stockage Blob.
 
 Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage. 
 
@@ -108,17 +108,17 @@ Une fois que vous avez vérifié les fichiers, appuyez sur n’importe quelle to
 
 La première chose à faire est de créer les références aux objets utilisés pour accéder et gérer Stockage Blob. Ces objets reposent l’un sur l’autre : chacun est utilisé par le suivant dans la liste.
 
-* Instanciez l’objet **CloudStorageAccount** pointant vers le compte de stockage. 
+* Créez une instance de l’objet **CloudStorageAccount** pointant vers le compte de stockage. 
 
-* Instanciez l’objet **CloudBlobClient** pointant vers le service Blob de votre compte de stockage. 
+* Créez une instance de l’objet **CloudBlobClient** pointant vers le service BLOB de votre compte de stockage. 
 
-* Instanciez l’objet **CloudBlobContainer** qui représente le conteneur auquel vous accédez. Les conteneurs sont utilisés pour organiser vos objets blob de la même façon que vous utilisez des dossiers pour organiser vos fichiers sur votre ordinateur.
+* Créez une instance de l’objet **CloudBlobContainer** qui représente le conteneur auquel vous accédez. Les conteneurs sont utilisés pour organiser vos objets blob de la même façon que vous utilisez des dossiers pour organiser vos fichiers sur votre ordinateur.
 
-Une fois que vous avez le **CloudBlobContainer**, vous pouvez instancier l’objet **CloudBlockBlob** qui pointe vers l’objet blob spécifique qui vous intéresse, et effectuer une opération de chargement, téléchargement, copie, etc.
+Une fois que vous avez le **CloudBlobContainer**, vous pouvez créer une instance de l’objet **CloudBlockBlob** qui pointe vers l’objet blob spécifique qui vous intéresse, et effectuer une opération de chargement, téléchargement, copie, etc.
 
-Dans cette section, vous instanciez les objets, créez un conteneur, puis définissez des autorisations sur le conteneur pour les objets blob soient publics et accessibles par une simple URL. Le conteneur est appelé **quickstartblobs**. 
+Dans cette section, vous créez une instance des objets, un conteneur, puis définissez des autorisations sur le conteneur pour les objets blob soient publics et accessibles par une simple URL. Le conteneur est appelé **quickstartblobs**. 
 
-Cet exemple utilise CreateIfNotExists, car nous voulons créer un conteneur chaque fois que l’exemple est exécuté. Dans un environnement de production où vous utilisez le même conteneur pour toute l’application, il est préférable d’appeler une seule fois CreateIfNotExists, ou de créer le conteneur à l’avance pour ne pas avoir à le créer dans le code.
+Cet exemple utilise **CreateIfNotExists**, car nous voulons créer un conteneur chaque fois que l’exemple est exécuté. Dans un environnement de production où vous utilisez le même conteneur pour toute l’application, il est préférable d’appeler une seule fois **CreateIfNotExists**. Ou vous pouvez créer le conteneur à l’avance pour ne pas avoir à le créer dans le code.
 
 ```csharp
 // Create a CloudStorageAccount instance pointing to your storage account.
@@ -161,11 +161,11 @@ await blockBlob.UploadFromFileAsync(fileAndPath);
 
 Il existe plusieurs méthodes de chargement que vous pouvez utiliser avec Stockage Blob. Par exemple, si vous avez un flux de mémoire, vous pouvez utiliser la méthode UploadFromStreamAsync au lieu de UploadFromFileAsync. 
 
-Les objets blob de blocs peuvent atteindre une taille maximale de 4.7 To et peuvent représenter toutes sortes d’éléments allant des feuilles de calcul Excel aux fichiers vidéo volumineux. Les objets blob de pages sont principalement utilisés pour les fichiers VHD utilisés pour stocker des machines virtuelles IaaS. Les objets blob d’ajout sont utilisés pour la journalisation, par exemple, quand vous voulez écrire dans un fichier et continuer à ajouter d’autres informations. La plupart des objets stockés dans Stockage Blob sont des objets blob de blocs.
+Les objets blob de blocs peuvent être n’importe quel type de fichier texte ou binaire. Les objets blob de pages sont principalement utilisés pour les fichiers VHD utilisés pour stocker des machines virtuelles IaaS. Les objets blob d’ajout sont utilisés pour la journalisation, par exemple, quand vous voulez écrire dans un fichier et continuer à ajouter d’autres informations. La plupart des objets stockés dans Stockage Blob sont des objets blob de blocs.
 
 ## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
 
-Obtenez la liste des fichiers du conteneur à l’aide de [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Le code suivant récupère la liste des objets blob, puis effectue une itération sur ces derniers pour montrer les URI des objets blob rencontrés. Vous pouvez copier l’URI à partir de la fenêtre Commande et la coller dans un navigateur pour afficher le fichier.
+Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Le code suivant récupère la liste des objets blob, puis effectue une itération sur ces derniers pour montrer les URI des objets blob rencontrés. Vous pouvez copier l’URI à partir de la fenêtre Commande et la coller dans un navigateur pour afficher le fichier.
 
 Si vous avez moins de 5 000 objets blob dans le conteneur, tous les noms d’objets blob sont récupérés en un appel à ListBlobsSegmentedAsync. Si vous avez plus de 5 000 objets blob dans le conteneur, le service récupère la liste par groupes de 5 000 jusqu'à ce que tous les noms d’objets blob soient récupérés. La première fois que cette API est appelée, elle retourne les 5 000 premiers noms d’objet blob et un jeton de liaison. La deuxième fois, vous fournissez le jeton et le service récupère le groupe suivant de noms d’objet blob et ainsi de suite, jusqu'à la nullité du jeton de continuation, qui indique que tous les noms d’objet blob ont été récupérés. 
 

@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 3254fdd57cfcd170f22374c1e3b058e6081d8e8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b587f299e7b11effd05cbbc4b15976fee3f83ffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-powershell-samples"></a>Exemples Azure PowerShell
 
@@ -43,6 +43,10 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 |**Connecter l’application aux ressources**||
 | [Connecter une application web à une instance SQL Database](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée une application web Azure et une instance SQL Database, puis ajoute la chaîne de connexion de base de données aux paramètres d’application. |
 | [Connecter une application web à un compte de stockage](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée une application web Azure et un compte de stockage, puis ajoute la chaîne de connexion de stockage aux paramètres d’application. |
+|**Sauvegarder et restaurer une app**||
+| [Sauvegarder une app web](./scripts/app-service-powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une app web Azure et une sauvegarde unique pour celle-ci. |
+| [Créer une sauvegarde planifiée pour une app web](./scripts/app-service-powershell-backup-scheduled.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une app web Azure et une sauvegarde planifiée pour celle-ci. |
+| [Supprimer une sauvegarde pour une application web](./scripts/app-service-powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Supprime une sauvegarde existante pour une app web. |
 |**Surveiller l’application**||
 | [Analyser une application web avec les journaux de serveur web](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une application web Azure, active sa journalisation et télécharge les journaux sur votre ordinateur local. |
 | | |

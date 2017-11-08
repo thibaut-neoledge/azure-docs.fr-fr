@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f6c428d6b7d5b9cab823c2a2408b895bb2c05a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ec40ee232ab50f79169f42b6573d294b77110a2
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformer des données dans Azure Data Factory
 > [!div class="op_single_selector"]
@@ -33,6 +33,9 @@ ms.lasthandoff: 10/11/2017
 > * [.NET personnalisé](data-factory-use-custom-activities.md)
 
 ## <a name="overview"></a>Vue d'ensemble
+> [!NOTE]
+> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Activités de transformation des données dans la version 2 de Data Factory](../transform-data.md).
+
 Cet article explique les activités de transformation des données dans Azure Data Factory, que vous pouvez utiliser pour transformer et traiter vos données brutes pour en tirer des prévisions et des informations. Une activité de transformation s’exécute dans un environnement de calcul comme un cluster Azure HDInsight ou un Azure Batch. Elle fournit des liens vers des articles contenant des informations détaillées sur chaque activité de transformation.
 
 Data Factory prend en charge les activités de transformation des données suivantes, qui peuvent être ajoutées à des [pipelines](data-factory-create-pipelines.md) , soit individuellement soit de façon chaînée avec une autre activité.

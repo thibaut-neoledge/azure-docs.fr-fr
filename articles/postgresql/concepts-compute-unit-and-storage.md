@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 3c8f6a66b3dd1564bc5eafbecafee6e2f1542caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Présentation des unités de calcul dans Azure Database pour PostgreSQL
 Cette rubrique explique les concepts des unités de calcul et ce qui se passe quand votre charge de travail atteint le niveau maximum d’unités de calcul.
@@ -21,7 +21,7 @@ Cette rubrique explique les concepts des unités de calcul et ce qui se passe qu
 ## <a name="what-are-compute-units"></a>Que sont les unités de calcul ?
 Les unités de calcul sont une mesure de débit de traitement processeur garanti disponible pour un serveur Azure Database pour PostgreSQL unique. Une unité de calcul est une mesure mélangée de ressources processeur et mémoire. Globalement, 50 unités de calcul sont équivalentes à la moitié d’un cœur. 100 unités de calcul sont équivalentes à un cœur. 2 000 unités de calcul sont équivalentes à 20 cœurs de débit de traitement garanti disponible pour votre serveur.
 
-La quantité de mémoire par unité de calcul est optimisée pour les niveaux tarifaires De base et Standard. Le fait de doubler les unités de calcul en augmentant le niveau de performances revient à doubler l’ensemble des ressources disponibles pour cette instance d’Azure Database pour PostgreSQL particulière.
+La quantité de mémoire par unité de calcul est optimisée pour les niveaux tarifaires De base et Standard. Le fait de doubler les unités de calcul en augmentant le niveau de performances revient à doubler l’ensemble des ressources processeur et mémoire disponibles pour cette instance d’Azure Database pour PostgreSQL particulière.
 
 Par exemple, 800 unités de calcul Standard fournissent 8 fois plus de débit d’UC et de mémoire qu’une configuration de 100 unités de calcul Standard. Cependant, là où 100 unités de calcul Standard fournissent le même débit d’UC que 100 unités de calcul De base, la quantité de mémoire qui est préconfigurée dans le niveau tarifaire Standard est le double de la quantité de mémoire configurée pour le niveau tarifaire De base. Par conséquent, le niveau tarifaire Standard offre de meilleures performances de charge de travail et une latence des transactions inférieure par rapport au niveau tarifaire De base avec le même nombre d’unités de calcul sélectionnées.
 
