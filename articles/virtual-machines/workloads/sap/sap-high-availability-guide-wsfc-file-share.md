@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 472c3f35e2ae32550be62826407689f93101041f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -250,7 +250,7 @@ Voici les spécificités de cette architecture :
 * Une instance SAP (A)SCS est mise en cluster et accessible via le nom de l’hôte virtuel **<(A)SCSVirtualHostName>**
 * Les fichiers SAP GLOBAL sont placés sur le partage de fichiers SMB et sont accessibles via le <SAPGLOBALHost>nom d’hôte\\ \\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 * L’instance SAP (A)SCS est installée sur un disque local sur les deux nœuds de cluster
-* Le nom de réseau **<(A)SCSVirtualHostName>** est différent de **<SAPGLOBALHost>**
+* Le nom de réseau **<(A)SCSVirtualHostName>** est différent de **&lt;SAPGLOBALHost&gt;**
 
 ![Figure 2 : Nouvelle architecture à haute disponibilité SAP (A)SCS avec le partage de fichiers SMB][sap-ha-guide-figure-8004]
 
