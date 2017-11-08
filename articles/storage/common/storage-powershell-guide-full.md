@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: robinsh
-ms.openlocfilehash: a116b4c15046e704e374ca67c5695ff3f01ba7fb
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilisation d'Azure PowerShell avec Azure Storage
 
@@ -31,15 +31,14 @@ Cet article couvre les opérations courantes utilisant les applets de commande d
 > * Créez un compte de stockage. 
 > * Définir les propriétés du compte de stockage
 > * Récupérer et régénérer les clés d’accès
-> * Protection de l’accès à votre compte de stockage 
-> * Activation de Storage Analytics
+> * Protéger l’accès à votre compte de stockage 
+> * Activer l’analyse du stockage
 
-Vous obtenez aussi des liens vers plusieurs autres articles de PowerShell pour le stockage, notamment sur l’activation et l’accès à Storage Analytics, et l’utilisation des applets de commande de plan de données.
-<!-- also how to access the china and government clouds  -->
+Cet article fournit des liens vers plusieurs autres articles de PowerShell pour le stockage, notamment sur l’activation et l’accès à Storage Analytics, l’utilisation des applets de commande de plan de données et l’accès aux clouds indépendants Azure tels que le cloud de Chine, le cloud allemand et le cloud Azure Government.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Cet exercice requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Cet exercice requiert le module Azure PowerShell version 4.4 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 Dans cet exercice, vous pouvez saisir les commandes dans une fenêtre PowerShell normale, ou utiliser [l’Environnement d'écriture de scripts intégré de Windows PowerShell (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) et saisir les commandes dans un éditeur, puis tester une ou plusieurs commandes à la fois en parcourant les exemples. Vous pouvez mettre en surbrillance les lignes que vous souhaitez exécuter et cliquer sur Exécuter la sélection pour exécuter uniquement ces commandes.
 
@@ -63,7 +62,7 @@ Get-AzureRMStorageAccount | Select StorageAccountName, Location
 
 ## <a name="get-a-reference-to-a-storage-account"></a>Obtenir une référence à un compte de stockage
 
-Vous avez ensuite besoin d’une référence à un compte de stockage. Vous pouvez créer un nouveau compte de stockage ou obtenir une référence à un compte de stockage existant. Les sections suivantes illustrent les deux méthodes. 
+Vous avez ensuite besoin d’une référence à un compte de stockage. Vous pouvez créer un nouveau compte de stockage ou obtenir une référence à un compte de stockage existant. La section suivante illustre les deux méthodes. 
 
 ### <a name="use-an-existing-storage-account"></a>Utiliser un compte de stockage existant 
 
@@ -94,7 +93,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
-$skuName = "Standard\_LRS"
+$skuName = "Standard_LRS"
     
 # Create the storage account.
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -122,7 +121,7 @@ Le nom de référence (SKU) indique le type de réplication pour le compte de st
 
 Vous disposez maintenant d’un compte de stockage et d’une référence à celui-ci. 
 
-## <a name="managing-the-storage-account"></a>Gestion du compte de stockage
+## <a name="manage-the-storage-account"></a>Gérer le compte de stockage
 
 Maintenant que vous avez une référence à un compte de stockage ou un compte de stockage existant, la section suivante présente certaines des commandes que vous pouvez utiliser pour gérer votre compte de stockage.
 
@@ -142,7 +141,7 @@ Pour modifier les paramètres pour un compte de stockage, utilisez [Set-AzureRmS
 
 * Autorisez uniquement le trafic HTTPS. 
 
-### <a name="managing-the-access-keys"></a>Gestion des clés d’accès
+### <a name="manage-the-access-keys"></a>Gérer les clés d’accès
 
 Un compte Azure Storage est fourni avec deux clés de compte. Pour récupérer les clés, utilisez [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey). Cet exemple récupère la première clé. Pour récupérer l’autre, utilisez `Value[1]` au lieu de `Value[0]`.
 
@@ -171,17 +170,17 @@ Régénérez un de vos clés, puis récupérez-la à nouveau pour voir la nouvel
 
 ### <a name="delete-a-storage-account"></a>Suppression d'un compte de stockage 
 
-Pour supprimer un compte de stockage, utilisez [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount). 
-
-> [!IMPORTANT]
-> Lorsque vous supprimez un compte de stockage, toutes les ressources stockées dans le compte sont également supprimées. Si vous supprimez accidentellement un compte, appelez le Support immédiatement et ouvrez un ticket pour restaurer le compte de stockage. La récupération de vos données n’est pas garantie, mais elle fonctionne parfois. Ne créez pas un compte de stockage portant le même nom que l’ancien tant que le ticket de support n’a pas été résolu. 
->
+Pour supprimer un compte de stockage, utilisez [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount).
 
 ```powershell
 Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
-### <a name="protecting-your-storage-account-using-vnets-and-firewalls"></a>Protection de votre compte de stockage à l’aide de réseaux virtuels et de pare-feu
+> [!IMPORTANT]
+> Lorsque vous supprimez un compte de stockage, toutes les ressources stockées dans le compte sont également supprimées. Si vous supprimez accidentellement un compte, appelez le Support immédiatement et ouvrez un ticket pour restaurer le compte de stockage. La récupération de vos données n’est pas garantie, mais elle fonctionne parfois. Ne créez pas un compte de stockage portant le même nom que l’ancien tant que le ticket de support n’a pas été résolu. 
+>
+
+### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>Protéger votre compte de stockage à l’aide de réseaux virtuels et de pare-feu
 
 Par défaut, tous les comptes de stockage sont accessibles par n’importe quel réseau ayant accès à Internet. Toutefois, vous pouvez configurer des règles de réseau pour autoriser uniquement les applications de réseaux virtuels spécifiques à accéder à un compte de stockage. Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](storage-network-security.md). 
 
@@ -190,7 +189,7 @@ L’article explique comment gérer ces paramètres à l’aide des applets de c
 * [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
 * [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
-## <a name="using-storage-analytics"></a>Utilisation de l’analyse du stockage  
+## <a name="use-storage-analytics"></a>Utiliser l’analyse du stockage  
 
 [Azure Storage Analytics](storage-analytics.md) comprend [les métriques d’analyse de stockage](/rest/api/storageservices/about-storage-analytics-metrics) et [la journalisation des analyses de stockage](/rest/api/storageservices/about-storage-analytics-logging). 
 
@@ -210,26 +209,34 @@ Vous pouvez configurer la surveillance en utilisant le [portail Azure](https://p
 
 * Pour plus d’informations sur l’utilisation de Storage Metrics et de la journalisation du stockage pour résoudre les problèmes de stockage, consultez la page [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="managing-the-data-in-the-storage-account"></a>Gestion des données dans le compte de stockage
+## <a name="manage-the-data-in-the-storage-account"></a>Gérer les données dans le compte de stockage
 
-Maintenant que vous comprenez comment gérer votre compte de stockage avec PowerShell, les articles suivants vous montrent comment utiliser PowerShell pour accéder aux objets de données dans le compte de stockage.
+Maintenant que vous savez comment gérer votre compte de stockage avec PowerShell, consultez les articles suivants pour découvrir comment accéder aux objets de données dans le compte de stockage.
 
 * [Comment gérer les objets Blob avec PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Comment gérer les fichiers avec PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Comment gérer les files d’attente avec PowerShell](../queues/storage-powershell-how-to-use-queues.md)
 
-<!--## Government Cloud and China Cloud
+## <a name="azures-independently-deployed-clouds"></a>Clouds indépendants Azure
 
-ROBINROBINROBIN 
+La plupart des gens utilisent le cloud public Azure pour leur déploiement Azure global. Il existe également des déploiements indépendants de Microsoft Azure pour des raisons de souveraineté, entre autres. Ces déploiements indépendants sont appelés « environnements ». Voici les environnements disponibles :
 
-To access the Government cloud of the China datacenters, you have to use some special steps. The following article shows how to access these special cloud accounts using PowerShell.
+* [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
+* [Cloud Azure de Chine géré par 21Vianet en Chine](http://www.windowsazure.cn/)
+* [Cloud Azure allemand](../../germany/germany-welcome.md)
 
-* [How to manage storage accounts in Government Cloud and China](storage-powershell-govt-china.md)
--->
+Pour découvrir comment accéder à ces clouds et à leur stockage avec PowerShell, consultez [Gestion du stockage dans les clouds indépendants d’Azure avec PowerShell](storage-powershell-independent-clouds.md).
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Si vous avez créé un groupe de ressources et un compte de stockage pour cet exercice, vous pouvez supprimer toutes les ressources que vous avez créées en supprimant le groupe de ressources. Cette opération supprime également toutes les ressources contenues dans le groupe. Dans le cas présent, le compte de stockage créé et le groupe de ressources sont supprimés.
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article couvre les opérations courantes utilisant les applets de commande de plan de gestion pour gérer les comptes de stockage. Vous allez apprendre à effectuer les actions suivantes : 
+Cet article couvre les opérations courantes utilisant les applets de commande de plan de gestion pour gérer les comptes de stockage. Vous avez appris à effectuer les actions suivantes : 
 
 > [!div class="checklist"]
 > * Répertorier les comptes de stockage
@@ -237,12 +244,10 @@ Cet article couvre les opérations courantes utilisant les applets de commande d
 > * Créez un compte de stockage. 
 > * Définir les propriétés du compte de stockage
 > * Récupérer et régénérer les clés d’accès
-> * Protection de l’accès à votre compte de stockage 
-> * Activation de Storage Analytics
+> * Protéger l’accès à votre compte de stockage 
+> * Activer l’analyse du stockage
 
-Vous trouverez également des liens vers plusieurs autres articles, notamment sur la gestion des objets de données et l’activation de Storage Analytics. Voici d’autres articles connexes et ressources de référence : 
-<!--, and how to access storage with PowerShell using the Government Cloud and the China Cloud.
--->
+Cet article fournit également des liens vers plusieurs autres articles, notamment sur la gestion des objets de données, l’activation de Storage Analytics et l’accès aux clouds indépendants Azure tels que le cloud de Chine, le cloud allemand et le cloud Azure Government. Voici d’autres articles connexes et ressources de référence :
 
 * [Applets de commande PowerShell pour le plan de contrôle du stockage Azure](/powershell/module/AzureRM.Storage/)
 * [Applets de commande PowerShell pour le plan de données du stockage Azure](/powershell/module/azure.storage/)

@@ -1,6 +1,6 @@
 ---
 title: "Exemples de transformations de flux de données possibles avec la préparation des données Azure Machine Learning | Microsoft Docs"
-description: "Ce document fournit un ensemble d’exemples de transformations de flux de données possibles avec la préparation des données Azure ML."
+description: "Ce document fournit un ensemble d’exemples de transformations de flux de données possibles avec la préparation des données Azure Machine Learning."
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,24 +12,24 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: f43f65ca89349fc790684e9bd7acd2f19e15abe5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5491548885709c1c1048e45d699ef385a7c49a74
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Exemple de transformations de flux de données personnalisées (Python) 
-Le nom de cette transformation dans le menu est « Transformer le flux de données (script) ». Avant de lire cette annexe, consultez la [présentation de l’extensibilité de Python](data-prep-python-extensibility-overview.md).
+Le nom de la transformation dans le menu est **Transformation d’un flux de données (Script)**. Avant de lire cette annexe, lisez la [présentation de l’extensibilité de Python](data-prep-python-extensibility-overview.md).
 
 ## <a name="transform-frame"></a>Cadre de transformation
 ### <a name="create-a-new-column-dynamically"></a>Créer une colonne de manière dynamique 
-Crée une colonne de manière dynamique (city2) et rapproche plusieurs versions différentes de San Francisco par rapport à la colonne « city » existante.
+Crée une colonne de manière dynamique (**city2**) et rapproche plusieurs versions différentes de San Francisco par rapport à la colonne « city » existante.
 ```python
     df.loc[(df['city'] == 'San Francisco') | (df['city'] == 'SF') | (df['city'] == 'S.F.') | (df['city'] == 'SAN FRANCISCO'), 'city2'] = 'San Francisco'
 ```
 
 ### <a name="add-new-aggregates"></a>Ajouter de nouveaux agrégats
-Crée un cadre avec les premier et dernier agrégats calculés pour la colonne « score » regroupée en fonction de la colonne risk_category.
+Crée un cadre avec les premier et dernier agrégats calculés pour la colonne « score ». Ils sont regroupés par la colonne **risk_category**.
 ```python
     df = df.groupby(['risk_category'])['Score'].agg(['first','last'])
 ```
@@ -42,8 +42,7 @@ Reformule les données afin de réduire le nombre de valeurs hors norme dans une
 
 ## <a name="transform-data-flow"></a>Transformer le flux de données
 ### <a name="fill-down"></a>Recopier en bas 
-L’option de remplissage vers le bas requiert deux transformations,
-en supposant que les données ressemblent aux données suivantes :
+L’option de remplissage vers le bas requiert deux transformations, en partant du principe que les données ressemblent aux données suivantes :
 
 
 |State         |City       |
@@ -59,16 +58,16 @@ en supposant que les données ressemblent aux données suivantes :
 |              |San Antonio|
 |              |Houston    |
 
-Tout d’abord, créez une transformation « Ajouter une colonne (script) » qui contient le code suivant :
+Tout d’abord, créez une transformation Ajouter une colonne (script) qui contient le code suivant :
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-Ensuite, créez une transformation de flux de données (script) qui contient le code suivant :
+Ensuite, créez une transformation de flux de données (script) qui contient le code suivant :
 ```python
     df = df.fillna( method='pad')
 ```
 
-Les données ressemblent maintenant à ce qui suit :
+Les données ressemblent maintenant à ce qui suit :
 
 |State         |newState         |City       |
 |--------------|--------------|-----------|

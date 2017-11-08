@@ -1,6 +1,6 @@
 ---
 title: "Exemples de connexions de données sources supplémentaires avec la préparation des données Azure Machine Learning | Microsoft Docs"
-description: "Ce document fournit un ensemble d’exemples de connexions de données sources possibles avec la préparation des données Azure ML."
+description: "Ce document fournit un ensemble d’exemples de connexions de données sources possibles avec la préparation des données Azure Machine Learning."
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,25 +12,25 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 550cca100314009f63eec2136e8c65426d8bf07f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aaf4329b25cb189146949afed89cf15619ba592
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Exemple de connexions sources personnalisées (Python) 
-Avant de lire cette annexe, consultez [Vue d’ensemble de l’extensibilité Python](data-prep-python-extensibility-overview.md).
+Avant de lire cette annexe, lisez la [présentation de l’extensibilité de Python](data-prep-python-extensibility-overview.md).
 
-## <a name="loading-data-from-dataworld"></a>Chargement de données à partir de data.world
+## <a name="load-data-from-dataworld"></a>Charger des données à partir de data.world
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 
 #### <a name="register-yourself-at-dataworld"></a>Vous inscrire auprès de data.world
-Un jeton d’API, que vous obtenez à partir du site web de data.world, est nécessaire.
+Vous avez besoin d’un jeton d’API du site web data.world.
 
 #### <a name="install-dataworld-library"></a>Installer la bibliothèque data.world
 
-Ouvrez l’interface de ligne de commande d’Azure Machine Learning Workbench à partir de _Fichier -> Ouvrir une interface de ligne de commande_.
+Ouvrez l’interface de ligne de commande d’Azure Machine Learning Workbench en sélectionnant **Fichier** > **Ouvrir une interface de ligne de commande**.
 
 ```console
 pip install git+git://github.com/datadotworld/data.world-py.git
@@ -45,24 +45,24 @@ Vous devriez maintenant pouvoir importer des bibliothèques data.world.
 
 #### <a name="load-data-into-data-preparation"></a>Charger des données dans la préparation des données
 
-Créez un flux de données basé sur un script et utilisez le script suivant pour charger les données à partir de data.world.
+Créer un flux de données basé sur un script. Ensuite, utilisez le script suivant pour charger les données à partir de data.world.
 
 ```python
 #paths = df['Path'].tolist()
 
 import datadotworld as dw
 
-#load the dataset
+#Load the dataset.
 lds = dw.load_dataset('data-society/the-simpsons-by-the-data')
 
-#Load specific data frame from the dataset
+#Load specific data frame from the dataset.
 df = lds.dataframes['simpsons_episodes']
 
 ```
 
-## <a name="load-cosmosdb-data-into-data-preparation"></a>Charger des données CosmosDB dans la préparation des données
+## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Charger des données Azure Cosmos DB dans la préparation des données
 
-Créez un flux de données basé sur un script et utilisez le script suivant pour charger les données à partir de CosmosDB (vous devrez tout d’abord installer les bibliothèques ; consultez le lien vers le document de référence indiqué plus haut).
+Créez un flux de données basé sur un script, puis utilisez le script suivant pour charger les données à partir d’Azure Cosmos DB. (Vous devez d’abord installer les bibliothèques. Pour plus d’informations, consultez le lien vers le document de référence précédent.)
 
 ```python
 import pydocumentdb
@@ -77,7 +77,7 @@ config = {
     'DOCUMENTDB_COLLECTION': '<collectionname>'
 };
 
-# Initialize the Python DocumentDB client
+# Initialize the Python DocumentDB client.
 client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
 
 # Read databases and take first since id should not be duplicated.

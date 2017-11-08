@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 22e4d491bfb9e61294ccdaaa36abbf38b9b662ac
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Fonctionnalités et outils pour PowerShell dans Azure Cloud Shell
 
@@ -91,7 +91,7 @@ Ces commandes s’appuient sur la communication à distance PowerShell et néces
 
 |**Catégorie**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Outils Azure     |[Azure PowerShell (4.4.0)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)<br> [Azure CLI (2.0.18)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Outils Azure     |[Azure PowerShell (4.4.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1)<br> [Azure CLI (2.0.20)](https://docs.microsoft.com/en-us/cli/azure/overview)|
 |Éditeurs de texte    |vim<br> nano                             |
 |Gestionnaire de package |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Contrôle de code source  |git                                      |

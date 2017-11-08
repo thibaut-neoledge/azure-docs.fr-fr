@@ -1,5 +1,5 @@
 ---
-title: "Connexion d’un périphérique à l’aide de C sur Windows | Microsoft Docs"
+title: "Provisionner des appareils Windows pour la surveillance à distance en C - Azure| Microsoft Docs"
 description: "Explique comment connecter un appareil à la solution de surveillance à distance Azure IoT Suite préconfigurée à l’aide d’une application écrite en C et exécutée sous Windows."
 services: 
 suite: iot-suite
@@ -13,51 +13,80 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/16/2017
 ms.author: dobett
-ms.openlocfilehash: d222bcbd64f288d4091acb0ecd2922b9ceee57e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef38517b55b352acf036e62d407f1ff840d6f804
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Connexion de votre appareil à la solution préconfigurée de surveillance à distance (Windows)
+
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## <a name="create-a-c-sample-solution-on-windows"></a>Création d’un exemple de solution C sur Windows
-Les étapes suivantes vous montrent comment créer une application cliente qui communique avec la solution préconfigurée de surveillance à distance. Cette application est écrite en C, générée et exécutée sur Windows.
+Ce didacticiel montre comment connecter un appareil physique à la solution préconfigurée de surveillance à distance.
 
-Créez un projet de démarrage dans Visual Studio 2015 ou Visual Studio 2017 et ajoutez les packages NuGet clients de l’appareil IoT Hub :
+## <a name="create-a-c-client-solution-on-windows"></a>Créer une solution de client C sur Windows
 
-1. Dans Visual Studio, créez une application console C à l’aide du modèle **Application console Win32** de Visual C++. Nommez le projet **RMDevice**.
-2. Sur la page **Paramètres de l’application** dans **l’Assistant Application Win32**, assurez-vous que l’option **Application console** est sélectionnée et décochez les cases **En-tête précompilé** et **Vérifications SDL (Security Development Lifecycle)**.
-3. Dans l’ **Explorateur de solutions**, supprimez les fichiers stdafx.h, targetver.h et stdafx.cpp.
-4. Dans l’ **Explorateur de solutions**, renommez le fichier RMDevice.cpp en RMDevice.c.
-5. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, puis cliquez sur **Gérer les packages NuGet**. Cliquez sur **Parcourir**, puis recherchez et installez les packages NuGet suivants :
-   
-   * Microsoft.Azure.IoTHub.Serializer
-   * Microsoft.Azure.IoTHub.IoTHubClient
-   * Microsoft.Azure.IoTHub.MqttTransport
-6. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, puis cliquez sur **Propriétés** pour ouvrir la boîte de dialogue **Pages de propriétés** du projet. Pour plus d’informations, consultez [Setting Visual C++ Project Properties (Définition des propriétés de projet Visual C++)][lnk-c-project-properties]. 
-7. Cliquez sur le dossier **Linker**, puis cliquez sur la page de propriétés **d’entrée**.
-8. Ajoutez **crypt32.lib** à la propriété **Dépendances supplémentaires**. Cliquez sur **OK**, puis de nouveau sur **OK** pour enregistrer les valeurs des propriétés du projet.
+Comme avec la plupart des applications embarquées qui s’exécutent sur des appareils limités, le code client pour l’application d’appareil est écrit en C. Dans ce didacticiel, vous générez l’application sur une machine exécutant Windows.
+
+### <a name="create-the-starter-project"></a>Créer le projet de démarrage
+
+Créez un projet de démarrage dans Visual Studio 2017, puis ajoutez les packages NuGet clients de l’appareil IoT Hub :
+
+1. Dans Visual Studio, créez une application console C à l’aide du modèle **Application console Windows** de Visual C++. Nommez le projet **RMDevice**.
+
+    ![Créer une application de console Windows Visual C++](media/iot-suite-connecting-devices/visualstudio01.png)
+
+1. Dans **l’Explorateur de solutions**, supprimez les fichiers `stdafx.h`, `targetver.h` et `stdafx.cpp`.
+
+1. Dans **l’Explorateur de solutions**, renommer le fichier `RMDevice.cpp` en `RMDevice.c`.
+
+    ![Explorateur de solutions affichant le fichier RMDevice.c renommé](media/iot-suite-connecting-devices/visualstudio02.png)
+
+1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, puis cliquez sur **Gérer les packages NuGet**. Choisissez **Parcourir**, puis recherchez et installez les packages NuGet suivants :
+
+    * Microsoft.Azure.IoTHub.Serializer
+    * Microsoft.Azure.IoTHub.IoTHubClient
+    * Microsoft.Azure.IoTHub.MqttTransport
+
+    ![Gestionnaire de package NuGet montrant les packages Microsoft.Azure.IoTHub installés](media/iot-suite-connecting-devices/visualstudio03.png)
+
+1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, puis choisissez **Propriétés** pour ouvrir la boîte de dialogue **Pages de propriétés** du projet. Pour plus d’informations, consultez [Setting Visual C++ Project Properties](https://docs.microsoft.com/cpp/ide/working-with-project-properties) (Définition des propriétés de projet Visual C++).
+
+1. Choisissez le dossier **C/C++**, puis choisissez la page de propriétés **En-têtes précompilés**.
+
+1. Définissez **En-tête précompilé** sur **Sans utiliser les en-têtes précompilés**. Choisissez ensuite **Appliquer**.
+
+    ![Propriétés du projet indiquant que le projet n’utilise pas les en-têtes précompilés](media/iot-suite-connecting-devices/visualstudio04.png)
+
+1. Choisissez le dossier **Linker**, puis la page de propriétés **d’entrée**.
+
+1. Ajoutez `crypt32.lib` à la propriété **Dépendances supplémentaires**. Pour enregistrer les valeurs des propriétés du projet, cliquez sur **OK**, puis de nouveau sur **OK**.
+
+    ![Propriétés du projet montrant l’éditeur de liens avec crypt32.lib](media/iot-suite-connecting-devices/visualstudio05.png)
+
+### <a name="add-the-parson-json-library"></a>Ajouter la bibliothèque JSON Parson
 
 Ajoutez la bibliothèque JSON Parson au projet **RMDevice** ainsi que les instructions `#include` requises :
 
-1. Dans un dossier approprié sur votre ordinateur, clonez le référentiel GitHub Parson à l’aide de la commande suivante :
+1. Dans un dossier approprié sur votre ordinateur, clonez le dépôt GitHub Parson à l’aide de la commande suivante :
 
-    ```
+    ```cmd
     git clone https://github.com/kgabis/parson.git
     ```
 
-1. Copiez les fichiers parson.h et parson.c de la copie locale du référentiel Parson dans le dossier de votre projet **RMDevice**.
+1. Copiez les fichiers `parson.h` et `parson.c` de la copie locale du dépôt Parson dans le dossier de votre projet **RMDevice**.
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **RMDevice**, cliquez sur **Ajouter**, puis sur **Élément existant**.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **RMDevice**, choisissez **Ajouter**, puis **Élément existant**.
 
-1. Dans la boîte de dialogue **Ajouter un élément existant**, sélectionnez les fichiers parson.h et parson.c dans le dossier du projet **RMDevice**. Cliquez ensuite sur **Ajouter** pour ajouter ces deux fichiers à votre projet.
+1. Dans la boîte de dialogue **Ajouter un élément existant**, sélectionnez les fichiers `parson.h` et `parson.c` dans le dossier du projet **RMDevice**. Pour ajouter ces deux fichiers à votre projet, choisissez **Ajouter**.
 
-1. Dans Visual Studio, ouvrez le fichier RMDevice.c. Remplacez les instructions existantes `#include` par ce qui suit :
-   
+    ![Explorateur de solutions affichant les fichiers parson.h et parson.c](media/iot-suite-connecting-devices/visualstudio06.png)
+
+1. Dans Visual Studio, ouvrez le fichier `RMDevice.c`. Remplacez les instructions existantes `#include` par ce qui suit :
+
     ```c
     #include "iothubtransportmqtt.h"
     #include "schemalib.h"
@@ -70,16 +99,16 @@ Ajoutez la bibliothèque JSON Parson au projet **RMDevice** ainsi que les instru
     ```
 
     > [!NOTE]
-    > À présent, vous pouvez vérifier que votre projet contient les dépendances appropriées définies en le générant.
+    > À présent, vous pouvez vérifier que votre projet contient les dépendances appropriées définies en générant la solution.
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
 
-Ajoutez du code pour appeler la fonction **remote\_monitoring\_run**, puis générez et exécutez l’application de l’appareil.
+Ajoutez du code pour appeler la fonction **remote\_monitoring\_run**, puis générez et exécutez l’application de l’appareil :
 
-1. Remplacez la fonction **main** par le code suivant pour appeler la fonction **remote\_monitoring\_run** :
-   
+1. Pour appeler la fonction **remote\_monitoring\_run**, remplacez la fonction **main** par le code suivant :
+
     ```c
     int main()
     {
@@ -88,10 +117,12 @@ Ajoutez du code pour appeler la fonction **remote\_monitoring\_run**, puis gén�
     }
     ```
 
-1. Cliquez sur **Générer**, puis sur **Générer la solution** pour générer l’application de l’appareil.
+1. Choisissez **Générer**, puis **Générer la solution** pour générer l’application de l’appareil. Ignorez l’avertissement relatif à la fonction **gmtime**.
 
-1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, cliquez sur **Déboguer**, puis cliquez sur **Démarrer une nouvelle instance** pour exécuter l’exemple. La console affiche des messages, car l’application envoie un échantillon de données de télémétrie à la solution préconfigurée, reçoit les valeurs de propriété souhaitées définies dans le tableau de bord de la solution et répond aux méthodes appelées à partir du tableau de bord de la solution.
+1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, choisissez **Déboguer**, puis choisissez **Démarrer une nouvelle instance** pour exécuter l’exemple. La console affiche des messages quand l’application :
+
+    * Envoie un échantillon de données de télémétrie à la solution préconfigurée.
+    * Reçoit les valeurs de propriété souhaitées définies dans le tableau de bord des solutions.
+    * Répond aux méthodes appelées à partir du tableau de bord des solutions.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
-[lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx

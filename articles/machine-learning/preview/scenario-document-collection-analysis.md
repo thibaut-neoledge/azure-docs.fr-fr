@@ -9,11 +9,11 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="document-collection-analysis"></a>Analyse d’une collection de documents
 
@@ -102,7 +102,7 @@ Les fichiers utilisés dans cet exemple sont structurés comme suit.
 
 | Nom de fichier | Type | Description |
 |-----------|------|-------------|
-| `aml_config` | Dossier | Dossier de configuration d’Azure Machine Learning Workbench (consultez [cette documentation](./experiment-execution-configuration-reference.md) pour plus de détails sur la configuration de l’exécution de l’expérimentation) |
+| `aml_config` | Dossier | Dossier de configuration d’Azure Machine Learning Workbench (consultez [cette documentation](./experimentation-service-configuration-reference.md) pour plus de détails sur la configuration de l’exécution de l’expérimentation) |
 | `Code` | Dossier | Dossier de code utilisé pour enregistrer les scripts Python et le package Python |
 | `Data` | Dossier | Dossier de données utilisé pour enregistrer les fichiers intermédiaires |
 | `notebooks` | Dossier | Dossier des notebooks Jupyter |
@@ -120,6 +120,7 @@ Les fichiers utilisés dans cet exemple sont structurés comme suit.
 | `notebooks/3_Topic_Model_Training.ipynb` | Notebook iPython | Utilisé pour former le modèle de thèmes LDA |
 | `notebooks/4_Topic_Model_Summarization.ipynb` | Notebook iPython | Utilisé pour faire la synthèse du contenu de la collection de documents sur la base d’un modèle de thèmes LDA formé |
 | `notebooks/5_Topic_Model_Analysis.ipynb` | Notebook iPython | Utilisé pour analyser le contenu thématique d’une collection de documents texte et mettre en corrélation les informations thématiques avec d’autres métadonnées associées à cette collection |
+| `notebooks/6_Interactive_Visualization.ipynb` | Notebook iPython | Visualisation interactive du modèle de rubriques apprises |
 | `notebooks/winprocess.py` | Fichier Python | Script Python utilisé par les notebooks pour le traitement multiprocesseur |
 | `README.md` | Fichier Markdown | Fichier Markdown LISEZMOI |
 
@@ -224,6 +225,8 @@ L’étape d’analyse et de synthèse des thèmes est décrite dans deux notebo
 Le notebook `4_Topic_Model_Summarization.ipynb` montre comment faire la synthèse du contenu du document sur la base d’un modèle de thèmes LDA formé. La synthèse est appliquée à un modèle de thèmes LDA formé à l’étape 3. Le notebook montre comment mesurer l’importance ou la qualité d’un thème à l’aide de la mesure de pureté entre le thème et le document. Cette mesure de pureté suppose que les thèmes latents qui sont les plus présents dans les documents sont sémantiquement plus importants que ceux qui sont utilisés peu de fois dans de nombreux documents. Ce concept a été introduit dans le document « [Latent Topic Modeling for Audio Corpus Summarization](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf) ».
 
 Le notebook `5_Topic_Model_Analysis.ipynb` montre comment analyser le contenu thématique d’une collection de documents et comment mettre en corrélation les informations thématiques avec d’autres métadonnées associées à cette collection. Ce notebook contient quelques tracés pour aider les utilisateurs à mieux comprendre le concept d’apprentissage et de collection de documents.
+
+Le notebook `6_Interactive_Visualization.ipynb` montre comment visualiser de façon interactive le modèle de rubriques apprises. Il comprend quatre tâches de visualisation interactive.
 
 ## <a name="conclusion"></a>Conclusion
 

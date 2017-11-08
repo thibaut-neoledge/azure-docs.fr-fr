@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: de40d4afce48e94df0f69c5edca46838268a5e29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b4cab46e0fc86d5074b6d19601cd7ff4afeb0eb
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Résolution des problèmes liés à Data Factory
+> [!NOTE]
+> Cet article s’applique à la version 1 de Azure Data Factory, qui est généralement disponible (GA). 
+
 Cet article propose des conseils pour la résolution des problèmes d'utilisation d'Azure Data Factory. Cet article ne répertorie pas tous les problèmes possibles lors de l'utilisation du service, mais il aborde certains problèmes ainsi que des conseils de résolution généraux.   
 
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage

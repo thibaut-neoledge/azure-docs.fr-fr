@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 473a9e3aa3b6ad79a5f50a37c8aadc1bba79f5ae
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/01/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identité du service administré (MSI) pour les ressources Azure
 
@@ -50,12 +50,14 @@ Essayez un didacticiel d’identité du service administré afin d’en savoir p
 <br><br>
 | À partir d’une ressource compatible avec l’identité du service administré | Découvrez comment |
 | ------- | -------- |
-| Machine virtuelle Azure (Windows) | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-arm.md) |
+| Machine virtuelle Azure (Windows) | [Accéder à Azure Data Lake Store avec une identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-datalake.md) |
+|                    | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Accéder à Azure SQL avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Accéder au stockage Azure via une clé d’accès avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-storage.md) |
 |                    | [Accéder au stockage Azure via la signature d’accès partagé (SAP) avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Accéder à Azure SQL avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Accéder à une ressource non Azure AD avec l’identité du service administré d’une machine virtuelle Windows et Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
-| Machine virtuelle Azure (Linux)   | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-arm.md) |
+| Machine virtuelle Azure (Linux)   | [Accéder à Azure Data Lake Store avec une identité du service administré de la machine virtuelle Linux](msi-tutorial-linux-vm-access-datalake.md) |
+|                    | [Accéder à Azure Resource Manager avec l’identité du service administré d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-arm.md) |
 |                    | [Accéder au stockage Azure via une clé d’accès avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [Accéder au stockage Azure via la signature d’accès partagé (SAP) avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Accéder à une ressource non Azure AD avec l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux et Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |

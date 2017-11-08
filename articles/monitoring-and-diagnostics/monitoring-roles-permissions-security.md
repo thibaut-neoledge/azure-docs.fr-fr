@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs devops) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
@@ -37,12 +37,12 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 * Affichez les paramètres de mise à l’échelle automatique.
 * Afficher les activités et paramètres d’alerte.
 * Accéder aux données Application Insights et affichez les données dans AI Analytics.
-* Rechercher des données d’espace de travail Log Analytics (OMS), y compris les données d’utilisation de l’espace de travail.
-* Afficher les groupes de gestion de Log Analytics (OMS).
-* Récupérer le schéma de recherche de Log Analytics (OMS).
-* Répertorier les packs d’analyse décisionnelle de Log Analytics (OMS).
-* Récupérer et exécuter les recherches enregistrées de Log Analytics (OMS).
-* Récupérer la configuration du stockage Log Analytics (OMS).
+* Rechercher des données d’espace de travail Log Analytics, notamment les données d’utilisation de l’espace de travail.
+* Afficher les groupes de gestion Log Analytics.
+* Récupérer le schéma de recherche Log Analytics.
+* Répertorier les Intelligence Packs Log Analytics.
+* Récupérer et exécuter les recherches enregistrées Log Analytics.
+* Récupérer la configuration du stockage Log Analytics.
 
 > [!NOTE]
 > Ce rôle ne donne pas l’accès en lecture aux données de journal diffusées vers un hub d’événements ou stockées dans un compte de stockage. [Consultez ce qui suit](#security-considerations-for-monitoring-data) pour plus d’informations sur la configuration de l’accès à ces ressources.
@@ -57,10 +57,10 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 * Définir le [profil de journal](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) pour un abonnement.*
 * Définir les activités et paramètres d’alerte.
 * Créer des tests web et composants Application Insights.
-* Répertorier les clés partagées d’espace de travail de Log Analytics (OMS).
-* Activer ou désactiver les packs d’analyse décisionnelle de Log Analytics (OMS).
-* Créer ou supprimer des recherches enregistrées de Log Analytics (OMS).
-* Créer ou supprimer la configuration du stockage Log Analytics (OMS).
+* Répertorier les clés partagées d’espace de travail Log Analytics.
+* Activer ou désactiver les Intelligence Packs Log Analytics.
+* Créer ou supprimer des recherches enregistrées Log Analytics.
+* Créer ou supprimer la configuration du stockage Log Analytics.
 
 *L’utilisateur doit aussi séparément obtenir l’autorisation ListKeys sur la ressource cible (compte de stockage ou espace de noms de hub d’événements) pour définir un profil de journalisation ou un paramètre de diagnostic.
 

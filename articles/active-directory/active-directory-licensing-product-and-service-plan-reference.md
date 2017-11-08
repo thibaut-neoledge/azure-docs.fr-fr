@@ -1,6 +1,6 @@
 ---
-title: "Référence pour les produits et les plans de service dans Azure Active Directory | Microsoft Docs"
-description: "Référence pour les produits et les plans de service"
+title: Noms de produit et identificateurs de plans de service pour la gestion des licences dans Azure Active Directory | Microsoft Docs
+description: "Mappage des identificateurs pour gérer les licences d’Azure AD dans le portail Azure, le portail Office 365, PowerShell ou Microsoft Graph"
 services: active-directory
 keywords: Plans de service des licences Azure Active Directory
 documentationcenter: 
@@ -13,33 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 10/26/2017
 ms.author: piotrci
-ms.openlocfilehash: e796c03f4477b431907d8b5fbd6065239bb1d40e
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: b2c540c69a95f0912a71c25ddc70061fa8043aa4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="reference-for-products-and-service-plans-in-azure-active-directory"></a>Référence pour les produits et les plans de service dans Azure Active Directory
+# <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Noms de produits et identificateurs de plans de service pour la gestion des licences
 
-Cet article fournit des informations de référence qui peuvent s’avérer utiles lorsque vous travaillez sur la gestion des licences pour Microsoft Online Services.
+Lors de la gestion des licences dans [le portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) ou le portail Office 365, vous voyez des noms de produits similaires à *Office 365 Enterprise E3*. Toutefois lorsque vous utilisez les cmdlets PowerShell v1.0, le même produit est identifié avec un nom spécifique mais moins convivial : *ENTERPRISEPACK*. Lorsque vous utilisez les cmdlets PowerShell v2.0 ou Microsoft Graph, le même produit est identifié à l’aide d’une valeur GUID : *6fd2c87f-b296-42f0-b197-1e91e994b900*. Le tableau suivant répertorie les produits Microsoft Online Services les plus couramment utilisés ainsi que leurs différentes valeurs d’identificateur :
 
-## <a name="product-names-and-identifiers-used-in-azure-ad"></a>Noms des produits et identificateurs utilisés dans Azure AD
-
-Lorsque vous gérez des licences dans les portails [Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) ou Office, vous pouvez voir des noms de produits conviviaux, comme *Office 365 Enterprise E3*. Toutefois lorsque vous utilisez les applets de commande PowerShell v1.0, le même produit est identifié avec un nom moins convivial : *ENTERPRISEPACK*. Lorsque vous utilisez PowerShell v2.0 ou Microsoft Graph, le même produit est identifié à l’aide d’une valeur GUID : *6fd2c87f-b296-42f0-b197-1e91e994b900*. Il en va de même pour les plans de service inclus dans le produit.
-
-Le tableau suivant répertorie les produits Microsoft Online Services les plus couramment utilisés ainsi que leurs différentes valeurs d’identificateur.
-
-- **Nom du produit** : cette valeur est visible dans les portails de gestion
-- **Identificateur de chaîne** : il est utilisé par les applets de commande PowerShell v1.0 lors des opérations sur les licences.
-- **Identificateur de GUID** : il est utilisé par Azure AD Graph et Microsoft Graph.
-- **Plans de service inclus** : liste des plans de service du produit. L’identificateur de chaîne et l’identificateur de GUID sont indiqués.
+- **Nom de produit** : utilisé dans les portails de gestion
+- **Identificateur de chaîne** : utilisé par les cmdlets PowerShell v1.0 lors des opérations sur les licences
+- **Identificateur de GUID** : utilisé par Azure AD Graph et Microsoft Graph
+- **Plans de service inclus** : liste des plans de service du produit qui correspondent aux identificateurs de chaîne et de GUID
 
 >[!NOTE]
->Ces informations sont exactes à la date du 11 octobre 2017. Le tableau contient une sélection des produits les plus couramment utilisés.
+>Ces informations sont exactes à la date du 11 octobre 2017.
 
-| Nom du produit | Identificateur de chaîne | Identificateur de GUID| Plans de service inclus |
+| Nom du produit | Identificateur de chaîne | GUID | Plans de service inclus |
 | --- | --- | --- |--- |
 | AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43A2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe)
 | AZURE ACTIVE DIRECTORY PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)
@@ -103,7 +97,7 @@ Le tableau suivant répertorie les produits Microsoft Online Services les plus c
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>Plans de service ne pouvant pas être assignés en même temps
 
-Certains produits contiennent des plans de service qui s’excluent mutuellement ; ils ne peuvent pas être affectés au même utilisateur en même temps. Par exemple, si vous disposez de *Office 365 Enterprise E1* et *Office 365 Enterprise E3* et que vous essayez d’assigner les deux licences au même utilisateur, l’opération échoue. Cela est dû au fait que le produit E3 contient les plans de service suivants qui sont en conflit avec leurs équivalents E1 :
+Certains produits contiennent des plans de service qui ne peuvent pas être affectés au même utilisateur en même temps. Par exemple, si vous disposez de *Office 365 Enterprise E1* et *Office 365 Enterprise E3* et que vous essayez d’assigner les deux licences au même utilisateur, l’opération échoue. Cela est dû au fait que le produit E3 contient les plans de service suivants qui sont en conflit avec leurs équivalents E1 :
 
 -   SharePoint Online (Plan 2) est en conflit avec SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) est en conflit avec Exchange Online (Plan 1).
@@ -121,7 +115,7 @@ Cette section répertorie les principaux plans de service qui s’excluent mutue
 
 Les plans de service suivants ne peuvent pas être attribués ensemble :
 
-| Nom du plan de service | Identificateur de GUID |
+| Nom du plan de service | GUID |
 | --- | --- |
 | CRMIUR    | c42a56bd-9e70-4ace-be17-dc8eeae369d7 |
 | CRMPLAN1  | 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
@@ -137,7 +131,7 @@ Les plans de service suivants ne peuvent pas être attribués ensemble :
 
 Les plans de service suivants ne peuvent pas être attribués ensemble :
 
-| Nom du plan de service | Identificateur de GUID |
+| Nom du plan de service | GUID |
 | --- | --- |
 | EXCHANGE_B_STANDARD   | 90927877-dcff-4af6-b346-2332c0b15bb7 |
 | EXCHANGE_L_STANDARD   | d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
@@ -152,7 +146,7 @@ Les plans de service suivants ne peuvent pas être attribués ensemble :
 
 Les plans de service suivants ne peuvent pas être attribués ensemble :
 
-| Nom du plan de service | Identificateur de GUID |
+| Nom du plan de service | GUID |
 | --- | --- |
 | INTUNE_A  | c1ec4a95-1f05-45b3-a911-aa3fa01094f5 |
 | INTUNE_A_VL   | 3e170737-c728-4eae-bbb9-3f3360f7184c |
@@ -162,7 +156,7 @@ Les plans de service suivants ne peuvent pas être attribués ensemble :
 
 Les plans de service suivants ne peuvent pas être attribués ensemble :
 
-| Nom du plan de service | Identificateur de GUID |
+| Nom du plan de service | GUID |
 | --- | --- |
 | ONEDRIVEENTERPRISE    | afcafa6a-d966-4462-918c-ec0b4e0fe642 |
 | SHAREPOINT_S_DEVELOPER    | a361d6e2-509e-4e25-a8ad-950060064ef4 |
@@ -178,7 +172,7 @@ Les plans de service suivants ne peuvent pas être attribués ensemble :
 
 Les plans de service suivants ne peuvent pas être attribués ensemble :
 
-| Nom du plan de service | Identificateur de GUID |
+| Nom du plan de service | GUID |
 | --- | --- |
 | MCOIMP    | afc06cb0-b4f4-4473-8286-d644f70d8faf |
 | MCOSTANDARD_MIDMARKET | b2669e95-76ef-4e7e-a367-002f60a39f3e |
@@ -187,7 +181,7 @@ Les plans de service suivants ne peuvent pas être attribués ensemble :
 
 Les plans de service suivants ne peuvent pas être attribués ensemble :
 
-| Nom du plan de service | Identificateur de GUID |
+| Nom du plan de service | GUID |
 | --- | --- |
 | MCOPSTN1  | 4ed3ff63-69d7-4fb7-b984-5aec7f605ca8 |
 | MCOPSTN2  | 5a10155d-f5c1-411a-a8ec-e99aae125390 |
@@ -196,7 +190,7 @@ Les plans de service suivants ne peuvent pas être attribués ensemble :
 
 Les plans de service suivants ne peuvent pas être attribués ensemble :
 
-| Nom du plan de service | Identificateur de GUID |
+| Nom du plan de service | GUID |
 | --- | --- |
 | YAMMER_ENTERPRISE | 7547a3fe-08ee-4ccb-b430-5077c5041653 |
 | YAMMER_EDU    | 2078e8df-cff6-4290-98cb-5408261a760a |

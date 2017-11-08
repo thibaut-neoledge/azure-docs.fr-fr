@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 39ac9aa678464c497d9f7963bab802141ce9e854
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Guide de conception pour l’utilisation de tables répliquées dans Azure SQL Data Warehouse
 Cet article vous fournit des recommandations relatives à la conception de tables répliquées dans votre schéma SQL Data Warehouse. Utilisez ces recommandations pour améliorer les performances des requêtes en réduisant le déplacement de données et la complexité des requêtes.
@@ -140,7 +140,7 @@ SQL Data Warehouse implémente une table répliquée en conservant une version p
 
 Les reconstructions sont requises après les événements suivants :
 - Des données sont chargées ou modifiées
-- L’entrepôt de données est mis à l’échelle avec un paramètre DWU différent
+- L’entrepôt de données est mis à l’échelle avec un [niveau de service](performance-tiers.md#service-levels) différent
 - La définition de la table est mise à jour
 
 Les reconstructions ne sont pas requises après les événements suivants :

@@ -10,17 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 1509a4f05ceb3a54aad790553183616c97b4bee2
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
@@ -204,18 +204,21 @@ Cet exercice simule l’effet de la salle de concert Contoso qui subit une charg
 1. Exécutez le script en appuyant sur **F5**.
 
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez **Pool1**.
-1. Inspectez le graphique **Surveillance du pool élastique**, et recherchez l’utilisation d’eDTU du pool accrue. Après une ou deux minutes, la charge plus élevée doit commencer à apparaître et vous devez rapidement voir que le pool a atteint 100 % d’utilisation.
-1. Examinez également l’affichage **Surveillance de la base de données élastique** qui illustre les bases de données les plus actives au cours de la dernière heure. La base de données *contosoconcerthall* doit figurer rapidement parmi les cinq bases de données les plus sollicitées.
-1. Cliquez sur le **graphique** **Surveillance de la base de données élastique**. Cela a pour effet d’ouvrir la page **Utilisation des ressources de base de données** dans laquelle vous pouvez surveiller toutes les bases de données. Cela vous permet d’isoler l’affichage de la base de données *contosoconcerthall*.
-1. Dans la liste des bases de données, cliquez sur **contosoconcerthall**.
-1. Cliquez sur **Niveau tarifaire (mise à l’échelle de DTU)** pour ouvrir la page **Configurer les performances** dans laquelle vous pouvez définir un niveau de performance autonome pour la base de données.
-1. Cliquez sur l’onglet **Standard** pour ouvrir les options de mise à l’échelle du niveau Standard.
-1. Faites glisser le **curseur DTU** vers la droite pour sélectionner **100** DTU. Notez que cela correspond à l’objectif de service **S3**.
-1. Cliquez sur **Appliquer** pour déplacer la base de données hors du pool et en faire une base de données *S3 Standard*.
-1. Une fois la mise à l’échelle terminée, surveillez l’effet exercé sur la base de données contosoconcerthall et sur Pool1 dans les panneaux du pool élastique et de la base de données.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à la liste des bases de données sur le serveur *tenants1*. 
+1. Cliquez sur la base de données **contosoconcerthall**.
+1. Cliquez sur le pool dans lequel se trouve **contosoconcerthall**. Recherchez dans le pool de la section **Pool de bases de données élastiques**.
 
-Lorsque la charge élevée sur la base de données contosoconcerthall diminue, vous devez rapidement ramener celle-ci dans le pool pour réduire les coûts associés. S’il est difficile de savoir quand cela se produit, vous pouvez définir une alerte sur la base de données qui se déclenche lorsque son utilisation en DTU descend en dessous du maximum par base de données sur le pool. Le déplacement d’une base de données dans un pool est décrite dans l’exercice 5.
+1. Inspectez le graphique **Surveillance du pool élastique**, et recherchez l’utilisation d’eDTU du pool accrue. Après une ou deux minutes, la charge plus élevée doit commencer à apparaître et vous devez rapidement voir que le pool a atteint 100 % d’utilisation.
+2. Examinez également l’affichage **Surveillance de la base de données élastique** qui illustre les bases de données les plus actives au cours de la dernière heure. La base de données *contosoconcerthall* doit figurer rapidement parmi les cinq bases de données les plus sollicitées.
+3. Cliquez sur le **graphique** **Surveillance de la base de données élastique**. Cela a pour effet d’ouvrir la page **Utilisation des ressources de base de données** dans laquelle vous pouvez surveiller toutes les bases de données. Cela vous permet d’isoler l’affichage de la base de données *contosoconcerthall*.
+4. Dans la liste des bases de données, cliquez sur **contosoconcerthall**.
+5. Cliquez sur **Niveau tarifaire (mise à l’échelle de DTU)** pour ouvrir la page **Configurer les performances** dans laquelle vous pouvez définir un niveau de performance autonome pour la base de données.
+6. Cliquez sur l’onglet **Standard** pour ouvrir les options de mise à l’échelle du niveau Standard.
+7. Faites glisser le **curseur DTU** vers la droite pour sélectionner **100** DTU. Notez que cela correspond à l’objectif de service **S3**.
+8. Cliquez sur **Appliquer** pour déplacer la base de données hors du pool et en faire une base de données *S3 Standard*.
+9. Une fois la mise à l’échelle terminée, surveillez l’effet exercé sur la base de données contosoconcerthall et sur Pool1 dans les panneaux du pool élastique et de la base de données.
+
+Lorsque la charge élevée sur la base de données contosoconcerthall diminue, vous devez rapidement ramener celle-ci dans le pool pour réduire les coûts associés. S’il est difficile de savoir quand cela se produit, vous pouvez définir une alerte sur la base de données qui se déclenche lorsque son utilisation en DTU descend en dessous du maximum par base de données sur le pool. Le déplacement d’une base de données dans un pool est décrit dans l’exercice 5.
 
 ## <a name="other-performance-management-patterns"></a>Autres modèles de gestion des performances
 

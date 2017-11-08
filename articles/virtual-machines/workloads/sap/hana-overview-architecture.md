@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/02/2017
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e1820033e051b72601291c5206772192e68769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure
 
@@ -62,6 +62,10 @@ Plusieurs définitions communes sont largement utilisées dans ce guide sur l’
 - **SAP HANA sur Azure (grandes instances) :** nom officiel de l’offre dans Azure permettant d’exécuter des instances HANA sur le matériel SAP HANA TDI certifié qui est déployé dans les tampons de grande instance dans différentes régions Azure. Le terme associé **Grande instance HANA** est la forme abrégée de SAP HANA sur Azure (grandes instances) largement utilisée dans ce guide de déploiement technique.
 - **Intersite :** décrit un scénario dans lequel les machines virtuelles sont déployées vers un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. La connexion a pour but d’étendre les domaines locaux, le répertoire Active Directory/OpenLDAP local et le DNS local à Azure. Le paysage local est étendu aux ressources Azure du ou des abonnements Azure. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. Il s’agit du scénario classique dans lequel la plupart des ressources SAP sont déployées. Consultez les guides de [planification et conception de la passerelle VPN](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et de [création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations.
 - **Locataire :** un client déployé dans le tampon de grande instance HANA est isolé dans un « locataire ». Un locataire est isolé des autres locataires dans la couche de mise en réseau, de stockage et de calcul. Par conséquent, les unités de stockage et de calcul assignées aux différents locataires ne peuvent pas se voir les unes les autres ni communiquer sur le niveau de tampon de grande instance HANA. Un client peut opter pour des déploiements dans plusieurs locataires. Même dans ce cas, aucune communication n’est établie entre les locataires sur le niveau de tampon de grande instance HANA.
+- **Catégorie de référence SKU :** pour les grandes instances HANA, les deux catégories suivantes de références SKU sont proposées.
+    - **Classe de type I :** S72, S72m, S144, S144m, S192 et S192m
+    - **Classe de type II :** S384, S384m, S384xm, S576, S768 et S960
+
 
 Il existe de nombreuses ressources supplémentaires qui ont été publiées sur le sujet du déploiement de la charge de travail SAP sur un cloud public Microsoft Azure. Il est vivement recommandé que toute planification et toute exécution d’un déploiement de SAP HANA dans Azure soit effectuée par une personne expérimentée, connaissant les principes d’Azure IaaS et le déploiement des charges de travail SAP sur Azure IaaS. Les ressources suivantes fournissent davantage d’informations et doivent être consultées avant de continuer :
 
@@ -122,7 +126,7 @@ Dans l’infrastructure multilocataire du tampon de grande instance, les clients
 
 Comme avec les machines virtuelles Azure, SAP HANA sur Azure (grandes instances) est proposé dans plusieurs régions Azure. Pour bénéficier de fonctionnalités de récupération d’urgence, vous pouvez choisir de vous y abonner. Les différents tampons de grande instance d’une même région géopolitique sont connectés entre eux. Par exemple, les tampons de grande instance HANA de la région ouest et de la région est des États-Unis sont connectés via une liaison réseau dédiée à des fins de réplication de la récupération d’urgence. 
 
-Tout comme vous avez le choix entre différents types de machines virtuelles avec Azure Virtual Machines, vous pouvez choisir parmi différentes références de grandes instances HANA qui sont adaptées aux divers types de charges de travail de SAP HANA. SAP applique la mémoire aux rapports de socket de processeur pour différentes charges de travail en fonction des générations de processeurs Intel. Quatre types de références sont proposés :
+Tout comme vous avez le choix entre différents types de machines virtuelles avec Azure Virtual Machines, vous pouvez choisir parmi différentes références de grandes instances HANA qui sont adaptées aux divers types de charges de travail de SAP HANA. SAP applique la mémoire aux rapports de socket de processeur pour différentes charges de travail en fonction des générations de processeurs Intel. Le tableau qui suit affiche les types de références SKU proposées.
 
 À compter de juillet 2017, SAP HANA sur Azure (grandes instances) est disponible dans plusieurs configurations dans les régions Azure de l’ouest et de l’est des États-Unis, de l’est et du sud-est de l’Australie, et enfin de l’ouest et du nord de l’Europe :
 
@@ -355,7 +359,7 @@ En tant que client, vous pouvez utiliser les captures instantanées de stockage 
 ### <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
 Le stockage utilisé pour les grandes instances HANA permet un chiffrement transparent des données lorsqu’elles sont stockées sur les disques. Vous pouvez activer ce type de chiffrement au moment du déploiement d’une unité de grande instance HANA. Vous pouvez également modifier les volumes chiffrés après le déploiement. Le passage d’un volume non chiffré à un volume chiffré est transparent et n’entraîne aucun temps d’arrêt. 
 
-Avec les références SKU de classe Type I, le volume sur lequel le numéro d’unité logique de démarrage est stocké est chiffré. Dans le cas de références SKU de grande instance HANA de classe Type II, vous devez chiffrer le numéro d’unité logique de démarrage avec les méthodes du système d’exploitation. 
+Avec les références SKU de classe Type I, le volume sur lequel le numéro d’unité logique de démarrage est stocké est chiffré. Dans le cas de références SKU de grande instance HANA de classe Type II, vous devez chiffrer le numéro d’unité logique de démarrage avec les méthodes du système d’exploitation. Pour plus d’informations, contactez l’équipe de gestion des services Microsoft.
 
 
 ## <a name="networking"></a>Mise en réseau

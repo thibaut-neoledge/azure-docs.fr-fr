@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76da0d4e805c732d40a7bd02e5c70973c792e26c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Vue d’ensemble du service Protection DDos Standard Azure
 
@@ -35,12 +35,12 @@ Combiné aux bonnes pratiques de conception d’application, le service Protecti
 
 ![Service Protection DDos Standard Azure](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
-Pour les scénarios de développement et de test, vous pouvez essayer le service Protection DDos Standard et utiliser les ressources ci-après pour fournir des commentaires sur votre expérience :
+Nous vous encourageons à essayer le service Protection DDos Standard dans les environnements de développement, de test ou de production. Utilisez les ressources suivantes pour nous donner votre avis sur votre expérience :
 - [Service Protection DDos Azure sur le Forum Microsoft Azure](https://feedback.azure.com/forums/905032-azure-ddos-protection) 
 - [Service Protection DDos Azure sur le Forum MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azureddosprotection)
 - [Service Protection DDos Azure sur Stack Overflow](https://stackoverflow.com/tags/azure-ddos/info)
 
-Pour les problèmes de prise en charge, vous pouvez [ouvrir un ticket de support Azure](../azure-supportability/how-to-create-azure-support-request.md).
+Pour les problèmes de prise en charge, vous pouvez [ouvrir un ticket de support Azure](../azure-supportability/how-to-create-azure-support-request.md). Alors que le service Protection DDos Standard est en préversion, une prise en charge est fournie dans la mesure du possible.
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Types d’attaques DDoS atténuées par le service Protection DDos Standard
 
@@ -65,7 +65,7 @@ Les fonctionnalités du service Protection DDos Standard sont les suivantes :
 - **Protection des couches 3 à 7 avec une passerelle d’application :** les fonctionnalités du pare-feu d’applications web Application Gateway offrent une Protection DDos complète de la pile.
 - **Échelle d’atténuation étendue :** plus de 60 types d’attaques différents peuvent être atténués avec une protection globale contre les attaques DDoS les plus connues. 
 - **Métriques d’attaque :** des métriques récapitulatives de chaque attaque sont accessibles via Azure Monitor.
-- **Alerte d’attaque :** vous pouvez configurer des alertes au début et à l’arrêt d’une attaque, ainsi que pendant sa durée, à l’aide de métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels tel qu’OMS, Splunk, Stockage Azure, l’e-mail et le portail Azure.
+- **Alerte d’attaque :** vous pouvez configurer des alertes au début et à l’arrêt d’une attaque, ainsi que pendant sa durée, à l’aide de métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels tels qu’OMS, Splunk, Stockage Azure, l’e-mail et le portail Azure.
 - **Maîtrise des coûts :** si vous documentez les attaques DDoS, vous bénéficiez en retour de crédits pour les services de transfert de données et de montée en charge des applications.
 
 ## <a name="ddos-protection-standard-mitigation"></a>Mitigation avec le service Protection DDos Standard

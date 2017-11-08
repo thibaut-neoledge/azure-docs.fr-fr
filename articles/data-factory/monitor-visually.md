@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: f30462c62c0aad73e7a1797a8a6dcd0a2f705666
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Surveiller visuellement des fabriques de données Azure
 Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser.
 Dans ce guide de démarrage rapide, vous allez découvrir comment contrôler visuellement des pipelines Data Factory v2 sans écrire une seule ligne de code.
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+> [!NOTE]
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la page [Surveiller et gérer les pipelines dans Data Factory version 1](v1/data-factory-monitor-manage-app.md).
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Surveiller des pipelines Data Factory v2
 
@@ -41,11 +44,11 @@ Liste montrant chaque exécution de pipeline pour vos pipelines Data Factory v2.
 | Nom du pipeline | Nom du pipeline. |
 | Actions | Action unique disponible pour afficher les exécutions d’activités. |
 | Démarrage de l’exécution | Heure et date de début de l’exécution de pipeline (MM/JJ/AAAA, HH:MM:SS AM/PM) |
-| Durée | Durée d’exécution (HH:MM:SS) |
+| Duration | Durée d’exécution (HH:MM:SS) |
 | Déclenché par | Déclenchement manuel, déclenchement planifié |
 | État | Échec, Réussite, En cours |
-| Paramètres | Paramètres d’exécution de pipeline (paires nom/valeur) |
-| Erreur | Erreur d’exécution de pipeline (le cas échéant) |
+| parameters | Paramètres d’exécution de pipeline (paires nom/valeur) |
+| Error | Erreur d’exécution de pipeline (le cas échéant) |
 | ID d’exécution | ID de l’exécution de pipeline |
 
 ![Surveiller des exécutions de pipelines](media/monitor-visually/pipeline-runs.png)
@@ -58,11 +61,11 @@ Liste montrant les exécutions d’activités correspondant à chaque exécution
 | Nom de l’activité | Nom de l’activité dans le pipeline. |
 | Type d’activité | Type de l’activité (Copie, HDInsightHive, HDInsightSpark, et ainsi de suite). |
 | Démarrage de l’exécution | Heure et date de début de l’exécution d’activité (MM/JJ/AAAA, HH:MM:SS AM/PM) |
-| Durée | Durée d’exécution (HH:MM:SS) |
+| Duration | Durée d’exécution (HH:MM:SS) |
 | État | Échec, Réussite, En cours |
 | Entrée | Tableau JSON décrivant les entrées de l’activité |
 | Sortie | Tableau JSON décrivant les sorties de l’activité |
-| Erreur | Erreur d’exécution d’activité (le cas échéant) |
+| Error | Erreur d’exécution d’activité (le cas échéant) |
 
 ![Surveiller des exécutions d’activités](media/monitor-visually/activity-runs.png)
 

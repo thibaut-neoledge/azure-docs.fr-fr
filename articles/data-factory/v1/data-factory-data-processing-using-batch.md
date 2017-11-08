@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 75213a4d0297c96ec32200158d8b60db4b8b2da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2987b37d0146a68635c9190cf42ac7aeac48ed5
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et Batch
+> [!NOTE]
+> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Activités personnalisées dans Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
+
 Cet article décrit une architecture d’un exemple de solution qui déplace et traite des jeux de données volumineux de manière automatique et planifiée. Il fournit également une procédure de bout en bout pour implémenter la solution à l’aide d’Azure Data Factory et d’Azure Batch.
 
 Cet article est plus long que nos articles habituels car il contient une procédure pas à pas d’un exemple de solution complète. Si vous débutez avec Batch et Data Factory, vous découvrirez différentes informations sur ces services et comment ils fonctionnent ensemble. Si vous connaissez déjà ces services et que vous concevez/élaborez une solution, vous pouvez vous concentrer uniquement sur la [section architecture](#architecture-of-sample-solution) de l’article. Si vous développez un prototype ou une solution, vous pouvez également suivre nos instructions détaillées dans la [procédure pas à pas](#implementation-of-sample-solution). N’hésitez pas à nous faire part de vos commentaires sur ce contenu et son utilisation.
@@ -85,7 +88,7 @@ Si vous n’êtes pas abonné, vous pouvez créer un compte d’essai gratuit en
 Dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, voir [Création d’un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account). L’exemple de solution utilise un stockage d’objets blob.
 
 #### <a name="azure-batch-account"></a>Compte Azure Batch
-Créez un compte Azure Batch via le [portail Azure](http://manage.windowsazure.com/). Voir [Créer et gérer un compte Azure Batch](../../batch/batch-account-create-portal.md). Notez la clé et le nom du compte Azure Batch. Vous pouvez également créer un compte Azure Batch à l’aide de l’applet de commande [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) . Pour obtenir des instructions détaillées sur l’utilisation de cette applet de commande, voir [Prise en main des applets de commande Azure Batch PowerShell](../../batch/batch-powershell-cmdlets-get-started.md) .
+Créez un compte Azure Batch via le [portail Azure](http://portal.azure.com/). Voir [Créer et gérer un compte Azure Batch](../../batch/batch-account-create-portal.md). Notez la clé et le nom du compte Azure Batch. Vous pouvez également créer un compte Azure Batch à l’aide de l’applet de commande [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) . Pour obtenir des instructions détaillées sur l’utilisation de cette applet de commande, voir [Prise en main des applets de commande Azure Batch PowerShell](../../batch/batch-powershell-cmdlets-get-started.md) .
 
 L’exemple de solution utilise Azure Batch (indirectement via un pipeline Azure Data Factory) pour traiter des données en parallèle sur un pool de nœuds de calcul (une collection gérée de machines virtuelles).
 

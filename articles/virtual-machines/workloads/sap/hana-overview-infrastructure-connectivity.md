@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructure et connectivité à SAP HANA (grandes instances) sur Azure 
 
@@ -40,8 +40,7 @@ Une fois l’achat de SAP HANA sur Azure (grandes instances) finalisé entre vou
 - Coordonnées professionnelles (y compris l’adresse électronique et le numéro de téléphone)
 - Coordonnées techniques (y compris l’adresse électronique et le numéro de téléphone)
 - Coordonnées de mise en réseau technique (y compris l’adresse électronique et le numéro de téléphone)
-- Région de déploiement Azure (Ouest des États-Unis, Est des États-Unis, Est de l’Australie, Sud-Est de l’Australie, Europe de l’ouest et Europe du Nord à partir de juillet 
-- 2017)
+- Région de déploiement Azure (Ouest des États-Unis, Est des États-Unis, Est de l’Australie, Sud-Est de l’Australie, Europe de l’Ouest et Europe du Nord à partir de juillet 2017)
 - Confirmer la référence SKU (configuration) de SAP HANA sur Azure (grandes instances)
 - Déjà décrit dans le document de présentation et d’architecture des grandes instances HANA, pour chaque région Azure déployée sur :
     - Une plage d’adresses IP /29 pour les connexions ER-P2P qui relient les réseaux virtuels Azure aux grandes instances HANA
@@ -120,7 +119,7 @@ Voici en résumé ce qu’il faut retenir d’un réseau virtuel Azure qui se co
 
 Nous avons déjà évoqué dans des sections précédentes certaines des plages d’adresses IP nécessaires pour pouvoir déployer de grandes instances HANA. Mais d’autres plages d’adresses IP sont également importantes. Examinons-les plus en détail. Les adresses IP suivantes, qu’il n’est pas nécessaire de toutes envoyer à Microsoft, doivent être définies avant d’envoyer une demande de déploiement initial :
 
-- **Espace d’adressage de réseau virtuel :** comme nous l’avons évoqué précédemment, il s’agit des plages d’adresses IP que vous avez affectées (ou que vous prévoyez d’affecter) à votre paramètre d’espace d’adressage dans les réseaux virtuels Azure qui se connectent à l’environnement de grande instance HANA. Il est recommandé d’utiliser ce paramètre d’espace d’adressage sous la forme d’une valeur multiligne composée des plages de sous-réseau de machines virtuelles Azure et de la plage du sous-réseau de passerelle Azure, comme illustré dans les graphismes ci-dessus. Cette plage NE doit PAS chevaucher les plages d’adresses du pool IP local ou de votre serveur ou encore les plages d’adresses ER-P2P. Comment obtenir ces plages d’adresses IP ? Votre équipe réseau ou votre fournisseur de services doivent vous fournir une ou plusieurs plages d’adresses IP qui ne sont pas utilisées à l’intérieur de votre réseau. Exemple : si votre sous-réseau de machines virtuelles Azure (voir ci-dessus) utilise 10.0.1.0/24 et si votre sous-réseau de passerelles Azure (voir ci-dessous) utilise 10.0.2.0/28, alors votre espace d’adressage de réseau virtuel Azure devrait se trouver sur deux lignes : 10.0.1.0/24 et 10.0.2.0/28. Bien que les valeurs d’espace d’adressage peuvent être agrégées, il est recommandé de les mettre en correspondance avec les plages de sous-réseau afin d’éviter une réutilisation accidentelle de plages d’adresses IP inutilisées dans des espaces d’adressage plus grands ailleurs dans votre réseau à l’avenir. **L’espace d'adressage du réseau virtuel est un plage d’adresses IP qui doit être envoyée à Microsoft lorsque vous demandez un déploiement initial**
+- **Espace d’adressage de réseau virtuel :** comme nous l’avons évoqué précédemment, il s’agit des plages d’adresses IP que vous avez affectées (ou que vous prévoyez d’affecter) à votre paramètre d’espace d’adressage dans les réseaux virtuels Azure qui se connectent à l’environnement de grande instance HANA. Il est recommandé d’utiliser ce paramètre d’espace d’adressage sous la forme d’une valeur multiligne composée des plages de sous-réseau de machines virtuelles Azure et de la plage du sous-réseau de passerelle Azure, comme illustré dans les graphismes ci-dessus. Cette plage NE doit PAS chevaucher les plages d’adresses du pool IP local ou de votre serveur ou encore les plages d’adresses ER-P2P. Comment obtenir ces plages d’adresses IP ? Votre équipe réseau ou votre fournisseur de services doivent vous fournir une ou plusieurs plages d’adresses IP qui ne sont pas utilisées à l’intérieur de votre réseau. Exemple : si votre sous-réseau de machines virtuelles Azure (voir ci-dessus) utilise 10.0.1.0/24 et si votre sous-réseau de passerelles Azure (voir ci-dessous) utilise 10.0.2.0/28, alors votre espace d’adressage de réseau virtuel Azure devrait se trouver sur deux lignes : 10.0.1.0/24 et 10.0.2.0/28. Bien que les valeurs d’espace d’adressage peuvent être agrégées, il est recommandé de les mettre en correspondance avec les plages de sous-réseau afin d’éviter une réutilisation accidentelle de plages d’adresses IP inutilisées dans des espaces d’adressage plus grands ailleurs dans votre réseau à l’avenir. **L’espace d'adressage du réseau virtuel est une plage d’adresses IP qui doit être envoyée à Microsoft lorsque vous demandez un déploiement initial**
 
 - **Plage d’adresses IP du sous-réseau de machines virtuelles Azure :** cette plage d’adresses IP, déjà décrite précédemment, est celle que vous avez affectée (ou que vous prévoyez d’affecter) au paramètre du sous-réseau de réseau virtuel Azure dans votre réseau virtuel Azure qui se connecte à l’environnement de grande instance HANA. Cette plage d’adresses IP est utilisée pour affecter des adresses IP à vos machines virtuelles Azure. Les adresses IP en dehors de cette plage sont autorisées à se connecter aux serveurs de votre grande instance SAP HANA. Si nécessaire, plusieurs sous-réseaux de machines virtuelles Azure peuvent être utilisés. Microsoft recommande d’utiliser un bloc CIDR /24 pour chaque sous-réseau de machines virtuelles Azure. Cette plage d’adresses doit faire partie des valeurs utilisées dans l’espace d’adressage de réseau virtuel Azure. Comment obtenir cette plage d’adresses IP ? Votre équipe réseau ou votre fournisseur de services doit vous indiquer une plage d’adresses IP qui n’est pas utilisée actuellement à l’intérieur de votre réseau.
 

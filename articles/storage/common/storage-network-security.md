@@ -11,25 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurer Pare-feu et réseaux virtuels dans Stockage Azure (préversion)
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
 
 ## <a name="preview-availability-and-support"></a>Disponibilité et prise en charge de la préversion
-La fonctionnalité Pare-feu et réseaux virtuels de stockage est en préversion.  Cette fonctionnalité est actuellement disponible pour les comptes de stockage nouveaux ou existants dans les régions suivantes :
-- Est des États-Unis
-- Ouest des États-Unis
-- Ouest des États-Unis 2
-- Centre-Ouest des États-Unis
-- Est de l’Australie
-- Sud-est de l’Australie
+La fonctionnalité Pare-feu et réseaux virtuels de stockage est en préversion.  Cette fonctionnalité est actuellement disponible pour les comptes de stockage nouveaux ou existants dans toutes les régions de cloud public Azure.
 
 > [!NOTE]
 > Les charges de travail de production ne sont pas prises en charge dans la préversion.

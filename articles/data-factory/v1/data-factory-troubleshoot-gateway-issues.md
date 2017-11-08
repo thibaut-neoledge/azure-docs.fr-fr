@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d8ad132ec47a81971a3405970eeddab3b1598ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eee8ee3af5918ddbe7393ff2574833f798ffcb19
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
 
 > [!NOTE]
-> Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md). Pour connaître la procédure de déplacement de données d’une base de données SQL Server locale vers un stockage Blob Microsoft Azure avec la passerelle, consultez l’article [Déplacer des données entre un site local et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
->
->
+> Cet article s’applique à la version 1 de Azure Data Factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez le [Guide pratique pour créer et configurer le runtime d’intégration autohébergé dans Data Factory version 2](../create-self-hosted-integration-runtime.md).
+
+Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md). Pour connaître la procédure de déplacement de données d’une base de données SQL Server locale vers un stockage Blob Microsoft Azure avec la passerelle, consultez l’article [Déplacer des données entre un site local et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 ## <a name="failed-to-install-or-register-gateway"></a>Échec de l’inscription ou de l’installation de la passerelle
 ### <a name="1-problem"></a>1. Problème

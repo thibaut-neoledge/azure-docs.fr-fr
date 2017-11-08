@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 8cef40f4360c6b9c9ab734171a4cca2a21a4c711
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: d1cb92e15109775fd120d82df6cfa94b7023d5b9
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Utiliser Draft avec Azure Container Service et Azure Container Registry pour générer et déployer une application dans Kubernetes
 
@@ -142,7 +142,7 @@ Vous voici prêt à déployer une application.
 
 ## <a name="build-and-deploy-an-application"></a>Générer et déployer une application
 
-Le référentiel Draft comporte [six exemples d’applications simples](https://github.com/Azure/draft/tree/master/examples). Clonez le référentiel, puis utilisez l’[exemple Java](https://github.com/Azure/draft/tree/master/examples/java). Accédez au répertoire examples/java, puis tapez `draft create` pour générer l’application. La sortie doit ressembler à l’exemple qui suit.
+Le dépôt Draft comporte [six exemples d’applications simples](https://github.com/Azure/draft/tree/master/examples). Clonez le dépôt, puis utilisez l’[exemple Java](https://github.com/Azure/draft/tree/master/examples/java). Accédez au répertoire examples/java, puis tapez `draft create` pour générer l’application. La sortie doit ressembler à l’exemple qui suit.
 ```bash
 $ draft create
 --> Draft detected the primary language as Java with 91.228814% certainty.
@@ -271,16 +271,16 @@ Le résultat ressemble à ceci :
   }
   ```
 5. Réinstallez **draft**.
-  1. Supprimez **draft** du cluster en tapant `helm delete --purge draft`. 
-  2. Réinstallez **draft** à l’aide de la même commande `draft-init`, mais avec l’option `--ingress-enabled`:
+
+   1. Supprimez **draft** du cluster en tapant `helm delete --purge draft`. 
+   2. Réinstallez **draft** à l’aide de la même commande `draft-init`, mais avec l’option `--ingress-enabled`:
     ```bash
     draft init --ingress-enabled
     ```
-Répondez aux invites comme vous l’avez fait la première fois. Toutefois, vous avez une question de plus à laquelle répondre en utilisant le chemin d’accès complet du domaine que vous avez configuré avec le DNS Azure.
-```bash
-4. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
-```
-5. Cette fois, lorsque vous appelez `draft up`, vous pouvez voir votre application (ou lui appliquer l’action `curl`) à l’URL sous la forme `<appname>.draft.<domain>.<top-level-domain>`. Dans le cas de cet exemple, `http://handy-labradoodle.draft.squillace.io`. 
+   Répondez aux invites comme vous l’avez fait la première fois. Toutefois, vous avez une question de plus à laquelle répondre en utilisant le chemin d’accès complet du domaine que vous avez configuré avec le DNS Azure.
+
+6. Entrez votre domaine de niveau supérieur pour l’entrée (par exemple, draft.example.com) : draft.squillace.io
+7. Cette fois, lorsque vous appelez `draft up`, vous pouvez voir votre application (ou lui appliquer l’action `curl`) à l’URL sous la forme `<appname>.draft.<domain>.<top-level-domain>`. Dans le cas de cet exemple, `http://handy-labradoodle.draft.squillace.io`. 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!

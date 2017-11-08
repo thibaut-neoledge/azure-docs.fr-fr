@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 811a2538f0a138074feea1bd4608a7ba00660fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f74a953d04e8633e802b33903de603b39ac08e9b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copier des données depuis et vers Data Lake Store à l’aide de Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -84,9 +84,11 @@ Pour utiliser l’authentification d’un principal du service, inscrivez une en
 * Clé de l'application 
 * ID client
 
-> [!IMPORTANT]
-> Si vous utilisez l’Assistant Copie dans le cadre de la création de pipelines de données, veillez à accorder au principal du service au minimum le rôle **Lecteur** dans Access Control (gestion des accès et identités) pour le compte Data Lake Store. En outre, accordez au moins au principal du service l’autorisation **lecture + exécution** sur la racine de Data Lake Store (« / ») et ses enfants. Sinon, le message « Les informations d’identification fournies ne sont pas valides » peut s’afficher.<br/><br/>
-Une fois que vous créez ou mettez à jour un principal de service dans Azure AD, il peut falloir quelques minutes avant que les modifications entrent en vigueur. Vérifiez la configuration des ACL du principal de service et de Data Lake Store. Si vous voyez toujours le message « Les informations d’identification fournies ne sont pas valides », attendez un moment et réessayez.
+> [!TIP]
+> Veillez à accorder l’autorisation appropriée au principal de service dans Azure Data Lake Store :
+>- Si vous utilisez l’Assistant Copie pour créer des pipelines, accordez au moins le rôle **Lecteur** dans le contrôle d’accès au compte (IAM). De plus, accordez au moins l’autorisation **Lecture + Exécution** à la racine de Data Lake Store (« / ») et à ses enfants. Sinon, le message « Les informations d’identification fournies ne sont pas valides » peut s’afficher.
+>- Pour utiliser Data Lake Store en tant que source, accordez au moins l’autorisation d’accès aux données **Lecture + Exécution** pour répertorier et copier le contenu d’un dossier, ou l’autorisation **Lecture** pour copier un seul fichier. Aucune exigence sur le contrôle d’accès au niveau du compte.
+>- Pour utiliser Data Lake Store en tant que récepteur, accordez au moins l’autorisation d’accès aux données **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Et si vous utilisez Azure IR pour autoriser la copie (la source et le récepteur sont tous les deux dans le cloud) et permettre la détection par Data Factory de la région de Data Lake Store, accordez au moins le rôle **Lecteur** dans le contrôle d’accès au compte (IAM). Si vous souhaitez éviter ce rôle IAM, choisissez de [spécifier executionLocation](data-factory-data-movement-activities.md#global) avec l’emplacement de votre Data Lake Store dans l’activité de copie.
 
 Utilisez l’authentification par principal de service en spécifiant les propriétés suivantes :
 

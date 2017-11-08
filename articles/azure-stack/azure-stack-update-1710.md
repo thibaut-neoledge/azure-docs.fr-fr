@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/26/2017
 ms.author: twooley
-ms.openlocfilehash: 6b54bb616accb926af9364865bf4108fe0aa3bc8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d91a23ae4eb5aee14d3d2fef74467e7f33c458cc
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Mise à jour 1710 d’Azure Stack (Build 20171020.1)
 
@@ -55,9 +55,12 @@ Cette mise à jour inclut les améliorations de la qualité et les correctifs su
 
 Cette section énumère des problèmes connus que vous pouvez rencontrer lors de l’installation de la mise à jour 1710.
 
+> [!IMPORTANT]
+> Si la mise à jour échoue, quand vous essayez par la suite de la reprendre, vous devez utiliser l’applet de commande `Resume-AzureStackUpdate` à partir du point de terminaison privilégié. Ne reprenez pas la mise à jour en utilisant le portail administrateur. (Il s’agit d’un problème connu dans cette version.) Pour plus d’informations, consultez [Surveiller les mises à jour dans Azure Stack à l’aide du point de terminaison privilégié](azure-stack-monitor-update.md).
+
 | Symptôme  | Cause :  | Résolution : |
 |---------|---------|---------|
-|Lorsque vous effectuez une mise à jour, une erreur similaire à la suivante peut se produire lors de l’étape « Storage Hosts Restart Storage Node » du plan d’action de mise à jour.<br><br>**{"name":"Restart Storage Hosts","description":"Restart Storage Hosts.","errorMessage":"Type ’Restart’ of Role ’BareMetal’ raised an exception:\n\nThe computer HostName-05 is skipped. Fail to retrieve its LastBootUpTime via the WMI service with the following error message: The RPC server is unavailable. (Exception from HRESULT: 0x800706BA).\nat Restart-Host** | Ce problème est dû à la présence d’un pilote potentiellement défectueux dans certaines configurations. | 1. Connectez-vous à l’interface web du contrôleur de gestion de la carte de base (BMC), puis redémarrez l’ordinateur hôte identifié dans le message d’erreur.<br><br>2. Reprenez la mise à jour. |
+|Lorsque vous effectuez une mise à jour, une erreur similaire à la suivante peut se produire lors de l’étape « Storage Hosts Restart Storage Node » du plan d’action de mise à jour.<br><br>**{"name":"Restart Storage Hosts","description":"Restart Storage Hosts.","errorMessage":"Type ’Restart’ of Role ’BareMetal’ raised an exception:\n\nThe computer HostName-05 is skipped. Fail to retrieve its LastBootUpTime via the WMI service with the following error message: The RPC server is unavailable. (Exception from HRESULT: 0x800706BA).\nat Restart-Host** | Ce problème est dû à la présence d’un pilote potentiellement défectueux dans certaines configurations. | 1. Connectez-vous à l’interface web du contrôleur de gestion de la carte de base (BMC), puis redémarrez l’ordinateur hôte identifié dans le message d’erreur.<br><br>2. Reprenez la mise à jour en utilisant le point de terminaison privilégié. |
 | Lorsque vous effectuez une mise à jour, le processus de mise à jour semble stagner et cesser de progresser après l’étape « Step: Running step 2.4 - Install update » du plan d’action de mise à jour.<br><br>Cette étape est suivie par une série de processus de copie de fichiers .nupkg vers des partages de fichiers de l’infrastructure interne. Par exemple :<br><br>**Copying 1 files from content\PerfCollector\VirtualMachines to \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\PerfCounterConfiguration**  | Ce problème est dû au fait que des fichiers journaux saturent les disques d’une machine virtuelle d’infrastructure, et à un dysfonctionnement du serveur de fichiers avec montée en puissance parallèle (SOFS) de Windows Server qui sera corrigé dans une prochaine mise à jour. | Pour obtenir de l’aide, contactez le Support technique et Service clientèle (CSS) Microsoft. | 
 | Lorsque vous effectuez une mise à jour, une erreur similaire à la suivante peut se produire lors de l’étape « Step: Running step 2.13.2 - Update *VM_Name* » du plan d’action de mise à jour (le nom de la machine virtuelle peut varier).<br><br>**ActionPlanInstanceWarning ece/MachineName: WarningMessage:Task: Invocation of interface ’LiveUpdate’ of role ’Cloud\Fabric\WAS’ failed:<br>Type ’LiveUpdate’ of Role ’WAS’ raised an exception:<br>ERROR during storage initialization: An error occurred while trying to make an API call to Microsoft Storage service: {"Message":"A timeout occurred while communicating with Service Fabric. Exception Type: TimeoutException. Exception message: Operation timed out."}**  | Ce problème est dû à un délai d’attente d’E/S dans Windows Server, qui sera résolu dans une mise à jour ultérieure. | Pour obtenir une assistance, contactez le Support technique et Service clientèle Microsoft.
 | Lorsque vous effectuez une mise à jour, une erreur similaire à la suivante peut se produire lors de l’étape « Step 21 Restart SQL Server VMs. »<br><br>**Type 'LiveUpdateRestart' of Role 'VirtualMachines' raised an exception:<br>VerboseMessage:[VirtualMachines:LiveUpdateRestart] Querying for VM MachineName-Sql01. - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] VM is marked as HighlyAvailable. - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] at MS.Internal.ServerClusters.ExceptionHelp.Build at MS.Internal.ServerClusters.ClusterResource.BeginTakeOffline(Boolean force) at Microsoft.FailoverClusters.PowerShell.StopClusterResourceCommand.BeginTimedOperation() at Microsoft.FailoverClusters.PowerShell.TimedCmdlet.WrappedProcessRecord() at Microsoft.FailoverClusters.PowerShell.FCCmdlet.ProcessRecord() - 10/13/2017 5:11:50 PM WarningMessage:Task: Invocation of interface 'LiveUpdateRestart' of role 'Cloud\Fabric\VirtualMachines' failed:** | Ce problème peut se produire si la machine virtuelle n’a pas pu redémarrer. | Pour obtenir une assistance, contactez le Support technique et Service clientèle Microsoft.
@@ -97,7 +100,7 @@ Cette section énumère des problèmes connus après l’installation de la buil
 - Lorsque vous tentez d’ajouter des éléments à la Place de marché d’Azure Stack à l’aide de l’option **Ajouter à partir d’Azure**, certains éléments disponibles en téléchargement peuvent ne pas être visibles.
 - Il n’existe aucune expérience de Place de marché pour créer des groupes de machines virtuelles identiques. Vous pouvez créer un groupe identique à l’aide d’un modèle.
 - Un client doit inscrire le fournisseur de ressources de stockage avant de créer sa première fonction Azure dans l’abonnement.
-- La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur. 
+- La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez par supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur. 
 
 **SQL/MySQL**
 - Il faut parfois attendre une heure pour qu’ils puissent créer des bases de données avec une nouvelle référence SQL ou MySQL. 

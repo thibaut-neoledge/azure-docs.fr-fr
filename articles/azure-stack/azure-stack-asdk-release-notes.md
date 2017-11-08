@@ -1,6 +1,6 @@
 ---
 title: "Notes de publication du kit de développement Microsoft Azure Stack | Microsoft Docs"
-description: 
+description: "Améliorations, correctifs et problèmes connus pour le kit de développement Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -12,55 +12,125 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
-ms.author: helaw
-ms.openlocfilehash: 5ee2f8164d13e61f9a43abcbda729298f2168518
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.date: 11/01/2017
+ms.author: twooley
+ms.openlocfilehash: 81ccb4a731b71f87bccb2f2a0e333443428f32ee
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notes de publication du kit de développement Azure Stack
 
 *S’applique à : Kit de développement Azure Stack*
 
-Ces notes de publication fournissent des informations sur les nouvelles fonctionnalités et les problèmes connus dans le Kit de développement Azure Stack. Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](azure-stack-updates.md#determine-the-current-version).
+Ces notes de publication fournissent des informations sur les améliorations, les correctifs et les problèmes connus relatifs au kit de développement Azure Stack. Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](azure-stack-updates.md#determine-the-current-version).
 
-## <a name="release-build-201709283"></a>Version 20170928.3
+## <a name="build-201710201"></a>Version 20171020.1
+
+### <a name="improvements-and-fixes"></a>Améliorations et correctifs
+
+Pour obtenir la liste des améliorations et des correctifs de la version 20171020.1, consultez la section [Améliorations et correctifs](azure-stack-update-1710.md#improvements-and-fixes) des notes de publication 1710 pour les systèmes intégrés Azure Stack. Certains des éléments répertoriés dans la section « Correctifs et améliorations de la qualité supplémentaires » sont pertinents uniquement pour les systèmes intégrés.
+
+Les correctifs suivants ont également été appliqués :
+- Résolution du problème dans lequel le fournisseur de ressources de calcul présentait un état inconnu.
+- Résolution du problème dans lequel les quotas n’apparaissent pas dans le portail administrateur une fois que vous les avez créés et que vous essayez ensuite d’afficher les détails du plan.
 
 ### <a name="known-issues"></a>Problèmes connus
 
 #### <a name="powershell"></a>PowerShell
-
-- La version du module PowerShell AzureRM 1.2.11 est fournie avec une liste des modifications importantes. Pour des informations sur la mise à niveau à partir de la version 1.2.10, consultez le guide de migration à l’adresse [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
-
-
+- La version du module PowerShell AzureRM 1.2.11 est fournie avec une liste des modifications importantes. Pour des informations sur la mise à niveau à partir de la version 1.2.10, consultez le [guide de migration](https://aka.ms/azspowershellmigration).
+ 
 #### <a name="deployment"></a>Déploiement
-* Vous devez spécifier un serveur de temps par adresse IP au cours du déploiement.  
+- Vous devez spécifier un serveur de temps par adresse IP au cours du déploiement.
 
+#### <a name="infrastructure-management"></a>Gestion de l’infrastructure
+- N’activez pas la **sauvegarde de l’infrastructure** sur le panneau dédié à celle-ci.
+- Le modèle et l’adresse IP du contrôleur BMC (Baseboard Management Controller) ne s’affichent pas dans les informations essentielles d’un nœud d’unité d’échelle. Ce comportement est attendu dans le kit de développement Azure Stack.
 
 #### <a name="portal"></a>Portail
-* Il se peut qu’un tableau de bord vide s’affiche sur le portail.  Vous pouvez le récupérer en sélectionnant l’engrenage dans le coin supérieur droit du portail, puis « Restaurer les paramètres par défaut ».
-* Les clients ont la possibilité de parcourir la totalité de la marketplace sans abonnement ; ils peuvent consulter certains éléments d’administration, comme les plans et les offres,  qui ne sont pas fonctionnels pour eux.
-* Le bouton « déplacer » est désactivé sous Groupe de ressources.  Il s’agit du comportement attendu, dans la mesure où le déplacement de groupes de ressources d’un abonnement à l’autre n’est pas pris en charge pour le moment.
-* Vous n’avez pas la possibilité d’afficher les autorisations de votre abonnement sur les portails Azure Stack.  Pour contourner ce problème, vous pouvez vérifier les autorisations avec PowerShell.
-* Vous verrez une alerte vous invitant à enregistrer votre Kit de développement Azure Stack.  Cette alerte est normale.  
+- Il se peut qu’un tableau de bord vide s’affiche sur le portail. Pour récupérer le tableau de bord, sélectionnez l’icône d’engrenage dans l’angle supérieur droit du portail, puis choisissez **Restaurer les paramètres par défaut**.
+- Le bouton **Déplacer** est désactivé lorsque vous affichez les propriétés d’un groupe de ressources. Il s’agit du comportement attendu. Le déplacement de groupes de ressources entre des abonnements n’est pas pris en charge actuellement.
+-  Pour tout workflow dans lequel vous sélectionnez un abonnement, un groupe de ressources ou un emplacement dans une liste déroulante, vous pouvez rencontrer un ou plusieurs des problèmes suivants :
+
+   - Vous pouvez voir une ligne vide en haut de la liste. Vous devriez toujours être en mesure de sélectionner un élément comme prévu.
+   - Si la liste déroulante des éléments est courte, il se peut que vous ne puissiez afficher aucun nom d’élément.
+   - Si vous avez plusieurs abonnements utilisateur, la liste déroulante des groupes de ressources peut être vide. 
+
+   Pour contourner les deux derniers problèmes, vous pouvez taper le nom de l’abonnement ou du groupe de ressources (si vous les connaissez), ou utiliser PowerShell à la place.
+
+- Le message d’avertissement **Activation requise** s’affichera pour vous inviter à enregistrer votre kit de développement Azure Stack. Il s’agit du comportement attendu.
+- Dans les détails du message d’avertissement **Activation requise**, ne cliquez pas sur le lien vers le composant **AzureBridge**. Si vous faites cela, le panneau **Vue d’ensemble** ne se chargera pas et le délai d’expiration ne sera pas activé.
+- Dans le portail administrateur, le message **Error fetching tenants** (Erreur lors de la récupération des locataires) peut s’afficher dans la zone **Notifications**. Vous pouvez ignorer sans problème ce message d’erreur.
+- La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
+- Vous n’avez pas la possibilité d’afficher les autorisations de votre abonnement sur les portails Azure Stack. Pour contourner ce problème, vous pouvez vérifier les autorisations à l’aide de PowerShell.
+ 
+#### <a name="marketplace"></a>Marketplace
+- Lorsque vous tentez d’ajouter des éléments à la Place de marché d’Azure Stack à l’aide de l’option **Ajouter à partir d’Azure**, certains éléments disponibles en téléchargement peuvent ne pas être visibles.
+- Les utilisateurs ont la possibilité de parcourir entièrement la Place de marché, et peuvent voir des éléments administratifs, tels que des plans et des offres, qui ne sont pas fonctionnels pour eux.
+ 
+#### <a name="compute"></a>Calcul
+- Les utilisateurs ont la possibilité de créer une machine virtuelle avec stockage géoredondant. Cette configuration fait échouer la création. 
+- Vous pouvez configurer un groupe à haute disponibilité de machines virtuelles uniquement avec un domaine d’erreur et un domaine de mise à jour, tous deux de valeur égale à un.
+- Il n’existe aucune expérience de Place de marché pour créer des groupes de machines virtuelles identiques. Vous pouvez créer un groupe identique à l’aide d’un modèle.
+- Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
+
+#### <a name="networking"></a>Mise en réseau
+- Vous ne pouvez pas créer un équilibreur de charge avec une adresse IP publique à l’aide du portail. Pour résoudre ce problème, vous pouvez utiliser PowerShell pour créer l’équilibreur de charge.
+- Lorsque vous créez un équilibreur de charge réseau, vous devez créer une règle de traduction d’adresses réseau (NAT). À défaut, une erreur s’affiche lorsque vous tentez d’ajouter une règle NAT après avoir créé l’équilibreur de charge.
+- Sous **Mise en réseau**, si vous cliquez sur **Connexion** pour configurer une connexion VPN, **Connexion entre deux réseaux virtuels** s’affiche comme type de connexion disponible. Ne sélectionnez pas cette option. Actuellement, seule l’option **Site à site (IPsec)** est prise en charge.
+ 
+#### <a name="sqlmysql"></a>SQL/MySQL 
+- Il faut parfois attendre une heure pour qu’ils puissent créer des bases de données avec une nouvelle référence SQL ou MySQL. 
+- La création d’éléments directement sur des serveurs d’hébergement SQL et MySQL qui n’est pas effectuée par le fournisseur de ressources n’est pas prise en charge, et peut aboutir à un état non compatible.
+
+#### <a name="app-service"></a>App Service
+- Un utilisateur doit inscrire le fournisseur de ressources de stockage avant de créer sa première fonction Azure dans l’abonnement.
+ 
+#### <a name="usage-and-billing"></a>Utilisation et facturation
+- Les données d’utilisation des adresses IP publiques affichent la même valeur *EventDateTime* pour chaque enregistrement au lieu de l’horodatage *TimeDate* qui s’affiche lors de la création de chaque enregistrement. Pour le moment, vous ne pouvez pas utiliser ces données pour calculer de manière précise l’utilisation des adresses IP publiques.
+
+## <a name="build-201709283"></a>Version 20170928.3
+
+### <a name="known-issues"></a>Problèmes connus
+
+#### <a name="powershell"></a>PowerShell
+- La version du module PowerShell AzureRM 1.2.11 est fournie avec une liste des modifications importantes. Pour des informations sur la mise à niveau à partir de la version 1.2.10, consultez le [guide de migration](https://aka.ms/azspowershellmigration).
+
+#### <a name="deployment"></a>Déploiement
+- Vous devez spécifier un serveur de temps par adresse IP au cours du déploiement.
+
+ #### <a name="infrastructure-management"></a>Gestion de l’infrastructure
+- N’activez pas la **sauvegarde de l’infrastructure** sur le panneau dédié à celle-ci.
+- Le fournisseur de ressources de calcul présente un état inconnu.
+- Le modèle et l’adresse IP du contrôleur BMC (Baseboard Management Controller) ne s’affichent pas dans les informations essentielles d’un nœud d’unité d’échelle. Ce comportement est attendu dans le kit de développement Azure Stack. 
+   
+#### <a name="portal"></a>Portail
+- Il se peut qu’un tableau de bord vide s’affiche sur le portail. Pour récupérer le tableau de bord, sélectionnez l’icône d’engrenage dans l’angle supérieur droit du portail, puis choisissez **Restaurer les paramètres par défaut**.
+- Le bouton **Déplacer** est désactivé lorsque vous affichez les propriétés d’un groupe de ressources. Il s’agit du comportement attendu. Le déplacement de groupes de ressources entre des abonnements n’est pas pris en charge actuellement.
+- Le message d’avertissement **Activation requise** s’affichera pour vous inviter à enregistrer votre kit de développement Azure Stack. Il s’agit du comportement attendu.
+- Dans les détails du message d’avertissement **Activation requise**, ne cliquez pas sur le lien vers le composant **AzureBridge**. Si vous faites cela, le panneau **Vue d’ensemble** ne se chargera pas et le délai d’expiration ne sera pas activé.
+- Les quotas n’apparaissent pas dans le portail administrateur une fois que vous les avez créés et que vous essayez ensuite d’afficher les détails du plan. Pour résoudre ce problème, sous **Services et quotas**, cliquez sur **Ajouter**et ajoutez une nouvelle entrée.
+- La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
+- Vous n’avez pas la possibilité d’afficher les autorisations de votre abonnement sur les portails Azure Stack. Pour contourner ce problème, vous pouvez vérifier les autorisations à l’aide de PowerShell.
   
+#### <a name="marketplace"></a>Marketplace
+- Les utilisateurs ont la possibilité de parcourir entièrement la Place de marché, et peuvent voir des éléments administratifs, tels que des plans et des offres, qui ne sont pas fonctionnels pour eux.
+ 
+#### <a name="compute"></a>Calcul
+- Les utilisateurs ont la possibilité de créer une machine virtuelle avec stockage géoredondant. Cette configuration fait échouer la création.
+- Vous pouvez configurer un groupe à haute disponibilité de machines virtuelles uniquement avec un domaine d’erreur et un domaine de mise à jour, tous deux de valeur égale à un.
+- Il n’existe aucune expérience de Place de marché pour créer des groupes de machines virtuelles identiques. Vous pouvez créer un groupe identique à l’aide d’un modèle.
 
-#### <a name="services"></a>Services
-* Il n’existe aucune expérience de création de groupes de machines virtuelles identiques sur la marketplace, bien qu’il soit possible de le faire avec un modèle.
-* Vous ne pouvez pas créer d’équilibreur de charge avec une adresse IP publique à l’aide du portail.  Pour résoudre ce problème, vous pouvez utiliser PowerShell pour créer l’équilibreur de charge.
-* Les groupes de machines virtuelles à haute disponibilité ne sont configurables qu’avec un domaine d’erreur et un domaine de mise à jour chacun de valeur égale à un.  
-* Un client doit inscrire le fournisseur de ressources de stockage avant de créer sa première fonction Azure dans l’abonnement.
-* La suppression d’abonnements clients aboutit à des ressources orphelines.  Pour contourner ce problème, supprimez tout d’abord les ressources clientes ou la totalité du groupe de ressources, puis supprimez les abonnements clients. 
-* Vous devez créer une règle NAT lorsque vous créez un équilibreur de charge réseau. Si vous ne le faites pas, une erreur s’affiche lorsque vous essayez d’ajouter une règle NAT après avoir créé l’équilibreur de charge.
-* Les clients ont le choix de créer une machine virtuelle avec stockage géoredondant.  Cette configuration fait échouer la création.
-* Il faut parfois attendre une heure pour qu’ils puissent créer des bases de données avec une nouvelle référence SQL ou MySQL. 
-* La création d’éléments directement sur les serveurs d’hébergement MySQL et SQL, s’ils ne sont pas réalisés par le fournisseur de ressources, n’est pas prise en charge et peut aboutir à un état incompatible.
-* Le panneau de sauvegarde de l’infrastructure ne doit pas être utilisé.
+#### <a name="networking"></a>Mise en réseau
+- Vous ne pouvez pas créer un équilibreur de charge avec une adresse IP publique à l’aide du portail. Pour résoudre ce problème, vous pouvez utiliser PowerShell pour créer l’équilibreur de charge.
+- Lorsque vous créez un équilibreur de charge réseau, vous devez créer une règle de traduction d’adresses réseau (NAT). À défaut, une erreur s’affiche lorsque vous tentez d’ajouter une règle NAT après avoir créé l’équilibreur de charge.
+- Sous **Mise en réseau**, si vous cliquez sur **Connexion** pour configurer une connexion VPN, **Connexion entre deux réseaux virtuels** s’affiche comme type de connexion disponible. Ne sélectionnez pas cette option. Actuellement, seule l’option **Site à site (IPsec)** est prise en charge.
 
 
-#### <a name="fabric"></a>Structure
-* Le fournisseur de ressources de calcul présente un état inconnu.
-* Le modèle et l’adresse IP du BMC ne s’affichent pas dans les informations essentielles d’un nœud d’unité d’échelle.  Ce comportement est attendu dans le kit de développement Azure Stack.
+#### <a name="sqlmysql"></a>SQL/MySQL
+- Il faut parfois attendre une heure pour qu’ils puissent créer des bases de données avec une nouvelle référence SQL ou MySQL. 
+- La création d’éléments directement sur des serveurs d’hébergement SQL et MySQL qui n’est pas effectuée par le fournisseur de ressources n’est pas prise en charge, et peut aboutir à un état non compatible.
 
+#### <a name="app-service"></a>App Service
+- Un utilisateur doit inscrire le fournisseur de ressources de stockage avant de créer sa première fonction Azure dans l’abonnement.

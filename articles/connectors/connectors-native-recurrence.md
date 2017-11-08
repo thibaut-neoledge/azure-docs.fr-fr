@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: dd1e22cd538d9113062b77ea2d7ecc18d63fe528
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Planifier des tâches et flux de travail à exécuter régulièrement avec des applications logiques
 
@@ -162,7 +162,7 @@ Voici un exemple de définition de déclencheur de périodicité :
 | Exécution à 8h30 tous les jours (sans date ni heure de début) | 1 | jour | {aucune} | {non disponible} | 8 | 30 | Cette planification s’exécute tous les jours à 8h30, selon la planification spécifiée. | 
 | Exécution à 8h30 tous les jours (avec date et heure de début) | 1 | jour | *startDate*T08:30:00Z | {non disponible} | {aucune} | {aucune} | Cette planification démarre à la date de début spécifiée, à 8h30. | 
 | Exécution à 8h30 et 16h30 tous les jours | 1 | jour | {aucune} | {non disponible} | 8, 16 | 30 | | 
-| Exécution à 8h30 et 16h45 tous les jours | 1 | jour | {aucune} | {non disponible} | 8, 16 | 30, 45 | | 
+| Exécution à 8h30, 8h45, 16h30 et 16h45 tous les jours | 1 | jour | {aucune} | {non disponible} | 8, 16 | 30, 45 | | 
 | Exécution le samedi à 17h00 (sans date ni heure de début) | 1 | Semaine | {aucune} | Samedi | 17 | 00 | Cette planification s’exécute tous les samedis à 17h00. | 
 | Exécution le samedi à 17h00 (avec date et heure de début) | 1 | Semaine | *startDate*T17:00:00Z | Samedi | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées, à savoir le 9 septembre 2017 à 17h00 dans cet exemple. Les exécutions périodiques suivantes ont lieu tous les samedis à 17h00. | 
 | Exécution les mardi et jeudi à 17h00 | 1 | Semaine | {aucune} | Mardi, Jeudi | 17 | {aucune} | Cette planification s’exécute tous les mardis et jeudis à 17h00. | 

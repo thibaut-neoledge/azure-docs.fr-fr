@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: eb1f3f01f896cc03fde13f11457be4740fa2720a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: b35595d3dd91932888a26edc92dae81dd71682d8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS
 Microsoft Azure s’engage fermement à préserver la confidentialité, la souveraineté de vos données et vous permet de contrôler vos données Azure hébergées via une suite de technologies servant à chiffrer, contrôler et gérer les clés de chiffrement, le contrôle et l’audit de l’accès aux données. Les clients Azure ont ainsi la possibilité de choisir la solution qui répond le mieux à leurs besoins professionnels. Dans ce document, nous allons vous présenter une nouvelle solution technologique « Azure Disk Encryption for Windows and Linux IaaS VM’s » pour protéger et sauvegarder vos données afin de répondre aux engagements de votre sécurité en matière d’organisation et les exigences de conformité. Cet article fournit des instructions détaillées sur la façon d’utiliser les fonctionnalités de cryptage de disque Azure, notamment sur les scénarios pris en charge et sur les expériences utilisateur.
@@ -247,8 +247,8 @@ Pour créer une application Azure AD, utilisez l’applet de commande PowerShell
 > [!NOTE]
 > $azureAdApplication.ApplicationId est l’ID de client Azure AD et $aadClientSecret est la clé secrète de client que vous devez utiliser ultérieurement pour activer Azure Disk Encryption. Prenez soin de bien sauvegarder la clé secrète de client Azure AD.
 
-##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-classic-portal"></a>Configuration de l’ID de client Azure AD et de la clé secrète à partir du portail Azure Classic
-Vous pouvez également configurer votre ID de client Azure AD et la clé secrète à l’aide du [portail Azure Classic]( https://manage.windowsazure.com). Pour cela, procédez comme suit :
+##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Configuration de l’ID de client Azure AD et de la clé secrète à partir du portail Azure
+Vous pouvez également configurer votre ID de client Azure AD et la clé secrète à l’aide du portail Azure. Pour cela, procédez comme suit :
 
 1. Cliquez sur l’onglet **Active Directory**.
 
@@ -270,8 +270,6 @@ Vous pouvez également configurer votre ID de client Azure AD et la clé secrèt
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
- > [!NOTE]
- > Le flux ci-dessus n’est pas pris en charge sur le portail Azure Classic.
 
 ##### <a name="use-an-existing-application"></a>Utiliser une application existante
 Pour exécuter les commandes suivantes, téléchargez et utilisez le [module Azure AD PowerShell](https://technet.microsoft.com/library/jj151815.aspx).
@@ -634,12 +632,12 @@ Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffr
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>Obtenir l’état de chiffrement d’une machine virtuelle IaaS chiffrée
-Vous pouvez obtenir l’état de chiffrement en utilisant Azure Resource Manager, des [applets de commande PowerShell](/powershell/azure/overview) ou des commandes CLI. Les sections ci-dessous expliquent comment utiliser le portail Azure Classic et les commandes de l’interface de ligne de commande pour obtenir l’état de chiffrement.
+Vous pouvez obtenir l’état de chiffrement en utilisant Azure Resource Manager, des [applets de commande PowerShell](/powershell/azure/overview) ou des commandes CLI. Les sections ci-dessous expliquent comment utiliser le portail Azure et les commandes de l’interface de ligne de commande pour obtenir l’état de chiffrement.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Obtenir l’état de chiffrement d’une machine virtuelle Windows chiffrée à l’aide d’Azure Resource Manager
 Pour obtenir l’état de chiffrement de la machine virtuelle IaaS à partir d’Azure Resource Manager, procédez comme suit :
 
-1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/), puis cliquez sur **Machines virtuelles** dans le volet gauche pour afficher un récapitulatif des machines virtuelles de votre abonnement. Vous pouvez filtrer la vue des machines virtuelles en sélectionnant le nom d’abonnement dans la liste déroulante**Abonnement**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/), puis cliquez sur **Machines virtuelles** dans le volet gauche pour afficher un récapitulatif des machines virtuelles de votre abonnement. Vous pouvez filtrer la vue des machines virtuelles en sélectionnant le nom d’abonnement dans la liste déroulante**Abonnement**.
 
 2. Cliquez sur **Colonnes** en haut de la page **Machines virtuelles**.
 

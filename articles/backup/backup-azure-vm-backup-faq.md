@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 0117398a1ad2a8519f50732d173bec9fbb7411b5
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d3178413e894c095235dde067b369e3554375aa6
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -59,6 +59,9 @@ Utilisez des disques de restauration pour :
   * Contrôler la convention d’affectation de noms pour les ressources créées
   * Ajouter des machines virtuelles aux groupes à haute disponibilité
   * Pour n’importe quelle autre configuration pouvant être obtenue uniquement à l’aide de PowerShell/d’une définition de modèle déclaratif
+  
+### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Puis-je utiliser des sauvegardes de machine virtuelle avec disque non géré pour effectuer une restauration après la mise à niveau de mes disques vers des disques gérés ?
+Oui, vous pouvez utiliser les sauvegardes effectuées avant la migration des disques non gérés vers des disques gérés. Par défaut, le travail de restauration de la machine virtuelle créera une machine virtuelle avec des disques non gérés. Vous pouvez utiliser la fonctionnalité restauration de disques pour restaurer des disques et les utiliser pour créer une machine virtuelle sur des disques gérés. 
 
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Que se passe-t-il lorsque je modifie une stratégie de sauvegarde sur des machines virtuelles ?

@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: b394b78b1d1a45a725c438d2cb978bb367c24894
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article s’applique à la version 2 du service Azure Data Factory. Il fournit des réponses aux questions les plus fréquentes sur Data Factory.  
 
-## <a name="what-is-azure-data-factory"></a>Qu'est-ce qu'Azure Data Factory ? 
+> [!NOTE]
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez le [forum aux questions de Data Factory version 1](v1/data-factory-faq.md).
+
+## <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ? 
 Data Factory est un service cloud d’intégration de données entièrement géré qui automatise le déplacement et la transformation des données. À l’instar d’une usine qui utilise des machines visant à transformer des matières premières en produits manufacturés, Azure Data Factory orchestre des services existants qui collectent des données brutes et les transforment en informations prêtes à l’emploi. 
 
 Grâce à Azure Data Factory, vous pouvez créer des flux de travail pilotés par les données pour déplacer des données entre des magasins locaux et cloud. Vous pouvez aussi traiter et transformer des données à l’aide de services de calcul tels qu’Azure HDInsight, Azure Data Lake Analytics et le runtime d’intégration SQL Server Integration Services (SSIS). 
@@ -50,7 +53,7 @@ Vous avez désormais la liberté de modéliser n’importe quel style de flux re
 - Flux de contrôle :
     - Chaînage d’activités en une séquence au sein d’un pipeline
     - Création d’une branche d’activités au sein d’un pipeline
-    - Paramètres
+    - parameters
         - Définissez les paramètres au niveau du pipeline et transmettez des arguments pendant que vous appelez le pipeline à la demande ou à partir d’un déclencheur.
         - Les activités peuvent consommer les arguments transmis au pipeline.
     - Transmission d’un état personnalisé
@@ -72,7 +75,7 @@ Si vous souhaitez déplacer vos charges de travail SSIS, vous pouvez créer une 
 Si vous êtes un utilisateur expérimenté et que vous recherchez une interface de programmation, la version 2 offre un ensemble enrichi de SDK que vous pouvez utiliser pour créer, gérer ou surveiller les pipelines à l’aide de votre IDE favori.
 
 - **SDK .NET** : le SDK .NET est mis à jour pour la version 2. 
-- **PowerShell** : les applets de commande PowerShell sont mises à jour pour la version 2. Les noms des applets de commande version 2 contiennent *DataFactoryV2*. Par exemple : *Get-AzureRmDataFactoryV2*. 
+- **PowerShell** : les applets de commande PowerShell sont mises à jour pour la version 2. Les noms des cmdlets version 2 contiennent *DataFactoryV2*. Par exemple : *Get-AzureRmDataFactoryV2*. 
 - **SDK Python** : ce SDK est une nouveauté de la version 2.
 - **API REST** : l’API REST est mise à jour pour la version 2.  
 
@@ -119,7 +122,7 @@ Les services liés ressemblent à des chaînes de connexion. Ils définissent le
 Les services liés ont deux objectifs dans Data Factory :
 
 - Représenter un *magasin de données* qui inclut, mais sans s’y limiter, une base de données SQL Server locale, une instance de base de données Oracle, un partage de fichiers ou un compte de stockage d’objets blob Azure. Pour obtenir la liste des magasins de données pris en charge, consultez [Activité de copie dans Azure Data Factory](copy-activity-overview.md).
-- Représenter une *ressource de calcul* qui peut héberger l’exécution d’une activité. Par exemple, l’activité HDInsight Hive s’exécute sur un cluster HDInsight Hadoop. Pour obtenir la liste des activités de transformation et des environnements de calcul pris en charge, consultez [Transformer des données dans Azure Data Factory](transform-data.md).
+- Pour représenter une *ressource de calcul* qui peut héberger l’exécution d’une activité. Par exemple, l’activité HDInsight Hive s’exécute sur un cluster HDInsight Hadoop. Pour obtenir la liste des activités de transformation et des environnements de calcul pris en charge, consultez [Transformer des données dans Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Déclencheurs
 Les déclencheurs représentent des unités de traitement qui déterminent le moment où une exécution de pipeline est lancée. Il existe différents types de déclencheurs pour différents types d’événements. Pour la préversion, nous prenons en charge un déclencheur par planificateur de temps horloge. 
@@ -128,7 +131,7 @@ Les déclencheurs représentent des unités de traitement qui déterminent le mo
 ### <a name="pipeline-runs"></a>Exécutions de pipeline
 Une exécution du pipeline est une instance d’exécution d’un pipeline. Généralement, vous instanciez une exécution de pipeline en transmettant des arguments aux paramètres définis dans le pipeline. Vous pouvez transmettre les arguments manuellement ou dans la définition du déclencheur.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 Les paramètres sont des paires clé-valeur dans une configuration en lecture seule. Vous définissez des paramètres dans un pipeline, et vous transmettez les arguments pour les paramètres définis lors de l’exécution à partir d’un contexte d’exécution. Le contexte d’exécution est créé par un déclencheur ou à partir d’un pipeline que vous exécutez manuellement. Les activités contenues dans le pipeline utilisent les valeurs des paramètres.
 
 Un jeu de données est un paramètre fortement typé et une entité que vous pouvez réutiliser ou référencer. Une activité peut référencer des jeux de données et utiliser les propriétés définies dans la définition du jeu de données.

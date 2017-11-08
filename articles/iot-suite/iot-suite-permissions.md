@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 09/28/2017
 ms.author: dobett
-ms.openlocfilehash: f67c7bfa3f0ea7b720c8684cc0c501be3e464373
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 84d2bcc4ccc102f03d878bfede43672158469190
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Autorisations sur le site azureiotsuite.com
 
@@ -46,18 +46,14 @@ Pour plus d’informations sur les rôles d’administrateur dans ADD, consultez
 Il peut y avoir de nombreux administrateurs généraux pour chaque locataire AAD :
 
 * Lorsque vous créez un client AAD, vous en devenez par défaut l’administrateur.
-* L’administrateur général peut approvisionner une solution préconfigurée et se voir attribuer le rôle **Administrateur** de l’application au sein de son locataire AAD.
-* Si un autre utilisateur du même locataire AAD crée une application, le rôle attribué par défaut à l’administrateur général est **Lecture seule**.
-* Les administrateurs généraux peuvent attribuer des rôles aux utilisateurs pour les applications à l’aide du [Portail Azure][lnk-portal].
+* L’administrateur général peut approvisionner des solutions préconfigurées de base et standard.
 
 ### <a name="domain-user"></a>Utilisateur de domaine
 
 Il peut y avoir de nombreux utilisateurs de domaine pour chaque locataire AAD :
 
-* Un utilisateur de domaine peut approvisionner une solution préconfigurée via le site [azureiotsuite.com][lnk-azureiotsuite]. Par défaut, l’utilisateur de domaine se voit accorder le rôle **Administrateur** dans l’application approvisionnée.
-* Un utilisateur de domaine peut créer une application à l’aide du script build.cmd qui se trouve dans le référentiel [azure-iot-remote-monitoring][lnk-rm-github-repo], [azure-iot-predictive-maintenance][lnk-pm-github-repo] ou [azure-iot-connected-factory][lnk-cf-github-repo]. Toutefois, le rôle accordé par défaut à l’utilisateur de domaine est **Lecture seule**, car un utilisateur de domaine n’est pas autorisé à attribuer des rôles.
-* Si un autre utilisateur du locataire AAD crée une application, l’utilisateur de domaine se voit attribuer le rôle **Lecture seule** par défaut pour cette application.
-* Un utilisateur de domaine ne peut pas attribuer des rôles pour des applications ; par conséquent, il ne peut pas ajouter des utilisateurs ou des rôles pour les utilisateurs d’une application, même s’ils l’ont approvisionnée.
+* Un utilisateur de domaine peut approvisionner une solution préconfigurée de base via le site [azureiotsuite.com][lnk-azureiotsuite].
+* Un utilisateur de domaine peut utiliser l’interface CLI pour créer une solution préconfigurée de base.
 
 ### <a name="guest-user"></a>Utilisateur invité
 
@@ -74,55 +70,11 @@ Les rôles d’administration Azure permettent de contrôler la fonctionnalité 
 
 Pour plus d’informations sur les rôles d’administrateur Azure, consultez l’article [Guide pratique pour ajouter ou modifier le coadministrateur, l’administrateur de services fédérés et l’administrateur de compte][lnk-admin-roles].
 
-## <a name="application-roles"></a>Rôles d’application
-
-Les rôles d’application contrôlent l’accès aux périphériques de votre solution préconfigurée.
-
-Une application approvisionnée comporte deux rôles définis et un rôle implicite défini :
-
-* **Administrateur :** contrôle totalement l’ajout, la gestion et la suppression des appareils, ainsi que la modification des paramètres.
-* **Lecture seule :** peut afficher les appareils, actions, règles, travaux et télémétrie.
-
-Vous pouvez trouver les autorisations attribuées à chaque rôle dans le fichier source [RolePermissions.cs][lnk-resource-cs].
-
-### <a name="changing-application-roles-for-a-user"></a>Modification des rôles d’application pour un utilisateur
-
-Vous pouvez utiliser la procédure suivante pour définir un utilisateur dans Active Directory en tant qu’administrateur de votre solution préconfigurée.
-
-Vous devez être un administrateur général AAD pour modifier les rôles d’un utilisateur :
-
-1. Accédez au [portail Azure][lnk-portal].
-2. Sélectionnez **Azure Active Directory**.
-3. Veillez à utiliser l’annuaire que vous avez choisi sur azureiotsuite.com lorsque vous avez approvisionné votre solution. Si vous avez plusieurs annuaires associés à votre abonnement, vous pouvez basculer entre eux si vous cliquez sur le nom de votre compte en haut à droite du portail.
-4. Cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**.
-4. Affichez **toutes les applications** avec **n’importe quel** état. Recherchez ensuite une application avec le nom de votre solution préconfigurée.
-5. Cliquez sur le nom de l’application qui correspond au nom de votre solution préconfigurée.
-6. Cliquez sur **Utilisateurs et groupes**.
-7. Sélectionnez l’utilisateur dont vous souhaitez permuter les rôles.
-8. Cliquez sur **Attribuer**, puis sélectionnez le rôle (par exemple, **Admin**) que vous souhaitez attribuer à l’utilisateur en cochant la case correspondante.
-
 ## <a name="faq"></a>Forum Aux Questions
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Je suis un administrateur de service et je souhaite modifier le mappage d’annuaire entre mon abonnement et un client AAD spécifique. Comment mener à bien cette tâche ?
 
-1. Accédez au [portail Azure Classic][lnk-classic-portal] et cliquez sur **Paramètres** dans la liste des services sur le côté gauche.
-2. Sélectionnez l’abonnement dont vous souhaitez modifier le mappage d’annuaire.
-3. Cliquez sur **Modifier l’annuaire**.
-4. Sélectionnez l’ **annuaire** que vous souhaitez utiliser dans la liste déroulante. Cliquez sur la flèche Suivant.
-5. Vérifiez le mappage d’annuaire et les coadministrateurs affectés. Si vous migrez depuis un autre annuaire, tous les coadministrateurs de l’annuaire d’origine sont supprimés.
-
-### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Je suis un utilisateur/membre du domaine sur le client AAD et j’ai créé une solution préconfigurée. Comment puis-je me voir attribuer un rôle pour mon application ?
-
-Demandez à un administrateur général de vous faire passer administrateur général du locataire AAD, puis attribuez vous-même des rôles aux utilisateurs. Vous pouvez également demander à un administrateur général d’attribuer directement un rôle. Si vous souhaitez modifier le client AAD sur lequel votre solution préconfigurée a été déployée, passez à la question suivante.
-
-### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Comment puis-je activer le client AAD auquel la solution préconfigurée de contrôle à distance et l’application sont affectées ?
-
-Vous pouvez exécuter un déploiement cloud à partir de <https://github.com/Azure/azure-iot-remote-monitoring>, puis redéployer avec un client AAD nouvellement créé. Comme vous êtes, par défaut, administrateur général, lorsque vous créez un locataire AAD, vous disposez des autorisations nécessaires pour ajouter des utilisateurs et leur attribuer des rôles.
-
-1. Créez un annuaire ADD dans le [portail Azure ][lnk-portal].
-2. Accédez à <https://github.com/Azure/azure-iot-remote-monitoring>.
-3. Exécutez `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (par exemple, `build.cmd cloud debug myRMSolution`)
-4. Lorsque vous y êtes invité, définissez le **tenantid** du client que vous venez de créer et non celui du client précédent.
+Voir [Comment ajouter un abonnement existant à votre répertoire Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>Je souhaite modifier la fonctionnalité administrateur de service ou coadministrateur lors d’une connexion avec un compte de société
 
@@ -151,7 +103,6 @@ Pour poursuivre votre formation concernant IoT Suite, découvrez comment [person
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md

@@ -1,6 +1,6 @@
 ---
-title: "Nouveautés d’Azure Active Directory | Microsoft Docs"
-description: "Utilisez ces notes de version pour vous maintenir au courant sur les **versions les plus récentes**, les **problèmes connus**, les **résolution des bogues**, les **fonctionnalités déconseillées** et les **modifications planifiées** dans Azure Active Directory."
+title: "Nouveautés Notes de publication pour Azure Active Directory | Microsoft Docs"
+description: "Utilisez ces notes de version pour rester informé des versions les plus récentes, des problèmes connus, des résolutions de bogues, des fonctionnalités déconseillées et des modifications planifiées dans Azure Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/27/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0361d5b48af876af2ccc522351484d369554bfca
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1d98233e1bfc2c9a926d7c61737286ec6e4fc422
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -76,6 +76,8 @@ Dans le monde actuel, l’authentification multifacteur (MFA) est essentielle po
 
 Avec cette préversion publique, la gestion et les rapports de l’authentification multifacteur sont une partie intégrante de l’expérience de configuration Azure AD principale, ce qui vous permet de gérer la fonctionnalité de portail de gestion de l’authentification multifacteur au sein de l’expérience Azure AD.
 
+Pour en savoir plus, consultez [Référence pour la génération de rapports d’authentification multifacteur dans le portail Azure](active-directory-reporting-activity-sign-ins-mfa.md). 
+
 
 ---
 **Type :** nouvelle fonctionnalité  
@@ -112,8 +114,6 @@ Pour plus d’informations, consultez [PIM pour les ressources Azure](privileged
 **Catégorie de service :** révisions d’accès  
 **Fonctionnalité de produit :** gouvernance  
 
-
-Nouveautés d’Azure AD
 
 Les révisions d’accès (préversion) permettent aux organisations de gérer efficacement les appartenances à des groupes et les accès aux applications d’entreprise : 
 

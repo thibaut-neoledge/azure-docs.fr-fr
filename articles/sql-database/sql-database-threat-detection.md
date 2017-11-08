@@ -12,14 +12,14 @@ ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat; ronitr
-ms.openlocfilehash: bd3de9ed0131edc683763b0fe7f4a2ae74533944
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 647bd11fe305e255ab492939586241e28557ead8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-database-threat-detection"></a>Détection de menaces pour les bases de données SQL
 
@@ -31,18 +31,18 @@ SQL Threat Detection fournit une nouvelle couche de sécurité qui permet aux cl
 
 Par exemple, l’injection SQL représente l’un des problèmes de sécurité auxquels sont le plus exposées les applications web, et est utilisée pour cibler les applications pilotées par des données. Les pirates exploitent les vulnérabilités des applications pour injecter des instructions SQL nuisibles dans les champs de saisie d’application afin de violer ou modifier les données contenues dans la base de données.
 
-SQL Threat Detection intègre les alertes avec [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). Chaque serveur SQL Database protégé est facturé au même prix que le niveau Standard d’Azure Security Center, soit 15 USD/nœud/mois : chaque serveur SQL Database protégé est alors comptabilisé comme un seul nœud. Nous vous invitons à essayer ce service gratuitement pendant 60 jours. 
+La détection des menaces SQL intègre les alertes avec [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). Chaque serveur SQL Database protégé est facturé au même prix que le niveau Standard d’Azure Security Center, soit 15 USD/nœud/mois : chaque serveur SQL Database protégé est alors comptabilisé comme un seul nœud.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurer la détection des menaces pour votre base de données dans le portail Azure
 1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et lancez le portail Azure.
-2. Accédez au volet de configuration de la base de données SQL que voulez surveiller. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces**. 
+2. Accédez à la page de configuration de l’instance SQL Database que vous voulez surveiller. Dans la page Paramètres, sélectionnez **Audit et détection des menaces**. 
     ![Volet de navigation][1]
-3. Dans le panneau de configuration **Audit et détection des menaces**, **activez** l’audit pour afficher les paramètres Détection des menaces.
+3. Dans la page de configuration **Audit et détection des menaces**, **activez** l’audit pour afficher les paramètres de détection des menaces.
   
     ![Volet de navigation][2]
 4. **Activez** la détection des menaces.
-5. Configurez la liste des adresses électroniques qui recevront les alertes de sécurité en cas de détection d’activités anormales sur la base de données.
-6. Cliquez sur **Enregistrer** dans le panneau **Audit et détection des menaces** pour enregistrer les paramètres d’audit et de détection des menaces que vous avez créés ou modifiés.
+5. Configurez la liste des e-mails qui doivent recevoir des alertes de sécurité en cas de détection d’activités anormales sur la base de données.
+6. Cliquez sur **Enregistrer** dans la page **Audit et détection des menaces** pour enregistrer les paramètres d’audit et de détection des menaces que vous avez créés ou modifiés.
        
     ![Volet de navigation][3]
 
@@ -51,21 +51,21 @@ SQL Threat Detection intègre les alertes avec [Azure Security Center](https://a
 Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>Explorer les activités anormales sur la base de données en cas de détection d’un événement suspect
-1. Vous recevrez une notification par courrier électronique lorsque des activités anormales sont détectées au niveau de la base de données. <br/>
-   Le courrier contient des informations sur l’événement de sécurité suspect, notamment la nature des activités anormales, le nom de la base de données, le nom du serveur, le nom de l’application et l’heure de l’événement. Il fournit également des informations sur les causes possibles et les mesures recommandées afin d’examiner et d’atténuer la menace potentielle pesant sur la base de données.<br/>
+1. Vous recevez une notification par e-mail quand des activités anormales sont détectées sur la base de données. <br/>
+   L’e-mail contient des informations sur l’événement de sécurité suspect, notamment la nature des activités anormales, le nom de la base de données, le nom du serveur, le nom de l’application et l’heure de l’événement. Il fournit également des informations sur les causes possibles et les mesures recommandées pour examiner et atténuer la menace potentielle pesant sur la base de données.<br/>
      
     ![Volet de navigation][4]
-2. L’alerte par courrier inclut un lien direct vers le journal d’audit SQL. Lorsque vous cliquez sur ce lien, le portail Azure s’affiche et ouvre les enregistrements d’audit SQL au moment de l’événement suspect. Cliquez sur un enregistrement d’audit pour afficher plus de détails sur les activités de base de données suspectes. Vous pouvez ainsi plus facilement trouver les instructions SQL qui ont été exécutées (quel utilisateur, quelles actions et à quel moment) et déterminer si l’événement est légitime ou malveillant (par exemple, la vulnérabilité de l’application aux injections SQL a été exploitée, quelqu’un a opéré une violation des données sensibles, etc.).<br/>
+2. L’alerte par e-mail inclut un lien direct vers le journal d’audit SQL. Lorsque vous cliquez sur ce lien, le portail Azure s’affiche et ouvre les enregistrements d’audit SQL au moment de l’événement suspect. Cliquez sur un enregistrement d’audit pour afficher plus de détails sur les activités de base de données suspectes. Vous pouvez ainsi plus facilement trouver les instructions SQL qui ont été exécutées (quel utilisateur, quelles actions et à quel moment) et déterminer si l’événement est légitime ou malveillant (par exemple, la vulnérabilité de l’application aux injections SQL a été exploitée, quelqu’un a opéré une violation des données sensibles, etc.).<br/>
    ![Volet de navigation][5]
 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Explorer les alertes de détection des menaces pour votre base de données dans le portail Azure
 
-SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). Une vignette de sécurité SQL dynamique dans le panneau de base de données au sein du portail Azure effectue le suivi de l’état des menaces actives. 
+SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). Une vignette de sécurité SQL dynamique dans la page de base de données au sein du portail Azure effectue le suivi de l’état des menaces actives. 
 
    ![Volet de navigation][6]
    
-1. Lorsque vous cliquez sur la vignette de sécurité, le panneau d’alertes Azure Security Center qui s’ouvre fournit une vue d’ensemble des menaces SQL actives détectées sur la base de données. 
+1. Quand vous cliquez sur la vignette de sécurité, la page d’alertes Azure Security Center qui s’ouvre fournit une vue d’ensemble des menaces SQL actives détectées sur la base de données. 
 
   ![Volet de navigation][7]
 

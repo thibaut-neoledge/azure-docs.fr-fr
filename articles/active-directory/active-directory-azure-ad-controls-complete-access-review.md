@@ -13,40 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b301ff06c01d51c02f7d7393801b35cd8965403c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Complete an access review of members of a group or user access to an application in Azure AD (Effectuer une révision d’accès des membres d’un groupe ou des accès des utilisateurs à une application dans Azure AD)
+# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Effectuer une révision d’accès des membres d’un groupe ou des accès des utilisateurs à une application dans Azure AD
 
-Les administrateurs peuvent demander une révision des membres du groupe ou des utilisateurs assignés à une application en [créant une révision d’accès](active-directory-azure-ad-controls-create-access-review.md). Azure AD envoie automatiquement aux réviseurs un e-mail les invitant à réviser l’accès. Si un utilisateur n'a pas reçu d’e-mail, vous pouvez lui envoyer les instructions dans [Comment réviser un accès](active-directory-azure-ad-controls-perform-access-review.md).  Une fois la période de révision d’accès terminée ou si l’administrateur a arrêté la révision d’accès, suivez les étapes décrites dans cet article pour voir et appliquer les résultats.
+Les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour [créer une révision d’accès](active-directory-azure-ad-controls-create-access-review.md) des membres du groupe ou des utilisateurs affectés à une application. Azure AD envoie automatiquement aux réviseurs un e-mail les invitant à réviser l’accès. Si un utilisateur n’a pas reçu d’e-mail, vous pouvez lui envoyer les instructions décrites dans l’article [Effectuer votre propre révision d’accès](active-directory-azure-ad-controls-perform-access-review.md). Si la période de révision d’accès est terminée ou que l’administrateur a arrêté la révision d’accès, suivez les étapes décrites dans cet article pour voir et appliquer les résultats.
 
-## <a name="viewing-an-access-review-in-the-azure-portal"></a>Affichage d’une révision d’accès dans le portail Azure
+## <a name="view-an-access-review-in-the-azure-portal"></a>Afficher une révision d’accès dans le portail Azure
 
-1. Accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), passez à l’onglet **Programmes** et sélectionnez le programme qui contient le contrôle de révision d’accès.
-2. Cliquez sur Gérer et sélectionnez le contrôle de révision d’accès.  S’il existe plusieurs contrôles dans le programme, vous pouvez filtrer les contrôles d’un type spécifique, les trier selon leur état ou effectuer une recherche sur le nom du contrôle de révision d’accès ou le nom d’affichage du propriétaire qui l’a créé. 
+1. Accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), sélectionnez **Programmes**, puis choisissez le programme qui contient le contrôle de révision d’accès.
 
-## <a name="stopping-a-review-that-has-not-yet-completed"></a>Arrêt d’une révision non terminée
+2. Cliquez sur **Gérer** et sélectionnez le contrôle de révision d’accès. S’il existe de nombreux contrôles dans le programme, vous pouvez appliquer un filtre pour n’afficher que les contrôles d’un type spécifique et les trier selon leur état. Vous pouvez également effectuer une recherche en saisissant le nom du contrôle de révision d’accès ou le nom complet de son auteur. 
 
-Si la révision n’a pas encore atteint sa date de fin planifiée, un administrateur peut l’arrêter plus tôt en cliquant sur le bouton **Arrêter**.  Si les utilisateurs n’ont pas été révisés à cette date, ils ne pourront plus le faire une fois la révision arrêtée. Vous ne pouvez pas redémarrer une révision arrêtée.
+## <a name="stop-a-review-that-hasnt-finished"></a>Arrêter une révision qui n’est pas terminée
 
-## <a name="applying-the-changes"></a>Application des changements 
+Si la révision n’a pas encore atteint sa date de fin planifiée, un administrateur peut l’arrêter plus tôt en sélectionnant **Arrêter**. Une fois la révision arrêtée, il n’est plus possible de vérifier l’accès des utilisateurs. Vous ne pouvez pas redémarrer une révision ayant été arrêtée.
 
-Lorsqu’une révision d’accès est terminée, soit parce qu’elle a atteint sa date de fin soit parce qu’un administrateur y a mis fin manuellement, le bouton **Appliquer** implémente le résultat de la révision en mettant à jour le groupe ou l’application. Si l’accès d’un utilisateur a été refusé lors de la révision, lorsque l’administrateur clique sur ce bouton, Azure AD supprime l’appartenance de cet utilisateur ou son assignation à l’application. 
+## <a name="apply-the-changes"></a>Appliquer les modifications 
 
-Le bouton Appliquer n’aura pas d’effet pour un groupe qui provient d’un répertoire local ou d’un groupe dynamique.  Si vous souhaitez modifier un groupe qui provient d’un répertoire local, téléchargez les résultats et appliquez ces modifications à la représentation du groupe dans ce répertoire.
+Une fois la révision d’accès terminée, c’est-à-dire lorsque celle-ci a atteint sa date de fin ou a été manuellement arrêtée par un administrateur, sélectionnez **Appliquer**. Le résultat de la révision est implémenté via une mise à jour du groupe ou de l’application. Si l’accès d’un utilisateur a été refusé lors de la révision, lorsque l’administrateur sélectionne cette option, Azure AD supprime l’appartenance de cet utilisateur ou son assignation à l’application. 
 
-## <a name="downloading-the-results-of-the-review"></a>Téléchargement des résultats de la révision
+Sélectionner l’option **Appliquer** n’aura pas d’effet pour un groupe qui provient d’un répertoire local ou d’un groupe dynamique. Si vous souhaitez modifier un groupe qui provient d’un répertoire local, téléchargez les résultats et appliquez ces modifications à la représentation du groupe dans ce répertoire.
 
-Pour récupérer les résultats de la révision, accédez à l’onglet Approbations et cliquez sur le bouton **Télécharger**.  Le fichier CSV généré peut être affiché dans Excel ou dans d’autres programmes qui permettent d’ouvrir les fichiers CSV.
+## <a name="download-the-results-of-the-review"></a>Télécharger les résultats de la révision
 
-## <a name="optional-deleting-a-review"></a>Facultatif : suppression d’une révision
-Si vous n'êtes plus intéressé par la révision, supprimez-la. Le bouton **Supprimer** permet de supprimer la révision d’Azure AD.
+Pour récupérer les résultats de la révision, sélectionnez **Approbations**, puis cliquez sur **Télécharger**. Le fichier CSV généré peut être affiché dans Excel ou dans d’autres programmes qui permettent d’ouvrir les fichiers CSV.
+
+## <a name="optional-delete-a-review"></a>Facultatif : supprimer une révision
+Si la révision ne vous intéresse plus, vous pouvez la supprimer. Sélectionnez **Supprimer** pour supprimer la révision d’Azure AD.
 
 > [!IMPORTANT]
-> Il n’y a pas d’avertissement avant la suppression, alors assurez-vous que vous voulez bien supprimer cette révision.
+> Il n’y a pas d’avertissement avant la suppression. Par conséquent, assurez-vous de bien vouloir supprimer cette révision.
 > 
 > 
 

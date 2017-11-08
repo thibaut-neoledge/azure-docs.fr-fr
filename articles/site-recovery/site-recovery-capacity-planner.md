@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
-ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>Planifier la capacité pour la protection des machines virtuelles et des serveurs physiques dans Azure Site Recovery
+# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planifier la capacité de la protection des machines virtuelles Hyper-V avec Site Recovery
 
-L’outil Azure Site Recovery Capacity Planner vous aide à prévoir vos besoins en capacité pour la réplication de machines virtuelles Hyper-V, de machines virtuelles VMware et de serveurs physiques Windows/Linux avec Azure Site Recovery.
+L’outil Azure Site Recovery Capacity Planner vous aide à prévoir vos besoins en capacité pour la réplication de machines virtuelles Hyper-V avec Azure Site Recovery.
 
 Utilisez l’outil Site Recovery Capacity Planner pour analyser votre environnement source et vos charges de travail, ainsi que pour déterminer vos besoins en bande passante et en ressources serveur à l’emplacement source, ainsi que les ressources (machines virtuelles et stockage, etc.) dont vous avez besoin à l’emplacement cible.
 
@@ -35,11 +35,8 @@ Vous pouvez exécuter l’outil de deux manières :
 
 
 1. Collecter des informations relatives à votre environnement, et notamment les machines virtuelles, le nombre de disques par machine virtuelle, le stockage par disque.
-2. Déterminer le taux de modification (l’évolution) quotidienne des données répliquées. Pour ce faire :
-
-   * Si vous répliquez des machines virtuelles Hyper-V, téléchargez [l’outil de planification de la capacité Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) pour obtenir le taux de modification. [En savoir plus](site-recovery-capacity-planning-for-hyper-v-replication.md) sur cet outil. Nous vous recommandons d’exécuter cet outil sur une semaine pour enregistrer les moyennes.
-   * Si vous répliquez des machines virtuelles VMware, utilisez [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) pour déterminer le taux de variation.
-   * Si vous répliquez des serveurs physiques, vous devez effectuer les estimations manuellement.
+2. Déterminer le taux de modification (l’évolution) quotidienne des données répliquées. Pour cela, téléchargez [l’outil de planification de la capacité Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) pour obtenir le taux de modifications. [En savoir plus](site-recovery-capacity-planning-for-hyper-v-replication.md) sur cet outil. Nous vous recommandons d’exécuter cet outil sur une semaine pour enregistrer les moyennes.
+   
 
 ## <a name="run-the-quick-planner"></a>Exécutez Quick Planner
 1. Téléchargez et ouvrez l’outil [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) . Vous devez exécuter des macros, et donc sélectionner cette option pour activer la modification et le contenu lorsque vous y êtes invité.
@@ -50,8 +47,8 @@ Vous pouvez exécuter l’outil de deux manières :
 
    * Dans **Sélectionner votre scénario**, choisissez **Hyper-V to Azure** (Hyper-V vers Azure) ou **VMware/Physical to Azure** (VMware/Physique vers Azure).
    * Dans **Taux de modification de données moyen par jour (%)**, entrez les informations que vous recueillez à l’aide de l’[outil de planification de la capacité Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou d’[Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).  
-   * **compression** s’applique uniquement à la compression proposée lors de la réplication des machines virtuelles VMware ou des serveurs physiques vers Azure. Notre estimation est 30 % ou plus, mais vous pouvez modifier ce paramètre en fonction de vos besoins. Pour répliquer des machines virtuelles Hyper-V vers la compression Azure, vous pouvez utiliser un équipement tiers, tel que Riverbed.
-   * Dans **Retention Inputs** (Entrées de rétention), spécifiez la durée de conservation des réplicas. Si vous répliquez des éléments VMware ou des serveurs physiques, saisissez la valeur en jours. Si vous répliquez des éléments Hyper-V, spécifiez la durée en heures.
+   * Le paramètre **Compression** n’est pas utilisé lors de la réplication de machines virtuelles Hyper-V vers Azure. Pour la compression, utilisez une appliance tierce telle que Riverbed.
+   * Dans **Retention Inputs** (Entrées de rétention), spécifiez la durée de conservation des réplicas, en heures.
    * Dans **Number of hours in which initial replication for the batch of virtual machines should complete** (Nombre d’heures prévu pour la réplication initiale du lot de machines virtuelles) et **Number of virtual machines per initial replication batch** (Nombre de machines virtuelles par lot de réplication initiale), vous devez saisir les paramètres de saisie utilisés pour calculer les exigences de réplication initiales.  Lorsque vous déployez Site Recovery, vous devez charger l’intégralité du jeu de données initial.
 
    ![Entrées](./media/site-recovery-capacity-planner/inputs.png)
@@ -126,3 +123,7 @@ Une fois tous les détails fournis, cliquez sur **Submit data to the planner too
 2. Si vous souhaitez apporter des modifications, vous devez modifier la feuille de calcul **Workload Qualification** (Qualification de la charge de travail) et cliquer de nouveau sur **Submit data to the planner tool** (Envoyer les données à l’outil de planification).  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Apprenez à exécuter](site-recovery-capacity-planning-for-hyper-v-replication.md) l’outil de planification de la capacité.

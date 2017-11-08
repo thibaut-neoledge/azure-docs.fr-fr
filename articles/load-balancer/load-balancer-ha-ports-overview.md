@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 62d78e067e50183f25af84e547db2e11c0014f5d
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: e72fc0d4323f7a2d203fee66311c3fea10ad7a09
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="high-availability-ports-overview-preview"></a>Présentation des ports de haute disponibilité (préversion)
 
@@ -36,7 +36,7 @@ Les ports à haute disponibilité sont configurés en définissant les ports du 
 
 ## <a name="why-use-ha-ports"></a>Pourquoi utiliser des ports à haute disponibilité ?
 
-### <a name="network-virtual-appliances"></a>Appliances virtuelles réseau
+### <a name="nva"></a>Appliances virtuelles réseau
 
 Vous pouvez utiliser des appliances virtuelles réseau pour sécuriser votre charge de travail Azure contre plusieurs types de menaces de sécurité. Lorsque des appliances virtuelles réseau sont utilisées dans ces scénarios, elles doivent être fiables, hautement disponibles et évolutives pour la demande.
 
@@ -139,6 +139,8 @@ Voici les configurations et exceptions prises en charge pour les ports de haute 
 - Une même configuration IP d’interface réseau peut comporter une ou plusieurs règles d’équilibrage de charge DSR avec ports à haute disponibilité, du moment que toutes leurs configurations IP frontend sont uniques.
 - Il est possible de faire coexister plusieurs règles d’équilibrage de charge pointant vers un même pool backend si l’ensemble des règles d’équilibrage de charge est configuré avec des ports à haute disponibilité (DSR uniquement), ou, si l’ensemble des règles est configuré sans ports à haute disponibilité (DSR et non DSR). Ces deux règles d’équilibrage de charge ne peuvent pas coexister en présence d’une combinaison de règles avec et sans ports à haute disponibilité.
 - Les ports à haute disponibilité ne sont pas disponibles avec IPv6.
+- La symétrie des flux pour les scénarios NVA est uniquement prise en charge avec une seule carte réseau. Consultez la description et le diagramme des [appliances virtuelles réseau](#nva). 
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

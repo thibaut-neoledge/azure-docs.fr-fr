@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d3c8c79170e2f369a89c4ab0588e057d0228b573
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93e6c87a9d445ca448509a256247fb5e4749ec1c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Comprendre les connexions sortantes dans Azure
 
@@ -42,7 +42,7 @@ Dans ce scénario, la machine virtuelle ne fait pas partie d’un pool Azure Loa
 
 Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre leur utilisation. Un seul port SNAT est utilisé par flux vers une adresse IP de destination unique. En cas de flux multiples vers la même adresse IP de destination, chaque flux utiliser un seul port SNAT. Cela garantit que les flux sont uniques s’ils proviennent de la même adresse IP publique et sont dirigés vers la même adresse IP de destination. Plusieurs flux, chacun dirigé vers une adresse IP de destination différente, partagent un même port SNAT. L’adresse IP de destination rend les flux uniques.
 
-Vous pouvez utiliser [Analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) et le [Journal des événements d’alerte](load-balancer-monitor-log.md#alert-event-log) pour surveiller la présence de messages signalant l’épuisement des ressources de port SNAT. En cas d’épuisement des ressources de port SNAT, les flux sortants échouent jusqu'à ce que des ports SNAT soient libérés par flux existants. L’équilibrage de charge utilise un délai d’inactivité de 4 minutes pour la récupération des ports SNAT.
+Vous pouvez utiliser la fonctionnalité [Analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) et le [Journal des événements d’alerte pour surveiller la présence de messages signalant l’épuisement des ressources de port SNAT](load-balancer-monitor-log.md#alert-event-log) et vérifier l’intégrité des connexions sortantes. En cas d’épuisement des ressources de port SNAT, les flux sortants échouent jusqu'à ce que des ports SNAT soient libérés par flux existants. L’équilibrage de charge utilise un délai d’inactivité de 4 minutes pour la récupération des ports SNAT.  Consultez [VM with an Instance Level Public IP address (with or without Load Balancer](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer) (Machine virtuelle avec une adresse IP publique au niveau de l’instance (avec ou sans équilibrage de charge), la section suivante, ainsi que l’article [Managing SNAT exhaustion](#snatexhaust) (Gestion de l’épuisement des ressources SNAT).
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Machine virtuelle à charge équilibrée sans adresse IP publique de niveau d’instance
 
@@ -52,11 +52,11 @@ Lorsque la machine virtuelle à charge équilibrée crée un flux sortant, Azure
 
 Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre leur utilisation. Un seul port SNAT est utilisé par flux vers une adresse IP de destination unique. En cas de flux multiples vers la même adresse IP de destination, chaque flux utiliser un seul port SNAT. Cela garantit que les flux sont uniques s’ils proviennent de la même adresse IP publique et sont dirigés vers la même adresse IP de destination. Plusieurs flux, chacun dirigé vers une adresse IP de destination différente, partagent un même port SNAT. L’adresse IP de destination rend les flux uniques.
 
-Vous pouvez utiliser [Analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) et le [Journal des événements d’alerte](load-balancer-monitor-log.md#alert-event-log) pour surveiller la présence de messages signalant l’épuisement des ressources de port SNAT. En cas d’épuisement des ressources de port SNAT, les flux sortants échouent jusqu'à ce que des ports SNAT soient libérés par flux existants. L’équilibrage de charge utilise un délai d’inactivité de 4 minutes pour la récupération des ports SNAT.
+Vous pouvez utiliser la fonctionnalité [Analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) et le [Journal des événements d’alerte pour surveiller la présence de messages signalant l’épuisement des ressources de port SNAT](load-balancer-monitor-log.md#alert-event-log) et vérifier l’intégrité des connexions sortantes. En cas d’épuisement des ressources de port SNAT, les flux sortants échouent jusqu'à ce que des ports SNAT soient libérés par flux existants. L’équilibrage de charge utilise un délai d’inactivité de 4 minutes pour la récupération des ports SNAT.  Consultez la section suivante, ainsi que l’article [Managing SNAT exhaustion](#snatexhaust) (Gestion de l’épuisement des ressources SNAT).
 
 ## <a name="vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer"></a>Machine virtuelle avec une adresse IP publique de niveau d’instance (avec ou sans équilibrage de charge)
 
-Dans ce scénario, une adresse IP publique de niveau d’instance (ILPIP) est affectée à la machine virtuelle. Peu importe si la machine virtuelle est à charge équilibrée ou non. Lorsqu’une adresse ILPIP est utilisée, SNAT (Source Network Address Translation) n’est pas utilisé. La machine virtuelle utilise l’adresse ILPIP pour tous les flux sortants. Si votre application lance plusieurs flux sortants et que les ressources SNAT sont épuisées, vous devez envisager d’affecter une adresse ILPIP afin d’éviter les contraintes de SNAT.
+Dans ce scénario, une adresse IP publique de niveau d’instance (ILPIP) est affectée à la machine virtuelle. Peu importe si la machine virtuelle est à charge équilibrée ou non. Lorsqu’une adresse ILPIP est utilisée, SNAT (Source Network Address Translation) n’est pas utilisé. La machine virtuelle utilise l’adresse ILPIP pour tous les flux sortants. Si votre application lance plusieurs flux sortants et que les ressources SNAT sont épuisées, vous devez envisager d’affecter une adresse ILPIP afin de limiter les contraintes de SNAT.
 
 ## <a name="discovering-the-public-ip-used-by-a-given-vm"></a>Découverte de l’adresse IP publique utilisée par une machine virtuelle donnée
 
@@ -66,14 +66,31 @@ Il existe de nombreuses manières de déterminer l’adresse IP source publique 
 
 ## <a name="preventing-public-connectivity"></a>Empêchement de la connectivité publique
 
-Parfois, il n’est pas souhaitable d’autoriser une machine virtuelle à créer un flux sortant, ou il peut y avoir une exigence de gestion les destinations pouvant être atteinte avec des flux sortants. Dans ce cas, vous utilisez des [groupes de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) pour gérer les destinations que la machine virtuelle peut atteindre. Lorsque vous appliquez un groupe de sécurité réseau à une machine Virtuelle à charge équilibrée, vous devez faire attention aux [balises par défaut](../virtual-network/virtual-networks-nsg.md#default-tags) et aux [règles par défaut](../virtual-network/virtual-networks-nsg.md#default-rules).
+Parfois, il n’est pas souhaitable d’autoriser une machine virtuelle à créer un flux sortant, ou il peut y avoir une exigence visant à définir les destinations pouvant être atteintes avec des flux sortants ou celles pouvant démarrer des flux entrants. Dans ce cas, vous utilisez des [groupes de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) pour gérer les destinations que la machine virtuelle peut atteindre, ainsi que les destinations publiques pouvant initier des flux entrants. Lorsque vous appliquez un groupe de sécurité réseau à une machine Virtuelle à charge équilibrée, vous devez faire attention aux [balises par défaut](../virtual-network/virtual-networks-nsg.md#default-tags) et aux [règles par défaut](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 Vous devez vous assurer que la machine virtuelle peut recevoir des demandes d’analyse d’intégrité d’Azure Load Balancer. Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrité depuis la balise par défaut AZURE_LOADBALANCER, votre analyse de l’intégrité de la machine virtuelle échoue et la machine virtuelle est marquée comme défaillante. L’équilibrage de charge arrête l’envoi de nouveaux flux vers cette machine virtuelle.
 
-## <a name="limitations"></a>Limitations
+## <a name="snatexhaust"></a>Gestion de l’épuisement des ressources SNAT
+
+Les ports éphémères utilisés pour SNAT constituent une ressource épuisable, comme décrit dans les articles [Machine virtuelle autonome sans adresse IP publique de niveau d’instance](#standalone-vm-with-no-instance-level-public-ip-address) et [Machine virtuelle à charge équilibrée sans adresse IP publique de niveau d’instance](#standalone-vm-with-no-instance-level-public-ip-address).  
+
+Si vous savez que vous allez initier de nombreuses connexions sortantes vers la même destination, si des connexions sortantes échouent ou si l’équipe de support vous indique que le nombre de ports SNAT arrive à épuisement, plusieurs solutions peuvent être mises en place.  Passez en revue ces options et choisissez celle qui convient le mieux à votre scénario.  Plusieurs options peuvent être adaptées à votre scénario.
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Assigner une adresse IP publique au niveau de l’instance à chaque machine virtuelle
+Votre scénario consiste alors à [assigner une adresse IP publique au niveau de l’instance à une machine virtuelle](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Tous les ports éphémères de l’adresse IP publique utilisés pour une machine virtuelle sont disponibles pour la machine virtuelle (contrairement aux scénarios dans lesquels les ports éphémères d’une adresse IP publique sont partagés avec toutes les machines virtuelles associées au pool back-end respectif).
+
+### <a name="modify-application-to-use-connection-pooling"></a>Modifier l’application pour utiliser le regroupement de connexions
+Vous pouvez réduire la demande de ports éphémères utilisés pour SNAT en activant le regroupement de connexions dans votre application.  Des flux supplémentaires vers la même destination nécessiteront des ports supplémentaires.  Si vous réutilisez le même flux pour plusieurs requêtes, ces requêtes n’utiliseront qu’un seul port.
+
+### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>Modifier l’application pour utiliser une logique de nouvelle tentative moins agressive
+Vous pouvez réduire la demande de ports éphémères en utilisant une logique de nouvelle tentative moins agressive.  Lorsque le nombre de ports éphémères utilisés pour SNAT arrive à épuisement, des tentatives de reconnexion agressives ou par force brute sans logique de réduction ou d’interruption ne feront qu’accentuer le problème.  Les ports éphémères ont un délai d’inactivité de 4 minutes (non modifiable). Si les nouvelles tentatives sont trop agressives, le problème d’épuisement ne pourra pas se résoudre de lui-même.
+
+## <a name="limitations"></a>Limites
 
 Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de charge](load-balancer-multivip-overview.md), toutes ces adresses IP publiques sont candidates pour des flux sortants.
 
 Azure utilise un algorithme pour déterminer le nombre de ports SNAT disponibles en fonction de la taille du pool.  Ce n’est pas configurable pour l’instant.
+
+Les connexions sortantes ont un délai d’inactivité de 4 minutes.  Ce délai n’est pas modifiable.
 
 Il est à noter que le nombre de ports SNAT disponibles n’est pas directement lié au nombre de connexions. Voir ci-dessus pour savoir à quel moment et de quelle manière des ports SNAT sont alloués, et comment gérer cette ressource qui n’est pas inépuisable.

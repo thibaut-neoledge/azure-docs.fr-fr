@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: ponatara
-ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Répliquer un déploiement Citrix XenApp et XenDesktop multiniveau à l’aide d’Azure Site Recovery
 
@@ -74,7 +74,7 @@ XenApp 7.7 ou ultérieur étant pris en charge dans Azure, seuls les déploieme
 
 1. La protection et la récupération des déploiements locaux à l’aide de machines de système d’exploitation de serveur pour délivrer des applications XenApp publiées et des postes de travail XenApp publiés sont prises en charge.
 
-2. La protection et la récupération des déploiements locaux à l’aide de machines de système d’exploitation de bureau pour fournir une infrastructure VDI (Virtual Desktop Infrastructure) pour des postes de travail virtuels clients, notamment Windows 10, ne sont pas prises en charge. En effet, la récupération automatique du système ne prend pas en charge la récupération des ordinateurs où s’exécutent des systèmes d’exploitation de bureau.  De plus, certaines versions de postes de travail virtuels clients (par exemple Windows 7) ne sont pas encore prises en charge pour la gestion des licences dans Azure. [Apprenez-en plus](https://azure.microsoft.com/pricing/licensing-faq/) sur les licences pour les bureaux client/serveur dans Azure.
+2. La protection et la récupération des déploiements locaux à l’aide de machines de système d’exploitation de bureau pour fournir une infrastructure VDI (Virtual Desktop Infrastructure) pour des postes de travail virtuels clients, notamment Windows 10, ne sont pas prises en charge. En effet, la récupération automatique du système ne prend pas en charge la récupération des ordinateurs où s’exécutent des systèmes d’exploitation de bureau.  De plus, certains systèmes d’exploitation de bureau virtuels clients (par exemple Windows 7) ne sont pas encore pris en charge pour la gestion des licences dans Azure. [Apprenez-en plus](https://azure.microsoft.com/pricing/licensing-faq/) sur les licences pour les bureaux client/serveur dans Azure.
 
 3.  Azure Site Recovery ne peut pas répliquer et protéger les clones MCS ou PVS locaux existants.
 Vous devez recréer ces clones à l’aide de l’approvisionnement Azure ARM à partir du Delivery Controller.

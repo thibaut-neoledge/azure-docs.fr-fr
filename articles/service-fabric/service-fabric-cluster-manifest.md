@@ -14,37 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: aeb4be94ea12c01f4ecd5652fa3b3243351e4853
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="configuration-settings-for-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
-Cet article explique comment configurer un cluster Service Fabric autonome à l’aide du fichier ***ClusterConfig.JSON***. Vous pouvez utiliser ce fichier pour spécifier des informations telles que les nœuds Service Fabric et leurs adresses IP, différents types de nœuds sur le cluster, les configurations de sécurité, ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau, pour votre cluster autonome.
+# <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
+Cet article explique comment configurer un cluster Azure Service Fabric autonome à l’aide du fichier ClusterConfig.JSON. Vous pouvez utiliser ce fichier pour spécifier des informations telles que les nœuds Service Fabric et leurs adresses IP, ainsi que les différents types de nœuds composant le cluster. Vous pouvez également spécifier des configurations de sécurité, ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau pour votre cluster autonome.
 
-Lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), quelques exemples de fichier ClusterConfig.JSON sont téléchargés sur votre ordinateur de travail. Les exemples comprenant *DevCluster* dans leurs noms vous permettent de créer un cluster avec les trois nœuds sur le même ordinateur, comme des nœuds logiques. Parmi ces nœuds, au moins un doit être marqué comme nœud principal. Ce cluster est utile pour un environnement de test ou de développement et n’est pas pris en charge comme cluster de production. Les exemples comprenant *MultiMachine* dans leurs noms vous permettent de créer un cluster de niveau de production, avec chaque nœud sur un ordinateur distinct. Le nombre de nœuds principaux pour ces clusters dépend du [niveau de fiabilité](#reliability). Dans la version de l’API 5.7 de mai 2017, nous avons supprimé la propriété du niveau de fiabilité. À la place, notre code calcule le niveau de fiabilité le plus optimisé pour votre cluster. N’utilisez pas cette propriété dans la version de code 5.7 et les versions ultérieures.
+Lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), quelques exemples de fichier ClusterConfig.JSON sont téléchargés sur votre ordinateur de travail. Les exemples comprenant DevCluster dans leurs noms vous permettent de créer un cluster avec les trois nœuds sur le même ordinateur, comme des nœuds logiques. Parmi ces nœuds, au moins un doit être marqué comme nœud principal. Ce cluster est utile dans un environnement de développement ou de test. Il n’est pas pris en charge comme un cluster de production. Les exemples comprenant MultiMachine dans leurs noms vous permettent de créer un cluster de niveau de production, avec chaque nœud sur un ordinateur distinct. Le nombre de nœuds principaux pour ces clusters dépend du [niveau de fiabilité](#reliability). Dans la version de l’API 5.7 de mai 2017, nous avons supprimé la propriété du niveau de fiabilité. À la place, notre code calcule le niveau de fiabilité le plus optimisé pour votre cluster. N’utilisez pas cette propriété dans la version de code 5.7 et les versions ultérieures.
 
 
-1. *ClusterConfig.Unsecure.DevCluster.JSON* et *ClusterConfig.Unsecure.MultiMachine.JSON* montrent comment créer un cluster de test ou de production non sécurisé respectivement.
-2. *ClusterConfig.Windows.DevCluster.JSON* et *ClusterConfig.Windows.MultiMachine.JSON* montrent comment créer un cluster de test ou de production sécurisé à l’aide de la [sécurité Windows](service-fabric-windows-cluster-windows-security.md).
-3. *ClusterConfig.X509.DevCluster.JSON* et *ClusterConfig.X509.MultiMachine.JSON* montrent comment créer un cluster de test ou de production sécurisé à l’aide de la [sécurité basée sur un certificat X509](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.Unsecure.DevCluster.JSON et ClusterConfig.Unsecure.MultiMachine.JSON montrent comment créer, respectivement, un cluster de test ou de production non sécurisé.
 
-Nous allons maintenant examiner les différentes sections d’un fichier ***ClusterConfig.JSON*** comme indiqué ci-dessous.
+* ClusterConfig.Windows.DevCluster.JSON et ClusterConfig.Windows.MultiMachine.JSON montrent comment créer un cluster de test ou de production sécurisé à l’aide de la [sécurité Windows](service-fabric-windows-cluster-windows-security.md).
+
+* ClusterConfig.X509.DevCluster.JSON et ClusterConfig.X509.MultiMachine.JSON montrent comment créer un cluster de test ou de production sécurisé à l’aide de la [sécurité basée sur un certificat X509](service-fabric-windows-cluster-x509-security.md).
+
+Nous allons maintenant examiner les différentes sections d’un fichier ClusterConfig.JSON.
 
 ## <a name="general-cluster-configurations"></a>Configurations de cluster générales
-Cette section couvre les configurations spécifiques à de larges clusters, comme indiqué dans l’extrait de code JSON ci-dessous.
+Cette section couvre les configurations spécifiques à de larges clusters, comme indiqué dans l’extrait de code JSON suivant :
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
 
-Vous pouvez attribuer un nom convivial à votre cluster Service Fabric en lui assignant la variable **name** . **clusterConfigurationVersion** est le numéro de version de votre cluster, que vous devez augmenter chaque fois que vous mettez à niveau votre cluster Service Fabric. Il est cependant recommandé de conserver la valeur par défaut attribuée à **apiVersion** .
+Vous pouvez attribuer un nom convivial à votre cluster Service Fabric en lui assignant la variable name. La valeur clusterConfigurationVersion représente le numéro de version de votre cluster. Elle augmente à chaque fois que vous mettez à niveau votre cluster Service Fabric. Conservez la valeur par défaut pour le champ apiVersion.
 
-<a id="clusternodes"></a>
+    <a id="clusternodes"></a>
 
 ## <a name="nodes-on-the-cluster"></a>Nœuds sur le cluster
-Vous pouvez configurer les nœuds de votre cluster Service Fabric à l’aide de la section **nœuds** , comme le montre l’extrait de code suivant.
+Vous pouvez configurer les nœuds de votre cluster Service Fabric à l’aide de la section nœuds, comme le montre l’extrait de code suivant :
 
     "nodes": [{
         "nodeName": "vm0",
@@ -66,26 +68,26 @@ Vous pouvez configurer les nœuds de votre cluster Service Fabric à l’aide de
         "upgradeDomain": "UD2"
     }],
 
-Un cluster Service Fabric doit contenir au moins 3 nœuds. Vous pouvez ajouter d’autres nœuds à cette section, selon votre configuration. Le tableau suivant décrit les paramètres de configuration de chaque nœud.
+Un cluster Service Fabric doit contenir au moins trois nœuds. Vous pouvez ajouter d’autres nœuds à cette section, selon votre configuration. Le tableau suivant décrit les paramètres de configuration de chaque nœud :
 
 | **Configuration de nœuds** | **Description** |
 | --- | --- |
 | nodeName |Vous pouvez attribuer n’importe quel nom convivial au nœud. |
-| iPAddress |Identifiez l’adresse IP de votre nœud en ouvrant une fenêtre de commande puis en tapant `ipconfig`. Notez l’adresse IPV4 et assignez-la à la variable **iPAddress** . |
-| nodeTypeRef |Chaque nœud peut être associé à un type de nœud différent. Les [types de nœuds](#nodetypes) sont définis dans la section ci-dessous. |
+| iPAddress |Identifiez l’adresse IP de votre nœud en ouvrant une fenêtre de commande puis en tapant `ipconfig`. Notez l’adresse IPV4 et assignez-la à la variable iPAddress. |
+| nodeTypeRef |Chaque nœud peut être associé à un type de nœud différent. Les [types de nœuds](#node-types) sont définis dans la section suivante. |
 | faultDomain |Les domaines d'erreur permettent aux administrateurs de cluster de définir les nœuds physiques qui sont susceptibles de rencontrer un échec en même temps en raison des dépendances physiques partagées. |
 | upgradeDomain |Les domaines de mise à niveau décrivent des ensembles de nœuds qui sont arrêtés pour les mises à niveau Service Fabric, à peu près au même moment. Vous pouvez choisir les nœuds à attribuer aux domaines de mise à niveau car ils ne sont pas limités par des exigences physiques. |
 
 ## <a name="cluster-properties"></a>Propriétés du cluster
-La section **properties** du fichier ClusterConfig.JSON permet de configurer le cluster comme suit.
+La section properties du fichier ClusterConfig.JSON permet de configurer le cluster comme indiqué ci-dessous :
 
-<a id="reliability"></a>
+    <a id="reliability"></a>
 
 ### <a name="reliability"></a>Fiabilité
-Le concept de **reliabilityLevel** définit le nombre de répliques ou instances des services système Service Fabric qui peuvent s’exécuter sur les nœuds principaux du cluster. Il détermine augmente la fiabilité de ces services et, par conséquent, du cluster. La valeur est calculée par le système au moment de la création et de la mise à niveau du cluster.
+Le concept de reliabilityLevel définit le nombre de répliques ou instances des services système Service Fabric qui peuvent s’exécuter sur les nœuds principaux du cluster. Il détermine augmente la fiabilité de ces services et, par conséquent, du cluster. La valeur est calculée par le système au moment de la création et de la mise à niveau du cluster.
 
 ### <a name="diagnostics"></a>Diagnostics
-La section **diagnosticsStore** vous permet de configurer des paramètres pour activer les diagnostics et corriger les défaillances de nœud ou du cluster, comme illustré dans l’extrait de code suivant. 
+La section diagnosticsStore vous permet de configurer des paramètres pour activer les diagnostics et corriger les défaillances de nœud ou du cluster, comme illustré dans l’extrait de code suivant : 
 
     "diagnosticsStore": {
         "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
@@ -95,7 +97,7 @@ La section **diagnosticsStore** vous permet de configurer des paramètres pour a
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
     }
 
-La section **metadata** est une description du diagnostic de votre cluster et peut être définie selon votre installation. Ces variables vous aident à collecter les journaux de suivi ETW, les vidages sur incident ainsi que les compteurs de performance. Consultez les sections [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) (Journal de suivi) et [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx) pour plus d’informations sur les journaux de suivi ETW. Tous les journaux, notamment les [vidages sur incident](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) et les [compteurs de performance](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) peuvent être dirigés vers le dossier **connectionString** sur votre ordinateur. Vous pouvez également utiliser *AzureStorage* pour le stockage des diagnostics. Voici un exemple d’extrait de code.
+La section metadata est une description du diagnostic de votre cluster et peut être définie selon votre installation. Ces variables vous aident à collecter les journaux de suivi ETW les vidages sur incident ainsi que les compteurs de performance. Consultez les sections [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) (Journal de suivi) et [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx) pour plus d’informations sur les journaux de suivi ETW. Tous les journaux, notamment les [vidages sur incident](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) et les [compteurs de performance](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) peuvent être dirigés vers le dossier connectionString sur votre ordinateur. Vous pouvez également utiliser AzureStorage pour stocker les diagnostics. Reportez-vous à l’extrait de code suivant :
 
     "diagnosticsStore": {
         "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
@@ -106,7 +108,7 @@ La section **metadata** est une description du diagnostic de votre cluster et pe
     }
 
 ### <a name="security"></a>Sécurité
-La section **security** est nécessaire pour garantir la sécurité d’un cluster Service Fabric autonome. L’extrait de code suivant montre une partie de cette section.
+La section security est nécessaire pour garantir la sécurité d’un cluster Service Fabric autonome. L’extrait de code suivant montre une partie de cette section :
 
     "security": {
         "metadata": "This cluster is secured using X509 certificates.",
@@ -115,12 +117,12 @@ La section **security** est nécessaire pour garantir la sécurité d’un clust
         . . .
     }
 
-La section **metadata** est une description de votre cluster sécurisé et peut être définie selon votre installation. Les propriétés **ClusterCredentialType** et **ServerCredentialType** déterminent le type de sécurité que le cluster et les nœuds implémenteront. Elles peuvent avoir la valeur *X509* pour une sécurité basée sur un certificat, ou *Windows* pour une sécurité basée sur Azure Active Directory. Le reste de la section **security** varie selon le type de sécurité. Consultez les rubriques [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md) ou [Sécuriser un cluster autonome sur Windows à l’aide de la sécurité Windows](service-fabric-windows-cluster-windows-security.md) pour plus d’informations sur la façon de remplir le reste de la section **security**.
+La section metadata est une description de votre cluster sécurisé et peut être définie selon votre installation. Les propriétés ClusterCredentialType et ServerCredentialType déterminent le type de sécurité que le cluster et les nœuds implémenteront. Elles peuvent avoir la valeur *X509* pour une sécurité basée sur un certificat, ou *Windows* pour une sécurité basée sur Azure Active Directory. Le reste de la section security varie selon le type de sécurité. Pour plus d’informations sur la façon de remplir le reste de la section security, consultez les rubriques [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md) ou [Sécuriser un cluster autonome sur Windows à l’aide de la sécurité Windows](service-fabric-windows-cluster-windows-security.md).
 
-<a id="nodetypes"></a>
+    <a id="nodetypes"></a>
 
 ### <a name="node-types"></a>Types de nœuds
-La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins un type de nœud doit être spécifié pour un cluster, comme indiqué dans l’extrait de code ci-dessous. 
+La section nodeTypes décrit le type des nœuds de votre cluster. Au moins un type de nœud doit être spécifié pour un cluster, comme indiqué dans l’extrait de code suivant : 
 
     "nodeTypes": [{
         "name": "NodeType0",
@@ -141,20 +143,20 @@ La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins u
         "isPrimary": true
     }]
 
-La valeur **name** représente le nom convivial de ce type de nœud particulier. Pour créer un nœud de ce type, affectez son nom convivial à la variable **nodeTypeRef** pour ce nœud, comme indiqué [ci-dessus](#clusternodes). Pour chaque type de nœud, définissez les points de terminaison de connexion qui seront utilisés. Vous pouvez choisir n’importe quel numéro de port pour ces points de terminaison de connexion, à condition qu’ils n’entrent pas en conflit avec d’autres points de terminaison de ce cluster. Un cluster à plusieurs nœuds contient un ou plusieurs nœuds principaux (c'est-à-dire que **isPrimary** a la valeur *true*) en fonction du [**reliabilityLevel**](#reliability). Consultez la rubrique [Considérations en matière de planification de la capacité du cluster Service Fabric](service-fabric-cluster-capacity.md) pour plus d’informations sur **nodeTypes** et **reliabilityLevel** et pour connaître la différence entre les types de nœud principal et non principal. 
+La valeur name représente le nom convivial de ce type de nœud particulier. Pour créer un nœud de ce type, attribuez son nom convivial à la variable nodeTypeRef pour ce nœud, comme [indiqué précédemment](#nodes-on-the-cluster). Pour chaque type de nœud, définissez les points de terminaison de connexion qui sont utilisés. Vous pouvez choisir n’importe quel numéro de port pour ces points de terminaison de connexion, à condition qu’ils n’entrent pas en conflit avec d’autres points de terminaison de ce cluster. Un cluster à plusieurs nœuds contient un ou plusieurs nœuds principaux (c'est-à-dire que isPrimary a la valeur *true*) en fonction du niveau de fiabilité ([reliabilityLevel](#reliability)). Pour en savoir plus sur les propriétés nodeTypes et reliabilityLevel, et sur les types de nœud principal et non principal, consultez la rubrique [Considérations en matière de planification de la capacité du cluster Service Fabric](service-fabric-cluster-capacity.md). 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>Points de terminaison utilisés pour configurer les types de nœuds
-* *clientConnectionEndpointPort* est le port utilisé par le client pour se connecter au cluster lorsque vous utilisez les API clientes. 
-* *clusterConnectionEndpointPort* est le port sur lequel les nœuds communiquent entre eux.
-* *leaseDriverEndpointPort* est le port utilisé par le pilote de lease cluster pour savoir si les nœuds sont toujours actifs. 
-* *serviceConnectionEndpointPort* est le port utilisé par les applications et les services déployés sur un nœud pour communiquer avec le client Service Fabric sur ce nœud spécifique.
-* *httpGatewayEndpointPort* est le port utilisé par le Service Fabric Explorer pour se connecter au cluster.
-* *ephemeralPorts* remplacent les [ports dynamiques utilisés par le système d’exploitation](https://support.microsoft.com/kb/929851). Service Fabric utilise une partie de ces ports d’application et le reste est disponible pour le système d’exploitation. Il mappe également cette plage sur la plage existante dans le système d’exploitation. Vous pouvez donc utiliser en toutes circonstances les plages spécifiées dans les exemples de fichiers JSON. Vous devez vous assurer que la différence entre les ports de début et de fin est au moins de 255. Vous pouvez rencontrer des conflits si cette différence est trop faible, étant donné que cette plage est partagée avec le système d’exploitation. Consultez la plage de ports dynamiques configurée en exécutant `netsh int ipv4 show dynamicport tcp`.
-* *applicationPorts* sont les ports qui sont utilisés par les applications Service Fabric. La plage des ports d’application doit suffire à couvrir les exigences en matière de points de terminaison de vos applications. Cette plage doit être exclusive à partir de la plage de ports dynamiques de la machine, c’est-à-dire la plage *ephemeralPorts* comme défini dans la configuration.  Service Fabric les utilise chaque fois que des nouveaux ports sont nécessaires et prend également en charge l’ouverture du pare-feu pour ces ports. 
-* *reverseProxyEndpointPort* est un point de terminaison de proxy inverse facultatif. Consultez [Proxy inverse de Service Fabric](service-fabric-reverseproxy.md) pour en savoir plus. 
+* clientConnectionEndpointPort est le port utilisé par le client pour se connecter au cluster lors de l’utilisation d’API clientes. 
+* clusterConnectionEndpointPort est le port sur lequel les nœuds communiquent entre eux.
+* leaseDriverEndpointPort est le port utilisé par le pilote de lease cluster pour savoir si les nœuds sont toujours actifs. 
+* serviceConnectionEndpointPort est le port utilisé par les applications et les services déployés sur un nœud pour communiquer avec le client Service Fabric sur ce nœud spécifique.
+* httpGatewayEndpointPort est le port utilisé par le Service Fabric Explorer pour se connecter au cluster.
+* Les ports ephemeralPorts remplacent les [ports dynamiques utilisés par le système d’exploitation](https://support.microsoft.com/kb/929851). Service Fabric utilise une partie de ces ports comme ports d’application et le reste est disponible pour le système d’exploitation. Il mappe également cette plage sur la plage existante dans le système d’exploitation. Vous pouvez donc utiliser en toutes circonstances les plages spécifiées dans les exemples de fichiers JSON. Assurez-vous que la différence entre les ports de début et de fin est d’au moins 255. Vous pouvez rencontrer des conflits si cette différence est trop faible, étant donné que cette plage est partagée avec le système d’exploitation. Consultez la plage de ports dynamiques configurée en exécutant `netsh int ipv4 show dynamicport tcp`.
+* Les ports applicationPorts sont les ports utilisés par les applications Service Fabric. La plage des ports d’application doit suffire à couvrir les exigences en matière de points de terminaison de vos applications. Cette plage doit être exclusive à partir de la plage de ports dynamiques de la machine, c’est-à-dire la plage ephemeralPorts comme défini dans la configuration. Service Fabric les utilise chaque fois que des nouveaux ports sont nécessaires et prend également en charge l’ouverture du pare-feu pour ces ports. 
+* reverseProxyEndpointPort est un point de terminaison proxy inverse facultatif. Pour en savoir plus, consultez [Proxy inverse Service Fabric](service-fabric-reverseproxy.md). 
 
 ### <a name="log-settings"></a>Paramètres du journal
-La section **fabricSettings** vous permet de définir les répertoires racine des données et journaux Service Fabric. Vous pouvez personnaliser ces éléments uniquement lors de la création initiale du cluster. Voici un exemple d’extrait de cette section.
+La section fabricSettings vous permet de définir les répertoires racine des données et journaux Service Fabric. Vous pouvez personnaliser ces répertoires uniquement lors de la création initiale du cluster. Reportez-vous à l’extrait de code suivant de cette section :
 
     "fabricSettings": [{
         "name": "Setup",
@@ -166,11 +168,10 @@ La section **fabricSettings** vous permet de définir les répertoires racine de
             "value": "C:\\ProgramData\\SF\\Log"
     }]
 
-Nous vous recommandons d’utiliser un lecteur autre que celui du système d’exploitation pour FabricDataRoot et FabricLogRoot pour plus de fiabilité en cas de défaillance du système d’exploitation. Notez que si vous personnalisez uniquement la racine des données, la racine du journal sera placée un niveau en dessous de la racine des données.
+Nous vous recommandons d’utiliser un lecteur autre que celui du système d’exploitation pour FabricDataRoot et FabricLogRoot pour plus de fiabilité en cas de défaillance du système d’exploitation. Si vous personnalisez uniquement la racine des données, la racine du journal sera placée un niveau en dessous de la racine des données.
 
-### <a name="stateful-reliable-service-settings"></a>Paramètres Reliable Service avec état
-La section **KtlLogger** section vous permet de définir les paramètres de configuration globaux pour les Reliable Services. Pour plus d’informations sur ces paramètres, consultez [Configuration de services fiables (Reliable Services) avec état](service-fabric-reliable-services-configuration.md).
-L’exemple ci-dessous montre comment modifier le journal des transactions partagé qui est créé pour sauvegarder toutes les Reliable Collections pour les services avec état.
+### <a name="stateful-reliable-services-settings"></a>Paramètres Services fiables avec état
+La section KtlLogger vous permet de définir les paramètres de configuration globaux pour les services fiables (Reliable Services). Pour plus d’informations sur ces paramètres, consultez [Configuration de services fiables (Reliable Services) avec état](service-fabric-reliable-services-configuration.md). L’exemple suivant montre comment modifier le journal des transactions partagé qui est créé afin de sauvegarder toutes les collections fiables (Reliable Collections) pour les services avec état :
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -181,7 +182,7 @@ L’exemple ci-dessous montre comment modifier le journal des transactions parta
     }]
 
 ### <a name="add-on-features"></a>Fonctionnalités supplémentaires
-Pour configurer les fonctionnalités supplémentaires, apiVersion doit être configuré sur « 04-2017 » ou version ultérieure, et addonFeatures doit être configuré :
+Pour configurer des fonctionnalités supplémentaires, définissez la valeur apiVersion sur 04-2017 ou une version ultérieure, et configurez la propriété addonFeatures tel que suit :
 
     "apiVersion": "04-2017",
     "properties": {
@@ -192,9 +193,9 @@ Pour configurer les fonctionnalités supplémentaires, apiVersion doit être con
     }
 
 ### <a name="container-support"></a>Support pour les conteneurs
-Pour activer le support pour les conteneurs Windows Server et Hyper-V pour les clusters autonomes, la fonctionnalité supplémentaire « DnsService » doit être activée.
+Pour activer le support pour les conteneurs Windows Server et Hyper-V pour les clusters autonomes, la fonctionnalité supplémentaire DnsService doit être activée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Créer un cluster Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md), puis passez à l’étape [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Une fois que vous avez configuré un fichier ClusterConfig.JSON complet adapté à votre installation de cluster autonome, vous pouvez déployer votre cluster. Suivez les étapes décrites dans [Créer un cluster Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md). Consultez ensuite la section [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) et suivez toute la procédure.
 

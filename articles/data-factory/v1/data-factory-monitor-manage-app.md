@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6d00c776da3be0f799b82160c45f4c47a965b4bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]
@@ -27,6 +27,9 @@ ms.lasthandoff: 10/11/2017
 > * [Utilisation de l’application de surveillance et gestion](data-factory-monitor-manage-app.md)
 >
 >
+
+> [!NOTE]
+> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [monitor and manage Data Factory pipelines in version 2](../monitor-visually.md) (Surveiller et gérer des pipelines Data Factory dans la version 2).
 
 Cet article explique comment utiliser l’application de surveillance et gestion pour surveiller, gérer et déboguer vos pipelines Azure Data Factory. Vous obtiendrez également des informations sur la façon de créer des alertes pour être averti en cas d’échec. Vous pouvez commencer à utiliser l’application en regardant la vidéo suivante :
 
