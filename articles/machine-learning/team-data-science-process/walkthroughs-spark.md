@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 99b9f047525f46f68dc2c1029f6d53fbda87b69e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76c9382cc5210bb5ac8551ebb7b16ecabe0dcd39
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Guides de la science des données HDInsight Spark avec PySpark et Scala sur Azure
 
-Ces guides utilisent PySpark et Scala sur un cluster Azure Spark pour effectuer des analyses prédictives. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) Vous trouverez une vue d’ensemble de Spark sur HDInsight sur la page [Présentation de Spark sur HDInsight](../../hdinsight/hdinsight-apache-spark-overview.md).
+Ces guides utilisent PySpark et Scala sur un cluster Azure Spark pour effectuer des analyses prédictives. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) Vous trouverez une vue d’ensemble de Spark sur HDInsight sur la page [Présentation de Spark sur HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
 D’autres guides de la science des données qui appliquent le processus TDSP sont regroupés en fonction de la **plateforme** qu’ils utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
 

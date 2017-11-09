@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 42644bd97443e827b523503989b0b25d3d48028c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications web dans Azure App Service
 ## <a name="overview"></a>Vue d'ensemble
@@ -180,17 +180,17 @@ Pour afficher la liste des chemins disponibles, utilisez le paramètre -ListPath
 ### <a name="streaming-with-azure-command-line-interface"></a>Diffusion d’informations en continu avec l’interface de ligne de commande Azure
 Pour diffuser des informations de journalisation, ouvrez une nouvelle session d'invite de commandes, PowerShell, Bash ou Terminal, puis entrez la commande suivante :
 
-    azure site log tail webappname
+    az webapp log tail --name webappname --resource-group myResourceGroup
 
 Une connexion est alors établie avec l’application Web nommée « webappname », et les informations sont diffusées vers la fenêtre à mesure que des événements de journalisation se produisent sur l’application Web. Toute information enregistrée dans un fichier ayant l'extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
 
 Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **--Filter** . Par exemple :
 
-    azure site log tail webappname --filter Error
+    az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
 Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le paramètre **--Path** . Par exemple :
 
-    azure site log tail webappname --path http
+    az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
 > Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../cli-install-nodejs.md).

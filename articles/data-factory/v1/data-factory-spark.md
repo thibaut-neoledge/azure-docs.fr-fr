@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 5220ca664d5c7584f3aada0bb707099f91d5650f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 0eff48ec65a01a2fc3fa9f7652dd8e1a0fc8dd2a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -56,7 +56,7 @@ Voici les étapes classiques pour créer un pipeline Data Factory avec une activ
 
 ### <a name="prerequisites"></a>Composants requis
 1. Créez un **compte de stockage Azure général** en suivant les instructions fournies dans la procédure pas à pas : [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Créez un **cluster Apache Spark dans Azure HDInsight** en suivant les instructions contenues dans le didacticiel [Create Apache Spark cluster in Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) (Création d’un cluster Apache Spark dans Azure HDInsight). Associez le compte de stockage Azure créé à l’étape 1 à ce cluster.  
+2. Créez un **cluster Apache Spark dans Azure HDInsight** en suivant les instructions contenues dans le didacticiel [Create Apache Spark cluster in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) (Création d’un cluster Apache Spark dans Azure HDInsight). Associez le compte de stockage Azure créé à l’étape 1 à ce cluster.  
 3. Téléchargez et consultez le fichier de script Python **test.py** situé à l’adresse : [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Téléchargez le fichier **test.py** dans le dossier **pyFiles** du conteneur **adfspark** figurant dans votre stockage Blob Azure. Créez le conteneur et le dossier s’ils n’existent pas.
 
@@ -234,7 +234,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité **HDInsightS
     ![Résultats de la requête Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Consultez la section relative à [l’exécution d’une requête SQL Spark](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) pour obtenir des instructions détaillées. 
+Consultez la section relative à [l’exécution d’une requête SQL Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) pour obtenir des instructions détaillées. 
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 Comme vous définissez **getDebugInfo** sur **Toujours**, un sous-dossier **log** apparaît dans le dossier **pyFiles** de votre conteneur d’objets Blob Azure. Le fichier journal figurant dans ce dossier fournit des détails supplémentaires. Ce fichier journal est particulièrement utile en cas d’erreur. Dans un environnement de production, vous souhaiterez peut-être définir cette propriété sur **Échec**.

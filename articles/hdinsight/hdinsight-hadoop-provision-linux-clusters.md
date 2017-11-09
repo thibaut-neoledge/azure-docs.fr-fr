@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: 8118570071aa5af6ec74c971a711b2eab07fb1b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore
 
@@ -76,13 +76,13 @@ Actuellement, Azure HDInsight propose les types de clusters suivants, chacun ave
 
 | Type de cluster | Fonctionnalités |
 | --- | --- |
-| [Hadoop](hdinsight-hadoop-introduction.md) |Requête par lot et analyse des données stockées |
-| [HBase](hdinsight-hbase-overview.md) |Traitement de grandes quantités de données de NoSQL sans schéma |
-| [Storm](hdinsight-storm-overview.md) |Traitement d’événements en temps réel |
-| [Spark](hdinsight-apache-spark-overview.md) |Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
-| [Kafka (version préliminaire)](hdinsight-apache-kafka-introduction.md) | Plateforme de diffusion en continu distribuée qui permet de générer des pipelines de données et des applications de diffusion en continu en temps réel |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |Différentes statistiques Big Data, modélisation prédictive et fonctionnalités Machine Learning |
-| [Interactive Query](hdinsight-hadoop-use-interactive-hive.md) |Mise en cache pour les requêtes Hive interactives et plus rapides |
+| [Hadoop](hadoop/apache-hadoop-introduction.md) |Requête par lot et analyse des données stockées |
+| [HBase](hbase/apache-hbase-overview.md) |Traitement de grandes quantités de données de NoSQL sans schéma |
+| [Storm](storm/apache-storm-overview.md) |Traitement d’événements en temps réel |
+| [Spark](spark/apache-spark-overview.md) |Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
+| [Kafka (version préliminaire)](kafka/apache-kafka-introduction.md) | Plateforme de diffusion en continu distribuée qui permet de générer des pipelines de données et des applications de diffusion en continu en temps réel |
+| [R Server](r-server/r-server-overview.md) |Différentes statistiques Big Data, modélisation prédictive et fonctionnalités Machine Learning |
+| [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |Mise en cache pour les requêtes Hive interactives et plus rapides |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Nombre de nœuds pour chaque type de cluster
 Chaque type de cluster possède son propre nombre de nœuds, sa terminologie pour les nœuds et la taille de machine virtuelle par défaut. Dans le tableau suivant, les chiffres entre parenthèses correspondent au nombre de nœuds de chaque type.
@@ -208,7 +208,7 @@ La plupart des applications HDInsight sont installées sur un nœud de périmèt
 
 Vous pouvez installer des composants supplémentaires ou personnaliser la configuration de cluster à l’aide de scripts lors de la création. Ces scripts sont appelés à l’aide de l’option **action de script**, une option de configuration qui peut être utilisée à partir du portail Azure, de cmdlets HDInsight Windows PowerShell ou du Kit de développement logiciel (SDK) HDInsight .NET. Pour plus d’informations, consultez la page [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Certains composants Java natifs, comme Mahout et Cascading, peuvent être exécutés sur le cluster en tant que fichiers Java Archive (JAR). Ces fichiers JAR peuvent être distribués au stockage Azure et envoyés aux clusters HDInsight à l’aide des mécanismes de soumission des travaux Hadoop. Pour plus d’informations, consultez la rubrique [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md).
+Certains composants Java natifs, comme Mahout et Cascading, peuvent être exécutés sur le cluster en tant que fichiers Java Archive (JAR). Ces fichiers JAR peuvent être distribués au stockage Azure et envoyés aux clusters HDInsight à l’aide des mécanismes de soumission des travaux Hadoop. Pour plus d’informations, consultez la rubrique [Envoi de tâches Hadoop par programme](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > En cas de problèmes lors du déploiement ou de l’appel des fichiers JAR sur les clusters HDInsight, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
@@ -242,7 +242,7 @@ Si votre solution nécessite des technologies qui sont réparties sur plusieurs 
 
 Pour plus d’informations sur l’utilisation du réseau virtuel Azure avec HDInsight, consultez [Étendre HDInsight à l’aide de réseaux virtuels Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-Pour voir un exemple d’utilisation de deux types de cluster au sein d’un réseau virtuel Azure, consultez la section [Analyser les données de capteur avec Storm et HBase](hdinsight-storm-sensor-data-analysis.md). Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Extension des capacités de HDInsight à l’aide d’un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
+Pour voir un exemple d’utilisation de deux types de cluster au sein d’un réseau virtuel Azure, consultez la section [Analyser les données de capteur avec Storm et HBase](storm/apache-storm-sensor-data-analysis.md). Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Extension des capacités de HDInsight à l’aide d’un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Résoudre les problèmes de contrôle d’accès
 
@@ -250,6 +250,6 @@ Si vous rencontrez des problèmes lors de la création de clusters HDInsight, re
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que HDInsight, l’écosystème Hadoop et les clusters Hadoop ?](hdinsight-hadoop-introduction.md)
-- [Prise en main de Hadoop dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Qu’est-ce que HDInsight, l’écosystème Hadoop et les clusters Hadoop ?](hadoop/apache-hadoop-introduction.md)
+- [Prise en main de Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Travailler à partir d’un PC Windows dans Hadoop sur HDInsight](hdinsight-hadoop-windows-tools.md)

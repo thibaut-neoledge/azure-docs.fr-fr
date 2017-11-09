@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 Azure Cosmos DB fournit une [API SQL pour interroger des données](documentdb-sql-query.md), sans nécessiter de schéma ou d’index secondaires. Cet article fournit les informations suivantes à l’attention des développeurs :
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | millisecondes | Temps de chargement de documents  | 
 | `systemFunctionExecuteTimeInMs` | millisecondes | Temps total consacré à l’exécution de fonctions (intégrées) système, en millisecondes  | 
 | `userFunctionExecuteTimeInMs` | millisecondes | Temps total consacré à l’exécution de fonctions définies par l’utilisateur, en millisecondes | 
-| `retrievedDocumentCount` | millisecondes | Nombre total de documents récupérés  | 
+| `retrievedDocumentCount` | count | Nombre total de documents récupérés  | 
 | `retrievedDocumentSize` | octets | Taille totale des documents récupérés, en octets  | 
 | `outputDocumentCount` | count | Nombre de documents sortants | 
 | `writeOutputTimeInMs` | millisecondes | Durée moyenne d’exécution de la requête, en millisecondes | 

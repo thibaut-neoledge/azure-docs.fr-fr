@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa00f176ff56c13033907e134fc236c291308028
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publier et gérer une offre dans la Place de marché Azure
 Cet article a pour but d’aider les développeurs à créer, déployer et gérer leurs solutions répertoriées sur la Place de marché Azure afin de la proposer à d’autres clients et partenaires Azure.
@@ -99,9 +99,6 @@ Gérez votre solution à l’aide des ressources suivantes :
 * [Restaurer des prix aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Restaurer un modèle de facturation aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Rétablir le paramètre de visibilité d’une référence (SKU) répertoriée à la valeur de production](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
-* [Affichage et modification de « l’offre incitative revendeurs » des fournisseurs de solutions Cloud dans la Place de marché Azure](marketplace-publishing-csp-incentive.md)
-* [Présentation de votre rapport de paiement](marketplace-publishing-report-payout.md)
-* [Obtenir de l’aide en tant qu’éditeur](marketplace-publishing-get-publisher-support.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 [Configurer Azure PowerShell](marketplace-publishing-powershell-setup.md)

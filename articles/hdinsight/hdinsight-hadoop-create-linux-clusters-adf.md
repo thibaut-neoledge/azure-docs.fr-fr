@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factor
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -564,7 +564,7 @@ Si vous ne souhaitez pas supprimer le compte de stockage en même temps que le g
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris comment utiliser Azure Data Factory pour créer un cluster HDInsight à la demande pour traiter des tâches Hive. En savoir plus :
 
-* [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Documentation HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Documentation Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

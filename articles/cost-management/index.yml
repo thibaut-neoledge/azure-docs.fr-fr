@@ -37,3 +37,4 @@ sections:
           - html: <a href="tutorial-review-usage">Examiner l’utilisation et les coûts pour détecter les anomalies et mesurer l’efficacité</a>
           - html: <a href="tutorial-user-access">Autoriser l’accès aux données Gestion des coûts</a>
           - html: <a href="tutorial-forecast-spending">Prévoir les dépenses futures</a>
+          - html: '<a href="tutorial-manage-costs">Gérer les coûts grâce à des rapports de facturation, de refacturation et d’allocation des coûts</a>'

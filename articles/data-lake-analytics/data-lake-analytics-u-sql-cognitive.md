@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: a651fe045d7eb1265f698ebb89843fd4c2b1c436
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Didacticiel : Bien démarrer avec les capacités cognitives U-SQL
 
@@ -37,7 +37,7 @@ Les fonctionnalités cognitives suivantes sont disponibles :
 
 Le processus général est simple :
 
-* Utiliser l’instruction REFERENCE ASSEMBLY pour activer les fonctionnalités cognitives pour le script SQL-U
+* Utilisation de l’instruction REFERENCE ASSEMBLY pour activer les fonctionnalités cognitives pour le script SQL-U
 * Utiliser l’instruction PROCESS sur un ensemble de lignes d’entrée à l’aide d’un UDO cognitif pour générer une sortie d’ensemble de lignes
 
 ### <a name="detecting-objects-in-images"></a>Détection d’objets dans des images
@@ -78,7 +78,7 @@ REFERENCE ASSEMBLY ImageOcr;
 
 OUTPUT @tags_serialized
     TO "/tags.csv"
-    USING Outputers.Csv();
+    USING Outputters.Csv();
 ```
 Pour plus d’exemples, consultez les **Exemples cognitifs/U-SQL** dans la section **Étapes suivantes**.
 

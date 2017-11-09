@@ -20,6 +20,7 @@
 ## [Installer et configurer une passerelle de données locale](analysis-services-gateway-install.md)
 ## [Obtenir les bibliothèques clientes](analysis-services-data-providers.md)
 ## [Sauvegarde et restauration](analysis-services-backup.md)
+## [Configurer le scale-out des réplicas de requêtes](analysis-services-scale-out.md)
 ## [Connexion avec Excel](analysis-services-connect-excel.md)
 ## [Connexion avec Power BI](analysis-services-connect-pbi.md)
 ## [Créer un fichier .odc](analysis-services-odc.md)

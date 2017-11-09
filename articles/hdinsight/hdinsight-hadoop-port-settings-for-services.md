@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Ports utilisés par les services Hadoop sur HDInsight
 
@@ -48,17 +48,17 @@ Tous les nœuds dans un cluster HDInsight se trouvent dans un réseau virtuel Az
 | sshd |23 |SSH |Connecte les clients à sshd sur le nœud principal secondaire. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Interface utilisateur web d’Ambari. Consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |API Ambari REST. Consultez la page [Gérer des clusters HDInsight à l’aide de l’API REST d’Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat, |443 |HTTPS |API REST HCatalog. Consultez les pages [Utilisation de Hive avec Curl](hdinsight-hadoop-use-pig-curl.md), [Utilisation de Pig avec Curl](hdinsight-hadoop-use-pig-curl.md), [Utilisation de MapReduce avec Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |Se connecte à Hive à l’aide de ODBC. Consultez la page [Connexion d’Excel à HDInsight à l’aide du pilote ODBC Microsoft](hdinsight-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Se connecte à Hive à l’aide de JDBC. Consultez la page [Se connecter à Hive sur HDInsight à l’aide du pilote JDBC Hive](hdinsight-connect-hive-jdbc-driver.md) |
+| WebHCat, |443 |HTTPS |API REST HCatalog. Consultez les pages [Utilisation de Hive avec Curl](hadoop/apache-hadoop-use-pig-curl.md), [Utilisation de Pig avec Curl](hadoop/apache-hadoop-use-pig-curl.md), [Utilisation de MapReduce avec Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |Se connecte à Hive à l’aide de ODBC. Consultez la page [Connexion d’Excel à HDInsight à l’aide du pilote ODBC Microsoft](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |JDBC |Se connecte à Hive à l’aide de JDBC. Consultez la page [Se connecter à Hive sur HDInsight à l’aide du pilote JDBC Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Les éléments suivants sont disponibles pour les types de clusters spécifiques :
 
 | de diffusion en continu | Port | Protocole | Type de cluster | Description |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |API REST HBase. Consultez la page [Prise en main de HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |API REST Spark. Consultez la page [Envoi de travaux Spark à distance à l’aide de Livy](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Interface utilisateur web de Storm. Consultez la page [Déploiement et gestion des topologies Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |API REST HBase. Consultez la page [Prise en main de HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |API REST Spark. Consultez la page [Envoi de travaux Spark à distance à l’aide de Livy](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Interface utilisateur web de Storm. Consultez la page [Déploiement et gestion des topologies Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Authentification
 

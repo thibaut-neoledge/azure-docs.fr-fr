@@ -59,18 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Récupération d’urgence pour les charges de travail
       href: site-recovery-workload.md
-    - name: Migration avec Azure Site Recovery
+    - name: Migration vers Azure
       href: site-recovery-migrate-to-azure.md
-    - name: Mise en réseau Azure vers Azure (préversion)
-      href: site-recovery-azure-to-azure-networking-guidance.md
-    - name: Connectivité de la machine virtuelle après le basculement vers Azure
-      href: concepts-on-premises-to-azure-networking.md
-    - name: Connectivité de la machine virtuelle après le basculement vers un site secondaire
-      href: concepts-on-premises-to-on-premises-networking.md
-    - name: Mappage réseau pour la réplication de machines virtuelles Azure
-      href: site-recovery-network-mapping-azure-to-azure.md
-    - name: Mappage réseau pour la réplication de machines virtuelles Hyper-V sur Azure
-      href: site-recovery-network-mapping.md
     - name: Autorisations d’accès en fonction du rôle
       href: site-recovery-role-based-linked-access-control.md
     - name: Forum Aux Questions
@@ -115,6 +105,16 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Configuration
       items:
+        - name: Configurer la mise en réseau pour la récupération d’urgence de machines virtuelles Azure (préversion)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Configurer l’adressage IP pour l’accès après le basculement vers Azure
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Configurer l’adressage IP pour l’accès après le basculement vers un site secondaire
+          href: concepts-on-premises-to-on-premises-networking.md
+        - name: Configurer le mappage réseau pour la récupération d’urgence de machines virtuelles Azure (préversion)
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Préparer le mappage réseau pour la réplication de machines virtuelles Hyper-V sur Azure
+          href: site-recovery-network-mapping.md
         - name: Configurer l’environnement source
           items:
             - name: Environnement source pour VMware vers Azure

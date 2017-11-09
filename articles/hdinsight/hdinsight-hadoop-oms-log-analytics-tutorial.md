@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
-ms.openlocfilehash: c1c74c797449c2fa6d76438f9ec33eaf0fe51af4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbd3d0ed4337d4fe86465c5c59bf20c0a50a87b4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Utiliser Azure Log Analytics pour surveiller les clusters HDInsight (préversion)
 
@@ -39,7 +39,7 @@ Log Analytics est un service d’[Operations Management Suite (OMS)](../operatio
     * Kafka
     * Hive interactif
 
-    Pour savoir comment créer un cluster HDInsight, consultez [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+    Pour savoir comment créer un cluster HDInsight, consultez [Prise en main d’Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 
 * **Un espace de travail Log Analytics**. Considérez cet espace de travail comme un environnement Log Analytics unique avec son propre référentiel de données, et ses propres sources de données et solutions. Vous devez déjà avoir créé un espace de travail de ce type que vous pouvez associer aux clusters Azure HDInsight. Pour obtenir des instructions, consultez [Créer un espace de travail Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).

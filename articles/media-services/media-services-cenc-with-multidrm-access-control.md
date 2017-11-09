@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 730917b6859f8dbd800ef2cb141062f45d7779ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services
  
@@ -207,7 +207,7 @@ La mise en œuvre comprend les étapes suivantes :
 
 George Trifonov, de l’équipe Azure Media Services, a écrit un blog fournissant la procédure détaillée de la configuration d’Azure Active Directory pour une application de lecteur MVC ASP.NET : [intégrer l’application Azure Media Services OWIN basée sur MVC avec Azure Active Directory et restreindre la distribution de clé de contenu en se fondant sur les revendications JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-George a également écrit un blog concernant la page [Authentification des jetons JWT dans Azure Media Services et chiffrement dynamique](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). Et voici son [exemple sur l’intégration d’Azure AD avec remise de clé Azure Media Services](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
+George a également écrit un blog concernant la page [Authentification des jetons JWT dans Azure Media Services et chiffrement dynamique](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 Pour plus d’informations, sur Azure Active Directory :
 

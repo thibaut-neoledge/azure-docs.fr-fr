@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: d1cb92e15109775fd120d82df6cfa94b7023d5b9
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 08fd66ed68b651bd24bc1bc58ec9631106665381
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Utiliser Draft avec Azure Container Service et Azure Container Registry pour générer et déployer une application dans Kubernetes
 
@@ -41,7 +41,7 @@ Vous pouvez facilement [créer un service Azure Container Registry](../../contai
 
 2. Créez un registre d’images ACR à l’aide de la commande [az acr create](/cli/azure/acr#create), puis vérifiez que l’option `--admin-enabled` est définie sur `true`.
       ```azurecli
-      az acr create --resource-group draft --name draftacs --sku Basic --admin-enabled true 
+      az acr create --resource-group draft --name draftacs --sku Basic
       ```
 
 
@@ -142,7 +142,7 @@ Vous voici prêt à déployer une application.
 
 ## <a name="build-and-deploy-an-application"></a>Générer et déployer une application
 
-Le dépôt Draft comporte [six exemples d’applications simples](https://github.com/Azure/draft/tree/master/examples). Clonez le dépôt, puis utilisez l’[exemple Java](https://github.com/Azure/draft/tree/master/examples/java). Accédez au répertoire examples/java, puis tapez `draft create` pour générer l’application. La sortie doit ressembler à l’exemple qui suit.
+Le référentiel Draft comporte [six exemples d’applications simples](https://github.com/Azure/draft/tree/master/examples). Clonez le référentiel, puis utilisez l’[exemple Java](https://github.com/Azure/draft/tree/master/examples/java). Accédez au répertoire examples/java, puis tapez `draft create` pour générer l’application. La sortie doit ressembler à l’exemple qui suit.
 ```bash
 $ draft create
 --> Draft detected the primary language as Java with 91.228814% certainty.

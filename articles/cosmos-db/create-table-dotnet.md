@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.openlocfilehash: 0ce99a4754d7ec6f35bda63af6fc0166cf7e0eb4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b1d41fe185f4c3d5fdce13ab8f0136bc961f013
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB : Créer une application .NET à l’aide de l’API Table
 
@@ -43,7 +43,7 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 
 ## <a name="add-sample-data"></a>Ajouter un exemple de données
 
-Vous pouvez maintenant ajouter des données à votre nouvelle table grâce à l’Explorateur de données (préversion).
+Vous pouvez maintenant ajouter des données à votre nouvelle table grâce à l’Explorateur de données.
 
 1. Dans l’Explorateur de données, développez **exemple de table**, cliquez sur **Entités**, puis cliquez sur **Ajouter une entité**.
 

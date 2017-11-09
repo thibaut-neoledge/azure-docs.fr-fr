@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 453c774c97b77dd7829a50fa5e5668d06f817a1d
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8ffa1c6dd4794cbea6b2c1904e08557ba2a68ba2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Didacticiel : Classification Iris à l’aide de l’interface de ligne de commande
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -242,7 +242,7 @@ $ az ml account modelmanagement create -n <model management account name> -g <re
 Ensuite, nous créons un service web qui retourne une prédiction en utilisant le modèle que nous avons déployé. 
 
 ```azure-cli
-$ az ml service create realtime -m asset_download/model.pkl -f score.py -r python –n <web service name>
+$ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
 ## <a name="step-10-run-the-web-service"></a>Étape 10. Exécuter le service web

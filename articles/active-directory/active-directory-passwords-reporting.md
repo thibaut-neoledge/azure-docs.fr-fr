@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -31,7 +31,7 @@ Après le déploiement, de nombreuses organisations souhaitent savoir comment ou
 Les questions suivantes peuvent trouvent réponse dans des rapports qui existent dans le [portail Azure] (https://portal.azure.com/).
 
 > [!NOTE]
-> Vous devez être [un administrateur global](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) et vous abonner pour que ces données soient collectées pour votre organisation, en consultant l’onglet Rapports ou Journaux d’audit au moins une fois. Sans cela, les données ne sont pas collectées pour votre entreprise
+> Vous devez être [un administrateur global](active-directory-assign-admin-roles.md) et vous abonner pour que ces données soient collectées pour votre organisation, en consultant l’onglet Rapports ou Journaux d’audit au moins une fois. Sans cela, les données ne sont pas collectées pour votre entreprise
 
 * Combien de personnes se sont inscrites pour la réinitialisation des mots de passe ?
 * Qui s’est inscrit pour la réinitialisation des mots de passe ?
@@ -78,13 +78,7 @@ Actuellement, l’API de rapports et d’événements Azure AD récupère jusqu'
 
 Si vous avez besoin de récupérer ou de stocker des données au-delà de cette période, nous vous suggérons de les conserver dans une base de données externe et d’utiliser l’API pour interroger les deltas résultants. Nous vous conseillons de commencer à récupérer ces données lorsque vous commencez à utiliser SSPR dans votre entreprise, à les conserver en externe, puis à continuer à suivre les deltas à partir de ce point.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Comment télécharger rapidement les événements d’inscription de réinitialisation de mot de passe avec PowerShell
-
-En plus d’utiliser directement l’API de rapports et d’événements Azure AD, vous pouvez également utiliser le script PowerShell ci-dessous pour les événements d’inscription récents dans votre annuaire. C’est utile si vous souhaitez voir qui s’est inscrit récemment ou souhaitez vous assurer que votre déploiement de réinitialisation de mot de passe se produit conformément à votre attente.
-
-* [Script PowerShell d’activité d’inscription SSPR Azure AD](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
+## <a name="description-of-report-columns-in-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 
 La liste suivante décrit chacune des colonnes du rapport en détail :
 
@@ -93,7 +87,7 @@ La liste suivante décrit chacune des colonnes du rapport en détail :
 * **Date et heure** : date et heure de la tentative.
 * **Données inscrites** : données d’authentification fournies par l’utilisateur lors de l’inscription à la réinitialisation de mot de passe.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Description des valeurs du rapport dans le portail Azure
+## <a name="description-of-report-values-in-azure-portal"></a>Description des valeurs du rapport dans le portail Azure
 
 Le tableau suivant décrit les différentes valeurs autorisées pour chaque colonne :
 

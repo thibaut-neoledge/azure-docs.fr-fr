@@ -8,6 +8,41 @@
 ### [Déployer la solution préconfigurée](iot-suite-remote-monitoring-deploy.md)
 ### [Employer la solution préconfigurée](iot-suite-remote-monitoring-explore.md)
 
+## Surveillance à distance (version antérieure)
+### [Que sont les solutions préconfigurées ?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [FAQ](iot-suite-v1-faq.md)
+
+### Prise en main
+#### [Prise en main des solutions préconfigurées](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Autorisations sur azureiotsuite.com](iot-suite-v1-permissions.md)
+#### [Procédure pas à pas pour la solution de surveillance à distance](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Connexion de votre Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### Utiliser C
+###### [Données simulés](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Utiliser des capteurs réels](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Implémenter la mise à jour du microprogramme](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Utiliser Node.js
+###### [Données simulés](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Utiliser des capteurs réels](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Implémenter la mise à jour du microprogramme](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Se connecter à votre passerelle Intel NUC
+##### [Données simulés](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [Utiliser le capteur réel](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### Procédure
+#### Connecter un appareil simulé
+##### [C sur Windows](iot-suite-v1-connecting-devices.md)
+##### [C sur Linux](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.JS](iot-suite-v1-connecting-devices-node.md)
+#### [Connecter une application logique à la solution de surveillance à distance](iot-suite-v1-logic-apps-tutorial.md)
+#### [Personnaliser une solution préconfigurée](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Utiliser la télémétrie dynamique avec la solution de surveillance à distance](iot-suite-v1-dynamic-telemetry.md)
+#### [Créer une règle personnalisée dans la solution de surveillance à distance](iot-suite-v1-custom-rule.md)
+#### [Informations sur l’appareil dans la solution de surveillance à distance](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## Maintenance prédictive
 ### [Présentation de la solution de maintenance prédictive](iot-suite-predictive-overview.md)
 ### [Procédure pas à pas pour la solution de maintenance prédictive](iot-suite-predictive-walkthrough.md)

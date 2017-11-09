@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 25488640e4a1e129f06dffbe5e7896f5ace8facc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13e681ec8893aa2cbd97f6c4e2ca66be634c9cb9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Projets TDSP structurés dans Azure Machine Learning Workbench
 
-Ces didacticiels et exemples montrent comment créer des projets TDSP structurés avec Azure Machine Learning Workbench. Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) Vous trouverez une vue d’ensemble de Spark sur HDInsight sur la page [Présentation de Spark sur HDInsight](../../hdinsight/hdinsight-apache-spark-overview.md).
+Ces didacticiels et exemples montrent comment créer des projets TDSP structurés avec Azure Machine Learning Workbench. Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) Vous trouverez une vue d’ensemble de Spark sur HDInsight sur la page [Présentation de Spark sur HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
 D’autres guides de la science des données qui appliquent le processus TDSP sont regroupés en fonction de la **plateforme** qu’ils utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
 

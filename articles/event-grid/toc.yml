@@ -4,6 +4,8 @@
   items:
     - name: À propos d’Event Grid
       href: overview.md
+    - name: Comparer les services de messagerie
+      href: compare-messaging-services.md
 - name: Démarrages rapides
   items:
     - name: Itinéraire d’événements de stockage Blob - Azure CLI

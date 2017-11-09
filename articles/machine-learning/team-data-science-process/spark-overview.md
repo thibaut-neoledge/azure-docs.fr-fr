@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: d9964ace6b59fa65f0f5d4caff28a4291047c8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be3bbad11632f3af257239f6b10b1b22951073f7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -29,7 +29,7 @@ Cet ensemble de rubriques montre comment utiliser HDInsight Spark pour effectuer
 [Spark](http://spark.apache.org/) est une infrastructure de traitement en parallèle open source qui prend en charge le traitement en mémoire pour accroître les performances des applications d’analyse de Big Data. Le moteur de traitement Spark est élaboré pour permettre des analyses rapides, simples d’utilisation et sophistiquées. De par ses capacités de calcul distribué en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans l’apprentissage automatique et les calculs de graphiques. [MLlib](http://spark.apache.org/mllib/) est la bibliothèque évolutive d’apprentissage automatique de Spark. Elle apporte des fonctionnalités de modélisation d’algorithme à cet environnement distribué. 
 
 ## <a name="hdinsight-spark"></a>HDInsight Spark
-[HDInsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) est l’offre Azure de Spark Open Source. Elle prend également en charge les **blocs-notes Jupyter PySpark** sur le cluster Spark, qui peuvent exécuter des requêtes interactives SQL Spark pour transformer, filtrer et visualiser les données stockées dans des objets blob Azure (WASB). PySpark est l’API Python pour Spark. Les extraits de code qui fournissent les solutions et montrent les tracés pertinents permettant de visualiser les données ici s’exécutent dans des notebooks Jupyter installés sur les clusters Spark. Les étapes de modélisation dans ces rubriques contiennent du code qui montre comment former, évaluer, enregistrer et consommer chaque type de modèle. 
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) est l’offre Azure de Spark Open Source. Elle prend également en charge les **blocs-notes Jupyter PySpark** sur le cluster Spark, qui peuvent exécuter des requêtes interactives SQL Spark pour transformer, filtrer et visualiser les données stockées dans des objets blob Azure (WASB). PySpark est l’API Python pour Spark. Les extraits de code qui fournissent les solutions et montrent les tracés pertinents permettant de visualiser les données ici s’exécutent dans des notebooks Jupyter installés sur les clusters Spark. Les étapes de modélisation dans ces rubriques contiennent du code qui montre comment former, évaluer, enregistrer et consommer chaque type de modèle. 
 
 ## <a name="setup-spark-clusters-and-jupyter-notebooks"></a>Installation des clusters Spark et notebooks Jupyter
 Les étapes de configuration et le code fournis dans cette procédure pas à pas concernent HDInsight Spark 1.6. Mais des notebooks Jupyter sont fournis pour les clusters HDInsight Spark 1.6 et Spark 2.0. Une description des notebooks et des liens vers ceux-ci sont fournis dans le fichier [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) correspondant au dépôt GitHub qui les contient. En outre, le code présenté ici et dans les notebooks liés est générique et doit fonctionner sur n’importe quel cluster Spark. Si vous n’utilisez pas HDInsight Spark, les étapes de configuration et de gestion de cluster peuvent être légèrement différentes de celles indiquées ici. Pour plus de commodité, voici les liens vers les Blocs-notes Jupyter pour Spark 1.6 (à exécuter dans le noyau pySpark du serveur de Bloc-notes Jupyter) et 2.0 (à exécuter dans le noyau pySpark3 du serveur de Bloc-notes Jupyter) :
@@ -75,7 +75,7 @@ Les procédures ci-dessous sont relatives à Spark 1.6. Pour la version Spark 
 
 1. Vous devez avoir un abonnement Azure. Si vous n’en avez pas, consultez [Obtenir une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2. Vous avez besoin d’un cluster Spark 1.6 pour effectuer cette procédure pas à pas. Pour en créer un, consultez les instructions fournies dans [Prise en main : Créer Apache Spark sur Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Vous spécifiez le type et la version du cluster à partir du menu **Sélectionner le type de cluster** . 
+2. Vous avez besoin d’un cluster Spark 1.6 pour effectuer cette procédure pas à pas. Pour en créer un, consultez les instructions fournies dans [Prise en main : Créer Apache Spark sur Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Vous spécifiez le type et la version du cluster à partir du menu **Sélectionner le type de cluster** . 
 
 ![Configurer le cluster](./media/spark-overview/spark-cluster-on-portal.png)
 

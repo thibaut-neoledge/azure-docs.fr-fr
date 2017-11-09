@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: fec64b3c499577af6b1d6eddb1c761ee0af73772
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: cf9a624574cc5d63e17537d07d23bf38cc9d442a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Gestion de notifications de maintenance planifiées pour les machines virtuelles Windows
 
@@ -72,7 +72,7 @@ Les propriétés suivantes sont retournées sous MaintenanceRedeployStatus :
 Vous pouvez également obtenir l’état de maintenance pour toutes les machines virtuelles dans un groupe de ressources à l’aide de [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) sans spécifier de machine virtuelle.
  
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName --Status
+Get-AzureRmVM -ResourceGroupName rgName -Status
 ```
 
 La fonction PowerShell suivante accepte votre ID d’abonnement et imprime une liste de machines virtuelles qui sont planifiées pour la maintenance.
@@ -114,7 +114,7 @@ Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.Reso
 ## <a name="faq"></a>Forum Aux Questions
 
 
-**Q : Pourquoi vous devez redémarrer mes machines virtuelles maintenant ?**
+**Q : Pourquoi devez-vous redémarrer mes machines virtuelles maintenant ?**
 
 **R :** Alors que la majorité des mises à jour et des mises à niveau vers la plateforme Azure n’affectent pas la disponibilité des machines virtuelles, il existe des cas où nous ne pouvons pas éviter le redémarrage des machines virtuelles hébergées dans Azure. Nous avons accumulé plusieurs modifications qui nous obligent à redémarrer nos serveurs, ce qui entraînera le redémarrage des machines virtuelles.
 
@@ -140,7 +140,7 @@ Pour plus d’informations sur les régions Azure, reportez-vous à l’article 
 
 **Q : Dois-je démarrer la maintenance sur ma machine virtuelle ?**
 
-**R :** En général, les charges de travail déployées dans un service cloud, un groupe à haute disponibilité ou un groupe identique de machines virtuelles résistent à la maintenance planifiée.  Lors de la maintenance planifiée, un seul domaine de mise à jour est affecté à un moment donné. Avertissement : L’ordre des domaines de mise à jour impactés n’est pas forcément séquentiel.
+**R :** En général, les charges de travail déployées dans un service cloud, un groupe à haute disponibilité ou un groupe de machines virtuelles identiques résistent à la maintenance planifiée.  Lors de la maintenance planifiée, un seul domaine de mise à jour est affecté à un moment donné. Avertissement : L’ordre des domaines de mise à jour impactés n’est pas forcément séquentiel.
 
 Vous pouvez souhaiter démarrer vous-même la maintenance dans les cas suivants :
 - Votre application s’exécute sur une seule machine virtuelle et vous devez appliquer toutes les opérations de maintenance pendant les heures creuses.
@@ -164,12 +164,12 @@ Vous pouvez souhaiter démarrer vous-même la maintenance dans les cas suivants 
 
 **R :** Alors que la désaffectation de matériel est un événement de maintenance planifié, nous n’avons pas encore intégré ce cas d’utilisation au nouvel environnement.  Nous estimons que les clients seraient déconcertés s’ils recevaient deux e-mails similaires concernant deux vagues d’opérations de maintenance planifiées différentes.
 
-**Q: Je ne vois aucune information de maintenance sur mes machines virtuelles. Quelle est la cause du problème ?**
+**Q : Je ne vois aucune information de maintenance sur mes machines virtuelles. Quelle est la cause du problème ?**
 
 **R :** Plusieurs raisons peuvent expliquer pourquoi vous ne voyez aucune information de maintenance sur vos machines virtuelles :
 1.  Vous utilisez un abonnement marqué comme interne à Microsoft.
 2.  Vos machines virtuelles ne sont pas planifiées pour la maintenance. Il est possible que la vague d’opérations de maintenance soit terminée, annulée ou modifiée, de sorte que celle-ci n’affecte plus vos machines virtuelles.
-3.  La colonne « Maintenance » n’a pas été ajoutée à la vue liste de vos machines virtuelles. Alors que nous avons ajouté cette colonne à la vue par défaut, les clients qui effectué une configuration pour afficher des colonnes non définies par défaut doivent ajouter manuellement la colonne **Maintenance** à la vue liste de leurs machines virtuelles.
+3.  La colonne « Maintenance » n’a pas été ajoutée à la vue liste de vos machines virtuelles. Alors que nous avons ajouté cette colonne à la vue par défaut, les clients qui ont effectué une configuration pour afficher des colonnes non définies par défaut doivent ajouter manuellement la colonne **Maintenance** à la vue liste de leurs machines virtuelles.
 
 **Q : La maintenance de ma machine virtuelle est planifiée pour la deuxième fois. Pourquoi ?**
 

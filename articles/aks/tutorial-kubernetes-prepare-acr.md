@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6abffe8adada01948ce85e58b7c41e4b26a2327b
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
 
@@ -53,14 +53,14 @@ az group create --name myResourceGroup --location westus2
 Créez un registre de conteneurs Azure à l’aide de la commande [az acr create](/cli/azure/acr#create). Le nom d’un registre de conteneurs **doit être unique**.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
 Dans le reste de ce didacticiel, nous utilisons `<acrname>` comme espace réservé pour le nom de registre de conteneurs.
 
 ## <a name="container-registry-login"></a>Connexion au registre de conteneurs
 
-Utilisez la commande [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) pour vous connecter à l’instance ACR. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
+Utilisez la commande [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) pour vous connecter à l’instance ACR. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
 
 ```azurecli
 az acr login --name <acrName>

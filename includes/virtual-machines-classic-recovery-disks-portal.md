@@ -1,5 +1,6 @@
 Si votre machine virtuelle dans Azure rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser le portail Azure pour connecter votre disque dur virtuel à une autre machine virtuelle pour corriger les éventuelles erreurs, puis recréer votre machine virtuelle d’origine.
 
+
 ## <a name="recovery-process-overview"></a>Vue d’ensemble du processus de récupération
 Le processus de résolution de problème se présente comme suit :
 

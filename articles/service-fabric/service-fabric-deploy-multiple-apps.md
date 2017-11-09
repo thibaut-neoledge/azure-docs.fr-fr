@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.openlocfilehash: 53614d4d2e3101e8ea0bfa6a29256cc817055843
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>Déploiement de plusieurs exécutables invités
 Cet article montre comment empaqueter et déployer plusieurs exécutables sur Azure Service Fabric. Pour créer et déployer un package Service Fabric, lisez l’article [Déploiement d’un exécutable invité dans Service Fabric](service-fabric-deploy-existing-app.md).
@@ -29,7 +29,7 @@ Vous pouvez utiliser Visual Studio pour générer le package d’application qui
 
 ## <a name="samples"></a>Exemples
 * [Exemple pour empaqueter et déployer un fichier exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empaqueter manuellement l’application exécutable invitée multiple
 Vous pouvez également empaqueter manuellement l’exécutable invité. Pour l’empaquetage manuel, cet article utilise l’outil d’empaquetage Service Fabric, qui est disponible à l’adresse [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
@@ -217,4 +217,4 @@ Pour ajouter un autre service à une application déjà créée à l’aide de `
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le déploiement de conteneurs avec [Service Fabric et vue d’ensemble des conteneurs](service-fabric-containers-overview.md)
 * [Exemple pour empaqueter et déployer un fichier exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)

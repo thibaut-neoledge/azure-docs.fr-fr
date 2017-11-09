@@ -19,8 +19,10 @@
       href: tutorial-review-usage.md
     - name: 2 - Contrôler l'accès aux données
       href: tutorial-user-access.md
-    - name: 3 - prévoir les dépenses
+    - name: 3 - Prévoir les dépenses
       href: tutorial-forecast-spending.md
+    - name: 4 - Gérer les coûts
+      href: tutorial-manage-costs.md
 - name: Ressources
   items:
     - name: Vidéos Gestion des coûts

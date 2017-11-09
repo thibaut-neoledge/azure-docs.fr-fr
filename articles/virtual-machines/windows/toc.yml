@@ -80,7 +80,7 @@
           href: sizes-general.md
     - name: Maintenance et mises à jour
       href: maintenance-and-updates.md
-    - name: Stockage
+    - name: Storage
       href: about-disks-and-vhds.md
       items:
         - name: Stockage Premium
@@ -252,7 +252,7 @@
           href: convert-disk-storage.md
         - name: Migrer vers le stockage Premium avec Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
-        - name: Utiliser le stockage Fichier
+        - name: Utiliser le stockage de fichier File Storage
           href: mount-azure-file-storage.md
         - name: Déployer des disques avec un modèle
           href: using-managed-disks-template-deployments.md
@@ -380,6 +380,8 @@
           href: how-to-use-perfInsights.md
         - name: Extension de diagnostic de performance des machines virtuelles
           href: performance-diagnostics-vm-extension.md
+        - name: Utiliser la virtualisation imbriquée
+          href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Référence
   items:
     - name: Interface de ligne de commande Azure
@@ -410,7 +412,7 @@
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stack Overflow
+    - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'

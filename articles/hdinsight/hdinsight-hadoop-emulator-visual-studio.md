@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53db03029ffca724638871b22a12dfa7f160fc64
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
 
@@ -29,7 +29,7 @@ Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre enviro
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-* Le Bac à sable (sandbox) Hortonworks s’exécutant sur une machine virtuelle dans votre environnement de développement. Ce document a été écrit et testé avec le bac à sable s’exécutant sur Oracle VirtualBox. Pour plus d’informations sur le paramétrage du bac à sable, consultez [Get started with the Hortonworks sandbox](hdinsight-hadoop-emulator-get-started.md) (Prise en main du bac à sable Hortonworks) document.
+* Le Bac à sable (sandbox) Hortonworks s’exécutant sur une machine virtuelle dans votre environnement de développement. Ce document a été écrit et testé avec le bac à sable s’exécutant sur Oracle VirtualBox. Pour plus d’informations sur le paramétrage du bac à sable, consultez [Get started with the Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md) (Prise en main du bac à sable Hortonworks) document.
 
 * Visual Studio 2013, Visual Studio 2015 ou Visual Studio 2017 (toute édition).
 
@@ -39,7 +39,7 @@ Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre enviro
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configuration des mots de passe pour le bac à sable
 
-Assurez-vous que le Bac à sable (sandbox) Hortonworks est en cours d’exécution. Puis suivez les instructions décrites dans le document [Get started with the Hortonworks sandbox](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) (Prise en main du bac à sable Hortonworks). Ces étapes permettent de configurer le mot de passe pour le compte SSH `root` et le compte Ambari `admin`. Ces mots de passe vous permettent de vous connecter au bac à sable à partir de Visual Studio.
+Assurez-vous que le Bac à sable (sandbox) Hortonworks est en cours d’exécution. Puis suivez les instructions décrites dans le document [Get started with the Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) (Prise en main du bac à sable Hortonworks). Ces étapes permettent de configurer le mot de passe pour le compte SSH `root` et le compte Ambari `admin`. Ces mots de passe vous permettent de vous connecter au bac à sable à partir de Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Connexion des outils au bac à sable
 

@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 9464ead9105bf9334096543f22ec308416a37674
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: ffeaec73a38939783174c71641c3618f4f8a3c1b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Niveaux de performance d’Azure SQL Data Warehouse (préversion)
 SQL Data Warehouse offre deux niveaux de performance optimisés pour les charges de travail analytiques. Cet article explique les concepts des niveaux de performance pour vous aider à choisir celui qui est le plus approprié pour votre charge de travail. 
@@ -70,9 +70,9 @@ Les niveaux de service pour le niveau performance Optimisé pour l’élasticit�
 | DW1000        | 32                     | 10            | 6                              | 4 000                            | 240                                |
 | DW1200        | 32                     | 12            | 5                              | 4 800                            | 288                                |
 | DW1500        | 32                     | 15            | 4                              | 6 000 / 750                            | 360                                |
-| DW2000        | 48                     | 20            | 3                              | 8 000                            | 480                                |
-| DW3000        | 64                     | 30            | 2                              | 12,000                           | 720                                |
-| DW6000        | 128                    | 60            | 1                              | 24 000                           | 1 440                               |
+| DW2000        | 32                     | 20            | 3                              | 8 000                            | 480                                |
+| DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
+| DW6000        | 32                     | 60            | 1                              | 24 000                           | 1 440                               |
 
 ### <a name="optimized-for-compute"></a>Optimisé pour le calcul
 

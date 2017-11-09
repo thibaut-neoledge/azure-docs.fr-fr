@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 7fdcff5ed93e56e4ac70dd9dcee0056a4cbef0bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36e57bb6ebf9f55d42c526a361fed33b4238b313
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Utiliser un ACR avec un cluster DC/OS pour déployer votre application
 
@@ -46,7 +46,7 @@ Si nécessaire, créez un registre de conteneurs Azure à l’aide de la command
 L’exemple suivant crée un registre avec un nom généré de façon aléatoire. Le registre est également configuré avec un compte d’administrateur à l’aide de `--admin-enabled` l’argument.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
 Une fois le registre créé, Azure CLI fournit les informations suivantes. Notez `name` et `loginServer`, utilisés pour les étapes ultérieures.

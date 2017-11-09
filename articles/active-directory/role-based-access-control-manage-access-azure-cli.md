@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88a5fe33d048814d956a1221802f059cfbcccb0a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ L'exemple supprime ensuite l'affectation de rôle du groupe pour l'abonnement.
 ## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 Pour créer un rôle personnalisé, utilisez :
 
-    azure role definition create --role-definition <file path>
+    azure role create --inputfile <file path>
 
 L’exemple suivant crée un rôle personnalisé appelé *Opérateur de machine virtuelle*. Ce rôle personnalisé accorde l’accès à toutes les opérations des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network* ainsi que l’accès nécessaire pour démarrer, redémarrer et surveiller des machines virtuelles. Ce rôle personnalisé peut être utilisé dans deux abonnements. Cet exemple utilise un fichier JSON en tant qu’entrée.
 
@@ -159,9 +159,9 @@ L’exemple suivant crée un rôle personnalisé appelé *Opérateur de machine 
 ![Ligne de commande Azure RBAC - création d’un rôle azure - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Modifier un rôle personnalisé
-Pour modifier un rôle personnalisé, utilisez d’abord la commande `azure role definition list` pour récupérer la définition de rôle. Apportez ensuite les modifications souhaitées au fichier de définition de rôle. Enfin, utilisez `azure role definition update` pour enregistrer la définition de rôle modifiée.
+Pour modifier un rôle personnalisé, utilisez d’abord la commande `azure role list` pour récupérer la définition de rôle. Apportez ensuite les modifications souhaitées au fichier de définition de rôle. Enfin, utilisez `azure role set` pour enregistrer la définition de rôle modifiée.
 
-    azure role definition update --role-definition <file path>
+    azure role set --inputfile <file path>
 
 L’exemple suivant ajoute l’opération *Microsoft.Insights/diagnosticSettings/* à **Actions** et un abonnement Azure à **AssignableScopes** du rôle personnalisé Opérateur de machine virtuelle.
 
@@ -170,7 +170,7 @@ L’exemple suivant ajoute l’opération *Microsoft.Insights/diagnosticSettings
 ![Ligne de commande Azure RBAC - définition d’un rôle azure - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Supprimer un rôle personnalisé
-Pour supprimer un rôle personnalisé, utilisez tout d’abord la commande `azure role definition list` afin de déterminer la propriété **ID** du rôle. Ensuite, utilisez la commande `azure role definition delete` pour supprimer le rôle en spécifiant la propriété **ID**.
+Pour supprimer un rôle personnalisé, utilisez tout d’abord la commande `azure role list` afin de déterminer la propriété **ID** du rôle. Ensuite, utilisez la commande `azure role delete` pour supprimer le rôle en spécifiant la propriété **ID**.
 
 L’exemple suivant supprime le rôle personnalisé *Opérateur de machine virtuelle* .
 
@@ -182,7 +182,7 @@ Pour répertorier les rôles pouvant être affectés dans une étendue, utilisez
 La commande suivante répertorie tous les rôles pouvant être affectés à l’abonnement sélectionné.
 
 ```
-azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![Ligne de commande Azure RBAC - liste des rôles azure - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -190,7 +190,7 @@ azure role definition list --json | jq '.[] | {"name":.properties.roleName, type
 Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuelle* n’est pas disponible dans l’abonnement *Production4*, car cet abonnement ne figure pas dans l’élément **AssignableScopes** du rôle.
 
 ```
-azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![Ligne de commande Azure RBAC - liste des rôles azure pour les rôles personnalisés - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)

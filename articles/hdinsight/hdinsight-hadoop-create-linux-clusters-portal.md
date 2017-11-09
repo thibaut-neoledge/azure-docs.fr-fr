@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: c9a6040f7115917219143cd4bc8d0e3ac87370cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c1064232db87c23048fe01f04f403947e60ab93
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -156,23 +156,23 @@ Si vous rencontrez des problèmes lors de la création de clusters HDInsight, re
 Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez les rubriques ci-dessous :
 
 ### <a name="hadoop-clusters"></a>Clusters Hadoop
-* [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
-* [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
-* [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
+* [Utilisation de Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
+* [Utilisation de Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
+* [Utilisation de MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>Clusters HBase
-* [Prise en main de HBase sur HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Développement d’applications Java pour HBase sur HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Prise en main de HBase sur HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Développement d’applications Java pour HBase sur HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clusters Storm
-* [Développement de topologies Java pour Storm sur HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Développement de topologies Java pour Storm sur HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Utilisation de composants Python dans Storm sur HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Déploiement et analyse des topologies avec Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Clusters Spark
-* [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Exécution de travaux à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Créer une application autonome avec Scala](spark/apache-spark-create-standalone-application.md)
+* [Exécution de travaux à distance avec Livy sur un cluster Spark](spark/apache-spark-livy-rest-interface.md)
+* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](spark/apache-spark-use-bi-tools.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](spark/apache-spark-eventhub-streaming.md)
 

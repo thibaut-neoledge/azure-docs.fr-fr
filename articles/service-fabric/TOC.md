@@ -27,8 +27,8 @@
 
 ## Créer et gérer un cluster
 ### 1- Créer un cluster sur Azure
-#### [1a- Créer un cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b- Créer un cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a- Créer un cluser Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Créer un cluser Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Mettre à l’échelle le cluster](service-fabric-tutorial-scale-cluster.md)
 ### [3- Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
@@ -51,7 +51,7 @@
 #### [Vue d'ensemble](service-fabric-choose-framework.md)
 #### Conteneurs
 ##### [Vue d'ensemble](service-fabric-containers-overview.md)
-##### [Docker Compose (préversion)](service-fabric-docker-compose.md)
+##### [Docker Compose (version préliminaire)](service-fabric-docker-compose.md)
 ##### [Gouvernance des ressources](service-fabric-resource-governance.md)
 #### Services fiables (Reliable Services)
 ##### [Vue d'ensemble](service-fabric-reliable-services-introduction.md)
@@ -136,11 +136,30 @@
 ## [Intégration avec la gestion des API](service-fabric-api-management-overview.md)
 
 ## Surveiller et diagnostiquer
-### [Vue d'ensemble](service-fabric-diagnostics-overview.md)
-### [Modèle d'intégrité](service-fabric-health-introduction.md)
-### [Diagnostics des services Reliable Services avec état](service-fabric-reliable-services-diagnostics.md)
-### [Diagnostics dans Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-### [Compteurs de performances pour Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md)
+### [Surveiller et diagnostiquer des applications](service-fabric-diagnostics-overview.md)
+### Générer des événements
+#### [Générer des événements au niveau de la plateforme](service-fabric-diagnostics-event-generation-infra.md)
+##### [Canal opérationnel](service-fabric-diagnostics-event-generation-operational.md)
+##### [Événements Reliable Services](service-fabric-reliable-services-diagnostics.md)
+##### [Événements Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+##### [Mesures de performances](service-fabric-diagnostics-event-generation-perf.md)
+##### [Surveillance des communications à distance des services](service-fabric-reliable-serviceremoting-diagnostics.md)
+#### [Générer des événements de niveau application](service-fabric-diagnostics-event-generation-app.md)
+### Intégrité du cluster et de l’application
+#### [Surveiller l’intégrité du Service Fabric](service-fabric-health-introduction.md)
+#### [Signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Ajouter des rapports de contrôle de l’état](service-fabric-report-health.md)
+#### [Résoudre les problèmes avec les rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Afficher des rapports d’intégrité](service-fabric-view-entities-aggregated-health.md)
+### Agréger des événements
+#### [Agréger des événements avec EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Agréger des événements avec Azure Diagnostics
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Analyser des événements
+#### [Analyser des événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Analyser des événements avec OMS](service-fabric-diagnostics-event-analysis-oms.md)
+### [Résoudre les problèmes de votre cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Procédures
 ## Configuration de l'environnement de développement
@@ -160,7 +179,7 @@
 #### [Créer une application de conteneur Windows](service-fabric-get-started-containers.md)
 #### [Créer une application de conteneur Linux](service-fabric-get-started-containers-linux.md)
 #### [Sécurité du conteneur](service-fabric-securing-containers.md)
-#### [Docker Compose (préversion)](service-fabric-docker-compose.md)
+#### [Docker Compose (version préliminaire)](service-fabric-docker-compose.md)
 #### [Gestion des ressources pour les conteneurs et les services](service-fabric-resource-governance.md)
 #### [Pilotes de journalisation et de volume](service-fabric-containers-volume-logging-drivers.md)
 #### [Services à l’intérieur des conteneurs](service-fabric-services-inside-containers.md)
@@ -317,30 +336,12 @@
 #### [Mouvement de service](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Surveiller et diagnostiquer
-### [Surveiller et diagnostiquer des applications](service-fabric-diagnostics-overview.md)
-### Générer des événements
-#### [Générer des événements au niveau de la plateforme](service-fabric-diagnostics-event-generation-infra.md)
-##### [Canal opérationnel](service-fabric-diagnostics-event-generation-operational.md)
-##### [Événements Reliable Services](service-fabric-reliable-services-diagnostics.md)
-##### [Événements Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-##### [Mesures de performances](service-fabric-diagnostics-event-generation-perf.md)
-#### [Générer des événements de niveau application](service-fabric-diagnostics-event-generation-app.md)
-### Intégrité du cluster et de l’application
-#### [Surveiller l’intégrité du Service Fabric](service-fabric-health-introduction.md)
-#### [Signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-#### [Ajouter des rapports de contrôle de l’état](service-fabric-report-health.md)
-#### [Résoudre les problèmes avec les rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-#### [Afficher des rapports d’intégrité](service-fabric-view-entities-aggregated-health.md)
-#### [Surveiller les conteneurs Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
-### Agréger des événements
-#### [Agréger des événements avec EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
-#### Agréger des événements avec Azure Diagnostics
-##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
-##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
-### Analyser des événements
-#### [Analyser des événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [Analyser des événements avec OMS](service-fabric-diagnostics-event-analysis-oms.md)
-### [Résoudre les problèmes de votre cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
+### OMS
+#### [Configurer OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
+#### [Ajouter l’agent OMS](service-fabric-diagnostics-oms-agent.md)
+#### [Surveiller des conteneurs](service-fabric-diagnostics-oms-containers.md)
+### Analyse des performances
+#### [Analyse des performances avec WAD](service-fabric-diagnostics-perf-wad.md)
 
 # Référence
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)

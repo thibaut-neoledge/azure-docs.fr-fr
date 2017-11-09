@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Surveiller Azure SQL Database à l’aide d’Azure SQL Analytics (version préliminaire) dans Log Analytics
 
@@ -102,7 +102,16 @@ En sélectionnant l’une des vignettes, vous ouvrez le rapport détaillé d’u
 
 Chaque perspective fournit des récapitulatifs sur l’abonnement, le serveur, le pool de bases de données élastique et la base de données. En outre, sur la droite, chaque perspective présente un rapport qui lui est propre. Pour approfondir davantage, sélectionnez l’abonnement, le serveur, le pool ou la base de données dans la liste.
 
-| Perspective | Description | | Resource by type | Perspective qui compte toutes les ressources surveillées. Ce zoom fournit un récapitulatif des métriques de DTU et Go. | | Insights | Permet une exploration hiérarchique dans Intelligent Insights. Apprenez-en davantage sur l’intelligence artificielle intégrée. | | Errors | Permet une exploration hiérarchique des erreurs SQL qui se sont produites dans les bases de données. | | Timeouts | Permet une exploration hiérarchique des délais d’expiration SQL qui se sont produits dans les bases de données. | | Blockings | Permet une exploration hiérarchique des blocages SQL qui se sont produits dans les bases de données. | | Database waits | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. | | Query duration | Permet une exploration hiérarchique des statistiques d’exécution de la requête, par exemple la durée de la requête, l’utilisation du processeur, l’utilisation des E/S de données, l’utilisation des E/S du journal. | | Query waits | Permet une exploration hiérarchique des statistiques d’attente de requête par catégorie d’attente. |
+| Perspective | Description |
+| --- | --- |
+| Ressource par type | Perspective comptabilisant toutes les ressources surveillées. Ce zoom fournit un récapitulatif des métriques de DTU et Go. |
+| Insights | Permet une exploration hiérarchique dans Intelligent Insights. Apprenez-en davantage sur l’intelligence artificielle intégrée. |
+| Errors | Permet une exploration hiérarchique des erreurs SQL qui se sont produites dans les bases de données. |
+| Délais d’expiration | Permet une exploration hiérarchique des délais d’expiration SQL qui se sont produits dans les bases de données. |
+| Blocages | Permet une exploration hiérarchique des blocages SQL qui se sont produits dans les bases de données. |
+| Attentes de la base de données | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. |
+| Durée de la requête | Permet une exploration hiérarchique des statistiques d’exécution de la requête, par exemple la durée de la requête, l’utilisation du processeur, l’utilisation des E/S de données, l’utilisation des E/S du journal. |
+| Attentes de requête | Permet une exploration hiérarchique des statistiques d’attente de requête par catégorie d’attente. |
 
 ### <a name="intelligent-insights-report"></a>Rapport Intelligent Insights
 

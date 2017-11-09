@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Optimiser les performances de MySQL sur les machines virtuelles Linux Azure
 De nombreux facteurs, en matière de choix de matériel virtuel et de configuration logicielle, ont une incidence sur les performances de MySQL sur Azure. Cet article se concentre sur l’optimisation des performances grâce aux configurations de stockage, système et de base de données.
 
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager](../../../resource-manager-deployment-model.md) et classique. Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur les optimisations de machines virtuelles Linux avec le modèle Resource Manager, consultez [Optimiser votre machine virtuelle Linux sur Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Utiliser RAID sur une machine virtuelle Azure
 Le stockage est le facteur clé en matière d’incidence sur les performances de base de données dans les environnements de cloud. Grâce à la concurrence, RAID peut fournir un accès plus rapide qu’un seul disque. Pour plus d’informations, consultez [Niveaux RAID standard](http://en.wikipedia.org/wiki/Standard_RAID_levels).   

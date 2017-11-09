@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5e101c4b92868181a6b627d060a9c8e72a7837c4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory
 Dans Azure Active Directory (Azure AD), vous pouvez créer des règles avancées pour activer des appartenances dynamiques complexes basées sur les attributs pour les groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils.
@@ -296,7 +296,7 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Changement de l’appartenance dynamique en appartenance statique et vice versa
 Il est possible de modifier la façon dont l’appartenance est gérée dans un groupe. Cela est utile lorsque vous souhaitez conserver le même nom et le même ID de groupe dans le système, afin que toutes les références au groupe existantes soient toujours valides ; la création d’un nouveau groupe nécessiterait la mise à jour de ces références.
 
-Nous sommes en train de mettre à jour le portail Azure pour prendre en charge cette fonctionnalité. En attendant, vous pouvez utiliser le [portail Azure Classic](https://manage.windowsazure.com) (suivez les instructions [ici](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)) ou les applets de commande PowerShell, comme indiqué ci-dessous.
+Nous sommes en train de mettre à jour le portail Azure pour prendre en charge cette fonctionnalité. En attendant, vous pouvez utiliser le [portail Azure Classic](https://manage.windowsazure.com) (suivez les instructions [ici](active-directory-accessmanagement-groups-with-advanced-rules.md)) ou les applets de commande PowerShell, comme indiqué ci-dessous.
 
 > [!WARNING]
 > Lorsque vous faites passer un groupe statique existant à un groupe dynamique, tous les membres existants sont retirés du groupe, puis la règle d’appartenance est exécutée pour ajouter de nouveaux membres. Si le groupe est utilisé pour contrôler l’accès aux applications ou aux ressources, les membres d’origine peuvent perdre leur accès tant que la règle d’appartenance n’a pas été totalement exécutée.

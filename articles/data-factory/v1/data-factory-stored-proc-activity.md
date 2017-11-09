@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: aa1f4f0a264c58024206304b2bf9a43610cb835d
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f490aeef07b142b6a28319581b01c6cfc00054ba
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Activité de procédure stockée SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/01/2017
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Azure Data Factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en version préliminaire, consultez [transformer des données à l’aide d’activité de procédure stockée dans la version 2 de Data Factory](../transform-data-using-stored-procedure.md).
+> Cet article s’applique à la version 1 de Azure Data Factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Vue d'ensemble
 Vous utilisez des activités de transformation dans un [pipeline](data-factory-create-pipelines.md) Data Factory pour transformer et traiter des données brutes en prévisions et en analyses. L’activité de procédure stockée est l’une des activités de transformation prises en charge par Data Factory. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge dans Data Factory.

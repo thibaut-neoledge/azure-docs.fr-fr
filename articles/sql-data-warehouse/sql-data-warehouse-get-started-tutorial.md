@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Prise en main de SQL Data Warehouse
 
@@ -198,7 +198,7 @@ Vous êtes maintenant prêt à charger des données dans votre entrepôt de donn
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ Vous êtes maintenant prêt à charger des données dans votre entrepôt de donn
     ```
 5. Créez les tables externes. Ces tables référencent les données stockées dans le stockage d’objets blob Azure. Exécutez les commandes T-SQL suivantes pour créer plusieurs tables externes pointant toutes vers l’objet blob Azure que nous avons défini précédemment dans notre source de données externe.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ Vous êtes maintenant prêt à charger des données dans votre entrepôt de donn
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Importez les données à partir du stockage Blob Azure.
 
@@ -430,7 +430,7 @@ SQL Data Warehouse prend en charge une instruction clé appelée CREATE TABLE AS
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ SQL Data Warehouse prend en charge une instruction clé appelée CREATE TABLE AS
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ SQL Data Warehouse prend en charge une instruction clé appelée CREATE TABLE AS
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ SQL Data Warehouse prend en charge une instruction clé appelée CREATE TABLE AS
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ SQL Data Warehouse prend en charge une instruction clé appelée CREATE TABLE AS
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ SQL Data Warehouse prend en charge une instruction clé appelée CREATE TABLE AS
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ SQL Data Warehouse prend en charge une instruction clé appelée CREATE TABLE AS
 
 2. Affichez vos données à mesure qu’elles sont chargées.
 
-   Vous chargez plusieurs gigaoctets de données et les compressez au sein d’index de cluster columnstore hautes performances. Exécutez la requête suivante qui fait appel à des vues de gestion dynamique pour afficher l’état de la charge. Une fois la requête démarrée, prenez un café et quelque chose à grignoter pendant que SQL Data Warehouse fait le gros du travail.
-    
-    ```sql
+  Vous chargez plusieurs gigaoctets de données et les compressez au sein d’index de cluster columnstore hautes performances. Exécutez la requête suivante qui fait appel à des vues de gestion dynamique pour afficher l’état de la charge. Une fois la requête démarrée, prenez un café et quelque chose à grignoter pendant que SQL Data Warehouse fait le gros du travail.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ SQL Data Warehouse prend en charge une instruction clé appelée CREATE TABLE AS
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. Affichez toutes les requêtes du système.
 
@@ -563,7 +564,7 @@ Commençons par réduire la taille à 100 DWU, afin de déterminer de manière 
     > [!NOTE]
     > Les requêtes ne peuvent pas être exécutées lors de la mise à l’échelle. La mise à l’échelle **supprime** vos requêtes en cours d’exécution. Vous pouvez les redémarrer une fois l’opération terminée.
     >
-    
+
 5. Lancez une opération d’analyse sur les données de voyage, en sélectionnant le premier million d’entrées pour toutes les colonnes. Si vous souhaitez avancer rapidement, sélectionnez moins de lignes. Prenez note de la durée d’exécution de cette opération.
 
     ```sql
@@ -626,11 +627,11 @@ Commençons par réduire la taille à 100 DWU, afin de déterminer de manière 
 
     > [!NOTE]
     > Azure SQL Data Warehouse ne gère pas automatiquement les statistiques pour vous. Or, ces statistiques sont importantes pour déterminer les performances des requêtes. Il est donc fortement recommandé de créer et de mettre à jour les statistiques.
-    > 
+    >
     > **Vous bénéficiez de performances optimales en lançant des statistiques sur les colonnes impliquées dans les jointures, celles utilisées dans la clause WHERE et celles figurant dans GROUP BY.**
     >
 
-3. Exécutez à nouveau la requête depuis Composants requis et notez les différences en termes de performances. Certes, elles ne sont pas aussi visibles que dans le cas de la montée en puissance, mais vous devriez remarquer une accélération. 
+4. Exécutez à nouveau la requête depuis Composants requis et notez les différences en termes de performances. Certes, elles ne sont pas aussi visibles que dans le cas de la montée en puissance, mais vous devriez remarquer une accélération. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ba6dafd8d890d88478a5e3213dd023921908f4bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb13bc8012e2d58e1a9b68bb1cf2da11d65e8159
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
 Lorsque vous [créez une demande de support](https://portal.azure.com/#create/Microsoft.Support), l’utilitaire de téléchargement de fichiers peut vous aider à charger facilement des fichiers de diagnostic ou tout autre fichier qui vous semble s’appliquer à l’incident.  

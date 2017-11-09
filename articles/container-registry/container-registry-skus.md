@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>Références (SKU) Azure Container Registry
 
 Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service, appelés références (SKU). Ces références offrent une tarification prévisible et plusieurs options pour l’utilisation de votre registre Docker privé dans Azure. Une référence de niveau supérieur fournit de meilleures performances et une meilleure mise à l’échelle. Toutefois, toutes les références offrent les mêmes fonctionnalités de programmation et permettent à un développeur de prendre rapidement en main la version De base, puis d’effectuer une conversion vers la version Standard ou Premium à mesure que l’utilisation du registre augmente.
 
 ## <a name="basic"></a>De base
-Point d’entrée peu coûteux pour les développeurs qui découvrent Azure Container Registry. Les registres de base ont les mêmes fonctionnalités de programmation que les versions Standard et Premium (intégration de l’authentification Azure Active Directory, suppression d’image et Webhooks). Toutefois, il existe des contraintes de taille et d’utilisation.
+Point d’entrée au coût optimisé pour les développeurs apprenant Azure Container Registry. Les registres De base ont les mêmes fonctionnalités de programmation que les registres Standard et Premium (intégration de l’authentification Azure Active Directory, suppression d’image et webhooks). Toutefois, il existe des contraintes de taille et d’utilisation.
 
 ## <a name="standard"></a>Standard
-Les registres standard offrent les mêmes fonctionnalités que la version De base, avec des limites de stockage et un débit d’image accrus. Les registres standard doivent satisfaire les besoins de la plupart des scénarios de production.
+Les registres standard offrent les mêmes fonctionnalités que la version De base, avec des limites de stockage et un débit d’image accrus. Les registres Standard devraient satisfaire les besoins de la plupart des scénarios de production.
 
 ## <a name="premium"></a>Premium
 Les registres Premium fournissent des limites supérieures en matière de contraintes de stockage et d’opérations simultanées, ce qui permet de bénéficier de scénarios à haut volume. En plus de la capacité de débit d’image supérieure, la version Premium ajoute des fonctionnalités telles que la [géoréplication](container-registry-geo-replication.md) pour la gestion d’un registre parmi plusieurs régions tout en conservant un registre proche du réseau pour chaque déploiement.
@@ -43,21 +43,7 @@ La référence de registre Classique a permis la publication initiale du service
 
 Le tableau suivant décrit en détail les fonctionnalités et les limites des niveaux de service De base, Standard et Premium.
 
-| Fonctionnalité | De base | Standard | Premium |
-|---|---|---|---|---|
-| Stockage | 10 Go | 100 Go| 500 Go |
-| ReadOps par minute<sup>1, 2</sup> | 1000 | 300 000 | 10 000 000 |
-| WriteOps par minute<sup>1, 3</sup> | 100 | 500 | 2000 |
-| Bande passante de téléchargement en Mbits/s<sup>1</sup> | 30 | 60 | 100 |
-| Bande passante de chargement en Mbits/s<sup>1</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
-| Géoréplication | N/A | N/A | [Prise en charge *(préversion)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> Les valeurs *ReadOps*, *WriteOps* et de *bande passante* sont des estimations minimales. ACR s’efforce d’améliorer les performances en fonction de l’utilisation requise.
-
-<sup>2</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) se traduit par plusieurs opérations de lecture en fonction du nombre de couches dans l’image, plus la récupération du manifeste.
-
-<sup>3</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) se traduit par plusieurs opérations d’écriture, en fonction du nombre de couches qui doivent être envoyées. Un `docker push` inclut des *ReadOps* pour récupérer un manifeste pour une image existante.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>Gérer la taille du registre
 Les contraintes de stockage de chaque référence sont destinées à s’aligner avec un scénario classique : De base pour la prise en main, Standard pour la plupart des applications de production, et Premium pour des performances à très grande échelle et la [géoréplication](container-registry-geo-replication.md). Pendant toute la durée de vie de votre registre, vous devez gérer sa taille en supprimant régulièrement le contenu inutilisé.

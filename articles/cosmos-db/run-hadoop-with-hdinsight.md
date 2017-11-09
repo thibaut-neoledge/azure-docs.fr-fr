@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 427864fc4e494c19fcda4cfd454a9923499f6337
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Exécuter un travail Apache Hive, Pig ou Hadoop avec Azure Cosmos DB et HDInsight
 Ce didacticiel vous montre comment exécuter des travaux [Apache Hive][apache-hive], [Apache Pig][apache-pig] et [Apache Hadoop][apache-hadoop] MapReduce dans Azure HDInsight avec le connecteur Hadoop de Cosmos DB. Le connecteur Hadoop de Cosmos DB permet à Cosmos DB d’agir en tant que source et récepteur pour les travaux Hive, Pig et MapReduce. Ce didacticiel utilise Cosmos DB en tant que source de données et destination pour les travaux Hadoop.
@@ -420,13 +420,13 @@ Pour en savoir plus, consultez les articles suivants :
 [import-data]: import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-develop-deploy-java-mapreduce]:../hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: ../hdinsight/hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: ../hdinsight/hdinsight-use-mapreduce.md
-[hdinsight-use-pig]: ../hdinsight/hdinsight-use-pig.md
+[hdinsight-use-hive]:../hdinsight/hadoop/hdinsight-use-hive.md
+[hdinsight-use-mapreduce]:../hdinsight/hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-pig]:../hdinsight/hadoop/hdinsight-use-pig.md
 
 [image-customprovision-page1]: ./media/run-hadoop-with-hdinsight/customprovision-page1.png
 [image-hive-query-results]: ./media/run-hadoop-with-hdinsight/hivequeryresults.PNG

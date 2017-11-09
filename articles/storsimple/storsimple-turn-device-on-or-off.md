@@ -12,16 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Activation ou désactivation de votre appareil StorSimple série 8000
+
 ## <a name="overview"></a>Vue d'ensemble
 L'arrêt d'un appareil Microsoft Azure StorSimple n'est pas requis dans le cadre du fonctionnement normal du système. Toutefois, vous devrez peut-être activer un nouvel appareil ou un appareil qui a dû être arrêté. En règle générale, un arrêt est nécessaire dans les cas où vous devez remplacer du matériel défectueux, physiquement déplacer une unité ou mettre un appareil hors service. Ce didacticiel décrit la procédure requise pour la mise sous tension et l'arrêt de votre appareil StorSimple dans différents scénarios.
 

@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/11/2017
+ms.date: 11/02/2017
 ms.author: larryfr
-ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilisation des signatures d’accès partagé du stockage Azure pour restreindre l’accès aux données dans HDInsight
 
 HDInsight dispose d’un accès total aux données dans les comptes de stockage Azure associés au cluster. Vous pouvez utiliser des signatures d’accès partagé sur le conteneur d’objets blob pour restreindre l’accès aux données. Par exemple, pour fournir un accès en lecture seule aux données. Les signatures d’accès partagé (SAP) sont une fonctionnalité des comptes de stockage Azure qui vous permet de limiter l’accès aux données. Par exemple, en fournissant un accès en lecture seule aux données.
 
 > [!IMPORTANT]
-> Pour une solution utilisant Apache Ranger, envisagez d’utiliser les clusters HDInsight joints à un domaine. Pour plus d’informations, consultez le document [Configurer des clusters HDInsight joints à un domaine (préversion)](hdinsight-domain-joined-configure.md).
+> Pour une solution utilisant Apache Ranger, envisagez d’utiliser les clusters HDInsight joints à un domaine. Pour plus d’informations, consultez le document [Configurer des clusters HDInsight joints à un domaine (préversion)](./domain-joined/apache-domain-joined-configure.md).
 
 > [!WARNING]
 > HDInsight doit disposer d’un accès total au stockage par défaut pour le cluster.
@@ -304,8 +304,8 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 
 Maintenant que vous avez appris comment ajouter un stockage à accès limité à votre cluster HDInsight, découvrez d’autres façons de travailler avec des données sur votre cluster :
 
-* [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
-* [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
-* [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
+* [Utilisation de Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
+* [Utilisation de Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
+* [Utilisation de MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

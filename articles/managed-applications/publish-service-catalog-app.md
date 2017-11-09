@@ -8,25 +8,25 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2017
+ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6b1d609b7b1b21e80cc7f68f05e16e3c1e8eebba
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: fd2c60cbc237f6d302616723c745563a3e1afecb
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publier une application managée pour une utilisation interne
 
-Vous pouvez créer et publier des[applications managées](overview.md) Azure pour les besoins des membres de votre organisation. Par exemple, un service informatique peut publier des applications managées destinées à contrôler la conformité par rapport aux standards de l’organisation. Ces applications managées sont disponibles dans le catalogue de services, et non dans la Place de marché Azure.
+Vous pouvez créer et publier des[applications managées](overview.md) Azure pour les besoins des membres de votre organisation. Par exemple, un service informatique peut publier des applications managées destinées à contrôler la conformité par rapport aux normes de l’organisation. Ces applications managées sont disponibles dans le catalogue de services, et non dans la Place de marché Azure.
 
 Pour publier une application managée pour le catalogue de services, vous devez :
 
 * Créer un modèle qui définit les ressources à déployer avec l’application managée.
 * Définir les éléments d’interface utilisateur du portail lors du déploiement de l’application managée.
 * Créer un package .zip qui contient les fichiers de modèles nécessaires.
-* Désigner l’utilisateur, le groupe ou l’application qui doit avoir accès au groupe de ressources dans l’abonnement de l’utilisateur
-* Créer la définition de l’application managée qui pointe vers le package .zip et qui demande l’accès pour l’identité.
+* désigner l’utilisateur, le groupe ou l’application qui doit avoir accès au groupe de ressources dans l’abonnement de l’utilisateur ;
+* créer la définition de l’application managée qui pointe vers le package .zip et qui demande l’accès pour l’identité.
 
 Pour cet article, votre application managée contient uniquement un compte de stockage. Il a pour but d’illustrer les étapes de la publication d’une application managée. Pour obtenir des exemples complets, consultez [Exemples de projets pour des applications managées Azure](sample-projects.md).
 
@@ -83,7 +83,7 @@ Enregistrez le fichier mainTemplate.json.
 
 ## <a name="create-the-user-interface-definition"></a>Créer la définition d’interface utilisateur
 
-Le portail Azure utilise le fichier **createUiDefinition.json** afin de générer l’interface utilisateur pour les utilisateurs qui créent l’application managée. Vous déterminez la façon dont les utilisateurs fournissent une entrée pour chaque paramètre. Vous pouvez utiliser des options comme un sélecteur de liste déroulante, une zone de texte, une zone de mot de passe et d’autres outils de saisie. Pour en savoir plus sur la création d’un fichier de définition de l’interface utilisateur pour une application managée, consultez [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
+Le portail Azure utilise le fichier **createUiDefinition.json** afin de générer l’interface utilisateur pour les utilisateurs qui créent l’application managée. Vous déterminez la façon dont les utilisateurs fournissent une entrée pour chaque paramètre. Vous pouvez utiliser des options comme un sélecteur de liste déroulante, une zone de texte, une zone de mot de passe et d’autres outils de saisie. Pour en savoir plus sur la création d’un fichier de définition de l’interface utilisateur pour une application gérée, consultez [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
 
 Créez un fichier nommé **createUiDefinition.json**. Le nom respecte la casse.
 
@@ -164,7 +164,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
   -Context $ctx 
 ```
 
-## <a name="create-the-managed-application-definition"></a>Créer la définition d’application managée
+## <a name="create-the-managed-application-definition"></a>Créer la définition d’application gérée
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Créer un groupe d’utilisateurs ou une application Azure Active Directory
 
@@ -182,7 +182,7 @@ Ensuite, vous avez besoin de l’ID de définition de rôle du rôle RBAC intég
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 ```
 
-### <a name="create-the-managed-application-definition"></a>Créer la définition d’application managée
+### <a name="create-the-managed-application-definition"></a>Créer la définition d’application gérée
 
 Si vous ne disposez pas déjà d’un groupe de ressources pour stocker la définition de votre application managée, créez-en un maintenant :
 
@@ -206,13 +206,13 @@ New-AzureRmManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>Créer l’application managée à l’aide du portail
+## <a name="create-the-managed-application-by-using-the-portal"></a>Créer l’application gérée à l’aide du portail
 
 Maintenant, nous allons utiliser le portail pour déployer l’application managée. Vous voyez l’interface utilisateur que vous avez créée dans le package.
 
 1. Accédez au portail Azure. Sélectionnez **+Nouveau** et recherchez **catalogue de services**.
 
-   ![Rechercher dans le catalogue de services](./media/publish-service-catalog-app/select-new.png)
+   ![Rechercher catalogue de services](./media/publish-service-catalog-app/select-new.png)
 
 1. Sélectionnez **Application managée du catalogue de services**.
 
@@ -242,7 +242,7 @@ Une fois le déploiement terminé, l’application managée existe dans un group
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour voir une présentation des applications managées, consultez [Vue d’ensemble des applications managées](overview.md).
+* Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées](overview.md).
 * Pour voir des exemples de projets, consultez [Exemples de projets pour des applications managées Azure](sample-projects.md).
-* Pour plus d’informations sur la publication d’applications managées sur la Place de marché, consultez l’article [Applications managées sur la Place de marché](publish-marketplace-app.md).
-* Pour en savoir plus sur la création d’un fichier de définition d’interface utilisateur pour une application managée, consultez [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
+* Pour plus d’informations sur la publication d’applications gérées sur la Place de marché, consultez l’article [Applications gérées sur la Place de marché](publish-marketplace-app.md).
+* Pour en savoir plus sur la création d’un fichier de définition de l’interface utilisateur pour une application gérée, consultez [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).

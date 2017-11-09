@@ -21,8 +21,8 @@
 # Procédures
 ## Planifier et concevoir
 ### [Comprendre l’architecture Azure AD](active-directory-architecture.md)
-### [Déployer une solution d’identité hybride](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Mappage des revendications dans Azure Active Directory](active-directory-claims-mapping.md)
+### [Déployer une solution d’identité hybride](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Déterminer la configuration requise
 ##### [Identité](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Synchronisation d’annuaires](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -40,18 +40,35 @@
 #### [Comparaison d’outils](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Gestion des utilisateurs
-### [Attribuer des licences à l’aide de groupes](active-directory-licensing-whatis-azure-portal.md)
-#### [Attribuer des licences à un groupe](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identifier et résoudre les problèmes de licence dans un groupe](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
-#### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
-#### [Exemples Azure PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
-#### [Référence pour les produits et les plans de service dans Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
+### [Ajouter de nouveaux utilisateurs dans Azure AD](add-users-azure-active-directory.md)
 ### [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
-### [Gérer les informations de travail utilisateur](active-directory-users-work-info-azure-portal.md)
 ### [Partager des comptes](active-directory-sharing-accounts.md)
-
-
+### [Affecter des utilisateurs aux rôles d’administration](active-directory-users-assign-role-azure-portal.md)
+### [Ajouter des utilisateurs invités à partir d’un autre répertoire (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
+#### [Ajout d’utilisateurs B2B par des administrateurs](active-directory-b2b-admin-add-users.md)
+#### [Ajout d’utilisateurs B2B par des membres de l’équipe informatique](active-directory-b2b-iw-add-users.md)
+#### [API et personnalisation](active-directory-b2b-api.md)
+#### [Code et exemples Azure PowerShell](active-directory-b2b-code-samples.md)
+#### [Exemple de portail de connexion libre-service](active-directory-b2b-self-service-portal.md)
+#### [E-mail d’invitation](active-directory-b2b-invitation-email.md)
+#### [Échange d’invitation](active-directory-b2b-redemption-experience.md)
+#### [Ajouter des utilisateurs B2B sans invitation](active-directory-b2b-add-user-without-invite.md)
+#### [Accès conditionnel pour B2B](active-directory-b2b-mfa-instructions.md)
+#### [Stratégies de partage B2B](active-directory-b2b-delegate-invitations.md)
+#### [Ajouter un utilisateur B2B à un rôle](active-directory-b2b-add-guest-to-role.md)
+#### [Groupes dynamiques et utilisateurs B2B](active-directory-b2b-dynamic-groups.md)
+#### [Audit et création de rapports](active-directory-b2b-auditing-and-reporting.md)
+#### [Partage externe d’Office 365 et de B2B](active-directory-b2b-o365-external-user.md)
+#### [Licences B2B](active-directory-b2b-licensing.md)
+#### [Limitations actuelles](active-directory-b2b-current-limitations.md)
+#### [FAQ](active-directory-b2b-faq.md)
+#### [Résolution de problèmes B2B](active-directory-b2b-troubleshooting.md)
+#### [Comprendre l’utilisateur B2B](active-directory-b2b-user-properties.md)
+#### [Jeton utilisateur B2B](active-directory-b2b-user-token.md)
+#### [B2B pour les applications intégrées Azure AD](active-directory-b2b-configure-saas-apps.md)
+#### [Mappage des revendications d’utilisateur B2B](active-directory-b2b-claims-mapping.md)
+#### [Comparer la collaboration B2B et B2C](active-directory-b2b-compare-b2c.md)
+#### [Obtenir une assistance pour B2B](active-directory-b2b-support.md)
 
 ## [Gérer les groupes et les membres](active-directory-manage-groups.md)
 ### Gérer les groupes
@@ -115,7 +132,7 @@
 ### [Vue d’ensemble des mots de passe](active-directory-passwords-overview.md)
 ### Documents utilisateur
 #### [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md)
-#### [Bonnes pratiques relatives aux mots de passe](active-directory-secure-passwords.md)
+#### [Meilleures pratiques relatives aux mots de passe](active-directory-secure-passwords.md)
 #### [S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
 ### [Fonctionnement SSPR](active-directory-passwords-how-it-works.md)
 ### [Guide de déploiement SSPR](active-directory-passwords-best-practices.md)
@@ -126,7 +143,7 @@
 ### Administrateurs informatiques : réinitialiser les mots de passe
 #### [Portail Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Licence SSPR](active-directory-passwords-licensing.md)
-### [Écriture différée du mot de passe](active-directory-passwords-writeback.md)
+### [Réécriture du mot de passe](active-directory-passwords-writeback.md)
 ### [Résolution des problèmes](active-directory-passwords-troubleshoot.md)
 ### [FORUM AUX QUESTIONS](active-directory-passwords-faq.md)
 
@@ -233,8 +250,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Noms de domaine personnalisés
 #### [Vue d'ensemble](active-directory-add-domain-concepts.md)
-#### Gérer les noms de domaine
-##### [portail Azure](active-directory-domains-manage-azure-portal.md)
+#### [Gérer les noms de domaine](active-directory-domains-manage-azure-portal.md)
 ##### [Portail classique](active-directory-add-manage-domain-names.md)
 ### [Administration de votre annuaire](active-directory-administer.md)
 ### [Plusieurs répertoires](active-directory-licensing-directory-independence.md)
@@ -248,38 +264,13 @@
 #### [FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Résolution des problèmes](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
-### [Intégrer des partenaires avec Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
-#### [Ajout d’utilisateurs B2B par des administrateurs](active-directory-b2b-admin-add-users.md)
-#### [Ajout d’utilisateurs B2B par des membres de l’équipe informatique](active-directory-b2b-iw-add-users.md)
-#### [API et personnalisation](active-directory-b2b-api.md)
-#### [Code et exemples Azure PowerShell](active-directory-b2b-code-samples.md)
-#### [Exemple de portail de connexion libre-service](active-directory-b2b-self-service-portal.md)
-#### [E-mail d’invitation](active-directory-b2b-invitation-email.md)
-#### [Échange d’invitation](active-directory-b2b-redemption-experience.md)
-#### [Ajouter des utilisateurs B2B sans invitation](active-directory-b2b-add-user-without-invite.md)
-#### [Accès conditionnel pour B2B](active-directory-b2b-mfa-instructions.md)
-#### [Stratégies de partage B2B](active-directory-b2b-delegate-invitations.md)
-#### [Ajouter un utilisateur B2B à un rôle](active-directory-b2b-add-guest-to-role.md)
-#### [Groupes dynamiques et utilisateurs B2B](active-directory-b2b-dynamic-groups.md)
-#### [Audit et création de rapports](active-directory-b2b-auditing-and-reporting.md)
-#### [Partage externe d’Office 365 et de B2B](active-directory-b2b-o365-external-user.md)
-#### [Licences](active-directory-b2b-licensing.md)
-#### [Limitations actuelles](active-directory-b2b-current-limitations.md)
-#### [FAQ](active-directory-b2b-faq.md)
-#### [Résolution de problèmes B2B](active-directory-b2b-troubleshooting.md)
-#### [Comprendre l’utilisateur B2B](active-directory-b2b-user-properties.md)
-#### [Jeton utilisateur B2B](active-directory-b2b-user-token.md)
-#### [B2B pour les applications intégrées Azure AD](active-directory-b2b-configure-saas-apps.md)
-#### [Mappage des revendications d’utilisateur B2B](active-directory-b2b-claims-mapping.md)
-#### [Comparer la collaboration B2B et B2C](active-directory-b2b-compare-b2c.md)
-#### [Obtenir une assistance pour B2B](active-directory-b2b-support.md)
 
 ### [Intégrer des identités locales à l’aide d’Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## [Gérer l’accès à Azure](toc.yml)
 
 ## Déléguer l’accès aux ressources
-### [Rôles d’administrateur](active-directory-assign-admin-roles.md)
+### [Rôles d’administrateur](active-directory-assign-admin-roles-azure-portal.md)
 #### [Affecter des rôles d’administrateur](active-directory-users-assign-role-azure-portal.md)
 ### [Unités administratives](active-directory-administrative-units-management.md)
 ### [Durées de vie des jetons](active-directory-configurable-token-lifetimes.md)
@@ -298,8 +289,8 @@
 ## Sécuriser vos identités
 ### [Accès conditionnel](active-directory-conditional-access-azure-portal.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
-#### [Bien démarrer](active-directory-conditional-access-azure-portal-get-started.md)
-#### [Bonnes pratiques](active-directory-conditional-access-best-practices.md)
+#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
+#### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### Tâches
 ##### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)

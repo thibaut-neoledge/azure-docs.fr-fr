@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
 > [!IMPORTANT] 
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Azure permet d'utiliser une machine virtuelle pour gérer les tâches nécessitant beaucoup de ressources. Par exemple, une machine virtuelle peut gérer des tâches et fournir des résultats à des ordinateurs clients ou à des applications mobiles. Après avoir lu cet article, vous serez en mesure de créer une machine virtuelle exécutée sur une application Java nécessitant beaucoup de ressources et pouvant être surveillée par une autre application Java.
 

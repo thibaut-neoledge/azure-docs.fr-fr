@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notes de publication pour les composants Hadoop sur Azure HDInsight
 
@@ -61,7 +61,7 @@ Cet article fournit des informations sur les mises à jour **les plus récentes*
 
 * **Nouvelles fonctionnalités Hive** Consultez la [documentation Hortonworks](https://hortonworks.com/apache/hive/#section_4).
 
-* **Obsolescence de l’interface CLI Hive** : cette interface est déconseillée et les clients sont encouragés à utiliser Beeline à la place. Pour plus d’informations, consultez la [documentation Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Pour obtenir des instructions sur l’utilisation de Beeline avec HDInsight, consultez [Utiliser Beeline avec des clusters Hadoop HDInsight](hdinsight-hadoop-use-hive-beeline.md).
+* **Obsolescence de l’interface CLI Hive** : cette interface est déconseillée et les clients sont encouragés à utiliser Beeline à la place. Pour plus d’informations, consultez la [documentation Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Pour obtenir des instructions sur l’utilisation de Beeline avec HDInsight, consultez [Utiliser Beeline avec des clusters Hadoop HDInsight](hadoop/apache-hadoop-use-hive-beeline.md).
 
 * **Nouvelles fonctionnalités Apache Phoenix et HBase**.
     * Prise en charge du quota de stockage : couramment utilisée dans des environnements mutualisés, cette option permet d’avoir un espace de stockage limité par table et niveau d’espace de noms.

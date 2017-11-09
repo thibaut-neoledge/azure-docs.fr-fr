@@ -79,23 +79,38 @@
           maintainContext: true
         - name: Plateformes et outils
           href: platforms-and-tools.md
-        - name: Personnaliser Hadoop
-          href: customize-hadoop-cluster.md
+        - name: Installation de R et de Python sur des clusters HDInsight
+          items:
+            - name: Présentation de Spark sur HDInsight
+              href: ../../hdinsight/spark/apache-spark-overview.md
+              maintainContext: true
+            - name: Créer un cluster Apache Spark dans Azure HDInsight
+              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
+              maintainContext: true
+            - name: Noyaux PySpark pour le Notebook Jupyter
+              href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
+              maintainContext: true
+            - name: "R\_Server sur HDInsight"
+              href: ../../hdinsight/r-server/r-server-overview.md
+              maintainContext: true
+            - name: "Commencer à utiliser R\_Server sur HDInsight"
+              href: ../../hdinsight/r-server/r-server-get-started.md
+              maintainContext: true
         - name: Espace de travail Azure Machine Learning
           href: ../studio/create-workspace.md
           maintainContext: true
         - name: Configurer une machine virtuelle DLVM
           items:
-            - name: Créer une machine virtuelle DLVM Windows
+            - name: Créer une machine virtuelle de science des données Windows
               href: ../data-science-virtual-machine/provision-vm.md
               maintainContext: true
-            - name: Créer une machine virtuelle DLVM Ubuntu
+            - name: Créer une machine virtuelle de science des données Ubuntu
               href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
               maintainContext: true
-            - name: Créer une machine virtuelle DLVM CentOS
+            - name: Créer une machine virtuelle de science des données CentOS
               href: ../data-science-virtual-machine/linux-dsvm-intro.md
               maintainContext: true
-            - name: Créer une machine virtuelle d’apprentissage profond
+            - name: Créer une machine virtuelle d’apprentissage approfondi
               href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
               maintainContext: true
     - name: Analyser les besoins métier
@@ -108,7 +123,7 @@
           items:
             - name: Vue d'ensemble
               href: ingest-data.md
-            - name: Stockage blob
+            - name: Stockage d'objets blob
               href: move-azure-blob.md
             - name: Utiliser l’Explorateur Stockage
               href: move-data-to-azure-blob-using-azure-storage-explorer.md
@@ -267,7 +282,7 @@
       items:
         - name: Forum MSDN
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
-        - name: Stack Overflow
+        - name: Dépassement de capacité de la pile
           href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
         - name: Vidéos
           href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'

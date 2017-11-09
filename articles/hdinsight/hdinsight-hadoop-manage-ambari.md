@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: ec6e6d07b0933504ffee17912aac9ee3ef937688
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari
 
@@ -151,7 +151,7 @@ La sélection de l’un de ces liens ouvre un nouvel onglet dans votre navigateu
 
 ### <a name="ambari-users-groups-and-permissions"></a>Utilisateurs d'Ambari, groupes et autorisations
 
-Il est possible de travailler avec des utilisateurs, des groupes et des autorisations lorsque vous utilisez un cluster HDInsight [joint au domaine](hdinsight-domain-joined-introduction.md). Pour plus d’informations sur l’utilisation de l’interface utilisateur de gestion Ambari sur un cluster joint à un domaine, consultez [Gestion des clusters HDInsight joints à un domaine](hdinsight-domain-joined-introduction.md).
+Il est possible de travailler avec des utilisateurs, des groupes et des autorisations lorsque vous utilisez un cluster HDInsight [joint au domaine](./domain-joined/apache-domain-joined-introduction.md). Pour plus d’informations sur l’utilisation de l’interface utilisateur de gestion Ambari sur un cluster joint à un domaine, consultez [Gestion des clusters HDInsight joints à un domaine](./domain-joined/apache-domain-joined-introduction.md).
 
 > [!WARNING]
 > Ne modifiez pas le mot de passe pour l’agent de surveillance Ambari (hdinsightwatchdog) sur votre cluster HDInsight basé sur Linux. La modification du mot de passe élimine la possibilité d’utiliser les actions de script ou d’effectuer des opérations de mise à l’échelle sur votre cluster.
@@ -236,7 +236,7 @@ Les affichages Ambari permettent aux développeurs d’incorporer des éléments
 
 * Gestionnaire de files d’attente Yarn : le gestionnaire de files d’attente fournit une interface utilisateur simple pour afficher et modifier les files d’attente Yarn.
 
-* Affichage Hive : l’affichage Hive vous permet d’exécuter des requêtes Hive directement à partir du navigateur web. Vous pouvez enregistrer des requêtes, afficher les résultats, enregistrer les résultats dans le stockage de cluster ou les télécharger sur votre système local. Pour plus d’informations sur l’utilisation des affichages Hive, consultez [Utiliser des affichages Hive avec HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+* Affichage Hive : l’affichage Hive vous permet d’exécuter des requêtes Hive directement à partir du navigateur web. Vous pouvez enregistrer des requêtes, afficher les résultats, enregistrer les résultats dans le stockage de cluster ou les télécharger sur votre système local. Pour plus d’informations sur l’utilisation des affichages Hive, consultez [Utiliser des affichages Hive avec HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 * Vue Tez : la vue Tez vous permet de mieux comprendre et optimiser les tâches. Vous pouvez afficher des informations sur l’exécution des tâches Tez et les ressources utilisées.
 

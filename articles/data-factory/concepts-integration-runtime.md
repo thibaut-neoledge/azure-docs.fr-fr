@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 82b1dc036b53fbc1f0159d77ce102dcd054ea722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 Integration Runtime (IR) est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -35,7 +35,7 @@ Dans Data Factory, une activité désigne l’action à effectuer. Un service l
 ## <a name="integration-runtime-types"></a>Types de runtime d’intégration
 Data Factory propose trois types de runtime d’intégration. Vous devez choisir le type qui répond le mieux à vos besoins en matière de fonctionnalités d’intégration de données et d’environnement réseau.  Ces trois types sont :
 
-- Microsoft Azure
+- Azure
 - Auto-hébergé
 - Azure-SSIS
 
@@ -43,7 +43,7 @@ Le tableau suivant décrit les fonctionnalités et l’environnement réseau pou
 
 Type de runtime | Réseau public | Réseau privé
 ------- | -------------- | ---------------
-Microsoft Azure | Déplacement des données<br/>Répartition des activités | &nbsp;
+Azure | Déplacement des données<br/>Répartition des activités | &nbsp;
 Auto-hébergé | Déplacement des données<br/>Répartition des activités | Déplacement des données<br/>Répartition des activités
 Azure-SSIS | Exécution des packages SSIS | Exécution des packages SSIS
 
@@ -155,8 +155,8 @@ Australie | Est de l’Australie | Est de l’Australie
 &nbsp; | Sud-est de l’Australie | Sud-Est de l’Australie
 Japon | Est du Japon | Est du Japon
 &nbsp; | Ouest du Japon | Est du Japon
-Corée du Sud | Centre de la Corée | Corée du Sud
-&nbsp; | Corée du Sud | Corée du Sud
+Corée du Sud | Centre de la Corée | Centre de la Corée
+&nbsp; | Corée du Sud | Centre de la Corée
 Inde | Inde centrale | Inde centrale
 &nbsp; | Inde occidentale | Inde centrale
 &nbsp; | Inde du Sud | Inde centrale

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
-ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Vue d’ensemble d’Azure Monitor
 Cet article fournit une vue d’ensemble du service Azure Monitor dans Microsoft Azure. Vous y trouverez ce qu’Azure Monitor fait et des pointeurs vers des informations supplémentaires sur l’utilisation d’Azure Monitor.  Si vous préférez une présentation vidéo, consultez les liens Étapes suivants en bas de cet article. 

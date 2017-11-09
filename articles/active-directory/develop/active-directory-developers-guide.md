@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1baf98616eb48bd3ae45b78ab1ac31e711fa655d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory pour les développeurs
 Azure Active Directory est un service d’identité de cloud qui permet aux développeurs de connecter en toute sécurité les utilisateurs disposant d’un compte professionnel ou scolaire assuré par Microsoft.  La présente documentation explique comment ajouter une prise en charge d’Azure AD à votre application par le biais de protocoles d’authentification standard du secteur, OAuth et OpenID Connect.
@@ -59,16 +59,9 @@ Ces articles fournissent des informations détaillées sur les API, les messages
 | [Glossaire](active-directory-dev-glossary.md)                                      | Terminologie et définitions des termes utilisés dans ce document |
 | [Autres documents de référence…](active-directory-developers-guide-index.md#reference)|     |
 
-## <a name="help--support"></a>Aide et support
-Ce sont les ressources les plus pertinentes pour obtenir de l’aide concernant le développement sur Azure Active Directory.
-
-|  |  
-|---|
-|[Balises `azure-active-directory` et `adal` de Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Commentaires sur Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-| [Essayez Microsoft Dev Chat (gratuit pour une durée limitée)](http://aka.ms/devchat) |
-
-<br />
 
 > [!NOTE]
 > Si vous devez connecter des comptes personnels Microsoft, vous souhaiterez peut-être utiliser le [point de terminaison Azure AD 2.0](active-directory-appmodel-v2-overview.md).  Le point de terminaison Azure AD 2.0 permet d’unifier des comptes personnels et professionnels Microsoft (à partir d’Azure AD) dans un système d’authentification unique.
+
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

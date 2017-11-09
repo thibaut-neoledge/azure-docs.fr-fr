@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76179b6a8eb7066c90828d33729b557f5e37c17a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Service de métadonnées Azure :éÉvénements planifiés (préversion) pour les machines virtuelles Windows
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 Le sous-service des événements planifiés est un des sous-services du service de métadonnées Azure. Ce sous-service est responsable de la mise à disposition des informations concernant les événements à venir (par exemple un redémarrage), pour que votre application puisse s’y préparer et limiter ainsi l’interruption. Il est disponible pour tous types de machines virtuelles Azure, notamment PaaS et IaaS. Le sous-service des événements planifiés donne à votre machine virtuelle le temps d’effectuer des tâches préventives pour réduire l’impact d’un événement. 
 
-Des événements planifiés est disponibles pour les machines virtuelles Windows et Linux. Pour plus d’informations sur les événements planifiés sur Linux, consultez [Événements planifiés pour les machines virtuelles Linux](../windows/scheduled-events.md).
+Des événements planifiés est disponibles pour les machines virtuelles Windows et Linux. Pour plus d’informations sur les événements planifiés sur Linux, consultez [Événements planifiés pour les machines virtuelles Linux](../linux/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Pourquoi choisir les événements planifiés ?
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 5dbfd043f1809f407baf6aa4ca5c5272af425012
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cef2dac8651933765c83410579eafb23460960f9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Guides de la science des données HDInsight Hadoop avec Hive sur Azure 
 
-Ces guides utilisent Hive avec un cluster HDInsight Hadoop pour effectuer des analyses prédictives. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) Vous trouverez une présentation d’Azure HDInsight sur la page [Présentation d’Azure HDInsight, la pile de technologies Hadoop, et des clusters Hadoop](../../hdinsight/hdinsight-hadoop-introduction.md).
+Ces guides utilisent Hive avec un cluster HDInsight Hadoop pour effectuer des analyses prédictives. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) Vous trouverez une présentation d’Azure HDInsight sur la page [Présentation d’Azure HDInsight, la pile de technologies Hadoop, et des clusters Hadoop](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
 D’autres guides de la science des données qui appliquent le processus TDSP sont regroupés en fonction de la **plateforme** qu’ils utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
 

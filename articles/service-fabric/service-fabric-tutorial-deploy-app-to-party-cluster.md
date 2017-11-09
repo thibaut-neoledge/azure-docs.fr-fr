@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Déployer une application sur un cluster tiers dans Azure
 Deuxième d’une série, ce didacticiel vous montre comment déployer une application Azure Service Fabric sur un cluster tiers dans Azure.
@@ -58,24 +58,6 @@ Si vous le souhaitez, vous pouvez utiliser votre propre cluster à la place du c
 
 > [!NOTE]
 > Les clusters tiers ne sont pas sécurisés. Vos applications et toutes les données que vous y placez sont donc visibles par d’autres personnes. Ne déployez aucun élément que vous souhaitez cacher aux autres utilisateurs. Veillez à lire les conditions d’utilisation pour plus d’informations.
-
-## <a name="configure-the-listening-port"></a>Configurer le port d’écoute
-Lorsque le service frontal VotingWeb est créé, Visual Studio sélectionne de manière aléatoire le port d’écoute du service.  Le service VotingWeb joue le rôle de serveur frontal de cette application et accepte le trafic externe. Associez ce service à un port fixe et connu. Dans l’Explorateur de solutions, ouvrez *VotingWeb/PackageRoot/ServiceManifest.xml*.  Recherchez la ressource **Endpoint** dans la section **Resources**, puis remplacez la valeur du **port** par 80.
-
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
-    </Endpoints>
-  </Resources>
-```
-
-Mettez également à jour la valeur de la propriété d’URL d’application dans le projet Voting, afin qu’un navigateur web s’ouvre sur le port adéquat lorsque vous effectuez le débogage en appuyant sur F5.  Dans l’Explorateur de solutions, sélectionnez le projet **Voting** et mettez à jour la propriété **URL de l’application**.
-
-![URL de l’application](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>Déployer l’application dans Azure
 Maintenant que l’application est prête, vous pouvez la déployer sur le cluster tiers directement à partir de Visual Studio.
