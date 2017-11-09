@@ -3,7 +3,7 @@ title: "Mise à niveau des serveurs Azure MFA | Microsoft Docs"
 description: "Étapes et aide pour la mise à niveau du serveur Azure Multi-Factor Authentication vers une version plus récente."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -12,18 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-
-
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Mise à niveau du serveur Azure Multi-Factor Authentication vers la dernière version
 
 Cet article vous guide dans le processus de mise à niveau du serveur Azure Multi-Factor Authentication (MFA) v6.0 ou version ultérieure. Si vous avez besoin de mettre à niveau une ancienne version de l’Agent PhoneFactor, consultez la page [Mettre à niveau l’Agent PhoneFactor vers le serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md).
@@ -32,7 +29,7 @@ Si vous passez de la v6.x ou d’une version antérieure à la version 7.x ou un
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Installer la dernière version du serveur Azure MFA
 
-1. Suivez les instructions de la page [Télécharger le serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server) pour obtenir la dernière version du serveur Azure MFA.
+1. Suivez les instructions de la page [Télécharger le serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-mfa-server) pour obtenir la dernière version du serveur Azure MFA.
 2. Effectuez une sauvegarde du fichier de données du serveur MFA situé dans C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (emplacement d’installation par défaut) sur votre serveur MFA maître.
 3. Si vous exécutez plusieurs serveurs à des fins de haute disponibilité, modifiez les systèmes clients qui s’authentifient auprès du serveur MFA afin qu’ils arrêtent d’envoyer du trafic aux serveurs en cours de mise à niveau. Si vous utilisez un équilibreur de charge, supprimez un serveur MFA de l’équilibreur de charge, effectuez la mise à niveau, puis rajoutez le serveur à la batterie de serveurs.
 4. Exécutez le nouveau programme d’installation sur chaque serveur MFA. Mettez à niveau les serveurs subordonnés en premier, car ils peuvent lire l’ancien fichier de données que le maître est en train de répliquer. 
@@ -116,4 +113,3 @@ Ces instructions s’appliquent uniquement si vous exécutez le serveur Multi-Fa
 - [Synchronisez le serveur MFA avec Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)
 
 - [Configurez l’authentification Windows](multi-factor-authentication-get-started-server-windows.md) pour vos applications
-

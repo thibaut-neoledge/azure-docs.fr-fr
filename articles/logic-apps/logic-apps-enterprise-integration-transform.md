@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
-ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Intégration d’entreprise avec les transformations XML
 ## <a name="overview"></a>Vue d'ensemble
@@ -73,5 +71,4 @@ Vous pouvez maintenant tester votre transformation en effectuant une demande au 
 ## <a name="learn-more"></a>En savoir plus
 * [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
 * [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")  
-
 

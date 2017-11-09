@@ -1,27 +1,26 @@
 ---
-title: "Déployer et explorer l’application Wingtip SaaS mutualisée qui utilise SQL Azure Database | Microsoft Docs"
+title: Didacticiel SaaS multi-locataire - Azure SQL Database | Microsoft Docs
 description: "Déployez et explorez l’application Wingtip SaaS mutualisée, qui illustre les modèles SaaS en utilisant SQL Azure Database."
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f624485d32901abb5f0d01c86fc30ddaaae261a3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: b09bfa8a5bc22a092e963f351e99c16d0e9a57ba
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Déployer et explorer une application mutualisée qui utilise Azure SQL Database - Wingtip SaaS
 
@@ -203,4 +202,3 @@ Essayez maintenant le [didacticiel Provision new tenants and register them in th
 * Pour de plus amples informations sur les pools élastiques, consultez [*Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données SQL*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool).
 * Pour de plus amples informations sur les travaux élastiques, consultez [*Gestion des bases de données cloud avec montée en charge*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview).
 * Pour de plus amples informations sur les applications SaaS mutualisées, consultez [*Modèles de conception pour les applications SaaS mutualisées et Base de données SQL Azure*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications).
-

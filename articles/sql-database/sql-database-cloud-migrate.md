@@ -1,6 +1,6 @@
 ---
 title: "Migration de base de données SQL Server vers Azure SQL Database | Microsoft Docs"
-description: "Découvrez comment migrer une base de données SQL Server vers Azure SQL Database dans le cloud. Utilisez les outils de migration de base de données pour tester la compatibilité avant de procéder à la migration de la base de données."
+description: "Découvrez comment migrer une base de données SQL Server vers Azure SQL Database dans le cloud."
 keywords: "migration de base de données, migration de base de données sql server, outils de migration de base de données, migrer la base de données, migrer la base de données sql"
 services: sql-database
 documentationcenter: 
@@ -9,19 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-migrate
+ms.workload: Active
 ms.date: 02/08/2017
 ms.author: carlrab
+ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migration de base de données SQL Server vers SQL Database dans le cloud
 Cet article décrit les deux méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers Azure SQL Database. La première méthode est plus simple, mais elle implique un temps d’arrêt potentiellement important pendant la migration. La seconde méthode est plus complexe, mais elle élimine en grande partie les temps d’arrêt lors de la migration.
@@ -45,14 +44,14 @@ La liste suivante contient le workflow général pour la migration d’une base 
 3. Faites une copie cohérente au niveau transactionnel de la base de données source à migrer et assurez-vous qu’aucune modification supplémentaire n’est apportée à cette dernière (ou vous pourrez appliquer les modifications requises manuellement une fois la migration terminée). Il existe de nombreuses méthodes pour suspendre une base de données, que ce soit en désactivant la connectivité des clients ou en créant un [instantané de base de données](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Déployez les scripts Transact-SQL pour appliquer les correctifs à la copie de base de données.
 5. [Exportez](sql-database-export.md) la copie de base de données vers un fichier BACPAC sur un lecteur local.
-6. [Importez](sql-database-import.md) le fichier BACPAC en tant que nouvelle base de données SQL Azure à l’aide de l’un des outils d’importation BACPAC disponibles, SQLPackage.exe étant recommandé pour optimiser les performances.
+6. [Importez](sql-database-import.md) le fichier BACPAC en tant que nouvelle base de données Azure SQL Database à l’aide de l’un des outils d’importation BACPAC disponibles, SQLPackage.exe étant recommandé pour optimiser les performances.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimisation des performances de transfert de données pendant la migration 
 
 La liste suivante contient des recommandations pour optimiser les performances pendant le processus d’importation.
 
 * Choisissez le niveau de service et le niveau de performance les plus élevés permis par votre budget pour maximiser les performances de transfert. Vous pourrez descendre en puissance une fois la migration terminée pour économiser de l’argent. 
-* Minimisez la distance entre votre fichier BACPAC et le centre de données de destination.
+* Réduisez la distance entre votre fichier BACPAC et le centre de données de destination.
 * Désactivez les statistiques automatiques pendant la migration.
 * Partitionnez les tables et les index.
 * Supprimez les vues indexées et recréez-les une fois la migration terminée.
@@ -119,6 +118,5 @@ Outre les recherches sur Internet et ces ressources, utilisez les [forums de com
 * Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * Pour plus d’informations sur l’utilisation de l’heure UTC après la migration, consultez [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (Modification du fuseau horaire par défaut pour votre fuseau horaire local).
 * Pour plus d’informations sur la modification de la langue par défaut d’une base de données après la migration, consultez [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (Modification de la langue par défaut d’Azure SQL Database).
-
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
+ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: ea15705bf02d9773507c6cb59f2da4c1dd0f9d77
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 ## <a name="overview"></a>Vue d'ensemble ##
@@ -30,8 +29,8 @@ Vous pouvez configurer une liste d’actions avec des groupes d’actions. Ces g
 Un groupe d’actions peut contenir jusqu’à 10 actions de chaque type. Chaque action se compose des propriétés suivantes :
 
 * **Nom** : identificateur unique au sein du groupe d’actions.  
-* **Type d’action** : envoyer un SMS, envoyer un e-mail ou appeler un Webhook.  
-* **Détails** : numéro de téléphone, adresse e-mail ou URI de Webhook correspondant.
+* **Type d’action** : envoyer un SMS, envoyer un message électronique, appeler un Webhook ou envoyer des données à un outil ITSM.
+* **Détails** : numéro de téléphone, adresse e-mail ou URI de Webhook ou informations de connexion ITSM correspondants.
 
 Pour plus d’informations sur l’utilisation de modèles Azure Resource Manager pour configurer des groupes d’actions, consultez la page [Modèles Resource Manager de groupes d’actions](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -57,9 +56,14 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
     a. **Nom** : entrez un identificateur unique pour cette action.
 
-    b. **Type d’action** : sélectionnez SMS, e-mail ou Webhook.
+    b. **Type d’action** : sélectionnez SMS, message électronique, Webhook ou ITSM.
 
-    c. **Détails** : selon le type d’action, entrez un numéro de téléphone, une adresse e-mail ou une URI de Webhook.
+    c. **Détails** : selon le type d’action, entrez un numéro de téléphone, une adresse e-mail, une URI de Webhook ou des informations de connexion ITSM. Pour ITSM Action, spécifiez l’**élément de travail** et les autres champs nécessaires à votre outil ITSM. 
+
+> [!NOTE]
+> ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action fonctionne actuellement uniquement pour les alertes de journal d’activité. Pour les autres types d’alertes, cette action n’a actuellement aucun effet.
+>
+>
 
 8. Sélectionnez **OK** pour créer le groupe d’actions.
 
@@ -72,7 +76,7 @@ Après sa création, un groupe d’actions apparaît dans la section **Groupes d
 ## <a name="next-steps"></a>Étapes suivantes ##
 * En savoir plus sur le [comportement des alertes SMS](monitoring-sms-alert-behavior.md).  
 * [Comprendre le schéma Webhook des alertes du journal d’activité](monitoring-activity-log-alerts-webhook.md).  
+* En savoir plus sur [ITSM Connector](../log-analytics/log-analytics-itsmc-overview.md)
 * En savoir plus sur la [limitation de la fréquence](monitoring-alerts-rate-limiting.md) des alertes. 
 * Obtenir une [vue d’ensemble des alertes du journal d’activité](monitoring-overview-alerts.md) et découvrir comment recevoir des alertes.  
 * Découvrir comment [configurer des alertes lorsqu’une notification d’intégrité de service est publiée](monitoring-activity-log-alerts-on-service-notifications.md).
-

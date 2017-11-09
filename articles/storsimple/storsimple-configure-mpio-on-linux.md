@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
 ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuration de MPIO sur un hôte StorSimple exécutant CentOS
 Cet article explique les étapes requises pour configurer la MPIO (gestion multivoie d’E/S) sur votre serveur hôte CentOS 6.6. Le serveur hôte est connecté à votre appareil Microsoft Azure StorSimple pour la haute disponibilité via les initiateurs iSCSI. Il décrit en détail la détection automatique des appareils multivoies et l’installation spécifique uniquement pour les volumes StorSimple.
@@ -56,11 +56,11 @@ Le fichier de configuration `/etc/multipath.conf` rend un grand nombre de foncti
 
 Le fichier multipath.conf comporte cinq sections :
 
-- **Valeurs par défaut au niveau système** *(defaults)*: vous pouvez remplacer les valeurs par défaut au niveau système.
-- **Appareils sur liste noire** *(blacklist)*: vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
-- **Exceptions de la liste noire** *(blacklist_exceptions)* : vous pouvez identifier des appareils spécifiques à traiter en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste noire.
-- **Paramètres spécifiques au contrôleur de stockage** *(devices)*: vous pouvez spécifier des paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
-- **Paramètres spécifiques aux appareils** *(multipaths)*: vous pouvez utiliser cette section pour ajuster les paramètres de configuration des numéros d’unité logique individuels.
+- **Valeurs par défaut au niveau système***(defaults)*: vous pouvez remplacer les valeurs par défaut au niveau système.
+- **Appareils sur liste noire***(blacklist)*: vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
+- **Exceptions de la liste noire***(blacklist_exceptions)* : vous pouvez identifier des appareils spécifiques à traiter en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste noire.
+- **Paramètres spécifiques au contrôleur de stockage***(devices)*: vous pouvez spécifier des paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
+- **Paramètres spécifiques aux appareils***(multipaths)*: vous pouvez utiliser cette section pour ajuster les paramètres de configuration des numéros d’unité logique individuels.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configuration de la gestion multivoie sur StorSimple connecté à l’hôte Linux
 Un appareil StorSimple connecté à un hôte Linux peut être configuré pour la haute disponibilité et l’équilibrage de charge. Par exemple, si l’hôte Linux possède deux interfaces connectées au réseau SAN et que l’appareil possède deux interfaces connectées au réseau SAN de telle sorte qu’elles sont sur le même sous-réseau, 4 chemins d’accès sont disponibles. Cependant, si les interfaces DATA sur l’appareil et l’interface de l’hôte sont sur un autre sous-réseau IP (non routable), alors seuls 2 chemins d’accès sont disponibles. Vous pouvez configurer la gestion multivoie pour détecter automatiquement tous les chemins d’accès disponibles, choisir un algorithme d’équilibrage de charge pour ces chemins d’accès, appliquer des paramètres de configuration spécifiques pour les volumes StorSimple uniquement, puis activer et vérifier la gestion multivoie.
@@ -446,10 +446,4 @@ Pour plus d’informations, accédez à [Utilisation de la commande interactive 
 
 * [Configuration de MPIO sur CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 * [Guide de formation Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

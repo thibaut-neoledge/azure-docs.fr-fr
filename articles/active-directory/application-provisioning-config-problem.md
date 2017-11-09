@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e15784a662b1691774eb3d9cc8b3fbe66ac67385
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
 
 La configuration de [l’approvisionnement automatique des utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) pour une application (lorsqu’il est pris en charge) implique de respecter des instructions spécifiques pour la préparation de l’application. Vous pouvez ensuite utiliser le Portail Azure afin de configurer le service d’approvisionnement pour synchroniser les comptes d’utilisateur avec l’application.
@@ -31,9 +29,9 @@ Vous devez toujours commencer par rechercher le didacticiel spécifique à la co
 
 Une fois que le service est configuré, la plupart des informations sur son fonctionnement peuvent être obtenues à deux emplacements :
 
--   **Journaux d’audit** : les journaux d’audit d’approvisionnement enregistrent toutes les opérations effectuées par le service d’approvisionnement, y compris l’interrogation d’Azure AD concernant les utilisateurs assignés qui se trouvent dans l’étendue de l’approvisionnement. Interrogez l’application cible concernant l’existence de ces utilisateurs en comparant les objets utilisateur du système. Puis, ajoutez, mettez à jour ou désactivez le compte d’utilisateur dans le système cible en fonction de cette comparaison. Les journaux d’audit d’approvisionnement sont accessibles dans le Portail Azure, sous l’onglet **Azure Active Directory &gt; Applications d’entreprise &gt; \[Nom de l’application\] &gt; Journaux d’audit**. Filtrez les journaux sur la catégorie **Approvisionnement de comptes** pour afficher uniquement les événements d’approvisionnement de cette application.
+-   **Journaux d’audit** : les journaux d’audit d’approvisionnement enregistrent toutes les opérations effectuées par le service d’approvisionnement, y compris l’interrogation d’Azure AD concernant les utilisateurs assignés qui se trouvent dans l’étendue de l’approvisionnement. Interrogez l’application cible concernant l’existence de ces utilisateurs en comparant les objets utilisateur du système. Puis, ajoutez, mettez à jour ou désactivez le compte d’utilisateur dans le système cible en fonction de cette comparaison. Les journaux d’audit d’approvisionnement sont accessibles dans le portail Azure, sous l’onglet **Azure Active Directory &gt; Applications Entreprise &gt; \[Nom de l’application\] &gt; Journaux d’audit**. Filtrez les journaux sur la catégorie **Approvisionnement de comptes** pour afficher uniquement les événements d’approvisionnement de cette application.
 
--   **État de l’approvisionnement :** un résumé de la dernière exécution de l’approvisionnement pour une application donnée est disponible sous **Azure Active Directory &gt; Applications d’entreprise &gt; \[Nom de l’application\] &gt;Approvisionnement**, en bas de l’écran, sous les paramètres du service. Cette section affiche le nombre d’utilisateurs (et/ou groupes) en cours de synchronisation entre les deux systèmes et indique les erreurs éventuelles. Les erreurs sont détaillées dans les journaux d’audit. Notez que l’état de l’approvisionnement n’est renseigné que lorsqu’une synchronisation initiale complète a été effectuée entre Azure AD et l’application.
+-   **État de l’approvisionnement :** un résumé de la dernière exécution de l’approvisionnement pour une application donnée est disponible sous **Azure Active Directory &gt; Applications d’entreprise &gt;\[Nom de l’application\]&gt;Approvisionnement**, en bas de l’écran, sous les paramètres du service. Cette section affiche le nombre d’utilisateurs (et/ou groupes) en cours de synchronisation entre les deux systèmes et indique les erreurs éventuelles. Les erreurs sont détaillées dans les journaux d’audit. Notez que l’état de l’approvisionnement n’est renseigné que lorsqu’une synchronisation initiale complète a été effectuée entre Azure AD et l’application.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Problèmes d’approvisionnement généraux à prendre en compte
 
@@ -60,7 +58,7 @@ Pour un fonctionnement correct de l’approvisionnement, Azure AD nécessite de
 
 Lorsqu’un utilisateur apparaît comme « ignoré » dans les journaux d’audit, il est essentiel de consulter les détails du message du journal pour en déterminer la raison. Voici les raisons les plus courantes et les solutions correspondantes :
 
--   **Un filtre d’étendue a été configuré** **et exclut l’utilisateur en fonction d’une valeur d’attribut**. Pour plus d’informations sur les filtres d’étendue, consultez <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
+-   **Un filtre d’étendue a été configuré****et exclut l’utilisateur en fonction d’une valeur d’attribut**. Pour plus d’informations sur les filtres d’étendue, consultez <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 
 -   **L’utilisateur n’est pas « autorisé de manière effective ».** Ce message d’erreur indique un problème concernant l’enregistrement d’affectation d’utilisateurs stocké dans Azure AD. Pour résoudre ce problème, supprimez l’affectation de l’utilisateur (ou du groupe) à partir de l’application, puis réaffectez-le. Pour plus d’informations sur l’affectation, consultez <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
 
@@ -70,4 +68,3 @@ Lorsqu’un utilisateur apparaît comme « ignoré » dans les journaux d’au
 
 #<a name="next-steps"></a>Étapes suivantes
 [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md)
-

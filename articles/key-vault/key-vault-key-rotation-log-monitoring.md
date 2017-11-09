@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 38c342802ed687985ac6f84f5a590a1a0dcc6c6a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
-
+ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit de bout en bout
 ## <a name="introduction"></a>Introduction
@@ -407,7 +405,7 @@ Et ajoutez un fichier appelé project.json avec le contenu suivant :
 ```
 Lorsque vous cliquez sur **Enregistrer**, Azure Functions télécharge les fichiers binaires nécessaires.
 
-Basculez vers l’onglet **Intégration** et donnez un nom explicite au paramètre du minuteur à utiliser dans la fonction. Dans le code précédent, le minuteur est appelé *myTimer*. Spécifiez une [expression CRON](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) comme suit : 0 \* \* \* \* \* pour le minuteur qui activera l’exécution de la fonction une fois par minute.
+Basculez vers l’onglet **Intégration** et donnez un nom explicite au paramètre du minuteur à utiliser dans la fonction. Dans le code précédent, le minuteur est appelé *myTimer*. Spécifiez une [expression CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) comme suit : 0 \* \* \* \* \* pour le minuteur qui activera l’exécution de la fonction une fois par minute.
 
 Dans ce même onglet **Intégration**, ajoutez une entrée de type **Stockage Blob Azure**. Elle pointera vers le fichier sync.txt contenant l’horodatage du dernier événement examiné par la fonction. Elle sera disponible dans la fonction en tant que nom de paramètre. Dans le code précédent, l’entrée Azure Blob Storage attend le nom de paramètre *inputBlob*. Choisissez le compte de stockage dans lequel se trouvera le fichier sync.txt (il peut s’agir du même compte de stockage ou d’un autre). Dans le champ Chemin d’accès, indiquez le chemin d’accès au fichier au le format {container-name}/path/to/sync.txt.
 
@@ -418,7 +416,7 @@ Ajoutez une sortie de type *Stockage Blob Azure*. Elle pointe vers le fichier sy
 ### <a name="azure-logic-app"></a>Application logique Azure
 Vous devez ensuite créer une application logique Azure qui sélectionne les événements que la fonction place dans la file d’attente Service Bus, analyse le contenu et envoie un e-mail lorsqu’une condition est remplie.
 
-[Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md) en accédant à **Nouveau > Application logique**.
+[Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md) en accédant à **Nouveau &gt; Application logique**.
 
 Une fois l’application logique créée, accédez à celle-ci et choisissez **Modifier**. Dans l’éditeur d’application logique, choisissez la **File d’attente Service Bus** et entrez vos informations d’identification Service Bus pour la connecter à la file d’attente.
 
@@ -439,4 +437,3 @@ Créez maintenant une action sous **Si non, ne rien faire**.
 Pour l’action, choisissez **Office 365 - Envoyer un message électronique**. Renseignez les champs pour créer un e-mail à envoyer lorsque la condition définie retourne **false**. Si vous n’avez pas Office 365, vous pouvez rechercher des alternatives pour parvenir aux mêmes résultats.
 
 À ce stade, vous disposez d’un pipeline de bout en bout qui recherche les nouveaux journaux d’audit de coffre de clés une fois par minute. Il place les nouveaux journaux qu’il trouve dans une file d’attente Service Bus. L’application logique est déclenchée lorsqu’un nouveau message arrive dans la file d’attente. Si *l’appid* au sein de l’événement ne correspond pas à l’ID d’application de l’application appelante, il envoie un e-mail.
-

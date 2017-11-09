@@ -1,7 +1,7 @@
 ---
 title: "Vue d’ensemble d’Azure Application Insights pour DevOps | Microsoft Docs"
 description: "Découvrez comment utiliser Application Insights dans un environnement DevOps."
-author: CFreemanwa
+author: mrbullwinkle
 services: application-insights
 documentationcenter: 
 manager: carmonm
@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.custom: mvc
+ms.topic: overview
 ms.date: 06/26/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c6bfa094f5f06483a9c59a1e0167e5fa7f8f053e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Vue d’ensemble d’Application Insights pour DevOps
 
@@ -38,7 +38,7 @@ Les exigences alimentent leur backlog de développement (liste des tâches). Ils
 
 L'équipe utilise Application Insights pour surveiller de l'application web active en termes pour :
 
-* Les performances. Elle cherche à comprendre comment les temps de réponse varient en fonction du nombre de demandes, quelles ressources de l'UC, de réseau, de disque et autres sont utilisées et où se trouvent les goulots d'étranglement. Défaillances.
+* Les performances. Elle cherche à comprendre comment les temps de réponse varient en fonction du nombre de demandes, quelles ressources de l’UC, de réseau, de disque et autres sont utilisées, quel code d’application a ralenti les performances et où se trouvent les goulots d’étranglement.
 * Les échecs. S'il existe des exceptions ou des demandes ayant échoué, ou si un compteur de performances dépasse sa plage de confort, l'équipe doit en être rapidement informée pour pouvoir prendre des mesures.
 * L’utilisation. Lorsqu'une nouvelle fonctionnalité est disponible, l'équipe souhaite savoir dans quelle mesure elle est utilisée et si les utilisateurs rencontrent des difficultés avec elle.
 
@@ -181,11 +181,14 @@ Le diagnostic n'est pas tout à fait la même chose que le débogage. Avant de c
 
 **Le problème vient-il de nous ?**  Si vous constatez une chute soudaine des performances d'un type de demande particulier, par exemple lorsque le client souhaite obtenir un relevé de compte, il est possible que le problème vienne d'un sous-système externe plutôt que de votre application web. Dans Metrics Explorer, sélectionnez les taux d'échec de dépendance et les taux de durée de la dépendance et consultez leur historique sur quelques heures ou jours avec en tête le problème que vous avez détecté. S'il y a une corrélation dans les changements, un sous-système externe peut être à l'origine du problème.  
 
+
 ![Graphiques des échecs des dépendances et durée des appels aux dépendances](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Certains problèmes de dépendances lentes sont dus à des problèmes de géolocalisation. La banque Fabrikam utilise des machines virtuelles Azure et l'équipe a découvert que leur serveur web et le compte de ce serveur avaient été placés par inadvertance dans des pays différents. La migration d'un de ces deux éléments a apporté des améliorations considérables.
 
-**Qu'avons-nous fait ?** Si le problème ne paraît pas venir d'une dépendance, et s’il n'a pas toujours été là, il est probablement dû à une modification récente. La perspective historique fournie par les graphiques des mesures et des événements facilite la mise en corrélation de changements soudains avec les déploiements. Cela permet de réduire le champ de la recherche du problème.
+**Qu'avons-nous fait ?** Si le problème ne paraît pas venir d'une dépendance, et s’il n'a pas toujours été là, il est probablement dû à une modification récente. La perspective historique fournie par les graphiques des mesures et des événements facilite la mise en corrélation de changements soudains avec les déploiements. Cela permet de réduire le champ de la recherche du problème. Pour identifier les lignes du code d’application à l’origine du ralentissement des performances, activez Application Insights Profiler. Reportez-vous à [Profilage des applications web dynamiques Azure avec Application Insights](./app-insights-profiler.md). Une fois Application Insights Profiler activé, vous verrez une trace semblable à la suivante. Dans cet exemple, on remarque facilement que la méthode *GetStorageTableData* a provoqué le problème.  
+
+![Trace d’Application Insights Profiler](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
 **Que se passe-t-il ?** Certains problèmes se produisent rarement et peuvent être difficiles à détecter en cas de test hors connexion. Tout ce que nous pouvons faire, c'est essayer de capturer le bogue lorsqu'il se produit en temps réel. Vous pouvez inspecter les vidages de pile dans les rapports d'exceptions. En outre, vous pouvez écrire les appels de suivi, soit avec votre infrastructure de journalisation favorite, soit avec TrackTrace() ou TrackEvent().  
 
@@ -203,7 +206,7 @@ L'équipe de développement de la banque Fabrikam adopte une approche plus struc
 ## <a name="monitor-user-activity"></a>Surveiller les activités des utilisateurs
 Lorsque le temps de réponse reste satisfaisant et qu’il existe quelques exceptions, l’équipe de développement peut passer à la facilité d’utilisation. Elle peut réfléchir à la façon d’améliorer l’expérience des utilisateurs et d’encourager davantage d’utilisateurs à atteindre leurs objectifs.
 
-Application Insights peut également servir à apprendre ce que les utilisateurs font avec une application. Une fois que cette dernière s'exécute correctement, l'équipe souhaite savoir quelles sont les fonctionnalités les plus populaires, ce que les utilisateurs ont comme difficultés et s'ils reviennent souvent. Ces données permettront de hiérarchiser le travail à venir. Et l'équipe peut prévoir de mesurer la réussite de chaque fonctionnalité dans le cadre du cycle de développement. 
+Application Insights peut également servir à apprendre ce que les utilisateurs font avec une application. Une fois que cette dernière s'exécute correctement, l'équipe souhaite savoir quelles sont les fonctionnalités les plus populaires, ce que les utilisateurs ont comme difficultés et s'ils reviennent souvent. Ces données permettront de hiérarchiser le travail à venir. Et l'équipe peut prévoir de mesurer la réussite de chaque fonctionnalité dans le cadre du cycle de développement.
 
 Par exemple, le parcours typique d’un utilisateur sur un site web s’effectue via un « entonnoir » bien défini. De nombreux clients consultent les taux de différents types de prêt. Un petit nombre d’entre eux décident de remplir le formulaire de devis. Parmi ceux qui reçoivent le devis, quelques-uns poursuivent jusqu’à la finalisation du prêt.
 
@@ -233,4 +236,3 @@ Vous pouvez commencer de plusieurs façons, selon les caractéristiques de votre
 * Applications déjà déployées, hébergées sur [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) ou [Azure](app-insights-azure.md).
 * [Pages web](app-insights-javascript.md) (application à page unique ou page web ordinaire) : utilisez cette option seule ou en plus des options de serveur.
 * [Tests de disponibilité](app-insights-monitor-web-app-availability.md) pour tester votre application à partir de l’Internet public.
-

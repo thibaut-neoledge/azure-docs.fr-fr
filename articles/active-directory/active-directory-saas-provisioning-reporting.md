@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 86b9a3d93745045904c6038583b9bc6ebac5667e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur
 
 
@@ -50,7 +48,7 @@ Cet article utilise les termes suivants, définis ci-dessous :
 
 Pour obtenir des informations de rapport d’approvisionnement pour une application donnée, ouvrez le [portail de gestion Azure](https://portal.azure.com), puis accédez à l’Application d’entreprise pour laquelle l’approvisionnement est configuré. Par exemple, si vous approvisionnez des utilisateurs pour LinkedIn Elevate, le chemin de navigation pour accéder aux détails de l’application est le suivant :
 
-**Azure Active Directory > Applications d’entreprise > Toutes les applications > LinkedIn Elevate**
+**Azure Active Directory &gt; Applications d’entreprise &gt; Toutes les applications &gt; LinkedIn Elevate**
 
 À ce stade, vous pouvez accéder tant au rapport de synthèse sur l’approvisionnement qu’aux journaux d’audit de l’approvisionnement, tous deux décrits ci-dessous.
 
@@ -136,4 +134,3 @@ Pour obtenir des instructions basées sur un scénario concernant la manière de
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-

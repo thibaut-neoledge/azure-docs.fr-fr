@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: bfb41f254d74bef843461a058ee5b2ced7fc45ec
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Principes de conception Azure AD Connect
 L’objectif de cette rubrique est de décrire les principes qui doivent présider à la conception de l’implémentation d’Azure AD Connect. Il s’agit d’une exploration approfondie de certains aspects. Ces concepts sont également décrits brièvement dans d’autres rubriques.
@@ -151,9 +150,15 @@ Pour passer d’objectGUID à ConsistencyGuid en tant qu’attribut Ancre source
 
    ![Activer ConsistencyGuid pour un déploiement existant - Étape 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
-Pendant l’analyse (étape 4), si l’attribut est configuré sur un ou plusieurs objets de l’annuaire, l’Assistant en déduit que l’attribut est utilisé par une autre application et retourne une erreur, comme illustré dans le diagramme ci-dessous. Si vous êtes certain qu’attribut n’est pas utilisé par des applications existantes, contactez le Support technique pour plus d’informations sur la manière de supprimer l’erreur.
+Pendant l’analyse (étape 4), si l’attribut est configuré sur un ou plusieurs objets de l’annuaire, l’Assistant en déduit que l’attribut est utilisé par une autre application et retourne une erreur, comme illustré dans le diagramme ci-dessous. Cette erreur peut également se produire quand vous avez déjà activé la fonctionnalité ConsistencyGuid sur votre serveur principal Azure AD Connect et que vous essayez de faire de même sur votre serveur de préproduction.
 
 ![Activer ConsistencyGuid pour un déploiement existant - Erreur](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeploymenterror.png)
+
+ Si vous êtes certain que l’attribut n’est pas utilisé par d’autres applications existantes, vous pouvez éviter cette erreur en redémarrant l’Assistant Azure AD Connect avec le **/SkipLdapSearchcontact** spécifié. Pour cela, exécutez la commande suivante dans l’invite de commandes :
+
+```
+"c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
+```
 
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>Impact sur AD FS d’une configuration de fédération tierce
 Si vous utilisez Azure AD Connect pour gérer un déploiement d’AD FS local, Azure AD Connect met automatiquement à jour les règles de revendication pour utiliser le même attribut AD en tant qu’attribut sourceAnchor. Cela garantit que la revendication ImmutableID générée par ADFS est cohérente avec les valeurs de sourceAnchor exportées vers Azure AD.
@@ -192,4 +197,3 @@ Azure AD Connect détecte si vous exécutez un environnement de domaine non rout
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-

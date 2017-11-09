@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4e02b55272fee8460886bb807a45cad99612dd86
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="internet-of-things-security-from-the-ground-up"></a>Sécurisation de l’Internet des objets de bout en bout
 L’Internet des objets (IoT, Internet of Things) confronte les entreprises du monde entier à des défis uniques en termes de sécurité, de confidentialité et de conformité. Contrairement à la technologie informatique traditionnelle où ces problèmes sont axés sur les logiciels et leur mode d’implémentation, l’IoT porte sur les effets de la convergence entre le monde informatique et le monde physique. La protection des solutions IoT implique un approvisionnement sécurisé des appareils, une connexion sécurisée entre ces appareils et le cloud et une protection efficace des données dans le cloud, dans le cadre du traitement et du stockage. Cependant, les appareils avec contraintes de ressources, la répartition géographique des déploiements et le grand nombre d’appareils inclus au sein d’une solution vont à l’encontre de ces fonctionnalités.
 
@@ -49,7 +47,7 @@ Nos systèmes assurent une détection des intrusions et une prévention continue
 
 Microsoft Azure IoT Suite tire parti de la sécurité et de la confidentialité intégrées à la plateforme Azure et de nos processus SDL et OSA pour le développement et l’utilisation sécurisés de tous les logiciels Microsoft. Ces procédures fournissent des fonctionnalités de protection de l’infrastructure, de protection du réseau et d’identité et gestion fondamentales pour la sécurité de n’importe quelle solution. 
 
-[Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md), inclus dans [IoT Suite](iot-suite-what-is-azure-iot.md), offre un service entièrement géré, qui assure une communication bidirectionnelle fiable et sécurisée entre les appareils IoT et les services Azure tels [qu’Azure Machine Learning](../machine-learning/machine-learning-what-is-machine-learning.md) et [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md), en utilisant des informations d’identification et un contrôle d’accès pour chaque appareil.
+[Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md), inclus dans [IoT Suite](iot-suite-what-is-azure-iot.md), offre un service entièrement géré, qui assure une communication bidirectionnelle fiable et sécurisée entre les appareils IoT et les services Azure tels [qu’Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) et [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md), en utilisant des informations d’identification et un contrôle d’accès pour chaque appareil.
 
 Pour présenter clairement les fonctionnalités de sécurité et de confidentialité intégrées à Azure IoT Suite, nous avons fractionné la suite selon les trois principaux domaines de sécurité. 
 
@@ -124,4 +122,3 @@ Pour en savoir plus sur la sécurité d’IoT Hub, consultez la rubrique [Contr�
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

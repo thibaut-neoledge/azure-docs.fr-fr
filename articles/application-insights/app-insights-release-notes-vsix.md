@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 5edd37a3a042f710e7d1b9e148c24d9a548a4fea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/22/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notes de publication de Developer Analytics Tools
 
@@ -295,4 +294,3 @@ Lors de *Connect();* 2015, nous avons [annoncé](https://azure.microsoft.com/blo
 HockeyApp prend en charge votre application, quelle que soit la plateforme sur laquelle vous avez choisi de la générer, qu’il s’agisse d’iOS, d’Android, de Windows ou d’une solution multiplateforme comme Xamarin, Cordova ou Unity.
 
 Dans les versions futures de l’extension Application Insights, nous allons présenter une expérience davantage intégrée entre HockeyApp et Visual Studio. Pour le moment, vous pouvez commencer par HockeyApp en ajoutant simplement la référence NuGet. Pour plus d’informations, consultez la [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) .
-

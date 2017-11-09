@@ -10,19 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 4a96efb15268c56e3625832b0b4d6dd8f6a78614
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Extraire des données à partir de bases de données du locataire dans une base de données d’analyse pour une analyse hors connexion
 
@@ -54,13 +52,13 @@ Les scripts et le code source de l’application SaaS Wingtip sont disponibles 
 Ce didacticiel nécessite que vous ayez déployé une base de données, afin de capturer les résultats de l’exécution du travail de scripts, qui contiennent les requêtes qui renvoient des résultats. À cet effet, nous allons créer une base de données appelée tenantanalytics.
 
 1. Ouvrez ...\\Modules d’apprentissage\\Operational Analytics\\Tenants Analytics\\*Demo-TenantAnalyticsDB.ps1* dans *PowerShell ISE* et définissez la valeur suivante :
-   * **$DemoScenario** = **2** *Déployer une base de données d’analyse opérationnelle*
+   * **$DemoScenario** = **2***Déployer une base de données d’analyse opérationnelle*
 1. Appuyez sur **F5** pour exécuter le script de démonstration (qui appelle le script *Deploy-TenantAnalyticsDB.ps1*), qui crée la base de données d’analyse du locataire.
 
 ## <a name="create-some-data-for-the-demo"></a>Créer des données pour la démonstration
 
 1. Ouvrez ...\\Modules d’apprentissage\\Operational Analytics\\Tenants Analytics\\*Demo-TenantAnalyticsDB.ps1* dans *PowerShell ISE* et définissez la valeur suivante :
-   * **$DemoScenario** = **1** *Acheter des tickets pour des événements dans tous les lieux*
+   * **$DemoScenario** = **1***Acheter des tickets pour des événements dans tous les lieux*
 1. Appuyez sur **F5** pour exécuter le script et créez un historique d’achat de tickets.
 
 
@@ -121,4 +119,3 @@ Félicitations !
 
 * Autres [didacticiels reposant sur l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Tâches élastiques](sql-database-elastic-jobs-overview.md)
-

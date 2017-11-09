@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b676aee5353d0e5d85224950a537b3fe31f2f29
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 4105392f58eaf37e88c1d9ffb74f3f4133fa5482
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Authentification et autorisation dans Azure Mobile Apps
 ## <a name="what-is-app-service-authentication--authorization"></a>Qu’est-ce que l’authentification/autorisation App Service ?
@@ -102,9 +101,8 @@ Si vous voulez utiliser un système d’identité différent de ceux fournis ici
 [Ajout de l'authentification à votre application Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
 [Ajout de l’authentification à votre application Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
 
-[Comment configurer votre application pour utiliser une connexion Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Comment configurer votre application pour utiliser une connexion Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Comment configurer votre application pour utiliser une connexion Google]: app-service-mobile-how-to-configure-google-authentication.md
-[Comment configurer votre application pour utiliser une connexion par compte Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Comment configurer votre application pour utiliser une connexion Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-
+[Comment configurer votre application pour utiliser une connexion Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Comment configurer votre application pour utiliser une connexion Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[Comment configurer votre application pour utiliser une connexion Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[Comment configurer votre application pour utiliser une connexion par compte Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Comment configurer votre application pour utiliser une connexion Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md

@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6e6e12f3d6d95002b223ad0fcb11d72bd920cdaf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
-
+ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notification aux patients des modifications des dossiers médicaux HL7 FHIR à l’aide de Logic Apps et Azure Cosmos DB
 
 Howard Edidin, récompensé dans le cadre du programme Azure MVP, a récemment été contacté par une structure qui souhaitait ajouter une nouvelle fonctionnalité à son portail patient. L’objectif était d’envoyer des notifications de mise à jour aux patients, le cas échéant, et de leur permettre de s’abonner à ces mises à jour. 
@@ -233,6 +230,5 @@ L’image suivante représente l’ensemble des services Azure dédiés à cett
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Azure Cosmos DB, consultez la [page d’accueil Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Pour plus d’informations sur Logic Apps, voir [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
-
 
 

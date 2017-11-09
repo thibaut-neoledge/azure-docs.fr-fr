@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74fd40d7cd2ce5aecf364ba8ead4e6dfcbf6ed54
-
-
+ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Résolution des problèmes du cache Redis Azure
 Cet article fournit des conseils pour résoudre les catégories suivantes de problèmes liés au cache Redis Azure.
@@ -258,10 +258,4 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
 * [Comment puis-je évaluer et tester les performances de mon cache ?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Comment exécuter des commandes Redis ?](cache-faq.md#how-can-i-run-redis-commands)
 * [Surveillance du cache Redis Azure](cache-how-to-monitor.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

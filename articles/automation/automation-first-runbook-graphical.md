@@ -1,9 +1,9 @@
 ---
 title: "Mon premier Runbook graphique dans Azure Automation | Microsoft Docs"
-description: "Ce didacticiel vous familiarise avec la création, le test et la publication d&quot;un Runbook graphique simple."
+description: "Ce didacticiel vous familiarise avec la création, le test et la publication d'un Runbook graphique simple."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "runbook, modèle de runbook, automatisation des runbooks, runbook azure"
@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 9d4b28416376482247127698bec7c99b83308885
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: b8accf16c43b7a01233742161e68db6f831a2d30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="my-first-graphical-runbook"></a>Mon premier Runbook graphique
 
@@ -29,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 > * [Graphique](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Workflow PowerShell](automation-first-runbook-textual.md)
-> 
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 
 Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) dans Azure Automation.  Nous commençons par un simple runbook que nous testons et publions tout en expliquant comment suivre l’état du travail du runbook.  Nous modifions ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure.  Enfin, nous terminons ce didacticiel en renforçant le Runbook grâce à l’ajout des paramètres de Runbook et des liens conditionnels.
@@ -37,9 +35,9 @@ Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](aut
 ## <a name="prerequisites"></a>Composants requis
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Abonnement Azure.  Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[créer un compte gratuit](https://azure.microsoft.com/free/).
-* [Compte Azure Automation](automation-sec-configure-azure-runas-account.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
-* Une machine virtuelle Azure.  Nous arrêterons et démarrerons cet ordinateur afin qu'il ne soit pas en production.
+* Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [compte Automation](automation-offering-get-started.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
+* Une machine virtuelle Azure. Nous arrêtons et démarrons cette machine afin qu’elle ne soit pas une machine virtuelle de production.
 
 ## <a name="step-1---create-runbook"></a>Étape 1 - Création d’un Runbook
 Nous commençons par créer un Runbook simple qui renvoie le texte *Hello World*.
@@ -212,5 +210,4 @@ Nous modifions maintenant le Runbook afin qu’il tente de démarrer la machine 
 * Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 * Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md)
 * Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
-
 

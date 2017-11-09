@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
+ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 3bc631606afbc93d5bca94f4955fd2ef816fa9fd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Surveiller et diagnostiquer le traitement de requêtes au niveau du proxy inverse
 
@@ -158,11 +157,11 @@ Le premier événement ci-dessous consigne dans un journal les détails de la re
     
     Si la collecte est activée uniquement pour les événements critiques ou d’erreur, vous voyez un événement contenant des détails sur le délai d’expiration et le nombre de tentatives de résolution. 
     
-    Si le service projette de retourner un code d’état 404 à l’utilisateur, ce code doit être accompagné d’un en-tête « X-ServiceFabric ». Après avoir opéré cette correction, vous pouvez constater que le proxy inverse transfère le code d’état au client d’origine.  
+    Les services susceptibles d’envoyer un code d’état 404 à l’utilisateur doivent ajouter un en-tête « X-ServiceFabric » à la réponse. Une fois l’en-tête ajouté à la réponse, le proxy inverse transfère le code d’état au client d’origine.  
 
 4. Cas lorsque le client est déconnecté de la demande.
 
-    L’événement ci-dessous est enregistré quand le proxy inverse transfère la réponse au client, mais que le client se déconnecte :
+    L’événement suivant est enregistré quand le proxy inverse transfère la réponse au client, mais que le client se déconnecte :
 
     ```
     {
@@ -180,6 +179,18 @@ Le premier événement ci-dessous consigne dans un journal les détails de la re
       }
     }
     ```
+5. Le proxy inverse retourne l’erreur 404 FABRIC_E_SERVICE_DOES_NOT_EXIST.
+
+    L’erreur FABRIC_E_SERVICE_DOES_NOT_EXIST est retournée si le schéma d’URI n’est pas spécifié pour le point de terminaison de service dans le manifeste de service.
+
+    ```
+    <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
+    ```
+
+    Pour résoudre le problème, spécifiez le schéma d’URI dans le manifeste.
+    ```
+    <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
+    ```
 
 > [!NOTE]
 > Les événements liés au traitement de la requête websocket ne sont pas consignés pour le moment. Ils seront ajoutés dans la prochaine mise en production.
@@ -189,4 +200,3 @@ Le premier événement ci-dessous consigne dans un journal les détails de la re
 * Pour afficher les événements Service Fabric dans Visual Studio, consultez [Surveiller et diagnostiquer localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 * Reportez-vous à [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) (Configurer le proxy inverse pour se connecter à des services sécurisés) pour obtenir des exemples de modèles Azure Resource Manager illustrant la configuration du proxy inverse sécurisé avec les différentes options de validation de certificat de service.
 * Consultez [Proxy inverse Service Fabric](service-fabric-reverseproxy.md) pour en savoir plus.
-

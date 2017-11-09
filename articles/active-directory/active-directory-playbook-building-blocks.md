@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
+ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 671f2d386aca23bc5c02d0e0ab23e6d9d79a8693
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -44,11 +43,11 @@ Voici quelques conditions préalables pour toute POC avec Azure AD Premium.
 | Locataire Azure AD défini avec un abonnement Azure valide | [Obtention d’un client Azure Active Directory](active-directory-howto-tenant.md)<br/>**Remarque :** si vous disposez déjà d’un environnement avec licences Azure AD Premium, vous pouvez obtenir un abonnement gratuit sur https://aka.ms/accessaad <br/>En savoir plus : https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ et https://technet.microsoft.com/library/dn832618.aspx |
 | Domaines définis et vérifiés | [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Remarque :** certaines charges de travail telles que Power BI peuvent avoir approvisionné un locataire Azure AD en arrière-plan. Pour vérifier si un domaine donné est associé à un locataire, accédez à https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Si vous obtenez une réponse correcte, cela signifie que le domaine est déjà affecté à un locataire, et une prise de contrôle peut être requise. Dans ce cas, contactez Microsoft pour obtenir des instructions supplémentaires. En savoir plus sur les options de prise de contrôle : [Qu’est-ce qu’une inscription libre-service à Azure ?](active-directory-self-service-signup.md) |
 | Essai Azure AD Premium ou EMS activé | [Azure Active Directory Premium gratuit pendant un mois](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| Vous avez affecté des licences Azure AD Premium ou EMS à des utilisateurs POC | [Accorder une licence à vos utilisateurs et à vous-même dans Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
+| Vous avez affecté des licences Azure AD Premium ou EMS à des utilisateurs POC | [License yourself and your users in Azure Active Directory (Accorder une licence à vos utilisateurs et à vous-même dans Azure Active Directory)](active-directory-licensing-get-started-azure-portal.md) |
 | Informations d’identification de l’administrateur général Azure AD | [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
 | Facultatif, mais vivement recommandé : environnement de laboratoire parallèle comme solution de secours | [Conditions préalables pour Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
-## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Synchronisation des annuaires - Synchronisation du code de hachage de mots de passe (PHS) - Nouvelle installation
+## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Synchronisation des répertoires - Synchronisation du code de hachage de mots de passe (PHS) - Nouvelle installation
 
 Temps approximatif d’accomplissement : une heure pour moins de 1 000 utilisateurs POC
 
@@ -186,7 +185,7 @@ Temps approximatif d’accomplissement : 15 minutes
 | Installez l’extension de navigateur | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Affectez l’application au groupe identifié dans les conditions préalables | [Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Affectez l’application au groupe identifié dans les conditions préalables | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
 | Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test disposant d’un accès |  |
 | Cliquez sur la mosaïque de l’application qui vient d’être créée. | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Fournissez les informations d’identification de l’application | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -211,7 +210,7 @@ Temps approximatif d’accomplissement : 30 minutes
 | --- | --- |
 | Liste des applications cibles et URL de connexion exactes au préalable. Par exemple, vous pouvez utiliser Twitter. | [Twitter sur la Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[S’inscrire sur Twitter](https://twitter.com/signup?lang=en) |
 | Informations d’identification partagées pour cette application SaaS. | [Partage de comptes à l’aide d’Azure AD](active-directory-sharing-accounts.md)<br/>[Version préliminaire de la substitution automatisée du mot de passe Azure AD pour Facebook, Twitter et LinkedIn ! - Blog Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| Informations d’identification pour au moins deux membres de l’équipe qui ont le même compte d’accès. Ils doivent faire partie d’un groupe de sécurité. | [Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Informations d’identification pour au moins deux membres de l’équipe qui ont le même compte d’accès. Ils doivent faire partie d’un groupe de sécurité. | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
 | Accès administrateur local à un ordinateur afin de déployer l’extension du volet d’accès pour Internet Explorer, Chrome ou Firefox | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Étapes
@@ -221,7 +220,7 @@ Temps approximatif d’accomplissement : 30 minutes
 | Installez l’extension de navigateur | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Affectez l’application au groupe identifié dans les conditions préalables lorsque vous leur affectez des informations d’identification | [Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Affectez l’application au groupe identifié dans les conditions préalables lorsque vous leur affectez des informations d’identification | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
 | Connectez-vous en tant qu’utilisateurs différents en mesure d’accéder à l’application par le biais d’un **même compte partagé.**  |  |
 | Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -275,7 +274,7 @@ Temps approximatif d’accomplissement : 60 minutes
 
 | Conditions préalables | les ressources |
 | --- | --- |
-| Azure AD Connect installé et configuré | Bloc de construction : [Synchronisation des annuaires - Synchronisation du code de hachage de mots de passe](#directory-synchronization--password-hash-sync-phs--new-installation) |
+| Azure AD Connect installé et configuré | Bloc de construction : [Synchronisation des répertoires - Synchronisation du code de hachage de mots de passe](#directory-synchronization--password-hash-sync-phs--new-installation) |
 | Instance ADLDS répondant aux exigences | [Référence technique au connecteur LDAP générique : Vue d’ensemble du connecteur LDAP générique](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
 | Liste des charges de travail dont les utilisateurs se servent et attributs associés à ces charges de travail | [Azure AD Connect Sync : Attributs synchronisés avec Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
@@ -315,7 +314,7 @@ Temps approximatif d’accomplissement : 10 minutes
 
 | Étape | les ressources |
 | --- | --- |
-| Identifiez le groupe autorisé à accéder à l’application et configurez le propriétaire de ce groupe| [Gérer les paramètres des groupes dans Azure Active Directory](active-directory-groups-settings-azure-portal.md) |
+| Identifiez le groupe autorisé à accéder à l’application et configurez le propriétaire de ce groupe| [Manage the settings for a group in Azure Active Directory (Gérer les paramètres des groupes dans Azure Active Directory)](active-directory-groups-settings-azure-portal.md) |
 | Connectez-vous en tant que propriétaire du groupe et consultez l’appartenance au groupe dans l’onglet Groupes du volet d’accès | [Gérer l’accès aux ressources avec les groupes Azure Active Directory](https://account.activedirectory.windowsazure.com/r/#/groups) |
 | Ajoutez le professionnel de l’information que vous souhaitez tester |  |
 | Connectez-vous en tant que professionnel de l’information et confirmez la disponibilité de la mosaïque | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
@@ -340,7 +339,7 @@ Si l’approvisionnement est activé pour l’application, vous devrez peut-êtr
 | Étape | Ressources |
 | --- | --- |
 | Supprimez l’utilisateur du groupe auquel l’application est affectée | [Gérer l’appartenance à un groupe des utilisateurs dans votre client Azure Active Directory](active-directory-groups-members-azure-portal.md) |
-| Attendez quelques minutes que l’approvisionnement soit annulé | [Approvisionnement automatique des utilisateurs pour les applications SaaS dans Azure AD : Comment fonctionne l’approvisionnement automatique ?](active-directory-saas-app-provisioning.md#how-does-automated-provisioning-work) |
+| Attendez quelques minutes que l’approvisionnement soit annulé | [Approvisionnement automatique des utilisateurs pour les applications SaaS dans Azure AD : Comment fonctionne l’approvisionnement automatique ?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | Dans une session distincte du navigateur, connectez-vous en tant que professionnel de l’information au portail MyApps et vérifiez l’absence de cette mosaïque | http://myapps.microsoft.com |
 
 
@@ -354,7 +353,7 @@ Temps approximatif d’accomplissement : 10 minutes
 
 ### <a name="pre-requisites"></a>Conditions préalables
 
-| Conditions préalables | Ressources |
+| Conditions préalables | les ressources |
 | --- | --- |
 | Identifiez les utilisateurs POC qui demandent un accès aux applications, en tant que membres du groupe de sécurité | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) |
 | Application cible déployée | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) |
@@ -378,7 +377,7 @@ Temps approximatif d’accomplissement : 15 minutes
 
 ### <a name="pre-requisites"></a>Conditions préalables
 
-| Conditions préalables | Ressources |
+| Conditions préalables | les ressources |
 | --- | --- |
 | Activez la gestion des mots de passe en libre-service dans votre locataire. | [Réinitialisation de mot de passe Azure Active Directory pour les administrateurs informatiques](active-directory-passwords.md) |
 | Activez l’écriture différée de mot de passe pour gérer les mots de passe en local. Cela nécessite des versions spécifiques d’Azure AD Connect | [Configuration requise pour l’écriture différée de mot de passe](active-directory-passwords-writeback.md) |
@@ -575,4 +574,3 @@ Pour en savoir plus sur les mises en garde de ce déploiement, consultez : [ADF
 
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]
-

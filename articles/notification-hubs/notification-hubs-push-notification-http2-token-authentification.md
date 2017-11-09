@@ -13,13 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: kapiteir
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Authentification basée sur un jeton (HTTP/2) pour APNS
 ## <a name="overview"></a>Vue d'ensemble
@@ -120,4 +118,3 @@ Voici un exemple de code illustrant l’utilisation correcte :
 
 ## <a name="reverting-to-using-certificate-based-authentication"></a>Rétablissement de l’utilisation de l’authentification basée sur les certificats
 Vous pouvez rétablir à tout moment l’utilisation de l’authentification basée sur les certificats en utilisant l’une des méthodes précédentes et en passant le certificat au lieu des propriétés de jeton. Cette action remplace les informations d’identification précédemment stockées.
-

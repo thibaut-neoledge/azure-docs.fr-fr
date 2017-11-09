@@ -3,7 +3,7 @@ title: "Dépannage des problèmes courants d’Azure Automation | Microsoft Docs
 description: "Cet article fournit des informations pour le dépannage et la correction d’erreurs courantes dans Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2017
+ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/26/2017
-
-
+ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Dépannage des problèmes courants dans Azure Automation 
 Cet article aide à dépanner les problèmes courants que vous pourriez rencontrer dans Azure Automation et suggère des solutions possibles pour les résoudre.
@@ -103,8 +101,8 @@ l’une des trois solutions suivante peut vous aider à corriger ce problème :
 
 1. Connectez-vous à votre abonnement Azure :  
 2. Sélectionnez le compte Automation que vous souhaitez mettre à niveau  
-3. Cliquez sur **Paramètres** > **Niveau de tarification et utilisation** > **Niveau de tarification**  
-4. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **De base**    
+3. Cliquez sur **Paramètres** > **Tarifs**.
+4. Cliquez sur **Activer** en bas de page pour actualiser votre compte au niveau **De base**.
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>Scénario : l’applet de commande n’est pas reconnue lors de l’exécution d’un runbook
 **Erreur :** la tâche de runbook échoue en renvoyant l’erreur « ``<cmdlet name>`` : Le terme ``<cmdlet name>`` n’est pas reconnu comme nom d’applet de commande, fonction, fichier de script ou programme exécutable. »
@@ -119,9 +117,9 @@ l’une des trois solutions suivante peut vous aider à corriger ce problème :
 * Si vous exécutez le runbook localement dans un groupe de Workers hybride, assurez-vous que le module/applet de commande est installé sur l'ordinateur qui héberge le Worker hybride.
 
 ### <a name="scenario-a-long-running-runbook-consistently-fails-with-the-exception-the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"></a>Scénario : Un runbook de longue durée échoue systématiquement avec l’exception : « La tâche ne peut pas continuer, car elle a été exclue à plusieurs reprises du même point de contrôle ».
-**Raison de l’erreur :** il s’agit du comportement par défaut lié à la surveillance de la répartition de charge équilibrée des processus au sein d’Azure Automation, qui suspend automatiquement un runbook s’il s’exécute pendant plus de 3 heures. Toutefois, le message d’erreur ne fournit pas d’options pour la suite des événements. Un runbook peut être interrompu pour plusieurs raisons. Les suspensions sont généralement dues à des erreurs. Par exemple, une exception non interceptée dans un runbook, une panne réseau ou une panne sur le Runbook Worker qui exécute le runbook entraîne la suspension de ce dernier et son démarrage à partir de son dernier point de contrôle au moment de la reprise.
+**Raison de l’erreur :** il s’agit du comportement par défaut dû à la surveillance de la répartition de charge équilibrée des processus au sein d’Azure Automation, qui suspend automatiquement un runbook s’il s’exécute pendant plus de 3 heures. Toutefois, le message d’erreur ne fournit pas d’options pour la suite des événements. Un runbook peut être interrompu pour plusieurs raisons. Les suspensions sont généralement dues à des erreurs. Par exemple, une exception non interceptée dans un runbook, une panne réseau ou une panne sur le Runbook Worker qui exécute le runbook entraîne la suspension de ce dernier et son démarrage à partir de son dernier point de contrôle au moment de la reprise.
 
-**Conseils de dépannage :** la solution documentée pour éviter ce problème consiste à utiliser des points de contrôle dans un flux de travail.  Pour en savoir plus, voir la rubrique [Découverte des flux de travail PowerShell](automation-powershell-workflow.md#checkpoints).  Vous trouverez une explication plus détaillée de la distribution de charge équilibrée dans le billet de blog [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) (Utilisation de points de contrôle dans des runbooks).
+**Conseils de dépannage :** la solution documentée pour éviter ce problème consiste à utiliser des points de contrôle dans un flux de travail.  Pour plus d’informations, consultez [Découverte des flux de travail PowerShell](automation-powershell-workflow.md#checkpoints).  Vous trouverez une explication plus détaillée de la distribution de charge équilibrée dans le billet de blog [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) (Utilisation de points de contrôle dans des runbooks).
 
 ## <a name="common-errors-when-importing-modules"></a>Erreurs courantes survenant lors de l’importation de modules
 ### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>Scénario : le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des applets de commande après l’importation
@@ -135,7 +133,7 @@ l’une des trois solutions suivante peut vous aider à corriger ce problème :
 * L’applet de commande **New-AzureRmAutomationModule** est utilisée pour charger le module, et vous ne disposez pas du chemin d’accès de stockage complet ou n’avez pas chargé le module en utilisant une URL accessible publiquement.  
 
 **Conseils de dépannage :**  
-l’une des solutions suivantes peut corriger ce problème :  
+Une des solutions suivantes corrige ce problème :  
 
 * Assurez-vous que le module suit le format suivant :  
   NomModule.zip **->** NomModule ou Numéro de version **->** (ModuleName.psm1, ModuleName.psd1)
@@ -146,23 +144,23 @@ l’une des solutions suivantes peut corriger ce problème :
 ### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a>Scénario : le nœud est en état d’échec avec une erreur « Introuvable »
 **Erreur :** le nœud dispose d’un rapport d’état **Échec** contenant l’erreur suivante : « The attempt to get the action from server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` cannot be found » (« La tentative d’obtention de l’action depuis le serveur https:////accounts//Nodes(AgentId=)/GetDscAction a échoué, car aucune configuration valide n’a été trouvée »).
 
-**Raison de l’erreur :** cette erreur se produit généralement quand le nœud est affecté à un nom de configuration (par exemple, ABC) et non à un nom de configuration de nœud (par exemple, ABC.WebServer).  
+**Raison de l’erreur :** cette erreur se produit généralement quand le nœud est affecté à un nom de configuration (par exemple ABC) au lieu d’un nom de configuration de nœud (par exemple ABC.WebServer).  
 
 **Conseils de dépannage :**  
 
 * Assurez-vous d'affecter le nœud avec « nom de configuration de nœud » et non pas le « nom de configuration ».  
 * Vous pouvez affecter une configuration de nœud à un nœud à l'aide du portail Azure ou d’une applet de commande PowerShell.
 
-  * Pour affecter une configuration de nœud à un nœud à l’aide du portail Azure, ouvrez le panneau **Nœuds DSC**, sélectionnez un nœud, puis cliquez sur le bouton **Attribuer une configuration de nœud**.  
+  * Pour affecter une configuration de nœud à un nœud à l’aide du portail Azure, ouvrez la page **Nœuds DSC**, sélectionnez un nœud, puis cliquez sur le bouton **Attribuer une configuration de nœud**.  
   * Pour affecter une configuration de nœud à un nœud à l’aide d’une applet de commande PowerShell, utilisez l’applet de commande **Set-AzureRmAutomationDscNode** .
 
 ### <a name="scenario--no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Scénario : aucune configuration de nœud (fichiers MOF) ne s’est produite au cours d’une compilation de configuration
 **Erreur :** la tâche de compilation de votre DSC a été interrompue avec l’erreur : « Compilation completed successfully, but no node configuration .mofs were generated » (« La compilation s’est terminée correctement, mais aucune configuration de nœud .mofs n’a été générée »).
 
-**Raison de l’erreur :** quand l’expression qui suit le mot-clé **Node** dans la configuration DSC est $null, aucune configuration de nœud ne peut être générée.    
+**Raison de l’erreur :** quand l’expression qui suit le mot-clé **Node** dans la configuration DSC s’évalue à $null, aucune configuration de nœud n’est générée.    
 
 **Conseils de dépannage :**  
-l’une des solutions suivantes peut corriger ce problème :  
+Une des solutions suivantes corrige ce problème :  
 
 * Vérifiez que l’expression en regard du mot clé **Node** dans la définition de la configuration n’est pas $null.  
 * Si vous effectuez une transmission de ConfigurationData pendant la compilation de la configuration, vérifiez que vous transmettez les valeurs attendues nécessaires à la configuration depuis [ConfigurationData](automation-dsc-compile.md#configurationdata).
@@ -190,4 +188,3 @@ Si vous avez suivi les étapes de dépannage ci-dessus et que vous ne trouvez pa
 * Signaler un incident au support Azure Accédez au [site de support Azure](https://azure.microsoft.com/support/options/) et cliquez sur **Obtenir un support** dans la section **Support technique et sur la facturation**.
 * Publier une demande de script sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/) si vous recherchez une solution de runbook Azure Automation ou un module d’intégration.
 * Publier vos commentaires ou vos demandes de fonctionnalités pour Azure Automation sur [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
-

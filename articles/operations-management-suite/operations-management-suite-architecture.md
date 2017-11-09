@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="oms-architecture"></a>Architecture OMS
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) est un ensemble de services informatiques destinés à gérer vos environnements locaux et de cloud.  Cet article décrit les différents composants OMS locaux et de cloud, ainsi que leur architecture de cloud computing de haut niveau.  Pour plus d’informations, vous pouvez consulter la documentation de chaque service.
@@ -84,5 +83,4 @@ Dans Azure Site Recovery, il existe trois scénarios de réplication fondamentau
 * En savoir plus sur [Azure Automation](https://azure.microsoft.com/documentation/services/automation).
 * En savoir plus sur [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 * En savoir plus sur [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
-
 

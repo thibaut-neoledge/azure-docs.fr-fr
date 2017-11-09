@@ -10,24 +10,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/29/2017
 ms.author: bwren
+ms.openlocfilehash: 9884b97aad8f022e6bc20b2a630ccdd07ebc64db
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 4955f90de06cd720d78c5bb60c0adcd7dc633245
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatiser les processus Log Analytics avec le connecteur Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) vous permet de créer des flux de travail automatisés à l’aide de centaines d’actions issues d’une grande variété de services. La sortie d’une action peut être utilisée en tant qu’entrée dans un autre service. Ainsi, vous pouvez créer une intégration entre différents services.  Le connecteur Azure Log Analytics pour Microsoft Flow permet de créer des flux de travail comprenant des données récupérées lors des recherches effectuées dans les journaux avec Log Analytics.
 
 Par exemple, Microsoft Flow peut vous permettre d’utiliser les données Log Analytics dans une notification par e-mail Office 365, de créer un bogue dans Visual Studio Team Services ou de publier un message Slack.  Vous pouvez déclencher un flux de travail à l’aide d’un calendrier ou d’une action d’un service connecté, telle que la réception d’un e-mail ou d’un tweet.  
-
-
-> [!NOTE]
-> Le connecteur Azure Log Analytics pour Microsoft Flow nécessite que votre espace de travail soit mis à niveau pour utiliser le nouveau langage de requête Log Analytics. Vous pouvez en savoir plus sur ce nouveau langage et obtenir la procédure permettant de mettre à niveau votre espace de travail à [Mise à niveau de votre espace de travail Azure Log Analytics vers la nouvelle recherche dans les journaux](log-analytics-log-search-upgrade.md).  
 
 Le didacticiel de cet article vous montre comment créer un flux qui envoie automatiquement par e-mail les résultats d’une recherche effectuée dans les journaux avec Log Analytics, ce qui ne constitue qu’un exemple de ce que vous pouvez faire avec Log Analytics dans Microsoft Flow. 
 
@@ -57,7 +51,7 @@ Le didacticiel de cet article vous montre comment créer un flux qui envoie auto
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
-    | sort by Computerindow. 
+    | sort by Computer
 ```
 
 2. Comme **Type de graphique**, sélectionnez **Tableau HTML**.<br><br>![Action Log Analytics](media/log-analytics-flow-tutorial/flow03.png)
@@ -85,7 +79,6 @@ Le didacticiel de cet article vous montre comment créer un flux qui envoie auto
 
 - En savoir plus sur les [recherches dans les journaux avec Log Analytics](log-analytics-log-search-new.md).
 - Découvrez [Microsoft Flow](https://ms.flow.microsoft.com).
-
 
 
 

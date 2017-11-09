@@ -3,7 +3,7 @@ title: "Gestion de la tarification et du volume de données Azure Application In
 description: "Gérer les volumes de données de télémétrie et surveiller les coûts dans Application Insights."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 311cee724fc77256748153b5167d2a38ccba9775
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gérer la tarification et le volume de données dans Application Insights
 
@@ -187,5 +186,4 @@ Vous pouvez utiliser le service de gestion de ressources Azure pour écrire un s
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
 

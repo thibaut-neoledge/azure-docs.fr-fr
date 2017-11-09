@@ -3,7 +3,7 @@ title: "Création et téléchargement d’une image de machine virtuelle FreeBSD
 description: "Découvrez comment créer et télécharger un disque dur virtuel (VHD) contenant le système d'exploitation FreeBSD pour créer une machine virtuelle Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
-ms.author: kyliel
+ms.author: huishao
+ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure
 Cet article vous montre comment créer et télécharger un disque dur virtuel (VHD) contenant le système d'exploitation FreeBSD. Après l’avoir téléchargé, vous pouvez l’utiliser comme image personnelle pour créer une machine virtuelle (VM) dans Azure.
@@ -207,4 +206,3 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 5. Une fois l’approvisionnement terminé, vous verrez votre machine virtuelle FreeBSD s’exécuter dans Azure.
 
     ![Image FreeBSD dans Azure](./media/freebsd-create-upload-vhd/freebsdimageinazure.png)
-

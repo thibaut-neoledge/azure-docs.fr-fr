@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 5347bf85cad32b59677369d51a1f36529aef6662
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/05/2017
-
-
+ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Didacticiel Azure WCF Relay
 
@@ -695,13 +693,11 @@ namespace Microsoft.ServiceBus.Samples
 
     Voici un exemple de sortie de la fenêtre de console. Notez que les valeurs indiquées ici sont fournies à titre d’exemple uniquement.
 
-    `Your Service Namespace: myNamespace`
-    `Your SAS Key: <SAS key value>`
+    `Your Service Namespace: myNamespace``Your SAS Key: <SAS key value>`
 
     L’application de service imprime l’adresse sur laquelle il écoute dans la fenêtre de console, comme indiqué dans l’exemple suivant.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/``Press [Enter] to exit`
 10. Dans la fenêtre de console **EchoClient**, entrez les mêmes informations que celles que vous avez entrées précédemment pour l’application de service. Suivez les étapes précédentes pour saisir des valeurs identiques pour l’espace de noms de service et la clé SAP pour l’application cliente
 11. Après avoir saisi ces valeurs, le client ouvre un canal au service et vous invite à saisir du texte, comme indiqué dans l’exemple de sortie de console suivante.
 
@@ -726,10 +722,7 @@ Pour en savoir plus sur Azure Relay, consultez les rubriques suivantes.
 * [Vue d’ensemble d’Azure Relay](relay-what-is-it.md)
 * [Guide pratique pour utiliser le service WCF Relay avec .NET](relay-wcf-dotnet-get-started.md)
 
-[Azure classic portal]: http://manage.windowsazure.com
-
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png
 [5]: ./media/service-bus-relay-tutorial/set-projects.png
 [6]: ./media/service-bus-relay-tutorial/set-depend.png
-

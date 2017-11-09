@@ -5,13 +5,12 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/10/2017
+ms.date: 09/25/2017
+ms.openlocfilehash: 384b65bc89401780b174c143d84b3b8f552fba3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c873b153ef9c7d5f55672a5918c9dc4fb7256701
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
@@ -22,7 +21,9 @@ La fonctionnalité de suppression réversible de Key Vault permet la récupérat
 
 ## <a name="supporting-interfaces"></a>Prise en charge des interfaces
 
-La fonctionnalité de suppression réversible est pour le moment disponible sur les interfaces .NET/C# et PowerShell. Pour plus d’informations, consultez les références correspondantes dans les [Informations de référence sur Key Vault](https://docs.microsoft.com/azure/key-vault/).
+La fonctionnalité de suppression réversible est pour l’instant disponible par le biais des interfaces REST, .NET/C#, PowerShell et CLI.
+
+Pour plus d’informations, consultez les références correspondantes sur la page [Documentation Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 ## <a name="scenarios"></a>Scénarios
 
@@ -36,7 +37,7 @@ Les coffres Azure Key Vault désignent des ressources suivies, gérées par Az
 
 Avec cette fonctionnalité, l’opération SUPPRIMER effectuée sur un coffre de clés ou un objet de coffre de clés constitue une suppression réversible, qui conserve efficacement les ressources pendant une période de rétention donnée, tout en donnant l’impression que l’objet est supprimé. Le service fournit en outre un mécanisme de récupération de l’objet supprimé, qui a essentiellement pour effet d’annuler la suppression. 
 
-La suppression réversible est un comportement facultatif de Key Vault et **n’est pas activée par défaut** dans cette version. Pour plus d’informations sur l’activation de la suppression réversible pour votre Key Vault, consultez les instructions spécifiques à l’interface de votre choix dans la [Documentation Key Vault](https://docs.microsoft.com/azure/key-vault/).
+La suppression réversible est un comportement facultatif de Key Vault et **n’est pas activée par défaut** dans cette version. 
 
 ### <a name="key-vault-recovery"></a>Récupération d’un Key Vault
 
@@ -67,6 +68,10 @@ Il est possible de supprimer ou vider définitivement un coffre Key Vault en ex
 
 sauf si l’abonnement Azure a été marqué comme *impossible à supprimer*. Dans ce cas, seul le service peut alors effectuer la suppression, dans le cadre d’un processus planifié. 
 
+## <a name="next-steps"></a>Étapes suivantes
 
+Les deux guides ci-après présentent les principaux scénarios d’usage de la suppression réversible.
 
+- [Utilisation de la suppression réversible Key Vault avec l’interface CLI](key-vault-soft-delete-powershell.md) 
+- [Utilisation de la suppression réversible Key Vault avec l’interface CLI](key-vault-soft-delete-cli.md)
 

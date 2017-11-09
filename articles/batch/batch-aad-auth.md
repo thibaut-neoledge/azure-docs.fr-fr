@@ -3,7 +3,7 @@ title: "Utiliser Azure Active Directory pour l’authentification de solutions d
 description: "Batch prend en charge Azure AD pour l’authentification auprès du service Batch."
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 tags: 
@@ -13,16 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
 Azure Batch prend en charge l’authentification avec [Azure Active Directory][aad_about] (Azure AD). Azure AD est le service Microsoft de gestion des répertoires et des identités basé sur le cloud mutualisé. Azure lui-même utilise Azure AD pour authentifier ses clients, ses administrateurs de services fédérés et ses utilisateurs professionnels.
@@ -33,13 +31,6 @@ Lorsque vous utilisez l’authentification Azure AD avec Azure Batch, vous pouve
 - À l’aide d’un **principal de service** pour authentifier une application sans assistance. Un principal de service définit la stratégie et les autorisations pour une application afin de représenter l’application lors de l’accès aux ressources au moment de l’exécution.
 
 Pour en savoir plus sur Azure AD, consultez la [documentation sur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
-
-## <a name="authentication-and-pool-allocation-mode"></a>Authentification et mode d’allocation de pool
-
-Lorsque vous créez un compte Batch, vous pouvez spécifier où les pools créés pour ce compte doivent être alloués. Vous pouvez choisir d’allouer des pools dans l’abonnement au service Batch par défaut ou dans un abonnement utilisateur. Votre choix affecte la façon d’authentifier l’accès aux ressources de ce compte.
-
-- **Abonnement au service Batch**. Par défaut, les pools Batch sont alloués dans un abonnement au service Batch. Si vous choisissez cette option, vous pouvez authentifier l’accès aux ressources de ce compte avec une [Clé partagée](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) ou avec Azure AD.
-- **Abonnement utilisateur.** Vous pouvez choisir d’allouer des pools Batch dans un abonnement utilisateur que vous spécifiez. Si vous choisissez cette option, vous devez vous authentifier auprès d’Azure AD.
 
 ## <a name="endpoints-for-authentication"></a>Points de terminaison pour l’authentification
 
@@ -332,4 +323,3 @@ Pour authentifier des applications de gestion Batch à l’aide d’Azure AD, co
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Scénarios d’authentification pour Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Intégration d’applications dans Azure Active Directory"
 [azure_portal]: http://portal.azure.com
-

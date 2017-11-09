@@ -3,7 +3,7 @@ title: "Bonnes pratiques en matière d’authentification MFA | Microsoft Docs"
 description: "Ce document propose de meilleures pratiques à l’aide de l’authentification Multifacteur Azure avec des comptes Azure"
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
 ms.service: multi-factor-authentication
@@ -12,17 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: f43f6e33976325920da9cf0f6aef6decae5bde26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 6166e20a4652379dc9eeffe522feb651f5e57ea2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Meilleures pratiques pour l’utilisation de l’authentification multifacteur Azure avec des comptes Azure AD
 
 La vérification en deux étapes est le choix privilégié par la plupart des organisations qui souhaitent améliorer leur processus d’authentification. Azure Multi-Factor Authentication (MFA) aide les entreprises à satisfaire les exigences des sociétés en matière de sécurité et de conformité tout en fournissant une expérience de connexion facile pour leurs utilisateurs. Cet article propose quelques conseils pour la planification de l’adoption de l’authentification Azure MFA.
@@ -69,7 +67,7 @@ Dans la mesure où la plupart des utilisateurs sont habitués à utiliser unique
 ## <a name="best-practices-for-an-on-premises-deployment"></a>Meilleures pratiques pour un déploiement local
 Si votre entreprise a décidé de se servir de sa propre infrastructure pour activer l’authentification MFA, vous devez déployer un serveur Azure Multi-Factor Authentication localement. Les composants serveur de l’authentification MFA figurent dans le diagramme suivant :
 
-![Composants du serveur MFA par défaut : console, moteur de synchronisation, portail de gestion, service cloud](./media/multi-factor-authentication-security-best-practices/server.png) \*Non installé par défaut \**Installé, mais non activé par défaut
+![Composants du serveur MFA par défaut : console, moteur de synchronisation, portail de gestion, service cloud](./media/multi-factor-authentication-security-best-practices/server.png)\*Non installé par défaut \**Installé, mais non activé par défaut
 
 Le serveur Microsoft Azure Multi-Factor Authentication peut sécuriser les ressources de cloud et les ressources locales par fédération. Vous devez disposer d’AD FS et le fédérer avec votre locataire Azure AD.
 Durant la configuration du serveur Multi-Factor Authentication, tenez compte des détails suivants :
@@ -114,5 +112,4 @@ Bien que cet article mette en évidence quelques-unes des meilleures pratiques d
 * [Rapports dans Azure Multi-Factor Authentication](multi-factor-authentication-manage-reports.md)
 * [Processus d’inscription à la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md)
 * [Forum Aux Questions d’Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
-
 

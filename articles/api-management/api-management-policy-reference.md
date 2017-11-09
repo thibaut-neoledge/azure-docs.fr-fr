@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: adc0c4415e10ddd0b4994cecef17f026546e91a1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-policy-reference"></a>Référence sur les stratégies Gestion des API Azure
 Cette section fournit un index des stratégies dans la [Référence des stratégies de gestion des API][API Management policy reference]. Pour plus d’informations sur l’ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API][Policies in API Management].
@@ -124,6 +122,5 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 
 [Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
-
 
 

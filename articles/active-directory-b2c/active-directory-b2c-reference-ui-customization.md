@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
+ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 122fa997ea11b369aae3c59edf0043ab19d21aea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C : personnalisation de l’interface utilisateur Azure AD B2C
 
@@ -28,6 +27,7 @@ L’expérience utilisateur est primordiale dans une application orientée clien
 > [!NOTE]
 > La fonctionnalité de personnalisation de l’interface utilisateur de page décrite dans cet article ne s’applique pas à la stratégie d’authentification uniquement, à sa page de réinitialisation du mot de passe qui l’accompagne ni aux e-mails de vérification.  Ces fonctionnalités utilisent la [fonctionnalité de marque de société](../active-directory/active-directory-add-company-branding.md) à la place.
 >
+> De même, si un utilisateur lance une stratégie de modification de profil *avant* de se connecter, il est redirigé vers une page qui peut être personnalisée avec la [fonctionnalité de personnalisation d’entreprise](../active-directory/active-directory-add-company-branding.md).
 
 Cet article aborde les thèmes suivants :
 
@@ -348,4 +348,3 @@ Si vous envisagez d’utiliser la fonctionnalité de personnalisation d’interf
   * Prise en charge limitée pour Internet Explorer 9, 8
   * Google Chrome 42.0 et ultérieur
   * Mozilla Firefox 38.0 et ultérieur
-

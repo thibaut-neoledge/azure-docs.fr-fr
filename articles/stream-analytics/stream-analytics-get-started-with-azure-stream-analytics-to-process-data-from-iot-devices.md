@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Prendre en main Azure Stream Analytics pour traiter des données à partir d’appareils IoT
 Dans ce didacticiel, vous allez apprendre à créer une logique de traitement de flux pour collecter des données à partir d’appareils IoT (Internet des objets). Nous allons recourir à un cas d’utilisation réel de l’IoT pour vous montrer comment générer votre solution rapidement et à moindre coût.
@@ -45,7 +44,7 @@ La charge utile des données est au format JSON et ressemble à ceci :
         "hmdt": 34  
     }  
 
-Dans un scénario réel, des centaines de capteurs de ce type pourraient générer des événements sous forme de flux. Dans l’idéal, un appareil de passerelle exécuterait du code pour transmettre ces événements à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) ou [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Votre tâche Stream Analytics ingérerait ces événements depuis Event Hubs et exécuterait des requêtes d’analyse en temps réel sur les flux. Vous pourriez ensuite envoyer les résultats à l’une des [sorties prises en charge](stream-analytics-define-outputs.md).
+Dans un scénario réel, des centaines de capteurs de ce type pourraient générer des événements sous forme de flux. Dans l’idéal, un appareil de passerelle exécuterait du code pour transmettre ces événements à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) ou [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Votre tâche Stream Analytics ingèrerait ces événements depuis Event Hubs et exécuterait des requêtes d’analyse en temps réel sur les flux. Vous pourriez ensuite envoyer les résultats à l’une des [sorties prises en charge](stream-analytics-define-outputs.md).
 
 Pour plus de convivialité, ce guide de mise en route fournit un exemple de fichier de données capturé à partir de balises de capteur réelles. Vous pouvez exécuter des requêtes sur les exemples de données et afficher les résultats. Dans les didacticiels suivants, vous apprendrez comment connecter votre travail aux entrées et sorties et le déployer sur le service Azure.
 
@@ -99,7 +98,7 @@ Essayons de filtrer les résultats en fonction d’une condition. Nous souhaiton
 
 ![Filtrage d’un flux de données](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-Vous pouvez voir que la requête respecte la casse et compare des valeurs de chaîne. Cliquez à nouveau sur l’engrenage de **Test** pour exécuter la requête. La requête doit renvoyer uniquement 389 lignes sur 1 860 événements.
+Vous pouvez voir que la requête respecte la casse et compare des valeurs de chaîne. Cliquez à nouveau sur l’engrenage de **Test** pour exécuter la requête. La requête doit renvoyer uniquement 389 lignes sur 1860 événements.
 
 ![Résultats de la deuxième sortie du test de requête](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
@@ -119,5 +118,4 @@ Ici, nous utilisons une jointure **LEFT OUTER** sur le même flux de données (j
 
 ## <a name="conclusion"></a>Conclusion
 L’objectif de ce didacticiel est de montrer comment écrire différentes requêtes en langage de requête Stream Analytics et afficher les résultats dans le navigateur. Toutefois, il ne s’agit que d’une prise en main. Stream Analytics offre de nombreuses autres possibilités. Ce langage prend en charge un large éventail d’entrées et de sorties et peut même tirer parti de fonctions d’Azure Machine Learning, ce qui en fait un outil robuste pour l’analyse des flux de données. Vous pouvez obtenir des informations supplémentaires sur Stream Analytics via notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Pour en savoir plus sur la méthode à suivre pour écrire des requêtes, voir [Exemples de requête pour les modes d’utilisation courants dans Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).
-
 

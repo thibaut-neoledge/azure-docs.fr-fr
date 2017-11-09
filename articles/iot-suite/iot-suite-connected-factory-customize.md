@@ -1,5 +1,5 @@
 ---
-title: "Personnaliser l’usine connectée Azure IoT Suite | Documents Microsoft"
+title: "Personnaliser la solution d’usine connectée - Azure | Microsoft Docs"
 description: "Découvrez comment personnaliser le comportement de la solution préconfigurée d’usine connectée."
 services: 
 suite: iot-suite
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
+ms.openlocfilehash: 4505023c1869c0bb23e99dc7db1ee6e65466c2cc
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 90a6172dbd887ecda5a9f5d9082a4e136092bc10
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personnaliser le mode d’affichage des données de vos serveurs OPC UA par la solution d’usine connectée
 
@@ -36,7 +35,7 @@ La solution permet d’afficher des informations détaillées pour des élément
 
 ![Graphiques du nombre d’éléments fabriqués][img-manufactured-items]
 
-Si vous cliquez sur l’un des graphes, vous pouvez explorer les données plus en détail à l’aide de Time Series Insights (TSI) :
+Si vous cliquez sur l’un des graphiques, vous pouvez explorer les données plus en détail à l’aide de Time Series Insights (TSI) :
 
 ![Explorer les données à l’aide de Time Series Insights][img-tsi]
 

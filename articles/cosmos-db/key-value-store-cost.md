@@ -16,14 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 33eef1b51a5ee00b0fa67096030ed9ce92cf768e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts
 
 Azure Cosmos DB est un service de base de données multi-modèles, distribué dans le monde entier, qui permet de créer facilement des applications à grande échelle et à haute disponibilité. Par défaut, Azure Cosmos DB indexe automatiquement et efficacement toutes les données qu’il reçoit. Vous pouvez ainsi créer des requêtes [SQL](documentdb-sql-query.md) (et [JavaScript](programming.md)) rapides et cohérentes sur n’importe quel type de données. 
@@ -58,5 +56,4 @@ La plupart des magasins d’objets et d’objets Blob de base facturent 0,40 $ l
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez régulièrement cette rubrique pour obtenir de nouveaux articles sur l’optimisation de l’approvisionnement des ressources Azure Cosmos DB. En attendant, n’hésitez pas à utiliser notre [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner).
-
 

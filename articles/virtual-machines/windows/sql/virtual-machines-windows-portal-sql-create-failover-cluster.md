@@ -14,16 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 09/26/2017
 ms.author: mikeray
+ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 439353b7d22fb7376049ea8e1433a8d5840d3e0f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
 Cet article explique comment créer une instance de cluster de basculement (FCI) SQL Server sur des machines virtuelles Azure dans le modèle Resource Manager. Cette solution utilise [l’édition Espaces de stockage direct \(S2D\) de Windows Server 2016 Datacenter](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) en tant que réseau SAN virtuel basé sur logiciel qui synchronise le stockage (disques de données) entre les nœuds (machines virtuelles Azure) dans un cluster Windows. La technologie Espaces de stockage direct (S2D) est une nouveauté dans Windows Server 2016.
@@ -164,7 +162,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
    | SQL Server | 1433 | Port normal pour les instances par défaut de SQL Server. Si vous avez utilisé une image de la galerie, ce port s’ouvre automatiquement.
    | Sonde d’intégrité | 59999 | Tout port TCP ouvert. Dans une étape ultérieure, configurez la [sonde d’intégrité](#probe) de l’équilibrage de charge et le cluster pour qu’ils utilisent ce port.  
 
-1. Ajoutez du stockage à la machine virtuelle. Pour plus d’informations, consultez [Ajouter du stockage](../../../storage/common/storage-premium-storage.md).
+1. Ajoutez du stockage à la machine virtuelle. Pour plus d’informations, consultez [Ajouter du stockage](../premium-storage.md).
 
    Les deux machines virtuelles ont besoin d’au moins deux disques de données.
 
@@ -427,19 +425,37 @@ Pour créer l’équilibrage de charge :
 
 Définissez le paramètre de port de sonde de cluster dans PowerShell.
 
-Pour définir le paramètre de port de sonde de cluster, mettez à jour les variables dans le script suivant à partir de votre environnement.
+Pour définir le paramètre de port de sonde de cluster, mettez à jour les variables dans le script suivant avec des valeurs à partir de votre environnement. Supprimez les crochets pointus `<>` du script. 
 
-  ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   ```PowerShell
+   $ClusterNetworkName = "<Cluster Network Name>"
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+   $ILBIP = "<n.n.n.n>" 
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
+Dans le script précédent, définissez les valeurs pour votre environnement. La liste ci-dessous décrit les valeurs :
+
+   - `<Cluster Network Name>` : nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et cliquez sur **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**. 
+
+   - `<SQL Server FCI IP Address Resource Name>`: nom de ressource d’adresse IP de l’instance de cluster de basculement SQL Server. Dans le **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle de l’instance de cluster de basculement SQL Server, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, et cliquez sur **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**. 
+
+   - `<ILBIP>` : adresse IP de l’ILB. Cette adresse est configurée dans le portail Azure en tant qu’adresse frontale d’équilibrage de charge interne. Il s’agit également de l’adresse IP de l’instance de cluster de basculement SQL Server. Vous pouvez la trouver dans le **Gestionnaire du cluster de basculement** sur la page de propriétés où se trouve également localisé le `<SQL Server FCI IP Address Resource Name>`.  
+
+   - `<nnnnn>`: est le port de sonde que vous avez configuré dans la sonde d’intégrité d’équilibrage de charge. N’importe quel port TCP inutilisé est valide. 
+
+>[!IMPORTANT]
+>Le masque de sous-réseau pour le paramètre de cluster doit être l’adresse de diffusion TCP IP : `255.255.255.255`.
+
+Après avoir défini la sonde du cluster, vous pouvez voir tous les paramètres de cluster dans PowerShell. Exécutez le script qui suit :
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## <a name="step-7-test-fci-failover"></a>Étape 7 : Test du basculement FCI
 
@@ -474,4 +490,3 @@ Sur les machines virtuelles Azure, Microsoft Distributed Transaction Coordinator
 [Vue d’ensemble de l’espace de stockage direct](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [Prise en charge de SQL Server pour S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
-

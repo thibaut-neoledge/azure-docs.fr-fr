@@ -13,17 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: 24b8a9852395c26a40adb406bd706283e1a96d5d
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Guide pratique de réinitialisation de mot de passe libre-service
 
 Si vous rencontrez des problèmes avec la réinitialisation du mot de passe en libre-service, les éléments qui suivent peuvent vous aider à faire fonctionner la solution rapidement.
@@ -88,7 +86,7 @@ Si vous rencontrez des problèmes avec la réinitialisation du mot de passe en l
 | Le service de réinitialisation du mot de passe ne démarre pas localement avec une erreur 6800 dans le journal des événements de l’application de l’ordinateur Azure AD Connect. <br> <br> Après l’intégration, les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe ne parviennent pas à réinitialiser leurs mots de passe. | Quand l’écriture différée des mots de passe est activée, le moteur de synchronisation appelle la bibliothèque d’écriture différée pour effectuer la configuration (intégration) en contactant le service d’intégration cloud. Toutes les erreurs rencontrées au cours de l’intégration ou lors du démarrage du point de terminaison WCF pour l’écriture différée des mots de passe entraînent une consignation dans le journal des événements de votre ordinateur Azure AD Connect. <br> <br> Pendant le redémarrage du service ADSync, si l’écriture différée a été configurée, le point de terminaison WCF est démarré. Toutefois, si le démarrage du point de terminaison échoue, l’événement 6800 est consigné et le service de synchronisation peut démarrer. La présence de cet événement signifie que le point de terminaison de l’écriture différée de mot de passe n’a pas démarré. Les détails du journal des événements pour cet événement (6800) ainsi que les entrées du journal des événements générées par le composant PasswordResetService indiquent pour quelles raisons le point de terminaison n’a pas pu démarrer. Passez en revue les erreurs du journal des événements et essayez de redémarrer Azure AD Connect si l’écriture différée de mot de passe ne fonctionne toujours pas. Si le problème persiste, essayez de désactiver et de réactiver l’écriture différée de mot de passe.
 | Lorsqu’un utilisateur tente de réinitialiser un mot de passe ou de déverrouiller un compte avec l’écriture différée du mot de passe activée, l’opération échoue. <br> <br> De plus, un événement est consigné dans le journal des événements d’Azure AD Connect : « Synchronization Engine returned an error (Le moteur de synchronisation a renvoyé une erreur) hr=800700CE, message=nom de fichier ou extension est trop long » après l’opération de déverrouillage. | Parcourez le compte Active Directory pour trouver Azure AD Connect et réinitialiser le mot de passe de sorte qu’il ne contienne pas plus de 127 caractères. Ensuite, ouvrez Service de synchronisation dans le menu Démarrer. Accédez à Connecteurs et recherchez le Connecteur Active Directory. Sélectionnez-le et cliquez sur Propriétés. Accédez à la page Informations d’identification et entrez le nouveau mot de passe. Cliquez sur OK pour fermer la page. |
 | À la dernière étape du processus d’installation d’Azure AD Connect, une erreur indique que l’écriture différée de mot de passe n’a pas pu être configurée. <br> <br> Le journal des événements de l’application Azure AD Connect contient l’erreur 32009 avec le texte « Erreur lors de l’obtention du jeton d’authentification ». | Cette erreur se produit dans les deux cas suivants :<br> <br> a. Vous avez spécifié un mot de passe incorrect pour le compte d’administrateur général spécifié au début du processus d’installation d’Azure AD Connect.<br> b. Vous avez tenté d’utiliser un utilisateur fédéré pour le compte d’administrateur général spécifié au début du processus d’installation d’Azure AD Connect.<br> <br> Pour corriger cette erreur, assurez-vous que vous n’utilisez pas un compte fédéré pour l’administrateur général que vous avez spécifié au début du processus d’installation d’Azure AD Connect et que le mot de passe spécifié est correct. |
-| Le journal des événements de l’ordinateur Azure AD Connect contient l’erreur 32002 levée par PasswordResetService. <br> <br> L’erreur stipule : « Erreur lors de la connexion à ServiceBus. Le fournisseur de jetons était dans l’incapacité de fournir un jeton de sécurité... » | Votre environnement local n’est pas en mesure de se connecter au point de terminaison Service Bus dans le cloud. Cette erreur est due à une règle de pare-feu qui bloque une connexion sortante vers une adresse web ou un port spécifique. Consultez [Configuration requise pour le réseau](active-directory-passwords-how-it-works.md#network-requirements) pour plus d’informations. Une fois que vous avez mis à jour ces règles, redémarrez l’ordinateur Azure AD Connect. L’écriture différée des mots de passe doit fonctionner de nouveau. |
+| Le journal des événements de l’ordinateur Azure AD Connect contient l’erreur 32002 levée par PasswordResetService. <br> <br> L’erreur stipule : « Erreur lors de la connexion à ServiceBus. Le fournisseur de jetons était dans l’incapacité de fournir un jeton de sécurité... » | Votre environnement local n’est pas en mesure de se connecter au point de terminaison Service Bus dans le cloud. Cette erreur est due à une règle de pare-feu qui bloque une connexion sortante vers une adresse web ou un port spécifique. Consultez les [prérequis de connectivité](./connect/active-directory-aadconnect-prerequisites.md) pour plus d’informations. Une fois que vous avez mis à jour ces règles, redémarrez l’ordinateur Azure AD Connect. L’écriture différée des mots de passe doit fonctionner de nouveau. |
 | Après avoir pu réinitialiser leurs mots de passe pendant un certain temps, les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe ne parviennent plus à réinitialiser leurs mots de passe. | Dans certains cas rares, le service d’écriture différée des mots de passe peut ne pas réussir à redémarrer quand Azure AD Connect a redémarré. Dans ce cas, commencez par vérifier si l’écriture différée des mots de passe est activée localement. Pour cela, utilisez l’Assistant Azure AD Connect ou PowerShell (voir les procédures ci-dessus). Si la fonctionnalité semble être activée, essayez de l’activer ou de la désactiver de nouveau par le biais de l’interface utilisateur ou de PowerShell. Si le problème persiste, essayez de désinstaller et réinstaller Azure AD Connect complètement. |
 | Les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe qui tentent de réinitialiser leurs mots de passe voient une erreur après avoir soumis un mot de passe qui leur indique un problème du service. <br ><br> En outre, pendant les opérations de réinitialisation de mot de passe, une erreur peut figurer dans vos journaux des événements locaux, laquelle concerne l’agent de gestion auquel l’accès a été refusé. | Si vous voyez ces erreurs dans votre journal des événements, vérifiez que le compte de l’agent de gestion AD (qui a été spécifié dans l’Assistant au moment de la configuration) dispose des autorisations nécessaires pour l’écriture différée des mots de passe. <br> <br> **Une fois que cette autorisation est accordée, cela peut prendre jusqu’à 1 heure pour que les autorisations arrivent via la tâche en arrière-plan sdprop sur le contrôleur de domaine.** <br> <br> Pour que la réinitialisation du mot de passe fonctionne, l’autorisation doit être marquée sur le descripteur de sécurité de l’objet utilisateur dont le mot de passe est réinitialisé. Tant que cette autorisation n’apparaît pas sur l’objet utilisateur, la réinitialisation du mot de passe continue d’échouer avec un accès refusé. |
 | Les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe qui tentent de réinitialiser leurs mots de passe voient une erreur après avoir soumis un mot de passe qui leur indique un problème du service. <br> <br> En outre, lors des opérations de réinitialisation de mot de passe, une erreur peut apparaître dans vos journaux des événements du service Azure AD Connect indiquant une erreur « Objet introuvable ». | Cette erreur indique généralement que le moteur de synchronisation est incapable de trouver l’objet utilisateur dans l’espace du connecteur AAD ou l’objet espace du connecteur MV ou AD lié. <br> <br> Pour résoudre ce problème, assurez-vous que l’utilisateur est véritablement synchronisé localement avec AAD via l’instance actuelle d’Azure AD Connect et examinez l’état des objets dans les espaces du connecteur et MV. Vérifiez que l’objet AD CS est le connecteur à l’objet MV via la règle « Microsoft.InfromADUserAccountEnabled.xxx ».|
@@ -152,17 +150,21 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
 | 33008| ADPasswordPolicyError| Cet événement se produit quand le service d’écriture différée des mots de passe tente de définir un mot de passe sur votre annuaire local qui ne respecte pas les critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. <br> <br> S’il existe une ancienneté minimale pour un mot de passe, alors que vous l’avez modifié avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0. <br> <br> Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des N dernières fois, où N est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des N dernières fois, un échec se produit. À des fins de test, l’historique doit être défini sur 0. <br> <br> S’il existe des critères de complexité des mots de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe. <br> <br> Si des filtres de mots de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, alors l’opération de réinitialisation ou de modification échoue.|
 | 33009| ADConfigurationError| Cet événement indique qu’un problème s’est produit lors de l’écriture d’un mot de passe dans votre annuaire local en raison d’un problème de configuration avec Active Directory. Consultez le journal des événements de l’application de l’ordinateur Azure AD Connect pour identifier les messages provenant du service ADSync et obtenir plus d’informations sur l’erreur qui s’est produite.|
 
-
 ## <a name="troubleshoot-password-writeback-connectivity"></a>Résolution des problèmes de connectivité de l’écriture différée de mot de passe
 
 Si vous rencontrez des interruptions de service avec le composant d’écriture différée de mot de passe d’Azure AD Connect, voici quelques mesures rapides à prendre pour résoudre le problème :
 
+* [Vérifier la connectivité réseau](#confirm-network-connectivity)
 * [Redémarrer le service de synchronisation Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Désactiver et réactiver la fonctionnalité d’écriture différée de mot de passe](#disable-and-re-enable-the-password-writeback-feature)
 * [Installer la dernière version d’Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Résoudre les problèmes d’écriture différée du mot de passe](#troubleshoot-password-writeback)
 
 En général, nous vous recommandons d’exécuter ces étapes dans l’ordre ci-dessus afin de récupérer votre service de la manière la plus rapide.
+
+### <a name="confirm-network-connectivity"></a>Vérifier la connectivité réseau
+
+Le point de défaillance le plus courant est que le pare-feu et/ou les ports de proxy et délais d’inactivité sont mal configurés. Vérifiez les prérequis de connectivité dans l’article [Conditions préalables pour Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) pour plus d’informations.
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Redémarrer le service de synchronisation Azure AD Connect
 
@@ -267,14 +269,14 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
-* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service Azure AD.
-* [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
-* [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
-* [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service pour vos utilisateurs grâce aux conseils figurant ici.
-* [**Personnalisation**](active-directory-passwords-customize.md) : personnalisez l’apparence de l’interface de réinitialisation de mot de passe en libre-service de votre société.
-* [**Stratégie**](active-directory-passwords-policy.md) : comprenez mieux et définissez les stratégies de mot de passe d’Azure AD.
-* [**Écriture différée du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de l’écriture différée du mot de passe avec votre répertoire local.
-* [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service.
-* [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qui se passe sous le capot pour mieux comprendre le fonctionnement.
-* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours
-
+* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
+* [Réinitialisez ou modifiez votre mot de passe](active-directory-passwords-update-your-own-password.md).
+* [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md).
+* [Vous avez une question relative à la licence ?](active-directory-passwords-licensing.md)
+* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](active-directory-passwords-data.md)
+* [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-policy.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](active-directory-passwords-writeback.md)
+* [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-reporting.md)
+* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
+* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure
 Cet article présente les principales différences d’un déploiement en local des services de domaine Windows Server Active Directory (AD DS) et des services de fédération Active Directory (AD FS) par rapport à un déploiement des mêmes outils sur des machines virtuelles Microsoft Azure.
@@ -498,5 +497,4 @@ Voir [AD FS 2.0 deployment topology considerations](https://technet.microsoft.co
 > L’équilibrage de la charge réseau (NLB) de Windows Server n’est pas pris en charge sur Azure.
 > 
 > 
-
 

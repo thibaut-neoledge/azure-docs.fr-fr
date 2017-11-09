@@ -1,6 +1,6 @@
 ---
-title: Install Visual Studio and connect to Azure Stack | Microsoft Docs
-description: Learn the steps required to install Visual Studio and connect to Azure Stack
+title: "Installer Visual Studio et se connecter à Azure Stack | Microsoft Docs"
+description: "Découvrez les étapes nécessaires pour installer Visual Studio et se connecter à Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -12,46 +12,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: sngun
+ms.date: 09/25/2017
+ms.author: helaw
+ms.openlocfilehash: 5487125095f05b2fbfa9489c5b4733f61c0212d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 62ad9ebfd829d9555b9e4bc70f8a7f0c8ff0f901
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="install-visual-studio-and-connect-to-azure-stack"></a>Installer Visual Studio et se connecter à Azure Stack
 
-# <a name="install-visual-studio-and-connect-to-azure-stack"></a>Install Visual Studio and connect to Azure Stack
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Use Visual Studio to author and deploy Azure Resource Manager [templates](azure-stack-arm-templates.md) in Azure Stack. You can use the steps described in this article to install Visual Studio either from [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are connected through [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). These steps perform a new installation of Visual Studio 2015 Community Edition. Read more about [coexistence](https://msdn.microsoft.com/library/ms246609.aspx) between other Visual Studio versions.
+Utilisez Visual Studio pour créer et déployer des [modèles](user/azure-stack-arm-templates.md) Azure Resource Manager dans Azure Stack. Vous pouvez utiliser les étapes décrites dans cet article pour installer Visual Studio à partir du [Kit de développement Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou à partir d’un client externe Windows si vous êtes connecté par le biais d’un [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). Ces étapes effectuent une nouvelle installation de Visual Studio 2015 Community Edition. Pour en savoir plus sur la coexistence entre d’autres versions de Visual Studio, consultez [cet article](https://msdn.microsoft.com/library/ms246609.aspx).
 
-## <a name="install-visual-studio"></a>Install Visual Studio
-1. Download and run the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).             
-2. Search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, click **Add**, and **Install**.
+## <a name="install-visual-studio"></a>Installation de Visual Studio
+1. Téléchargez et exécutez [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).             
+2. Recherchez **Visual Studio Community 2015 avec Microsoft Azure SDK - 2.9.6**, cliquez sur **Ajouter**, puis **Installer**.
 
-    ![Screenshot of WebPI install steps](./media/azure-stack-install-visual-studio/image1.png) 
+    ![Capture d’écran des étapes d’installation de WebPI](./media/azure-stack-install-visual-studio/image1.png) 
 
-3. Uninstall the **Microsoft Azure PowerShell** that is installed as part of the Azure SDK.
+3. Désinstallez la version de **Microsoft Azure PowerShell** installée dans le cadre du SDK Azure.
 
-    ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png) 
+    ![Capture d’écran de l’interface Ajout/Suppression de programmes pour Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png) 
 
-4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
+4. [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md)
 
-5. Restart the operating system after the installation completes.
+5. Redémarrez le système d’exploitation après l’installation.
 
-## <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+## <a name="connect-to-azure-stack"></a>Se connecter à Azure Stack
 
-1. Launch Visual Studio.
+1. Lancez Visual Studio.
 
-2. From the **View** menu, select **Cloud Explorer**.
+2. Dans le menu **Affichage**, sélectionnez **Cloud Explorer**.
 
-3. In the new pane, select **Add Account** and sign in with your Azure Active Directory credentials.  
-    ![Screenshot of Cloud Explorer once logged in and connected to Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
+3. Dans le nouveau volet, sélectionnez **Ajouter un compte** et connectez-vous avec vos informations d’identification Azure Active Directory.  
+    ![Capture d’écran de Cloud Explorer une fois connecté et connecté à Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
 
-Once logged in, you can [deploy templates](azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.  
+Une fois connecté, vous pouvez [déployer des modèles](user/azure-stack-deploy-template-visual-studio.md) ou parcourir les types de ressources et les groupes de ressources disponibles pour créer vos propres modèles.  
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>Étapes suivantes
 
- - [Develop templates for Azure Stack](azure-stack-develop-templates.md)
-
+ - [Développer des modèles pour Azure Stack](user/azure-stack-develop-templates.md)

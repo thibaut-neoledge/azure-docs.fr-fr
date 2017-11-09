@@ -7,8 +7,12 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer une instance de conteneur
+    - name: Créer un conteneur - Interface CLI
       href: container-instances-quickstart.md
+    - name: Créer un conteneur - Portail
+      href: container-instances-quickstart-portal.md
+    - name: Créer un conteneur - PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Didacticiels
   items:
     - name: Générer et déployer un conteneur
@@ -39,10 +43,12 @@
       href: container-instances-troubleshooting.md
 - name: Référence
   items:
-    - name: Azure CLI 2.0
+    - name: Interface de ligne de commande Azure
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances
+    - name: PowerShell
+      href: '/powershell/module/azurerm.containerinstance#container_instances'
 - name: Ressources
   items:
     - name: Feuille de route Azure

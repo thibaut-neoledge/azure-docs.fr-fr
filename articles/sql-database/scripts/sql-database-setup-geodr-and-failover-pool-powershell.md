@@ -1,6 +1,6 @@
 ---
 title: "Exemple PowerShell - géoréplication active - Base de données Azure SQL regroupée | Microsoft Docs"
-description: "Exemple de script Azure PowerShell permettant de configurer la géoréplication active d’une base de données Azure SQL regroupée"
+description: "Exemple de script Azure PowerShell permettant de configurer la géoréplication active pour une base de données Azure SQL regroupée et basculer celle-ci."
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 07/25/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 34a4970e9b0e99cbbbbc52788b00edab4a197755
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.openlocfilehash: 18c1960df07905dc60542d95a5ff9e85e58aa2f4
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>Utiliser PowerShell pour configurer la géoréplication active d’une base de données Azure SQL regroupée
 
 Cet exemple de script PowerShell configure la géoréplication active d’une base de données Azure SQL dans un pool élastique et la fait basculer vers le réplica secondaire de la base de données Azure SQL.
@@ -32,7 +30,7 @@ Cet exemple de script PowerShell configure la géoréplication active d’une ba
 
 ## <a name="sample-scripts"></a>Exemples de scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1?highlight=16-19 "Configurer la géoréplication active pour un pool élastique")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1?highlight=16-19 "Set up active geo-replication for elastic pool")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
@@ -66,4 +64,3 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell sur la page [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).
-

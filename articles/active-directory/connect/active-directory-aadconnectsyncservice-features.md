@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a439f421d726f58b2d21fb4a0e883e16db719364
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/10/2017
-
+ms.openlocfilehash: c2873510c280a2683c235cfdce3d2617c3b665cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# Fonctionnalités de service de synchronisation d’Azure AD Connect
-<a id="azure-ad-connect-sync-service-features" class="xliff"></a>
+# <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
 La fonctionnalité de synchronisation d’Azure AD Connect comprend deux composants :
 
 * Le composant local nommé **Azure AD Connect sync**, également appelé **moteur de synchronisation**.
@@ -62,12 +60,10 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 | UnifiedGroupWriteback |[Version préliminaire : Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Non pris en charge pour le moment. |
 
-## Résilience d’attribut en double
-<a id="duplicate-attribute-resiliency" class="xliff"></a>
+## <a name="duplicate-attribute-resiliency"></a>Résilience d’attribut en double
 Au lieu de rencontrer des problèmes lors de l’approvisionnement des UPN/proxyAddresses en double, l’attribut en double est « mis en quarantaine » et une valeur temporaire lui est attribuée. Lorsque le conflit est résolu, l’UPN temporaire est automatiquement converti dans la valeur correcte. Pour plus d’informations, voir [Synchronisation des identités et résilience d’attribut en double](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## Correspondance souple UserPrincipalName
-<a id="userprincipalname-soft-match" class="xliff"></a>
+## <a name="userprincipalname-soft-match"></a>Correspondance souple UserPrincipalName
 Lorsque cette fonctionnalité est activée, la correspondance souple est activée pour l’UPN ainsi que pour l’ [adresse SMTP principale](https://support.microsoft.com/kb/2641663), qui est toujours activée. La correspondance souple est utilisée pour faire correspondre les utilisateurs existants du cloud dans Azure AD avec les utilisateurs locaux.
 
 Cette fonctionnalité est utile lorsque vous mettez en correspondance des comptes AD locaux avec des comptes existants créés dans le cloud, et que vous n’utilisez pas Exchange Online. Dans ce scénario, vous n’avez généralement pas de raison pour définir l’attribut SMTP dans le cloud.
@@ -84,8 +80,7 @@ Si cette fonctionnalité n’est pas activée pour votre répertoire Azure AD, v
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
-## Synchroniser les mises à jour userPrincipalName
-<a id="synchronize-userprincipalname-updates" class="xliff"></a>
+## <a name="synchronize-userprincipalname-updates"></a>Synchroniser les mises à jour userPrincipalName
 Historiquement, les mises à jour de l’attribut UserPrincipalName à l’aide du service de synchronisation du site ont été bloquées, sauf si les deux conditions suivantes sont remplies :
 
 * L’utilisateur est géré (non fédéré).
@@ -109,9 +104,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Après avoir activé cette fonctionnalité, les valeurs existantes userPrincipalName demeurent telles quelles. Lors de la prochaine modification de l’attribut userPrincipalName en local, la synchronisation delta normale sur les utilisateurs met à jour l’UPN.  
 
-## Voir aussi
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>Voir aussi
 * [Synchronisation d’Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
 

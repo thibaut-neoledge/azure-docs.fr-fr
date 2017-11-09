@@ -12,16 +12,14 @@ ms.custom: scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: sql-database
+ms.workload: On Demand
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f7f1ad3f1933b39a0030a784cae40521254037d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 012fc38075285b898599517f3e6ed5a3c9eb854d
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transactions distribuées entre bases de données cloud
 Les transactions de bases de données élastiques pour la base de données SQL Azure (SQL DB) vous permettent d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans SQL DB. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Pour obtenir la bibliothèque, consultez [.NET Framework 4.6.1 (programme d’installation web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -96,7 +94,7 @@ Les transactions de bases de données élastiques pour la base de données SQL p
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Installation de .NET pour Azure Cloud Services
-Azure fournit plusieurs offres pour héberger des applications .NET. Une comparaison des différentes offres est disponible dans la section [Comparaison entre Azure App Service, Cloud Services et Virtual Machines](../app-service-web/choose-web-site-cloud-service-vm.md). Si le SE invité de l'offre est antérieur à la version .NET 4.6.1 requise pour les transactions élastiques, vous devez mettre à niveau le SE invité vers la version 4.6.1. 
+Azure fournit plusieurs offres pour héberger des applications .NET. Une comparaison des différentes offres est disponible dans la section [Comparaison entre Azure App Service, Cloud Services et Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md). Si le SE invité de l'offre est antérieur à la version .NET 4.6.1 requise pour les transactions élastiques, vous devez mettre à niveau le SE invité vers la version 4.6.1. 
 
 Pour Azure App Services, les mises à niveau du SE invité ne sont actuellement pas prises en charge. Pour Azure Virtual Machines, connectez-vous à la machine virtuelle et exécutez le programme d'installation du .NET Framework le plus récent. Pour Azure Cloud Services, vous devez inclure l'installation d'une version plus récente de .NET dans les tâches de démarrage de votre déploiement. Les concepts et les étapes sont documentés dans [Installer .NET sur un rôle de service cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -151,7 +149,6 @@ Pour toute question, contactez-nous sur le [forum SQL Database](http://social.ms
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
-
 
 
 

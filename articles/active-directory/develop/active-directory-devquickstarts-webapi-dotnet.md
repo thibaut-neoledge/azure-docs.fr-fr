@@ -1,5 +1,5 @@
 ---
-title: "Bien démarrer avec l&quot;API web Azure AD .NET | Microsoft Docs"
+title: "Bien démarrer avec l'API web Azure AD .NET | Microsoft Docs"
 description: "Création d’une API web MVC .NET qui s’intègre à Azure AD pour l’authentification et l’autorisation."
 services: active-directory
 documentationcenter: .net
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: b028a75836f7c762431bfb9e3fc30822b7dee885
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Protégez une API web à l’aide de jetons du porteur à partir d’Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -155,4 +153,3 @@ Enfin, nettoyez, générez et exécutez chaque projet. Si vous ne l’avez pas e
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est disponible dans [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Vous pouvez à présent aborder d’autres scénarios d’identité.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Obtention d’un client Azure Active Directory
 Dans Azure Active Directory (Azure AD), un [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) est représentatif d'une organisation.  Il s’agit d’une instance dédiée du service Azure AD qu’une organisation reçoit et possède lorsqu’elle s'inscrit à un service cloud de Microsoft tel qu’Azure, Microsoft Intune ou Office 365.  Chaque client Azure AD est distinct et indépendant des autres clients Azure AD.  
@@ -65,4 +64,3 @@ Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte profe
 Si tous les éléments ci-dessus vous sont incompréhensibles, ne vous inquiétez pas.  Visitez simplement [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) pour vous inscrire à Azure avec une nouvelle organisation.  Une fois le processus terminé, vous aurez votre propre client Azure AD avec le nom de domaine que vous avez choisi lors de votre inscription.  Dans le [portail Azure](https://portal.azure.com), vous pouvez trouver votre client en accédant à « Azure Active Directory » dans la barre de navigation de gauche.
 
 Dans le cadre du processus d'inscription à Azure, vous devrez fournir les informations d’une carte de crédit.  Vous pouvez procéder en toute confiance. Vous ne serez pas facturé pour la publication d'applications dans Azure AD ou la création de nouveaux clients.
-

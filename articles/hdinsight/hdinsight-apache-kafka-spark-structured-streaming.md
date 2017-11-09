@@ -1,5 +1,5 @@
 ---
-title: Apache Spark Structured Streaming avec Kafka - Azure HDInsight | Microsoft Docs
+title: Apache Spark Structured Streaming avec Kafka - Azure HDInsight | Documents Microsoft
 description: "Découvrez comment utiliser la diffusion en continu Apache Spark (DStream) pour échanger des flux de données avec Apache Kafka. Dans cet exemple, vous diffusez des données à l’aide d’un bloc-notes Jupyter à partir de Spark sur HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
+ms.openlocfilehash: 565f840e0ac7ec1a68361ac1613da5d42459c979
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 34c8e18e918221f0287b1078df750d8016e2529a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Utiliser Spark Structured Streaming avec Kafka (préversion) sur HDInsight
 
 Découvrez comment utiliser Spark Structured Streaming pour lire des données à partir d’Apache Kafka sur Azure HDInsight.
@@ -92,7 +90,7 @@ Dès que les ressources sont créées, une page récapitulative s’affiche.
 
 ## <a name="get-the-kafka-brokers"></a>Obtenir les répartiteurs Kafka
 
-Le code dans cet exemple se connecte aux hôtes répartiteurs Kafka dans le cluster Kafka. Pour rechercher l’adresse de deux hôtes répartiteurs Kafka, utilisez l’exemple PowerShell ou Bash suivant :
+Le code dans cet exemple se connecte aux hôtes répartiteurs Kafka dans le cluster Kafka. Pour rechercher les adresses des deux hôtes répartiteurs Kafka, utilisez l’exemple PowerShell ou Bash suivant :
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"

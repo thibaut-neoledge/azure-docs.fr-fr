@@ -1,6 +1,5 @@
 # Vue d'ensemble
 ## [Qu’est-ce que l’Azure Security Center ?](security-center-intro.md)
-## [Obtenir des informations avec Power BI](security-center-powerbi.md)
 ## [Sécurité des données](security-center-data-security.md)
 ## Scénarios
 ### [Réponse aux incidents](security-center-incident-response.md)
@@ -16,49 +15,49 @@
 ## [FAQ](security-center-faq.md)
 
 # Procédures
-
-## Stratégie de sécurité
-### [Collecte des données](security-center-enable-data-collection.md)
-### [Définir des stratégies de sécurité](security-center-policies.md)
+## [Stratégie de sécurité](security-center-policies-overview.md)
+### [Collecte de données](security-center-enable-data-collection.md)
+### [Stratégie de sécurité](security-center-policies.md)
+### [Stratégie de sécurité avec la stratégie Azure](security-center-azure-policy.md)
+### [Notifications par e-mail](security-center-provide-security-contact-details.md)
+### [Niveau tarifaire](security-center-pricing.md)
 
 ## [intégration](security-center-onboarding.md)
 ## [Événements](security-center-events-dashboard.md)
 ## [action](security-center-search.md)
 
 ## Prévention
-### [Surveiller l’intégrité de la sécurité](security-center-monitoring.md)
-### [Gérer les recommandations](security-center-recommendations.md)
-### [Intégrer des solutions de partenaire](security-center-partner-integration.md)
-### [Surveiller les solutions des partenaires](security-center-partner-solutions.md)
+### [Solutions de sécurité](security-center-partner-integration.md)
+#### [Surveiller les solutions connectées](security-center-partner-solutions.md)
+#### [Se connecter à Microsoft ATA](security-center-ata-integration.md)
+#### [Connecter Azure AD Identity Protection](security-center-aadip-integration.md)
+### [Implémenter les recommandations en matière de sécurité](security-center-recommendations.md)
+### [Recommandations relatives aux applications](security-center-application-recommendations.md)
+#### [Ajouter un pare-feu d’applications web](security-center-add-web-application-firewall.md)
+#### [Finaliser la protection des applications](security-center-add-web-application-firewall.md#finalize-application-protection)
 
-### [Calcul](security-center-virtual-machine-recommendations.md)
-#### [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md)
-#### [Appliquer des mises à jour système](security-center-apply-system-updates.md)
-#### [Activer le chiffrement pour le compte Azure Storage](security-center-enable-encryption-for-storage-account.md)
-#### [Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md)
-#### [Installer Endpoint Protection](security-center-install-endpoint-protection.md)
-#### [Fournir des informations de contact de sécurité](security-center-provide-security-contact-details.md)
-#### [Redémarrage après des mises à jour système](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Corriger des vulnérabilités du système d’exploitation](security-center-remediate-os-vulnerabilities.md)
-#### [Résoudre les alertes d’intégrité Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)
-#### [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md)
-#### [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md)
-
-### [Mise en réseau](security-center-network-recommendations.md)
+### [Recommandations pour le réseau](security-center-network-recommendations.md)
 #### [Ajouter un pare-feu de nouvelle génération](security-center-add-next-generation-firewall.md)
 #### [Activer des groupes de sécurité réseau](security-center-enable-network-security-groups.md)
 #### [Restreindre l’accès via un point de terminaison accessible sur Internet](security-center-restrict-access-through-internet-facing-endpoints.md)
 #### [Acheminer le trafic uniquement via un pare-feu de nouvelle génération](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
-### [Stockage et données](security-center-sql-service-recommendations.md)
+### [Recommandations relatives au service SQL](security-center-sql-service-recommendations.md)
 #### [Activer l’audit et la détection des menaces dans les bases de données SQL](security-center-enable-auditing-on-sql-databases.md)
 #### [Activer l’audit et la détection des menaces dans les serveurs SQL](security-center-enable-auditing-on-sql-servers.md)
 #### [Activer Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
 
-### [Applications](security-center-application-recommendations.md)
-#### [Ajouter un pare-feu d’applications web](security-center-add-web-application-firewall.md)
-#### [Finaliser la protection des applications](security-center-add-web-application-firewall.md#finalize-application-protection)
-
+### [Recommandations pour machines virtuelles](security-center-virtual-machine-recommendations.md)
+#### [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md)
+#### [Appliquer des mises à jour système](security-center-apply-system-updates.md)
+#### [Activer le chiffrement pour le compte Azure Storage](security-center-enable-encryption-for-storage-account.md)
+#### [Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md)
+#### [Installer Endpoint Protection](security-center-install-endpoint-protection.md)
+#### [Redémarrage après des mises à jour système](security-center-apply-system-updates.md#reboot-after-system-updates)
+#### [Corriger des vulnérabilités du système d’exploitation](security-center-remediate-os-vulnerabilities.md)
+#### [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md)
+#### [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md)
+### [Surveiller l’intégrité de la sécurité](security-center-monitoring.md)
 ### [Identité et accès](security-center-identity-access.md)
 
 ## Détecter et répondre
@@ -70,10 +69,15 @@
 ### [Intégration des journaux Azure](security-center-integrating-alerts-with-log-integration.md)
 ### [Carte d’informations sur les menaces](security-center-threat-intel.md)
 ### [Rapport d’informations sur les menaces](security-center-threat-report.md)
+### [Alertes personnalisées](security-center-custom-alert.md)
+### [Investigation](security-center-investigation.md)
 
 ## Protections cloud
 ### [Accès juste à temps](security-center-just-in-time.md)
 ### [Contrôles d’application adaptative](security-center-adaptive-application.md)
+
+## Automation et orchestration
+### [Manuels](security-center-playbooks.md)
 
 ## Résolution des problèmes
 ### [Guide de résolution des problèmes](security-center-troubleshooting-guide.md)
@@ -87,7 +91,6 @@
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog Azure sur la sécurité, la confidentialité et la conformité](http://blogs.msdn.com/b/azuresecurity/)
-## [Tarification](security-center-pricing.md)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Présentation du service](https://azure.microsoft.com/services/security-center/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=security-center)

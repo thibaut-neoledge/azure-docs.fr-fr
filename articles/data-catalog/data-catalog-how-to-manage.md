@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 391ea72390c589bf86ed9be58e44ce8b20eab837
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 8b9159b7bc4f7b2dac12d9012c6c903e75a6ac16
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gérer les ressources de données dans Azure Data Catalog
 ## <a name="introduction"></a>Introduction
@@ -74,4 +73,3 @@ Les administrateurs de Data Catalog sont implicitement copropriétaires de toute
 
 ## <a name="summary"></a>Résumé
 Data Catalog repose sur un modèle de détection des données et des métadonnées basé sur la notion de crowdsourcing, qui permet à tous les utilisateurs du catalogue de collaborer et détecter des ressources. L’édition Standard de Data Catalog comprend des fonctionnalités de propriété et de gestion permettant de restreindre la visibilité et l’utilisation des ressources de données.
-

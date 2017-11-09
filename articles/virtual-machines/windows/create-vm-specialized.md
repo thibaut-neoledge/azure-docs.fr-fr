@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: b315a37f72f34d45bb55c2bbe6be20cca8c42424
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/01/2017
-
-
+ms.openlocfilehash: 39cbd30102813a4502cd25811589d04a9adb0aa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé
 
@@ -129,7 +127,7 @@ New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 Créez le disque de système d’exploitation à partir du disque dur virtuel chargé. 
 
 ```powershell
-$sourceUri = https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
+$sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
@@ -324,5 +322,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour vous connecter à votre nouvelle machine virtuelle, accédez à la machine virtuelle dans le [portail](https://portal.azure.com), cliquez sur **Se connecter**, puis ouvrez le fichier RDP Bureau à distance. Utilisez les informations d’identification de compte de votre machine virtuelle d’origine pour vous connecter à votre nouvelle machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](connect-logon.md).
-
 

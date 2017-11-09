@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 6d517c5e302ac36e5bba2053998c75f8f4d42683
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Business Object Cloud
 
@@ -31,7 +30,7 @@ Intégrer SAP Business Object Cloud avec Azure AD vous offre les avantages s
 - Vous pouvez connecter automatiquement vos utilisateurs à SAP Business objet Cloud à l’aide de l’authentification unique et d’un compte utilisateur Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Pour en savoir plus sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -43,10 +42,10 @@ Pour configurer l’intégration d’Azure AD à SAP Business Object Cloud, 
 > [!NOTE]
 > Lorsque vous testez les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
-Recommandations pour les étapes de test dans ce didacticiel :
+Recommandations pour tester les étapes de ce didacticiel :
 
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous ne disposez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+- N’utilisez pas votre environnement de production, à moins que cela ne soit nécessaire.
+- Si vous ne disposez pas d’un environnement d’essai Azure AD, vous pouvez [obtenir un essai gratuit d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. 
@@ -61,7 +60,7 @@ Pour configurer l’intégration de SAP Business Object Cloud à Azure AD, a
 
 Pour ajouter SAP Business Object Cloud depuis la galerie :
 
-1. Dans le menu gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**. 
+1. Dans le menu gauche du [Portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**. 
 
     ![Bouton Azure Active Directory][1]
 
@@ -91,10 +90,10 @@ Pour établir une relation, dans SAP Business Object Cloud, assignez la valeu
 
 Pour configurer et tester l’authentification unique Azure AD avec SAP Business Object Cloud, vous devez exécuter les tâches suivantes :
 
-1. [Configurer l’authentification unique Azure AD](#set-up-azure-ad-single-sign-on). Configure un utilisateur pour utiliser cette fonctionnalité.
+1. [Configurer l’authentification unique Azure AD](#set-up-azure-ad-single-sign-on). Configure un utilisateur afin qu’il puisse utiliser cette fonctionnalité.
 2. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user). Teste l’authentification unique Azure AD avec l’utilisateur Britta Simon.
 3. [Créer un utilisateur de test pour SAP Business Object Cloud](#create-an-sap-business-object-cloud-test-user). Crée un équivalent de Britta Simon dans SAP Business Object Cloud lié à la représentation d’un utilisateur Azure AD.
-4. [Attribuer l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user). Configure Britta Simon pour utiliser l’authentification unique Azure AD.
+4. [Attribuer l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user). Configure Britta Simon afin qu’elle puisse utiliser l’authentification unique Azure AD.
 5. [Tester l’authentification unique](#test-single-sign-on). Vérifie que la configuration fonctionne.
 
 ### <a name="set-up-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -173,18 +172,18 @@ Pour configurer l’authentification Azure AD avec SAP Business objet Cloud :
     ![Icône Enregistrer](./media/active-directory-saas-sapboc-tutorial/save.png)
 
 > [!TIP]
-> Vous pouvez lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez votre application ! Après avoir ajouté l’application en sélectionnant **Active Directory** > **Applications d’entreprise**, sélectionnez l’onglet **Authentification unique**. Vous pouvez accéder à la documentation incorporée dans la section **Configuration** en bas de la page. Pour plus d’informations, consultez [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Vous pouvez lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez votre application ! Après avoir ajouté l’application en sélectionnant **Active Directory** > **Applications d’entreprise**, sélectionnez l’onglet **Authentification unique**. Vous pouvez accéder à la documentation incorporée dans la section **Configuration** en bas de la page. Pour plus d’informations, consultez la page [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 Dans cette section, créez un utilisateur de test nommé Britta Simon dans le portail Azure.
 
 Pour créer un utilisateur de test dans Azure AD :
 
-1. Dans le menu du gauche du portail Azure, sélectionnez **Azure Active Directory**.
+1. Dans le menu de gauche du Portail Azure, sélectionnez **Azure Active Directory**.
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapboc-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, sélectionnez **Utilisateurs et groupes**, puis sélectionnez **Tous les utilisateurs**.
+2. Pour afficher la liste des utilisateurs, sélectionnez **Utilisateurs et groupes**, puis **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapboc-tutorial/create_aaduser_02.png) 
 
@@ -192,7 +191,7 @@ Pour créer un utilisateur de test dans Azure AD :
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapboc-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, effectuez les étapes suivantes :
+4. Dans la boîte de dialogue **Utilisateur**, suivez les étapes ci-dessous :
  
     1. Dans la boîte **Nom**, tapez **BrittaSimon**.
 
@@ -247,7 +246,7 @@ Dans cette section, autorisez l’utilisateur Britta Simon à utiliser l’authe
 
 Pour assigner Britta Simon à SAP Business Object Cloud :
 
-1. Dans le portail Azure, ouvrez la vue des applications, puis accédez à la vue des répertoires. Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Sur le Portail Azure, ouvrez l’affichage des applications, puis accédez à l’affichage des répertoires. Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
@@ -259,25 +258,25 @@ Pour assigner Britta Simon à SAP Business Object Cloud :
 
     ![Sélectionner Utilisateurs et groupes][202] 
 
-4. Sélectionnez **Ajouter**. Ensuite, dans la page **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
+4. Sélectionnez **Ajouter**. Ensuite, sur la page **Ajouter une affectation**, sélectionnez **Utilisateurs et groupes**.
 
     ![La page Ajouter une attribution][203]
 
 5. Dans la page **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Dans la page **Utilisateurs et groupes**, sélectionnez **Sélectionner**.
+6. Sur la page **Utilisateurs et groupes**, sélectionnez **Sélectionner**.
 
-7. Dans la page **Ajouter une attribution**, sélectionnez **Attribuer**.
+7. Sur la page **Ajouter une affectation**, sélectionnez **Affecter**.
 
 ![Attribuer le rôle utilisateur][200] 
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
-Dans cette section, testez la configuration de l’authentification unique Azure AD à l’aide du panneau d’accès.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 En cliquant sur la vignette SAP Business Object Cloud dans le panneau d’accès, vous êtes automatiquement connecté à votre application SAP Business Object Cloud.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
@@ -298,5 +297,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_203.png
-
 

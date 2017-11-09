@@ -1,6 +1,6 @@
 ---
-title: "Types de nœuds Service Fabric et groupes de machines virtuelles identiques | Microsoft Docs"
-description: "Décrit la relation entre les types de nœuds Service Fabric et les groupes de machines virtuelles identiques et la connexion à distance à une instance de groupe de machines virtuelles identiques ou à un nœud de cluster."
+title: "Types de nœuds Azure Service Fabric et groupes de machines virtuelles identiques | Microsoft Docs"
+description: "Découvrez la relation entre les types de nœuds Azure Service Fabric et les groupes de machines virtuelles identiques, ainsi que la méthode permettant de se connecter à distance à une instance de groupe identique ou à un nœud de cluster."
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,52 +14,50 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: chackdan
+ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 8c9e91d122591a19d34d944e2d9aaeb327cdafe4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="the-relationship-between-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Relation entre les types de nœuds Service Fabric et les groupes de machines virtuelles identiques
-Les groupes de machines virtuelles identiques constituent une ressource Azure Compute. Ils peuvent être utilisés pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que groupe de machines virtuelles identiques distinct. Chaque type de nœud peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité.
+# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Types de nœuds Azure Service Fabric et groupes de machines virtuelles identiques
+Les groupes de machines virtuelles identiques représentent une ressource de calcul Azure. Vous pouvez utiliser des groupes identiques pour déployer et gérer une collection de machines virtuelles comme un groupe. Configurez un groupe identique distinct pour chaque type de nœud que vous définissez dans un cluster Azure Service Fabric. Vous pouvez faire monter ou descendre en puissance chaque type de nœud de manière indépendante, avoir différents ensembles de ports ouverts et utiliser différentes métriques de capacité.
 
-La capture d’écran suivante montre un cluster qui a deux types de nœuds : FrontEnd et BackEnd.  Chaque type de nœud comporte cinq nœuds.
+La figure suivante illustre un cluster constitué de deux types de nœuds nommés FrontEnd et BackEnd. Chaque type de nœud compte cinq nœuds.
 
-![Capture d’écran d’un cluster qui a deux types de nœuds][NodeTypes]
+![Cluster constitué de deux types de nœuds][NodeTypes]
 
-## <a name="mapping-virtual-machine-scale-set-instances-to-nodes"></a>Mappage des instances du groupe de machines virtuelles identiques sur les nœuds
-Comme vous pouvez le constater ci-dessus, les instances du groupe de machines virtuelles identiques démarrent à l’instance 0. Les noms reflètent la numérotation. Par exemple, BackEnd_0 représente l’instance 0 du groupe de machines virtuelles identiques BackEnd. Ce groupe comprend cinq instances, nommées BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 et BackEnd_4.
+## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>Mapper des instances de groupe de machines virtuelles identiques à des nœuds
+Comme l’illustre la figure précédente, les instances de groupe identique commencent à l’instance 0 et augmentent de 1. Les noms de nœuds reflètent la numérotation. Par exemple, le nœud BackEnd_0 représente l’instance 0 du groupe identique BackEnd. Ce groupe identique spécifique compte cinq instances nommées BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 et BackEnd_4.
 
-Quand vous effectuez une montée en puissance sur un groupe de machines virtuelles identiques, une instance est créée. En règle générale, le nom de la nouvelle instance du groupe de machines virtuelles identiques est constitué du nom du groupe de machines virtuelles identiques et du numéro de l’instance suivante. Dans notre exemple, il s’agit de BackEnd_5.
+Quand vous faites monter en puissance un groupe identique, une nouvelle instance est créée. En règle générale, le nom de la nouvelle instance du groupe identique est le nom du groupe identique suivi du numéro d’instance suivant. Dans notre exemple, il s’agit de BackEnd_5.
 
-## <a name="mapping-virtual-machine-scale-set-load-balancers-to-each-node-typevm-scale-set"></a>Mappage des équilibreurs de charge de groupe de machines virtuelles identiques sur chaque type de nœud/groupe de machines virtuelles identiques
-Si vous avez déployé votre cluster à partir du portail ou si vous avez utilisé l’exemple de modèle Resource Manager, vous obtenez la liste de toutes les ressources d’un groupe de ressources. Vous voyez les équilibreurs de charge de chaque groupe de machines virtuelles identiques ou type de nœud.
-
-Le nom ressemble à ceci : **LB-&lt;NodeType name&gt;**. Par exemple, LB-sfcluster4doc-0, comme indiqué dans cette capture d’écran :
+## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mapper des équilibreurs de charge de groupe identique à des types de nœuds et des groupes identiques
+Si vous avez déployé votre cluster dans le portail Azure ou si vous avez utilisé l’exemple de modèle Azure Resource Manager, toutes les ressources d’un groupe de ressources sont répertoriées. Vous pouvez voir les équilibreurs de charge de chaque groupe identique ou type de nœud. Le nom d’un équilibreur de charge utilise le format suivant : **LB-&lt;nom du type de nœud&gt;**. La figure suivante en propose un exemple (LB-sfcluster4doc-0) :
 
 ![Ressources][Resources]
-
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connexion distante à une instance de groupe de machines virtuelles identiques ou à un nœud de cluster
-Chaque type de nœud qui est défini dans un cluster est configuré comme un groupe de machines virtuelles identiques distinct.  Cela signifie que les types de nœuds peuvent subir une montée ou descente en puissance indépendamment les uns des autres. En outre, ils peuvent comprendre différentes références SKU de machine virtuelle. Contrairement aux machines virtuelles à instance unique, les instances de groupe de machines virtuelles identiques n’obtiennent pas une adresse IP virtuelle qui leur est propre. C’est pourquoi rechercher une adresse IP et un port pour se connecter à distance à une instance spécifique peut s’avérer un peu difficile.
+Configurez un groupe identique distinct pour chaque type de nœud que vous avez défini dans un cluster. Vous pouvez faire monter ou descendre en puissance les types de nœud de manière indépendante. Vous pouvez aussi utiliser différentes références (SKU) de machines virtuelles. Contrairement aux machines virtuelles à une seule instance, les instances de groupe identique ne possèdent pas leurs propres adresses IP virtuelles. Cela peut poser des problèmes quand il s’agit de rechercher une adresse IP et un port permettant de se connecter à distance à une instance spécifique.
 
-Voici la procédure à suivre pour les trouver.
+Pour rechercher une adresse IP et un port permettant de se connecter à distance à une instance spécifique, effectuez les étapes suivantes.
 
-### <a name="step-1-find-out-the-virtual-ip-address-for-the-node-type-and-then-inbound-nat-rules-for-rdp"></a>Étape 1 : Rechercher l’adresse IP virtuelle du type de nœud, puis les règles NAT de trafic entrant pour RDP
-Pour ce faire, vous devez obtenir les valeurs des règles NAT de trafic entrant qui ont été établies dans le cadre de la définition des ressources pour **Microsoft.Network/loadBalancers**.
+**Étape 1** : recherchez l’adresse IP virtuelle du type de nœud en obtenant les règles NAT de trafic entrant pour le protocole RDP (Remote Desktop Protocol).
 
-Dans le portail, accédez au panneau Équilibreur de charge, puis à **Paramètres**.
+Dans un premier temps, obtenez les valeurs des règles NAT de trafic entrant qui ont été définies pendant la définition des ressources de `Microsoft.Network/loadBalancers`.
 
-![Panneau Équilibreur de charge][LBBlade]
+Dans le portail Azure, dans la page de l’équilibreur de charge, sélectionnez **Paramètres** > **Règles NAT de trafic entrant**. Cela vous donne l’adresse IP et le port qui vous permettent de vous connecter à distance à la première instance de groupe identique. 
 
-Dans **Paramètres**, cliquez sur **Règles NAT de trafic entrant**. Vous disposez à présent de l’adresse IP et du port nécessaires pour vous connecter à distance à la première instance du groupe de machines virtuelles identiques. Dans la capture d’écran ci-dessous, il s’agit de **104.42.106.156** et **3389**
+![Équilibrage de charge][LBBlade]
+
+Dans la figure suivante, l’adresse IP et le port sont **104.42.106.156** et **3389**.
 
 ![Règles NAT][NATRules]
 
-### <a name="step-2-find-out-the-port-that-you-can-use-to-remote-connect-to-the-specific-virtual-machine-scale-set-instancenode"></a>Étape 2 : Déterminer le port à utiliser pour se connecter à distance à un nœud ou à une instance du groupe de machines virtuelles identiques
-Plus haut dans ce document, j’ai abordé le mappage des instances du groupe de machines virtuelles identiques sur les nœuds. Cela permet de déterminer le port exact.
+**Étape 2** : recherchez le port vous permettant de vous connecter à distance à un nœud ou à une instance de groupe identique spécifique.
 
-Les ports sont alloués dans l’ordre croissant des instances du groupe de machines virtuelles identiques. Ainsi, dans mon exemple, pour le type de nœud frontal, les ports pour chacune des cinq instances sont les suivants. Vous devez maintenant effectuer le même mappage pour votre instance de groupe de machines virtuelles identiques.
+Les instances de groupe identique se mappent aux nœuds. Utilisez les informations de groupe identique pour déterminer exactement quel port utiliser.
+
+Les ports sont alloués dans un ordre croissant qui correspond à l’instance de groupe identique. Pour l’exemple précédent du type de nœud FrontEnd, le tableau suivant répertorie les ports de chacune des cinq instances de nœud. Appliquez le même mappage à votre instance de groupe identique.
 
 | **Instance de groupe de machines virtuelles identiques** | **Port** |
 | --- | --- |
@@ -70,74 +68,79 @@ Les ports sont alloués dans l’ordre croissant des instances du groupe de mach
 | FrontEnd_4 |3393 |
 | FrontEnd_5 |3394 |
 
-### <a name="step-3-remote-connect-to-the-specific-virtual-machine-scale-set-instance"></a>Étape 3 : Se connecter à distance à une instance du groupe de machines virtuelles identiques
-Dans la capture d’écran ci-dessous, j’utilise Connexion Bureau à distance pour me connecter à l’instance FrontEnd_1 :
+**Étape 3** : connectez-vous à distance à l’instance de groupe identique spécifique.
 
-![RDP][RDP]
+Dans la figure suivante, le service Connexion Bureau à distance est utilisé pour se connecter à l’instance de groupe identique FrontEnd_1 :
 
-## <a name="how-to-change-the-rdp-port-range-values"></a>Comment modifier les valeurs des plages de ports RDP
+![Connexion Bureau à distance][RDP]
+
+## <a name="change-the-rdp-port-range-values"></a>Modifier les valeurs de la plage de ports RDP
+
 ### <a name="before-cluster-deployment"></a>Avant le déploiement du cluster
-Quand vous configurez le cluster à l’aide d’un modèle Resource Manager, vous pouvez spécifier une plage dans **inboundNatPools**.
+Quand vous configurez le cluster à l’aide d’un modèle Resource Manager, spécifiez la plage dans `inboundNatPools`.
 
-Accédez à la définition de ressource pour **Microsoft.Network/loadBalancers**. Sous celle-ci se trouve la description de **inboundNatPools**.  Remplacez les valeurs *frontendPortRangeStart* et *frontendPortRangeEnd*.
+Accédez à la définition des ressources de `Microsoft.Network/loadBalancers`. Recherchez la description de `inboundNatPools`.  Remplacez les valeurs de `frontendPortRangeStart` et `frontendPortRangeEnd`.
 
-![inboundNatPools][InboundNatPools]
+![Valeurs de inboundNatPools][InboundNatPools]
 
 ### <a name="after-cluster-deployment"></a>Après le déploiement du cluster
-Après le déploiement du cluster, cette procédure est un peu plus complexe et peut aboutir au recyclage des machines virtuelles. Définissez de nouvelles valeurs à l’aide d’Azure PowerShell. Vérifiez qu’Azure PowerShell 1.0 ou version ultérieure est installé sur votre ordinateur. Si vous ne disposez pas d’Azure Powershell 1.0 ou ultérieur, je vous recommande vivement de suivre les étapes décrites dans [Installer et configurer Azure PowerShell](/powershell/azure/overview).
+Modifier les valeurs de la plage de ports RDP après avoir déployé le cluster s’avère plus complexe. Pour éviter de recycler les machines virtuelles, définissez de nouvelles valeurs à l’aide d’Azure PowerShell. 
 
-Connectez-vous à votre compte Azure. Si cette commande PowerShell échoue pour une raison quelconque, vous devez vérifier si Azure PowerShell est correctement installé.
+> [!NOTE]
+> Vérifiez qu’Azure PowerShell version 1.0 ou ultérieure est installé sur votre ordinateur. Si vous ne disposez pas d’Azure Powershell version 1.0 ou ultérieure, nous vous recommandons de suivre les étapes décrites dans [Installer et configurer Azure PowerShell](/powershell/azure/overview).
 
-```
-Login-AzureRmAccount
-```
+1. Connectez-vous à votre compte Azure. En cas d’échec de la commande PowerShell suivante, vérifiez que vous avez installé PowerShell correctement.
 
-Exécutez la commande suivante pour obtenir les détails de votre équilibrage de charge et découvrir les valeurs qui décrivent **inboundNatPools**:
+    ```
+    Login-AzureRmAccount
+    ```
 
-```
-Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
-```
+2. Pour obtenir des détails sur votre équilibreur de charge et voir les valeurs qui décrivent `inboundNatPools`, exécutez le code suivant :
 
-À présent, définissez *frontendPortRangeEnd* et *frontendPortRangeStart* sur les valeurs souhaitées.
+    ```
+    Get-AzureRmResource -ResourceGroupName <resource group name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
+    ```
 
-```
-$PropertiesObject = @{
-    #Property = value;
-}
-Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load Balancer name> -ApiVersion <use the API version that get returned> -Force
-```
+3. Attribuez à `frontendPortRangeEnd` et `frontendPortRangeStart` les valeurs de votre choix.
 
-## <a name="how-to-change-the-rdp-username--password-for-nodes"></a>Comment modifier le nom d’utilisateur et le mot de passe RDP des nœuds
+    ```
+    $PropertiesObject = @{
+        #Property = value;
+    }
+    Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <resource group name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name> -ApiVersion <use the API version that is returned> -Force
+    ```
 
-Les étapes suivantes expliquent comment modifier le mot de passe de tous les nœuds d’un type donné. Ces modifications seront appliquées à tous les nœuds actuels et futurs du groupe de machines virtuelles identiques.
+## <a name="change-the-rdp-user-name-and-password-for-nodes"></a>Changer le nom d’utilisateur et le mot de passe RDP des nœuds
 
-### <a name="step-1-open-powershell-with-elevated-privileges-administrator-mode"></a>Étape 1 : Ouvrez PowerShell avec des privilèges élevés (mode Administrateur). 
-### <a name="step-2-run-the-following-commands-to-log-in-and-select-your-subscription-for-the-session-change-the-subscriptionid-parameter-to-your-subscription-id"></a>Étape 2 : Exécutez les commandes suivantes pour vous connecter et sélectionner votre abonnement pour la session. Remplacez le paramètre `SUBSCRIPTIONID` par votre ID d’abonnement. 
+Pour changer le mot de passe de tous les nœuds d’un type de nœud donné, effectuez les étapes suivantes. Ces modifications s’appliquent à tous les nœuds actuels et futurs du groupe identique.
 
-```powershell
-Login-AzureRmAccount
-Get-AzureRmSubscription -SubscriptionId 'SUBSCRIPTIONID' | Select-AzureRmSubscription
-```
+1. Ouvrez PowerShell ISE en tant qu’administrateur. 
+2. Pour vous connecter et sélectionner votre abonnement pour la session, exécutez les commandes suivantes. Remplacez le paramètre `SUBSCRIPTIONID` par votre ID d’abonnement. 
 
-### <a name="step-3-run-the-following-script-with-the-appropriate-nodetypename-resourcegroup-username-and-password-values-the-username-and-password-values-will-be-the-new-credentials-that-should-be-used-in-future-rdp-sessions"></a>Étape 3 : Exécutez le script suivant, avec les valeurs `NODETYPENAME`, `RESOURCEGROUP`, `USERNAME` et `PASSWORD` appropriées. Les valeurs `USERNAME` et `PASSWORD` sont les nouvelles informations d’identification qui devront être utilisées pour les futures sessions RDP. 
+    ```powershell
+    Login-AzureRmAccount
+    Get-AzureRmSubscription -SubscriptionId 'SUBSCRIPTIONID' | Select-AzureRmSubscription
+    ```
 
-```powershell
-$nodeTypeName = 'NODETYPENAME'
-$resourceGroup = 'RESOURCEGROUP'
-$publicConfig = @{'UserName' = 'USERNAME'}
-$privateConfig = @{'Password' = 'PASSWORD'}
-$extName = 'VMAccessAgent'
-$publisher = 'Microsoft.Compute'
-$node = Get-AzureRmVmss -ResourceGroupName $resourceGroup -VMScaleSetName $nodeTypeName
-$node = Add-AzureRmVmssExtension -VirtualMachineScaleSet $node -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion '2.0' -AutoUpgradeMinorVersion $true
+3. Exécutez le script suivant. Utilisez les valeurs de `NODETYPENAME`, `RESOURCEGROUP`, `USERNAME` et `PASSWORD` appropriées. Les valeurs de `USERNAME` et `PASSWORD` sont les nouvelles informations d’identification que vous utiliserez dans les futures sessions RDP. 
 
-Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
-```
+    ```powershell
+    $nodeTypeName = 'NODETYPENAME'
+    $resourceGroup = 'RESOURCEGROUP'
+    $publicConfig = @{'UserName' = 'USERNAME'}
+    $privateConfig = @{'Password' = 'PASSWORD'}
+    $extName = 'VMAccessAgent'
+    $publisher = 'Microsoft.Compute'
+    $node = Get-AzureRmVmss -ResourceGroupName $resourceGroup -VMScaleSetName $nodeTypeName
+    $node = Add-AzureRmVmssExtension -VirtualMachineScaleSet $node -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion '2.0' -AutoUpgradeMinorVersion $true
+
+    Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Vue d’ensemble de la fonction « Déployer n’importe où » et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md)
-* [Sécurité des clusters](service-fabric-cluster-security.md)
-* [ Kit de développement logiciel (SDK) de Service Fabric et prise en main](service-fabric-get-started.md)
+* Consultez [Vue d’ensemble de la fonction « Déployer n’importe où » et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md).
+* Découvrez plus en détail la [sécurité des clusters](service-fabric-cluster-security.md).
+* En savoir plus sur le [Kit de développement logiciel (SDK) de Service Fabric et la mise en route](service-fabric-get-started.md).
 
 <!--Image references-->
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png
@@ -146,4 +149,3 @@ Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -Virtua
 [LBBlade]: ./media/service-fabric-cluster-nodetypes/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
-

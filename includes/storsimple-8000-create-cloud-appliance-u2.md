@@ -20,7 +20,7 @@
    7. Cochez la case pour indiquer que vous savez que les données stockées sur l’appliance cloud sont hébergées dans un centre de données Microsoft.
        * Lorsque vous utilisez uniquement un appareil physique, votre clé de chiffrement est conservée avec celui-ci ; par conséquent, Microsoft ne peut pas le déchiffrer.
 
-       * Lorsque vous utilisez une appliance cloud, la clé de chiffrement et la clé de déchiffrement sont stockées dans Microsoft Azure. Pour plus d’informations, consultez les [considérations de sécurité relatives à l’utilisation d’une appliance cloud](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       * Lorsque vous utilisez une appliance cloud, la clé de chiffrement et la clé de déchiffrement sont stockées dans Microsoft Azure. Pour plus d’informations, consultez les [considérations de sécurité relatives à l’utilisation d’une appliance cloud](../articles/storsimple/storsimple-security.md).
    8. Cliquez sur **Créer** pour approvisionner l’appliance cloud. La mise en service de l'appareil peut prendre environ 30 minutes. Un message s’affiche une fois l’appliance cloud créée. Accédez au panneau Appareils, et la liste des appareils est actualisée pour afficher l’appliance cloud. L’état de l’appliance est défini sur **Prêt pour la configuration**.
       
       ![Appliance cloud StorSimple - Prêt pour la configuration](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)

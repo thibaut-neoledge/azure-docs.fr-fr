@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour créer une demande de support pour le StorSimple Virtual Array
 
@@ -66,10 +67,4 @@ Pour accéder à la page d’aide et de support, cliquez sur **Parcourir > Aide
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [diagnostiquer et résoudre les problèmes liés à votre StorSimple Virtual Array](storsimple-virtual-array-diagnose-problems.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

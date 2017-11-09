@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d1cd23eac464d48ebc6dd618c52c252444b47e21
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: d407c29f99fd7537590ec787febd84a9e3f4f353
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="leverage-other-services-with-sql-data-warehouse"></a>Tirer parti d’autres services avec SQL Data Warehouse
 Outre ses fonctionnalités principales, SQL Data Warehouse permet aux utilisateurs de tirer parti de nombreux autres services dans Azure.  Plus précisément, nous avons pris des mesures pour l’intégrer étroitement aux éléments suivants :
@@ -78,4 +76,3 @@ Pour plus d’informations, consultez [Intégrer à Azure Stream Analytics](sq
 <!--MSDN references-->
 
 <!--Other Web references-->
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 90c9b65062acbe78196e220ba167997d44cdce90
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
-
+ms.openlocfilehash: 62ad8183cc6e9f56255b2729a04ee7710d00a21a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-handle-edifact-documents-having-unh25-segment"></a>Gérer les documents EDIFACT contenant un segment UNH2.5
 Lorsque UNH2.5 est présent dans le document EDIFACT, il est utilisé pour la recherche de schéma. 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Gestion du répertoire de l’abonnement Office 365 dans Azure
 Cet article décrit comment gérer un répertoire créé pour un abonnement Office 365 dans le portail Azure Classic. Vous devez être l’administrateur du service ou un co-administrateur d’un abonnement Azure pour vous connecter au portail Azure Classic. Si vous n’avez pas d’abonnement Azure, vous pouvez vous inscrire pour une [période d’essai gratuite de 30 jours](https://azure.microsoft.com/trial/get-started-active-directory/) , puis déployer votre première solution cloud en moins de 5 minutes à l’aide de ce lien. Veillez à utiliser le compte professionnel ou scolaire que vous utilisez pour vous connecter à Office 365.
@@ -34,8 +34,8 @@ Si vous avez un abonnement Azure, le processus de gestion d’un répertoire sup
 
 | Abonnement | Office 365 | Les tables Azure |
 | --- | --- | --- |
-|   Nom complet |Contoso |Répertoire Azure Active Directory (Azure AD) par défaut |
-|   Nom de domaine |contoso.com |msmithhotmail.onmicrosoft.com |
+|   Nom complet | Contoso | Répertoire Azure Active Directory (Azure AD) par défaut |
+|   Nom de domaine | contoso.com | msmithhotmail.onmicrosoft.com |
 
 Il souhaite gérer les identités des utilisateurs dans le répertoire Contoso lorsqu’il est connecté à Azure via son compte Microsoft afin de pouvoir activer des fonctionnalités Azure AD telles que l’authentification multifacteur. Le schéma suivant illustre le processus.
 
@@ -70,4 +70,3 @@ Supposons maintenant que Jane Doe doive administrer les sites web et les ressour
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la relation entre les répertoires et les abonnements, consultez [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
-

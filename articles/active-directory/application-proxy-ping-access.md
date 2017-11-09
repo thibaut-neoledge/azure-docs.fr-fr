@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
 Azure Active Directory Application Proxy et PingAccess se sont associés pour permettre aux clients Azure Active Directory d’accéder à davantage d’applications. PingAccess développe les [offres de proxy d’application existantes](active-directory-application-proxy-get-started.md) en intégrant l’accès par authentification unique aux applications qui utilisent des en-têtes d’authentification.
@@ -110,6 +108,9 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 
   ![Sélectionner les autorisations](./media/application-proxy-ping-access/select-permissions.png)
 
+17. Attribuez les autorisations avant de fermer la fenêtre des autorisations. 
+![Accorder des autorisations](media/application-proxy-ping-access/grantperms.png)
+
 ### <a name="collect-information-for-the-pingaccess-steps"></a>Collecter les informations pour la procédure PingAccess
 
 1. Dans le panneau des paramètres de l’application, sélectionnez **Propriétés**. 
@@ -134,7 +135,7 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Facultatif - Mise à jour de GraphAPI pour envoyer des champs personnalisés
 
-Pour obtenir la liste des jetons de sécurité qu’envoie Azure AD pour l’authentification, consultez [Référence sur les jetons Azure AD](./develop/active-directory-token-and-claims.md). Si vous avez besoin d’une revendication personnalisée qui envoie d’autres jetons, utilisez GraphAPI pour définir le champ d’application *acceptMappedClaims* sur **True**. Vous pouvez utiliser l’Explorateur Azure AD Graph ou MS Graph pour effectuer cette configuration. 
+Pour obtenir la liste des jetons de sécurité qu’envoie Azure AD pour l’authentification, consultez [Référence sur les jetons Azure AD](./develop/active-directory-token-and-claims.md). Si vous avez besoin d’une revendication personnalisée qui envoie d’autres jetons, utilisez GraphAPI pour définir le champ d’application *acceptMappedClaims* sur **True**. Vous pouvez uniquement utiliser l’Explorateur Azure AD Graph pour cette configuration. 
 
 Cet exemple utilise l’Explorateur Graph :
 
@@ -145,6 +146,14 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+
+>[!NOTE]
+>Pour utiliser une revendication personnalisée, vous devez également disposer d’une stratégie personnalisée définie et affectée à l’application.  Cette stratégie doit inclure tous les attributs personnalisés nécessaires.
+>
+>La définition et l’attribution de la stratégie peuvent être effectuées dans MS Graph, l’Explorateur Azure AD Graph et PowerShell.  Si vous utilisez PowerShell, vous devez d’abord utiliser `New-AzureADPolicy `, puis l’attribuer à l’application avec `Set-AzureADServicePrincipalPolicy`.  Pour plus d’informations, consultez la [documentation relative aux stratégies Azure AD](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+### <a name="optional---use-a-custom-claim"></a>Facultatif : Utiliser une revendication personnalisée
+Pour que votre application utilise une revendication personnalisée et comprenne des champs supplémentaires, [créez une stratégie de mappage de revendications personnalisées et attribuez-la à l’application](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Télécharger PingAccess et configurer votre application
 
@@ -163,4 +172,3 @@ Une fois toutes ces étapes effectuées, votre application doit être opération
 - [Configurer PingAccess pour Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Comment le proxy d’application Azure AD fournit-il une authentification unique ?](application-proxy-sso-overview.md)
 - [Résoudre les problèmes du proxy d’application](active-directory-application-proxy-troubleshoot.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
+ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db677614c23a3447e3e40ae867711a754b06d0d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
 ## <a name="introduction"></a>Introduction
 
@@ -290,7 +288,7 @@ Les fonction SQL Database Threat Detector utilisent les méthodes de détection 
 
 ### <a name="application-gateway-web-application-firewall"></a>Pare-feu d’applications web sur Application Gateway
 
-Le [pare-feu d’applications web](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) est une fonction de [passerelle Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) qui offre une protection pour les applications web qui utilisent la passerelle d’application pour les fonctions de [contrôle de remise d’application](https://kemptechnologies.com/in/application-delivery-controllers) standard. Le pare-feu d’applications web procède en les protégeant contre la plupart des [10 plus courantes vulnérabilités web de l’OWASP](https://www.owasp.org/index.php/Top_10_2010-Main)
+Le [pare-feu d’applications web](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) est une fonction de [passerelle Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) qui offre une protection pour les applications web qui utilisent la passerelle d’application pour les fonctions de [contrôle de remise d’application](https://kemptechnologies.com/in/application-delivery-controllers) standard. Le pare-feu d’applications web procède en les protégeant contre la plupart des [10 plus courantes vulnérabilités web de l’OWASP](https://www.owasp.org/index.php/Top_10_2010-Main)
 
 ![Pare-feu d’applications web sur Application Gateway](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 
@@ -432,4 +430,3 @@ Les fonctionnalités avancées de détection d’Azure Security Center permetten
 - [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/)
 
 Azure SQL Database Threat Detection a permis d’apaiser les inquiétudes concernant les menaces potentielles qui pèsent sur les bases de données.
-

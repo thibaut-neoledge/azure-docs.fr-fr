@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: 29d4a361f98c63dab30155855d603a809eb804c8
 ms.openlocfilehash: 2109744fb7ffdfafb7a86bbea355e119718af099
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-store"></a>Recommandations en matière d’optimisation des performances pour Spark sur HDInsight et Azure Data Lake Store
 
@@ -30,7 +30,7 @@ Lors du réglage des performances sur Spark, vous devez prendre en compte le nom
 * **Un compte Azure Data Lake Store**. Pour savoir comment en créer un, consultez [Prise en main d'Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** ayant accès à un compte Data Lake Store. Voir [Créer un cluster HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à activer le Bureau à distance pour le cluster.
 * **Exécution d’un cluster Spark sur Azure Data Lake Store**.  Pour plus d’informations à ce sujet, consultez [Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Store](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Instructions d’optimisation des performances sur ADLS**.  Pour les concepts généraux sur les performances, consultez le [Guide de réglage des performances pour Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
+* **Instructions d’optimisation des performances sur ADLS**.  Pour les concepts généraux sur les performances, consultez [Data Lake Store Performance Tuning Guidance (Recommandations en matière d’optimisation des performances de Data Lake Store)](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
 
 ## <a name="parameters"></a>parameters
 
@@ -118,10 +118,4 @@ Supposons que vous possédez un cluster composé de 8 nœuds D4v2 exécutant 2 a
     num-executors = Min (memory constraint, CPU constraint)
     num-executors = Min (16, 16)
     num-executors = 16    
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

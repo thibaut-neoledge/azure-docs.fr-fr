@@ -3,7 +3,7 @@ title: "Options de débogage des services cloud Azure | Microsoft Docs"
 description: "Débogage des services cloud Azure"
 services: visual-studio-online
 documentationcenter: n/a
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: 80755da7-8350-4f5c-97ce-2962beabb36d
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/18/2017
-ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e79aa1db6c89ad1e382c7a70017f868fe186aa74
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/22/2017
-
+ms.author: mikejo
+ms.openlocfilehash: 196a39a75f8a3151c277f0b2a7944e6886192171
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Découvrez différentes méthodes de débogage d’un service cloud Azure.
 Cet article fournit des liens menant vers différentes méthodes de débogage d’un service cloud Azure. 

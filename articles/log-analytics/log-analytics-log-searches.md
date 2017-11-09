@@ -12,19 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/11/2017
 ms.author: bwren
+ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Trouver des données avec les recherches de journaux dans Log Analytics
 
 >[!NOTE]
-> Cet article détaille les recherches de journaux via le langage de requête actuel dans Log Analytics.  Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), voir [Comprendre les recherches de journaux dans Log Analytics (nouveau)](log-analytics-log-search-new.md).
+> Cet article détaille les recherches dans les journaux via le langage de requête hérité de Log Analytics.  Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), voir [Comprendre les recherches de journaux dans Log Analytics (nouveau)](log-analytics-log-search-new.md).
 
 
 La fonctionnalité de recherche de journal se trouve au cœur de Log Analytics et vous permet de combiner et de mettre en corrélation des données machine de plusieurs sources dans votre environnement. Des solutions sont également alimentées par la recherche de journal pour vous proposer des mesures cernant un domaine problématique en particulier.
@@ -170,7 +169,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 #### <a name="to-search-using-a-boolean-operator"></a>Pour effectuer une recherche à l'aide d'un opérateur booléen
 * Dans le champ de requête de recherche, tapez `EventLog=System TimeGenerated>NOW-24HOURS`  
-    ![Recherche avec des opérateurs booléens](./media/log-analytics-log-searches/oms-search-boolean.png)
+    ![Recherche avec des opérateurs boléens](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Bien que vous puissiez contrôler graphiquement l'intervalle de temps, et nous vous invitons à faire cela la plupart du temps, l’ajout d’un filtre de temps directement dans la requête présente certains avantages. Par exemple, cela fonctionne très bien avec les tableaux de bord qui vous permettent de remplacer le temps pour chaque vignette, quel que soit le sélecteur de temps *global* sur la page du tableau de bord. Pour plus d'informations, consultez [Questions relatives au temps dans le tableau de bord](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
 
@@ -598,4 +597,3 @@ Pour plus d’informations sur les recherches de journal, consultez les ressourc
 
 * Utilisez [Champs personnalisés dans Log Analytics](log-analytics-custom-fields.md) pour étendre les recherches de journal.
 * Pour connaître tous les champs de recherche et facettes disponibles dans Log Analytics, consultez les [informations de référence sur la recherche de journal avec Log Analytics](log-analytics-search-reference.md) .
-

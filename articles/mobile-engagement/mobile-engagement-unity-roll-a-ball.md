@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="a-idunity-roll-a-ballacreate-unity-roll-a-ball-game"></a><a id="unity-roll-a-ball"></a>Créer un jeu Unity Roll a Ball
+# <a id="unity-roll-a-ball"></a>Créer un jeu Unity Roll a Ball
 Ce didacticiel est une version légèrement modifiée du [didacticiel Unity Roll a Ball](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial)et en présente les étapes principales. Cet exemple de jeu consiste en un objet « Player » sphérique contrôlé par l’utilisateur de l’application, et l’objectif du jeu et de « collecter » des objets en les heurtant avec l’objet Player. Cela suppose une connaissance de base de l’environnement de Unity Editor. Si vous rencontrez des problèmes, reportez-vous au didacticiel complet. 
 
 ### <a name="setting-up-the-game"></a>Configuration du jeu
@@ -262,7 +262,7 @@ Les étapes suivantes sont issues du [didacticiel Unity](https://unity3d.com/lea
 7. Appuyez sur **Play** dans Unity Editor pour jouer à ce jeu **Roll a Ball** en déplaçant l’objet Player à l’aide des touches de votre clavier pour indiquer la direction. 
 
 ### <a name="updating-the-game-for-mobile-play"></a>Mise à jour du jeu pour y jouer sur un appareil mobile
-Les sections ci-dessus marquent la fin du didacticiel de base d’Unity. Maintenant, nous allons modifier le jeu pour qu’il soit compatible avec un appareil mobile. Notez que nous avons utilisé le clavier jusqu’à présent pour tester le jeu. Nous allons maintenant le modifier pour pouvoir contrôler l’objet Player à l’aide du mouvement du téléphone, par exemple, avec l’accéléromètre. 
+Les sections ci-dessus marquent la fin du didacticiel de base d’Unity. Maintenant, nous allons modifier le jeu pour qu’il soit compatible avec un appareil mobile. Notez que nous avons utilisé le clavier jusqu’à présent pour tester le jeu. Nous allons maintenant le modifier pour être en mesure de contrôler l’objet Player à l’aide du mouvement du téléphone, par exemple, en utilisant l’accéléromètre en guise d’entrée. 
 
 Ouvrez le script **PlayerController** pour le modifier et mettez à jour la méthode **FixedUpdate** pour utiliser le mouvement de l’accéléromètre pour déplacer l’objet Player. 
 
@@ -329,11 +329,5 @@ Ce didacticiel a permis de créer un jeu de base avec Unity et vous pouvez le d�
 
 
 
-
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

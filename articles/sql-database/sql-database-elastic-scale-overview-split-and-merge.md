@@ -1,6 +1,6 @@
 ---
 title: "Déplacement de données entre des bases de données cloud mises à l’échelle | Microsoft Docs"
-description: "Explique comment manipuler les partitions et déplacer les données via un service auto-hébergé, à l&quot;aide des API de base de données élastique."
+description: "Explique comment manipuler les partitions et déplacer les données via un service auto-hébergé, à l'aide des API de base de données élastique."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -8,19 +8,17 @@ author: ddove
 ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: b2e45a77b900092390a2ca66a8d1286193023f29
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 328989c4fc1f9a404d4c048eb148a95e9105bdf5
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
 Si vous êtes un développeur Software as a Service et que votre application connaît subitement une forte demande, vous devez vous adapter à cette croissance. Vous pouvez donc ajouter d’autres bases de données (partitions). Comment répartir les données vers les nouvelles bases de données sans nuire à l'intégrité des données ? Utilisez l’ **outil de fractionnement et de fusion** pour déplacer les données de bases de données limitées vers de nouvelles bases de données.  
@@ -217,5 +215,4 @@ Il est inutile de configurer une nouvelle base de données de métadonnées de f
 [1]:./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
 [2]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
 [3]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
-
 

@@ -15,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
-ms.lasthandoff: 04/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-10"></a>Prise en main d’Azure DNS à l’aide d’Azure CLI 1.0
 
 > [!div class="op_single_selector"]
@@ -120,5 +119,4 @@ Pour en savoir plus sur Azure DNS, consultez [Vue d’ensemble d’Azure DNS](dn
 Pour en savoir plus sur la gestion des zones DNS dans Azure DNS, consultez [Gestion des zones DNS dans Azure DNS à l’aide d’Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md).
 
 Pour en savoir plus sur la gestion des enregistrements DNS dans Azure DNS, consultez [Gérer les enregistrements DNS et les jeux d’enregistrement dans Azure DNS à l’aide d’Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md).
-
 

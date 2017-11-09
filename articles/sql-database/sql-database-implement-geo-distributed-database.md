@@ -13,17 +13,15 @@ ms.custom: mvc,business continuity
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: On Demand
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 9f53f318e20dac9248906bdbe898ba4dacb286ac
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 910be8ff5f9a882c7bb8ae875b8bf5fc74d1fb9a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="implement-a-geo-distributed-database"></a>Implémenter une base de données géo-distribuée
 
 Dans ce didacticiel, vous configurez une application et une base de données SQL Azure pour le basculement vers une région distante, puis testez votre plan de basculement. Vous allez apprendre à effectuer les actions suivantes : 
@@ -390,4 +388,3 @@ Installez [Maven](https://maven.apache.org/download.cgi) à l’aide du programm
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, voir l’article [Groupes de basculement et géoréplication active](sql-database-geo-replication-overview.md).
-

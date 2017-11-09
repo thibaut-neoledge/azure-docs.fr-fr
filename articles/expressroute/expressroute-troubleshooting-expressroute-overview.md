@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 09/26/2017
 ms.author: cherylmc
+ms.openlocfilehash: 960ea1540d644b6f41b95ab7df61cf91adcbb4ad
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
 ExpressRoute, qui étend un réseau local dans le cloud Microsoft par le biais d’une connexion privée qui est facilitée par un fournisseur de connectivité, implique les trois zones de réseau distinctes suivantes :
@@ -97,7 +96,7 @@ Pour répertorier tous les circuits ExpressRoute dans un groupe de ressources, u
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->Vous pouvez obtenir le nom de votre groupe de ressources par le biais du portail Azure. Consultez la section précédente de ce document et notez que le nom de groupe de ressources est répertorié dans l'exemple de capture d’écran.
+>Vous pouvez obtenir le nom de votre groupe de ressources par le biais d’Azure. Consultez la section précédente de ce document et notez que le nom de groupe de ressources est répertorié dans l'exemple de capture d’écran.
 >
 >
 
@@ -172,14 +171,9 @@ Pour vérifier si un circuit ExpressRoute est opérationnel, portez une attentio
 Une fois que le fournisseur de services a terminé l'approvisionnement du circuit ExpressRoute, une configuration de routage peut être créée à travers le circuit ExpressRoute entre des MSEE-PR (4) et des MSEE (5). Chaque circuit ExpressRoute peut avoir un, deux ou trois contextes de routage activés : l'homologation privée Azure (trafic vers des réseaux virtuels privés dans Azure), l'homologation publique Azure (le trafic vers des adresses IP publiques dans Azure) et l'homologation Microsoft (Office 365 et Dynamics 365). Pour plus d’informations sur la création et la modification de la configuration de routage, consultez l’article [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
 
 ###<a name="verification-via-the-azure-portal"></a>Vérification par le biais du portail Azure
->[!IMPORTANT]
->Il existe un bogue connu dans le portail Azure : certaines homologations ExpressRoute ne sont *PAS* affichées dans le portail si elles sont configurées par le fournisseur de services. L'ajout d'homologations ExpressRoute par le biais du portail ou PowerShell *remplace les paramètres du fournisseur de service*. Cette action interrompt le routage sur le circuit ExpressRoute et nécessite le support du fournisseur de services pour restaurer les paramètres et rétablir le routage normal. Modifiez uniquement les homologations ExpressRoute si vous êtes certain que le fournisseur de services fournit uniquement des services de couche 2 !
->
->
 
-<p/>
 >[!NOTE]
->Si la couche 3 est fournie par le fournisseur de services et si les homologations sont vides dans le portail, vous pouvez utiliser PowerShell pour voir les paramètres configurés du fournisseur du service.
+>Si la couche 3 est fournie par le fournisseur de services et que les homologations sont vides dans le portail, actualisez la configuration du circuit à l’aide du bouton Actualiser du portail. Cette opération appliquera la configuration de routage appropriée à votre circuit. 
 >
 >
 
@@ -287,7 +281,7 @@ Pour obtenir les détails sur la configuration de l'homologation Microsoft, util
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validation de l'ARP entre Microsoft et le fournisseur de service
-Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, assurez-vous d’avoir un accès administrateur / coadministrateur à l’abonnement par le biais du [portail Azure Classic][OldPortal]. Pour le dépannage à l’aide des commandes Azure Resource Manager, veuillez vous reporter au document [Obtention de tables ARP dans le modèle de déploiement Resource Manager][ARP].
+Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, vérifiez que vous avez un accès administrateur/coadministrateur à l’abonnement. Pour le dépannage à l’aide des commandes Azure Resource Manager, veuillez vous reporter au document [Obtention de tables ARP dans le modèle de déploiement Resource Manager][ARP].
 
 >[!NOTE]
 >Vous pouvez utiliser le portail Azure et les commandes Azure Resource Manager PowerShell pour obtenir l’ARP. Si vous rencontrez des erreurs avec les commandes PowerShell Azure Resource Manager, les commandes PowerShell classiques peuvent fonctionner comme commandes PowerShell classiques et avec des circuits ExpressRoute Azure Resource Manager.
@@ -320,7 +314,7 @@ L’exemple suivant montre la réponse de la commande pour une homologation inex
 >
 
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>Validation de BGP et des itinéraires sur les MSEE
-Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, assurez-vous que vous avez un accès administrateur/coadministrateur à l’abonnement par le biais du [portail Azure classique][OldPortal]
+Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, vérifiez que vous avez un accès administrateur/coadministrateur à l’abonnement.
 
 >[!NOTE]
 >Vous pouvez utiliser le portail Azure et les commandes Azure Resource Manager PowerShell pour obtenir des informations BGP. Si vous rencontrez des erreurs avec les commandes PowerShell Azure Resource Manager, les commandes PowerShell classiques peuvent fonctionner comme commandes PowerShell classiques et avec des circuits ExpressRoute Azure Resource Manager.
@@ -398,7 +392,7 @@ Pour plus d’informations ou d'aide, consultez les liens suivants :
 - [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "Connectivité logique Express Route"
+[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "Connectivité logique ExpressRoute"
 [2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "Icône Toutes les ressources"
 [3]: ./media/expressroute-troubleshooting-expressroute-overview/portal-overview.png "Icône Vue d’ensemble"
 [4]: ./media/expressroute-troubleshooting-expressroute-overview/portal-circuit-status.png "Capture d’écran : exemple pour ExpressRoute Essentials"
@@ -410,7 +404,6 @@ Pour plus d’informations ou d'aide, consultez les liens suivants :
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [OldPortal]: https://manage.windowsazure.com
 [ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-
 
 
 

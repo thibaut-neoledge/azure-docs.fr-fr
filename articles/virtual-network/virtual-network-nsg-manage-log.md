@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Analyse de journaux pour les groupes de sécurité réseau (NSG)
 
@@ -124,4 +123,3 @@ Ce fichier journal contient des informations sur chaque règle appliquée aux re
 ## <a name="view-and-analyze-logs"></a>Afficher et analyser les journaux
 
 Pour savoir comment voir les données du journal d’activité, lisez l’article [Vue d’ensemble du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Pour savoir comment voir les données des journaux de diagnostic, lisez l’article [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Si vous envoyez des données de diagnostic à Log Analytics, vous pouvez utiliser la solution de gestion [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) (version préliminaire) pour obtenir des données de meilleure qualité. 
-

@@ -1,6 +1,6 @@
 ---
 title: "Tableau de bord du service StorSimple Manager | Microsoft Docs"
-description: "Décrit le tableau de bord du service StorSimple Manager et explique comment l&quot;utiliser pour surveiller l’état de votre solution StorSimple."
+description: "Décrit le tableau de bord du service StorSimple Manager et explique comment l'utiliser pour surveiller l’état de votre solution StorSimple."
 services: storsimple
 documentationcenter: 
 author: SharS
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 596431b7279b753ca4da838eb028cdde2022ce02
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-dashboard"></a>Utilisation du tableau de bord du service StorSimple Manager
 ## <a name="overview"></a>Vue d'ensemble
@@ -68,10 +68,4 @@ Vous pouvez afficher les journaux des opérations en cliquant sur le lien des jo
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez la procédure de [Résolution des problèmes d’un périphérique StorSimple](storsimple-troubleshoot-operational-device.md).
 * En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

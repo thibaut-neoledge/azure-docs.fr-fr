@@ -1,6 +1,6 @@
 ---
-title: "Utiliser le Kit de développement logiciel (SDK) Java pour développer des applications dans Azure Data Lake Store | Microsoft Docs"
-description: "Utiliser le Kit de développement logiciel (SDK) Java Azure Data Lake Store pour créer un compte Data Lake Store et effectuer des opérations de base dans Data Lake Store"
+title: "Kit de développement logiciel (SDK) Java : opération de gestion du système de fichiers sur Azure Data Lake Store | Microsoft Docs"
+description: "Utilisez le kit de développement logiciel (SDK) Java d’Azure Data Lake Store pour réaliser des opérations de gestion du système de fichiers sur Data Lake Store, telles que la création de dossiers, etc."
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 09/29/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 91128b53a2f1cd3ddcbee5b07da0d67668944fb4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: e8c7b788061b3eb18b3e6c282339a03d93ab8b1c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-azure-data-lake-store-using-java"></a>Prise en main d’Azure Data Lake Store à l’aide de Java
+# <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Opérations de gestion du système de fichiers sur Data Lake Store à l’aide du kit de développement logiciel (SDK) Java
 > [!div class="op_single_selector"]
-> * [Portail](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Kit SDK .NET](data-lake-store-get-started-net-sdk.md)
+> * [Kit SDK .NET](data-lake-store-data-operations-net-sdk.md)
 > * [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
-> * [API REST](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.JS](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
+> * [API REST](data-lake-store-data-operations-rest-api.md)
+> * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
@@ -44,22 +39,12 @@ Vous pouvez accéder à la documentation de l’API du Kit de développement log
 * [Maven](https://maven.apache.org/install.html). Ce didacticiel utilise Maven pour les dépendances de build et de projet. Bien qu’il soit possible de créer sans utiliser un système de build comme Maven ou Gradle, ces systèmes facilitent considérablement la gestion des dépendances.
 * (Facultatif) Et un environnement IDE comme [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) ou [Eclipse](https://www.eclipse.org/downloads/) ou similaire.
 
-## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Comment s’authentifier à l’aide d’Azure Active Directory ?
-Dans ce didacticiel, nous utilisons une clé secrète client d’application Azure AD pour récupérer un jeton Azure Active Directory (authentification de service à service). Nous utilisons ce jeton pour créer un objet client Data Lake Store afin d’effectuer des opérations sur les fichiers et les répertoires. Pour obtenir des instructions sur la façon de s’authentifier auprès d’Azure Data Lake Store à l’aide de la clé secrète client, nous allons effectuer les étapes générales suivantes :
-
-1. Créer une application web Azure AD
-2. Récupérez l’ID client, la clé secrète client et le point de terminaison du jeton pour l’application web Azure AD.
-3. Configurez l’accès pour l’application web Azure AD sur le fichier/dossier Data Lake Store auquel vous souhaitez accéder à partir de l’application Java que vous créez.
-
-Pour obtenir des instructions sur la façon d’effectuer ces étapes, consultez [Créer une application Active Directory](data-lake-store-authenticate-using-active-directory.md).
-
-Azure Active Directory offre d’autres options pour récupérer un jeton. Vous pouvez choisir parmi différents mécanismes d’authentification en fonction de votre scénario, par exemple, une application s’exécutant dans un navigateur, une application distribuée en tant qu’application de bureau, ou une application serveur exécutée localement ou dans une machine virtuelle Azure. Vous pouvez également choisir parmi différents types d’informations d’identification comme des mots de passe, des certificats, l’authentification à 2 facteurs, etc. En outre, Azure Active Directory vous permet de synchroniser vos utilisateurs d’Active Directory locaux avec le cloud. Pour plus de détails, consultez [Scénarios d’authentification pour Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
-
 ## <a name="create-a-java-application"></a>Création d’une application Java
 L’exemple de code disponible [sur GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) vous guide tout au long du processus de création de fichiers dans le magasin, de concaténation de fichiers, de téléchargement d’un fichier et de suppression de certains fichiers du compte. Cette section de l’article vous guide tout au long des principales parties du code.
 
 1. Créez un projet Maven en utilisant [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) à partir de la ligne de commande ou à l’aide d’un environnement IDE. Vous trouverez [ici](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html) des instructions sur la création d’un projet Java à l’aide d’IntelliJ. Vous trouverez [ici](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm) des instructions sur la création d’un projet à l’aide d’Eclipse. 
-2. Ajoutez les dépendances suivantes à votre fichier Maven **pom.xml**. Ajoutez l’extrait de texte suivant entre la balise **\</version>** et la balise **\</project>** :
+
+2. Ajoutez les dépendances suivantes à votre fichier Maven **pom.xml**. Ajoutez l’extrait de code suivant avant la balise **\</project>** :
    
         <dependencies>
           <dependency>
@@ -74,71 +59,132 @@ L’exemple de code disponible [sur GitHub](https://azure.microsoft.com/document
           </dependency>
         </dependencies>
    
-    La première dépendance consiste à utiliser le SDK Data Lake Store (`azure-data-lake-store-sdk`) à partir du référentiel maven. La seconde dépendance (`slf4j-nop`) consiste à spécifier le framework de journalisation à utiliser pour cette application. Le SDK Data Lake Store utilise la façade de journalisation [slf4j](http://www.slf4j.org/), ce qui vous permet de choisir parmi plusieurs frameworks de journalisation populaires tels que log4j, la journalisation Java, Logback, etc., ou aucune journalisation. Pour cet exemple, nous allons désactiver la journalisation et, par conséquent, nous utilisons la liaison **slf4j-nop**. Vous trouverez [ici](http://www.slf4j.org/manual.html#projectDep) des informations pour utiliser d’autres options de journalisation.
+    La première dépendance consiste à utiliser le SDK Data Lake Store (`azure-data-lake-store-sdk`) à partir du référentiel maven. La seconde dépendance consiste à spécifier le framework de journalisation (`slf4j-nop`) à utiliser pour cette application. Le SDK Data Lake Store utilise la façade de journalisation [slf4j](http://www.slf4j.org/), ce qui vous permet de choisir parmi plusieurs frameworks de journalisation populaires tels que log4j, la journalisation Java, Logback, etc., ou aucune journalisation. Pour cet exemple, nous désactivons la journalisation et, par conséquent, nous utilisons la liaison **slf4j-nop**. Vous trouverez [ici](http://www.slf4j.org/manual.html#projectDep) des informations pour utiliser d’autres options de journalisation.
 
-### <a name="add-the-application-code"></a>Ajouter le code de l’application
-Le code se compose de trois parties principales.
+3. Ajoutez les instructions import suivantes à votre application.
 
-1. Obtenir le jeton Azure Active Directory
-2. Utilisez le jeton pour créer un client Data Lake Store.
-3. Utilisez le client Data Lake Store pour effectuer des opérations.
+        import com.microsoft.azure.datalake.store.ADLException;
+        import com.microsoft.azure.datalake.store.ADLStoreClient;
+        import com.microsoft.azure.datalake.store.DirectoryEntry;
+        import com.microsoft.azure.datalake.store.IfExists;
+        import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
+        import com.microsoft.azure.datalake.store.oauth2.ClientCredsTokenProvider;
 
-#### <a name="step-1-obtain-an-azure-active-directory-token"></a>Étape 1 : Obtenir un jeton Azure Active Directory.
-Le SDK Data Lake Store propose des méthodes pratiques pour gérer les jetons de sécurité nécessaires pour communiquer avec le compte Data Lake Store. Toutefois, le Kit de développement (SDK) n’impose pas d’utiliser ces seules méthodes. Vous pouvez utiliser tout autre moyen pour obtenir le jeton, par exemple à l’aide du [SDK Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java), ou de votre propre code personnalisé.
+        import java.io.*;
+        import java.util.Arrays;
+        import java.util.List;
 
-Pour utiliser le SDK Data Lake Store afin d’obtenir le jeton de l’application web Active Directory que vous avez créée précédemment, utilisez l’une des sous-classes de `AccessTokenProvider` (l’exemple ci-dessous utilise `ClientCredsTokenProvider`). Le fournisseur de jetons met en cache les informations d’identification utilisées pour obtenir le jeton en mémoire, et renouvelle automatiquement le jeton s’il est sur le point d’expirer. Il est possible de créer vos propres sous-classes de `AccessTokenProvider` afin que les jetons soient obtenus par votre code client. Cependant, pour le moment, nous allons simplement utiliser le jeton fourni dans le kit de développement logiciel (SDK).
+## <a name="authentication"></a>Authentification
 
-Remplacez **FILL-IN-HERE** (à remplir) par les valeurs réelles de l’application web Azure Active Directory.
+* Pour en savoir plus sur l’authentification des utilisateurs accédant à votre application, consultez la section relative à [l’authentification de l’utilisateur avec Data Lake Store à l’aide de Java](data-lake-store-end-user-authenticate-java-sdk.md).
+* Pour en savoir plus sur l’authentification entre les services dans le cadre de votre application, consultez la section relative à [l’authentification entre les services avec Data Lake Store à l’aide de Java](data-lake-store-service-to-service-authenticate-java.md).
 
-    private static String clientId = "FILL-IN-HERE";
-    private static String authTokenEndpoint = "FILL-IN-HERE";
-    private static String clientKey = "FILL-IN-HERE";
-
-    AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);
-
-#### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>Étape 2 : Créer un objet (ADLStoreClient) de client Azure Data Lake Store
-La création d’un objet [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) vous oblige à spécifier le nom du compte Data Lake Store et du fournisseur de jeton que vous avez générés à l’étape précédente. Notez que le nom du compte Data Lake Store doit être un nom de domaine complet. Par exemple, remplacez **FILL-IN-HERE** (à remplir) par quelque chose comme **mydatalakestore.azuredatalakestore.net**.
+## <a name="create-an-azure-data-lake-store-client"></a>Créer un client Azure Data Lake Store
+La création d’un objet [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) vous oblige à spécifier le nom du compte Data Lake Store et du fournisseur de jeton que vous avez générés quand vous vous êtes authentifiés avec Data Lake Store (voir la section [Authentification](#authentication)). Le nom du compte Data Lake Store doit être un nom de domaine complet. Par exemple, remplacez **FILL-IN-HERE** (à remplir) par quelque chose comme **mydatalakestore.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>Étape 3 : Utiliser l’objet ADLStoreClient pour effectuer des opérations sur les fichiers et les répertoires
-Le code ci-dessous contient des exemples d’extraits de certaines opérations courantes. Vous pouvez consulter toute la [documentation sur l’API SDK Java Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/) de l’objet **ADLStoreClient** pour afficher d’autres opérations.
+Les extraits de code des sections suivantes contiennent des exemples d’opérations de gestion du système de fichiers communes. Vous pouvez consulter toute la [documentation sur l’API SDK Java Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/) de l’objet **ADLStoreClient** pour afficher d’autres opérations.
 
-Notez que les fichiers sont lus et écrits en utilisant des flux Java standard. Cela signifie que vous pouvez superposer des flux Java sur des flux Data Lake Store pour bénéficier des fonctionnalités Java standard (par exemple, imprimer des flux pour une sortie mise en forme, ou n’importe quel flux de compression ou de chiffrement pour une fonctionnalité supplémentaire, etc.).
+## <a name="create-a-directory"></a>Créer un répertoire
 
-     // create file and write some content
-     String filename = "/a/b/c.txt";
-     OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
-     PrintStream out = new PrintStream(stream);
-     for (int i = 1; i <= 10; i++) {
-         out.println("This is line #" + i);
-         out.format("This is the same line (%d), but using formatted output. %n", i);
-     }
-     out.close();
-    
-    // set file permission
-    client.setPermission(filename, "744");
+L’extrait de code suivant permet de créer la structure d’un répertoire à la racine du compte Data Lake Store spécifié.
+
+    // create directory
+    client.createDirectory("/a/b/w");
+    System.out.println("Directory created.");
+
+## <a name="create-a-file"></a>Créer un fichier
+
+L’extrait de code suivant permet de créer un fichier (c.txt) dans la structure du répertoire et d’y écrire des données.
+
+    // create file and write some content
+    String filename = "/a/b/c.txt";
+    OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
+    PrintStream out = new PrintStream(stream);
+    for (int i = 1; i <= 10; i++) {
+        out.println("This is line #" + i);
+        out.format("This is the same line (%d), but using formatted output. %n", i);
+    }
+    out.close();
+    System.out.println("File created.");
+
+Vous pouvez aussi créer un fichier (d.txt) à l’aide de tableaux d’octets.
+
+    // create file using byte arrays
+    stream = client.createFile("/a/b/d.txt", IfExists.OVERWRITE);
+    byte[] buf = getSampleContent();
+    stream.write(buf);
+    stream.close();
+    System.out.println("File created using byte array.");
+
+La définition de la fonction `getSampleContent` (utilisée dans l’extrait de code précédent) est disponible dans l’exemple sur [GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/). 
+
+## <a name="append-to-a-file"></a>Ajout à un fichier
+
+L’extrait de code suivant permet d’ajouter du contenu à un fichier existant.
 
     // append to file
     stream = client.getAppendStream(filename);
     stream.write(getSampleContent());
     stream.close();
+    System.out.println("File appended.");
+
+La définition de la fonction `getSampleContent` (utilisée dans l’extrait de code précédent) est disponible dans l’exemple sur [GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/).
+
+## <a name="read-a-file"></a>Lire un fichier
+
+L’extrait de code suivant permet de lire le contenu d’un fichier dans un compte Data Lake Store.
 
     // Read File
     InputStream in = client.getReadStream(filename);
-    byte[] b = new byte[64000];
-    while (in.read(b) != -1) {
-        System.out.write(b);
+    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+    String line;
+    while ( (line = reader.readLine()) != null) {
+        System.out.println(line);
     }
-    in.close();
+    reader.close();
+    System.out.println();
+    System.out.println("File contents read.");
+
+## <a name="concatenate-files"></a>Concaténation de fichiers
+
+L’extrait de code suivant permet de concaténer deux fichiers du compte Data Lake Store. En cas de réussite, le fichier concaténé remplace les deux fichiers existants.
 
     // concatenate the two files into one
     List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
     client.concatenateFiles("/a/b/f.txt", fileList);
+    System.out.println("Two files concatenated into a new file.");
+
+## <a name="rename-a-file"></a>Renommer un fichier
+
+L’extrait de code suivant permet de renommer un fichier du compte Data Lake Store.
 
     //rename the file
     client.rename("/a/b/f.txt", "/a/b/g.txt");
+    System.out.println("New file renamed.");
+
+## <a name="get-metadata-for-a-file"></a>Obtenir les métadonnées d’un fichier
+
+L’extrait de code suivant permet d’obtenir les métadonnées d’un fichier du compte Data Lake Store.
+
+    // get file metadata
+    DirectoryEntry ent = client.getDirectoryEntry(filename);
+    printDirectoryInfo(ent);
+    System.out.println("File metadata retrieved.");
+
+## <a name="set-permissions-on-a-file"></a>Définir les autorisations sur un fichier
+
+L’extrait de code suivant permet de définir les autorisations sur le fichier que vous avez créé dans la section précédente.
+
+    // set file permission
+    client.setPermission(filename, "744");
+    System.out.println("File permission set.");
+
+## <a name="list-directory-contents"></a>Afficher le contenu du répertoire
+
+L’extrait de code suivant permet d’afficher le contenu d’un répertoire de manière récursive.
 
     // list directory contents
     List<DirectoryEntry> list = client.enumerateDirectory("/a/b", 2000);
@@ -146,18 +192,25 @@ Notez que les fichiers sont lus et écrits en utilisant des flux Java standard. 
     for (DirectoryEntry entry : list) {
         printDirectoryInfo(entry);
     }
+    System.out.println("Directory contents listed.");
+
+La définition de la fonction `printDirectoryInfo` (utilisée dans l’extrait de code précédent) est disponible dans l’exemple sur [GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/).
+
+## <a name="delete-files-and-folders"></a>Supprimer des fichiers et dossiers
+
+L’extrait de code suivant permet de supprimer les fichiers et dossiers spécifiés d’un compte Data Lake Store de manière récursive.
 
     // delete directory along with all the subdirectories and files in it
     client.deleteRecursive("/a");
+    System.out.println("All files and folders deleted recursively");
+    promptEnterKey();
 
-#### <a name="step-4-build-and-run-the-application"></a>Étape 4 : Générer et exécuter l’application
+## <a name="build-and-run-the-application"></a>Génération et exécution de l’application
 1. Pour une exécution au sein d’un environnement IDE, recherchez et appuyez sur le bouton **Run** (Exécuter). Pour une exécution depuis Maven, utilisez [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
-2. Pour produire un fichier jar autonome que vous pouvez exécuter à partir de la ligne de commande, créez le fichier jar en incluant toutes les dépendances à l’aide du [plug-in assembly Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Le fichier pom.xml dans l[’exemple de code source sur github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) contient un exemple expliquant comment effectuer cette opération.
+2. Pour produire un fichier jar autonome que vous pouvez exécuter à partir de la ligne de commande, créez le fichier jar en incluant toutes les dépendances à l’aide du [plug-in assembly Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Le fichier pom.xml dans l’[exemple de code source sur github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) contient un exemple.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Explorer JavaDoc pour le SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
-* [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 

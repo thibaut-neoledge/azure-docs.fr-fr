@@ -93,14 +93,20 @@
           href: local-emulator.md
         - name: Exporter les certificats
           href: local-emulator-export-ssl-certificates.md
+    - name: "6\_- Intégrer avec Functions"
+      items:
+        - name: Déclencheur HTTP
+          href: tutorial-functions-http-trigger.md
 - name: Exemples
   items:
-    - name: Azure CLI 2.0
+    - name: Interface de ligne de commande Azure
       href: cli-samples.md
-    - name: "Azure\_PowerShell"
+    - name: PowerShell
       href: powershell-samples.md
 - name: Concepts
   items:
+    - name: Base de données sans serveur
+      href: serverless-computing-database.md
     - name: Diffusion mondiale
       href: distribute-data-globally.md
     - name: Partitionnement
@@ -133,6 +139,7 @@
     - name: Développement
       items:
         - name: API DocumentDB
+          href: documentdb-index.md
           items:
             - name: Ressources
               href: documentdb-resources.md
@@ -207,6 +214,7 @@
                 - name: 'Mettre hors service S1, S2, S3'
                   href: performance-levels.md
         - name: API MongoDB
+          href: mongodb-index.md
           items:
             - name: Se connecter à votre compte MongoDB
               href: connect-mongodb-account.md
@@ -268,6 +276,8 @@
           href: geospatial.md
         - name: Indexation
           href: indexing-policies.md
+        - name: Service connecté dans Visual Studio
+          href: connected-service.md
     - name: Gérer
       items:
         - name: Écritures et lectures rentables
@@ -282,8 +292,14 @@
           href: set-throughput.md
         - name: Analyser les contrats de niveau de service
           href: monitor-accounts.md
+        - name: Utiliser les mesures
+          href: use-metrics.md
+        - name: Journalisation de diagnostic
+          href: logging.md
         - name: Gérer les clés et la cohérence
           href: manage-account.md
+        - name: Explorateur de stockage Azure
+          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: Sécurité
           items:
             - name: Chiffrement au repos
@@ -309,7 +325,7 @@
         - name: Intégrer avec Recherche Azure
           href: ../search/search-howto-index-documentdb.md
         - name: Déplacer des données avec Azure Data Factory
-          href: ../data-factory/data-factory-azure-documentdb-connector.md
+          href: ../data-factory/connector-azure-cosmos-db.md
         - name: Analyser des données en temps réel avec Azure Stream Analytics
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: Obtenir un dossier HL7 FHIR modifié à l’aide de Logic Apps
@@ -350,6 +366,8 @@
       items:
         - name: .NET
           href: table-sdk-dotnet.md
+        - name: Python
+          href: table-sdk-python.md
     - name: API Graph
       items:
         - name: .NET

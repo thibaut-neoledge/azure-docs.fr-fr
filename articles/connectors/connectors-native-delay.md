@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-ms.lasthandoff: 02/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Prise en main des actions Retarder et Retarder jusqu’à
 Les actions Retarder et Retarder jusqu’à vous permettent d’exécuter des scénarios de workflow.
@@ -74,5 +73,4 @@ A * désigne est un champ obligatoire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
-
 

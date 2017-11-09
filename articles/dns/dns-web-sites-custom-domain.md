@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b054a41ecd69ee1c802d8403fe4b25128f016e3c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: d4b0aa817c3fd7f3304b5122ac584166d8079d3c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Créer des enregistrements DNS pour une application web dans un domaine personnalisé
 
 Vous pouvez utiliser Azure DNS pour héberger un domaine personnalisé pour vos applications web. Par exemple, vous créez une application web Azure et vous voulez que vos utilisateurs y accèdent en utilisant contoso.com ou www.contoso.com comme FQDN.
@@ -57,7 +55,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 Ajoutez la valeur IPv4 au jeu d’enregistrements précédemment créé « @ » en utilisant la variable $rs affectée. La valeur IPv4 attribuée sera l'adresse IP de votre application web.
 
-Pour trouver l’adresse IP d’une application web, suivez la procédure décrite dans [Configurer un nom de domaine personnalisé dans Azure App Service](../app-service-web/app-service-web-tutorial-custom-domain.md).
+Pour trouver l’adresse IP d’une application web, suivez la procédure décrite dans [Configurer un nom de domaine personnalisé dans Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
@@ -202,5 +200,4 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez la procédure décrite dans [Configuration d’un nom de domaine personnalisé pour App Service](../app-service-web/web-sites-custom-domain-name.md) pour configurer votre application web pour l’utilisation d’un domaine personnalisé.
-
+Suivez la procédure décrite dans [Configuration d’un nom de domaine personnalisé pour App Service](../app-service/app-service-web-tutorial-custom-domain.md) pour configurer votre application web pour l’utilisation d’un domaine personnalisé.

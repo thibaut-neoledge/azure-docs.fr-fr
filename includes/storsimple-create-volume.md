@@ -26,7 +26,7 @@
         ![Ajouter un volume](./media/storsimple-create-volume/AddVolume2-include.png)
 4. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Un volume est créé avec les paramètres spécifiés.
 
-![Vidéo disponible](./media/storsimple-create-volume/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-create-volume/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo qui montre comment créer un volume StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 

@@ -1,6 +1,6 @@
 ---
 title: "Architecture d’Azure Service Fabric | Microsoft Docs"
-description: "Service Fabric est une plateforme de systèmes distribués qui permet de créer des applications évolutives, fiables et faciles à gérer pour le cloud. Cet article illustre l&quot;architecture de Service Fabric."
+description: "Service Fabric est une plateforme de systèmes distribués qui permet de créer des applications évolutives, fiables et faciles à gérer pour le cloud. Cet article illustre l'architecture de Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/19/2017
+ms.date: 10/12/2017
 ms.author: rsinha
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: c485e8a3d12e7d2dcbfd6304a67aaa4fc2838b3f
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 3d1f9d6136622e0e9fc1e725d8230dbedd6af24a
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="service-fabric-architecture"></a>Architecture de Service Fabric
 Service Fabric est constitué de sous-systèmes en couches. Ces sous-systèmes permettent d’écrire des applications qui présentent les caractéristiques suivantes :
@@ -63,5 +62,4 @@ Ce sous-système fournit une messagerie fiable au sein du cluster et la détecti
 
 ## <a name="testability-subsystem"></a>Sous-système de testabilité
 La testabilité est une suite d'outils conçus spécifiquement pour tester les services créés sur la plateforme Service Fabric. Les outils permettent à un développeur de provoquer facilement des erreurs significatives et d’exécuter des scénarios de test pour explorer et valider les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, de manière contrôlée et sécurisée. La testabilité fournit également un mécanisme permettant d’effectuer des tests de durée plus longue par itération dans le cadre de diverses défaillances possibles, sans aucune perte de disponibilité. Vous bénéficiez ainsi d’un environnement de test en production.
-
 

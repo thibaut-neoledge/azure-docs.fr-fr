@@ -1,5 +1,5 @@
 ---
-title: "Création d&quot;un package de support StorSimple | Microsoft Docs"
+title: "Création d'un package de support StorSimple | Microsoft Docs"
 description: "Apprenez à créer, déchiffrer et modifier un package de support pour votre appareil StorSimple."
 services: storsimple
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42b245d4e205dffda7ec62199ced3834c278a466
-
-
+ms.openlocfilehash: 32d20e7a8adcfc646c592213fe7395b87a93c985
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-a-storsimple-support-package"></a>Création et gestion d’un package de prise en charge StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -166,10 +166,4 @@ L’exemple suivant illustre comment déchiffrer, modifier et re-chiffrer un pac
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

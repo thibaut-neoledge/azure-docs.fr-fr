@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Création d’une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage
 
@@ -124,7 +123,7 @@ Veillez à :
 ### <a name="deallocate-the-vm"></a>Libérer la machine virtuelle
 Libérez la machine virtuelle, ce qui libère le disque dur virtuel à copier. 
 
-* **Portail** : cliquez sur **Machines virtuelles** > **myVM** > Arrêter
+* **Portail** : cliquez sur **Machines virtuelles** > **myVM** &gt; Arrêter
 * **PowerShell** : utilisez [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) pour arrêter (libérer) la machine virtuelle nommée **myVM** dans le groupe de ressources **myResourceGroup**.
 
 ```powershell
@@ -321,5 +320,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour vous connecter à votre nouvelle machine virtuelle, accédez à la machine virtuelle dans le [portail](https://portal.azure.com), cliquez sur **Se connecter**, puis ouvrez le fichier RDP Bureau à distance. Utilisez les informations d’identification de compte de votre machine virtuelle d’origine pour vous connecter à votre nouvelle machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](connect-logon.md).
-
 

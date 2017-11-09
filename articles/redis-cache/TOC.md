@@ -12,7 +12,6 @@
 # Prise en main
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
@@ -25,7 +24,7 @@
 ###[Sécuriser votre cache à l’aide d’un réseau virtuel](cache-how-to-premium-vnet.md)
 ###[Distribuer votre cache avec le clustering](cache-how-to-premium-clustering.md)
 ## Automatisation
-###[Déployer et gérer à l’aide de Powershell](cache-howto-manage-redis-cache-powershell.md)
+###[Déployer et gérer à l’aide d’Azure PowerShell](cache-howto-manage-redis-cache-powershell.md)
 ###[Déployer et gérer à l’aide de l’interface de ligne de commande Azure](cli-samples.md)
 ###[Approvisionnement d’un cache Redis](cache-redis-cache-arm-provision.md)
 ###[Approvisionner une application web avec le cache Redis](cache-web-app-arm-with-redis-cache-provision.md)
@@ -33,13 +32,13 @@
 ###[Fournisseur d’état de session](cache-aspnet-session-state-provider.md)
 ###[Fournisseur de caches de sortie](cache-aspnet-output-cache-provider.md)
 ## Gérer
-###[Configurer dans le portail](cache-configure.md)
+###[Configurer dans le portail Azure](cache-configure.md)
 ###[Configurer la géoréplication](cache-how-to-geo-replication.md)
 ###[Importer/Exporter des données](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[Planification de mises à jour](cache-administration.md#schedule-updates)
 ## Surveiller et résoudre des problèmes
-###[Surveiller dans le portail](cache-how-to-monitor.md)
+###[Analyser dans le portail Azure](cache-how-to-monitor.md)
 ###[Résoudre les problèmes de cache](cache-how-to-troubleshoot.md)
 ###[Définir des alertes pour les exceptions](cache-how-to-monitor.md#operations-and-alerts)
 ## Scale
@@ -50,8 +49,8 @@
 
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Version préliminaire d’Azure CLI 2.0](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Préversion de l’interface CLI Azure](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Clients redis](http://redis.io/clients)

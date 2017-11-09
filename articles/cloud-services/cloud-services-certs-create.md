@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Vue d’ensemble des certificats pour Azure Cloud Services
 Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates) lorsque vous utilisez le portail Azure Classic et non classique). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les [déployer](#deploy) dans Azure.
@@ -97,5 +96,4 @@ De nombreuses pages sur Internet vous expliquent comment procéder avec IIS. [ic
 [Chargez votre certificat de service sur le portail Azure Classic](cloud-services-configure-ssl-certificate.md) (ou sur le [portail Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
 Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic. Le portail Azure n’utilise pas de certificats de gestion pour l’authentification.
-
 

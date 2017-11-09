@@ -31,7 +31,7 @@ Le module enregistreur utilise uniquement les messages provenant du répartiteur
 
 ![Comment le répartiteur achemine les messages entre les modules dans Azure IoT Edge][5]
 
-La figure ci-dessus montre l’architecture de l’exemple Hello World et les chemins d’accès relatifs aux fichiers sources qui implémentent différentes parties de l’exemple dans le [référentiel][lnk-iot-edge]. Explorez vous-même le code, ou utilisez les extraits de code ci-dessous comme guide.
+La figure précédente montre l’architecture de l’exemple Hello World et les chemins d’accès relatifs aux fichiers sources qui implémentent différentes parties de l’exemple dans le [référentiel][lnk-iot-edge]. Explorez vous-même le code, ou utilisez les extraits de code indiqués dans cet article comme guide.
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

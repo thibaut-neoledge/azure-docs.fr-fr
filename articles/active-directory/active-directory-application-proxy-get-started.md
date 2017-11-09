@@ -15,14 +15,12 @@ ms.date: 08/04/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Offrir un accès à distance sécurisé aux applications locales
 
 Aujourd’hui, les employés veulent être productifs partout, tout le temps, depuis n’importe quel appareil. Ils veulent pouvoir travailler sur leurs propres appareils (tablettes, téléphones ou ordinateurs portables). Ils veulent aussi pouvoir accéder à toutes leurs applications, qu’il s’agisse d’applications SaaS dans le cloud ou d’applications métier sur le réseau local de l’entreprise. La fourniture d’un accès aux applications locales implique généralement le recours à des réseaux privés virtuels (VPN) ou à des zones démilitarisées (DMZ). Non seulement ces solutions sont complexes et difficiles à sécuriser, mais leur configuration et leur gestion ont un coût élevé.
@@ -81,7 +79,7 @@ Le Proxy d’application Azure AD fournit l’authentification unique (SSO) aux 
 Pour plus d’informations sur Kerberos, consultez la page [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tout ce que vous voulez savoir sur Kerberos Constrained Delegation (KCD)).
 
 ### <a name="managing-apps"></a>Gestion des applications
-Une fois votre application publiée avec le Proxy d’application, la gestion se fait comme pour toute autre application d’entreprise du portail Azure. Vous pouvez utiliser les fonctionnalités de sécurité Azure Active Directory (accès conditionnel et vérification en deux étapes, par exemple), mais aussi contrôler les autorisations des utilisateurs et personnaliser la marque de votre application. 
+Une fois votre application publiée avec le Proxy d’application, la gestion se fait comme pour toute autre application d’entreprise dans le portail Azure. Vous pouvez utiliser les fonctionnalités de sécurité Azure Active Directory (accès conditionnel et vérification en deux étapes, par exemple), mais aussi contrôler les autorisations des utilisateurs et personnaliser la marque de votre application. 
 
 ## <a name="get-started"></a>Prise en main
 
@@ -102,5 +100,4 @@ Une fois votre première application publiée, vous pouvez faire bien d’autres
 * [Définir une page d’accueil personnalisée](application-proxy-office365-app-launcher.md)
 
 Pour les dernières nouvelles et mises à jour, consultez le site [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-
 

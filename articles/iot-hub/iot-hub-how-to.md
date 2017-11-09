@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 10/13/2017
 ms.author: dobett
+ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 786121ae249d69376b4be4c74000868cbb208989
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Utilisation d’Azure IoT Hub
 
@@ -32,7 +31,7 @@ Vous disposez de plusieurs options pour vous former au développement pour le se
 
 En tant que développeur, vous trouverez des recommandations détaillées sur l’IoT Hub dans le [Guide du développeur][lnk-devguide]. Ce guide comprend les éléments suivants :
 
-* Description détaillée de toutes les fonctionnalités de IoT Hub pour vous apprendre à les utiliser.
+* Description détaillée de toutes les fonctionnalités de IoT Hub pour vous aider à les utiliser.
 * Conseils pour choisir entre plusieurs options disponibles.
 
 ## <a name="tutorials"></a>Didacticiels

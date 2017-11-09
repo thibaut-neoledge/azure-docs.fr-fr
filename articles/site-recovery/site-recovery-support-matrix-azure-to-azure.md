@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
+ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication Azure vers Azure
 
@@ -70,7 +69,7 @@ La prise en charge ci-dessous est applicable à toutes les charges de travail en
 
 #### <a name="windows"></a>Windows
 
-- Windows Server 2016 (Server Core et Server avec Expérience utilisateur)*
+- Windows Server 2016 (Server Core, Server avec Expérience utilisateur)*
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 avec au moins SP1
@@ -85,6 +84,8 @@ La prise en charge ci-dessous est applicable à toutes les charges de travail en
 - CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Serveur LTS Ubuntu 14.04 [ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Debian 7
+- Debian 8
 - Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
@@ -144,8 +145,8 @@ Machines virtuelles migrées à l’aide de Site Recovery | Prises en charge | S
 
 **Configuration** | **Prise en charge/Non prise en charge** | **Notes**
 --- | --- | ---
-Taille maximale du disque du système d’exploitation | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
-Taille maximale de disque de données | 1 023 Go | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
+Taille maximale du disque du système d’exploitation | 2048 GB | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
+Taille maximale de disque de données | 4095 Go | Voir [Disques utilisés par les machines virtuelles](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
 Nombre de disques de données | Jusqu’à 64, tel que pris en charge par une taille spécifique de machine virtuelle Azure | Voir [Tailles de machine virtuelle Azure](../virtual-machines/windows/sizes.md).
 Disque temporaire | Toujours exclus de la réplication | Le disque temporaire est exclu de la réplication. Dans les recommandations Azure, il est stipulé que vous ne devez pas placer de données persistantes sur un disque temporaire. Pour plus d’informations, consultez [Disque temporaire sur des machines virtuelles Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
 Taux de modification des données sur le disque | Au plus 6 Mbits/s par disque | Si le taux moyen de modification des données sur le disque est en permanence supérieur à 6 Mbits/s, la réplication ne pourra pas suivre. Toutefois, s’il s’agit d’une rafale de données occasionnelle, que le taux de modification des données est supérieur à 6 Mbits/s pendant un certain laps de temps, et qu’il redescend par la suite, la réplication pourra rattraper le retard. Dans ce cas, certains points de récupération pourront être légèrement différés.
@@ -191,4 +192,3 @@ Connexion de réseau virtuel à réseau virtuel | Pris en charge | Voir le [docu
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur la [mise en réseau pour la réplication des machines virtuelles Azure](site-recovery-azure-to-azure-networking-guidance.md).
 - Commencez à protéger vos charges de travail en [répliquant des machines virtuelles Azure](site-recovery-azure-to-azure.md).
-

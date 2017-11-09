@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
+ms.openlocfilehash: 1a9c9354b665294778886441cc6d7f02adb1163f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12db22d1444dc07a45db430c01407f9398e13bad
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -30,7 +29,7 @@ Le diagnostic et la résolution des problèmes dans une application distribuée 
 Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l'analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
 
 > [!NOTE]
-> Actuellement, le stockage de fichiers Azure ne prend pas en charge la journalisation.
+> Azure Files ne prend pas en charge pas la journalisation pour l’instant.
 > 
 
 Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](../storage-e2e-troubleshooting.md).
@@ -71,8 +70,8 @@ Pour obtenir un guide pratique de bout en bout pour la résolution des problème
   * [Votre problème provient de l’utilisation de l’émulateur de stockage pour le développement ou les tests]
   * [Vous rencontrez des problèmes pendant l’installation du Kit de développement logiciel (SDK) Azure pour .NET]
   * [Vous rencontrez un autre problème avec un service de stockage]
-  * [Résolution des problèmes de stockage de fichiers Azure dans Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
-  * [Résolution des problèmes de stockage de fichiers Azure dans Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+  * [Résolution des problèmes Azure Files avec Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
+  * [Résolution des problèmes Azure Files avec Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Annexes]
   * [Annexe 1 : utilisation de Fiddler pour capturer le trafic HTTP et HTTPS]
   * [Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau]
@@ -236,14 +235,14 @@ Dans de nombreux cas, les données de journalisation issues de la journalisation
 Le suivi de bout en bout basé sur plusieurs fichiers journaux est une technique utile pour l’identification des problèmes potentiels. Vous pouvez utiliser les informations de date/heure de vos données métriques pour savoir où commencer à chercher des informations plus détaillées dans vos fichiers journaux afin de résoudre le problème.
 
 ### <a name="correlating-log-data"></a>Corrélation des données de journalisation
-Lors de l'affichage des journaux à partir des applications clientes, des suivis réseau et du stockage côté serveur, leur journalisation est essentielle afin de pouvoir mettre en corrélation les demandes à travers différents fichiers journaux. Les fichiers journaux incluent un certain nombre de champs différents, utiles en tant qu'identificateurs de corrélation. L'ID de la demande client est le champ le plus utile pour mettre en corrélation les entrées dans les différents journaux. Mais il peut parfois être utile d'utiliser l'ID de la demande serveur ou les horodatages. Les sections suivantes expliquent plus en détail ces options.
+Lors de l'affichage des journaux à partir des applications clientes, des suivis réseau et du stockage côté serveur, leur journalisation est essentielle afin de pouvoir mettre en corrélation les demandes à travers différents fichiers journaux. Les fichiers journaux incluent un certain nombre de champs différents, utiles en tant qu'identificateurs de corrélation. L'ID de demande client est le champ le plus utile pour mettre en corrélation les entrées dans les différents journaux. Toutefois, il peut parfois être utile d'utiliser l'ID de demande serveur ou les horodatages. Les sections suivantes expliquent plus en détail ces options.
 
 ### <a name="client-request-id"></a>ID de la demande client
 La bibliothèque cliente de stockage génère automatiquement un ID de demande client unique pour chaque demande.
 
-* Dans le journal côté client créé par la bibliothèque cliente de stockage, l'ID de la demande client s'affiche dans le champ **Client Request ID** de chaque entrée de journal associée à la demande.
-* Dans un suivi réseau comme celui capturé par Fiddler, l'ID de la demande client s'affiche dans les messages de demande en tant que valeur d'en-tête HTTP **x-ms-client-request-id** .
-* Dans le journal de journalisation du stockage côté serveur, l’ID de la demande client s’affiche dans la colonne Client request ID.
+* Dans le journal côté client créé par la bibliothèque cliente de stockage, l'ID de demande client s'affiche dans le champ **ID de demande client** de chaque entrée de journal associée à la demande.
+* Dans un suivi réseau comme celui capturé par Fiddler, l'ID de demande client s'affiche dans les messages de demande comme valeur d'en-tête HTTP **x-ms-client-request-id**.
+* Dans le journal de journalisation du stockage côté serveur, l’ID de demande client s’affiche dans la colonne ID de demande client.
 
 > [!NOTE]
 > Plusieurs demandes peuvent partager le même ID de demande client, car le client peut affecter cette valeur (même si la bibliothèque cliente de stockage affecte une nouvelle valeur automatiquement). Quand le client effectue de nouvelles tentatives, ces dernières partagent le même ID de demande client. Quand un lot est envoyé par le client, le lot a un seul ID de demande client.
@@ -253,12 +252,12 @@ La bibliothèque cliente de stockage génère automatiquement un ID de demande c
 ### <a name="server-request-id"></a>ID de la demande serveur
 Le service de stockage génère automatiquement les ID de demande serveur.
 
-* Dans le journal de journalisation du stockage côté serveur, l'ID de la demande serveur s'affiche dans la colonne **Request ID header** .
-* Dans un suivi réseau comme celui capturé par Fiddler, l'ID de la demande serveur s'affiche dans les messages de réponse en tant que valeur d'en-tête HTTP **x-ms-request-id** .
-* Dans le journal côté client créé par la bibliothèque cliente de stockage, l'ID de la demande serveur s'affiche dans la colonne **Operation Text** pour l'entrée de journal qui affiche les détails de la réponse du serveur.
+* Dans le journal de journalisation du stockage côté serveur, l'ID de demande serveur s'affiche dans la colonne **En-tête d’ID de demande**.
+* Dans un suivi réseau comme celui capturé par Fiddler, l'ID de demande serveur s'affiche dans les messages de réponse comme valeur d'en-tête HTTP **x-ms-request-id** .
+* Dans le journal côté client créé par la bibliothèque cliente de stockage, l'ID de demande serveur s'affiche dans la colonne **Texte de l’opération** pour l'entrée de journal qui affiche les détails de la réponse du serveur.
 
 > [!NOTE]
-> Le service de stockage affecte toujours un ID de demande serveur unique à chaque demande qu’il reçoit ; par conséquent, chaque nouvelle tentative du client et chaque opération incluse dans un lot a un ID de demande serveur unique.
+> Le service de stockage affecte toujours un ID de demande serveur unique à chaque demande qu’il reçoit. Par conséquent, chaque nouvelle tentative du client et chaque opération incluse dans un lot a un ID de demande serveur unique.
 > 
 > 
 
@@ -574,7 +573,7 @@ Le tableau suivant donne un exemple de message de journal côté serveur à part
 | Type d'authentification| Sas                          |
 | Type de service       | Blob                         |
 | URL de la demande        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de la demande client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -653,7 +652,7 @@ Il est important de noter que ces opérations ont été réalisées avec succès
 Vous trouverez une liste des codes d’erreur API REST communs renvoyés par les services de stockage à la page [Codes d’erreur API REST communs](http://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Les métriques de capacité indiquent une augmentation inattendue de l’utilisation de la capacité de stockage
-Si vous constatez des changements soudains, inattendus dans l'utilisation de la capacité de votre compte de stockage, vous pouvez enquêter sur les raisons d'abord en consultant vos métriques de disponibilité ; par exemple, une augmentation du nombre de demandes de suppression qui échouent peut provoquer une augmentation du volume de stockage d'objets blob que vous utilisez, car les opérations de nettoyage spécifiques à l'application supposées libérer de l'espace peuvent ne pas fonctionner comme prévu (par exemple, suite à l'expiration des jetons SAS utilisés pour libérer de l'espace).
+Si vous constatez des changements soudains, inattendus dans l'utilisation de la capacité de votre compte de stockage, vous pouvez rechercher les raisons en consultant d’abord vos métriques de disponibilité. Par exemple, une augmentation du nombre de demandes de suppression qui échouent peut provoquer une augmentation du volume de stockage blob que vous utilisez, car les opérations de nettoyage spécifiques de l'application supposées libérer de l'espace peuvent ne pas fonctionner comme prévu (par exemple, suite à l'expiration des jetons SAS utilisés pour libérer de l'espace).
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>Vous constatez des redémarrages inattendus des machines virtuelles Azure associées à un grand nombre de disques durs virtuels
 Si une machine virtuelle Azure est associée à un grand nombre de disques durs virtuels dans le même compte de stockage, vous risquez de dépasser les cibles d’évolutivité pour un compte de stockage individuel, ce qui provoquera une panne de la machine virtuelle. Vous devez consulter les métriques par minute pour le compte de stockage (**TotalRequests**/**TotalIngress**/**TotalEgress**) et vérifier la présence de pics dépassant les cibles d’évolutivité pour un compte de stockage. La section «[Les métriques indiquent une augmentation de la valeur PercentThrottlingError]» vous aidera à déterminer si une limitation a été appliquée à votre compte de stockage.
@@ -674,7 +673,7 @@ L'émulateur de stockage ne prend pas en charge toutes les fonctionnalités des 
 Pour accéder à ces fonctions non prises en charge par l’émulateur de stockage, vous devez utiliser le service de stockage Azure dans le cloud.
 
 #### <a name="error-HTTP-header-not-correct-format"></a>Erreur « The value for one of the HTTP headers is not in the correct format » (Le format de la valeur d’un des en-têtes HTTP est incorrect) lors de l’utilisation de l’émulateur de stockage
-Vous êtes en train de tester votre application, qui utilise la bibliothèque cliente de stockage, avec l'émulateur de stockage local, et les appels de méthode tels que **CreateIfNotExists** échouent avec un message d'erreur « The value for one of the HTTP headers is not in the correct format » (Le format de la valeur d'un des en-têtes HTTP est incorrect). Cela indique que la version de l'émulateur de stockage que vous utilisez ne prend pas en charge la version de la bibliothèque cliente de stockage que vous utilisez. La bibliothèque cliente de stockage ajoute l'en-tête **x-ms-version** à toutes les demandes qu'elle effectue. Si l'émulateur de stockage ne reconnaît pas la valeur dans l'en-tête **x-ms-version** , il refuse la demande.
+Vous testez votre application qui utilise la bibliothèque cliente de stockage dans l'émulateur de stockage local, et les appels de méthode comme **CreateIfNotExists** échouent avec le message d'erreur « La valeur de l’un des en-têtes HTTP n’a pas un format correct ». Cela indique que la version de l'émulateur de stockage que vous utilisez ne prend pas en charge la version de la bibliothèque cliente de stockage que vous utilisez. La bibliothèque cliente de stockage ajoute l'en-tête **x-ms-version** à toutes les demandes qu'elle effectue. Si l'émulateur de stockage ne reconnaît pas la valeur dans l'en-tête **x-ms-version** , il refuse la demande.
 
 Vous pouvez utiliser les journaux de la bibliothèque cliente de stockage pour afficher la valeur de l' **en-tête x-ms-version** envoyée. Vous pouvez également afficher la valeur de l' **en-tête x-ms-version** si vous utilisez Fiddler pour procéder au suivi des demandes à partir de votre application cliente.
 
@@ -756,7 +755,7 @@ WireShark met en évidence toutes les erreurs détectées dans la fenêtre **pac
 
 ![][7]
 
-Vous pouvez également choisir d'afficher les données TCP telles que la couche d'application les voit en cliquant avec le bouton droit de la souris sur les données TCP et en sélectionnant **Follow TCP Stream**. Cette option est particulièrement utile si vous avez capturé votre image mémoire sans filtre de capture. Pour plus d’informations, consultez [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(Suivi du flux TCP).
+Vous pouvez également choisir d'afficher les données TCP telles que la couche d'application les voit en cliquant avec le bouton droit sur les données TCP et en sélectionnant **Suivre le flux TCP**. Cette option est particulièrement utile si vous avez capturé votre image mémoire sans filtre de capture. Pour plus d’informations, consultez [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(Suivi du flux TCP).
 
 ![][8]
 
@@ -816,7 +815,7 @@ Vous pouvez également utiliser la fonctionnalité Application Insights pour Vis
 * Vous assurer que votre service Web est disponible et réactif. Que votre application soit destinée à un site web ou à un appareil qui utilise un service web, il peut tester votre URL toutes les quelques minutes depuis différents emplacements de par le monde et vous signaler tout problème éventuel.
 * Rapidement diagnostiquer tous les problèmes ou exceptions de performances rencontrés par votre service Web. Découvrez si l'UC ou d'autres ressources sont en difficulté, obtenez les traces de la pile à partir des exceptions et effectuez des recherches aisées dans les suivis de journalisation. Si les performances de l’application chutent en deçà des limites acceptables, nous pouvons vous envoyer un e-mail. Vous pouvez analyser les services Web .NET et Java.
 
-Vous trouverez plus d’informations dans la [Présentation d’Application Insights](../../application-insights/app-insights-overview.md).
+Plus d’informations sont disponibles dans [Présentation d’Application Insights](../../application-insights/app-insights-overview.md).
 
 <!--Anchors-->
 [Introduction]: #introduction
@@ -889,4 +888,3 @@ Vous trouverez plus d’informations dans la [Présentation d’Application Insi
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
-

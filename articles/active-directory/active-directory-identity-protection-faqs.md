@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 4835610eed8df46f3ba9302cf87163b37a6fa124
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 0a030c635255d2e6fcbacd5c138f8d09b1ef85b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>FAQ Azure Active Directory Identity Protection
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/17/2017
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>Dois-je être administrateur général pour utiliser la protection d’identité dans le portail Azure ?
-**R :** **non**. Vous pouvez être un lecteur de sécurité, un administrateur de sécurité ou un administrateur général pour utiliser la protection d’identité.
+**R :****non**. Vous pouvez être un lecteur de sécurité, un administrateur de sécurité ou un administrateur général pour utiliser la protection d’identité.
 
 ---
 
@@ -39,5 +38,4 @@ ms.lasthandoff: 05/17/2017
 **R :** Consultez [Prise en main d’Azure Active Directory Premium](active-directory-get-started-premium.md) pour connaître la réponse à cette question.
 
 ---
-
 

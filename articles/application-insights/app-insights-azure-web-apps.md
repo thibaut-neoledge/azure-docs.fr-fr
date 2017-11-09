@@ -3,7 +3,7 @@ title: "Surveillance des performances d’application web Azure | Microsoft Docs
 description: "Analyse des performances des applications pour les applications web Azure. Graphique de charge et de temps de réponse, informations de dépendance et alertes sur les performances."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
@@ -12,16 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: e3615280ec902833248d9acc1c9348d68e5c5e82
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-azure-web-app-performance"></a>Surveillance des performances d'application web Azure
-Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer la surveillance des performances d’application pour vos [applications web Azure](../app-service-web/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumente votre application afin qu’elle envoie des données de télémétrie concernant ses activités au service Application Insights, où elles sont stockées et analysées. Les graphiques de mesure et les outils de recherche peuvent alors être utilisés pour aider à diagnostiquer les problèmes, améliorer les performances et évaluer l’utilisation.
+Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer la surveillance des performances d’application pour vos [applications web Azure](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumente votre application afin qu’elle envoie des données de télémétrie concernant ses activités au service Application Insights, où elles sont stockées et analysées. Les graphiques de mesure et les outils de recherche peuvent alors être utilisés pour aider à diagnostiquer les problèmes, améliorer les performances et évaluer l’utilisation.
 
 ## <a name="run-time-or-build-time"></a>En cours d’exécution ou en cours de création
 Vous pouvez configurer la surveillance par l’instrumentation de l’application de deux manières :
@@ -120,5 +119,4 @@ Pour des recherches plus abouties sur vos données de télémétrie, utilisez le
 * [Réceptions de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
 * Utilisation [d’Application Insights pour les pages Web et les applications JavaScript](app-insights-javascript.md) pour obtenir les données de télémétrie du client à partir des navigateurs qui consultent une page web.
 * [Configuration des tests de disponibilité web](app-insights-monitor-web-app-availability.md) , pour recevoir des alertes en cas d’interruption de votre site.
-
 

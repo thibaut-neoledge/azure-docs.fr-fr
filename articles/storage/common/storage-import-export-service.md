@@ -12,21 +12,66 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 10/03/2017
 ms.author: muralikk
+ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5696c99b719fb1c5ca9c3da7dbf23d365cc64a2e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export
-Le service Azure Import/Export vous permet de transférer en toute sécurité des volumes importants de données vers Stockage Blob Azure en expédiant des disques durs vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données depuis Stockage Blob Azure vers les disques durs et les expédier vers votre site local. Ce service est utile lorsque vous souhaitez transférer plusieurs téraoctets (To) de données vers ou depuis Azure, mais le transfert ou le téléchargement via le réseau est impossible à cause d’une bande passante limitée et de coûts de réseau élevés.
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export
+Cet article présente des instructions pas à pas sur l’utilisation du service Azure Import/Export pour transférer en toute sécurité des volumes importants de données vers le Stockage Blob Azure et Stockage Fichier en expédiant des lecteurs de disques vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données depuis le Stockage Blob Azure vers des lecteurs de disques durs et les expédier vers vos sites locaux. Les données d’un seul lecteur de disque SATA interne peuvent être importées dans le Stockage Blob Azure ou Stockage Fichier Azure. 
 
-Ce service nécessite que les disques durs soient chiffrés par BitLocker pour garantir la sécurité des données. Ce service prend en charge les comptes de stockage classiques et Azure Resource Manager (niveau standard et froid) présents dans toutes les régions de la version publique d’Azure. Vous devez expédier les disques durs à l’un des emplacements pris en charge spécifiés plus loin dans cet article.
+> [!IMPORTANT] 
+> Ce service accepte uniquement les HDD ou SSD SATA internes. Aucun autre périphérique n’est pris en charge. N’envoyez pas de périphériques NAS ni HDD externes, entre autres, car ils seront renvoyés si possible ou rejetés.
+>
+>
 
-Dans cet article, vous allez découvrir le service Azure Import/Export et apprendre comment expédier des disques pour copier des données vers et depuis Stockage Blob Azure.
+Suivez les étapes ci-après si les données sur le disque doivent être importées dans le Stockage Blob Azure.
+### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Étape 1 : Préparer les lecteurs à l’aide de l’outil WAImportExport et générer les fichiers journaux.
+
+1.  Identifiez les données à importer dans le Stockage Blob Azure. Il peut s’agir de répertoires et de fichiers autonomes sur un serveur local ou sur un partage réseau.
+2.  En fonction de la taille totale des données, procurez-vous le nombre requis de SSD de 2,5 pouces ou HDD SATA II ou III de 2,5 ou 3,5 pouces.
+3.  Attachez les disques durs directement à l’aide de SATA ou avec des adaptateurs USB externes à un ordinateur Windows.
+4.  Créez un seul volume NTFS sur chaque disque dur et affectez-lui une lettre de lecteur. Pas de points de montage.
+5.  Activez le chiffrement BitLocker sur le volume NTFS. Utilisez les instructions à l’adresse https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx pour activer le chiffrement sur l’ordinateur Windows.
+6.  Copiez entièrement les données vers ces volumes NTFS uniques chiffrés sur les disques à l’aide des fonctions Copier/Coller ou Glisser-déplacer, de Robocopy ou de n’importe quel outil de ce type.
+7.  Téléchargez WAImportExport V1 à partir de https://www.microsoft.com/en-us/download/details.aspx?id=42659
+8.  Effectuez la décompression dans le dossier par défaut waimportexportv1. Par exemple, C:\WaImportExportV1  
+9.  Sélectionnez l’option Exécuter en tant qu’administrateur et ouvrez PowerShell ou une ligne de commande, puis remplacez le répertoire par le dossier décompressé. Par exemple, cd C:\WaImportExportV1
+10. Copiez la ligne de commande ci-dessous dans un bloc-notes et modifiez-la pour créer une ligne de commande.
+  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+    
+    /j: nom d’un fichier appelé fichier journal avec l’extension jrn. Comme un fichier journal est généré par lecteur, il est recommandé d’utiliser le numéro de série du disque en tant que nom du fichier journal.
+    /sk: clé de compte de stockage Azure. /t: lettre de lecteur du disque à expédier. Par exemple, D /bk: est la clé BitLocker du lecteur /srcdir: lettre de lecteur du disque à expédier suivie de :\. Par exemple, D:\
+    /dstdir: nom du conteneur de stockage Azure dans lequel les données doivent être importées.
+    /skipwrite 
+    
+11. Répétez l’étape 10 pour chaque disque qui doit être expédié.
+12. Un fichier journal avec le nom fourni avec le paramètre /j: est créé pour chaque exécution de la ligne de commande.
+
+### <a name="step-2-create-an-import-job-on-azure-portal"></a>Étape 2 : Créer une tâche d’importation dans le portail Azure.
+
+1. Ouvrez une session sur https://portal.azure.com/ et sous Autres services-> STOCKAGE -> Tâches d’importation/exportation, cliquez sur **Créer une tâche d’importation/exportation**.
+
+2. Dans la section Fonctions de base, sélectionnez « Importer dans Azure », entrez une chaîne pour le nom de la tâche, sélectionnez un abonnement, entrez ou sélectionnez un groupe de ressources. Indiquez un nom décrivant le travail d’importation. Notez que le nom que vous entrez ne peut contenir que des minuscules, des chiffres, des tirets et des traits de soulignement, qu'il doit commencer par une lettre et qu'il ne peut pas contenir d'espaces. Le nom que vous choisissez vous servira à suivre vos travaux pendant et après son exécution.
+
+3. Dans la section Détails de la tâche, chargez les fichiers journaux du lecteur que vous avez obtenus lors de l’étape de préparation du lecteur. Si la version 1 de waimportexport.exe a été utilisée, vous devez charger un fichier pour chaque disque préparé. Sélectionnez le compte de stockage dans lequel les données sont importées dans la section « Destination de l’importation » du compte de stockage. L’emplacement de dépôt est automatiquement renseigné en fonction de la région du compte de stockage sélectionné.
+   
+   ![Créer une tâche d'importation - Étape 3](./media/storage-import-export-service/import-job-03.png)
+4. Dans la section Informations de réexpédition, sélectionnez le transporteur dans la liste déroulante et entrez un numéro de compte de transporteur valide que vous avez créé avec ce transporteur. Microsoft utilise ce compte pour réexpédier les lecteurs une fois la tâche d’importation terminée. Indiquez le nom d’une personne, un numéro de téléphone, un e-mail, le nom de la rue, la ville, le code postal, l’état/la province et le payx/la région et assurez-vous que ces informations sont complètes et valides.
+   
+5. Dans la section Résumé, l’adresse de livraison du centre de données Azure est fournie afin d’y envoyer vos disques. Assurez-vous que le nom du travail et l’adresse complète sont mentionnés sur l’étiquette d’expédition. 
+
+6. Sur la page Résumé, cliquez sur OK pour terminer la création du travail d’importation.
+
+### <a name="step-3-ship-the-drives-to-the-azure-datacenter-shipping-address-provided-in-step-2"></a>Étape 3 : Expédier les lecteurs à l’adresse de livraison du centre de données Azure fournie à l’étape 2.
+FedEx, UPS ou DHL peuvent être utilisés pour envoyer le package au centre de données Azure.
+
+### <a name="step-4-update-the-job-created-in-step2-with-tracking-number-of-the-shipment"></a>Étape 4 : Mettre à jour la tâche créée à l’étape 2 avec le numéro de suivi d’expédition.
+Après l’envoi des disques, revenez dans la page **Importer/Exporter** du portail Azure pour mettre à jour le numéro de suivi en effectuant les opérations suivantes : a) Accédez à la tâche d’importation et cliquez dessus. b) Cliquez sur **Mettez à jour l’état de la tâche et les informations de suivi une fois les lecteurs expédiés**. c) Cochez la case « Marquer comme expédié ». d) Indiquez le transporteur et le numéro de suivi.
+Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera. Vous pouvez suivre l’état d’avancement de la tâche sur le tableau de bord du portail. Pour connaître la signification de chaque état de travail dans la section précédente, consultez [Affichage de l’état de votre travail](#viewing-your-job-status).
 
 ## <a name="when-should-i-use-the-azure-importexport-service"></a>À quel moment dois-je utiliser le service Azure Import/Export ?
 Envisagez d’utiliser le service Azure Import/Export lorsque le chargement ou le téléchargement de données sur le réseau est trop lent ou lorsque l’obtention d’une bande passante réseau supplémentaire est coûteuse.
@@ -36,22 +81,22 @@ Vous pouvez utiliser ce service dans des scénarios tels que :
 * Migration de données vers le cloud : déplacez de grandes quantités de données vers Azure rapidement et à moindre coût.
 * Distribution de contenu : envoyez rapidement des données aux sites de vos clients.
 * Sauvegarde : sauvegardez vos données locales dans Stockage Blob Azure.
-* Récupération des données : récupérez les grandes quantités de données stockées dans Stockage Blob pour les transférer vers votre site local.
+* Récupération des données : récupérez les grandes quantités de données stockées pour les transférer vers votre site local.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Dans cette section, nous répertorions les composants requis pour utiliser ce service. Vérifiez-les soigneusement avant d’expédier vos disques.
 
 ### <a name="storage-account"></a>Compte de stockage
 Vous devez disposer d’un abonnement Azure et d’un ou plusieurs comptes de stockage pour pouvoir utiliser le service Import/Export. Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 
-### <a name="blob-types"></a>Types d’objet blob
-Vous pouvez utiliser le service Azure Import/Export pour copier des données dans des objets blob de **bloc** ou de **page**. En revanche, vous ne pouvez qu’exporter les objets blob de **bloc**, de **page** ou **d’ajout** depuis le stockage Azure.
+### <a name="data-types"></a>Types de données
+Vous pouvez utiliser le service Azure Import/Export pour copier des données dans des objets blob de **blocs**, des objets blob de **pages** ou des **fichiers**. En revanche, vous ne pouvez qu’exporter les objets blob de **bloc**, de **page** ou **d’ajout** depuis le stockage Azure. Le service ne prend pas en charge l’exportation de fichiers Azure et peut uniquement importer les fichiers dans Stockage Azure.
 
 ### <a name="job"></a>Travail
-Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une tâche. Il peut s'agir d'une tâche d'importation ou d'une tâche d'exportation :
+Pour démarrer le processus d’importation ou d’exportation vers ou à partir d’un stockage, commencez par créer une tâche. Il peut s'agir d'une tâche d'importation ou d'une tâche d'exportation :
 
 * Une tâche d’importation vise à transférer des données locales vers des objets blob de votre compte de stockage Azure.
-* Créez une tâche d’exportation si vous souhaitez transférer les données actuellement stockées comme objets Blob dans votre compte de stockage vers des disques durs qui vous ont été livrés. Lorsque vous créez une tâche, vous informez le service d’importation/exportation que vous allez expédier un ou plusieurs disques durs à un centre de données Azure.
+* Un travail d’exportation vise à transférer des données stockées sous forme de blobs dans votre compte de stockage sur des disques durs qui nous sont ensuite expédiés. Lorsque vous créez une tâche, vous avertissez le service Import/Export que vous allez expédier un ou plusieurs disques durs vers un centre de données Azure.
 
 * Dans le cas d’un travail d’importation, vous expédiez des disques durs contenant vos données.
 * Dans le cas d’un travail d’exportation, vous expédiez des disques durs vides.
@@ -138,13 +183,13 @@ Emplacements d’expédition pris en charge :
 
 Lorsque vous créez un travail d’importation ou d’exportation, vous recevez l’adresse de l’un des emplacements auquel expédier vos disques. L’adresse d’expédition fournie dépend de l’emplacement de votre compte de stockage, mais elle ne peut être différente de l’emplacement de ce dernier.
 
-Vous pouvez faire appel à des transporteurs comme FedEx, DHL, UPS ou La Poste pour envoyer vos disques à l’adresse d’expédition.
+FedEx, UPS ou DHL peuvent expédier vos disques à l’adresse indiquée.
 
 **Expédition de disques depuis le centre de données :**
 
 Lorsque vous créez un travail d’importation ou d’exportation, vous devez indiquer une adresse de retour que Microsoft utilisera pour vous remettre les disques une fois le travail terminé. Veillez à fournir une adresse de retour valide pour éviter les retards de traitement.
 
-Vous pouvez faire appel au transporteur de votre choix pour expédier le disque dur. Le transporteur doit proposer un système de suivi approprié afin d’assurer la traçabilité du disque. Vous devez également indiquer un numéro de compte de transporteur FedEx ou DHL que Microsoft utilisera pour le retour des disques. Un numéro de compte FedEx est requis pour les retours de disque à partir des États-Unis et de l’Europe. Un numéro de compte DHL est requis pour les retours de disque à partir d’Asie et d’Australie. Vous pouvez créer un compte de transporteur [FedEx](http://www.fedex.com/us/oadr/) (pour les États-Unis et l’Europe) ou [DHL](http://www.dhl.com/) (pour l’Asie et l’Australie) si vous n’en avez pas. Si vous avez déjà un compte de transporteur, vérifiez qu’il est valide.
+Le transporteur doit proposer un système de suivi approprié afin d’assurer la traçabilité du disque. Vous devez indiquer un numéro de compte de transporteur FedEx, UPS ou DHL que Microsoft utilisera pour vous renvoyer vos disques. Un numéro de compte FedEx, UPS ou DHL est requis pour les renvois de disque à partir des États-Unis et de l’Europe. Un numéro de compte DHL est requis pour les retours de disque à partir d’Asie et d’Australie. Vous pouvez créer un compte de transporteur [FedEx](http://www.fedex.com/us/oadr/) (pour les États-Unis et l’Europe) ou [DHL](http://www.dhl.com/) (pour l’Asie et l’Australie) si vous n’en avez pas. Si vous avez déjà un compte de transporteur, vérifiez qu’il est valide.
 
 Lorsque vous expédiez vos colis, vous devez respecter les [conditions d'utilisation des services Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
@@ -154,7 +199,7 @@ Lorsque vous expédiez vos colis, vous devez respecter les [conditions d'utilisa
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Fonctionnement du service Azure Import/Export
-Vous pouvez transférer des données entre votre site local et Stockage Blob Azure à l’aide du service Azure Import/Export en créant des travaux et en expédiant des disques durs à un centre de données Azure. Chaque disque dur expédié est associé à un seul travail. Chaque travail est associé à un seul compte de stockage. Consultez la section [Conditions préalables](#pre-requisites) pour en savoir plus sur les particularités de ce service, comme les types d’objet blob pris en charge, les types de disque, les emplacements et l’expédition.
+Vous pouvez transférer des données entre votre site local et Stockage Azure à l’aide du service Azure Import/Export en créant des travaux et en expédiant des disques durs à un centre de données Azure. Chaque disque dur expédié est associé à un seul travail. Chaque travail est associé à un seul compte de stockage. Consultez la [section Prérequis](#pre-requisites) pour découvrir les particularités de ce service, comme les types de disque, les localisations, les expéditions et les types de données pris en charge.
 
 Dans cette section, nous décrivons globalement la procédure permettant d’importer et d’exporter des travaux. Ensuite, dans la section [Démarrage rapide](#quick-start), nous expliquons comment créer un travail d’importation et d’exportation.
 
@@ -162,7 +207,7 @@ Dans cette section, nous décrivons globalement la procédure permettant d’imp
 Globalement, un travail d’importation comprend les opérations suivantes :
 
 * Déterminez les données à importer et le nombre de disques dont vous avez besoin.
-* Identifiez l’emplacement des objets blob de destination de vos données dans le stockage Blob.
+* Identifiez l’emplacement des fichiers ou des objets blob de destination de vos données dans Stockage Blob.
 * Utilisez l’outil WAImportExport pour copier vos données sur un ou plusieurs disques durs et chiffrez-les à l’aide de BitLocker.
 * Créez une tâche d’importation dans votre compte de stockage cible à l’aide du portail Azure ou de l’API REST Import/Export. Si vous utilisez le portail Azure, téléchargez les fichiers journaux des disques.
 * Indiquez l’adresse de retour et le numéro de compte de transporteur à utiliser pour le retour des disques.
@@ -174,6 +219,11 @@ Globalement, un travail d’importation comprend les opérations suivantes :
     ![Figure 1 : flux d’importation de travail](./media/storage-import-export-service/importjob.png)
 
 ### <a name="inside-an-export-job"></a>Dans un travail d’exportation
+> [!IMPORTANT]
+> Le service prend uniquement en charge l’exportation de blobs Azure et ne prend pas en charge l’exportation de fichiers Azure.
+> 
+>
+
 Globalement, un travail d’exportation comprend les opérations suivantes :
 
 * Déterminez les données à exporter et le nombre de disques dont vous avez besoin.
@@ -246,40 +296,30 @@ Lorsque vous envoyez des disques à Azure, vous payez le coût d’expédition a
 
 Aucuns frais de transaction ne s’appliquent pour l’importation de données dans Stockage Blob. Des frais de sortie standard s’appliquent lorsque les données sont exportées depuis Stockage Blob. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-## <a name="quick-start"></a>Démarrage rapide
-Cette section vous explique en détail comment créer un travail d’importation et d’exportation. Vérifiez que vous remplissez toutes les [conditions préalables](#pre-requisites) avant de poursuivre.
 
-> [!IMPORTANT]
-> Le service prend en charge un seul compte de stockage standard par travail d’importation ou d’exportation, et ne prend pas en charge les comptes de stockage Premium. 
-> 
-> 
-## <a name="create-an-import-job"></a>Créer une tâche d’importation
-Créez un travail d’importation pour copier les données de vos disques durs dans votre compte de stockage Azure en envoyant un ou plusieurs disques au centre de données spécifié. Ce travail d’importation transmet des informations sur les disques durs, les données à copier, le compte de stockage cible et l’adresse d’expédition au service Azure Import/Export. La création d’un travail d’importation comprend trois étapes. Tout d’abord, préparez vos disques à l’aide de l’outil WAImportExport. Ensuite, envoyez une tâche d’importation à l’aide du portail Azure. Enfin, envoyez les disques à l’adresse d’expédition fournie lors de la création du travail et mettez à jour les informations d’expédition dans les détails de votre travail.   
 
-### <a name="prepare-your-drives"></a>Préparation des lecteurs
+## <a name="how-to-import-data-into-azure-file-storage-using-internal-sata-hdds-and-ssds"></a>Comment faire pour importer des données dans le Stockage Fichier Azure à l’aide de HDD et SSD SATA internes ?
+Suivez les étapes ci-après si les données sur le disque doivent être importées dans le Stockage Fichier Azure.
 Lors de l’importation des données à l’aide du service Azure Import/Export, la première étape consiste à préparer vos disques à l’aide de l’outil WAImportExport. Suivez la procédure ci-dessous pour préparer vos disques :
 
-1. Identifiez les données à importer. Il peut s’agir de répertoires et de fichiers autonomes sur le serveur local ou sur un partage de réseau.  
+1. Identifiez les données à importer dans le Stockage Fichier Azure. Il peut s’agir de répertoires et de fichiers autonomes sur le serveur local ou sur un partage de réseau.  
 2. Déterminez le nombre de disques nécessaires en fonction de la taille totale des données. Procurez-vous le nombre requis de disques durs SSD de 2,5 pouces ou SATA II ou III de 2,5 ou 3,5 pouces.
 3. Identifiez le compte de stockage cible, le conteneur, les répertoires virtuels et les objets blob.
-4.  Déterminez les répertoires et/ou les fichiers à copier sur chaque disque dur.
-5.  Créez les fichiers CSV du jeu de données et du jeu de disques.
+4. Déterminez les répertoires et/ou les fichiers à copier sur chaque disque dur.
+5. Créez les fichiers CSV du jeu de données et du jeu de disques.
     
-    **Fichier CSV du jeu de données**
-    
-    Voici un exemple de fichier CSV de jeu de données :
-    
+  Voici un exemple de fichier CSV de jeu de données pour importer des données en tant que fichiers Azure :
+  
     ```
-    BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
-    "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
-    "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+    "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
+    "F:\50M_original\","fileshare/",file,rename,"None",None 
     ```
-   
-    Dans le cadre de l’exemple ci-dessus, le fichier 100M_1.csv.txt sera copié à la racine du conteneur nommé « containername ». Si le nom de conteneur « containername » n’existe pas, un conteneur de ce nom sera créé. Tous les fichiers et dossiers présents sous 50M_original seront copiés de manière récursive dans containername. La structure des dossiers sera conservée.
+   Dans l’exemple ci-dessus, le fichier 100M_1.csv.txt sera copié à la racine de « fileshare ». Si « fileshare » n’existe pas, il sera créé. Tous les fichiers et dossiers présents sous 50M_original seront copiés de manière récursive dans fileshare. La structure des dossiers sera conservée.
 
     Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de données ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
-    **Attention**: par défaut, les données sont importées sous la forme d’objets blob de blocs. Vous pouvez utiliser la valeur du champ BlobType pour importer les données sous la forme d’objets blob de page. Par exemple, si vous importez des fichiers de disque dur virtuel qui seront montés comme des disques sur une machine virtuelle Azure, vous devez les importer en tant qu’objets blob de page.
+
 
     **Fichier CSV du jeu de disques**
 
@@ -348,26 +388,7 @@ Pour en savoir plus sur l’utilisation de l’outil WAImportExport, consultez [
 
 Pour une description étape par étape, consultez [Exemple de flux de travail pour préparer des disques durs à un travail d’importation](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md).  
 
-### <a name="create-the-import-job"></a>Création de la tâche d'importation
-1. Après avoir préparé votre disque, accédez à votre compte de stockage dans le portail Azure, puis affichez le tableau de bord. Sous **Aperçu rapide**, cliquez sur **Créer une tâche d'importation**. Vérifiez les étapes et cochez la case pour indiquer que vous avez préparé votre disque et que son fichier journal est disponible.
-2. À l’étape 1, indiquez les coordonnées de la personne responsable de ce travail d’importation ainsi qu’une adresse de retour valide. Pour enregistrer des données de journal détaillées pour la tâche d'importation, activez l'option **Enregistrer le journal détaillé dans le conteneur d'objets blob 'waimportexport'**.
-3. À l’étape 2, téléchargez les fichiers journaux que vous avez obtenus à l’étape de préparation du disque. Vous devez télécharger un fichier pour chaque disque préparé.
-   
-   ![Créer une tâche d'importation - Étape 3](./media/storage-import-export-service/import-job-03.png)
-4. À l’étape 3, indiquez une description du travail d’importation. Notez que le nom que vous entrez ne peut contenir que des minuscules, des chiffres, des tirets et des traits de soulignement, qu'il doit commencer par une lettre et qu'il ne peut pas contenir d'espaces. Le nom que vous choisissez vous servira à suivre vos travaux pendant et après son exécution.
-   
-   Sélectionnez ensuite la région du centre de données dans la liste. Cette dernière indique à quel centre de données et à quelle adresse vous devez expédier votre colis. Consultez le Forum Aux Questions ci-après pour plus d'informations.
-5. À l’étape 4, sélectionnez votre transporteur dans la liste, puis entrez son numéro de compte. Microsoft utilise ce compte pour réexpédier les lecteurs une fois la tâche d’importation terminée.
-   
-   Si vous possédez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
-   
-   Si vous n'avez pas encore de numéro de suivi, choisissez **I will provide my shipping information for this import job once I have shipped my package**, puis terminez le processus d'importation.
-6. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Azure, sélectionnez votre tâche dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
-   
-    Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
-   
-    Si la tâche a le statut Création, Expédition ou Transfert, vous pouvez également mettre à jour le numéro de compte du transporteur à l'étape 2 de l'Assistant. Une fois que la tâche a le statut Emballage, vous ne pouvez plus mettre à jour le numéro de compte de transporteur correspondant.
-7. Vous pouvez suivre l’état d’avancement de votre travail sur le tableau de bord du portail. Pour connaître la signification de chaque état de travail dans la section précédente, consultez [Affichage de l’état de votre travail](#viewing-your-job-status).
+
 
 ## <a name="create-an-export-job"></a>Création d’une tâche d’exportation
 Créez une tâche d’exportation pour avertir le service Import/Export que vous allez expédier un ou plusieurs disques vides au centre de données, de sorte que les données puissent être exportées de votre compte de stockage vers les disques, qui vous seront ensuite renvoyés.
@@ -379,9 +400,10 @@ Les vérifications préalables suivantes sont recommandées pour préparer vos d
 2. Vérifiez que le disque dur expédié en vue de la tâche d’exportation est accessible en lecture/écriture.
 
 ### <a name="create-the-export-job"></a>Création du travail d’importation
-1. Pour créer une tâche d’exportation, accédez à votre compte de stockage dans le portail Azure, puis affichez le tableau de bord. Sous **Aperçu rapide**, cliquez sur **Créer un travail d’exportation**, puis parcourez les étapes de l’Assistant.
-2. À l’étape 2, fournissez les coordonnées de la personne responsable de cette tâche d’exportation. Pour enregistrer des données de journal détaillées pour la tâche d'exportation, activez l'option **Enregistrer le journal détaillé dans le conteneur d'objets blob 'waimportexport'**.
-3. À l'étape 3, indiquez les données d'objets blob que vous souhaitez exporter de votre compte de stockage vers le ou les lecteurs vides. Vous pouvez choisir d’exporter toutes les données d’objets blob contenues dans le compte de stockage ou indiquer les objets blob ou ensembles d’objets blob à exporter.
+1. Pour créer un travail d’exportation, dans le portail Azure, accédez à Plus de services -> STOCKAGE -> « Tâches d’importation/exportation ». Cliquez sur **Créer une tâche d’importation/exportation**.
+2. À l’étape 1 Fonctions de base, sélectionnez « Exporter à partir d’Azure », entrez une chaîne pour le nom du travail, sélectionnez un abonnement, entrez ou sélectionnez un groupe de ressources. Indiquez un nom décrivant le travail d’importation. Notez que le nom que vous entrez ne peut contenir que des minuscules, des chiffres, des tirets et des traits de soulignement, qu'il doit commencer par une lettre et qu'il ne peut pas contenir d'espaces. Le nom que vous choisissez vous servira à suivre vos travaux pendant et après son exécution. Fournissez les coordonnées de la personne responsable de ce travail d’exportation. 
+
+3. À l’étape 2 Détails du travail, sélectionnez le compte de stockage duquel les données sont exportées dans la section « Compte de stockage ». L’emplacement de dépôt est automatiquement renseigné en fonction de la région du compte de stockage sélectionné. Indiquez les données de blob que vous souhaitez exporter depuis votre compte de stockage vers le ou les lecteurs vides. Vous pouvez choisir d’exporter toutes les données d’objets blob contenues dans le compte de stockage ou indiquer les objets blob ou ensembles d’objets blob à exporter.
    
    Pour spécifier un objet blob à exporter, utilisez le sélecteur **Equal To** , puis indiquez le chemin d’accès relatif de l’objet blob en le faisant précéder du nom du conteneur. Utilisez *$root* pour spécifier le conteneur racine.
    
@@ -402,26 +424,26 @@ Les vérifications préalables suivantes sont recommandées pour préparer vos d
    Vous devez indiquer les chemins d’accès aux objets blob dans des formats valides pour éviter les erreurs de traitement, comme illustré dans cette capture d’écran.
    
    ![Créer une tâche d'exportation - Étape 3](./media/storage-import-export-service/export-job-03.png)
-4. À l'étape 4, attribuez un nom descriptif à la tâche d'exportation. Le nom que vous entrez ne peut contenir que des minuscules, des chiffres, des tirets et des traits de soulignement, il doit commencer par une lettre et ne peut pas contenir d'espaces.
+
+4. À l’étape 3 Informations de réexpédition, sélectionnez le transporteur dans la liste déroulante et entrez un numéro de compte de transporteur valide que vous avez créé avec ce transporteur. Microsoft utilise ce compte pour réexpédier les lecteurs une fois la tâche d’importation terminée. Indiquez le nom d’une personne, un numéro de téléphone, un e-mail, le nom de la rue, la ville, le code postal, l’état/la province et le payx/la région et assurez-vous que ces informations sont complètes et valides.
    
-   La région du centre de données indique à quel centre de données vous devez expédier votre colis. Consultez le Forum Aux Questions ci-après pour plus d'informations.
-5. À l'étape 5, sélectionnez votre transporteur dans la liste, puis entrez son numéro de compte. Microsoft utilise ce compte pour réexpédier vos lecteurs une fois la tâche d'exportation terminée.
+ 5. Sur la page Résumé, l’adresse du centre de données Azure est fournie afin d’y envoyer vos disques. Assurez-vous que le nom du travail et l’adresse complète sont mentionnés sur l’étiquette d’expédition. 
+
+6. Sur la page Résumé, cliquez sur OK pour terminer la création du travail d’exportation.
+
+7. Après l’envoi des disques, revenez sur la page **Importer/Exporter** du portail Azure : a) Accédez au travail d’importation et cliquez dessus. b) Cliquez sur **Mettez à jour l’état de la tâche et les informations de suivi une fois les lecteurs expédiés**. 
+     c) Cochez la case « Marquer comme expédié ». d) Indiquez le transporteur et le numéro de suivi.
+    
+   Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
    
-   Si vous possédez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
-   
-   Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d'expédition pour ce travail d'exportation après envoi de mon colis**, puis terminez le processus d'exportation.
-6. Pour entrer votre numéro de suivi après avoir expédié votre colis, revenez à la page **Import/Export** de votre compte de stockage dans le portail Azure, sélectionnez votre tâche dans la liste, puis choisissez **Informations d’expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
-   
-    Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
-   
-    Si la tâche a le statut Création, Expédition ou Transfert, vous pouvez également mettre à jour le numéro de compte du transporteur à l'étape 2 de l'Assistant. Une fois que la tâche a le statut Emballage, vous ne pouvez plus mettre à jour le numéro de compte de transporteur correspondant.
-   
+8. Vous pouvez suivre l’état d’avancement de votre travail sur le tableau de bord du portail. Pour connaître la signification de chaque état de travail dans la section précédente, consultez [Affichage de l’état de votre travail](#viewing-your-job-status).
+
    > [!NOTE]
    > Si l’objet blob à exporter est en cours d’utilisation au moment de la copie sur le disque dur, le service d’importation/exportation Azure prend un instantané de l’objet blob et copie la capture instantanée.
    > 
    > 
-7. Vous pouvez suivre l’état d’avancement de votre tâche dans le tableau de bord du portail Azure. Pour connaître la signification de chaque état de travail dans la section précédente, consultez « Affichage de l’état de votre travail ».
-8. Après avoir réceptionné les disques avec vos données exportées, vous pouvez afficher et copier les clés BitLocker générées par le service pour votre disque. Accédez à votre compte de stockage dans le portail Azure, puis cliquez sur l’onglet Import/Export. Sélectionnez votre tâche d’exportation dans la liste, puis cliquez sur le bouton Afficher les clés. Les clés BitLocker s’affichent comme ci-dessous :
+ 
+9. Après avoir réceptionné les disques avec vos données exportées, vous pouvez afficher et copier les clés BitLocker générées par le service pour votre disque. Accédez au travail d’exportation dans le portail Azure et cliquez sur l’onglet Import/Export. Sélectionnez votre travail d’exportation dans la liste, puis cliquez sur l’option Clés BitLocker. Les clés BitLocker s’affichent comme ci-dessous :
    
    ![Afficher les clés BitLocker pour une tâche d'exportation](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 
@@ -431,7 +453,7 @@ Accédez à la section FAQ ci-dessous, car elle aborde les questions les plus co
 
 **Puis-je copier à partir de Stockage Fichier Azure à l’aide du service Azure Import/Export ?**
 
-Non, le service Azure Import/Export ne prend en charge que les objets blob de bloc et de page. Aucun autre type de stockage, y compris Stockage Fichier Azure, Stockage Table et Stockage File d’attente n’est pris en charge.
+Oui, le service Azure Import/Export prend en charge l’importation dans Stockage Fichier Azure. L’exportation de fichiers Azure n’est pas prise en charge pour l’instant.
 
 **Le service Azure Import/Export est-il disponible pour les abonnements de fournisseur de services de chiffrement ?**
 
@@ -540,5 +562,4 @@ G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-25261
 * [Configuration de l’outil WAImportExport](storage-import-export-tool-how-to.md)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 * [Exemple d’API REST Azure Import Export](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-
 

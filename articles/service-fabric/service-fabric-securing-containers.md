@@ -14,21 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
+ms.openlocfilehash: 3e41e293cc5340c0e32cf2cc6ef7ab7534330884
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: a262730aec6ce5a1c6f3b7d2d41056a6e6edfbe0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="container-security"></a>Sécurité du conteneur
 
 Service Fabric fournit un mécanisme pour les services à l’intérieur d’un conteneur pour accéder à un certificat installé sur les nœuds dans un cluster Windows ou Linux (version 5.7 ou version ultérieure). En outre,Service Fabric prend également en charge les gMSA (comptes de service géré de groupe) pour les conteneurs Windows. 
 
 ## <a name="certificate-management-for-containers"></a>Gestion des certificats pour les conteneurs
 
-Vous pouvez sécuriser vos services de conteneur en spécifiant un certificat. Le certificat doit être installé sur les nœuds du cluster. Les informations de certificat sont fournies dans le manifeste d’application avec la balise `ContainerHostPolicies` comme le montre l’extrait de code suivant :
+Vous pouvez sécuriser vos services de conteneur en spécifiant un certificat. Le certificat doit être installé sur tous les nœuds du cluster de LocalMachine. Les informations de certificat sont fournies dans le manifeste d’application avec la balise `ContainerHostPolicies` comme le montre l’extrait de code suivant :
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -36,16 +34,28 @@ Vous pouvez sécuriser vos services de conteneur en spécifiant un certificat. L
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Lors du démarrage de l’application, le runtime lit les certificats et génère un fichier PFX ainsi qu’un mot de passe pour chaque certificat. Ce fichier PFX et le mot de passe sont accessibles à l’intérieur du conteneur à l’aide des variables d’environnement suivantes : 
+Pour les clusters Windows, au lancement de l’application, le runtime lit les certificats et génère un fichier PFX ainsi qu’un mot de passe pour chaque certificat. Ce fichier PFX et le mot de passe sont accessibles à l’intérieur du conteneur à l’aide des variables d’environnement suivantes : 
 
-* **Certificate_[CodePackageName]_[CertName]_PFX**
-* **Certificate_[CodePackageName]_[CertName]_Password**
+* **Certificate_ServicePackageName_CodePackageName_CertName_PFX**
+* **Certificate_ServicePackageName_CodePackageName_CertName_Password**
 
-Le service de conteneur ou le processus est responsable de l’importation du fichier PFX vers le conteneur. Pour importer le certificat, vous pouvez utiliser les scripts `setupentrypoint.sh` ou exécuter un code personnalisé dans le processus de conteneur. L’exemple de code en C# qui importe le fichier PFX est le suivant :
+Pour les clusters Linux, les certificats (PEM) sont simplement copiés à partir du magasin spécifié par X509StoreName sur le conteneur. Voici les variables d’environnement correspondantes sous Linux :
+
+* **Certificate_ServicePackageName_CodePackageName_CertName_PEM**
+* **Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey**
+
+Si vous disposez déjà des certificats au format requis et que vous souhaitez simplement y accéder à l’intérieur du conteneur, vous pouvez également créer un package de données à l’intérieur du package de votre application et spécifier les éléments suivants au sein du manifeste :
+
+```xml
+  <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
+   <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
+ ```
+
+Le processus ou le service de conteneur est responsable de l’importation des fichiers de certificats dans le conteneur. Pour importer le certificat, vous pouvez utiliser les scripts `setupentrypoint.sh` ou exécuter un code personnalisé au sein du processus de conteneur. L’exemple de code en C# qui importe le fichier PFX est le suivant :
 
 ```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);
@@ -54,7 +64,7 @@ Le service de conteneur ou le processus est responsable de l’importation du fi
     store.Add(cert);
     store.Close();
 ```
-Ce certificat PFX peut être utilisé pour authentifier l’application ou le service ou la communication sécurisée avec d’autres services.
+Ce certificat PFX peut être utilisé pour authentifier l’application ou le service afin de sécuriser la communication avec d’autres services. Par défaut, les fichiers ne sont présents que dans la liste ACL SYSTEM. Vous pouvez les ajouter à d’autres comptes selon les exigences du service.
 
 
 ## <a name="set-up-gmsa-for-windows-containers"></a>Configurer le gMSA pour les conteneurs Windows
@@ -72,4 +82,3 @@ Pour configurer un gMSA (compte de service géré de groupe), un fichier de spé
 
 * [Déployer un conteneur Windows sur Service Fabric sous Windows Server 2016](service-fabric-get-started-containers.md)
 * [Déployer un conteneur Docker sur Service Fabric sous Linux](service-fabric-get-started-containers-linux.md)
-

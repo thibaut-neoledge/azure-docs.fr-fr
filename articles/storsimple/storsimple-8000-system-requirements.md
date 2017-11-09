@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 4c339c531dae5724a174c2b22cb379bdb3214a4f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Configurations logicielles, de haute disponibilité et réseau requises pour StorSimple 8000 Series
 
@@ -76,7 +75,7 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 
 <sup>2</sup> Si plusieurs ports comportent une configuration de passerelle, l’ordre du trafic routé sortant est déterminé par l’ordre de routage des ports décrit dans la section [Routage de port](#routing-metric) ci-dessous.
 
-<sup>3</sup> Les adresses IP fixes du contrôleur sur votre appareil StorSimple doivent être routables et doivent pouvoir se connecter à Internet directement ou via le proxy web configuré. Les adresses IP fixes sont utilisées pour traiter les mises à jour apportées à l’appareil. Si les contrôleurs ne peuvent pas se connecter à Internet via les adresses IP fixes, vous ne pouvez pas mettre à jour votre appareil StorSimple.
+<sup>3</sup> Les adresses IP fixes du contrôleur sur votre appareil StorSimple doivent être routables et doivent pouvoir se connecter à Internet directement ou via le proxy web configuré. Les adresses IP fixes servent à traiter les mises à jour de l’appareil et à nettoyer la mémoire. Si les contrôleurs de l’appareil ne peuvent pas se connecter à Internet via les adresses IP fixes, vous ne pouvez pas mettre à jour votre appareil StorSimple et l’opération de nettoyage de la mémoire ne se déroulera pas correctement.
 
 > [!IMPORTANT]
 > Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
@@ -139,13 +138,13 @@ L’algorithme de métrique de routage utilisé pour la mise à jour 2 et versi
 
 * L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :
   
-    *Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
+    *Data 0 &gt; Data 1 &gt; Date 2 &gt; Data 3 &gt; Data 4 &gt; Data 5*
   
     Cela peut s’expliquer par l’exemple suivant.
   
     Prenez l’exemple d’un appareil StorSimple avec deux interfaces réseau activées pour le cloud, Data 0 et Data 5. Data 1 à Data 4 sont désactivées pour le cloud mais disposent d’une passerelle configurée. L’ordre dans lequel le trafic sera acheminé pour cet appareil est le suivant :
   
-    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+    *Data 0 (1) &gt; Data 5 (6) &gt; Data 1 (20) &gt; Data 2 (30) &gt; Data 3 (40) &gt; Data 4 (50)*
   
     *Les nombres entre parenthèses indiquent les métriques de routage respectives.*
   
@@ -249,4 +248,3 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

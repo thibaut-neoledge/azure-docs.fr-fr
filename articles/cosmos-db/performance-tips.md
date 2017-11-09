@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
+ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
-ms.openlocfilehash: cab019480a14de1a1481abee800553c6545add70
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Conseils sur les performances pour Azure Cosmos DB
 Azure Cosmos DB est une base de données distribuée rapide et flexible qui peut être mise à l’échelle en toute transparence avec une latence et un débit garantis. Vous n’avez pas à apporter de modifications d’architecture majeures ou écrire de code complexe pour mettre à l’échelle votre base de données avec Cosmos DB. Il suffit d’un simple appel d’API ou de méthode de [kit de développement logiciel (SDK)](set-throughput.md#set-throughput-sdk)pour effectuer une mise à l’échelle. Toutefois, étant donné que Cosmos DB est accessible via des appels réseau, vous pouvez apporter des optimisations côté client de manière à atteindre des performances de pointe.
@@ -145,14 +144,8 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     - Pour les applications web ASP.NET déployées sur Azure, cette opération peut être effectuée en choisissant la **plate-forme 64 bits** dans les **paramètres de l’application** sur le portail Azure.
 
 ## <a name="indexing-policy"></a>Stratégie d'indexation
-1. **Utilisation de l’indexation différée pour des taux d’ingestion plus rapides en période de pointe**
-
-    Cosmos DB vous permet de spécifier, au niveau de la collection, une stratégie d’indexation qui offre la possibilité de choisir si vous souhaitez que les documents d’une collection soient indexés automatiquement ou non.  En outre, vous avez le choix entre des mises à jour d’index synchrones (cohérentes) et asynchrones (différées). Par défaut, l'index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d'un document au niveau de la collection. Le mode synchrone permet aux requêtes d’honorer le même [niveau de cohérence](consistency-levels.md) que les lectures de document sans que l’index ne soit soumis à un quelconque délai de rattrapage.
-
-    L’indexation différée peut être envisagée dans des scénarios où les données sont écrites en rafales et que vous souhaitez amortir le travail requis pour indexer le contenu sur une période de temps plus longue. L’indexation différée permet également d’utiliser le débit configuré de manière efficace et de répondre aux requêtes d’écriture en période de pointe avec une latence minimale. Toutefois, il est important de noter que, si l’indexation différée est activée, les résultats des requêtes sont cohérents, indépendamment du niveau de cohérence configuré pour le compte Cosmos DB.
-
-    Par conséquent, le mode d’indexation cohérent (IndexingPolicy.IndexingMode est défini sur Cohérent) implique les frais d’unité de requête les plus élevés par écriture, tandis que le mode d’indexation différé (IndexingPolicy.IndexingMode est défini sur différé) et le mode sans indexation (IndexingPolicy.Automatic est défini sur False) n’implique aucun coût d’indexation au moment de l’écriture.
-2. **Exclusion des chemins d’accès inutilisés de l’indexation pour des écritures plus rapides**
+ 
+1. **Exclusion des chemins d’accès inutilisés de l’indexation pour des écritures plus rapides**
 
     La stratégie d’indexation de Cosmos DB vous permet également de spécifier les chemins d’accès de document à inclure ou exclure de l’indexation en tirant parti des chemins d’accès d’indexation (IndexingPolicy.IncludedPaths et IndexingPolicy.ExcludedPaths). L’utilisation des chemins d’accès d’indexation peut offrir des performances d’écriture améliorées et réduire le stockage d’index pour les scénarios dans lesquels les modèles de requête sont connus d’avance, puisque les coûts d’indexation sont directement liés au nombre de chemins d’accès uniques indexés.  Par exemple, le code suivant montre comment exclure toute une section de documents (également appelée sous-arborescence) de l’indexation à l’aide du caractère générique « * ».
 
@@ -214,4 +207,3 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 Pour un exemple d’application permettant d’évaluer Cosmos DB lors de scénarios hautes performances sur quelques ordinateurs clients, consultez [Test des performances et de la mise à l’échelle avec Cosmos DB](performance-testing.md).
 
 En outre, pour en savoir plus sur la conception de votre application pour une mise à l’échelle et de hautes performances, consultez [Partitionnement, clés de partition et mise à l’échelle dans Cosmos DB](partition-data.md).
-

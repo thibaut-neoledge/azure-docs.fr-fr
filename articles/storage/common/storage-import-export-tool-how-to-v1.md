@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 4ce2273cc0dcc456c2edc8c5dd2fc22496f20380
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Utilisation de l’outil Azure Import/Export (modèle de déploiement classique)
 
 L’outil Azure Import/Export (WAImportExport.exe) sert à créer et gérer des travaux pour le service Azure Import/Export, ce qui vous permet de transférer de grandes quantités de données vers ou à partir du Stockage Blob Azure.

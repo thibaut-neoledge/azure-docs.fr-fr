@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8980a560f3459adf328afb9cc08ff27bde0c284b
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: bdc96cd47ece6054184d167192ebec4cd4bd081c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sdk-content"></a>Contenu du Kit de développement logiciel (SDK)
 Ce document répertorie et décrit le contenu de l'archive du SDK.
@@ -45,10 +44,9 @@ Ce document répertorie et décrit le contenu de l'archive du SDK.
 > 
 > 
 
-`src` 
+`src`
 
 > Contrôleurs d'affichage Engagement et code source du Kit de développement logiciel (SDK) Reach (pour les utilisateurs avec pouvoir qui veulent adapter les classes Engagement à leurs besoins).
 > 
 > 
-
 

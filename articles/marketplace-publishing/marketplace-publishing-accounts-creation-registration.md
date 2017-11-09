@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 125d4d4bc916883e3bb53b9b3b4bf46bbb4bf139
 ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-microsoft-developer-account"></a>Créer un compte de développeur Microsoft
 Cet article décrit la procédure de création de compte et d’inscription que vous devez suivre pour devenir un développeur Microsoft agréé pour Azure Marketplace.
@@ -53,7 +53,7 @@ Pour plus d’informations sur la sécurité et sur les instructions relatives a
 
 ### <a name="instructions"></a>Instructions
 1. Ouvrez une nouvelle session de navigation Chrome Incognito ou Internet Explorer InPrivate pour vous assurer que vous n'êtes pas connecté à un compte existant.
-2. Enregistrez l’adresse e-mail en suivant les instructions ci-dessus, par exemple windowsapp@fabrikam.com) en tant que compte Microsoft à l’aide du lien [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Procédez comme suit.
+2. Inscrivez l’adresse e-mail en suivant les instructions ci-dessus, par exemple windowsapp@fabrikam.com, en tant que compte Microsoft à l’aide du lien [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Procédez comme suit.
 
    1. Lors de l’inscription de votre compte comme un compte Microsoft, vous devez fournir un numéro de téléphone valide pour que le système vous envoie un code de vérification de compte sous forme de message texte ou d’appel automatique.
    2. Lors de l’inscription de votre compte comme un compte Microsoft, vous devez fournir un ID de messagerie valide pour recevoir un courrier automatique pour la vérification du compte.
@@ -159,13 +159,13 @@ Si vous préférez mettre à jour les informations fiscales et bancaires ultéri
    > Si vous devez mettre à jour ou modifier votre compte de paiement, suivez les mêmes étapes ci-dessus, en remplaçant les informations actuelles par les nouvelles informations. La modification de votre compte de paiement peut retarder vos paiements jusqu’à un cycle de paiement. Ce retard se produit parce que nous devons vérifier le changement de compte, comme nous l’avons fait lorsque vous avez configuré le compte de paiement pour la première fois. Vous serez payé pour le montant total une fois que votre compte aura été vérifié. Tout paiement dû dans le cycle de paiement actuel sera ajouté au cycle suivant
    >
    >
-4. Cliquez sur **Next**.
+4. Cliquez sur **Suivant**.
 
 **Informations fiscales**
 
 1. Connectez-vous au [Centre de développement Microsoft](http://dev.windows.com/registration?accountprogram=azure) avec votre compte Microsoft (si nécessaire).
 2. Cliquez sur **Profil fiscal** dans le menu de gauche.
-3. Sur la page **Établir votre déclaration d’impôts** , sélectionnez le pays ou la région où vous avez une résidence permanente, puis sélectionnez le pays ou la région dont vous êtes ressortissant. Cliquez sur **Next**.
+3. Sur la page **Établir votre déclaration d’impôts** , sélectionnez le pays ou la région où vous avez une résidence permanente, puis sélectionnez le pays ou la région dont vous êtes ressortissant. Cliquez sur **Suivant**.
 4. Saisissez vos informations fiscales, puis cliquez sur **Suivant**.
 
 > [!WARNING]
@@ -211,7 +211,7 @@ Si vous êtes ajouté en tant que coadministrateur dans le portail de publicatio
 
 1. Assurez-vous que l’ID de messagerie du coadministrateur est un compte Microsoft (MSA). Si ce n’est pas le cas, enregistrez-le comme MSA à l’aide de ce [lien](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
 2. Vérifiez qu’il existe au moins une application sous le compte administrateur avant d’essayer d’ajouter un coadministrateur.
-3. Une fois les étapes ci-dessus effectuées, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur et déconnectez-vous..
+3. Une fois les étapes ci-dessus effectuées, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur et déconnectez-vous.
 4. Maintenant, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur.
 5. Accédez à Éditeurs->Sélectionnez votre compte->Administrateurs->Ajouter le compte (voir capture d’écran ci-dessous)
 
@@ -258,9 +258,3 @@ Maintenant que votre compte est créé et enregistré, assurez-vous de répondre
 [link-devsvc]:marketplace-publishing-dev-service-creation.md
 [link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

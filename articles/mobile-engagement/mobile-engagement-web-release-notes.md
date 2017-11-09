@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) web Azure Mobile Engagement
 ## <a name="202-10182016"></a>2.0.2 (10/18/2016)
@@ -38,10 +38,4 @@ ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
 * Suppression de l’API qui envoie et reçoit des messages entre appareils.
 * Suppression des rappels liés à la connexion XMPP déconseillée.
 * Suppression de la prise en charge de la fonctionnalité Reach.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

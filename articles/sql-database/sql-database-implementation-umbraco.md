@@ -12,16 +12,14 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c22cb3a5436daf0296451f1f05a52d315ebc0416
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco utilise Azure SQL Database afin d’approvisionner rapidement des services et de les mettre à l’échelle pour des milliers de locataires dans le cloud
 ![Logo Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -131,5 +129,4 @@ Depuis le choix d’Azure comme partenaire cloud, Umbraco a pu fournir aux clien
 * Pour plus d’informations sur la sauvegarde et la récupération, consultez [Continuité d’activité](sql-database-business-continuity.md).    
 * Pour plus d’informations sur l’analyse des pools, consultez [Analyse des pools](sql-database-elastic-pool-manage-portal.md).    
 * Pour plus d’informations sur Umbraco-as-a-Service, consultez [Umbraco](https://umbraco.com/cloud).
-
 

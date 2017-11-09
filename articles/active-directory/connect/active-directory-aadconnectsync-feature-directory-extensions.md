@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
+ms.openlocfilehash: 16ce7da9321a4a36e892bad75819d1c30ab5197a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: d586df0ede6ff9b3a4837a4a9c551ab3ee6d763a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
 Les extensions d'annuaire vous permettent d'étendre le schéma dans Azure AD avec vos propres attributs à partir d'un annuaire Active Directory local. Cette fonctionnalité vous permet de créer des applications métier avec les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions d’annuaire Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://graph.microsoft.io/). Vous pouvez voir les attributs disponibles à l’aide de [l’explorateur d’Azure AD Graph](https://graphexplorer.azurewebsites.net/) et de [l’Explorateur Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) respectivement.
@@ -33,6 +32,10 @@ L’installation affiche les attributs suivants, qui sont des candidats valides 
 * Types d’utilisateur et d’objet de groupe
 * Attributs à valeur unique : chaîne, booléen, entier, binaire
 * Attributs à valeurs multiples : chaîne, binaire
+
+
+>[!NOTE]
+> Même si Azure AD Connect prend en charge la synchronisation d'attributs Active Directory à valeurs multiples dans Azure AD en tant qu'extensions d’annuaire à valeurs multiples, il n’existe actuellement aucune fonctionnalité dans Azure AD prenant en charge les extensions d’annuaire à valeurs multiples.
 
 La liste des attributs est lue depuis le cache du schéma créé pendant l’installation d’Azure AD Connect. Si vous avez étendu le schéma Active Directory avec des attributs supplémentaires, alors le [schéma doit être actualisé](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) avant que ces nouveaux attributs ne soient visibles.
 
@@ -50,4 +53,3 @@ Les attributs ont pour préfixe extension \_{AppClientId}\_. L’AppClientId a l
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-

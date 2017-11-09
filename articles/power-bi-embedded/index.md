@@ -10,14 +10,13 @@ ms.service: power-bi-embedded
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 09/28/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 48f9fe41b94016e54a2ec622df9684b7dcd4dfed
-ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
-
+ms.openlocfilehash: d8e1fafe9b3fecc9822ef6f25d8c527eebe586cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentation Power BI Embedded
 
@@ -25,13 +24,13 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded">
+        <a href="/azure/power-bi-embedded/what-is-power-bi-embedded">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/power-bi-embedded.svg" alt="" />
+                            <img src="media/index/power-bi-logo.svg" alt="Power BI logo" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -61,7 +60,7 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
         </a>
     </li>
     <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-get-started">
+        <a href="/azure/power-bi-embedded/get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +78,7 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
         </a>
     </li>
     <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-get-started-sample">
+        <a href="https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,7 +88,7 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main de la création de rapports Power BI avec la galerie d’exemples</h3>
+                        <h3>Prenez en main l’incorporation des rapports avec un exemple d’application.</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +106,7 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Ligne de commande</h3>
+                        <h3>PowerShell</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded">PowerShell</a></p>
                     </div>
                 </div>
@@ -121,8 +120,9 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
                     <div class="cardText">
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
-                        <p><a href="https://www.nuget.org/profiles/powerbi">Téléchargement du Kit de développement logiciel (SDK) .NET</a></p>
-                        <p><a href="https://github.com/Microsoft/PowerBI-JavaScript">JavaScript</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">Téléchargement du Kit de développement logiciel (SDK) .NET</a></p>
+                        <p><a href="https://microsoft.github.io/PowerBI-JavaScript/">JavaScript</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/">Téléchargement du kit de développement logiciel (SDK) JavaScript</a></p>
                    </div>
                 </div>
             </div>
@@ -134,12 +134,10 @@ Découvrez comment ajouter des visualisations de données et des rapports intera
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/powerbiembedded/">Référence d’API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt147898.aspx">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-

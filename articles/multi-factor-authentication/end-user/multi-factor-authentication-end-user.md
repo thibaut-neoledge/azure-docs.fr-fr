@@ -15,12 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6527e624ce9c911b201881ffd409c57b2f065ef3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
+ms.openlocfilehash: cb6e652794de6cda8b5fc7c7e466f880833a1a14
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Présentation concrète de Multi-Factor Authentication Azure
 Vous avez reçu un e-mail d'une personne du service informatique ou peut-être même de votre patron, qui vous indique qu’une vérification de sécurité supplémentaire a été ajoutée à votre compte.  Qu’est-ce que cela signifie ?
@@ -34,7 +33,7 @@ La première chose que vous avez à faire est de terminer le processus d'inscrip
 * **Application mobile avec une notification ou un code de vérification** : si vous utilisez l'application mobile, choisissez de recevoir une notification à laquelle répondre ou de recevoir un code de vérification.
 
 > [!NOTE]
-> Votre service informatique peut désactiver une ou plusieurs de ces options.  Dans ce cas, ces options ne seront pas disponibles pendant le processus d’inscription.  
+> Le support de votre entreprise peut désactiver une ou plusieurs de ces options.  Dans ce cas, ces options ne seront pas disponibles pendant le processus d’inscription.  
 
 Maintenant que vous avez choisi votre méthode de vérification, il s’agit de vous inscrire. Utilisez le lien [Expérience d'installation](multi-factor-authentication-end-user-first-time.md) pour obtenir un guide du processus d'inscription.
 
@@ -47,5 +46,4 @@ Sélectionnez l’une de ces rubriques pour commencer.
 | [Expérience de connexion](multi-factor-authentication-end-user-signin.md) |Présente la connexion à l'aide de différentes méthodes comme le téléphone ou l'application. |
 | [Modification des paramètres](multi-factor-authentication-end-user-manage-settings.md) |Montre comment modifier vos paramètres, comme le numéro de téléphone ou la méthode d'inscription par défaut. |
 | [Aide relative aux mots de passe d'application](multi-factor-authentication-end-user-app-passwords.md) |Trouvez des informations sur la création et l'utilisation de mots de passe d'application. |
-| [Utilisation de l'application mobile](microsoft-authenticator-app-how-to.md) |L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-
+| [Utilisation de l'application mobile](microsoft-authenticator-app-how-to.md) |L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |

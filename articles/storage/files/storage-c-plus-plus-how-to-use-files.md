@@ -1,6 +1,6 @@
 ---
-title: "Développer pour le stockage de fichiers Azure avec C++ | Microsoft Docs"
-description: "Apprenez à développer des services et applications C++ qui utilisent le stockage de fichiers Azure pour stocker les données de fichiers."
+title: "Développer pour Azure Files avec C++ | Microsoft Docs"
+description: "Découvrez comment développer des services et applications C++ qui utilisent Azure Files pour stocker les données de fichiers."
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -12,24 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renashahmsft
+ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 86c3714327074f5576e535f67a0a2a8e761ffb46
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="develop-for-azure-file-storage-with-c"></a>Développer pour le stockage de fichiers Azure avec C++
+# <a name="develop-for-azure-files-with-c"></a>Développer pour Azure Files avec C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>À propos de ce didacticiel
 
-Ce didacticiel explique comment effectuer des opérations de base sur le service de stockage de fichiers Azure. Au moyen d’exemples écrits en C++, vous allez apprendre à créer des partages et des répertoires, ainsi qu’à charger, lister et supprimer des fichiers. Si vous ne connaissez pas le stockage de fichiers Azure, l’étude des concepts abordés dans les sections suivantes vous sera utile pour comprendre les exemples.
+Ce didacticiel explique comment effectuer des opérations de base sur Azure Files. Au moyen d’exemples écrits en C++, vous allez apprendre à créer des partages et des répertoires, ainsi qu’à charger, lister et supprimer des fichiers. Si vous ne connaissez pas Azure Files, l’étude des concepts abordés dans les sections suivantes vous sera utile pour comprendre les exemples.
 
 
 * Créer et supprimer des partages de fichiers Azure
@@ -40,7 +38,7 @@ Ce didacticiel explique comment effectuer des opérations de base sur le service
 * Créer une signature d’accès partagé pour un fichier qui utilise une stratégie d’accès partagé définie sur le partage
 
 > [!Note]  
-> Étant donné que le stockage de fichiers Azure est accessible sur SMB, il est possible d’écrire de simples applications qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S C++ standard. Cet article indique comment écrire des applications qui utilisent le kit de développement logiciel (SDK) C++ de stockage Azure, lequel utilise [l’API REST de stockage de fichiers Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec le stockage de fichiers Azure.
+> Étant donné qu’Azure Files est accessible sur SMB, il est possible d’écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et des classes d’E/S C++ standard. Cet article indique comment écrire des applications qui utilisent le SDK C++ Stockage Azure, lequel a recours à l’[API REST Fichier](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files.
 
 ## <a name="create-a-c-application"></a>Création d’une application C++
 Pour générer les exemples, vous devez installer la bibliothèque cliente de stockage Azure 2.4.0 pour C++. Vous devez également avoir préalablement créé un compte de stockage Azure.
@@ -54,8 +52,8 @@ Pour installer le client de stockage Azure 2.4.0 pour C++, vous pouvez utiliser 
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-file-storage"></a>Configuration de votre application pour l’utilisation du stockage de fichiers Azure
-Ajoutez les instructions include suivantes au début du fichier source C++ dans lequel vous voulez manipuler le stockage de fichiers Azure :
+## <a name="set-up-your-application-to-use-azure-files"></a>Configurer votre application pour utiliser Azure Files
+Ajoutez les instructions include suivantes au début du fichier source C++ dans lequel vous voulez manipuler Azure Files :
 
 ```cpp
 #include <was/storage_account.h>
@@ -81,10 +79,10 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Création d’un partage de fichiers Azure
-Tous les fichiers et répertoires d’un stockage de fichiers Azure se trouvent dans un conteneur appelé **Partage**. Votre compte de stockage peut avoir autant de partages que le permet la capacité de votre compte. Pour pouvoir accéder à un partage et à son contenu, vous devez utiliser un client de stockage de fichiers Azure.
+Tous les fichiers et répertoires figurant dans un partage de fichiers Azure se trouvent dans un conteneur appelé **Partage**. Votre compte de stockage peut avoir autant de partages que le permet la capacité de votre compte. Pour pouvoir accéder à un partage et à son contenu, vous devez utiliser un client Azure Files.
 
 ```cpp
-// Create the Azure File storage client.
+// Create the Azure Files client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
@@ -120,7 +118,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Créer un répertoire
-Vous pouvez organiser le stockage en plaçant des fichiers dans des sous-répertoires, plutôt que de tous les mettre dans le répertoire racine. Le stockage de fichiers Azure vous permet de créer autant de répertoires que le permet votre compte. Le code ci-dessous crée un répertoire nommé **my-sample-directory** sous le répertoire racine, ainsi qu’un sous-répertoire nommé **my-sample-subdirectory**.
+Vous pouvez organiser le stockage en plaçant des fichiers dans des sous-répertoires, plutôt que de tous les mettre dans le répertoire racine. Azure Files vous permet de créer autant de répertoires que le permet votre compte. Le code ci-dessous crée un répertoire nommé **my-sample-directory** sous le répertoire racine, ainsi qu’un sous-répertoire nommé **my-sample-subdirectory**.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -241,7 +239,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Supprimer un fichier
-La suppression de fichiers est également une opération courante liée au stockage des fichiers Azure. Le code suivant supprime un fichier nommé my-sample-file-3 stocké dans le répertoire racine.
+La suppression de fichiers est également une opération courante dans Azure Files. Le code suivant supprime un fichier nommé my-sample-file-3 stocké dans le répertoire racine.
 
 ```cpp
 // Get a reference to the root directory for the share.    

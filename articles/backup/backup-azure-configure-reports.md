@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/24/2017
+ms.date: 09/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article détaille la procédure permettant de configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services et d’accéder à ces rapports avec Power BI. Une fois que vous aurez suivi ces étapes, vous pourrez accéder directement à Power BI pour afficher tous les rapports, en personnaliser et en créer. 
@@ -66,7 +65,7 @@ Suivez les étapes ci-dessous afin de configurer le compte de stockage pour le c
 7. Vérifiez toutes les modifications et cliquez sur le bouton **Enregistrer** en haut, comme le montre la figure ci-dessus. Cette action garantit que toutes vos modifications sont enregistrées et que le compte de stockage est maintenant configuré de façon à stocker les données de rapports.
 
 > [!NOTE]
-> Une fois que vous configurez des rapports en enregistrant un compte de stockage, vous devez **attendre 24 heures** pour que le push de données initial soit complété. Vous devez importer le pack de contenu Azure Backup dans Power BI uniquement après cette heure. Consultez [la section FAQ](#frequently-asked-questions) pour plus de détails. 
+> Une fois que vous configurez des rapports en enregistrant un compte de stockage, vous devez **attendre 24 heures** pour que le push de données initial soit complété. Vous devez importer le pack de contenu Azure Backup dans Power BI uniquement après cette heure. Consultez la [section FAQ](#frequently-asked-questions) pour en savoir plus. 
 >
 >
 
@@ -140,11 +139,16 @@ Une fois le compte de stockage configuré pour les rapports à l’aide du coffr
 
    Oui, vous pouvez configurer le même compte de stockage sur différents coffres pour afficher des rapports multicoffres. Vous pouvez également configurer le même compte de stockage pour des coffres de différents abonnements. Vous pourrez ensuite utiliser ce compte de stockage pour vous connecter au pack de contenu de la Sauvegarde Azure dans Power BI afin d’afficher les rapports. Cependant, le compte de stockage sélectionné doit se trouver dans la même région que le coffre Recovery Services.
    
+## <a name="troubleshooting-errors"></a>Résolution des erreurs
+| Détails de l’erreur | Résolution : |
+| --- | --- |
+| Une fois que vous avez configuré le compte de stockage pour les rapports de sauvegarde, **Compte de stockage** indique toujours **Non configuré**. | Si vous avez configuré correctement le compte de stockage, vos données de rapport arrivent malgré ce problème. Pour résoudre ce problème, accédez au portail Azure > Autres services > Paramètres de diagnostic > Coffre Recovery Services > Modifier le paramètre. Supprimez le paramètre configuré et créez un paramètre dans le même panneau. Cette fois-ci, définissez le champ **Nom** sur **service**. Le compte de stockage configuré doit s’afficher. |
+|Après avoir importé le pack de contenu de la Sauvegarde Azure dans Power BI, l’erreur **404 : Le conteneur est introuvable** s’affiche. | Comme indiqué dans ce document, après avoir configuré les rapports dans le coffre Recovery Services, vous devez attendre 24 heures pour les afficher correctement dans Power BI. Si vous essayez d’accéder aux rapports avant le terme de ce délai, vous obtenez cette erreur, car il manque des données pour afficher des rapports valides. |
+
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez configuré le compte de stockage et importé le pack de contenu de la Sauvegarde Azure, la prochaine étape consiste à personnaliser ces rapports et à utiliser le modèle de données de rapports pour créer des rapports. Pour plus d’informations, consultez les articles suivants.
 
 * [Utiliser le modèle de données de rapports de la Sauvegarde Azure](backup-azure-reports-data-model.md)
 * [Filtrer les rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Créer des rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-
 

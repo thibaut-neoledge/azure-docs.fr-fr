@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
+ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: b75d190724da284324b0337e95a50a64902e19d8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>Configurer les informations d’authentification nommées
 Pour publier une application dans Azure à partir de Visual Studio, ou pour analyser un service cloud existant, vous devez fournir des informations d’identification que Visual Studio pourra utiliser pour authentifier les demandes effectuées auprès d’Azure. Il existe plusieurs emplacements dans Visual Studio à partir desquels vous pouvez vous connecter pour fournir ces informations d’identification. Par exemple, à partir de l’Explorateur de serveurs, vous pouvez ouvrir le menu contextuel du nœud **Azure**, puis sélectionner **Se connecter à un abonnement Microsoft Azure**. Quand vous vous connectez, les informations d’abonnement associées à votre compte Azure sont disponibles dans Visual Studio. Vous n’avez donc rien à faire de plus.
@@ -63,10 +62,10 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
 2. Sélectionnez le lien **Copier le chemin complet**. Le chemin du certificat (fichier .cer) est copié dans le Presse-papiers.
 
    > [!IMPORTANT]
-   > Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat sur le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+   > Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
    >
    >
-3. Pour charger le certificat sur le portail Azure :
+3. Pour télécharger le certificat sur le portail Azure :
 
    a. Ouvrez le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
    
@@ -77,7 +76,7 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
    d. Sélectionnez votre abonnement Azure, collez le chemin complet du fichier .cer que vous venez de créer, puis sélectionnez **Charger**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Vue d’ensemble de Web Apps](https://docs.microsoft.com/azure/app-service-web/)
-* [Déploiement de votre application dans Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy?toc=%2fazure%2fapp-service-api%2ftoc.json) 
-* [Déployer des tâches web à l’aide de Visual Studio](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs)
+* [Vue d’ensemble de Web Apps](https://docs.microsoft.com/azure/app-service/)
+* [Déploiement de votre application dans Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
+* [Déployer des tâches web à l’aide de Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
 * [Création et déploiement d’un service cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

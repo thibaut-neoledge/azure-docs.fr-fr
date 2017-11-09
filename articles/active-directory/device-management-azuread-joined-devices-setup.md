@@ -1,5 +1,5 @@
 ---
-title: "Guide pratique pour configurer des appareils joints à Azure Active Directory | Microsoft Docs"
+title: "Configurer des appareils joints à Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer des appareils joints à Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -15,21 +15,20 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 303660fa53919ec22a032931aab729fd36676b82
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-configure-azure-active-directory-joined-devices"></a>Guide pratique pour configurer des appareils joints à Azure Active Directory
+# <a name="set-up-azure-active-directory-joined-devices"></a>Configurer des appareils joints à Azure Active Directory
 
-La gestion des appareils d’Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos standards de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
+La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 
 Si vous souhaitez mettre des appareils Windows 10 d’entreprise sous le contrôle d’Azure AD, configurez-les comme des appareils joints Azure AD. Cette rubrique contient les étapes à suivre pour une telle configuration. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour joindre un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En plus d’avoir l’autorisation de joindre des appareils dans votre locataire Azure AD, vous devez avoir moins d’appareils inscrits que le nombre maximal configuré. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](device-management-azure-portal.md#configure-device-settings).
 
@@ -125,7 +124,6 @@ Pour plus d'informations, consultez les pages suivantes :
 - [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)
 - [Gestion des appareils via le portail Azure](device-management-azure-portal.md)
 - 
-
 
 
 

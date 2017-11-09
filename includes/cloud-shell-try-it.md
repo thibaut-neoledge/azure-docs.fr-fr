@@ -5,7 +5,7 @@ Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous po
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-Ce bouton lance un interpréteur de commandes interactif, que vous pouvez utiliser pour exécuter toutes les étapes de cette rubrique :
+Ce bouton lance un interpréteur de commandes interactif que vous pouvez utiliser pour exécuter les étapes de cette rubrique :
 
 [![Capture d’écran représentant la fenêtre Cloud Shell du portail](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 

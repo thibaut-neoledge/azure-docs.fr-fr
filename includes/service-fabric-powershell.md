@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Il existe deux modules PowerShell utilisés pour interagir avec Service Fabric. [Azure PowerShell](/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) est utilisé pour gérer les ressources Azure, comme un cluster Service Fabric hébergé par Azure. [SDK Azure Service Fabric](../articles/service-fabric/service-fabric-get-started.md) est utilisé pour se connecter directement au cluster Service Fabric (peu importe où il est hébergé) et gérer le cluster, les applications et les services. 

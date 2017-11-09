@@ -1,0 +1,55 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Container Service (ACS)
+metadata:
+  document_id: null
+  title: "Documentation Azure Container Service (ACS)\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
+  meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07-21-2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Container Service (ACS) gère votre environnement Kubernetes hébergé, accélérant et facilitant ainsi le déploiement et la gestion des applications conteneurisées sans expertise d’orchestration de conteneur. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.'
+sections:
+  - title: "Démarrages en 5\_minutes"
+    items:
+      - type: paragraph
+        text: "Découvrez comment déployer un cluster ACS\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/media/index/ContainerService.svg
+            text: "Créer un cluster\_ACS"
+            href: /azure/aks/kubernetes-walkthrough
+  - title: Didacticiels pas à pas
+    items:
+      - type: paragraph
+        text: 'Découvrez comment déployer, gérer et mettre à jour des applications sur un cluster ACS.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Créer des images de conteneur à partir d’une application</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Télécharger des images conteneur dans Azure Container Registry</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Déployer un cluster ACS</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Exécuter vos images conteneur dans Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-scale">Mettre à l’échelle une application et l’infrastructure Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Mettre à jour une application en cours d’exécution dans Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Surveiller Kubernetes avec OMS</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Mettre à niveau un cluster ACS</a>
+  - title: Référence
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Ligne de commande
+            html: <p><a href="/cli/azure/aks">Interface de ligne de commande Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/aks">API REST</a></p>

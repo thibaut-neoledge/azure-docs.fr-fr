@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: e481e2512f324733bb78f7d6f337b9522e78bea8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 63d108bbfd0f58f8a40bf1c7c8649e3a1f7ed288
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Créer une machine virtuelle à partir d’une capture instantanée avec PowerShell
 
 Ce script crée une machine virtuelle à partir d’une capture instantanée d’un disque de système d’exploitation. 
@@ -34,7 +32,7 @@ Ce script crée une machine virtuelle à partir d’une capture instantanée d�
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.ps1 "Créer une machine virtuelle à partir d’un disque de système d’exploitation géré")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.ps1 "Create VM from managed os disk")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 

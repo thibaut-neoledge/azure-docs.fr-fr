@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 1b96ab084acae14b35634666ae465d406c25f75a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: c4d49cfc9887e422b3eaed2b96348c99eca48881
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>Prise en main d’Azure Active Directory et des services connectés de Visual Studio (projets MVC)
 > [!div class="op_single_selector"]
@@ -82,5 +81,4 @@ Pour ajouter les contrôles SignIn/SignOut à votre vue, vous pouvez utiliser la
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
-
 

@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 18af51e95a283a5cd33688484a0d7477eb4b957d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 4e63c9b48125e3c7283be5fe88cab211509f88f4
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>Je ne trouve pas certaines actions que j’ai réalisées dans le journal d’activité d’Azure Active Directory
 
 
@@ -44,5 +42,4 @@ Attendez entre 15 minutes et 1 heure pour voir si les actions apparaissent dans 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez le [FAQ sur les rapports Azure Active Directory](active-directory-reporting-faq.md).
-
 

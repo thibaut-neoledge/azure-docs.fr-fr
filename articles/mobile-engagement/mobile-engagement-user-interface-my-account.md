@@ -1,6 +1,6 @@
 ---
-title: Interface utilisateur d&quot;Azure Mobile Engagement - Mon compte
-description: "Apprenez à gérer le profil de votre compte et à tester les périphériques à l&quot;aide d&quot;Azure Mobile Engagement"
+title: Interface utilisateur d'Azure Mobile Engagement - Mon compte
+description: "Apprenez à gérer le profil de votre compte et à tester les périphériques à l'aide d'Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Gestion du profil de votre compte et test des périphériques
 Cet article décrit la page **d’accueil** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. 
@@ -155,7 +154,6 @@ Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identif
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 
 
 

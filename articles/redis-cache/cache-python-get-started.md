@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
 ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-redis-cache-with-python"></a>Utilisation du Cache Redis Azure avec Python
 > [!div class="op_single_selector"]
@@ -61,9 +61,3 @@ Remplacez `<name>` par le nom de votre cache, et `key` par votre clé d’accès
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

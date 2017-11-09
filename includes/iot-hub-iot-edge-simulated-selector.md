@@ -24,13 +24,22 @@ Une passerelle IoT Edge peut résoudre ces problèmes de plusieurs manières :
 
 Le diagramme suivant montre les principaux composants de l’exemple, notamment les modules IoT Edge :
 
-![][1]
+![Diagramme : Le message de l’appareil simulé est acheminé à IoT Hub par la passerelle][1]
+
+Cet exemple contient trois modules qui composent la passerelle :
+1. Module d'ingestion de protocole
+1. MAC &lt;-&gt; IoT Hub ID module
+1. Module de communication IoT Hub
 
 Les modules ne s’échangent pas directement les messages. Les modules publient des messages vers un répartiteur interne qui remet les messages aux autres modules à l’aide d’un mécanisme d’abonnement. Pour plus d’informations, voir [Get started with Azure IoT Edge (Prise en main d’Azure IoT Edge)][lnk-gw-getstarted].
 
+![Diagramme : Les modules de la passerelle communiquent avec le répartiteur][2]
+
 ### <a name="protocol-ingestion-module"></a>Module d'ingestion de protocole
 
-Ce module constitue le point de départ pour la réception de données provenant d’appareils dans le cloud par le biais de la passerelle. Dans cet exemple, le module :
+Le module d’ingestion de protocole constitue le point de départ du processus de transmission de données d’appareils vers le cloud par le biais de la passerelle. 
+
+Dans l’exemple, ce module :
 
 1. Crée les données de la température simulée. Si vous utilisez des appareils physiques, le module lit les données à partir de ces appareils.
 1. Crée un message.
@@ -38,31 +47,40 @@ Ce module constitue le point de départ pour la réception de données provenant
 1. Ajoute une propriété avec une adresse MAC fictive au message.
 1. Rend le message disponible pour le module suivant dans la chaîne.
 
-Le module appelé **Protocol X ingestion** dans le diagramme précédent est appelé **Simulated device** dans le code source.
+Le module d’ingestion de protocole est **simulated_device.c** dans le code source.
 
 ### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID module
 
-Ce module analyse les messages dotés d’une propriété d’adresse Mac. Dans cet exemple, le module d’ingestion de protocole ajoute la propriété d’adresse MAC. Si le module détecte une telle propriété, il ajoute au message une autre propriété avec une clé d’appareil IoT Hub. Puis le module rend le message disponible pour le module suivant dans la chaîne.
+Le module MAC &lt;-&gt; ID IoT Hub fonctionne comme un traducteur. Cet exemple utilise une adresse MAC comme identificateur unique de l'appareil et la met en corrélation avec une identité d'appareil IoT Hub. Toutefois, vous pouvez écrire votre propre module qui utilise un autre identificateur unique. Par exemple, vos appareils peuvent comporter des numéros de série uniques, ou les données de télémétrie peuvent inclure un nom d’appareil incorporé unique.
+
+Dans l’exemple, ce module :
+
+1. Analyse les messages dotés d’une propriété d’adresse MAC.
+1. Si une adresse MAC est détectée, il ajoute au message une autre propriété avec une clé d’appareil IoT Hub. 
+1. Rend le message disponible pour le module suivant dans la chaîne.
 
 Le développeur configure un mappage entre les adresses MAC et les identités IoT Hub pour associer les appareils simulés aux identités d’appareils IoT Hub. Le développeur ajoute le mappage manuellement dans le cadre de la configuration du module.
 
-> [!NOTE]
-> Cet exemple utilise une adresse MAC comme identificateur unique de l'appareil et la met en corrélation avec une identité d'appareil IoT Hub. Toutefois, vous pouvez écrire votre propre module qui utilise un autre identificateur unique. Par exemple, vos appareils peuvent comporter des numéros de série uniques, ou les données de télémétrie peuvent inclure un nom d’appareil incorporé unique.
+Le module MAC &lt;-&gt; ID IoT Hub est **identitymap.c** dans le code source. 
 
 ### <a name="iot-hub-communication-module"></a>Module de communication IoT Hub
 
-Ce module utilise les messages avec une propriété de clé d’appareil IoT Hub qui a été attribuée par le module précédent. Le module envoie le contenu des messages à IoT Hub à l’aide du protocole HTTP. HTTP est un des trois protocoles compris par IoT Hub.
+Le module de communication IoT Hub ouvre une connexion HTTPS entre la passerelle et IoT Hub. HTTPS est un des trois protocoles compris par IoT Hub. Ce module vous évite d’ouvrir une connexion pour chaque appareil. Pour cela, il multiplexe les connexions de tous les appareils sur une connexion. Cette approche permet à une seule passerelle de connecter une multitude d’appareils. 
 
-Au lieu d’ouvrir une connexion pour chaque appareil simulé, ce module ouvre une seule connexion HTTP à IoT Hub à partir de la passerelle. Puis le module multiplexe les connexions à partir de tous les appareils simulés sur cette connexion. Cette approche permet à une seule passerelle de connecter une multitude d’autres appareils.
+Dans l’exemple, ce module :
+
+1. récupère les messages avec une propriété de clé d’appareil IoT Hub attribuée par le module précédent ; 
+1. envoie le contenu des messages à IoT Hub à l’aide du protocole HTTPS. 
+
+Le module de communication IoT Hub est **iothub.c** dans le code source.
 
 ## <a name="before-you-get-started"></a>Avant de commencer
 
 Avant de commencer, vous devez :
 
-* [Créez un IoT Hub][lnk-create-hub] dans votre abonnement Azure (vous avez besoin du nom de votre hub pour effectuer cette procédure pas à pas). Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
-* Ajoutez deux appareils à votre hub IoT et notez leur ID et leurs clés d'appareil. Vous pouvez utiliser l’outil [Explorateur d’appareils][lnk-device-explorer] ou [iothub-explorer][lnk-iothub-explorer] pour ajouter vos appareils à l’IoT Hub que vous avez créé à l’étape précédente et récupérer ainsi leurs clés.
+* [Créer un hub IoT][lnk-create-hub] dans votre abonnement Azure. Cet exemple de procédure pas à pas nécessite le nom de votre hub. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
+* Ajoutez deux appareils à votre hub IoT et notez leur ID et leurs clés d’appareil. Vous pouvez utiliser l’outil [Explorateur d’appareils][lnk-device-explorer] ou [iothub-explorer][lnk-iothub-explorer] pour ajouter des appareils au hub IoT et récupérer leurs clés.
 
-![][2]
 
 <!-- Images -->
 [1]: media/iot-hub-iot-edge-simulated-selector/image1.png

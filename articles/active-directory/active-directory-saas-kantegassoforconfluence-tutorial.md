@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: ec11decbff4cf2f6c39b40228e349312fd86da00
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour Confluence
 
@@ -207,7 +205,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon10.png)
 
-    a. Sélectionnez **Create users in Conference's internal Directory if needed** (Créer des utilisateurs dans l’annuaire interne de Conference si nécessaire) et entrez le nom de groupe approprié pour les utilisateurs (peut être plusieurs groupes séparés par des virgules).
+    a. Sélectionnez **Create users in Confluence’s internal Directory if needed** (Créer des utilisateurs dans l’annuaire interne de Confluence si nécessaire) et entrez le nom de groupe approprié pour les utilisateurs (il peut s’agir de plusieurs groupes séparés par des virgules).
 
     b. Cliquez sur **Suivant**.
 
@@ -223,7 +221,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Entrez le nom de domaine dans la zone de texte **Known domains** (Domaines connus).
 
-    c. Cliquez sur **Save**. 
+    c. Cliquez sur **Enregistrer**. 
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -345,5 +343,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_general_203.png
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Vue d’ensemble de la sécurité Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric résout les défis non négligeables du développement et de la gestion des applications cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer.
@@ -193,4 +192,3 @@ La sécurité est un des aspects les plus importants de la communication. Le fra
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour obtenir des informations conceptuelles sur la sécurité des clusters, consultez [Créer un cluster dans Azure à l’aide d’Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) et [Portail Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal).
 - Pour en savoir plus sur la sécurité des clusters dans Service Fabric, consultez [Sécurité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
-

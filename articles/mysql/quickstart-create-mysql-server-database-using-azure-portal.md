@@ -9,15 +9,13 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 10/16/2017
+ms.openlocfilehash: 73785cf8c4f1539cb52254ba316ed7d888b683aa
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 46aee37a00a923addc08dd185ce0326a64ccb48c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 Azure Database pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. Ce guide de démarrage rapide vous montre comment créer en quelques minutes un serveur Azure Database pour MySQL à l’aide du portail Azure.  
 
@@ -41,15 +39,15 @@ Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes 
 
     **Paramètre** | **Valeur suggérée** | **Description du champ** 
     ---|---|---
-    Nom du serveur | myserver4demo | Un nom unique qui identifie votre serveur Azure Database pour MySQL. Le nom de domaine *mysql.database.azure.com* est ajouté au nom de serveur que vous fournissez. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit inclure entre 3 et 63 caractères.
-    Abonnement | Votre abonnement | Abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
-    Groupe de ressources | myResourceGroup | Un nouveau groupe de ressources ou un groupe existant.
+    Nom du serveur | Nom de serveur unique | Choisissez un nom unique qui identifie votre serveur de base de données Azure pour MySQL. Par exemple, myserver4demo. Le nom de domaine *mysql.database.azure.com* est ajouté au nom de serveur que vous fournissez. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit inclure entre 3 et 63 caractères.
+    Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
+    Groupe de ressources | myResourceGroup | Spécifiez un nom de groupe de ressources nouveau ou existant.
     Connexion d’administrateur serveur | myadmin | Un compte de connexion à utiliser lors de la connexion au serveur. Le nom de connexion d’administrateur ne doit pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Mot de passe | *Votre choix* | Un nouveau mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
-    Confirmer le mot de passe | *Votre choix*| Le mot de passe confirmé du compte d’administrateur.
-    Lieu | *La région la plus proche de vos utilisateurs*| L’emplacement le plus proche de vos utilisateurs ou d’autres applications Azure.
+    Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
+    Confirmer le mot de passe | *Votre choix*| Confirmez le mot de passe du compte d’administrateur.
+    Emplacement | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou d’autres applications Azure.
     Version | *La version la plus récente*| La version la plus récente (sauf si vous avez des exigences spécifiques).
-    Niveau tarifaire  | **De base**, **50 unités de calcul** **50 Go** | Le niveau de service et de performances de votre nouvelle base de données. Sélectionnez le **niveau De base** dans l’onglet figurant dans la partie supérieure. Sélectionnez l’extrémité gauche du curseur **Unités de calcul** pour reconfigurer la valeur sur le plus petit nombre d’unités disponible pour ce guide de démarrage rapide. Sélectionnez **OK** pour enregistrer la sélection du niveau tarifaire. Pour plus d’informations, consultez les captures d’écran suivantes.
+    Niveau tarifaire  | **De base**, **50 unités de calcul**, **50 Go** | Choisissez le niveau de service et celui des performances de votre nouvelle base de données. Sélectionnez le **niveau De base** dans l’onglet figurant dans la partie supérieure. Sélectionnez l’extrémité gauche du curseur **Unités de calcul** pour reconfigurer la valeur sur le plus petit nombre d’unités disponible pour ce guide de démarrage rapide. Sélectionnez **OK** pour enregistrer la sélection du niveau tarifaire. Pour plus d’informations, consultez la capture d’écran suivante.
     Épingler au tableau de bord | Vérification | Facilite le suivi de votre serveur sur la première page du tableau de bord de votre portail Azure.
 
     > [!IMPORTANT]
@@ -77,6 +75,8 @@ Le service Base de données Azure pour MySQL crée un pare-feu au niveau du serv
     Nom de la règle | Adresse IP de début | Adresse IP de fin 
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
+    
+    Autoriser toutes les adresses IP n’est pas une méthode sécurisée. Cet exemple est fourni par souci de simplicité, mais dans un scénario réel, vous devez connaître les plages d’adresses IP précis à ajouter pour vos applications et utilisateurs. 
 
 4. Dans la barre d’outils supérieure de la page **Sécurité de la connexion**, sélectionnez **Enregistrer**. Avant de continuer, attendez la notification indiquant que la mise à jour a été faite avec succès. 
 
@@ -111,20 +111,20 @@ Commençons par utiliser l’outil de ligne de commande [mysql](https://dev.mysq
     Pour vous connecter à un serveur Azure Database pour MySQL avec l’utilitaire mysql, utilisez le format suivant :
 
     ```bash
-    mysql --host <yourserver> --user <server admin login> --password
+    mysql --host <fully qualified servername> --user <serveradminlogin@servername> -p
     ```
 
     Par exemple, la commande ci-après permet de se connecter au serveur de notre exemple :
 
     ```azurecli-interactive
-    mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo --password
+    mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo -p
     ```
 
     Paramètre mysql |Valeur suggérée|Description
     ---|---|---
     --host | *Nom du serveur* | Spécifiez la valeur de nom de serveur utilisée lorsque vous avez créé la base de données Azure pour MySQL. Le serveur que nous utilisons dans notre exemple est **myserver4demo.mysql.database.azure.com**. Utilisez le nom de domaine complet (**\*.mysql.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion. 
     --user | *Nom de connexion d’administrateur du serveur* |Le nom d’utilisateur de connexion d’administrateur du serveur fourni lorsque vous avez créé le serveur Azure Database pour MySQL. Si vous ne vous souvenez pas du nom d’utilisateur, suivez les instructions de la section précédente pour obtenir les informations de connexion. Le format correct est *username@servername*.
-    --password | *Patienter jusqu’à être invité* |Le mot de passe que vous avez fourni lorsque vous avez créé le serveur. Notez que les caractères du mot de passe que vous tapez ne sont pas visibles au niveau de l’invite bash. Après avoir entré le mot de passe, sélectionnez **Entrer**.
+    -p | *Patienter jusqu’à être invité* |Lorsque vous y êtes invité, spécifiez le mot de passe que vous avez fourni lorsque vous avez créé le serveur. Notez que les caractères du mot de passe que vous tapez ne sont pas visibles au niveau de l’invite bash. Après avoir entré le mot de passe, sélectionnez **Entrer**.
 
    Une fois connecté, l’utilitaire mysql affiche une invite `mysql>` dans laquelle vous pouvez taper des commandes. 
 
@@ -184,7 +184,9 @@ Pour vous connecter au serveur à l’aide de l’outil MySQL Workbench GUI, pro
 
 1.  Ouvrez l’application MySQL Workbench sur votre ordinateur client. Vous pouvez télécharger et installer MySQL Workbench à partir de la page [Télécharger MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-2.  Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
+2. Créez une nouvelle connexion. Cliquez sur le signe plus (+) à côté du titre **Connexions MySQL**.
+
+3. Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations de votre connexion au serveur dans l’onglet **Paramètres**. Les valeurs d’espace réservé sont affichées à titre d’exemple. Remplacez le nom d’hôte, le nom d’utilisateur et le mot de passe avec vos propres valeurs.
 
     ![Configurer une nouvelle connexion](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
@@ -197,7 +199,7 @@ Pour vous connecter au serveur à l’aide de l’outil MySQL Workbench GUI, pro
     Nom d’utilisateur |  *Nom de connexion d’administrateur du serveur* | Les informations de connexion d’administrateur du serveur fourni lorsque vous avez créé le serveur Azure Database pour MySQL. Le nom d’utilisateur dans notre exemple est **myadmin@myserver4demo**. Si vous ne vous souvenez pas du nom d’utilisateur, suivez les instructions de la section précédente pour obtenir les informations de connexion. Le format correct est *username@servername*.
     Mot de passe | *Votre mot de passe* | Sélectionnez le bouton **Stocker dans le coffre-fort…** pour enregistrer le mot de passe. |
 
-3. Cliquez sur **Tester la connexion** pour tester si tous les paramètres sont correctement configurés. Sélectionnez ensuite **OK** pour enregistrer la connexion. 
+4. Cliquez sur **Tester la connexion** pour tester si tous les paramètres sont correctement configurés. Sélectionnez ensuite **OK** pour enregistrer la connexion. 
 
     > [!NOTE]
     > Le protocole SSL est appliqué par défaut sur votre serveur et requiert une configuration supplémentaire afin de vous connecter avec succès. Pour plus d’informations, consultez l’article [Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à la base de données Azure pour MySQL](./howto-configure-ssl.md). Pour désactiver le protocole SSL dans ce guide de démarrage rapide, rendez-vous sur le portail Azure. Sélectionnez ensuite la page Sécurité de la connexion pour désactiver le bouton **Appliquer le protocole SSL**.
@@ -229,5 +231,4 @@ Pour supprimer uniquement le serveur que vous venez de créer, procédez comme s
 
 > [!div class="nextstepaction"]
 > [Concevoir votre première base de données Azure pour MySQL](./tutorial-design-database-using-portal.md)
-
 

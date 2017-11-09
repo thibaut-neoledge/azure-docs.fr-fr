@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.lasthandoff: 04/18/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Resource Manager
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. Pour obtenir une vue d'ensemble des ressources et groupes de ressources Azure, consultez [Vue d'ensemble d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -969,7 +968,7 @@ Options de paramètre :
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
- network lb address-pool delete [options] <groupe-ressources> <nom-lb> <name>
+    network lb address-pool delete [options] <groupe-ressources> <nom-lb> <name>
 
 Supprime la ressource de la plage du pool d'adresses IP principales dans l'équilibrage de charge.
 
@@ -1333,7 +1332,7 @@ Options de paramètre :
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
- network public-ip list [options] <groupe-ressources> Répertorie toutes les ressources IP publiques au sein d’un groupe de ressources.
+    network public-ip list [options] &lt;groupe-ressources&gt; Répertorie toutes les ressources IP publiques au sein d'un groupe de ressources.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1784,4 +1783,3 @@ Options de paramètre :
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-

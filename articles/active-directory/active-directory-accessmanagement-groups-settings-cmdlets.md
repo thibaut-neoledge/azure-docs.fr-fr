@@ -1,5 +1,5 @@
 ---
-title: "Configurer des paramètres de groupe avec les applets de commande Azure Active Directory | Microsoft Docs"
+title: "Configurer des paramètres de groupe avec PowerShell dans Azure Active Directory | Microsoft Docs"
 description: "Comment gérer les paramètres des groupes à l’aide des applets de commande Azure Active Directory ?"
 services: active-directory
 documentationcenter: 
@@ -12,21 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 10/04/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
+ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 2ee71536257d4349fdf8d80bdcb1899a1d244293
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
 > [!IMPORTANT]
-> Ce contenu s’applique uniquement aux groupes Office 365. Pour plus d’informations sur comment permettre aux utilisateurs de créer des groupes de sécurité, définissez `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` tel que décrit dans [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+> Ce contenu s’applique uniquement aux groupes Office 365. Pour plus d’informations sur comment permettre aux utilisateurs de créer des groupes de sécurité, définissez `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` tel que décrit dans [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Les paramètres des groupes Office 365 sont configurés à l’aide d’un objet Settings et d’un objet SettingsTemplate. Au départ, vous ne voyez aucun objet Paramètres dans votre répertoire, car votre répertoire est configuré avec les paramètres par défaut. Pour changer les paramètres par défaut, vous devez créer un objet de paramètres en utilisant un modèle de paramètres. Les modèles de paramètres sont définis par Microsoft. Il existe différents modèles de paramètres. Pour configurer les paramètres du groupe Office 365 pour votre répertoire, utiliserez le modèle nommé « Group.Unified ». Pour configurer les paramètres du groupe Office 365 sur un seul groupe, utilisez le modèle nommé « Group.Unified.Guest ». Ce modèle est utilisé pour gérer l’accès invité à un groupe Office 365. 
 
@@ -90,18 +89,19 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified.
 
 | **Paramètre** | **Description** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type : booléen<li>Par défaut : True |Indicateur spécifiant si la création de groupes unifiés est autorisée dans le répertoire. |
+|  <ul><li>EnableGroupCreation<li>Type : booléen<li>Par défaut : True |Indicateur spécifiant si la création de groupes unifiés est autorisée dans le répertoire par les utilisateurs non administrateurs. |
 |  <ul><li>GroupCreationAllowedGroupId<li>Type : string<li>Valeur par défaut : “” |GUID du groupe de sécurité pour lequel les membres sont autorisés à créer des groupes unifiés même lorsque EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Type : string<li>Valeur par défaut : “” |Lien vers les instructions d’utilisation du groupe. |
 |  <ul><li>ClassificationDescriptions<li>Type : string<li>Valeur par défaut : “” | Liste séparée par des virgules des descriptions de classification. |
 |  <ul><li>DefaultClassification<li>Type : string<li>Valeur par défaut : “” | Classification qui doit être utilisée en tant que classement par défaut pour un groupe si aucune classification n’a été spécifiée.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Type : string<li>Valeur par défaut : “” |Pas encore implémenté
+|  <ul><li>PrefixSuffixNamingRequirement<li>Type : string<li>Valeur par défaut : “” | Ne pas utiliser. Pas encore implémenté. |
+| <ul><li>CustomBlockedWordsList<li>Type : string<li>Valeur par défaut : “” | Ne pas utiliser. Pas encore implémenté. |
+| <ul><li>EnableMSStandardBlockedWords<li>Type : booléen<li>Par défaut : « False » | Ne pas utiliser
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type : booléen<li>Par défaut : False | Valeur booléenne indiquant si un utilisateur invité peut être ou non un propriétaire de groupes. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Type : booléen<li>Par défaut : True | Valeur booléenne indiquant si un utilisateur invité peut avoir ou non accès au contenu des groupes unifiés. |
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type : string<li>Valeur par défaut : “” | URL d’un lien vers les instructions d’utilisation de l’invité. |
 |  <ul><li>AllowToAddGuests<li>Type : booléen<li>Par défaut : True | Une valeur booléenne indiquant si l’utilisateur est autorisé ou non à ajouter des invités à ce répertoire.|
 |  <ul><li>ClassificationList<li>Type : string<li>Valeur par défaut : “” |Liste des valeurs de classification valides séparées par des virgules pouvant être appliquées à des groupes unifiés. |
-|  <ul><li>EnableGroupCreation<li>Type : booléen<li>Par défaut : True | Valeur booléenne indiquant si les utilisateurs non-administrateurs peuvent ou non créer des groupes unifiés. |
 
 
 ## <a name="read-settings-at-the-directory-level"></a>Lire les paramètres au niveau du répertoire
@@ -218,4 +218,3 @@ Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans 
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-

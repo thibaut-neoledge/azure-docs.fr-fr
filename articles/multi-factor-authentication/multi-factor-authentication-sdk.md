@@ -3,7 +3,7 @@ title: "Kit de développement logiciel MFA pour les applications personnalisées
 description: "Cet article vous montre comment télécharger et utiliser le SDK Azure MFA pour activer la vérification en deux étapes pour vos applications personnalisées."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 editor: yossib
 ms.assetid: 1c152f67-be02-42a5-a0c7-246fb6b34377
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: joflore
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.author: kgremban
 ms.openlocfilehash: 281f9c61a30a20027f69808600373aa272255ef6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Création de Multi-Factor Authentication dans des applications personnalisées (SDK)
 
@@ -185,4 +184,3 @@ Dans le code côté serveur suivant, l'authentification multifacteur est configu
 
         }
     }
-

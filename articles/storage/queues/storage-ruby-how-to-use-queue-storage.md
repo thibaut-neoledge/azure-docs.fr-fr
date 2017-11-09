@@ -3,7 +3,7 @@ title: "Utilisation du stockage de files d’attente à partir de Ruby | Microso
 description: "Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Ruby."
 services: storage
 documentationcenter: ruby
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 59c2d81b-db9c-46ee-ade2-2f0caae6b1e6
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: 8fe080aabe3079f571f5979245adfc453dfcd459
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1a7dd36af6c45bf085342cdf9c1c926a5040792
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Utilisation du stockage de files d'attente à partir de Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

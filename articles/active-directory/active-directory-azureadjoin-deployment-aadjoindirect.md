@@ -1,6 +1,6 @@
 ---
 title: "Scénarios d’utilisation et considérations relatives au déploiement pour Azure AD Join | Microsoft Docs"
-description: "Explique comment les administrateurs peuvent configurer « Azure AD Join » pour leurs utilisateurs finaux (employés, étudiants, autres utilisateurs). Elle présente également les différents scénarios réels pour l&quot;utilisation de Azure AD Join."
+description: "Explique comment les administrateurs peuvent configurer « Azure AD Join » pour leurs utilisateurs finaux (employés, étudiants, autres utilisateurs). Elle présente également les différents scénarios réels pour l'utilisation de Azure AD Join."
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3ba238e246c7a41f6489a2b3ac4e1c749267290d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: fd0aab1a14bbd324e734e5efe8fe101e8a8dfefa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Scénarios d’utilisation et considérations relatives au déploiement pour Azure AD Join
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Scénarios d’utilisation pour Azure AD Join
@@ -83,5 +81,4 @@ Vous pouvez configurer vos employés et utilisateurs afin qu’ils utilisent leu
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
-
 

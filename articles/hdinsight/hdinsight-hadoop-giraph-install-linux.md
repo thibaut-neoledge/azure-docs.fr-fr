@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 658616d1979e617a7d80a989b8e80246a9091fdf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 0f26c35512bb92323b5a9c1688f96a958e0749c6
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installation de Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
 
@@ -73,7 +72,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 
 1. Démarrez la création d’un cluster à l’aide de la procédure décrite dans [Création de clusters HDInsight sous Linux](hdinsight-hadoop-create-linux-clusters-portal.md), mais ne terminez pas la création.
 
-2. Dans le panneau **Configuration facultative**, sélectionnez **Actions de script**, puis indiquez les informations suivantes :
+2. Dans la section **Configuration facultative**, sélectionnez **Actions de script**, puis fournissez les informations suivantes :
 
    * **NAME**: saisissez un nom convivial pour l’action de script.
 
@@ -87,7 +86,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 
    * **PARAMETERS**: laissez ce champ vide.
 
-3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, utilisez le bouton **Sélectionner** au bas du panneau **Configuration facultative** pour enregistrer les informations de configuration facultatives.
+3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, utilisez le bouton **Sélectionner** au bas de la section **Configuration facultative** pour enregistrer les informations de configuration facultatives.
 
 4. Continuez la création du cluster, comme décrit dans [Créer des clusters HDInsight sous Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -180,4 +179,3 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 * [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md).
 
 * [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install-linux.md).
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 0625787ddcbc0091e70b111f687e25929720ad15
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>Recevoir des données dans des applications logiques à l’aide des fonctionnalités B2B dans Enterprise Integration Pack
 
@@ -80,7 +78,7 @@ Suivez ces étapes pour créer une application logique B2B qui utilise les actio
     Ajoutez des étapes permettant de décoder les données X12 provenant d’un partenaire commercial et de générer des éléments dans un objet JSON. 
     Pour informer le partenaire de la réception des données, vous pouvez renvoyer une réponse contenant l’élément AS2 Message Disposition Notification (MDN) dans une action Response HTTP.
 
-12.    Pour ajouter l’action **Response**, sélectionnez **Ajouter une action**.
+12. Pour ajouter l’action **Response**, sélectionnez **Ajouter une action**.
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
 
@@ -113,4 +111,3 @@ Vous avez maintenant terminé la configuration de votre application logique B2B.
 
 ## <a name="learn-more"></a>En savoir plus
 [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-

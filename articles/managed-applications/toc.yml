@@ -1,0 +1,89 @@
+- name: Applications managées Azure
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: À propos des applications managées
+      href: overview.md
+- name: Démarrages rapides
+  items:
+    - name: "Créer une application managée avec l’interface CLI\r\nAzure"
+      href: managed-apps-quickstart-cli.md
+- name: Didacticiels
+  items:
+    - name: Créer l’application de catalogue de services
+      href: publish-service-catalog-app.md
+    - name: Créer l’application de la Place de marché
+      href: publish-marketplace-app.md
+- name: Exemples
+  items:
+    - name: Interface de ligne de commande Azure
+      href: cli-samples.md
+    - name: "Azure\_PowerShell"
+      href: powershell-samples.md
+    - name: Solutions d’applications managées
+      href: sample-projects.md
+- name: Procédures
+  items:
+    - name: Définir l’interface utilisateur
+      href: create-uidefinition-overview.md
+    - name: Mettre à jour les ressources managées
+      href: update-managed-resources.md
+    - name: Publier l’application de catalogue de services - portail
+      href: publish-portal.md
+- name: Référence
+  items:
+    - name: Interface de ligne de commande Azure
+      href: /cli/azure/managedapp
+    - name: PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: REST
+      href: /rest/api/resources/
+    - name: Fonctions de l’interface utilisateur
+      href: create-uidefinition-functions.md
+    - name: Options de l’interface utilisateur
+      href: create-uidefinition-elements.md
+      items:
+        - name: Courant
+          items:
+            - name: Liste déroulante
+              href: microsoft-common-dropdown.md
+            - name: Chargement de fichier
+              href: microsoft-common-fileupload.md
+            - name: Groupe d’options
+              href: microsoft-common-optionsgroup.md
+            - name: Zone de mot de passe
+              href: microsoft-common-passwordbox.md
+            - name: Section
+              href: microsoft-common-section.md
+            - name: Zone de texte
+              href: microsoft-common-textbox.md
+        - name: Calcul
+          items:
+            - name: Zone de liste modifiable Informations d’identification
+              href: microsoft-compute-credentialscombo.md
+            - name: Sélecteur de taille
+              href: microsoft-compute-sizeselector.md
+            - name: Zone de texte Nom d’utilisateur
+              href: microsoft-compute-usernametextbox.md
+        - name: Réseau
+          items:
+            - name: Zone de liste modifiable Adresse IP publique
+              href: microsoft-network-publicipaddresscombo.md
+            - name: Zone de liste modifiable Réseau virtuel
+              href: microsoft-network-virtualnetworkcombo.md
+        - name: Storage
+          items:
+            - name: Zone de liste modifiable Compte de stockage multiple
+              href: microsoft-storage-multistorageaccountcombo.md
+            - name: Sélecteur compte de stockage
+              href: microsoft-storage-storageaccountselector.md
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Dépassement de capacité de la pile
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'

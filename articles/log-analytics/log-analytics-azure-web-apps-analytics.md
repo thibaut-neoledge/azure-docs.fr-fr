@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 90d0b7e3f49daa33ab8c617d07ba9098cdda751f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Afficher des données analytiques pour des métriques sur toutes les ressources de votre application Azure Web
 
 ![Symbole Web Apps](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
-La solution Azure Web Apps Analytics (version préliminaire) fournit des informations sur vos [applications Azure Web](../app-service-web/app-service-web-overview.md) en collectant différentes mesures pour toutes les ressources de votre application Azure Web. Avec la solution, vous pouvez analyser et rechercher des données métriques de ressource Web App.
+La solution Azure Web Apps Analytics (version préliminaire) fournit des informations sur vos [applications Azure Web](../app-service/app-service-web-overview.md) en collectant différentes mesures pour toutes les ressources de votre application Azure Web. Avec la solution, vous pouvez analyser et rechercher des données métriques de ressource Web App.
 
 À l’aide de la solution, vous pouvez afficher :
 
@@ -98,8 +96,8 @@ Cliquez sur la mosaïque **Azure Web Apps Analytics** afin d’ouvrir le tableau
 | --- | --- |
 | Azure Webapps |   |
 | Tendances de requêtes Web Apps | Affiche un graphique en courbes de l’évolution des requêtes Web Apps pour la plage de dates que vous avez sélectionnée et présente la liste des dix requêtes les plus fréquentes. Cliquez sur le graphique en courbes pour exécuter une recherche dans les journaux de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Cliquez sur un élément de requête web pour exécuter une recherche de journal pour la tendance des métriques de requête web. |
-| Temps de réponse de Web Apps | Affiche un graphique en courbes du temps de réponse de Web Apps pour la plage de dates que vous avez sélectionnée. Affiche également une liste des dix premiers temps de réponse de Web Apps. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Cliquez sur une application web pour exécuter une recherche de journal retournant les temps de réponse de cette application. |
-| Trafic de Web Apps | Affiche un graphique en courbes pour le trafic Web Apps, en Mo, et répertorie le trafic des principales applications web. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Toutes les applications web sont présentées avec le trafic pour la dernière minute. Cliquez sur une application web pour exécuter une recherche de journal indiquant les octets reçus et envoyés pour l’application web. |
+| Temps de réponse de Web Apps | Affiche un graphique en courbes du temps de réponse de Web Apps pour la plage de dates que vous avez sélectionnée. Affiche également une liste des dix premiers temps de réponse de Web Apps. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code>.<br> Cliquez sur une application web pour exécuter une recherche de journal retournant les temps de réponse de cette application. |
+| Trafic de Web Apps | Affiche un graphique en courbes pour le trafic Web Apps, en Mo, et répertorie le trafic des principales applications web. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code>.<br> Toutes les applications web sont présentées avec le trafic pour la dernière minute. Cliquez sur une application web pour exécuter une recherche de journal indiquant les octets reçus et envoyés pour l’application web. |
 | Plans Azure App Service |   |
 | Plans App Service avec utilisation du processeur &gt; 80 % | Affiche le nombre total de plans App Service avec une utilisation du processeur supérieure à 80 % et répertorie le top 10 des plans App Service par utilisation du processeur. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Cela affiche une liste de vos plans App Service et leur utilisation moyenne du processeur. Cliquez sur un plan App Service pour exécuter une recherche dans les journaux indiquant son utilisation moyenne du processeur. |
 | Plans App Service avec utilisation de mémoire &gt; 80 % | Affiche le nombre total de plans App Service avec une utilisation de la mémoire supérieure à 80 % et répertorie le top 10 des plans App Service par utilisation de la mémoire. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Cela affiche une liste de vos plans App Service et leur utilisation moyenne de la mémoire. Cliquez sur un plan App Service pour exécuter une recherche dans les journaux indiquant son utilisation moyenne de la mémoire. |
@@ -144,4 +142,3 @@ La **Liste de requêtes de recherche Azure Web Apps populaires** vous montre tou
 
 - Créez une [alerte](log-analytics-alerts-creating.md) pour une mesure spécifique.
 - Utilisez la fonction [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées provenant de vos journaux d’activité.
-

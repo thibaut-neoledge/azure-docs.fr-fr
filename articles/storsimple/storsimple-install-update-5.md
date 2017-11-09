@@ -12,26 +12,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/25/2017
+ms.date: 10/10/2017
 ms.author: alkohli
+ms.openlocfilehash: 9d8dc7aebbeea7ad428be4af66e4e991f60c8301
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 51fdaae3359c4e341431477ec5079473c345c32d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installer Update 5 sur votre appareil StorSimple
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Ce didacticiel explique comment installer Update 5 sur un appareil StorSimple exécutant une version logicielle antérieure par le biais du portail Azure Classic et à l’aide de la méthode du correctif logiciel. La méthode du correctif logiciel est utilisée quand une passerelle est configurée sur une interface réseau différente de DATA 0 de l’appareil StorSimple et que la mise à jour porte sur une version logicielle antérieure à Update 1.
+Ce didacticiel explique comment installer Update 5 sur un appareil StorSimple exécutant une version logicielle antérieure par le biais du portail Azure Classic et à l’aide de la méthode du correctif logiciel. La méthode du correctif logiciel est utilisée quand vous essayez d’installer Update 5 sur un appareil exécutant des versions antérieures à Update 3. La méthode du correctif logiciel est également utilisée si une passerelle est configurée sur une interface réseau différente de DATA 0 de l’appareil StorSimple et que la mise à jour porte sur une version logicielle antérieure à Update 1.
 
 Update 5 comprend les mises à jour logicielles de l’appareil, celles de Storport, de Spaceport, de la sécurité du système d’exploitation et du système d’exploitation lui-même ainsi que celle du microprogramme de disque.  Les mises à jour logicielles de l’appareil, comme celles de Spaceport, de Storport, de la sécurité et du système d’exploitation, sont des mises à jour sans interruption de service. Les mises à jour sans interruption de service ou régulières peuvent être appliquées via le portail Azure Classic ou via la méthode du correctif logiciel. Les mises à jour du microprogramme de disque sont des mises à jour avec interruption de service ; elles s’appliquent lorsque l’appareil est en mode de maintenance, par le biais de la méthode du correctif logiciel en utilisant l’interface Windows PowerShell de l’appareil.
 
 > [!IMPORTANT]
 > * Un ensemble de vérifications préalables manuelles et automatiques sont effectuées avant l’installation pour déterminer l’intégrité de l’appareil sur le plan de l’état du matériel et de la connectivité réseau. Ces vérifications préalables sont effectuées uniquement si vous appliquez les mises à jour à partir du portail Azure.
-> * Nous vous recommandons d’installer les mises à jour du logiciel et d’autres mises à jour régulières au moyen du portail Azure Classic. Vous devez uniquement accéder à l’interface Windows PowerShell de l’appareil (pour installer les mises à jour) en cas d’échec de la vérification de la passerelle avant la mise à jour dans le portail. Selon la version que vous mettez à jour, l’installation des mises à jour peut prendre 4 heures (ou plus). Les mises à jour du mode de maintenance doivent être installées via l’interface Windows PowerShell de l’appareil. Les mises à jour en mode de maintenance étant des mises à jour perturbatrices, elles entraînent un temps d’arrêt pour votre appareil.
+> * Si vous exécutez une version antérieure à Update 3, nous vous recommandons vivement d’installer Update 5 via la méthode du correctif logiciel. Pour que l’équipe de support vous guide tout au long de la mise à jour, [enregistrez un ticket de support](storsimple-8000-contact-microsoft-support.md).
+> * Si vous exécutez Update 3 et versions ultérieures, nous vous recommandons d’installer les mises à jour du logiciel et d’autres mises à jour standard au moyen du portail Azure Classic. Selon la version que vous mettez à jour, l’installation des mises à jour peut prendre 4 heures (ou plus). Les mises à jour du mode de maintenance doivent être installées via l’interface Windows PowerShell de l’appareil. Les mises à jour en mode de maintenance étant des mises à jour perturbatrices, elles entraînent un temps d’arrêt pour votre appareil.
 > * Si vous exécutez l’outil facultatif StorSimple Snapshot Manager, veillez à le mettre à niveau vers la version Update 5 avant de mettre l’appareil à jour.
 
 
@@ -49,7 +49,7 @@ Vérifiez que votre appareil exécute **Update 5 (6.3.9600.17845) pour la gamme
 
 * Vous verrez maintenant que les mises à jour en mode maintenance sont disponibles (ce message peut continuer à afficher jusqu’à 24 heures après l’installation des mises à jour). Les mises à jour en mode maintenance entraînent des temps d’arrêt de l’appareil et ne peuvent être appliquées que par le biais de l’interface Windows PowerShell de votre appareil.
 
-* Téléchargez les mises à jour en mode maintenance à l’aide de la procédure indiquée dans [Pour télécharger des correctifs logiciels](#to-download-hotfixes) pour rechercher et télécharger KB4011837, qui installe les mises à jour du microprogramme de disque (les autres mises à jour doivent déjà être installées à ce stade). Suivez les étapes répertoriées dans [Installer et vérifier le correctif logiciel en mode Maintenance](#to-install-and-verify-maintenance-mode-hotfixes) pour installer ces mises à jour en mode maintenance.
+* Téléchargez les mises à jour en mode maintenance à l’aide de la procédure indiquée dans [Pour télécharger des correctifs logiciels](#to-download-hotfixes) pour rechercher et télécharger KB4037263, qui installe les mises à jour du microprogramme de disque (les autres mises à jour doivent déjà être installées à ce stade). Suivez les étapes répertoriées dans [Installer et vérifier le correctif logiciel en mode Maintenance](#to-install-and-verify-maintenance-mode-hotfixes) pour installer ces mises à jour en mode maintenance.
 
 ## <a name="install-update-5-as-a-hotfix"></a>Installer Update 5 en tant que correctif logiciel
 
@@ -63,7 +63,7 @@ Les versions logicielles qui peuvent être mises à niveau à l’aide de la mé
 * Update 4
 
 > [!NOTE]
-> La méthode recommandée pour installer Update 5 est d’utiliser le portail Azure Classic. Utilisez cette procédure en cas d’échec de la vérification de la passerelle lors de la tentative d’installation des mises à jour par le biais du portail Azure Classic. La vérification échoue lorsque vous avez une passerelle affectée à une interface réseau différente de DATA 0 et que votre appareil exécute une version logicielle antérieure à Update 1.
+> La méthode recommandée pour installer Update 5 est d’utiliser le portail Azure Classic. Toutefois, si vous exécutez une version antérieure à Update 3, nous vous recommandons vivement d’utiliser cette méthode pour installer Update 5. Vous devez aussi utiliser cette procédure si la vérification de la passerelle échoue lors de la tentative d’installation des mises à jour par le biais du portail Azure Classic. La vérification échoue lorsque vous avez une passerelle affectée à une interface réseau différente de DATA 0 et que votre appareil exécute une version logicielle antérieure à Update 1.
 
 La méthode du correctif logiciel implique les trois étapes suivantes :
 
@@ -114,5 +114,4 @@ Procédez comme suit pour télécharger et importer les correctifs logiciels.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez plus en détail la [version Update 5](storsimple-update5-release-notes.md).
-
 

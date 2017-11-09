@@ -17,12 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 39b5c70c8740bc06beded42e9066e3be196741a1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 718bb3f890a246fb1688481efdaa9109b49ccad3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -247,8 +246,8 @@ ms.lasthandoff: 08/21/2017
 [storage-azure-cli]:../../../storage/common/storage-azure-cli.md
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
+[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -291,8 +290,8 @@ ms.lasthandoff: 08/21/2017
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
-[virtual-network-deploy-multinic-arm-cli]:../../../virtual-network/virtual-network-deploy-multinic-arm-cli.md
-[virtual-network-deploy-multinic-arm-ps]:../../../virtual-network/virtual-network-deploy-multinic-arm-ps.md
+[virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
+[virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
@@ -353,7 +352,7 @@ Les termes suivants sont utilisés dans le document :
 * Intersite : décrit un scénario dans lequel les machines virtuelles sont déployées sur un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. La connexion a pour but d’étendre les domaines locaux, l’annuaire Active Directory/OpenLDAP local et le DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. C’est le scénario que nous prévoyons pour le déploiement de la plupart des ressources SAP. Pour plus d’informations, consultez [cet][vpn-gateway-cross-premises-options] article et [celui-ci][vpn-gateway-site-to-site-create].
 
 > [!NOTE]
-> Les déploiements intersites de systèmes SAP dans lesquels des machines virtuelles Azure exécutant des systèmes SAP font partie d’un domaine local sont pris en charge pour les systèmes SAP de production. Les configurations intersites sont prises en charge pour le déploiement d’éléments ou de l’intégralité des paysages SAP dans Azure. Ces machines virtuelles doivent faire partie du domaine et de l’annuaire ADS/OpenLDAP locaux même quand l’intégralité du paysage SAP est exécutée dans Azure. Dans les versions précédentes de la documentation, nous avons parlé des scénarios hybrides, où le terme « hybride » tient au fait qu’il existe une connectivité intersite entre les sites locaux et Azure. Ici, « hybride » signifie également que les machines virtuelles dans Azure font partie de l’annuaire Active Directory/OpenLDAP local.
+> Les déploiements intersites de systèmes SAP dans lesquels des machines virtuelles Azure exécutant des systèmes SAP font partie d’un domaine local sont pris en charge pour les systèmes SAP de production. Les configurations intersites sont prises en charge pour le déploiement d’éléments ou de l’intégralité des paysages SAP dans Azure. Ces machines virtuelles doivent faire partie du domaine et de l’annuaire ADS/OpenLDAP locaux même quand l’intégralité du paysage SAP est exécutée dans Azure. Dans les versions précédentes de la documentation, nous avons parlé des scénarios hybrides, où le terme *hybride* tient au fait qu’il existe une connectivité intersite entre les sites locaux et Azure. Ici, « hybride » signifie également que les machines virtuelles dans Azure font partie de l’annuaire Active Directory/OpenLDAP local.
 >
 >
 
@@ -514,7 +513,7 @@ Toutes les différentes séries de machines virtuelles ne sont pas nécessaireme
 >
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Régions Azure
-Microsoft vous offre la possibilité de déployer des machines virtuelles dans les régions appelées « régions Azure ». Une région Azure peut correspondre à un ou plusieurs centres de données situés à proximité les uns des autres. Dans la plupart des régions géopolitiques du monde, Microsoft a au moins deux régions Azure. Par exemple, l’Europe contient les régions Azure « Europe du Nord » et « Europe de l’Ouest ». Une distance suffisamment importante sépare ces deux régions Azure dans une région géopolitique, afin que des catastrophes naturelles ou techniques n’affectent pas les deux régions Azure situées dans la même région géopolitique. Étant donné que Microsoft crée en permanence de nouvelles régions Azure dans les différentes régions géopolitiques du monde, le nombre de ces régions est en perpétuelle augmentation et, depuis décembre 2015, on compte 20 régions Azure en plus de celles déjà annoncées. En tant que client, vous pouvez déployer des systèmes SAP dans toutes ces régions, y compris dans les deux régions Azure présentes en Chine. Pour connaître les dernières informations sur les régions Azure, consultez le site web suivant : <https://azure.microsoft.com/regions/>
+Microsoft vous offre la possibilité de déployer des machines virtuelles dans les régions appelées *régions Azure*. Une région Azure peut correspondre à un ou plusieurs centres de données situés à proximité les uns des autres. Dans la plupart des régions géopolitiques du monde, Microsoft a au moins deux régions Azure. Par exemple, l’Europe contient les régions Azure *Europe du Nord* et *Europe de l’Ouest*. Une distance suffisamment importante sépare ces deux régions Azure dans une région géopolitique, afin que des catastrophes naturelles ou techniques n’affectent pas les deux régions Azure situées dans la même région géopolitique. Étant donné que Microsoft crée en permanence de nouvelles régions Azure dans les différentes régions géopolitiques du monde, le nombre de ces régions est en perpétuelle augmentation et, depuis décembre 2015, on compte 20 régions Azure en plus de celles déjà annoncées. En tant que client, vous pouvez déployer des systèmes SAP dans toutes ces régions, y compris dans les deux régions Azure présentes en Chine. Pour connaître les dernières informations sur les régions Azure, consultez le site web suivant : <https://azure.microsoft.com/regions/>
 
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Concept de la machine virtuelle Microsoft Azure
 Microsoft Azure propose une solution de type Infrastructure as a Service (IaaS) pour héberger les machines virtuelles, avec des fonctionnalités identiques à celles d’une solution de virtualisation locale. Vous êtes en mesure de créer des machines virtuelles depuis le portail Azure, PowerShell ou CLI, qui offrent également des fonctionnalités de gestion et de déploiement.
@@ -546,7 +545,7 @@ Pour comprendre le concept des groupes à haute disponibilité Azure et leur rel
 
 Pour définir des groupes à haute disponibilité pour ARM par le biais d’un modèle JSON, voir les [spécifications de l’API REST](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) et rechercher « disponibilité ».
 
-### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Stockage : Stockage Microsoft Azure et disques de données
+### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Stockage : Microsoft Azure Storage et disques de données
 Les Microsoft Azure Virtual Machines utilisent différents types de stockage. Pendant l’implémentation SAP sur Azure Virtual Machine Services, il est important de comprendre les différences entre ces deux principaux types de stockage :
 
 * stockage volatil non persistant ;
@@ -590,7 +589,7 @@ Comme ces disques durs virtuels sont conservés, les données et les modificatio
 
 Au sein du réseau Stockage Azure, différents niveaux de redondance peuvent être configurés :
 
-* Le niveau minimal sélectionnable est « redondance locale », qui équivaut à trois réplicas de données dans le même centre de données d’une région Azure (voir le chapitre [Régions Azure][planning-guide-3.1]).
+* Le niveau minimal sélectionnable est « *redondance locale* », qui équivaut à trois réplicas de données dans le même centre de données d’une région Azure (voir le [chapitre Régions Azure][planning-guide-3.1]).
 * Le stockage redondant dans une zone, qui répartit les trois images dans trois centres de données différents au sein de la même région Azure.
 * Le niveau de redondance par défaut, qui correspond à la redondance géographique et qui réplique de façon asynchrone le contenu dans trois autres images de données dans une autre région Azure hébergée dans la même région géopolitique.
 
@@ -643,7 +642,7 @@ SAP prend uniquement en charge les disques managés Premium. Pour plus d’infor
 #### <a name="azure-storage-accounts"></a>Comptes Stockage Azure
 Durant le déploiement de services ou de machines virtuelles dans Azure, le déploiement de VHD et d’images de machine virtuelle peut être organisé dans des unités appelées comptes Stockage Azure. Lorsque vous planifiez un déploiement Azure, vous devez tenir compte des restrictions d’Azure. D’un côté, le nombre de comptes de stockage par abonnement Azure est limité. Bien que chaque compte Stockage Azure puisse contenir de nombreux fichiers de disque dur virtuel, une limite fixe d’E/S totales par compte de stockage a été établie. Lorsque vous déployez des centaines de machines virtuelles SAP avec des systèmes SGBD créant des appels d’E/S importants, il est recommandé de répartir les machines virtuelles SGBD présentant un nombre d’E/S par seconde élevé dans plusieurs comptes Stockage Azure. Faites attention à ne pas dépasser la limite actuelle de comptes Stockage Azure par abonnement. Le stockage étant un élément essentiel du déploiement de base de données pour un système SAP, ce concept est décrit plus en détail dans le [Guide de déploiement de SGBD][dbms-guide] déjà mentionné.
 
-Pour plus d’informations sur les comptes de stockage Azure, consultez [cet article][storage-scalability-targets]. En lisant cet article, vous constatez qu’il existe des différences de limitations entre les comptes de stockage Azure Standard et les comptes Stockage Premium. Les principales différences portent sur le volume de données qui peut être stocké dans un compte de stockage de ce type. Dans Stockage Standard, le volume est bien plus important que celui de Stockage Premium. D’un autre côté, le compte Stockage Standard est fortement limité en ce qui concerne les E/S par seconde (voir la colonne « Taux de demandes total »), tandis que le compte Stockage Premium Azure n’a aucune limitation de ce type. Nous discuterons plus précisément de ces différences lorsque nous étudierons les déploiements de systèmes SAP, notamment les serveurs SGBD.
+Pour plus d’informations sur les comptes de stockage Azure, consultez [cet article][storage-scalability-targets]. En lisant cet article, vous constatez qu’il existe des différences de limitations entre les comptes de stockage Azure Standard et les comptes Stockage Premium. Les principales différences portent sur le volume de données qui peut être stocké dans un compte de stockage de ce type. Dans Stockage Standard, le volume est bien plus important que celui de Stockage Premium. D’un autre côté, le compte Stockage Standard est fortement limité en ce qui concerne les E/S par seconde (voir la colonne **Taux de demandes total**), tandis que le compte Stockage Premium Azure n’a aucune limitation de ce type. Nous discuterons plus précisément de ces différences lorsque nous étudierons les déploiements de systèmes SAP, notamment les serveurs SGBD.
 
 Dans un compte de stockage, vous avez la possibilité de créer des conteneurs distincts pour organiser et classer les différents disques durs virtuels. Ces conteneurs sont généralement utilisés pour, par exemple, séparer les VHD des diverses machines virtuelles. Peu importe le nombre de conteneurs que vous utilisez pour un seul compte Stockage Azure, les performances n’en seront pas affectées.
 
@@ -659,7 +658,7 @@ Microsoft Azure fournit une infrastructure réseau qui permet le mappage de tous
 * accès depuis l’extérieur, directement aux machines virtuelles via Windows Terminal Services ou ssh/VNC ;
 * accès aux services et ports spécifiques utilisés par les applications dans les machines virtuelles ;
 * communication interne et résolution de noms entre un groupe de machines virtuelles déployées en tant que machines virtuelles Azure ;
-* connectivité intersite entre un réseau local du client et le réseau Azure ;
+* connectivité intersite entre un réseau local du client et le réseau Azure
 * connectivité entre le centre de données ou la région Azure entre les sites Azure.
 
 Pour plus d’informations, consultez la page : <https://azure.microsoft.com/documentation/services/virtual-network/>
@@ -678,7 +677,7 @@ Chaque machine virtuelle dans Azure doit être connectée à un réseau virtuel.
 Pour plus d’informations, consultez [cet article][resource-groups-networking] et [cette page](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 [comment]: <> (MShermannd TODO Couldn't find an article which includes the OpenLDAP topic + ARM; )
-[comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
+[comment]: <> (MSSedusch &lt;https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL&gt;)
 
 > [!NOTE]
 > Par défaut, une fois qu’une machine virtuelle est déployée, vous ne pouvez pas modifier la configuration du réseau virtuel. Les paramètres TCP/IP doivent être conservés sur le serveur DHCP d’Azure. Le comportement par défaut est l’attribution d’adresse IP dynamique.
@@ -730,7 +729,7 @@ Pour plus d’informations, consultez [cet article][vpn-gateway-create-site-to-s
 #### <a name="vnet-to-vnet-connection"></a>Connexion de réseau virtuel à réseau virtuel
 À l’aide d’un VPN multisite, vous devez configurer un réseau virtuel Azure distinct dans chacune des régions. Cependant, très souvent vous avez besoin que les composants logiciels des différentes régions puissent communiquer entre eux. Dans l’idéal, cette communication ne doit pas être acheminée depuis une région Azure vers un site local, ni depuis ce site local vers l’autre région Azure. En bref, Azure vous offre la possibilité de configurer une connexion depuis un réseau virtuel Azure dans une région vers un autre réseau virtuel Azure hébergé dans l’autre région. Cette fonctionnalité est appelée connexion de réseau virtuel à réseau virtuel. Pour plus d’informations sur cette fonctionnalité, consultez : <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
 
-#### <a name="private-connection-to-azure--expressroute"></a>Connexion privée à Azure - ExpressRoute
+#### <a name="private-connection-to-azure-expressroute"></a>Connexion privée à Azure - ExpressRoute
 Microsoft Azure ExpressRoute permet de créer des connexions privées entre des centres de données Azure et l’infrastructure locale du client ou un environnement de colocalisation. ExpressRoute est proposé par divers fournisseurs VPN (commutation de paquets) MPLS ou d’autres fournisseurs de services réseau. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Les connexions ExpressRoute offrent une sécurité accrue, une plus grande fiabilité via plusieurs circuits parallèles, des vitesses plus rapides et des latences moindres par rapport aux connexions classiques sur Internet.
 
 Vous trouverez plus d’informations sur Azure ExpressRoute et les offres ici : 
@@ -799,8 +798,8 @@ Le portail Azure constitue l’une des trois interfaces destinées à la gestion
 
 ![Portail Microsoft Azure - vue d’ensemble de la machine virtuelle][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
+[comment]: <> (MSSedusch * &lt;https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/&gt;)
+[comment]: <> (MSSedusch * &lt;https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/&gt;)
 
 Les tâches d’administration et de configuration de l’instance de la machine virtuelle sont possibles au sein du portail Azure.
 
@@ -941,8 +940,8 @@ Si la préparation de la machine virtuelle permet à cette dernière d’être g
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> La dernière étape consiste à se connecter à une machine virtuelle à l’aide d’un compte d’administrateur. Ouvrez une fenêtre de commande Windows en tant qu’« administrateur ». Accédez à %windir%\windows\system32\sysprep et exécutez sysprep.exe.
-> Une petite fenêtre s’affiche. Il est important de cocher l’option « Généraliser » (vide par défaut) et de faire passer l’option d’extinction de sa valeur par défaut (Redémarrer) à « Arrêt ». Cette procédure suppose que le processus sysprep est exécuté localement dans le SE invité d’une machine virtuelle.
+> La dernière étape consiste à se connecter à une machine virtuelle à l’aide d’un compte d’administrateur. Ouvrez une fenêtre de commande Windows en tant *qu’administrateur*. Accédez à %windir%\windows\system32\sysprep et exécutez sysprep.exe.
+> Une petite fenêtre s’affiche. Il est important de cocher l’option **Généraliser** (vide par défaut) et de faire passer l’option d’extinction de sa valeur par défaut (Redémarrer) à « Arrêt ». Cette procédure suppose que le processus sysprep est exécuté localement dans le SE invité d’une machine virtuelle.
 > Si vous souhaitez exécuter la procédure avec une machine virtuelle en cours d’exécution dans Azure, suivez les étapes décrites dans [cet article](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
@@ -980,7 +979,7 @@ Dans ce scénario, nous souhaitons charger un disque dur virtuel, avec ou sans s
 * Connectez-vous à votre abonnement avec *az login*
 * Sélectionnez votre abonnement en entrant *az account set --subscription `<subscription name or id`>*
 * Chargez le VHD en entrant *az storage blob upload*. Consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli]
-* (Facultatif) Créez un disque managé à partir du VHD avec *az disk create*. Consultez https://docs.microsoft.com/cli/azure/disk#create
+* (Facultatif) Créez un disque managé à partir du VHD avec *az disk create*. Consultez https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Créez une machine virtuelle et spécifiez le disque managé ou le VHD chargé en tant que disque du système d’exploitation en entrant *az vm create* et le paramètre *--attach-os-disk*
 * Ajoutez un disque de données à une nouvelle machine virtuelle en entrant *az vm disk attach* et le paramètre *--new*
 
@@ -1009,7 +1008,7 @@ Pour charger une machine virtuelle ou un VHD existants à partir du réseau loca
 * Connectez-vous à votre abonnement avec *az login*
 * Sélectionnez votre abonnement en entrant *az account set --subscription `<subscription name or id`>*
 * Chargez le VHD en entrant *az storage blob upload*. Consultez [Utilisation de l’interface de ligne de commande Azure avec Stockage Azure][storage-azure-cli]
-* (Facultatif) Créez une image de disque managé à partir du VHD avec *az image create*. Consultez https://docs.microsoft.com/cli/azure/image#create
+* (Facultatif) Créez une image de disque managé à partir du VHD avec *az image create*. Consultez https://docs.microsoft.com/cli/azure/image#az_image_create
 * Créez une machine virtuelle et spécifiez l’image de disque managé ou le VHD chargé en tant que disque du système d’exploitation en entrant *az vm create* et le paramètre *--image*
 
 **Modèle**
@@ -1343,13 +1342,13 @@ Il peut être nécessaire de configurer le pare-feu sur vos machines virtuelles 
 > Par défaut, le Pare-feu Windows au sein d’une machine virtuelle Azure déployée est activé. Vous devez à présent autoriser l’ouverture du port SAP, sinon l’interface utilisateur graphique du SAP ne pourra pas se connecter.
 > Pour ce faire :
 >
-> * Ouvrez Panneau de configuration\Système et sécurité\Pare-feu Windows et sélectionnez Paramètres avancés.
-> * Cliquez avec le bouton droit sur Règles de trafic entrant, puis cliquez sur Nouvelle règle.
-> * Dans l’Assistant qui s’ouvre, créez une règle Port.
+> * Ouvrez Panneau de configuration\Système et sécurité\Pare-feu Windows et sélectionnez **Paramètres avancés**.
+> * Cliquez avec le bouton droit sur Règles de trafic entrant, puis cliquez sur **Nouvelle règle**.
+> * Dans l’Assistant qui s’ouvre, créez une règle **Port**.
 > * Dans l’étape suivante de l’Assistant, laissez le paramètre sur TCP et tapez le numéro de port à ouvrir. Étant donné que notre ID d’instance SAP est 00, nous avons choisi 3200. Si votre instance possède un numéro différent, le port que vous avez défini précédemment en fonction du numéro d’instance doit être ouvert.
-> * Dans l’étape suivante de l’Assistant, laissez la case « Autoriser la connexion » cochée.
+> * Dans l’étape suivante de l’Assistant, laissez la case **Autoriser la connexion** cochée.
 > * Dans l’étape suivante de l’Assistant, vous devez définir si la règle s’applique au réseau Domaine, Privé et Public. Adaptez la règle en fonction de vos besoins. Toutefois, si vous vous connectez avec l’interface graphique utilisateur SAP de l’extérieur via le réseau public, vous devez appliquer la règle au réseau public.
-> * Dans la dernière étape de l’Assistant, nommez la règle et enregistrez votre travail en appuyant sur « Terminer ».
+> * Dans la dernière étape de l’Assistant, nommez la règle et enregistrez votre travail en appuyant sur **Terminer**.
 >
 > La règle entre immédiatement en vigueur.
 >
@@ -1629,7 +1628,7 @@ Les ports de communication SAP classiques sont répertoriés dans le tableau ci-
 
 | Service | Nom du port | Exemple `<nn`> = 01 | Plage par défaut (min-max.) | Commentaire |
 | --- | --- | --- | --- | --- |
-| Répartiteur |sapdp`<nn>` voir * |3201 |3200 – 3299 |Répartiteur SAP, utilisé par l’interface utilisateur graphique SAP pour Windows et Java |
+| Répartiteur |sapdp`<nn>` voir * |3201 |3200 - 3299 |Répartiteur SAP, utilisé par l’interface utilisateur graphique SAP pour Windows et Java |
 | Serveur de messagerie |sapms`<sid`> voir ** |3600 |sapms gratuit`<anySID`> |sid = SAP-System-ID |
 | Passerelle |sapgw`<nn`> voir * |3301 |gratuit |Passerelle SAP, utilisée pour les communications CPIC et RFC |
 | Routeur SAP |sapdp99 |3299 |gratuit |Seuls les noms de service de l’instance centrale peuvent être réaffectés dans /etc/services à une valeur arbitraire après l’installation. |
@@ -1759,7 +1758,7 @@ Le trafic RFC entre les systèmes locaux et dans Azure doit fonctionner. Pour co
 
 Nous supposons que dans les scénarios intersite, les machines virtuelles exécutant des systèmes SAP devant communiquer entre eux se trouvent dans le même domaine. Par conséquent, la configuration d’une connexion RFC entre les systèmes SAP ne diffère pas des étapes d’installation et des entrées des scénarios locaux.
 
-#### <a name="accessing-local-fileshares-from-sap-instances-located-in-azure-or-vice-versa"></a>Accéder à des partages de fichiers locaux à partir d’instances SAP situées dans Azure ou inversement.
+#### <a name="accessing-local-fileshares-from-sap-instances-located-in-azure-or-vice-versa"></a>Accéder à des partages de fichiers locaux à partir d’instances SAP situées dans Azure ou inversement
 Les instances SAP situées dans Azure doivent accéder aux partages de fichiers se trouvant dans les locaux de l’entreprise. En outre, les instances SAP locales ont besoin d’accéder aux partages de fichiers se trouvant dans Azure. Pour activer les partages de fichiers, vous devez configurer les options d’autorisation et de partage sur le système local. Veillez à ouvrir les ports sur la connexion VPN ou ExpressRoute entre Azure et votre centre de données.
 
 ## <a name="supportability"></a>Prise en charge
@@ -1805,7 +1804,7 @@ La configuration d’un portail SAP dans une machine virtuelle Azure ne diffère
 
 Un scénario de déploiement spécifique par certains clients est l’exposition directe du portail d’entreprise SAP à Internet tandis que l’hôte de machine virtuelle est connecté au réseau d’entreprise via une connexion Tunnel VPN de site à site ou ExpressRoute. Pour ce scénario, vous devez vous assurer que certains ports sont ouverts et ne sont pas bloqués par un pare-feu ou un groupe de sécurité réseau. Le même mécanisme devrait être appliqué lorsque vous souhaitez vous connecter à une instance SAP Java à partir d’un système local dans un scénario de cloud uniquement.
 
-L’URI du portail initial est http(s):`<Portalserver`>:5XX00/irj où le port est formé par 50000 (numéro du système × 100). L’URI du portail par défaut du système SAP 00 est `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj. Pour plus de détails, consultez <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+L’URI du portail initial est http(s):`<Portalserver`>:5XX00/irj où le port est formé par 50000 (numéro du système ?? 100). L’URI du portail par défaut du système SAP 00 est `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj. Pour plus de détails, consultez <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Configuration du point de terminaison][planning-guide-figure-2800]
 
@@ -1838,7 +1837,7 @@ Il existe un contrat de niveau de service pour machine virtuelle unique de 99,9 
 
 La base de calcul est de 30 jours par mois ou 43 200 minutes. Par conséquent, le temps d’interruption de 0,05 % correspond à 21,6 minutes. Comme d’habitude, la disponibilité des différents services se multiplie de la façon suivante :
 
-(Service de disponibilité #1/100) * (Service de disponibilité #2/100) * (Service de disponibilité #3/100) *…
+(Service de disponibilité #1/100) * (Service de disponibilité #2/100) * (Service de disponibilité #3/100) 
 
 comme ce qui suit :
 
@@ -2048,4 +2047,3 @@ Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 * Pour la sauvegarde de la couche SGBD (système de gestion de base de données) SAP, voir le [Guide SGBD (système de gestion de base de données)][dbms-guide].
 * La sauvegarde des instances de boîte de dialogue SAP n’est pas très utile, dans la mesure où il est généralement plus rapide de redéployer des instances de boîte de dialogue simples.
 * La sauvegarde de la machine virtuelle qui contient le répertoire global du système SAP, et tous les profils des différentes instances, est utile et doit être effectuée avec la sauvegarde Windows ou, par exemple, tar sous Linux. Dans la mesure où il existe des différences entre Windows Server 2008 (R2) et Windows Server 2012 (R2), qui facilitent la sauvegarde à l’aide des versions Release les plus récentes de Windows Server, nous vous recommandons d’exécuter Windows Server 2012 (R2) en tant que système d’exploitation invité Windows.
-

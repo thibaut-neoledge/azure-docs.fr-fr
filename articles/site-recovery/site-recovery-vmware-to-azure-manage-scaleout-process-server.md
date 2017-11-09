@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: e5c01de19917235c34c035415df86291b9152bf0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-scale-out-process-server"></a>Gérer un serveur de traitement de montée en puissance parallèle
 
 Un serveur de traitement de montée en puissance parallèle fait office de coordinateur pour le transfert de données entre les services Site Recovery et votre infrastructure locale. Cet article explique comment installer, configurer et gérer un serveur de traitement de montée en puissance parallèle.
@@ -148,4 +146,3 @@ La suppression du serveur de traitement peut prendre jusqu’à 15 minutes pour 
 |4 processeurs virtuels (2 sockets * 2 cœurs @ 2,5 GHz), 8 Go de mémoire |300 Go |250 Go ou moins |Répliquez 85 machines ou moins. |
 |8 processeurs virtuels (2 sockets * 4 cœurs @ 2,5 GHz), 12 Go de mémoire |600 Go |250 Go à 1 To |Répliquez entre 85 et 150 machines. |
 |12 processeurs virtuels (2 sockets * 6 cœurs @ 2,5 GHz), 24 Go de mémoire |1 To |1 To à 2 To |Répliquez entre 150 et 225 machines. |
-

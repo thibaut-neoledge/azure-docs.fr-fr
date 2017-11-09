@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
 
@@ -168,7 +167,7 @@ Maintenant que nous avons vu comment spécifier des chemins d’accès, examinon
 Azure Cosmos DB prend en charge les types d’index de hachage et de plage pour chaque chemin d’accès (qui peuvent être configurés pour les chaînes, les nombres ou les deux).
 
 * **Hachage** prend en charge les requêtes d’égalité efficaces et JOIN. Dans la plupart des cas d’utilisation, les index de hachage ne nécessitent pas une précision plus élevée que la valeur par défaut de 3 octets. Le type de données peut être Chaîne ou Nombre.
-* **Plage** prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec >, <, >=, <=, !=) et les requêtes Trier par. Par défaut, les requêtes Trier par nécessitent également une précision d’index maximale (-1). Le type de données peut être Chaîne ou Nombre.
+* **Plage** prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec &gt;, &lt;, &gt;=, &lt;=, !=) et les requêtes Trier par. Par défaut, les requêtes Trier par nécessitent également une précision d’index maximale (-1). Le type de données peut être Chaîne ou Nombre.
 
 Azure Cosmos DB prend également en charge le type d’index spatial pour chaque chemin d’accès, qui peut être spécifié pour les types de données Point, Polygone ou LineString. La valeur dans le chemin d’accès spécifié doit être un fragment GeoJSON valide, comme `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
@@ -413,5 +412,4 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 1. [Exemples de code de gestion d’index .NET de l’API DocumentDB](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Opérations de collecte de l’API REST DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Requête avec SQL](documentdb-sql-query.md)
-
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9128fa76cc0b0f4d879faaaf98d55b5b9180f46e
-
-
+ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security"></a>Sécurité
 ## <a name="overview"></a>Vue d'ensemble
@@ -45,10 +45,4 @@ Comme pour les autres entités, les opérations Notification Hubs sont autorisé
 | Gérer |Opérations CRUD sur Notification Hubs (y compris la mise à jour des informations d'identification PNS et les clés de sécurité) et lecture des inscriptions en fonction des balises |Créer/Mettre à jour/Lire/Supprimer des hubs de notification<br><br>Lire des inscriptions par balise |
 
 Notification Hubs accepte les revendications accordées par les jetons de contrôle d'accès Microsoft Azure et les jetons de signature générés avec des clés partagées configurées directement sur le concentrateur de notification.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

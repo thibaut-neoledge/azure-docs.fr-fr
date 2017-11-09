@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connexion d'Azure SQL Database à Azure Search à l'aide d'indexeurs
 
 Avant d’interroger un [index Recherche Azure](search-what-is-an-index.md), vous devez le remplir avec vos données. Si les données se trouvent dans une base de données Azure SQL Database, un **indexeur Recherche Azure pour Azure SQL Database** (ou **indexeur Azure SQL**) peut automatiser le processus d’indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
@@ -358,4 +356,3 @@ Cela n’est pas recommandé. Seule la colonne **rowversion** permet une synchro
 + Vous pouvez vous assurer que pendant l’exécution de l’indexeur, aucune transaction n’est en attente sur la table en cours d’indexation (par exemple, toutes les mises à jour de la table s’effectuent de manière planifiée par lot, et la planification de l’indexeur Recherche Azure est définie de manière à éviter tout chevauchement avec la planification de la mise à jour de la table).  
 
 + Vous procédez régulièrement à une réindexation complète pour sélectionner toutes les lignes manquantes. 
-

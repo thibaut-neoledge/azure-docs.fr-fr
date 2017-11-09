@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: ede3137de92e251f4ad020bc1ce3f041918242b2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Déboguer Azure Stream Analytics avec des destinataires de hub d’événement
 
 Vous pouvez utiliser Azure Event Hubs dans Azure Stream Analytics pour recevoir ou générer des données à partir d’un travail. Une meilleure pratique pour l’utilisation de Event Hubs consiste à utiliser plusieurs groupes de consommateurs pour garantir l’extensibilité du travail. En effet, le nombre de lecteurs dans le travail Stream Analytics pour une entrée spécifique affecte le nombre de lecteurs dans un groupe de consommateurs donné. Le nombre précis de destinataires repose sur les détails d’implémentation interne de la logique de la topologie d’augmentation de la taille des instances. Le nombre de destinataires n’est pas exposé en externe. Le nombre de lecteurs peut changer au démarrage du travail ou pendant les mises à niveau du travail.
@@ -90,4 +88,3 @@ Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics
 * [Mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md)
 * [Informations de référence sur le langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

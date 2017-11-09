@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Chargement de données avec Redgate Data Platform Studio
 > [!div class="op_single_selector"]
@@ -155,4 +152,3 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
 [Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-

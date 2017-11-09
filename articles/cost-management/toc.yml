@@ -1,0 +1,35 @@
+- name: Documentation Gestion des coûts Azure
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce que la gestion des coûts\_?"
+      href: overview.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Afficher les données de coût
+      href: quick-register-azure-sub.md
+    - name: Afficher les données de coût - EA
+      href: quick-register-ea.md
+    - name: Afficher les données de coût - CSP
+      href: quick-register-csp.md
+- name: Didacticiels
+  items:
+    - name: 1- Examiner l’utilisation et les coûts
+      href: tutorial-review-usage.md
+    - name: 2 - Contrôler l'accès aux données
+      href: tutorial-user-access.md
+    - name: 3 - prévoir les dépenses
+      href: tutorial-forecast-spending.md
+- name: Ressources
+  items:
+    - name: Vidéos Gestion des coûts
+      href: ref-videos.md
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: Disponibilité régionale
+      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'
+    - name: Forum Aux Questions
+      href: cost-mgt-faq.md

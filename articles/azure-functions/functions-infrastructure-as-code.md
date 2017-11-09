@@ -3,7 +3,7 @@ title: "Automatiser le déploiement de ressources pour une application de foncti
 description: "Découvrez comment créer un modèle Azure Resource Manager qui déploie votre application de fonction."
 services: Functions
 documtationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -16,14 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 9458b3b619649d094ddab1638e146571d9268fb0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
 Vous pouvez utiliser un modèle Azure Resource Manager pour déployer une application de fonction. Cet article présente les ressources et paramètres nécessaires pour effectuer cette opération. Vous devrez peut-être déployer des ressources supplémentaires, selon les [déclencheurs et liaisons](functions-triggers-bindings.md) présents dans votre application de fonction.
@@ -38,7 +36,7 @@ Pour des exemples de modèles, consultez :
 
 Une application de fonction nécessite les ressources suivantes :
 
-* Un compte de [stockage Azure](../storage/index.md)
+* Un compte de [stockage Azure](../storage/index.yml)
 * Un plan d’hébergement (plan Consommation ou plan App Service)
 * Une application de fonction 
 
@@ -293,4 +291,3 @@ En savoir plus sur le développement et la configuration d’Azure Functions.
 
 [Function app on Consumption plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json (Application de fonction dans le plan Consommation)
 [Function app on Azure App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json (Application de fonction dans le plan Azure App Service)
-

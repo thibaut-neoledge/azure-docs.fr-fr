@@ -3,7 +3,7 @@ title: "Configurer le protocole SSL de bout en bout avec Azure Application Gatew
 description: Cet article explique comment configurer le protocole SSL de bout en bout avec Azure Application Gateway en utilisant PowerShell.
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: df14d5c4572a250f9f8951ee3b86e87e6f652782
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: dbc012526b062f21e675576c8269f0076f43cbc6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurer le protocole SSL de bout en bout avec Application Gateway en utilisant PowerShell
 
@@ -289,4 +288,3 @@ DnsSettings              : {
 Pour plus d’informations sur le renforcement de la sécurité de vos applications web avec un pare-feu d’applications web via Application Gateway, consultez [Vue d’ensemble du pare-feu d’applications web](application-gateway-webapplicationfirewall-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
-

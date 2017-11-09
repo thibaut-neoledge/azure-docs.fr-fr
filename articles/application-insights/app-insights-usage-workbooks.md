@@ -11,15 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: e11d431c03be0d2aff05b2ceda8d3df41441a7ec
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4e7ca1f4b3ca7734b00f4d9ce60b466ecf2aeb3f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Examiner et de partager des données d’utilisation avec des classeurs interactifs dans Azure Application Insights
 
 Les classeurs associent des visualisations de données [Azure Application Insights](app-insights-overview.md), [des requêtes Analytics](app-insights-analytics.md)et du texte dans des documents interactifs. Les classeurs sont modifiables par les autres membres de l’équipe ayant accès à la même ressource Azure. Cela signifie que les requêtes et les contrôles utilisés pour créer un classeur sont à la disposition d’autres personnes consultant ce dernier, ce qui les rend faciles à explorer, à étendre et simplifie les recherches dans ceux-ci.
@@ -127,4 +125,3 @@ Pour épingler un lien à un classeur dans un tableau de bord Azure :
     - [Flux d’utilisateurs](app-insights-usage-flows.md)
     - [Ajouter du contexte utilisateur](app-insights-usage-send-user-context.md)
     
-

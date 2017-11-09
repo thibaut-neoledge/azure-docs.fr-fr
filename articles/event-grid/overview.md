@@ -6,16 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 10/20/2017
 ms.author: babanisa
+ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 59a834f32793e349d5639baf3c80dbcba274dfa8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="an-introduction-to-azure-event-grid"></a>Présentation d’Azure Event Grid
 
 Azure Event Grid vous permet de créer facilement des applications avec les architectures basées sur des événements. Sélectionnez la ressource Azure à laquelle vous souhaitez vous abonner et donnez un gestionnaire d’événements ou un point de terminaison WebHook auquel envoyé l’événement. Event Grid dispose d’une prise en charge intégrée pour les événements provenant des services Azure, tels que les objets BLOB de stockage et les groupes de ressources. Event Grid dispose également d’une prise en charge personnalisée pour les événements d’application et de tiers, à l’aide des rubriques et webhooks personnalisés. 
@@ -27,8 +25,6 @@ Dans sa version préliminaire, Event Grid prend en charge les emplacements **wes
 Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md).
 
 ![Modèle de grille d’événement fonctionnel](./media/overview/event-grid-functional-model.png)
-
-Stockage Blob n’est pas disponible publiquement en tant qu’éditeur.
 
 ## <a name="concepts"></a>Concepts
 
@@ -66,6 +62,7 @@ Actuellement, les services Azure suivants ont une prise en charge de l’éditeu
 * Groupes de ressources (opérations de gestion)
 * Abonnements Azure (opérations de gestion)
 * Event Hubs
+* Storage Blob
 * Rubriques personnalisées
 
 D’autres services Azure seront ajoutés cette année.
@@ -78,6 +75,7 @@ Actuellement, les services Azure suivants ont une prise en charge du gestionnair
 * Logic Apps
 * Azure Automation
 * WebHooks
+* Microsoft Flow
 
 D’autres services Azure seront ajoutés cette année.
 
@@ -119,7 +117,13 @@ Event Grid coûte 0,60 $ par million d’opérations (0,30 $ pendant l’aperçu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer et s’abonner aux événements personnalisés](custom-event-quickstart.md) Démarrez et commencez à envoyer vos propres événements personnalisés à tout point de terminaison à l’aide du démarrage rapide Azure Event Grid.
-* [Utilisation de Logic Apps comme gestionnaire d’événements](monitor-virtual-machine-changes-event-grid-logic-app.md) un didacticiel sur la création d’une application à l’aide de Logic Apps pour réagir aux événements émis par Event Grid.
+* [Router les événements d’objet blob de stockage](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+  Répondez aux événements d’objet blob de stockage à l’aide d’Event Grid.
+* [Créer des événements personnalisés et s’y abonner](custom-event-quickstart.md)  
+  Démarrez et commencez à envoyer vos propres événements personnalisés vers tout point de terminaison à l’aide du guide de démarrage rapide Azure Event Grid.
+* [Utilisation de Logic Apps en tant que gestionnaire d’événements](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+  Didacticiel sur la génération d’une application à l’aide de Logic Apps pour réagir aux événements envoyés par Event Grid.
+* [Diffuser en continu des données volumineuses dans un entrepôt de données](event-grid-event-hubs-integration.md)  
+  Didacticiel qui utilise Azure Functions pour diffuser en continu des données à partir d’Event Hubs vers SQL Data Warehouse.
 * [Référence de l'API REST Event Grid](/rest/api/eventgrid)  
   Fournit des informations techniques supplémentaires sur Azure Event Grid et une référence pour la gestion des abonnements aux événements, le routage et le filtrage.

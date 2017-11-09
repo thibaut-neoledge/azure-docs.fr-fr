@@ -1,6 +1,6 @@
 ---
-title: "Interface utilisateur d&quot;Azure Mobile Engagement - Campagne Reach"
-description: "Découvrez comment créer et gérer les campagnes de notifications Push à l&quot;aide d&quot;Azure Mobile Engagement"
+title: "Interface utilisateur d'Azure Mobile Engagement - Campagne Reach"
+description: "Découvrez comment créer et gérer les campagnes de notifications Push à l'aide d'Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d5110a33e13802fd6e5e0f075c7d3ddd521a1ef9
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Création et gestion des campagnes de notification Push
 Vous pouvez utiliser la section Reach de l'interface utilisateur pour créer une nouvelle campagne Push à l'aide d'une formule complexe en indiquant toutes les informations dont vous avez besoin pour envoyer une notification Push. Les options d'une campagne Push varient quelque peu selon les quatre types de campagne : Annonces, Sondages, Push de données et Vignettes (Windows Phone uniquement).
@@ -267,5 +266,4 @@ Vous pouvez utiliser la section Test pour envoyer cette notification Push à vot
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

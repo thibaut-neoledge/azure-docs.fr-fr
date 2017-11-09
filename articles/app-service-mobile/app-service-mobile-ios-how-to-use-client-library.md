@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
+ms.openlocfilehash: bd5e2fce31ae597f8ce48fb8f5492e280cbbf28f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 65817208e1b26fb5f9eb56d164f48b44d57dce56
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -688,7 +687,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS p
 ## <a name="twitter-fabric"></a>Procédure : authentifier les utilisateurs avec Twitter Fabric pour iOS
 Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs sur votre application utilisant Twitter. L’authentification par flux client est souvent préférable à l’utilisation de la méthode `loginWithProvider:completion:` , car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
-1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion Twitter, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) .
+1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion Twitter, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) .
 2. Ajoutez Fabric à votre projet en suivant la documentation [Fabric pour iOS : prise en main] (en anglais) et en configurant TwitterKit.
 
    > [!NOTE]
@@ -762,7 +761,7 @@ Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs su
 ## <a name="google-sdk"></a>Procédure : authentifier les utilisateurs avec le kit de développement logiciel (SDK) Google Sign-In pour iOS
 Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour iOS pour identifier les utilisateurs sur votre application utilisant un compte Google.  Google a récemment annoncé que des modifications avaient été apportées à ses stratégies de sécurité OAuth.  Ces modifications de stratégie nécessiteront l’utilisation du SDK Google à l’avenir.
 
-1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion Google, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Google](app-service-mobile-how-to-configure-google-authentication.md) .
+1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion Google, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Google](../app-service/app-service-mobile-how-to-configure-google-authentication.md) .
 2. Installez le SDK Google pour iOS en suivant les instructions figurant dans la documentation [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) (Google Sign-In pour iOS - Démarrer l’intégration). Vous pouvez ignorer la section « Authentification avec un serveur principal ».
 3. Ajoutez ce qui suit à la méthode `signIn:didSignInForUser:withError:` de votre délégué, en fonction du langage que vous utilisez.
 
@@ -876,8 +875,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]: ../active-directory/active-directory-devquickstarts-ios.md
-[9]: app-service-mobile-how-to-configure-facebook-authentication.md
+[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
-

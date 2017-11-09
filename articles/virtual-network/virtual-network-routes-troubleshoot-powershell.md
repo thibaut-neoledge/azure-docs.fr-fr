@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Résoudre des problèmes d’itinéraires à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -36,7 +34,7 @@ Des tables d’itinéraires sont associées aux sous-réseaux, qui s’appliquen
 
 * **Itinéraires système :** par défaut, chaque sous-réseau créé dans un réseau virtuel Azure a des tables d’itinéraires système qui permettent le trafic de réseau virtuel local, le trafic local au moyen de passerelles VPN et le trafic Internet. Il existe également des itinéraires système pour les réseaux virtuels homologués.
 * **Itinéraires BGP :** propagés aux interfaces réseau par le biais d’ExpressRoute ou des connexions VPN de site à site. Pour plus d’informations sur les itinéraires BGP, consultez les articles [BGP avec passerelles VPN](../vpn-gateway/vpn-gateway-bgp-overview.md) et [Présentation d’ExpressRoute](../expressroute/expressroute-introduction.md).
-* **Itinéraires définis par l’utilisateur :** si vous utilisez des appliances virtuelles réseau ou effectuez un tunneling forcé du trafic vers un réseau local par le biais d’un VPN de site à site, il se peut que des itinéraires définis par l’utilisateur soient associés à votre table d’itinéraires de sous-réseau. Si vous n’êtes pas familiarisé avec les itinéraires définis par l’utilisateur, consultez [Itinéraires définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined-routes) .
+* **Itinéraires définis par l’utilisateur :** si vous utilisez des appliances virtuelles réseau ou effectuez un tunneling forcé du trafic vers un réseau local par le biais d’un VPN de site à site, il se peut que des itinéraires définis par l’utilisateur soient associés à votre table d’itinéraires de sous-réseau. Si vous n’êtes pas familiarisé avec les itinéraires définis par l’utilisateur, consultez [Itinéraires définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined) .
 
 Avec les différents itinéraires applicables à une interface réseau, il peut être difficile de déterminer quels itinéraires agrégés sont efficaces. Pour vous aider à résoudre les problèmes de connectivité réseau de machine virtuelle, vous pouvez afficher tous les itinéraires effectifs pour une interface réseau dans le modèle de déploiement Azure Resource Manager.
 
@@ -137,5 +135,4 @@ Quelques éléments à prendre en compte lors de l’examen de la liste d’itin
 * Pour que le trafic VNet Peering fonctionne correctement, un itinéraire système avec **nextHopType** *VNetPeering* doit exister pour la plage de préfixes du réseau virtuel homologué. Si un itinéraire de ce type n’existe pas et si le lien d’homologation du réseau virtuel semble correct :
   * Patientez quelques secondes, puis recommencez s’il s’agit d’un lien d’homologation récemment établi. Il faut parfois plus de temps pour propager les itinéraires à toutes les interfaces réseau dans un sous-réseau.
   * Des règles du groupe de sécurité réseau peuvent avoir une incidence sur les flux de trafic. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux groupes de sécurité réseau](virtual-network-nsg-troubleshoot-powershell.md) .
-
 

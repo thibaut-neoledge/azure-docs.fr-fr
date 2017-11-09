@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 32d39e2c19348bc4a1ba218cfc411a70f9f212e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: d9870fafab3df3ab0ec72305e76a4d3547cc5b2c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Utiliser Jenkins pour générer et déployer votre application Linux Java
 Jenkins est un outil populaire pour l’intégration et le déploiement en continu de vos applications. Voici comment générer et déployer votre application Azure Service Fabric à l’aide de Jenkins.
@@ -38,56 +37,65 @@ Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Ser
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
-  ```
-2. L’application de conteneur Service Fabric doit être déployée sur le cluster, en suivant la procédure ci-dessous :
+  ``` 
+
+   > [!NOTE]
+   > Assurez-vous que le port 8081 est spécifié comme un point de terminaison personnalisé sur le cluster.
+   >
+2. Clonez l’application en procédant comme suit :
 
   ```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
 ```
 
-3. Vous avez besoin des détails relatifs à l’option de connexion du partage de fichiers du stockage Azure, dans lequel vous souhaitez conserver l’état de l’instance du conteneur Jenkins. Si vous utilisez le portail Microsoft Azure pour la même opération, veuillez suivre les étapes sous Création d’un compte de stockage Azure, par exemple ``sfjenkinsstorage1``. Créez un **partage de fichiers** sous ce compte de stockage, par exemple ``sfjenkins``. Cliquez sur **Connecter** pour le partage de fichiers et notez les valeurs affichées sous **Connexion à partir de Linux**, par exemple :
+3. Conservez l’état du conteneur Jenkins dans un partage de fichiers :
+  * Créez un compte de stockage Azure dans la **même région** que votre cluster, avec un nom tel que ``sfjenkinsstorage1``.
+  * Créez un **partage de fichiers** sous ce compte de stockage, avec un nom tel que ``sfjenkins``.
+  * Cliquez sur **Connecter** pour le partage de fichiers et notez les valeurs affichées sous **Connexion à partir de Linux** ; la valeur devrait ressembler à ce qui suit :
 ```sh
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
-4. Mettez à jour les valeurs d’espace réservé dans le script ```setupentrypoint.sh``` avec les détails azure-storage correspondants.
+> [!NOTE]
+> Pour que vous puissiez monter des partages cifs, le package cifs-utils doit être installé dans les nœuds de cluster.         
+>
+
+4. Mettez à jour les valeurs d’espace réservé dans le script ```setupentrypoint.sh``` avec les détails azure-storage de l’étape 3.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 ```
-Remplacez ``[REMOTE_FILE_SHARE_LOCATION]`` par la valeur ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` à partir de la sortie de la connexion au point 3 ci-dessus.
-Remplacez ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` par la valeur ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` à partir du point 3 ci-dessus.
+  * Remplacez ``[REMOTE_FILE_SHARE_LOCATION]`` par la valeur ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` à partir de la sortie de la connexion à l'étape 3 ci-dessus.
+  * Remplacez ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` par la valeur ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` à partir de l’étape 3 ci-dessus.
 
 5. Connectez-vous au cluster et installez l’application de conteneur.
-```azurecli
+```sh
 sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 Cela permet d’installer un conteneur Jenkins sur le cluster et de l’analyser à l’aide de Service Fabric Explorer.
 
-### <a name="steps"></a>Étapes
-1. Dans votre navigateur, accédez à ``http://PublicIPorFQDN:8081``. Vous obtenez le chemin d’accès du mot de passe administrateur initial requis pour vous connecter. Vous pouvez continuer à utiliser Jenkins en tant qu’utilisateur administrateur. Ou vous pouvez créer et modifier l’utilisateur, après vous être connecté avec le compte administrateur initial.
-
    > [!NOTE]
-   > Vérifiez que le port 8081 est spécifié en tant que port de point de terminaison de l’application lors de la création du cluster.
+   > Le téléchargement de l’image Jenkins sur le cluster peut prendre quelques minutes.
    >
 
-2. Obtenez l’ID d’instance conteneur à l’aide de ``docker ps -a``.
-3. Connectez-vous en SSH (Secure Shell) au conteneur et collez le chemin d’accès indiqué sur le portail Jenkins. Par exemple, si dans le portail le chemin d’accès indiqué est `PATH_TO_INITIAL_ADMIN_PASSWORD`, vous pouvez exécuter ce qui suit :
+### <a name="steps"></a>Étapes
+1. Dans votre navigateur, accédez à ``http://PublicIPorFQDN:8081``. Vous obtenez le chemin d’accès du mot de passe administrateur initial requis pour vous connecter. 
+2. Consultez Service Fabric Explorer pour déterminer le nœud sur lequel le conteneur Jenkins est en cours d’exécution. Connectez-vous via Secure Shell (SSH) à ce nœud.
+```sh
+ssh user@PublicIPorFQDN -p [port]
+``` 
+3. Obtenez l’ID d’instance conteneur à l’aide de ``docker ps -a``.
+4. Connectez-vous en SSH (Secure Shell) au conteneur et collez le chemin d’accès indiqué sur le portail Jenkins. Par exemple, si dans le portail le chemin d’accès indiqué est `PATH_TO_INITIAL_ADMIN_PASSWORD`, vous pouvez exécuter ce qui suit :
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
-  cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
-
-4. Configurez GitHub pour utiliser Jenkins, en suivant les étapes présentées dans [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Génération d’une clé SSH et ajout de celle-ci à l’agent SSH).
-    * Suivez les instructions fournies par GitHub pour générer la clé SSH, puis l’ajouter au compte GitHub qui héberge votre référentiel.
-    * Exécutez les commandes mentionnées dans le lien ci-dessus dans le shell Jenkins Docker (et non sur l’hôte).
-    * Pour vous connecter au shell Jenkins depuis votre hôte, utilisez la commande suivante :
-
   ```sh
-  docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+  cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
   ```
+5. Sur la page de mise en route Jenkins, choisissez l’option Sélectionner les plug-ins à installer, cochez la case **Aucun**, puis cliquez sur Installer.
+6. Créez un utilisateur ou sélectionnez cette option pour continuer en tant qu’administrateur.
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Configurer Jenkins en dehors d’un cluster Service Fabric
 
@@ -130,7 +138,7 @@ Vérifiez que le cluster ou la machine hébergeant l’image de conteneur Jenkin
 
 1. Accédez à ``http://PublicIPorFQDN:8081``
 2. Dans le tableau de bord Jenkins, sélectionnez **Manage Jenkins** > **Manage Plugins** > **Advanced** (Gérer Jenkins -> Gérer les plug-ins -> Avancé).
-Ici, vous pouvez charger un plug-in. Sélectionnez **Choisir un fichier**, puis sélectionnez le fichier **serviceFabric.hpi**, que vous avez téléchargé sous les conditions préalables. Quand vous sélectionnez **Charger**, Jenkins installe automatiquement le plug-in. Autorisez un redémarrage si nécessaire.
+Ici, vous pouvez charger un plug-in. Sélectionnez **Choisir un fichier**, puis sélectionnez le fichier **serviceFabric.hpi**, que vous avez téléchargé sous les conditions préalables, ou que vous pouvez télécharger [ici](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Quand vous sélectionnez **Charger**, Jenkins installe automatiquement le plug-in. Autorisez un redémarrage si nécessaire.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Créer et configurer un travail Jenkins
 
@@ -138,7 +146,7 @@ Ici, vous pouvez charger un plug-in. Sélectionnez **Choisir un fichier**, puis 
 2. Entrez un nom d’élément (par exemple, **MyJob**). Sélectionnez **free-style project** (projet libre), puis cliquez sur **OK**.
 3. Accédez à la page du travail, puis cliquez sur **Configurer**.
 
-   a. Dans la section générale, sous **GitHub project** (Projet GitHub), spécifiez l’URL de votre projet GitHub. Cette URL héberge l’application Java Service Fabric que vous souhaitez intégrer au flux d’intégration continue et de déploiement continu Jenkins (CI/CD) (par exemple, ``https://github.com/sayantancs/SFJenkins``).
+   a. Dans la section générale, cochez la case **GitHub project** (Projet GitHub), puis spécifiez l’URL de votre projet GitHub. Cette URL héberge l’application Java Service Fabric que vous souhaitez intégrer au flux d’intégration continue et de déploiement continu Jenkins (CI/CD) (par exemple, ``https://github.com/sayantancs/SFJenkins``).
 
    b. Sous la section **Gestion du code source**, sélectionnez **Git**. Spécifiez l’URL du référentiel qui héberge l’application Java Service Fabric que vous souhaitez intégrer au flux Jenkins CI/CD (par exemple, ``https://github.com/sayantancs/SFJenkins.git``). Vous pouvez également spécifier ici la branche à générer (par exemple, **/master**).
 4. Configurez votre *GitHub* (qui héberge le référentiel) afin qu’il soit en mesure de communiquer avec Jenkins. Procédez comme suit :
@@ -153,7 +161,7 @@ Ici, vous pouvez charger un plug-in. Sélectionnez **Choisir un fichier**, puis 
 
    e. Dans la section **Build Triggers** (Générer des déclencheurs), sélectionnez l’option de création souhaitée. Pour cet exemple, vous souhaitez déclencher une génération chaque fois qu’un envoi a lieu vers le référentiel. Vous sélectionnez donc **GitHub hook trigger for GITScm polling** (Déclencher un hook GitHub pour l’interrogation GITScm). (Cette option s’appelait auparavant **Build when a change is pushed to GitHub** (Générer lorsqu’une modification est envoyée à GitHub).)
 
-   f. Sous la **section Build** (Générer), dans la liste déroulante **Add build step** (Ajouter une étape de génération), sélectionnez l’option **Invoke Gradle Script** (Appeler le script Gradle). Dans le widget qui apparaît, spécifiez le chemin d’accès à **Root build script** (Script de génération racine) pour votre application. Il récupère le Gradle de la génération à partir du chemin spécifié et fonctionne en conséquence. Si vous créez un projet nommé ``MyActor`` (à l’aide du plug-in Eclipse ou du générateur Yeoman), le script de compilation racine doit contenir ``${WORKSPACE}/MyActor``. Consultez la capture d’écran ci-dessous pour avoir une idée du rendu :
+   f. Sous la **section Build** (Générer), dans la liste déroulante **Add build step** (Ajouter une étape de génération), sélectionnez l’option **Invoke Gradle Script** (Appeler le script Gradle). Dans le widget qui apparaît, ouvrez le menu Avancé, spécifiez le chemin d’accès à **Root build script** (Script de génération racine) pour votre application. Il récupère le Gradle de la génération à partir du chemin spécifié et fonctionne en conséquence. Si vous créez un projet nommé ``MyActor`` (à l’aide du plug-in Eclipse ou du générateur Yeoman), le script de compilation racine doit contenir ``${WORKSPACE}/MyActor``. Consultez la capture d’écran ci-dessous pour avoir une idée du rendu :
 
     ![Action de génération Jenkins de Service Fabric][build-step]
 
@@ -171,4 +179,3 @@ GitHub et Jenkins sont maintenant configurés. Envisagez d’effectuer des exemp
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
   [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
+ms.openlocfilehash: 793a2cdd55c4e9213e5097f4e318c0790960a64d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: e6eafb1a0030b022da2b5d0b787e092f3067c99f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Créer et lire des messages IoT Hub
 
@@ -31,8 +30,8 @@ Pour prendre en charge une interopérabilité transparente entre les différents
 
 Les valeurs et les noms de propriétés peuvent contenir uniquement des caractères alphanumériques ASCII, plus les caractères ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``, quand vous effectuez les opérations suivantes :
 
-* Envoyer des messages appareil-à-cloud à l’aide du protocole HTTP.
-* Envoyer des messages Cloud vers appareil.
+* Envoyer des messages appareil-à-cloud à l’aide du protocole HTTPS.
+* Envoyer des messages cloud-à-appareil.
 
 Pour plus d’informations sur l’encodage et le décodage des messages envoyés à l’aide de différents protocoles, consultez [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks].
 
@@ -77,4 +76,3 @@ Pour savoir comment créer et lire des messages IoT Hub dans divers langages de 
 [lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties
-

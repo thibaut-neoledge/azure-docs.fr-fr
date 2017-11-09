@@ -1,6 +1,6 @@
 ---
-title: "Connexions ITSM dans IT Service Management Connector d’OMS | Microsoft Docs"
-description: "Connectez vos produits/services ITSM à IT Service Management Connector dans OMS pour surveiller et gérer les éléments de travail ITSM de manière centralisée."
+title: Connexions prises en charge avec IT Service Management Connector dans Azure Log Analytics | Microsoft Docs
+description: "Connectez vos produits/services ITSM à IT Service Management Connector dans Azure Log Analytics pour surveiller et gérer les éléments de travail ITSM de manière centralisée."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Connecter des produits/services ITSM à IT Service Management Connector (préversion)
 Cet article fournit des informations sur la façon de connecter votre service/produit ITSM à IT Service Management Connector dans OMS et de gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur IT Service Management Connector, voir la [Présentation](log-analytics-itsmc-overview.md).
@@ -39,7 +38,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 Vérifiez que les conditions préalables suivantes sont remplies :
 
 - IT Service Management Connector installé.
-Plus d’informations : [Configuration](log-analytics-itsmc-overview.md#configuration).
+Pour plus d’informations, consultez [Ajout de la solution IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - L’application web Service Manager (application web) est déployée et configurée. Pour plus d’informations sur l’application web, cliquez [ici](#create-and-deploy-service-manager-web-app-service).
 - Connexion hybride créée et configurée. Plus d’informations : [Configurer la connexion hybride](#configure-the-hybrid-connection).
 - Versions prises en charge de Service Manager : 2012 R2 ou 2016.
@@ -176,7 +175,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 
 Vérifiez que les conditions préalables suivantes sont remplies :
 
-- IT Service Management Connector installé. Plus d’informations : [Configuration](log-analytics-itsmc-overview.md#configuration).
+- IT Service Management Connector installé. Pour plus d’informations, consultez [Ajout de la solution IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versions prises en charge de ServiceNow : Fuji, Genève, Helsinki.
 
 Les administrateurs ServiceNow doivent procéder comme suis dans leur instance ServiceNow :
@@ -269,8 +268,10 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 
 Vérifiez que les conditions préalables suivantes sont remplies :
 
-- IT Service Management Connector installé. Plus d’informations : [Configuration](log-analytics-itsmc-overview.md#configuration).
+
+- IT Service Management Connector installé. Pour plus d’informations, consultez [Ajout de la solution IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - L’application Provance doit être inscrite auprès d’Azure AD, et l’ID client est mis à disposition. Pour plus d’informations, consultez [Comment configurer votre application pour utiliser la connexion Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
 - Rôle utilisateur : administrateur.
 
 ### <a name="connection-procedure"></a>Procédure de connexion
@@ -293,7 +294,7 @@ Exécutez la procédure suivante pour créer une connexion Provance :
 | **Nom d’utilisateur**   | Tapez le nom d’utilisateur qui peut se connecter à IT Service Management Connector.    |
 | **Mot de passe**   | Tapez le mot de passe associé à ce nom d’utilisateur. **Remarque** : le nom d’utilisateur et le mot de passe sont utilisés uniquement pour générer des jetons d’authentification. Ils ne sont pas stockés dans le service OMS.|
 | **URL du serveur**   | Tapez l’URL de l’instance Provance que vous souhaitez connecter à IT Service Management Connector. |
-| **ID client**   | Tapez l’ID client que vous avez généré dans votre instance Provance pour authentifier cette connexion.  Pour plus d’informations sur l’ID client, consultez [Comment configurer votre application pour utiliser la connexion Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **ID client**   | Tapez l’ID client que vous avez généré dans votre instance Provance pour authentifier cette connexion.  Pour plus d’informations sur l’ID client, consultez [Comment configurer votre application pour utiliser la connexion Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Étendue de la synchronisation des données**   | Sélectionnez les éléments de travail de Provance que vous souhaitez synchroniser à OMS via IT Service Management Connector.  Ces éléments de travail sont importés dans Log Analytics.   **Options :** incidents, demandes de modification.|
 | **Synchroniser les données** | Tapez le nombre de jours passés dont vous souhaitez les données. **Limite maximale** : 120 jours. |
 | **Create new configuration item in ITSM solution (Créer un élément de configuration dans la solution ITSM)** | Sélectionnez cette option si vous souhaitez créer les éléments de configuration dans le produit ITSM. Lorsque cette option est sélectionnée, OMS crée les éléments de configuration affectés en tant qu’éléments de configuration (dans le cas d’éléments de configuration non existants) dans le système ITSM pris en charge. **Par défaut** : désactivée.|
@@ -313,7 +314,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 
 Vérifiez que les conditions préalables suivantes sont remplies :
 
-- IT Service Management Connector installé. Plus d’informations : [Configuration](log-analytics-itsmc-overview.md#configuration).
+- IT Service Management Connector installé. Pour plus d’informations, consultez [Ajout de la solution IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ID client généré. Plus d’informations : [Générer un ID client pour Cherwell](#generate-client-id-for-cherwell).
 - Rôle utilisateur : administrateur.
 
@@ -367,4 +368,3 @@ Pour générer l’ID client/la clé de Cherwell, procédez comme suit :
  - [Create ITSM work items from OMS logs (Créer des éléments de travail ITSM à partir de journaux OMS)](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
 
 - [View log analytics for your connection (Afficher l’analyse des journaux correspondant à votre connexion)](log-analytics-itsmc-overview.md#using-the-solution)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: f401f592d79ad954aa466de74d3e3fbb18aa9a5b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Didacticiel : Intégration d’Azure Active Directory à Mimecast Admin Console
 
@@ -202,7 +201,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-mimecast-admin-console-test-user"></a>Créer un utilisateur de test Mimecast Admin Console
 
@@ -215,7 +214,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mimecast Admin Conso
 1. Connectez-vous à **Mimecast Admin Console** en tant qu’administrateur.
 2. Accédez à **Directories \> Internal**.
    
-   ![Annuaires](./media/active-directory-saas-mimecast-admin-console-tutorial/ic795003.png "Annuaires")
+   ![Répertoires](./media/active-directory-saas-mimecast-admin-console-tutorial/ic795003.png "Répertoires")
 3. Cliquez sur **Register New Domain**.
    
    ![Enregistrer un nouveau domaine](./media/active-directory-saas-mimecast-admin-console-tutorial/ic795004.png "Enregistrer un nouveau domaine")
@@ -288,5 +287,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_general_203.png
-
 

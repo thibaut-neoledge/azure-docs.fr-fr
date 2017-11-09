@@ -1,6 +1,6 @@
 ---
 title: Configurer un appareil pour le service IoT Hub Device Provisioning | Microsoft Docs
-description: "Configurer un appareil à approvisionner par le biais du service IoT Hub Device Provisioning pendant le processus de fabrication de l’appareil"
+description: "Configurer un appareil à provisionner par le biais du service IoT Hub Device Provisioning pendant le processus de fabrication de l’appareil"
 services: iot-dps
 keywords: 
 author: dsk-2015
@@ -12,17 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
 
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurer un appareil à approvisionner à l’aide du service IoT Hub Device Provisioning
-
-Dans le didacticiel précédent, vous avez appris à configurer le service IoT Hub Device Provisioning afin d’approvisionner automatiquement vos appareils pour votre hub IoT. Ce didacticiel fournit des instructions pour configurer votre appareil pendant le processus de fabrication, afin que vous puissiez configurer le service Device Provisioning pour votre appareil en fonction de son [module de sécurité matériel (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security) et que l’appareil puisse se connecter à votre service Device Provisioning quand il démarre pour la première fois. Ce didacticiel présente les processus correspondant aux opérations suivantes :
+Dans le didacticiel précédent, vous avez appris à configurer le service IoT Hub Device Provisioning afin de provisionner automatiquement vos appareils pour votre hub IoT. Ce didacticiel fournit des instructions pour configurer votre appareil pendant le processus de fabrication, afin que vous puissiez configurer le service Device Provisioning pour votre appareil en fonction de son [module de sécurité matériel (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security) et que l’appareil puisse se connecter à votre service Device Provisioning quand il démarre pour la première fois. Ce didacticiel présente les processus correspondant aux opérations suivantes :
 
 > [!div class="checklist"]
 > * Sélectionner un module de sécurité matériel
@@ -30,9 +28,9 @@ Dans le didacticiel précédent, vous avez appris à configurer le service IoT H
 > * Extraire les artefacts de sécurité
 > * Paramétrer la configuration du service Device Provisioning sur l’appareil
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-Avant de continuer, créez votre instance du service Device Provisioning et un hub IoT en suivant les instructions indiquées dans le didacticiel [Configurer le cloud pour l’approvisionnement d’appareils](./tutorial-set-up-cloud.md).
+Avant de continuer, créez votre instance du service Device Provisioning et un hub IoT en suivant les instructions indiquées dans le didacticiel [Configurer le cloud pour le provisionnement d’appareils](./tutorial-set-up-cloud.md).
 
 
 ## <a name="select-a-hardware-security-module"></a>Sélectionner un module de sécurité matériel
@@ -108,7 +106,7 @@ L’étape suivante consiste à extraire les artefacts de sécurité pour le mod
 1. Pour un appareil TPM, vous devez récupérer la **paire de clés de type EK** qui lui est associée auprès du fabricant du processeur TPM. Vous pouvez dériver un **ID d’inscription** unique pour votre appareil TPM en hachant la paire de clés de type EK. 
 2. Pour un appareil X.509, vous devez obtenir les certificats délivrés à votre ou vos appareils : certificats d’entité finale pour les inscriptions d’appareils individuels, ou certificats racines pour les inscriptions de groupe d’appareils.
 
-Ces artefacts de sécurité sont obligatoires pour inscrire vos appareils auprès du service Device Provisioning. Ensuite, le service d’approvisionnement attend qu’un de ces appareils démarre et se connecte à lui. Consultez [Guide pratique pour gérer les inscriptions d’appareils](how-to-manage-enrollments.md) pour plus d’informations sur la création d’inscriptions à l’aide de ces artefacts de sécurité. 
+Ces artefacts de sécurité sont obligatoires pour inscrire vos appareils auprès du service Device Provisioning. Ensuite, le service de provisionnement attend qu’un de ces appareils démarre et se connecte à lui. Consultez [Guide pratique pour gérer les inscriptions d’appareils](how-to-manage-enrollments.md) pour plus d’informations sur la création d’inscriptions à l’aide de ces artefacts de sécurité. 
 
 Au premier démarrage de votre appareil, le SDK client interagit avec votre processeur pour extraire les artefacts de sécurité de l’appareil et vérifie l’inscription auprès de votre service Device Provisionings. 
 
@@ -125,7 +123,7 @@ DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALL
 void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the Device Provisioning Service and calls any user callbacks that are required.
 ```
 
-N’oubliez pas d’initialiser les variables `dps_uri` et `dps_scope_id` comme indiqué dans la [section Simuler la première séquence de démarrage de l’appareil de ce guide de démarrage rapide](./quick-create-simulated-device.md#firstbootsequence), avant de les utiliser. L’API d’enregistrement client Device Provisioning `DPS_Client_LL_Create` se connecte au service Device Provisioning global. *L’étendue de l’ID* est générée par le service et garantit l’unicité. Elle est immuable et sert à identifier les ID d’inscription. Le `iothub_uri` permet à l’API d’enregistrement client IoT Hub `IoTHubClient_LL_CreateFromDeviceAuth` de se connecter au hub IoT adéquat. 
+N’oubliez pas d’initialiser les variables `dps_uri` et `dps_scope_id` avant de les utiliser, comme indiqué dans la [section Simuler la première séquence de démarrage de l’appareil de ce guide de démarrage rapide](./quick-create-simulated-device.md#firstbootsequence). L’API d’enregistrement client Device Provisioning `DPS_Client_LL_Create` se connecte au service Device Provisioning global. *L’étendue de l’ID* est générée par le service et garantit l’unicité. Elle est immuable et sert à identifier les ID d’inscription. Le `iothub_uri` permet à l’API d’enregistrement client IoT Hub `IoTHubClient_LL_CreateFromDeviceAuth` de se connecter au hub IoT adéquat. 
 
 
 À l’aide de ces API, votre appareil peut se connecter pour être enregistré auprès du service Device Provisioning quand il démarre, obtenir les informations concernant votre hub IoT, puis s’y connecter. Le fichier `dps_client/samples/dps_client_sample/dps_client_sample.c` montre comment utiliser ces API. En règle générale, vous devez créer le framework suivant pour l’enregistrement client :
@@ -167,7 +165,7 @@ Vous pouvez affiner votre application d’enregistrement client du service Devic
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-À ce stade, vous pouvez avoir configuré les services Device Provisioning et IoT Hub dans le portail. Si vous souhaitez abandonner la configuration de l’approvisionnement d’appareils et/ou retarder l’utilisation d’un de ces services, nous vous recommandons de les fermer pour éviter de subir des coûts inutiles.
+À ce stade, vous pouvez avoir configuré les services Device Provisioning et IoT Hub dans le portail. Si vous souhaitez abandonner la configuration du provisionnement d’appareils et/ou retarder l’utilisation d’un de ces services, nous vous recommandons de les fermer pour éviter des coûts inutiles.
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre service Device Provisioning. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
 1. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
@@ -182,9 +180,8 @@ Dans ce didacticiel, vous avez appris à :
 > * Extraire les artefacts de sécurité
 > * Paramétrer la configuration du service Device Provisioning sur l’appareil
 
-Passez au didacticiel suivant afin d’apprendre à approvisionner l’appareil pour votre hub IoT en l’inscrivant auprès du service IoT Hub Device Provisioning à des fins d’approvisionnement automatique.
+Passez au didacticiel suivant afin d’apprendre à provisionner l’appareil pour votre hub IoT en l’inscrivant auprès du service IoT Hub Device Provisioning à des fins de provisionnement automatique.
 
 > [!div class="nextstepaction"]
-> [Approvisionner l’appareil pour votre hub IoT](tutorial-provision-device-to-hub.md)
-
+> [Provisionner l’appareil pour votre hub IoT](tutorial-provision-device-to-hub.md)
 

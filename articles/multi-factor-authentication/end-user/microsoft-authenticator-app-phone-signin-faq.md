@@ -15,12 +15,11 @@ ms.date: 08/12/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
+ms.openlocfilehash: b62900b780884c241d96f0bed8e93a1a0927cfe3
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 9fb25f9f26a220c90f82add02fa5bdb954a926c3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Connectez-vous avec votre téléphone, et non votre mot de passe
 
@@ -89,7 +88,6 @@ Pour votre PC, nous vous recommandons de vous connecter à Windows Hello sur Win
 Pour l’instant, cette fonctionnalité n’est pas encore développée pour Microsoft Authenticator sur Windows Phone. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous n’avez pas téléchargé l’application Microsoft Authenticator, découvrez-la par vous-même. Cette application est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), et la connexion par téléphone est disponible sur l’application Microsoft Authenticator pour [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Si vous n’avez pas téléchargé l’application Microsoft Authenticator, découvrez-la par vous-même. Cette application est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), et la connexion par téléphone est disponible sur l’application Microsoft Authenticator pour [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Si vous avez des questions concernant l’application en général, consultez le [Forum aux questions sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md).
-

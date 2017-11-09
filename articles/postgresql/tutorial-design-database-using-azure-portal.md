@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 977d47fb72d1c9e2a482602aacc456ae95547676
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 9f1c8241d0d7e68abd175c7c1c3b023d18b24a68
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Concevoir votre première base de données Azure pour PostgreSQL avec le portail Azure
 
@@ -23,7 +22,7 @@ Base de données Azure pour PostgreSQL est un service géré qui vous permet d�
 
 Ce didacticiel vous montre comment utiliser le portail Azure pour :
 > [!div class="checklist"]
-> * Créer une base de données Azure pour PostgreSQL
+> * Créer un serveur Azure Database pour PostgreSQL
 > * Configurer le pare-feu du serveur
 > * Utiliser l’utilitaire [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) pour créer une base de données
 > * Charger les exemples de données
@@ -47,20 +46,20 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
  ![Base de données Azure pour PostgreSQL - Créer la base de données](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
 3.  Renseignez le formulaire du nouveau serveur avec les informations suivantes, comme indiqué dans l’illustration précédente :
-    - Nom du serveur : **mypgserver-20170401** (le nom du serveur correspond au nom DNS et doit ainsi être globalement unique) 
+    - Nom du serveur : **mypgserver-20170401** (le nom du serveur correspond au nom DNS et doit ainsi être globalement unique). 
     - Abonnement : si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource existe ou est facturée.
-    - Groupe de ressources : **myresourcegroup**
-    - Connexion d’administrateur du serveur et mot de passe de votre choix
+    - Groupe de ressources : **myresourcegroup**.
+    - Connexion d’administrateur du serveur et mot de passe de votre choix.
     - Lieu
-    - Version de PostgreSQL
+    - Version de PostgreSQL.
 
   > [!IMPORTANT]
   > La connexion d’administrateur serveur et le mot de passe que vous spécifiez ici seront requis plus loin dans ce guide de démarrage rapide pour la connexion au serveur et à ses bases de données. Retenez ou enregistrez ces informations pour une utilisation ultérieure.
 
-4.  Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service et le niveau de performances pour votre nouvelle base de données. Pour ce guide de démarrage rapide, choisissez le niveau **De base**, **50 unités de calcul** et **50 Go** de stockage inclus.
+4.  Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service et le niveau de performances pour votre nouvelle base de données. Pour ce guide de démarrage rapide, choisissez le niveau **De base**, **50 unités de calcul** et **50 Go** de stockage inclus.
  ![Base de données Azure pour PostgreSQL - Choisir le niveau de service](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
 5.  Cliquez sur **OK**.
-6.  Cliquez sur **Créer** pour configurer le serveur. L’approvisionnement prend quelques minutes.
+6.  Cliquez sur **Créer** pour approvisionner le serveur. L’approvisionnement prend quelques minutes.
 
   > [!TIP]
   > Cochez l’option **Épingler au tableau de bord** pour faciliter le suivi de vos déploiements.
@@ -68,33 +67,33 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
 7.  Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
  ![Base de données Azure pour PostgreSQL - Consulter les notifications](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
    
-  Par défaut, la création de la base de données **postgres** intervient sous votre serveur. La base de données [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) est une base de données par défaut dont les utilisateurs, les utilitaires et les applications tierces vont se servir. 
+  Par défaut, la création de la base de données **postgres** intervient sous votre serveur. La base de données [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) est une base de données par défaut destinée aux utilisateurs, utilitaires et applications tierces. 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurer une règle de pare-feu au niveau du serveur
 
-Le service Base de données Azure pour PostgreSQL crée un pare-feu au niveau du serveur. Le pare-feu empêche les applications et les outils externes de se connecter au serveur ou à toute base de données sur le serveur, sauf si une règle de pare-feu existe qui permet d’ouvrir le pare-feu à des adresses IP spécifiques. 
+Le service Base de données Azure pour PostgreSQL crée un pare-feu au niveau du serveur. Par défaut, ce pare-feu empêche l’ensemble des applications et des outils externes de se connecter au serveur et à toute base de données sur le serveur, sauf si une règle de pare-feu est créée de manière à ouvrir le pare-feu pour une plage d’adresses IP spécifique. 
 
-1.  Une fois le déploiement terminé, cliquez sur **Toutes les ressources** dans le menu de gauche et saisissez le nom, par exemple **mypgserver-20170401**, pour rechercher le serveur qui vient d’être créé. Cliquez sur le nom du serveur dans les résultats de la recherche. La page **Présentation** correspondant à votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
+1.  Une fois le déploiement terminé, cliquez sur **Toutes les ressources** dans le menu de gauche et saisissez le nom **mypgserver-20170401** pour rechercher le serveur qui vient d’être créé. Cliquez sur le nom du serveur figurant dans les résultats de la recherche. La page **Présentation** correspondant à votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
  
  ![Base de données Azure pour PostgreSQL - Rechercher le serveur ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  Dans le panneau du serveur, sélectionnez **Sécurité de la connexion**. 
-3.  Cliquez dans la zone de texte sous **Nom de la règle**, puis ajoutez une nouvelle règle de pare-feu pour placer la plage IP pour la connectivité en liste blanche. Pour ce didacticiel, nous allons autoriser toutes les adresses IP. Pour cela, tapez **Nom de la règle = AllowAllIps** ,  **= 0.0.0.0** et **= 255.255.255.255** , puis cliquez sur **Enregistrer**. Vous pouvez définir une règle de pare-feu qui couvre une plage IP afin de vous connecter à partir de votre réseau.
+3.  Cliquez dans la zone de texte sous **Nom de la règle**, puis ajoutez une nouvelle règle de pare-feu pour placer la plage IP pour la connectivité en liste verte. Pour ce didacticiel, nous allons autoriser toutes les adresses IP. Pour cela, tapez **Nom de la règle = AllowAllIps** ,  **= 0.0.0.0** et **= 255.255.255.255** , puis cliquez sur **Enregistrer**. Vous pouvez définir une règle de pare-feu spécifique qui couvre une plage d’adresses IP plus restreinte afin de vous connecter à partir de votre réseau.
  
  ![Base de données Azure pour PostgreSQL - Créer une règle de pare-feu](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.  Cliquez sur **Enregistrer** puis sur le **X** pour fermer la page **Sécurité de la connexion**.
+4.  Cliquez sur **Enregistrer**, puis sur **X** pour fermer la page **Sécurité de la connexion**.
 
   > [!NOTE]
-  > Le serveur Azure PostgreSQL communique sur le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 5432.
+  > Le serveur Azure PostgreSQL communique sur le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 5432.
   >
 
 
-## <a name="get-the-connection-information"></a>Obtenir des informations de connexion
+## <a name="get-the-connection-information"></a>Obtenir les informations de connexion
 
 Lorsque nous avons créé notre serveur de base de données Azure pour PostgreSQL, la base de données **postgres** par défaut a également été créée. Pour vous connecter à votre serveur de base de données, vous devez fournir des informations sur l’hôte et des informations d’identification pour l’accès.
 
-1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer **mypgserver-20170401**.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur **mypgserver-20170401** que vous venez de créer.
 
   ![Base de données Azure pour PostgreSQL - Rechercher le serveur ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
@@ -106,8 +105,8 @@ Lorsque nous avons créé notre serveur de base de données Azure pour PostgreSQ
 
 ## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Se connecter à la base de données PostgreSQL à l’aide de psql dans Cloud Shell
 
-Nous allons maintenant utiliser l’utilitaire de ligne de commande psql pour nous connecter au serveur de base de données Azure pour PostgreSQL. 
-1. Exécutez Azure Cloud Shell via l’icône de la console dans le volet de navigation supérieure.
+Nous allons maintenant utiliser l’utilitaire de ligne de commande [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) pour nous connecter au serveur Azure Database pour PostgreSQL. 
+1. Exécutez Azure Cloud Shell via l’icône de la console dans le volet de navigation supérieur.
 
    ![Base de données Azure pour PostgreSQL - Icône de la console Azure Cloud Shell](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
 
@@ -120,7 +119,7 @@ Nous allons maintenant utiliser l’utilitaire de ligne de commande psql pour no
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Par exemple, la commande suivante permet de se connecter à la base de données par défaut appelée **postgres** sur le serveur PostgreSQL **mypgserver-20170401.postgres.database.azure.com** à l’aide des informations d’identification d’accès. À l’invite, entrez votre mot de passe d’administrateur du serveur.
+   Par exemple, la commande suivante permet de se connecter à la base de données par défaut appelée **postgres** sur votre serveur PostgreSQL **mypgserver-20170401.postgres.database.azure.com** à l’aide des informations d’identification d’accès. À l’invite, entrez votre mot de passe d’administrateur du serveur.
 
    ```bash
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
@@ -160,28 +159,28 @@ INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150);
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Vous avez maintenant chargé deux lignes de données dans la table que vous avez créée précédemment.
+La table d’inventaire que vous avez créée précédemment contient maintenant deux lignes d’exemples de données.
 
 ## <a name="query-and-update-the-data-in-the-tables"></a>Interroger et mettre à jour les données des tables
-Exécutez la requête suivante pour récupérer des informations à partir de la table de base de données. 
+Exécutez la requête suivante pour récupérer des informations à partir de la table de base de données d’inventaire. 
 ```sql
 SELECT * FROM inventory;
 ```
 
-Vous pouvez également mettre à jour les données des tables.
+Vous pouvez également mettre à jour les données de la table.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-La ligne est mise à jour en conséquence lorsque vous récupérez les données.
+Vous pouvez voir les valeurs mises à jour quand vous récupérez les données.
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-data-to-a-previous-point-in-time"></a>Restaurer les données à un point antérieur dans le temps
-Imaginez que vous avez supprimé cette table par erreur. La récupération dans ce cas n’est pas simple. La base de données Azure pour PostgreSQL vous permet de revenir à n’importe quel point dans le temps (dans la limite de 7 jours (De base) et de 35 jours (Standard)), puis d’effectuer une restauration vers un nouveau serveur. Vous pouvez alors utiliser ce nouveau serveur pour récupérer les données supprimées. Les étapes suivantes restaurent le serveur dans l’état dans lequel il était avant l’ajout de la table.
+Imaginez que vous avez supprimé cette table par erreur. La récupération dans ce cas n’est pas simple. La base de données Azure pour PostgreSQL vous permet de revenir à n’importe quel point dans le temps (dans la limite de 7 jours (De base) et de 35 jours (Standard)), puis d’effectuer une restauration vers un nouveau serveur. Vous pouvez alors utiliser ce nouveau serveur pour récupérer les données supprimées. Les étapes suivantes permettent de restaurer le serveur **mypgserver-20170401** à un point dans le temps antérieur à l’ajout de la table.
 
-1.  Dans la page de la base de données Azure pour PostgreSQL pour votre serveur, cliquez sur **Restaurer** dans la barre d’outils. La page **Restauration** s’ouvre.
+1.  Dans la page **Vue d’ensemble** d’Azure Database pour PostgreSQL pour votre serveur, cliquez sur **Restaurer** dans la barre d’outils. La page **Restauration** s’ouvre.
   ![Portail Azure - Options du formulaire de restauration](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
 2.  Remplissez le formulaire **Restaurer** avec les informations requises :
 
@@ -190,12 +189,12 @@ Imaginez que vous avez supprimé cette table par erreur. La récupération dans 
   - **Serveur cible** : fournissez un nouveau nom de serveur sur lequel vous souhaitez effectuer la restauration.
   - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
   - **Niveau tarifaire** : vous ne pouvez pas modifier cette valeur lors de la restauration d’un serveur. Elle est identique à celle du serveur source. 
-3.  Cliquez sur **OK** pour restaurer le serveur [à un point dans le temps](./howto-restore-server-portal.md) avant la suppression des tables. La restauration d’un serveur à un autre point dans le temps crée un serveur en double par rapport au serveur d’origine, à condition qu’il se trouve au sein de la période de rétention de votre [niveau de service](./concepts-service-tiers.md).
+3.  Cliquez sur **OK** pour [restaurer le serveur à un point dans le temps](./howto-restore-server-portal.md) antérieur à la suppression de la table. La restauration d’un serveur à un autre point dans le temps crée un serveur en double par rapport au serveur d’origine, à condition qu’il se trouve au sein de la période de rétention de votre [niveau de service](./concepts-service-tiers.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ce didacticiel vous montre comment utiliser le portail Azure et d’autres utilitaires pour :
 > [!div class="checklist"]
-> * Créer une base de données Azure pour PostgreSQL
+> * Créer un serveur Azure Database pour PostgreSQL
 > * Configurer le pare-feu du serveur
 > * Utiliser l’utilitaire [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) pour créer une base de données
 > * Charger les exemples de données
@@ -203,5 +202,4 @@ Ce didacticiel vous montre comment utiliser le portail Azure et d’autres utili
 > * Mettre à jour des données
 > * Restaurer des données
 
-Ensuite, découvrez comment utiliser l’interface de ligne de commande Azure pour effectuer des tâches similaires. Lisez le didacticiel [Concevoir votre première base de données Azure pour PostgreSQL à l’aide de l’interface de ligne de commande Azure](tutorial-design-database-using-azure-cli.md).
-
+Ensuite, pour découvrir comment utiliser l’interface de ligne de commande Azure pour effectuer des tâches similaires, lisez le didacticiel [Concevoir votre première base de données Azure pour PostgreSQL avec Azure CLI](tutorial-design-database-using-azure-cli.md).

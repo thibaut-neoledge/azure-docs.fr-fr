@@ -1,6 +1,6 @@
 ---
 title: "Modifier les mots de passe à l’aide de StorSimple Device Manager | Microsoft Docs"
-description: "Explique comment utiliser le service StorSimple Manager pour modifier vos mots de passe du Gestionnaire d&quot;instantanés StorSimple et d’administrateur de l’appareil."
+description: "Explique comment utiliser le service StorSimple Manager pour modifier vos mots de passe du Gestionnaire d'instantanés StorSimple et d’administrateur de l’appareil."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>Utilisation du service StorSimple Manager pour modifier vos mots de passe StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -56,10 +56,4 @@ Le mot de passe du Gestionnaire d’instantanés StorSimple doit maintenant êtr
 * En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 * En savoir plus sur la [modification de la configuration de votre appareil](storsimple-modify-device-config.md).
 * En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

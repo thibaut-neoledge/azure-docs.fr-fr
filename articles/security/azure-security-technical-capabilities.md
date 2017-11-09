@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: TomSh
+ms.openlocfilehash: 7288466cf31e180a16db18f8ddfe02ace3588a8d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 
@@ -114,7 +113,7 @@ Non seulement les utilisateurs n’ont plus besoin de gérer plusieurs noms d’
 
 Vous pouvez protéger votre entreprise grâce à la surveillance de la sécurité, aux alertes et aux rapports Machine Learning qui identifient les comportements d’accès incohérents. Vous pouvez utiliser les rapports d'accès et d'utilisation Azure Active Directory pour obtenir une visibilité complète sur l'intégrité et la sécurité du répertoire de votre société. Grâce à ces informations, un administrateur de répertoire est capable de déterminer plus précisément les risques de sécurité potentiels et donc de les atténuer au maximum.
 
-Dans le portail Azure Classic ou le [portail Azure Active Directory](http://aad.portal.azure.com/), les [rapports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) sont classés comme suit :
+Dans le portail Azure ou le [portail Azure Active Directory](http://aad.portal.azure.com/), les [rapports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) sont classés comme suit :
 
 - Rapports d’anomalies : contiennent les événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de décider si un événement est suspect.
 
@@ -162,7 +161,7 @@ Grâce à Azure AD Privileged Identity Management, vous pouvez :
 
 ## <a name="secured-resource-access-in-azure"></a>Accès des ressources sécurisées dans Azure
 
-Le contrôle des accès dans Azure s’envisage d’abord dans une perspective de facturation. Le propriétaire d'un compte Azure, accessible via le [Centre des comptes Azure](https://account.windowsazure.com/subscriptions), est l'administrateur de compte. Les abonnements sont un conteneur de facturation, mais ils constituent également une limite de sécurité : chaque abonnement a un administrateur de service qui peut ajouter, supprimer et modifier des ressources Azure dans cet abonnement à l’aide du [portail Azure Classic](https://manage.windowsazure.com/). L'administrateur de sécurité par défaut d'un nouvel abonnement est l'administrateur de compte, mais ce dernier peut modifier l'administrateur de sécurité dans le centre des comptes Azure.
+Le contrôle des accès dans Azure s’envisage d’abord dans une perspective de facturation. Le propriétaire d'un compte Azure, accessible via le [Centre des comptes Azure](https://account.windowsazure.com/subscriptions), est l'administrateur de compte. Les abonnements sont un conteneur de facturation, mais ils constituent également une limite de sécurité : chaque abonnement a un administrateur de service qui peut ajouter, supprimer et modifier des ressources Azure dans cet abonnement à l’aide du portail Azure. L'administrateur de sécurité par défaut d'un nouvel abonnement est l'administrateur de compte, mais ce dernier peut modifier l'administrateur de sécurité dans le centre des comptes Azure.
 
 ![Accès des ressources sécurisées dans Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
@@ -318,12 +317,10 @@ Le pare-feu d’applications web protège notamment des vulnérabilités web cou
 
 Azure dispose de plusieurs fonctionnalités simples d’utilisation pour aider à sécuriser le trafic entrant et sortant de votre application. Azure aide également les clients à sécuriser leur code d’application en fournissant des fonctionnalités en externe pour analyser votre application web et y rechercher des vulnérabilités.
 
-- [Sécurisation de votre application web avec plusieurs méthodes d'authentification et d'autorisation](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization)
-
-    - [Configuration de l'authentification Azure Active Directory pour votre application](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
+- [Configuration de l'authentification Azure Active Directory pour votre application](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
 
-- [Sécurisation du trafic vers votre application avec l'activation du protocole TLS/SSL (Transport Layer Security) - HTTPS](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
+- [Sécurisation du trafic vers votre application avec l'activation du protocole TLS/SSL (Transport Layer Security) - HTTPS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
     - [Affectation de force de tout le trafic entrant sur la connexion HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -336,13 +333,13 @@ Azure dispose de plusieurs fonctionnalités simples d’utilisation pour aider �
 
 - [Analyse du code de votre application web pour rechercher les vulnérabilités à l'aide de l'analyse Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
-- [Configuration de l'authentification mutuelle TLS pour exiger des certificats client pour la connexion à votre application web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
+- [Configuration de l'authentification mutuelle TLS pour exiger des certificats client pour la connexion à votre application web](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth)
 
 - [Configuration d'un certificat client à utiliser à partir de votre application pour la connexion sécurisée à des ressources externes](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 
 - [Suppression des en-têtes standard de serveur pour éviter la prise d'empreinte de votre application par des outils](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [Connexion sécurisée de votre application aux ressources d'un réseau privé à l'aide d'un VPN de point à site](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
+- [Connexion sécurisée de votre application aux ressources d'un réseau privé à l'aide d'un VPN de point à site](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 
 - [Connexion sécurisée de votre application aux ressources d'un réseau privé à l'aide de connexions hybrides](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
@@ -532,4 +529,3 @@ Pour en savoir plus sur la sécurité, lisez nos rubriques détaillées sur la s
 - [Sécurité du réseau](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [Gestion des menaces](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
-

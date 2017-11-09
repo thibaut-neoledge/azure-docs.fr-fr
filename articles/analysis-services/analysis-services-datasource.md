@@ -4,7 +4,7 @@ description: "Décrit les sources de données prises en charge pour les modèles
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: a0fe91568d747148b3940e9c90db15481c765a9c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 Les serveurs Azure Analysis Services prennent en charge la connexion aux données sources dans le cloud et en local au sein de votre organisation. Des sources de données supplémentaires prises en charge sont ajoutées en permanence. Vérifiez ces données régulièrement. 
@@ -103,5 +102,4 @@ Pour les sources de données cloud :
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous disposez de sources de données locales, veillez à installer la [Passerelle locale](analysis-services-gateway.md).   
 Pour en savoir plus sur la gestion de votre serveur dans SSDT ou SSMS, consultez [Gérer votre serveur](analysis-services-manage.md).
-
 

@@ -12,17 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: nisoneji
+ms.openlocfilehash: e636065131d0719601a3e834cfc571e94e1abfb7
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
 Cet article décrit comment exclure des disques de la réplication. Cette exclusion permet d’optimiser la bande passante utilisée pour la réplication ou les ressources côté serveur que ces disques utilisent. Cette fonctionnalité est prise en charge pour les scénarios VMware vers Azure et Hyper-V vers Azure.
+
+## <a name="supported-scenarios"></a>Scénarios pris en charge
+**Fonctionnalité** | **VMware vers Azure** | **Hyper-V vers Azure** | **Azure vers Azure**| **Hyper-V vers Hyper-V** 
+--|--|--|--|--
+Exclure le disque | Oui | Oui | Non | Non
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -270,4 +274,3 @@ Voici les paramètres du fichier d’échange sur la machine virtuelle Azure :
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois votre déploiement configuré et effectué, pour en savoir plus sur les différents types de basculement, [cliquez ici](site-recovery-failover.md) .
-

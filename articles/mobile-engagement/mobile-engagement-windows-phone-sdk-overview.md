@@ -1,6 +1,6 @@
 ---
 title: "Azure Mobile Engagement - Vue d’ensemble du Kit de développement logiciel (SDK) Windows Phone Silverlight | Microsoft Docs"
-description: "Vue d&quot;ensemble du Kit de développement Silverlight de Windows Phone pour Azure Engagement Mobile"
+description: "Vue d'ensemble du Kit de développement Silverlight de Windows Phone pour Azure Engagement Mobile"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
-ms.lasthandoff: 02/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Vue d'ensemble du Kit de développement Silverlight de Windows Phone pour Azure Engagement Mobile
 Cette introduction contient les informations nécessaires pour intégrer Azure Mobile Engagement à une application Windows Phone Silverlight. Si vous souhaitez tout d'abord l'essayer, pensez à suivre notre didacticiel de [15 minutes](mobile-engagement-windows-phone-get-started.md).
@@ -53,5 +52,4 @@ Les journaux de console produits par le Kit de développement logiciel (SDK) peu
 
 ### <a name="upgrade-from-older-versions"></a>Mise à niveau à partir de versions antérieures
 Consultez la rubrique [Procédures de mise à niveau](mobile-engagement-windows-phone-upgrade-procedure.md)
-
 

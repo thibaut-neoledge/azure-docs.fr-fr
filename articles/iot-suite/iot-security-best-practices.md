@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de7db3f353f1f6c815ee61cbdfbf9b2b38471a8d
-ms.openlocfilehash: 87647756be65f577850fe8209173280b89de15ea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: dcab91856bcebb8f3bfab8cc69b63fad487f8ace
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="internet-of-things-security-best-practices"></a>Meilleures pratiques de sécurité pour l’Internet des objets (IoT)
 Sécuriser une infrastructure IoT implique la mise en œuvre d’une stratégie complète et rigoureuse. Dans le cadre de cette stratégie, vous devez sécuriser les données dans le cloud, protéger l’intégrité des données transitant sur le réseau Internet public et configurer des appareils en toute sécurité. Chaque couche contribue à garantir la sécurité de l’infrastructure globale.
 
@@ -90,4 +87,3 @@ Pour en savoir plus sur la sécurité de l’IoT Hub, consultez la rubrique [Con
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

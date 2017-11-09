@@ -1,6 +1,6 @@
 ---
 title: Application web avec stockage Table (Node.js) | Microsoft Docs
-description: "Didacticiel qui repose sur l’application web avec le didacticiel Express pour ajouter les services Stockage Azure et le module Azure."
+description: "Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express."
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -14,18 +14,17 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Application web Node.js utilisant le stockage
+# <a name="nodejs-web-application-using-storage"></a>Application Web Node.js utilisant le stockage
 ## <a name="overview"></a>Vue d'ensemble
 Dans ce didacticiel, l’application que vous avez créée dans le didacticiel [Application web Node.js avec Express] est étendue à l’aide des bibliothèques clientes Microsoft Azure pour Node.js, afin qu’elle fonctionne avec les services de gestion de données. Vous étendez votre application en créant une application de liste de tâches web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
 
-Les éléments de tâches sont stockés dans Stockage Azure, qui offre un stockage de données non structurées à tolérance de panne hautement disponible. Le service Stockage Azure englobe plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez utiliser les services de stockage via les API du kit SDK Azure pour Node.js ou via les API REST. Pour plus d’informations, consultez la page [Stockage et accessibilité des données dans Azure].
+Les éléments de tâches sont stockés dans Azure Storage, qui offre le stockage de données non structurées à tolérance de panne et haute disponibilité. Le service Stockage Azure englobe plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez utiliser les services de stockage via les API du kit SDK Azure pour Node.js ou via les API REST. Pour plus d’informations, consultez la page [Stockage et accessibilité des données dans Azure].
 
 Ce didacticiel part du principe que vous avez suivi les didacticiels [Application web Node.js] et [Node.js avec Express][Application web Node.js avec Express].
 
@@ -36,7 +35,7 @@ Il contient les informations suivantes :
 
 La capture d’écran suivante présente l’application terminée :
 
-![Page web terminée dans Internet Explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
+![Page Web terminée dans Internet Explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Définition des informations d'identification de stockage dans Web.Config
 Vous devez transmettre des informations d’identification de stockage pour accéder à Stockage Azure. Cette opération s’effectue en utilisant les paramètres d’application de web.config.
@@ -60,7 +59,7 @@ Procédez comme suit pour extraire les informations d'identification de stockage
    L’applet de commande précédente permet d’extraire la liste des comptes de stockage et des clés de compte qui sont associés à votre service hébergé.
 
    > [!NOTE]
-   > Dans la mesure où le kit SDK Azure crée un compte de stockage lorsque vous déployez un service, un compte de stockage doit déjà exister puisque vous avez déployé votre application dans les guides précédents.
+   > Dans la mesure où le Kit de développement logiciel (SDK) Azure crée un compte de stockage lorsque vous déployez un service, un compte de stockage doit déjà exister puisque vous avez déployé votre application dans les guides précédents.
    >
    >
 4. Ouvrez le fichier **ServiceDefinition.csdef** contenant les paramètres d’environnement utilisés lorsque l’application est déployée vers Azure :
@@ -415,6 +414,5 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
 [Application web Node.js avec Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Application web Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
-
 
 

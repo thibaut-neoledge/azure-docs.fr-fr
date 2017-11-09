@@ -12,16 +12,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 06/21/2016
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
-ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 43ab7ed75313863d2912063169ccc089af6052c2
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Vue d’ensemble du test d’évaluation de la base de données SQL Azure
 ## <a name="overview"></a>Vue d'ensemble
@@ -134,4 +132,3 @@ Le test d’évaluation de la base de données SQL Azure mesure les performance
 [Niveaux de service et niveaux de performances](sql-database-service-tiers.md)
 
 [Guide des performances pour les bases de données uniques](sql-database-performance-guidance.md)
-

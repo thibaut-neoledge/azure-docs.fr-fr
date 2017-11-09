@@ -4,7 +4,7 @@ description: "En savoir plus sur l’authentification et les autorisations utili
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,19 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 10/09/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 766b2fc3b68d223d80de1da9ef36aec269fe0de9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: e7fdb55ba29fbdc2f3d89fbb19c8b77bf2c05795
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
 Azure Analysis Services utilise Azure Active Directory (Azure AD) pour l’authentification utilisateur et de gestion d’identités. Tout utilisateur qui crée, gère ou se connecte à un serveur Azure Analysis Services doit avoir une identité d’utilisateur valide dans un [client Azure AD](../active-directory/active-directory-administer.md) dans le même abonnement.
 
-Azure Analysis Services prend en charge [la collaboration Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Avec B2B, les utilisateurs extérieurs à une organisation peuvent être invités en tant qu’utilisateurs invités dans un répertoire Azure AD. Les invités peuvent être issus d’un autre répertoire client Azure AD ou n’importe quelle adresse e-mail valide. Une fois l’utilisateur invité et accepte l’invitation envoyée par e-mail à partir d’Azure, l’identité de l’utilisateur est ajoutée au répertoire client. Ces identités peuvent ensuite être ajoutées aux groupes de sécurité ou en tant que membres d’un administrateur de serveurs ou rôle de bases de données.
+Azure Analysis Services prend en charge [la collaboration Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Avec B2B, les utilisateurs extérieurs à une organisation peuvent être invités en tant qu’utilisateurs invités dans un répertoire Azure AD. Les invités peuvent être issus d’un autre répertoire client Azure AD ou n’importe quelle adresse e-mail valide. Une fois l’utilisateur invité et accepte l’invitation envoyée par e-mail à partir d’Azure, l’identité de l’utilisateur est ajoutée au répertoire client. Ces identités peuvent être ajoutées aux groupes de sécurité ou en tant que membres d’un rôle d’administrateur de serveur ou de base de données.
 
 ![Architecture de l’authentification Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
@@ -36,8 +35,11 @@ Les trois bibliothèques clientes prennent en charge les deux flux interactif d�
 
 Les applications clientes comme Excel et Power BI Desktop et les outils tels que SSMS et SSDT installent les dernières versions des bibliothèques lors de la mise à jour vers la version la plus récente. Power BI Desktop, SSMS et SSDT sont mis à jour tous les mois. Excel est [mis à jour avec Office 365](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Les mises à jour Office 365 sont moins fréquentes et certaines organisations utilisent le canal différé, c’est-à-dire que les mises sont différées d’au moins trois mois.
 
- En fonction de l’application cliente ou de l’outil que vous utilisez, le type d’authentification et la façon dont vous vous connectez peuvent être différents. Chaque application peut prendre en charge des fonctionnalités différentes pour la connexion aux services cloud comme Azure Analysis Services.
+En fonction de l’application cliente ou de l’outil que vous utilisez, le type d’authentification et la façon dont vous vous connectez peuvent être différents. Chaque application peut prendre en charge des fonctionnalités différentes pour la connexion aux services cloud comme Azure Analysis Services.
 
+Power BI Desktop, SSDT et SSMS prennent en charge l’authentification universelle Active Directory, une méthode interactive prenant également en charge Azure Multi-Factor Authentication (MFA). Azure MFA contribue à sécuriser l’accès aux données et aux applications tout en fournissant un processus de connexion simple. Il permet une authentification forte avec plusieurs options de vérification (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile). L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation. **L’authentification universelle est recommandée**.
+
+Dans le cas d’une connexion à Azure avec un compte Windows et si l’authentification universelle n’est pas sélectionnée ou disponible (Excel), [les services de fédération Active Directory (AD FS)](../active-directory/connect/active-directory-aadconnect-azure-adfs.md) sont obligatoires. Avec la fédération, les utilisateurs Azure AD et Office 365 sont authentifiés à l’aide des informations d’identification locales et ils peuvent accéder aux ressources Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 Les serveurs Azure Analysis Services prennent en charge les connexions depuis [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et versions ultérieures à l’aide de l’authentification Windows, l’authentification du mot de passe Active Directory et l’authentification universelle Active Directory. En général, il est recommandé d'utiliser l’authentification universelle Active Directory, car :
@@ -49,10 +51,10 @@ Les serveurs Azure Analysis Services prennent en charge les connexions depuis [S
 *  Elle prend en charge authentification multifacteur (MFA). Azure MFA permet d’assurer l’accès aux données et applications avec une gamme d’options de vérification simples : appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile. L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation.
 
 ### <a name="sql-server-data-tools-ssdt"></a>Outils SQL Server Data Tools (SSDT)
-SSDT se connecte à Azure Analysis Services à l’aide de l’authentification universelle Active Directory avec prise en charge MFA. Les utilisateurs sont invités à se connecter à Azure sur le premier déploiement à l’aide de leur ID d’organisation (e-mail). Les utilisateurs doivent se connecter à Azure avec un compte disposant d’autorisations d’administrateur de serveur sur le serveur sur lequel ils sont déployés. Lors de la première connexion à Azure, un jeton est attribué. SSDT met en cache le jeton en mémoire pour de futures reconnexions.
+SSDT se connecte à Azure Analysis Services à l’aide de l’authentification universelle Active Directory avec prise en charge MFA. Les utilisateurs sont invités à se connecter à Azure au premier déploiement. Les utilisateurs doivent se connecter à Azure avec un compte disposant d’autorisations d’administrateur de serveur sur le serveur sur lequel ils sont déployés. Lors de la première connexion à Azure, un jeton est attribué. SSDT met en cache le jeton en mémoire pour de futures reconnexions.
 
 ### <a name="power-bi-desktop"></a>Power BI Desktop
-Power BI Desktop se connecte à Azure Analysis Services à l’aide de l’authentification universelle Active Directory avec prise en charge MFA. Les utilisateurs sont invités à se connecter à Azure sur le premier déploiement à l’aide de leur ID d’organisation (e-mail). Les utilisateurs doivent se connecter à Azure avec un compte inclus dans un administrateur de serveurs ou rôle de bases de données.
+Power BI Desktop se connecte à Azure Analysis Services à l’aide de l’authentification universelle Active Directory avec prise en charge MFA. Les utilisateurs sont invités à se connecter à Azure à la première connexion. Les utilisateurs doivent se connecter à Azure avec un compte inclus dans un administrateur de serveurs ou rôle de bases de données.
 
 ### <a name="excel"></a>Excel
 Les utilisateurs Excel peuvent se connecter à un serveur en utilisant un compte Windows, un ID d’organisation (e-mail) ou une adresse e-mail externe. Les identités de messagerie externes doivent exister dans Azure AD en tant qu’utilisateur invité.
@@ -60,7 +62,6 @@ Les utilisateurs Excel peuvent se connecter à un serveur en utilisant un compte
 ## <a name="user-permissions"></a>Autorisations utilisateur
 
 **Les administrateurs de serveur** sont spécifiques à une instance de serveur Azure Analysis Services. Ils se connectent avec des outils comme le portail Azure, SSMS et SSDT pour effectuer des tâches telles que l’ajout de bases de données et la gestion des rôles d’utilisateur. Par défaut, l’utilisateur qui crée le serveur dans le portail Azure est automatiquement ajouté en tant qu’administrateur Analysis Services. Les autres administrateurs peuvent être ajoutés à l’aide du portail Azure ou SSMS. Les administrateurs de serveur doivent posséder un compte dans le client Azure AD dans le même abonnement. Pour en savoir plus, consultez [Gérer les administrateurs de serveur](analysis-services-server-admins.md). 
-
 
 **Les utilisateurs de bases de données** se connectent aux bases de données de modèle à l’aide d’applications clientes comme Excel ou Power BI. Les utilisateurs de bases de données doivent être ajoutés aux rôles de bases de données. Les rôles de bases de données définissent l’administrateur, les processus ou les autorisations de lecture pour une base de données. Il est important de comprendre que le rôle des utilisateurs de bases de données avec des autorisations d’administrateur est différent de celui des administrateurs de serveurs. Toutefois, par défaut, les administrateurs de serveurs sont également administrateurs de bases de données. Pour en savoir plus, consultez [Gérer les rôles et les utilisateurs de bases de données](analysis-services-database-users.md).
 

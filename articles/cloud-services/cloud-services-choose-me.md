@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
+ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 72ec71814d3c56d1f1df947329eaf66b7dc8f1cf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Dois-je choisir Cloud Services ou un autre service ?
 Azure Cloud Services est-il fait pour vous ? Azure propose différents modèles d’hébergement d’applications. Chaque modèle fournit un ensemble différent de services, donc votre choix dépend exactement ce que vous essayez de faire.
@@ -28,7 +27,7 @@ Azure Cloud Services est-il fait pour vous ? Azure propose différents modèles 
 <a name="tellmecs"></a>
 
 ## <a name="tell-me-about-cloud-services"></a>En savoir plus sur Cloud Services
-Cloud Services est un exemple de [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Tout comme [App Service](../app-service-web/app-service-web-overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Tout comme App Service, Cloud Services est hébergé sur des machines virtuelles, bien que celui-ci vous permette de mieux les contrôler. Vous pouvez installer votre logiciel sur des machines virtuelles de Cloud Service et vous y connecter à distance.
+Cloud Services est un exemple de [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Tout comme [App Service](../app-service/app-service-web-overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Tout comme App Service, Cloud Services est hébergé sur des machines virtuelles, bien que celui-ci vous permette de mieux les contrôler. Vous pouvez installer votre logiciel sur des machines virtuelles de Cloud Service et vous y connecter à distance.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -63,5 +62,4 @@ La nature PaaS de Cloud Services a également d'autres implications. L'une des p
 [Créer une application de service cloud dans Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Créer une application de service cloud dans PHP](../cloud-services-php-create-web-role.md)  
 [Création d’une application de service cloud dans Python](cloud-services-python-ptvs.md)
-
 

@@ -12,15 +12,12 @@ ms.devlang: na
 ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f246c6d1355220314a2f56aa91634625ec352c69
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Résoudre des problèmes à l’aide d’Azure HDInsight
 
 | Charge de travail Apache | Principales questions |
@@ -38,6 +35,5 @@ ms.lasthandoff: 08/23/2017
 | --- | --- |
 | HDInsight sur Linux et optimisation | - [Informations sur l’utilisation de HDInsight sous Linux](hdinsight-hadoop-linux-information.md)<br>- [Résolution des problèmes liés aux performances et à la mémoire Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Performances des requêtes Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | Journaux et dumps | - [Accéder aux journaux d’applications YARN Hadoop sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Activer les dumps de tas pour les services Hadoop sous Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analyse des journaux HDInsight](hdinsight-debug-jobs.md)|
-| Erreurs | - [Comprendre et résoudre les erreurs WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Paramètres Hive pour résoudre l’erreur OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
+| Errors | - [Comprendre et résoudre les erreurs WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Paramètres Hive pour résoudre l’erreur OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Outils | - [Utiliser les vues Ambari pour déboguer les travaux Tez](hdinsight-debug-ambari-tez-view.md)<br>- [Optimiser les requêtes Hive](hdinsight-hadoop-optimize-hive-query.md) |
-

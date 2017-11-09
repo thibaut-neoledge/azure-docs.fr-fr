@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c76870c49f5c8e51f521fd4be920d976e4cdbcef
-ms.openlocfilehash: 7100856b02935fba7bbf1427d86859ddb7a2b5f3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/02/2017
-
+ms.openlocfilehash: 9a73c25724a239e56c3ea62a8452bb7c3a2b51be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>Utilisation de méthodes directes sur votre appareil IoT avec Node.js
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
@@ -37,7 +36,7 @@ ms.lasthandoff: 03/02/2017
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 0.10.x ou ultérieure.
+* Node.js version 4.0.x ou version ultérieure.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -212,4 +211,3 @@ Pour savoir comment étendre votre solution IoT et planifier des appels de méth
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Prise en main d’IoT Hub]: iot-hub-node-node-getstarted.md
-

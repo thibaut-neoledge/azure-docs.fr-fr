@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
+ms.openlocfilehash: b8d902b9170fee47afb038df739bbca6d2d025e0
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: aab491f162fd4d24c6ff4d8858f2edd96dda30d4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Didacticiel : Intégration d’Azure Active Directory à Zoom
 
@@ -111,14 +110,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.zoom.us`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.zoom.us`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<companyname>.zoom.us`
 
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Zoom](https://support.zoom.us/hc). 
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -254,8 +253,6 @@ Quand vous cliquez sur la vignette Zoom dans le volet d’accès, vous devez êt
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_01.png
@@ -269,5 +266,4 @@ Quand vous cliquez sur la vignette Zoom dans le volet d’accès, vous devez êt
 [201]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_203.png
-
 

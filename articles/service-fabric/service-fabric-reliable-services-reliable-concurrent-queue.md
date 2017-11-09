@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Présentation de ReliableConcurrentQueue dans Azure Service Fabric
 Une file d’attente simultanée fiable est une file d’attente asynchrone, transactionnelle et répliquée, qui permet d’effectuer des opérations de mise en file d’attente et de retrait de file d’attente avec un niveau élevé de simultanéité. Elle est conçue pour offrir un débit élevé et une latence faible en assouplissant la séquence stricte de premier entré, premier sorti fournie par une [file d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx), et fournit à la place un classement selon le principe de l’effort optimal.
@@ -97,7 +95,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Supposons que les tâches aient été accomplies avec succès, qu’elles aient été exécutées en parallèle et qu’aucune autre transaction simultanée modifiant la file d’attente n’ait eu lieu. Il n’est pas possible d’inférer l’ordre des éléments dans la file d’attente. Pour cet extrait de code, les éléments peuvent apparaître dans les 4 ordres possibles.  La file d’attente essaie de conserver les éléments dans l’ordre (de mise en file d’attente) d’origine, mais peut être obligée à les réorganiser en raison d’opérations simultanées ou d’erreurs.
+Supposons que les tâches aient été accomplies avec succès, qu’elles aient été exécutées en parallèle et qu’aucune autre transaction simultanée modifiant la file d’attente n’ait eu lieu. Il n’est pas possible d’inférer l’ordre des éléments dans la file d’attente. Pour cet extrait de code, les éléments peuvent apparaître dans les 4! ordres possibles.  La file d’attente essaie de conserver les éléments dans l’ordre (de mise en file d’attente) d’origine, mais peut être obligée à les réorganiser en raison d’opérations simultanées ou d’erreurs.
 
 
 ### <a name="dequeueasync"></a>DequeueAsync
@@ -346,4 +344,3 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Prise en main des services API Web de Service Fabric](service-fabric-reliable-services-communication-webapi.md)
 * [Utilisation avancée du modèle de programmation de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-

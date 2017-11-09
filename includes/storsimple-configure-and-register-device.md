@@ -70,7 +70,7 @@
 
 Une fois que l’appareil est inscrit correctement et n’est pas en ligne, vous pouvez exécuter la commande `Test-HcsmConnection -Verbose` pour vous assurer que la connectivité réseau est intègre. Pour plus d’informations sur l’utilisation détaillée de cette applet de commande, référez-vous au [Guide de référence des applets de commande Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
 
-![Vidéo disponible](./media/storsimple-configure-and-register-device/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-configure-and-register-device/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo qui montre comment configurer et inscrire votre appareil via Windows PowerShell pour StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 

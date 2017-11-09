@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a17bf35abb54eded78d112ac4b25ddebaf5fb5e8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/05/2017
-
+ms.openlocfilehash: 3fdc1b405b95180d031aa4ad45b406f7fc149d8f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Connecteur SQL générique - Guide pas à pas
 Cette rubrique est un guide pas à pas. Elle explique comment créer un simple exemple de base de données Ressources humaines et l’utiliser pour importer certains utilisateurs et leur appartenance à un groupe.
@@ -203,4 +202,3 @@ GO
 ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
-

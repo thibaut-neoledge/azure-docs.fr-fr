@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bc9d40daf0b9bc8256e88b39039fca7e4cb8a53
-
-
+ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Conditions préalables générales pour créer une offre pour Azure Marketplace
 Découvrez les conditions préalables générales centrées sur le processus d’entreprise qui sont nécessaires dans les étapes de création de l’offre.
@@ -39,7 +39,7 @@ Les administrateurs du portal de publication ajouter les autres membres de l’e
 
 1. Assurez-vous que l’ID de messagerie du coadministrateur est un compte Microsoft (MSA). Si ce n’est pas le cas, enregistrez-le comme MSA à l’aide de ce [lien](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
 2. Vérifiez qu’il existe au moins une application sous le compte administrateur avant d’essayer d’ajouter un coadministrateur.
-3. Une fois les étapes ci-dessus effectuées, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur et déconnectez-vous..
+3. Une fois les étapes ci-dessus effectuées, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur et déconnectez-vous.
 4. Maintenant, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur.
 5. Accédez à Éditeurs->Sélectionnez votre compte->Administrateurs->Ajouter le compte (voir capture d’écran ci-dessous)
    
@@ -81,10 +81,4 @@ Une fois que les conditions préalables non techniques requises sont remplies, v
 
 ## <a name="see-also"></a>Voir aussi
 * [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

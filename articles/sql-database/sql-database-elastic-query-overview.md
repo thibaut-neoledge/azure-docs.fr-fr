@@ -1,6 +1,6 @@
 ---
 title: "Vue d’ensemble de la requête élastique Azure SQL Database | Microsoft Docs"
-description: "Vue d’ensemble de la fonctionnalité de requête élastique"
+description: "Une requête élastique vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -8,18 +8,17 @@ author: MladjoA
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
+ms.openlocfilehash: 6389702b1be5e52c7191e6e57d17b48289e800b2
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9b3151248a1d036117bbdc9af03a98dff71ca535
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (version préliminaire)
 La fonctionnalité de requête élastique, en version préliminaire, vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données dans Azure SQL Database. Elle vous permet d’effectuer des requêtes de bases de données croisées pour accéder aux tables distantes et à connecter des outils Microsoft et tiers (Excel, PowerBI, Tableau, etc.) pour lancer des requêtes parmi des couches de données avec plusieurs bases de données. Cette fonctionnalité permet de mettre à l’échelle des requêtes à des couches Données de grande taille dans la base de données SQL et de visualiser les résultats dans les rapports de business intelligence (BI).
@@ -142,7 +141,7 @@ La requête élastique est incluse dans le coût des bases de données Azure SQL
 * Les statistiques des colonnes via les tables externes ne sont pas prises en charge actuellement. Les statistiques des tables sont prises en charge, mais doivent être créées manuellement.
 
 ## <a name="feedback"></a>Commentaires
-Veuillez transmettre vos commentaires sur votre expérience des requêtes élastiques avec nous sur Disqus ci-dessous, les forums MSDN, ou Stackoverflow. Nous souhaitons connaître votre avis concernant le service (défauts, améliorations possibles, lacunes).
+Vous pouvez nous envoyer vos commentaires concernant votre expérience des requêtes élastiques sur Livefyre ci-dessous, sur les forums MSDN ou sur Stackoverflow. Nous souhaitons connaître votre avis concernant le service (défauts, améliorations possibles, lacunes).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -160,4 +159,3 @@ Veuillez transmettre vos commentaires sur votre expérience des requêtes élast
 [5]: ./media/sql-database-elastic-query-overview/horizontalpartitioning.png
 
 <!--anchors-->
-

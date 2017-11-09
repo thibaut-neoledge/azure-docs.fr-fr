@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C : appel d’une API web .NET à partir d’une application web .NET
 
@@ -187,5 +186,4 @@ Suivez le même modèle lorsque vous envoyez les demandes `POST` et `DELETE` à 
 ## <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
 
 Pour terminer, générez et exécutez les deux applications. Inscrivez-vous et connectez-vous et créez des tâches pour l’utilisateur connecté. Déconnectez-vous et connectez-vous en tant qu’autre utilisateur. Créer des tâches pour cet utilisateur. Notez la façon dont les tâches sont stockées par utilisateur sur l’API, car l’API extrait l’identité de l’utilisateur à partir du jeton qu’elle reçoit. Essayez également d’utiliser les étendues. Supprimez l’autorisation d’« écriture » et essayez d’ajouter une tâche. Veillez simplement à vous déconnecter à chaque fois que vous modifiez l’étendue.
-
 

@@ -11,36 +11,47 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 10/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>FAQ sur les rapports Azure Active Directory
 
-Cet article répond aux questions fréquemment posées (FAQ) sur les rapports Azure Active Directory.  
-Pour plus d’informations, consultez la page [Rapports Azure Active Directory](active-directory-reporting-azure-portal.md). 
+Cet article répond aux questions fréquemment posées sur les rapports Azure Active Directory (Azure AD). Pour plus d’informations, consultez la page [Génération de rapports Azure Active Directory](active-directory-reporting-azure-portal.md). 
+
+**Q : J’utilise les API de point de terminaison https://graph.windows.net/&lt;nom-locataire&gt;/reports/ pour tirer (pull) par programmation les rapports d’audit Azure AD et les rapports d’utilisation des applications intégrées dans nos systèmes de création de rapports. Que dois-je utiliser à présent ?**
+
+**R :** Consultez notre [documentation de référence sur les API](https://developer.microsoft.com/graph/) pour savoir comment utiliser les nouvelles API dans le but d’accéder aux [rapports d’activité](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Ce point de terminaison comporte deux rapports (un d’audit et un autre sur les connexions) qui fournissent toutes les données dont vous disposiez dans l’ancien point de terminaison d’API. Ce nouveau point de terminaison comporte également un rapport sur les connexions, relatif à la licence Azure AD Premium, que vous pouvez utiliser pour obtenir des informations sur l’utilisation des applications, l’utilisation des appareils et les connexions utilisateur.
+
+
+--- 
+
+**Q : J’utilise les API de point de terminaison https://graph.windows.net/&lt;nom-locataire&gt;/reports/ pour tirer (pull) par programmation les rapports de sécurité Azure AD (concernant certains types de détections, telles que les fuites d’informations d’identification ou les connexions à partir d’adresses IP anonymes) dans notre système de création de rapports. Que dois-je utiliser à présent ?**
+
+**R :** Vous pouvez utiliser [l’API Identity Protection relative aux événements à risque](active-directory-identityprotection-graph-getting-started.md) pour accéder aux détections de sécurité via Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les événements à risque sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), qui est désormais la plateforme standard de Microsoft pour les API telles qu’Office 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements MS Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
+
+--- 
 
 **Q : Quelle est la rétention des données des journaux d’activité (audit et connexions) sur le Portail Azure ?** 
 
-**R :** Nous fournissons 7 jours de données à nos clients de la version gratuite ; en passant à une licence Azure AD Premium 1 ou Premium 2, vous pouvez accéder aux données pendant 30 jours. Pour plus d’informations sur la rétention, consultez la page [Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md).
+**R :** Les clients de la version gratuite bénéficient de 7 jours de données. Toutefois, en passant à une licence Azure AD Premium 1 ou Premium 2, ils peuvent accéder à 30 jours de données. Pour plus d’informations sur la rétention des rapports, consultez [Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md).
 
 --- 
 
 **Q : Au bout de combien de temps peut-on voir les données d’activité une fois la tâche terminée ?**
 
-**R :** Les journaux d’activité d’audit ont une latence comprise entre 15 minutes et 1 heure. Les journaux d’activité de connexion ont une latence comprise entre 15 minutes pour la plupart des enregistrements et 2 heures pour quelques autres.
+**R :** Les journaux d’activité d’audit ont une latence comprise entre 15 minutes et 1 heure. Pour certains enregistrements, la mise à jour des journaux d’activité de connexion peut prendre de 15 minutes à 2 heures.
 
 ---
 
-**Q : Faut-il être administrateur global pour voir les journaux d’activité sur le Portail Azure ou obtenir des données par le biais de l’API ?**
+**Q : Faut-il être administrateur général pour voir les activités de connexion sur le portail Azure ou pour obtenir des données par le biais de l’API ?**
 
-**R :** Non. Vous pouvez être **Lecteur Sécurité**, **Administrateur de la sécurité** ou **Administrateur général** pour afficher les données de rapports sur le Portail Azure ou y accéder par le biais de l’API.
+**R :** Non. Vous devez être **Lecteur Sécurité**, **Administrateur de sécurité** ou **Administrateur général** pour afficher les données des rapports dans le portail Azure ou par le biais de l’API.
 
 ---
 
@@ -105,9 +116,8 @@ Pour plus d’informations, consultez la page [Rapports Azure Active Directory](
 
 ---
 
-**Q : comment les adresses IP sont-elles calculées dans le rapport des connexions et des connexions risquées ??**
+**Q : Comment les adresses IP sont-elles calculées dans le rapport des connexions et des connexions à risque ?**
 
 **R :** les adresses IP sont émises de manière à ce qu’il n’existe aucune connexion définitive entre une adresse IP et l’endroit où se trouve physiquement l’ordinateur avec cette adresse. Ceci est compliqué par des facteurs tels que les fournisseurs mobiles et les VPN qui émettent des adresses IP à partir de pools centraux souvent très éloignés de l’endroit où l’appareil client est réellement utilisé. Étant donné ce qui précède, la conversion de l’adresse IP en un emplacement physique constitue la meilleure solution pour les suivis, les données de registre, les recherches inversées et d’autres informations. 
 
 ---
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 664a1bd9df9ace4993a8389dbeb049e721932082
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques
 Ce guide de surveillance et de résolution des problèmes présente des techniques de suivi de l’intégrité de la réplication et de résolution des problèmes pour Azure Site Recovery.
@@ -148,8 +146,8 @@ Pour créer un ticket de support pour Azure Site Recovery, accédez au support A
 Les erreurs suivantes et leurs résolutions sont courantes. Chaque erreur est documentée dans une page WIKI dédiée.
 
 ### <a name="general"></a>Généralités
-* <span style="color:green;">NOUVEAU</span> [Échec de travaux avec l’erreur « Une opération est en cours ». Erreur 505, 514, 532.](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
-* <span style="color:green;">NOUVEAU</span> [Échec de travaux avec l’erreur « Le serveur n’est pas connecté à Internet ». Erreur 25018.](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
+* <span style="color:green;">NOUVEAU</span>[Échec de travaux avec l’erreur « Une opération est en cours ». Erreur 505, 514, 532.](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
+* <span style="color:green;">NOUVEAU</span>[Échec de travaux avec l’erreur « Le serveur n’est pas connecté à Internet ». Erreur 25018.](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
 
 ### <a name="setup"></a>Paramétrage
 * [Impossible d’inscrire le serveur Virtual Machine Manager en raison d’une erreur interne. Pour plus d’informations sur l’erreur, consultez la vue des tâches dans le portail Site Recovery. Relancez le programme d’installation pour inscrire le serveur.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
@@ -162,9 +160,9 @@ Les erreurs suivantes et leurs résolutions sont courantes. Chaque erreur est do
 * [Impossible de sélectionner le compte de stockage dans l’abonnement lors de la configuration de la protection.](http://social.technet.microsoft.com/wiki/contents/articles/32027.can-t-select-the-storage-account-within-the-subscription-while-configuring-protection.aspx)
 
 ### <a name="protection"></a>Protection
-* <span style="color:green;">NOUVEAU</span> [Échec de l’activation de la protection avec l’erreur « Impossible de configurer la protection pour la machine virtuelle ». Erreur 60007, 40003.](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
-* <span style="color:green;">NOUVEAU</span> [Échec de l’activation de la protection avec l’erreur « Impossible d’activer la protection pour la machine virtuelle ». Erreur 70094.](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
-* <span style="color:green;">NOUVEAU</span> [Erreur de migration en direct 23848 : La machine virtuelle va être déplacée avec le type En direct. Ceci peut endommager l’état de protection de la récupération de la machine virtuelle.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
+* <span style="color:green;">NOUVEAU</span>[Échec de l’activation de la protection avec l’erreur « Impossible de configurer la protection pour la machine virtuelle ». Erreur 60007, 40003.](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
+* <span style="color:green;">NOUVEAU</span>[Échec de l’activation de la protection avec l’erreur « Impossible d’activer la protection pour la machine virtuelle ». Erreur 70094.](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
+* <span style="color:green;">NOUVEAU</span>[Erreur de migration en direct 23848 : La machine virtuelle va être déplacée avec le type En direct. Ceci peut endommager l’état de protection de la récupération de la machine virtuelle.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
 * [Échec de l’activation de la protection, car l’agent n’est pas installé sur la machine hôte.](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 * [Impossible de trouver un hôte approprié pour la machine virtuelle de réplication, en raison de faibles ressources de calcul](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 * [Impossible de trouver un hôte approprié pour la machine virtuelle de réplication, en raison de l’absence de réseau logique attaché.](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
@@ -196,4 +194,3 @@ Les erreurs suivantes et leurs résolutions sont courantes. Chaque erreur est do
 Si le bouton **Connecter** du portail est grisé et si vous n’êtes pas connecté à Azure avec une connexion Express Route ou VPN virtuel de site à site, vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser Bureau à distance/Shared Shell. Vous pouvez ensuite ajouter une adresse IP publique sur l’interface réseau de la machine virtuelle.  
 
 ![Ajout d’une adresse IP publique sur l’interface réseau de la machine virtuelle basculée](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-

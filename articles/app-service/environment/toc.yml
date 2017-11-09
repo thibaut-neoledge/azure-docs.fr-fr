@@ -1,0 +1,129 @@
+- name: Environnement App Service
+- name: Vue d'ensemble
+  items:
+    - name: À propos d’App Service Environments
+      href: intro.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: "Créer un environnement\_ASE externe"
+      href: create-external-ase.md
+    - name: "Créer un environnement\_ASE interne"
+      href: create-ilb-ase.md
+- name: Didacticiels
+  items:
+    - name: Intégration avec un WAF
+      href: app-service-app-service-environment-web-application-firewall.md
+    - name: Configurer TLS
+      href: app-service-app-service-environment-custom-settings.md
+- name: Exemples
+  items:
+    - name: Interface de ligne de commande Azure
+      href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: "Azure\_PowerShell"
+      href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+- name: Concepts
+  items:
+    - name: Architecture réseau
+      href: network-info.md
+    - name: Contrôleurs de domaine géo-distribués
+      href: app-service-app-service-environment-geo-distributed-scale.md
+    - name: ASEv1
+      href: app-service-app-service-environment-intro.md
+- name: Procédures
+  items:
+    - name: Utiliser un environnement ASE
+      href: using-an-ase.md
+    - name: Intégrer à Application Gateway
+      href: integrate-with-application-gateway.md
+    - name: Créer un environnement ASE à partir d’un modèle
+      href: create-from-template.md
+- name: Référence
+  items:
+    - name: Adresses de gestion
+      href: management-addresses.md
+    - name: Documentation relative à ASEv1
+      items:
+        - name: Créer ASEv1
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: "Configurer un environnement\_ASEv1"
+          href: app-service-web-configure-an-app-service-environment.md
+        - name: "Créer un environnement\_ASEv1 interne"
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: Créer un environnement ASEv1 interne à partir d’un modèle
+          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+        - name: "Configurer la mise à l’échelle automatique d’un environnement\_ASEv1"
+          href: app-service-environment-auto-scale.md
+        - name: Augmenter la taille des instances d’une application dans ASEv1
+          href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+        - name: Architecture réseau
+          href: app-service-app-service-environment-network-architecture-overview.md
+        - name: Créer une application web dans ASEv1
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Hébergement de haute densité
+          href: app-service-high-density-hosting.md
+        - name: Connexion à un back end
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+        - name: Configurer ExpressRoute
+          href: app-service-app-service-environment-network-configuration-expressroute.md
+        - name: Contrôler le trafic entrant vers une application publique
+          href: app-service-app-service-environment-control-inbound-traffic.md
+        - name: Utiliser la sécurité par calque
+          href: app-service-app-service-environment-layered-security.md
+    - name: "CLI\_2.0"
+- name: Référence
+  items:
+    - name: Interface de ligne de commande Azure
+      href: /cli/azure/appservice
+    - name: "Azure\_PowerShell"
+      href: /powershell
+    - name: API REST
+      href: /rest/api/appservice/
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: Informations sur les quotas
+      href: '../../azure-subscription-service-limits.md#app-service-limits'
+    - name: Mises à jour de service et notes de publication
+      href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Meilleures pratiques
+      href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: Exemples
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: Vidéos
+      items:
+        - name: Vidéos Azure
+          href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+        - name: Maîtriser le PaaS moderne pour l’entreprise avec Azure App Service
+          href: 'https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player'
+        - name: Déploiement d’applications hautement évolutives et sécurisées
+          href: 'https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player'
+        - name: Exécution d’applications web et mobiles d’entreprise sur Azure App Service
+          href: 'https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player'
+    - name: Livres de recettes
+      items:
+        - name: Scripts de déploiement
+          href: 'https://azure.microsoft.com/documentation/scripts/'
+    - name: Résolution des problèmes
+      items:
+        - name: Résoudre les problèmes à l’aide de Visual Studio
+          href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Résoudre les problèmes des applications Node.js
+          href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: "Résoudre les problèmes des protocoles HTTP\_502 et 503"
+          href: ../app-service-web-troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Résoudre les problèmes de performances
+          href: ../app-service-web-troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Forum Aux Questions
+          items:
+            - name: 'FAQ sur la disponibilité, les performances et les applications'
+              href: ../app-service-web-availability-performance-application-issues-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: FAQ sur le déploiement
+              href: ../app-service-web-deployment-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: FAQ sur les technologies open source
+              href: ../app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: FAQ sur la configuration et la gestion
+              href: ../app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

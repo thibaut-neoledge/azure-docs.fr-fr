@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>Ajouter, désactiver, activer ou supprimer des points de terminaison
 
 La fonction Web Apps d’Azure App Service fournit déjà des fonctionnalités de routage du trafic par basculement et tourniquet pour les sites web d’un centre de données, indépendamment du mode de site Web. Azure Traffic Manager vous permet de spécifier le routage du trafic par basculement et tourniquet pour des sites web et des services cloud de différents centres de données. La première étape nécessaire pour fournir cette fonctionnalité consiste à ajouter le point de terminaison de service cloud ou de site web à Traffic Manager.
@@ -45,8 +43,8 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
     5. Pour **Priorité**, sélectionnez **1**. Ainsi, tout le trafic est dirigé vers ce point de terminaison, s’il est intègre.
     6. Vérifiez que la case **Ajouter comme désactivé** est désélectionnée.
     7. Cliquez sur **OK**
-6.    Répétez les étapes 4 et 5 pour ajouter le prochain point de terminaison Azure. Veillez à ajouter à sa valeur de **Priorité** définie sur **2**.
-7.    Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans le panneau du **profil Traffic Manager** ainsi que leur état de surveillance en tant que **En ligne**.
+6.  Répétez les étapes 4 et 5 pour ajouter le prochain point de terminaison Azure. Veillez à ajouter à sa valeur de **Priorité** définie sur **2**.
+7.  Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans le panneau du **profil Traffic Manager** ainsi que leur état de surveillance en tant que **En ligne**.
 
 > [!NOTE]
 > Après ajout ou suppression d’un point de terminaison dans un profil selon la méthode de routage du trafic par *Basculement*, la liste de priorité des basculements peut ne pas être ordonnée comme vous le souhaitez. Vous pouvez ajuster l’ordre de la liste de priorité des basculements sur la page Configuration. Pour plus d’informations, consultez la rubrique [Configurer le routage du trafic par basculement](traffic-manager-configure-failover-routing-method.md).
@@ -85,5 +83,4 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 * [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 * [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 * [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

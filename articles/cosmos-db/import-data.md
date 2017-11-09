@@ -16,14 +16,13 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 23a4a82dbdb611f4da90562af936fca28da9b24d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: a60c47814da2660f17456f5e662f420adbb9158e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api"></a>Importer des données dans Azure Cosmos DB pour l’API DocumentDB
+# <a name="how-to-import-data-into-azure-cosmos-db-with-the-documentdb-api"></a>Guide pratique pour importer des données dans Azure Cosmos DB avec l’API DocumentDB
 
 Ce didacticiel montre comment utiliser l’outil de migration de données de l’API DocumentDB Azure Cosmos DB pour importer des données dans Azure Cosmos DB à partir de différentes sources, y compris des fichiers JSON, des fichiers CSV, SQL, MongoDB, le stockage Table Azure, Amazon DynamoDB et les collections de l’API DocumentDB Azure Cosmos DB, dans des collections en vue de les utiliser avec Azure Cosmos DB et l’API DocumentDB. L’outil de migration de données peut également être utilisé pour migrer des données à partir d’une collection à partition unique vers une collection à plusieurs partitions pour l’API DocumentDB.
 
@@ -557,4 +556,3 @@ Vous pouvez maintenant passer à l’étape suivante du didacticiel et découvri
 
 > [!div class="nextstepaction"]
 >[Comment interroger les données ?](../cosmos-db/tutorial-query-documentdb.md)
-

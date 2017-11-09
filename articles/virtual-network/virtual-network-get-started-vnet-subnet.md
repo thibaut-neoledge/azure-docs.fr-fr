@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-virtual-network"></a>Créer votre premier réseau virtuel
 
 Apprenez à créer un réseau virtuel (VNet) avec deux sous-réseaux, à créer deux machines virtuelles et à connecter chaque machine virtuelle à l’un des sous-réseaux, comme illustré dans l’image suivante :
@@ -58,7 +56,7 @@ Pour créer un réseau virtuel avec deux sous-réseaux, effectuez les étapes su
     |**Nom du sous-réseau**|*Front-end*|Le nom du sous-réseau doit être unique au sein du réseau virtuel.|
     |**Plage d’adresses de sous-réseau**|*10.0.0.0/24*| La plage que vous spécifiez doit exister dans l’espace d’adressage que vous avez définie pour le réseau virtuel.|
     |**Abonnement**|*[Votre abonnement]*|Sélectionnez l’abonnement dans lequel créer le réseau virtuel. Un réseau virtuel existe dans un seul abonnement.|
-    |**Groupe de ressources**|**Créer :** *MyRG*|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. Pour plus d’informations sur les groupes de ressources, consultez l’article [Présentation de Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups).|
+    |**Groupe de ressources**|**Créer :***MyRG*|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. Pour plus d’informations sur les groupes de ressources, consultez l’article [Présentation de Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups).|
     |**Emplacement**|*Ouest des États-Unis*| En règle générale, l’emplacement le plus proche de vous est sélectionné.|
 
     La création du réseau virtuel prend quelques secondes. Une fois créé, le tableau de bord du portail Azure s’affiche.
@@ -253,4 +251,3 @@ Dans cet exercice, vous avez créé un réseau virtuel et deux machines virtuell
 - [Interfaces réseau](virtual-network-network-interface.md)
 - [Groupes de sécurité réseau](virtual-networks-nsg.md)
 - [Machines virtuelles](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

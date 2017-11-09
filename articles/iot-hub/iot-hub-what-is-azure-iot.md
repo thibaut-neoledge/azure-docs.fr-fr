@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/15/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 417ca4b6ecc39cbdafd8e12b5360b370d0ce79fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -33,9 +31,9 @@ Azure IoT Hub est un service Azure qui autorise des communications bidirectionne
 * Recevoir des fichiers chargés par les appareils
 * Envoyez des messages cloud-à-appareil à des appareils spécifiques.
 
-Vous pouvez utiliser IoT Hub pour implémenter votre propre serveur principal de solution. IoT Hub offre aussi un registre d’identités qui permet de configurer des appareils, leurs informations d’identification et leurs droits de connexion à l’IoT Hub. Pour en savoir plus sur IoT Hub, consultez l’article [Qu’est-ce qu’IoT Hub ?][lnk-iot-hub].
+Vous pouvez utiliser IoT Hub pour implémenter votre propre serveur principal de solution. IoT Hub offre aussi un registre d’identités qui permet de configurer des appareils, leurs informations d’identification et leurs droits de connexion à l’IoT Hub. Pour en savoir plus sur IoT Hub, consultez l’article [Qu’est-ce qu’IoT Hub ?][lnk-iot-hub].
 
-Pour découvrir comment Azure IoT Hub permet une gestion des appareils basée sur des normes pour gérer, configurer et mettre à jour à distance vos appareils, consultez [Vue d’ensemble de la gestion des appareils avec IoT Hub][lnk-device-management].
+Pour découvrir comment Azure IoT Hub permet une gestion des appareils basée sur des normes pour administrer vos appareils à distance, voir [Vue d’ensemble de la gestion des appareils avec IoT Hub][lnk-device-management].
 
 Pour implémenter des applications clientes sur un large éventail de plateformes matérielles et de systèmes d’exploitation d’appareils, vous pouvez utiliser les Kits de développement logiciel (SDK) d’appareils Azure IoT. Le kit de développement logiciel (SDK) contient des bibliothèques qui facilitent l’envoi de télémétrie à un IoT Hub et la réception de messages cloud-vers-appareil. Avec les Kits de développement logiciel (SDK) d’appareils, vous avez le choix parmi plusieurs protocoles réseau pour communiquer avec IoT Hub. Pour plus d’informations, consultez la rubrique [Plus d’informations sur les kits de développement logiciel (SDK) d’appareils][lnk-device-sdks].
 
@@ -49,4 +47,3 @@ Pour commencer à écrire du code et à exécuter certains exemples, consultez l
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
-

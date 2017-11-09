@@ -3,8 +3,8 @@ title: "Prise en main de l’Explorateur de stockage (version préliminaire) | M
 description: "Gérer les ressources de stockage Azure avec l’Explorateur de stockage (version préliminaire)"
 services: storage
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
-ms.author: kraigb
+ms.author: cawa
+ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Prise en main de l’Explorateur de stockage (version préliminaire)
 ## <a name="overview"></a>Vue d’ensemble
@@ -43,6 +42,7 @@ En outre, vous pouvez utiliser des comptes de stockage Azure à l’échelle int
 * [Attachement au stockage externe](#attach-or-detach-an-external-storage-account) : gérez les ressources de stockage qui appartiennent à un autre abonnement Azure ou qui sont dans des clouds Azure nationaux en utilisant les points de terminaison, la clé et le nom du compte de stockage.
 * [Attachement d’un compte de stockage à l’aide d’une SAP](#attach-storage-account-using-sas) : gérez les ressources de stockage qui appartiennent à un autre abonnement Azure à l’aide d’une signature d’accès partagé (SAP).
 * [Attachement d’un service à l’aide d’une SAP](#attach-service-using-sas) : gérez un service de stockage spécifique (conteneur de blobs, file d’attente ou table) qui appartient à un autre abonnement Azure à l’aide d’une SAP.
+* [Connexion à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string) : gérez un compte Azure Cosmos DB à l’aide d’une chaîne de connexion.
 
 ## <a name="connect-to-an-azure-subscription"></a>Connexion à un abonnement Azure
 > [!NOTE]
@@ -68,7 +68,7 @@ En outre, vous pouvez utiliser des comptes de stockage Azure à l’échelle int
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Connexion à un abonnement Azure Stack
 
-Pour en savoir plus sur la connexion à un abonnement Azure Stack, consultez [Connecter l’Explorateur de stockage à un abonnement Azure Stack](azure-stack/azure-stack-storage-connect-se.md).
+Pour en savoir plus sur la connexion à un abonnement Azure Stack, consultez [Connecter l’Explorateur de stockage à un abonnement Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Utilisation du stockage de développement local
 Avec l’Explorateur de stockage (version préliminaire), vous pouvez travailler sur le stockage local à l’aide de l’émulateur de stockage Azure. Cette approche vous permet d’écrire du code pour le stockage et de le tester sans nécessairement disposer d’un compte de stockage déployé sur Azure, étant donné que le compte de stockage est émulé par l’émulateur de stockage Azure.
@@ -223,6 +223,17 @@ Dans ce contexte, un service peut être un conteneur d’objets blob, une file d
 
     ![Résultat de l’attachement à un service partagé à l’aide d’une SAP][20]
 
+## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Connexion à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion
+En plus de gérer des comptes Azure Cosmos DB par le biais d’un abonnement Azure, une autre façon de se connecter à un compte Azure Cosmos DB consiste à utiliser une chaîne de connexion. Utilisez les étapes suivantes pour vous connecter à l’aide d’une chaîne de connexion.
+
+1. Rechercher **Locaux et joints** dans l’arborescence de gauche, cliquez avec le bouton droit sur **Comptes Azure Cosmos DB**, choisissez **Se connecter à Azure Cosmos DB...**
+
+    ![connexion à Azure Cosmos DB avec une chaîne de connexion][33]
+
+2. Choisissez l’API Azure Cosmos DB, collez votre **chaîne de connexion**, puis cliquez sur **OK** pour vous connecter au compte Azure Cosmos DB. Pour plus d’informations sur la récupération de la chaîne de connexion, consultez [Obtenir la chaîne de connexion](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![connection-string][32]
+
 ## <a name="search-for-storage-accounts"></a>Recherche de comptes de stockage
 Si vous avez une longue liste de comptes de stockage, la zone de recherche située en haut du volet gauche offre un moyen rapide de rechercher un compte spécifique.
 
@@ -232,6 +243,7 @@ Si vous avez une longue liste de comptes de stockage, la zone de recherche situ�
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gérer les ressources de Stockage Blob Azure avec l’Explorateur de stockage (version préliminaire)](vs-azure-tools-storage-explorer-blobs.md)
+* [Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure (préversion)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -260,4 +272,5 @@ Si vous avez une longue liste de comptes de stockage, la zone de recherche situ�
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
-
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

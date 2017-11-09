@@ -3,7 +3,7 @@ title: "Diagnostic des défaillances et des exceptions dans les applications web
 description: "Capturez des exceptions à partir d’applications ASP.NET, ainsi que des données de télémétrie des demandes."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: bwren
+ms.date: 09/19/2017
+ms.author: mbullwin
+ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 8c73344b07e07cc89a18a10648b1a9c82c4b361a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostiquez les exceptions dans vos applications web avec Application Insights
 Les exceptions dans votre application web dynamique sont signalées par [Application Insights](app-insights-overview.md). Vous pouvez associer les demandes ayant échoué à des exceptions et à d’autres événements sur le client et le serveur, ce qui vous permet de diagnostiquer rapidement les causes.
@@ -33,8 +32,8 @@ Les exceptions dans votre application web dynamique sont signalées par [Applica
 * Dans certains frameworks d’application ou avec certains paramètres, vous devez prendre des mesures supplémentaires pour intercepter davantage d’exceptions :
   * [Web forms](#web-forms)
   * [MVC](#mvc)
-  * [API web 1.*](#web-api-1)
-  * [API web 2.*](#web-api-2)
+  * [API web 1.*](#web-api-1x)
+  * [API web 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnostic des exceptions à l’aide de Visual Studio
@@ -58,15 +57,19 @@ Dans le code, notez que CodeLens affiche les données sur les exceptions :
 ![Notification CodeLens des exceptions.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnostic des défaillances à l’aide du portail Azure
-Dans la vue d’ensemble Application Insights de votre application, la vignette Défaillances vous montre les graphiques des exceptions et des demandes HTTP ayant échoué ainsi qu’une liste des URL demandées qui entraînent les défaillances les plus fréquentes.
+Application Insights est fourni avec une expérience APM organisée pour vous aider à diagnostiquer les échecs dans les applications surveillées. Pour démarrer, cliquez sur l’option Échecs dans le menu de ressource Application Insights situé dans la section Examiner. Une vue en plein écran apparaît et vous indique les tendances du taux d’échec pour vos demandes, le nombre d'entre elles qui échouent et le nombre d’utilisateurs qui en sont affectés. Sur la droite, certaines des distributions les plus utiles s’affichent par rapport à l’opération défaillante sélectionnée, y compris les 3 premiers codes de réponse, les 3 premiers types d’exception et les 3 premiers types de dépendances défaillantes. 
 
-![Sélectionnez Paramètres, Défaillances](./media/app-insights-asp-net-exceptions/012-start.png)
+![Vue de triage des échecs (onglet des opérations)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-Cliquez sur l’un des types d’exception ayant échoué dans la liste pour obtenir des occurrences individuelles de l’exception, où vous pouvez afficher les détails et l’arborescence des appels de procédure :
+Vous pouvez consulter en un seul clic des exemples représentatifs pour chacun de ces sous-ensembles d’opérations. En particulier, pour diagnostiquer les exceptions, vous pouvez cliquer sur le nombre d’exceptions pour une exception spécifique afin d’afficher un panneau de détails sur les exceptions, comme indiqué ci-dessous :
 
-![Sélectionnez l’instance d'une demande ayant échoué et, sous Détails de l'exception, accédez aux instances de l'exception.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Panneau de détails de l’exception](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**Vous pouvez également** commencer à partir de la liste des requêtes et rechercher les exceptions qui lui sont associées.
+**Sinon**, au lieu de rechercher les exceptions relatives à une opération défaillante spécifique, vous pouvez partir de la vue d’ensemble des exceptions, en basculant vers l’onglet Exceptions :
+
+![Vue de triage des échecs (onglet des exceptions)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+Sur cette page, vous pouvez voir toutes les exceptions collectées pour votre application analysée.
 
 *Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)* 
 
@@ -431,7 +434,7 @@ Ouvrez un panneau d'explorateur de mesures, ajoutez un nouveau graphique, puis s
 
 .NET Framework calcule le taux en comptant le nombre d’exceptions sur un intervalle et en divisant ce nombre par la longueur de l’intervalle.
 
-Notez que ce chiffre sera différent du nombre d’« exceptions » calculé par le portail Application Insights, qui est basé sur les rapports TrackException. Les intervalles d’échantillonnage sont différents et le Kit de développement logiciel (SDK) n’envoie pas de rapports TrackException pour toutes les exceptions gérées et non gérées.
+Ce chiffre sera différent du nombre d’« exceptions » calculé par le portail Application Insights, qui est basé sur les rapports TrackException. Les intervalles d’échantillonnage sont différents et le Kit de développement logiciel (SDK) n’envoie pas de rapports TrackException pour toutes les exceptions gérées et non gérées.
 
 ## <a name="video"></a>Vidéo
 
@@ -441,4 +444,3 @@ Notez que ce chiffre sera différent du nombre d’« exceptions » calculé p
 * [Surveiller REST, SQL et les autres appels aux dépendances](app-insights-asp-net-dependencies.md)
 * [Surveiller les durées de chargement des pages, les exceptions du navigateur et les appels AJAX](app-insights-javascript.md)
 * [Surveiller les compteurs de performances](app-insights-performance-counters.md)
-

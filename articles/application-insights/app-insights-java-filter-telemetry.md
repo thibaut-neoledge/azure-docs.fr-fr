@@ -3,7 +3,7 @@ title: "Filtrer les données de télémétrie d’Azure Application Insights dan
 description: "Réduisez le trafic de télémétrie en excluant les événements que vous n’avez pas besoin de surveiller."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: cd09b7c5d45d07a3fbcc5d6f0c02400dcd36d61b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/02/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: f9e061c010667bc18ac54e6546cc25339e9c0e3e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrer la télémétrie dans votre application web Java
 
@@ -264,4 +263,3 @@ Dans ApplicationInsights.xml :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Échantillonnage](app-insights-sampling.md) : envisagez l’échantillonnage comme une possibilité ne faussant pas vos mesures.
-

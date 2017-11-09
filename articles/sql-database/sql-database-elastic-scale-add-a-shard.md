@@ -9,19 +9,17 @@ editor:
 ms.assetid: 62a349db-bebe-406f-a120-2f1986f2b286
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 540ef8379145b764d0926649095db57fddb27329
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7432bf00aa4d97d8dbc4b92a6a836698ee2b84d7
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Ajout d’une partition à l’aide des outils de base de données élastique
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Pour ajouter une partition pour une nouvelle plage ou clé
@@ -79,5 +77,4 @@ Une base de données nommée « sample_shard_2 » et tous les objets de schém
 **Important** : utilisez cette technique seulement si vous êtes certain que la plage de la carte mise à jour est vide.  Les méthodes ci-dessus ne vérifient pas les données de la plage déplacée, il est donc préférable d’inclure des vérifications dans votre code.  S’il existe des lignes dans la plage déplacée, la distribution des données réelle ne correspondra pas à la carte des partitions mise à jour. Utilisez [l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md) pour effectuer cette opération, au lieu de le faire dans ces cases.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Gestion du Stockage Fichier Azure à partir du portail Azure | Microsoft Docs"
-description: "Découvrez comment utiliser le portail Azure pour gérer le Stockage Fichier Azure."
+title: "Gestion d’Azure Files à partir du portail Azure | Microsoft Docs"
+description: "Découvrez comment utiliser le portail Azure pour gérer Azure Files."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d5ffa7cff0a31e36f5a96aaa4b2d477fa39333fb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="how-to-use-azure-file-storage-from-the-azure-portal"></a>Utilisation du Stockage Fichier Azure à partir du portail Azure
-Le [portail Azure](https://portal.azure.com) offre une interface utilisateur permettant de gérer le Stockage Fichier Azure. Vous pouvez effectuer les actions suivantes à partir de votre navigateur web :
+# <a name="how-to-use-azure-files-from-the-azure-portal"></a>Comment utiliser Azure Files à partir du portail Azure
+Le [portail Azure](https://portal.azure.com) fournit une interface utilisateur pour la gestion d’Azure Files. Vous pouvez effectuer les actions suivantes à partir de votre navigateur web :
 
 * Créer un partage de fichiers
 * Charger et télécharger des fichiers vers et à partir de votre partage de fichiers.
@@ -49,7 +47,7 @@ Le [portail Azure](https://portal.azure.com) offre une interface utilisateur per
 
     ![Capture d’écran montrant comment créer un partage de fichiers dans le portail](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. Renseignez le nom du partage de fichiers ainsi que sa taille (jusqu’à 5 120 Go) pour créer votre premier partage de fichiers. Une fois le partage de fichiers créé, vous pouvez le monter à partir de n’importe quel système de fichiers prenant en charge SMB 2.1 ou SMB 3.0. Vous pouvez cliquer sur **Quota** sur le partage de fichiers pour modifier la taille du fichier jusqu’à 5 120 Go. Reportez-vous à la [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer le coût de stockage lié à l’utilisation du Stockage Fichier Azure.
+6. Renseignez le nom du partage de fichiers ainsi que sa taille (jusqu’à 5 120 Go) pour créer votre premier partage de fichiers. Une fois le partage de fichiers créé, vous pouvez le monter à partir de n’importe quel système de fichiers prenant en charge SMB 2.1 ou SMB 3.0. Vous pouvez cliquer sur **Quota** sur le partage de fichiers pour modifier la taille du fichier jusqu’à 5 120 Go. Reportez-vous à la [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer le coût de stockage lié à l’utilisation d’Azure Files.
 
     ![Capture d’écran montrant comment créer un partage de fichiers dans le portail](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
@@ -63,7 +61,7 @@ Le [portail Azure](https://portal.azure.com) offre une interface utilisateur per
     ![Capture d’écran montrant comment charger des fichiers à partir du portail](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
 ## <a name="connect-to-file-share"></a>Connexion au partage de fichiers
--  Cliquez sur **Se connecter** pour accéder à la ligne de commande permettant de monter le partage de fichiers à partir de Windows et Linux. Pour les utilisateurs Linux, vous pouvez également consulter [Utilisation du Stockage Fichier Azure avec Linux](../storage-how-to-use-files-linux.md) pour obtenir des instructions de montage supplémentaires pour les autres distributions Linux.
+-  Cliquez sur **Se connecter** pour accéder à la ligne de commande permettant de monter le partage de fichiers à partir de Windows et Linux. Pour les utilisateurs de Linux, vous pouvez également consulter la section [Comment utiliser Azure Files avec Linux](../storage-how-to-use-files-linux.md) pour obtenir des instructions de montage supplémentaires pour les autres distributions Linux.
 
     ![Capture d’écran montrant comment monter le partage de fichiers](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
 -  Vous pouvez copier les commandes servant à monter le partage de fichiers sous Windows ou Linux et exécuter ce dernier à partir de votre machine virtuelle Azure ou de votre machine locale.
@@ -74,7 +72,7 @@ Le [portail Azure](https://portal.azure.com) offre une interface utilisateur per
 Pour obtenir la clé d’accès du compte de stockage permettant le montage, cliquez sur **Afficher les clés d’accès pour ce compte de stockage** au bas de la page de connexion.
 
 ## <a name="see-also"></a>Voir aussi
-Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
+Consultez ces liens pour en savoir plus sur Azure Files.
 
 * [FAQ](../storage-files-faq.md)
 * [Résolution des problèmes sur Windows](storage-troubleshoot-windows-file-connection-problems.md)      

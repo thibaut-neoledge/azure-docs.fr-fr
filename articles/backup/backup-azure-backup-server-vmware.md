@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Sauvegarder un serveur VMware dans Azure
 
@@ -385,4 +384,3 @@ Si vous n’avez pas encore utilisé System Center Data Protection Manager ni le
 Si vous utilisez le serveur de sauvegarde Azure pour protéger vos charges de travail VMware, vous trouverez peut-être utile d’utiliser le serveur de sauvegarde Azure pour contribuer à la protection d’un [serveur Microsoft Exchange](./backup-azure-exchange-mabs.md), d’une [batterie de serveurs Microsoft SharePoint](./backup-azure-backup-sharepoint-mabs.md) ou d’une [base de données SQL Server](./backup-azure-sql-mabs.md).
 
 Pour plus d’informations sur les problèmes d’inscription de l’agent, de configuration du groupe de protection ou de sauvegarde des travaux, voir [Résoudre les problèmes d’un serveur de sauvegarde Azure](./backup-azure-mabs-troubleshoot.md).
-

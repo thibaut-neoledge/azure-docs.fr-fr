@@ -14,15 +14,14 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
 ms.author: ruturajd@microsoft.com
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 064a6782970b950543f93c24800998c1f104c8df
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
-Cet article décrit comment Azure Site Recovery s’intègre avec Azure Automation pour vous aider à étendre vos plans de récupération. Des plans de récupération peuvent orchestrer la récupération de machines virtuelles protégées par Site Recovery. Les plans de récupération fonctionnent aussi bien pour la réplication sur un cloud secondaire que la réplication sur Azure. Ils aident également à rendre la récupération **toujours précise**, **répétable** et **automatisée**. Si vous basculez de vos machines virtuelles vers Azure, l’intégration avec Azure Automation étend vos plans de récupération. Vous pouvez l’utiliser pour exécuter des runbooks qui offrent des tâches d’automatisation puissantes.
+Cet article décrit comment Azure Site Recovery s’intègre avec Azure Automation pour vous aider à étendre vos plans de récupération. Des plans de récupération peuvent orchestrer la récupération de machines virtuelles protégées par Site Recovery. Les plans de récupération fonctionnent aussi bien pour la réplication sur un cloud secondaire que pour la réplication sur Azure. Ils aident également à rendre la récupération **toujours précise**, **répétable** et **automatisée**. Si vous basculez de vos machines virtuelles vers Azure, l’intégration avec Azure Automation étend vos plans de récupération. Vous pouvez l’utiliser pour exécuter des runbooks qui offrent des tâches d’automatisation puissantes.
 
 Si vous ne connaissez pas Azure Automation, vous pouvez vous [inscrire](https://azure.microsoft.com/services/automation/) et [télécharger des exemples de scripts](https://azure.microsoft.com/documentation/scripts/). Pour plus d’informations et pour savoir comment orchestrer la récupération vers Azure à l’aide de [plans de récupération](https://azure.microsoft.com/blog/?p=166264), voir [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
@@ -46,7 +45,7 @@ Cet article explique comment intégrer des runbooks Azure Automation dans vos 
 
 5. Choisissez un nom de compte Automation.
     >[!NOTE]
-    > Le compte Automation peut se trouver dans n’importe quelle région Azure. Le compte Automation doit être dans le même abonnement que l’archivage Azure Site Recovery.
+    > Le compte Automation peut se trouver dans n’importe quelle région Azure. Le compte Automation doit être dans le même abonnement que le coffre Azure Site Recovery.
 
 6. Dans votre compte Automation, sélectionnez un runbook. Ce runbook est le script qui s’exécute pendant l’exécution du plan de récupération après la récupération du premier groupe.
 
@@ -223,7 +222,7 @@ Dans l’exemple suivant, nous utilisons une nouvelle technique et créons une [
     $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
     ```
 
-4. Dans votre runbook, parcourez les machines virtuelles du contexte du plan de récupération. Vérifiez l’existence de la machine virtuelle dans **$VMDetailsObj**. Si elle existe, accédez aux propriétés de la variable pour appliquer le groupe de sécurité réseau :
+4. Dans votre runbook, parcourez les machines virtuelles du contexte du plan de récupération. Vérifiez l’existence de la machine virtuelle dans **$VMDetailsObj**. Si la variable existe, accédez à ses propriétés pour appliquer le groupe de sécurité réseau :
 
     ```
         $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
@@ -262,4 +261,3 @@ Pour un autre exemple, regardez la vidéo suivante. Elle montre comment récupé
 * [Documentation Automation](../automation/automation-sec-configure-azure-runas-account.md)
 * [Vue d’ensemble d’Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Vue d’ensemble d’Azure Automation")
 * [Ressources de script pour les professionnels de l'informatique](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Ressources de script pour les professionnels de l'informatique")
-

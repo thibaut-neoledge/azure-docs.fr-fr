@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
+ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b469c0ebe9838a1ea986cff3043e3008941e9aa9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Utiliser le service Azure Import/Export pour copier les données dans Data Lake Store hors connexion
 Dans cet article, vous allez découvrir comment copier de grands jeux de données (> 200 Go) dans un Azure Data Lake Store à l’aide de méthodes de copie hors connexion, comme le [service Azure Import/Export](../storage/common/storage-import-export-service.md). Plus précisément, la taille du fichier utilisé comme exemple dans cet article est de 339 420 860 416 octets ou environ 319 Go sur disque. Appelons ce fichier 319GB.tsv.
@@ -70,7 +69,7 @@ Vous pouvez désormais expédier physiquement les disques vers un centre de donn
 ## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-store"></a>Copier des données d’objets blob Stockage Azure vers Azure Data Lake Store
 Une fois que l’état du travail d’importation indique que celui-ci est terminé, vous pouvez vérifier si les données sont disponibles dans les objets blob Stockage Azure que vous aviez spécifiés. Vous pouvez ensuite utiliser différentes méthodes pour déplacer ces données depuis les objets blob vers Azure Data Lake Store. Pour connaître toutes les options disponibles pour le chargement de données, consultez [Réception de données dans Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
 
-Dans cette section, nous vous fournissons les définitions JSON grâce auxquelles vous pouvez créer un pipeline Azure Data Factory en vue de copier les données. Vous pouvez utiliser ces définitions JSON à partir du [portail Azure](../data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md) ou de [Azure PowerShell](../data-factory/data-factory-copy-activity-tutorial-using-powershell.md).
+Dans cette section, nous vous fournissons les définitions JSON grâce auxquelles vous pouvez créer un pipeline Azure Data Factory en vue de copier les données. Vous pouvez utiliser ces définitions JSON à partir du [portail Azure](../data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md) ou de [Azure PowerShell](../data-factory/v1/data-factory-copy-activity-tutorial-using-powershell.md).
 
 ### <a name="source-linked-service-azure-storage-blob"></a>Service lié source (objet blob Stockage Azure)
 ````
@@ -188,7 +187,7 @@ Dans cette section, nous vous fournissons les définitions JSON grâce auxquelle
     }
 }
 ````
-Pour plus d’informations, consultez [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) (Déplacer des données à partir d’un objet blob Stockage Azure vers Azure Data Lake Store à l’aide d’Azure Data Factory).
+Pour plus d’informations, consultez [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) (Déplacer des données à partir d’un objet blob Stockage Azure vers Azure Data Lake Store à l’aide d’Azure Data Factory).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Reconstruire les fichiers de données dans Azure Data Lake Store
 Nous avons commencé avec un fichier de 319 Go, que nous avons scindé en fichiers de plus petite taille afin de pouvoir le transférer à l’aide du service Azure Import/Export. Les données se trouvant désormais dans Azure Data Lake Store, nous pouvons reconstruire le fichier à sa taille d’origine. Pour ce faire, vous pouvez utiliser l’applet de commande Azure PowerShell suivante.
@@ -212,4 +211,3 @@ Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importe
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-

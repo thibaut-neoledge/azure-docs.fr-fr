@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: be94152a84bbbeacb623d7dd8b540e3981931a8e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Didacticiel : Intégration d’Azure Active Directory avec Evernote
 
@@ -185,7 +184,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-an-evernote-test-user"></a>Créer un utilisateur de test Evernote
 
@@ -266,5 +265,4 @@ Lorsque vous cliquez sur la mosaïque Evernote dans le panneau d’accès, vous 
 [201]: ./media/active-directory-saas-evernote-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-evernote-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-evernote-tutorial/tutorial_general_203.png
-
 

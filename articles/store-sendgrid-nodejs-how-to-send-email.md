@@ -1,6 +1,6 @@
 ---
 title: "Utilisation du service de messagerie électronique SendGrid (Node.js) | Microsoft Docs"
-description: "Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits à l&quot;aide de l&quot;API Node.js."
+description: "Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits à l'aide de l'API Node.js."
 services: 
 documentationcenter: nodejs
 author: erikre
@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Envoi de courrier électronique à l'aide de SendGrid depuis Node.js
 Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent la **construction** et **l'envoi de courriers électroniques**, **l'ajout de pièces jointes**, **l'utilisation de filtres**, et la **mise à jour de propriétés**. Pour plus d'informations sur SendGrid et sur l'envoi de courrier électronique, consultez la section [Étapes suivantes](#next-steps) .
@@ -66,7 +66,7 @@ Vous pouvez également spécifier un message HTML pour les clients qui le prenne
 
 Définir les propriétés text et html offre une solution de repli intéressante pour le contenu textuel dans le cas des clients qui ne peuvent pas prendre en charge les messages HTML.
 
-Pour plus d'informations sur l'ensemble des propriétés prises en charge par la fonction Email, consultez [sendgrid-nodejs][sendgrid-nodejs].
+Pour plus d’informations sur l’ensemble des propriétés prises en charge par la fonction Email, consultez la page [sendgrid-nodejs][sendgrid-nodejs].
 
 ## <a name="how-to-send-an-email"></a>Envoi d'un message électronique
 Une fois le message électronique créé à l'aide de la fonction Email, vous pouvez l'envoyer via l'API Web fournie par SendGrid. 
@@ -117,7 +117,7 @@ Il est possible d'ajouter des pièces jointes à un message en spécifiant les n
 > 
 
 ## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Utilisation de filtres pour activer les pieds de page et le suivi
-SendGrid offre des fonctionnalités de messagerie électronique supplémentaires grâce à l'utilisation des filtres. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc. Pour obtenir une liste exhaustive des filtres, consultez la page [Paramètres de filtre][Paramètres de filtre].
+SendGrid offre des fonctionnalités de messagerie électronique supplémentaires grâce à l'utilisation des filtres. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc. Pour obtenir une liste exhaustive des filtres, consultez la page [Paramètres de filtre][Filter Settings].
 
 Il est possible d'appliquer des filtres à un message à l’aide de la propriété **filters**.
 Chaque filtre est spécifié par un hachage contenant des paramètres propres au filtre.
@@ -161,7 +161,7 @@ Les exemples suivants montrent les filtres de pied de page et de suivi des clics
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Mise à jour des propriétés de messagerie électronique
-Vous pouvez remplacer certaines propriétés d’e-mail en utilisant **set*Property*** ou en ajouter en utilisant **add*Property***. Par exemple, vous pouvez ajouter des destinataires supplémentaires en utilisant
+Vous pouvez remplacer certaines propriétés d’e-mail en utilisant **set*Property*** ou en ajouter en utilisant**add*Property***. Par exemple, vous pouvez ajouter des destinataires supplémentaires en utilisant
 
     email.addTo('jeff@contoso.com');
 
@@ -170,27 +170,21 @@ ou définir un filtre en utilisant
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-Pour en savoir plus, consultez [sendgrid-nodejs][sendgrid-nodejs].
+Pour plus d’informations, consultez [sendgrid-nodejs][sendgrid-nodejs].
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>Utilisation de services SendGrid supplémentaires
-SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API SendGrid][documentation de l'API SendGrid].
+SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d’informations, consultez la [documentation de l’API SendGrid][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
-* Référentiel du module SendGrid Node.js : [sendgrid-nodejs][sendgrid-nodejs]
-* Documentation de l’API SendGrid : <https://sendgrid.com/docs>
+* Référentiel du module SendGrid Node.js : [sendgrid-nodejs][sendgrid-nodejs]
+* Documentation de l’API SendGrid : <https://sendgrid.com/docs>
 * Offres spéciales SendGrid pour les clients Azure : [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
-[offre spéciale]: https://sendgrid.com/windowsazure.html
+[special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-[Paramètres de filtre]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-[documentation de l'API SendGrid]: https://sendgrid.com/docs
+[Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+[SendGrid API documentation]: https://sendgrid.com/docs
 [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
 [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

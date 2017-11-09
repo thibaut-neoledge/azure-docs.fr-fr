@@ -11,19 +11,18 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/18/2017
 ms.author: genli
+ms.openlocfilehash: 8d66bbdf6f7153cf59af60051e54377f6eccdc3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) est un script automatisé qui collecte des informations de diagnostic utiles, exécute des charges d’E/S et fournit un rapport d’analyse afin de faciliter la résolution de problèmes de performances liés aux machines virtuelles Windows dans Microsoft Azure. 
+[PerfInsights](http://aka.ms/perfinsightsdownload) est un script automatisé qui collecte des informations de diagnostic utiles, exécute des charges d’E/S et fournit un rapport d’analyse afin de faciliter la résolution de problèmes de performances liés aux machines virtuelles Windows dans Microsoft Azure. Vous pouvez l’exécuter sur les machines virtuelles sous forme de script autonome ou directement à partir du portail en installant l’[extension de diagnostic de performance des machines virtuelles Azure](performance-diagnostics-vm-extension.md).
 
 Nous vous recommandons d’exécuter ce script avant d’ouvrir un ticket de support Microsoft pour les problèmes de performances liés aux machines virtuelles.
 
@@ -87,9 +86,9 @@ Ce scénario exécute une capture du compteur de performances spéciale ainsi qu
 | E/S par seconde         | Requêtes de données/s             |
 |              | Requêtes de lecture/s             |
 |              | Requêtes d’écriture/s            |
-| Latence      | Avg. s/requête de données         |
-|              | Avg. s/lecture                 |
-|              | Avg. s/écriture                |
+| Latency      | Requête de données/s (moyenne)         |
+|              | Lecture/s (moyenne)                 |
+|              | Écriture/s (moyenne)                |
 | Taille d’E/S      | Avg. Octets/requête de données       |
 |              | Avg. Octets/lecture               |
 |              | Avg. Octets/écriture              |
@@ -110,7 +109,7 @@ Lorsque vous exécutez une configuration personnalisée, vous exécutez tous les
 
 ## <a name="what-kind-of-information-is-collected-by-the-script"></a>Quelles informations sont collectées par le script ?
 
-Les informations portant sur la configuration de la machine virtuelle Windows, des disques ou des pools de stockage, les compteurs de performances, les journaux et les différents suivis sont recueillies en fonction du scénario de performances utilisé :
+Les informations portant sur la configuration de la machine virtuelle Windows, des disques ou des pools de stockage, les compteurs de performances, les journaux et les différentes traces sont recueillies en fonction du scénario de performances utilisé :
 
 |Données collectées                              |  |  | Scénarios de performances |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
@@ -189,7 +188,16 @@ Tests de charge de travail d’E/S Diskspd [disque de système d’exploitation 
 
 ### <a name="how-do-i-run-perfinsights"></a>Comment exécuter PerfInsights ? 
 
-Pour exécuter le script, procédez comme suit :
+Vous pouvez exécuter PerfInsights sur une machine virtuelle en installant l’[extension de diagnostic de performance des machines virtuelles Azure](performance-diagnostics-vm-extension.md) ou en l’exécutant comme script autonome. 
+
+**Installer et exécuter PerfInsights à partir du portail Azure**
+
+Vous pouvez maintenant exécuter PerfInsights à l’aide d’une extension de machine virtuelle appelée extension de diagnostic de performance Azure. Pour plus d’informations, consultez [Installer l’extension de diagnostic de performance Azure](performance-diagnostics-vm-extension.md#install-the-extension).  
+
+**Exécuter le script PerfInsights en mode autonome**
+
+Pour exécuter le script PerfInsights, suivez ces étapes :
+
 
 1. Téléchargez [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
@@ -299,7 +307,7 @@ La section **Vue d’ensemble** affiche plusieurs vues de la configuration de st
 
 Les sections **DiskMap** et **VolumeMap** offrent un double point de vue sur les liens entre volumes logiques et disques physiques.
 
-Dans la perspective PhysicalDisk (DiskMap), le tableau affiche tous les volumes logiques en cours d’exécution sur le disque. Dans l’exemple suivant, PhysicalDrive2 exécute 2 volumes logiques créés sur plusieurs partitions (J et H) :
+Dans la perspective PhysicalDisk (DiskMap), le tableau affiche tous les volumes logiques en cours d’exécution sur le disque. Dans l’exemple suivant, PhysicalDrive2 exécute deux volumes logiques créés sur plusieurs partitions (J et H) :
 
 ![onglet Données](media/how-to-use-perfInsights/disktab.png)
 
@@ -309,7 +317,7 @@ Dans la perspective Volume (*VolumeMap*), les tables affichent tous les disques 
 
 ### <a name="sql-server-tab"></a>Onglet Serveur SQL
 
-Si la machine virtuelle cible héberge toutes les instances de SQL Server, un onglet supplémentaire nommé **SQL Server** apparaît dans le rapport :
+Si la machine virtuelle cible héberge toutes les instances de SQL Server, un onglet supplémentaire appelé **SQL Server** apparaît dans le rapport :
 
 ![onglet sql](media/how-to-use-perfInsights/sqltab.png)
 
@@ -350,4 +358,3 @@ Ce message sera envoyé à partir de **CTS Automated Diagnostics Services** (cts
 Pour plus de sécurité, vous devez modifier votre mot de passe à la première utilisation.
 
 Après vous être connecté à DTM, une boîte de dialogue s’affiche pour vous inviter à charger le fichier **CollectedData\_aaaa-MM-jj\_hh\_mm\_ss.zip** collecté par PerfInsights.
-

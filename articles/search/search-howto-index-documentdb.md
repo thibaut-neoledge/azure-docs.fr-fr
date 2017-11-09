@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connexion de Cosmos DB à Recherche Azure à l’aide d’indexeurs
 
@@ -298,4 +297,3 @@ Félicitations ! Vous avez appris à intégrer Recherche Azure dans Azure Cos
 
 * Pour en savoir plus sur Azure Cosmos DB, consultez la [page du service Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 * Pour en savoir plus sur Azure Search, consultez la [page du service Search](https://azure.microsoft.com/services/search/).
-

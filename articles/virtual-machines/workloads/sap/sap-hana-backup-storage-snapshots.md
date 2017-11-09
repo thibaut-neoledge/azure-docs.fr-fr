@@ -13,14 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Sauvegarde SAP HANA à partir de captures instantanées de stockage
 
 ## <a name="introduction"></a>Introduction
@@ -170,4 +168,3 @@ S’il était possible d’arrêter SAP HANA avant les captures instantanées d�
 * L’article [Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure](sap-hana-backup-guide.md) fournit une vue d’ensemble et des informations sur la mise en route.
 * L’article [Sauvegarde SAP HANA sur Azure au niveau fichier](sap-hana-backup-file-level.md) décrit l’option de sauvegarde basée sur les fichiers.
 * Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (grandes instances), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).
-

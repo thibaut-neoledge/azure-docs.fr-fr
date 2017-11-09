@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
 ms.openlocfilehash: c19f81da495eb7116b62797d1755d312a23f3805
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutoriel : Intégration d’Azure Active Directory à LCVista
 
@@ -114,7 +112,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.lcvista.com/rainier/login`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.lcvista.com`    
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.lcvista.com` 
      
     > [!NOTE] 
     > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique LCVista](https://lcvista.com/contact). 
@@ -246,5 +244,4 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 [201]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_203.png
-
 

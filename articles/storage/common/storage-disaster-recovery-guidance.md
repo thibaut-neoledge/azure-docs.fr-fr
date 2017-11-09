@@ -3,7 +3,7 @@ title: "Que faire en cas de panne d’Azure Storage | Microsoft Docs"
 description: "Que faire en cas de panne d’Azure Storage"
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1d9ccc1c81260379b5e645d338cbf1fa265e18d4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
 Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en permanence la disponibilité de ses services. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiés dans une ou plusieurs régions. Pour vous aider à faire face à ces rares occurrences, vous trouverez ici quelques conseils généraux pour les services Azure Storage.
 
@@ -54,7 +52,7 @@ Lorsqu’un sinistre régional affecte votre région primaire, nous allons tout 
 Quelques points relatifs à l’expérience de basculement géographique du stockage :
 
 * Le basculement géographique du stockage est déclenché uniquement par l’équipe Azure Storage et ne nécessite donc aucune intervention du client.
-* Vos points de terminaison de service de stockage existant pour les objets blob, les tables, les files d’attente et les fichiers restent les mêmes après le basculement ; l’entrée DNS devra être mise à jour pour basculer de la région primaire à la région secondaire.
+* Vos points de terminaison de service de stockage existant pour les objets blob, les tables, les files d’attente et les fichiers restent les mêmes après le basculement ; l’entrée DNS fournie par Microsoft devra être mise à jour pour basculer de la région primaire à la région secondaire.  Microsoft effectue cette mise à jour automatiquement dans le cadre du processus de basculement géographique.
 * Avant et pendant le basculement géographique, vous n’avez pas d’accès en écriture à votre compte de stockage en raison de l’impact de l’incident, mais vous pouvez toujours lire les données à partir de la base de données secondaire si votre compte de stockage a été configuré en tant que RA-GRS.
 * Une fois le basculement géographique effectué et les modifications DNS propagées, vous bénéficiez de nouveau d’un accès en lecture-écriture à votre compte de stockage. L’emplacement pointé est votre point de terminaison secondaire précédent. 
 * Notez que vous bénéficierez d’un accès en écriture si un stockage GRS ou RA-GRS est configuré pour le compte de stockage. 
@@ -71,5 +69,4 @@ Il existe des approches recommandées pour sauvegarder régulièrement vos donn�
 * Fichiers : utilisez [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) pour copier vos fichiers vers un autre compte de stockage dans une autre région.
 
 Pour plus d’informations sur la création d’applications tirant pleinement parti de la fonctionnalité RA-GRS, consultez [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](../storage-designing-ha-apps-with-ragrs.md).
-
 

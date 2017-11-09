@@ -3,7 +3,7 @@ title: "Utilisation des propriétés dans les stratégies Gestion des API Azure"
 description: "Découvrez comment utiliser les propriétés dans les stratégies Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 3b0fe2a300038e13cc488bdb4f50f8be270ea8f4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 517f434c8f7fabc1402fb938d5ff5c733b86f2fd
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Utilisation des propriétés dans les stratégies Gestion des API Azure
 Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet à l’éditeur de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de propriétés. 
@@ -153,5 +151,4 @@ Pour filtrer la liste des propriétés en fonction des valeurs de balise, entrez
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
-
 

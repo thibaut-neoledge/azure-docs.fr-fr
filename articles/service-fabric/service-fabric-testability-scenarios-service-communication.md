@@ -14,16 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6356b4e69892b90ff74aa9db0157930dc00f4a08
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c182cc2062ada40029504de5b2b64b021c614ce6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# Scénarios de testabilité de Service Fabric : communication de service
-<a id="service-fabric-testability-scenarios-service-communication" class="xliff"></a>
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Scénarios de testabilité de Service Fabric : communication de service
 Les microservices et les styles architecturaux orientés services émergent naturellement dans Azure Service Fabric. Dans ces types d’architectures distribuées, les applications de microservices compartimentés sont généralement composées de plusieurs services qui interagissent entre eux. Même dans le cas le plus simple, vous disposez habituellement d’au moins un service web sans état et d’un service de stockage de données avec état qui communiquent.
 
 La communication de service à service constitue un point d’intégration critique d’une application, car chaque service expose une API distante aux autres services. L’utilisation d’un ensemble de limites d’API impliquant un trafic d’E/S nécessite bien souvent une attention particulière, secondée par de solides méthodes de test et de validation.
@@ -36,8 +33,7 @@ Lorsque ces limites de services sont liées au sein d’un système distribué, 
 
 Vous utilisez l’un des composants de communication de service intégrés de Service Fabric ? Vous développez le vôtre ? Pour garantir la résilience de votre application, il est primordial de tester l’interaction entre vos services.
 
-## Préparation des services à déplacer
-<a id="prepare-for-services-to-move" class="xliff"></a>
+## <a name="prepare-for-services-to-move"></a>Préparation des services à déplacer
 Les instances de service peuvent se déplacer au fil du temps. Ce déplacement est particulièrement avéré quand elles sont configurées avec des mesures de charge dédiées à l’équilibrage personnalisé optimal des ressources. Service Fabric déplace vos instances de service à des fins de disponibilité maximale, même pendant les mises à niveau, les basculements, les augmentations de la taille des instances et d’autres situations ponctuant le cycle de vie d’un système distribué.
 
 Quand les services se déplacent dans le cluster, vos clients et les autres services doivent envisager deux scénarios d’interaction avec ces derniers :
@@ -51,8 +47,7 @@ Pour bénéficier d’un système pleinement fonctionnel, il est nécessaire de 
 * Vous pourrez observer une augmentation temporaire de la latence du service étant donné que l’instance de service redémarre son écouteur. Cette latence dépend de la vitesse à laquelle le service ouvre l’écouteur une fois l’instance de service déplacée.
 * Toutes les connexions existantes doivent être fermées, puis rouvertes une fois que le service s’ouvre sur un nouveau nœud. Un arrêt ou redémarrage approprié du nœud laisse suffisamment de temps aux connexions existantes pour s’arrêter correctement.
 
-### Test : déplacement des instances de service
-<a id="test-it-move-service-instances" class="xliff"></a>
+### <a name="test-it-move-service-instances"></a>Test : déplacement des instances de service
 À l’aide des outils de testabilité de Service Fabric, vous pouvez établir un scénario test afin d’évaluer ces situations dans des contextes différents :
 
 1. Déplacez un réplica principal de service avec état.
@@ -76,14 +71,12 @@ Pour bénéficier d’un système pleinement fonctionnel, il est nécessaire de 
    
     ```
 
-## Maintenir la disponibilité du service
-<a id="maintain-service-availability" class="xliff"></a>
+## <a name="maintain-service-availability"></a>Maintenir la disponibilité du service
 En tant que plateforme, Service Fabric est conçu pour assurer la haute disponibilité de vos services. Mais dans des cas extrêmes, les problèmes liés à l’infrastructure sous-jacente peuvent quand même entraîner une indisponibilité. Il est important de tester ces scénarios également.
 
 Les services avec état utilisent un système avec quorum pour répliquer l’état à des fins de haute disponibilité. Cela signifie qu’un quorum de réplicas doit être disponible pour l’exécution des opérations d’écriture. Dans de rares cas, comme celui d’une défaillance matérielle étendue, aucun quorum de réplicas ne peut être disponible. Le cas échéant, vous ne pourrez pas exécuter d’opérations d’écriture, mais disposerez des opérations de lecture.
 
-### Test : écriture de l’indisponibilité des opérations
-<a id="test-it-write-operation-unavailability" class="xliff"></a>
+### <a name="test-it-write-operation-unavailability"></a>Test : écriture de l’indisponibilité des opérations
 En utilisant les outils de testabilité de Service Fabric, vous pouvez injecter une erreur qui entraîne une perte de quorum en guise de test. Même si ce scénario est rare, les clients et les entités qui dépendent d’un service avec état doivent néanmoins s’y préparer. Que faire quand les requêtes d’écriture sur le service avec état sont impossibles ? Il est également essentiel que le service avec état ait conscience de cette possibilité, et qu’il en fasse part de manière adaptée aux appelants.
 
 Vous pouvez provoquer une perte de quorum à l’aide de l’applet de commande PowerShell **Invoke-ServiceFabricPartitionQuorumLoss** :
@@ -96,10 +89,8 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 Dans cet exemple, nous avons défini `QuorumLossMode` sur `QuorumReplicas` pour indiquer que nous voulons provoquer une perte de quorum sans retirer tous les réplicas. Ainsi, les opérations de lecture sont toujours possibles. Pour tester ce scénario avec l’intégralité de la partition indisponible, définissez ce commutateur sur `AllReplicas`.
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur les actions de testabilité](service-fabric-testability-actions.md)
 
 [En savoir plus sur les scénarios de testabilité](service-fabric-testability-scenarios.md)
-
 

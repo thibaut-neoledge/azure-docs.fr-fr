@@ -3,7 +3,7 @@ title: "Stratégies dans Gestion des API Azure | Microsoft Docs"
 description: "Apprenez à créer, à modifier et à configurer des stratégies dans Gestion des API."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 537e5caf-708b-430e-a83f-72b70af28aa9
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: ef4cb447430a613dd519d96dd7732a9349ebba39
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="policies-in-azure-api-management"></a>Stratégies dans Gestion des API Azure
 Dans Gestion des API Azure, les stratégies sont une fonctionnalité puissante du système qui permet à l’éditeur de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions les plus utilisées comprennent la conversion du format XML au format JSON et la limitation du débit d'appels pour restreindre la quantité d'appels entrants d'un développeur. De nombreuses autres stratégies sont disponibles.
@@ -30,7 +29,7 @@ Les stratégies sont appliquées au niveau de la passerelle qui se trouve entre 
 
 Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Contrôler le flux][Control flow] et [Définir la variable][Set variable], sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées][Advanced policies] et [Expressions de stratégie][Policy expressions].
 
-## <a name="scopes"> </a>Configuration des stratégies
+## <a name="scopes"></a>Configuration des stratégies
 Les stratégies peuvent être configurées de façon globale, ou bien au niveau d’un [produit][Product], d’une [API][API] ou d’une [opération][Operation]. Pour configurer une stratégie, accédez à l'éditeur Stratégies dans le portail des éditeurs.
 
 ![Policies menu][policies-menu]
@@ -87,7 +86,7 @@ Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse
 
 Lorsque vous avez terminé la configuration des instructions de la stratégie, cliquez sur **Enregistrer**. Les modifications sont ajoutées immédiatement à la passerelle Gestion des API.
 
-## <a name="sections"> </a>Configuration de la stratégie
+## <a name="sections"></a>Configuration de la stratégie
 Une stratégie est une série d'instructions qui s'exécutent dans l'ordre pour une demande et une réponse. La configuration se compose des sections `inbound`, `backend`, `outbound` et `on-error`, comme présenté dans la configuration suivante.
 
 ```xml
@@ -161,4 +160,3 @@ Découvrez la vidéo suivante sur les expressions de stratégie.
 [policies-edit]: ./media/api-management-howto-policies/api-management-policies-edit.png
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
-

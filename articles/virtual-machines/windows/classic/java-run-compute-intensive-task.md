@@ -1,6 +1,6 @@
 ---
 title: "Application Java nécessitant beaucoup de ressources système sur une machine virtuelle | Microsoft Docs"
-description: "Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu&quot;une autre application Java peut surveiller."
+description: "Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu'une autre application Java peut surveiller."
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
@@ -15,12 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 290a9dc5ca67495da18d88b61dce1d8b6becea61
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
 > [!IMPORTANT] 
@@ -61,14 +60,14 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
    2. Entrez la taille de la machine virtuelle.
    3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur** . Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
    4. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
-   5. Cliquez sur **Next**.
+   5. Cliquez sur **Suivant**.
 6. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
    1. Pour le **Service cloud**, utilisez le paramètre par défaut **Créer un nouveau service cloud**.
    2. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique.
    3. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région comme **Bretagne**.
    4. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
    5. Pour **Availability Set**, sélectionnez **(None)**.
-   6. Cliquez sur **Next**.
+   6. Cliquez sur **Suivant**.
 7. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
    1. Validez les entrées de points de terminaison par défaut.
    2. Cliquez sur **Terminé**.
@@ -523,4 +522,3 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 [properties_pane]:media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]:media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../../../java-add-certificate-ca-store.md
-

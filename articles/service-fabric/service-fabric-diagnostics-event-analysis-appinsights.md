@@ -12,16 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
+ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analyse et visualisation d’événements avec Application Insights
 
 Azure Application Insights est une plateforme extensible pour la surveillance et le diagnostic d’application. Elle inclut un puissant outil d’analyse et de requête, un tableau de bord et des visualisations personnalisables, ainsi que d’autres options incluant l’alerte automatisée. Il s’agit de la plateforme recommandée pour la surveillance et le diagnostic des services et applications Service Fabric.
@@ -40,6 +38,9 @@ Vous avez besoin de la clé d’instrumentation AI pour configurer AI avec votr
 
 ### <a name="configuring-ai-with-wad"></a>Configuration de AI avec WAD
 
+>[!NOTE]
+>Cette configuration s’applique uniquement aux clusters Windows pour le moment.
+
 Il existe deux méthodes principales permettant d’envoyer des données à Azure AI à partir de WAD, ce qui nécessite d’ajouter un récepteur AI à la configuration de WAD, comme détaillé dans [cet article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 #### <a name="add-an-ai-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Ajouter une clé d’instrumentation AI lors de la création d’un cluster dans le portail Azure
@@ -52,7 +53,7 @@ Lors de la création d’un cluster, si le diagnostic est « Activé » », u
 
 Dans l’élément « WadCfg » du modèle Resource Manager, ajoutez un récepteur (« Sink ») en incluant les deux modifications suivantes :
 
-1. Ajoutez la configuration du récepteur :
+1. Ajoutez la configuration du récepteur directement une fois que la déclaration de la `DiagnosticMonitorConfiguration` est terminée :
 
     ```json
     "SinksConfig": {
@@ -66,7 +67,7 @@ Dans l’élément « WadCfg » du modèle Resource Manager, ajoutez un récep
 
     ```
 
-2. Incluez le récepteur (Sink) dans l’élément DiagnosticMonitorConfiguration en ajoutant la ligne suivante dans l’élément « DiagnosticMonitorConfiguration » de « WadCfg » :
+2. Incluez le récepteur dans la `DiagnosticMonitorConfiguration` en ajoutant la ligne suivante dans la `DiagnosticMonitorConfiguration` de `WadCfg` (juste avant de déclarer les `EtwProviders`) :
 
     ```json
     "sinks": "applicationInsights"

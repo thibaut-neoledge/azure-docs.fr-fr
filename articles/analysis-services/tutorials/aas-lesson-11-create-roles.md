@@ -4,7 +4,7 @@ description: "Explique comment créer des rôles dans le projet du didacticiel A
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 085a36edd2a0e80123ac8754b438bceadfa6c0e9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 1496e4523154ba791bf55a0708a1a77132f5257c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-11-create-roles"></a>Leçon 11 : Créer des rôles
 
@@ -97,4 +96,3 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 
   
   
-

@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ca8537a7e35e44efafb9b0a9d6ddefe069067475
-ms.openlocfilehash: de55bf7d9e68146745c90b96f280c8a71e27b2f9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/02/2017
-
+ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Gestion de métadonnées d’artefact dans des comptes d’intégration pour des applications logiques
 
 Vous pouvez définir des métadonnées personnalisées pour les artefacts dans les comptes d’intégration et récupérer ces métadonnées pendant l’exécution pour votre application logique. Par exemple, vous pouvez spécifier des métadonnées pour les artefacts tels que des partenaires, des contrats, des schémas et mappages - tous stockent les métadonnées à l’aide de paires clé-valeur. Actuellement, les artefacts ne peuvent pas créer de métadonnées via l’interface utilisateur, mais vous pouvez utiliser l’API REST pour créer des métadonnées. Pour ajouter des métadonnées lorsque vous créez ou sélectionnez un partenaire, un accord ou un schéma dans le portail Azure, choisissez **Modifier au format JSON**. Pour récupérer des métadonnées d’artefact dans des applications logiques, vous pouvez utiliser la fonctionnalité de Recherche d’artefact de compte d’intégration.
@@ -33,7 +31,7 @@ Vous pouvez définir des métadonnées personnalisées pour les artefacts dans l
 
 2. Ajoutez un artefact à votre compte d’intégration, par exemple, un [partenaire](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), un [contrat](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) ou un [schéma](logic-apps-enterprise-integration-schemas.md).
 
-3.    Sélectionnez l’artefact. choisissez **Modifier au format JSON** et entrez les informations des métadonnées.
+3.  Sélectionnez l’artefact. choisissez **Modifier au format JSON** et entrez les informations des métadonnées.
 
     ![Saisie des métadonnées](media/logic-apps-enterprise-integration-metadata/image1.png)
 
@@ -45,7 +43,7 @@ Vous pouvez définir des métadonnées personnalisées pour les artefacts dans l
 
 3. Dans le Concepteur d’application logique, ajoutez un déclencheur comme *Request* ou *HTTP* à votre application logique.
 
-4.    Choisissez **Étape suivante** > **Ajouter une action**. Recherchez *Intégration*, puis recherchez et sélectionnez **Compte d’intégration - Recherche d’artefact de compte d’intégration**.
+4.  Choisissez **Étape suivante** > **Ajouter une action**. Recherchez *Intégration*, puis recherchez et sélectionnez **Compte d’intégration - Recherche d’artefact de compte d’intégration**.
 
     ![Sélectionner Recherche d’artefact de compte d’intégration](media/logic-apps-enterprise-integration-metadata/image2.png)
 
@@ -70,4 +68,3 @@ Les métadonnées du partenaire ont ces détails `routingUrl` :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les contrats](logic-apps-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")  
-

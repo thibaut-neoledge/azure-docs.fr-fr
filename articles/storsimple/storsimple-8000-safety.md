@@ -14,17 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: e45b09a62f33fd9811714febd63a74149784980d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installer et utiliser en toute sécurité votre appareil StorSimple
 ![Icône Avertissement](./media/storsimple-safety/IC740879.png)
- ![Icône Lire l’avis de sécurité](./media/storsimple-safety/IC740885.png) **LIRE LES INFORMATIONS SUR LA SANTÉ ET LA SÉCURITÉ**
+![Icône Lire l’avis de sécurité](./media/storsimple-safety/IC740885.png)**LIRE LES INFORMATIONS SUR LA SANTÉ ET LA SÉCURITÉ**
 
 Prenez connaissance de toutes les informations sur la santé et la sécurité relatives à votre appareil Microsoft Azure StorSimple présentées dans cet article. Conservez tous les guides imprimés fournis avec votre appareil StorSimple pour pouvoir vous y reporter ultérieurement. Le non-respect des instructions et une configuration, une utilisation et un entretien inappropriés de ce produit peuvent augmenter le risque de blessure grave ou de mort, ou de dommages à l’appareil ou à d’autres appareils. Une [version téléchargeable de ce guide](http://www.microsoft.com/download/details.aspx?id=44233) est également disponible.
 
@@ -33,18 +31,18 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
 
 | Icône | Description |
 |:--- |:--- |
-| ![Icône Danger](./media/storsimple-safety/IC740879.png) **DANGER !** |Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. Ce terme d’avertissement est réservé aux situations extrêmement dangereuses. |
-| ![Icône Avertissement](./media/storsimple-safety/IC740879.png) **AVERTISSEMENT !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves. |
-| ![Icône Avertissement](./media/storsimple-safety/IC740879.png) **ATTENTION !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner des blessures légères ou moyennement graves. |
-| ![Icône Avis](./media/storsimple-safety/IC740881.png) **AVIS :** |Signale des informations considérées comme importantes, mais non associées à un danger. |
-| ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png) **Risque d’électrocution** |Haute tension |
-| ![Icône Objet lourd](./media/storsimple-safety/IC740883.png) **Objet lourd** | |
-| ![Icône Aucune pièce remplaçable par l’utilisateur](./media/storsimple-safety/IC740879.png) **Aucune pièce remplaçable par l’utilisateur** |Accès réservé au personnel formé à cet effet. |
+| ![Icône Danger](./media/storsimple-safety/IC740879.png)**DANGER !** |Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. Ce terme d’avertissement est réservé aux situations extrêmement dangereuses. |
+| ![Icône Avertissement](./media/storsimple-safety/IC740879.png)**AVERTISSEMENT !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves. |
+| ![Icône Avertissement](./media/storsimple-safety/IC740879.png)**ATTENTION !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner des blessures légères ou moyennement graves. |
+| ![Icône Avis](./media/storsimple-safety/IC740881.png)**AVIS :** |Signale des informations considérées comme importantes, mais non associées à un danger. |
+| ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**Risque d’électrocution** |Haute tension |
+| ![Icône Objet lourd](./media/storsimple-safety/IC740883.png)**Objet lourd** | |
+| ![Icône Aucune pièce remplaçable par l’utilisateur](./media/storsimple-safety/IC740879.png)**Aucune pièce remplaçable par l’utilisateur** |Accès réservé au personnel formé à cet effet. |
 | ![Icône Lire l’avis de sécurité](./media/storsimple-safety/IC740885.png)**Lire toutes les instructions avant de commencer** | |
-| ![Icône Risque de basculement](./media/storsimple-safety/IC740886.png) **Risque de basculement** | |
+| ![Icône Risque de basculement](./media/storsimple-safety/IC740886.png)**Risque de basculement** | |
 
 ## <a name="handling-precautions"></a>Précautions relatives à la manipulation
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Objet lourd](./media/storsimple-safety/IC740883.png) **AVERTISSEMENT !** 
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Objet lourd](./media/storsimple-safety/IC740883.png)**AVERTISSEMENT !** 
 
 Pour réduire le risque de blessure :
 
@@ -53,7 +51,7 @@ Pour réduire le risque de blessure :
 * Ne soulevez pas le boîtier à l’aide des poignées des modules d’alimentation et de refroidissement (PCM) situées à l’arrière de l’unité. Elles ne sont pas conçues pour supporter le poids du boîtier.
 
 ## <a name="connection-precautions"></a>Précautions relatives au branchement
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de blessure, d’électrocution ou de mort :
 
@@ -63,7 +61,7 @@ Pour réduire le risque de blessure, d’électrocution ou de mort :
 * Veillez toujours à débrancher l’alimentation avant de retirer un PCM du boîtier.
 * La prise du cordon d’alimentation étant le moyen principal de débrancher l’alimentation, assurez-vous que les prises de courant sont situées à proximité du matériel et facilement accessibles.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de surchauffe ou d’incendie dû aux branchements électriques :
 
@@ -72,7 +70,7 @@ Pour réduire le risque de surchauffe ou d’incendie dû aux branchements élec
 * Pour respecter les exigences thermiques, d’émission et de sécurité applicables, aucun couvercle ne doit être retiré et des modules enfichables ou des lecteurs vides doivent être installés dans toutes les baies.
 * Assurez-vous que le matériel est utilisé d’une manière spécifiée par le fabricant. Si ce matériel est utilisé d’une manière non spécifiée par le fabricant, la protection offerte par le matériel risque d’être affectée.
 
-![Icône Avis](./media/storsimple-safety/IC740881.png) **AVIS :**
+![Icône Avis](./media/storsimple-safety/IC740881.png)**AVIS :**
 
 Pour garantir le bon fonctionnement du matériel et éviter tout endommagement du produit :
 
@@ -83,7 +81,7 @@ Pour garantir le bon fonctionnement du matériel et éviter tout endommagement d
 ## <a name="rack-system-precautions"></a>Précautions relatives au système de rack
 Les exigences de sécurité suivantes sont à prendre en considération lorsque vous montez l’appareil dans une armoire à rack.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Risque de basculement](./media/storsimple-safety/IC740886.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque de basculement](./media/storsimple-safety/IC740886.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de blessure pouvant résulter d’un basculement :
 
@@ -91,7 +89,7 @@ Pour réduire le risque de blessure pouvant résulter d’un basculement :
 * Pour charger un rack, remplissez-le de bas en haut. Pour le vider, procédez dans l’ordre inverse.
 * N’extrayez pas plus d’un boîtier à la fois du rack afin d’éliminer tout risque de basculement du rack.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de blessure, d’électrocution ou de mort :
 
@@ -100,7 +98,7 @@ Pour réduire le risque de blessure, d’électrocution ou de mort :
 * La conception du système de distribution électrique doit tenir compte de la fuite à la terre totale des blocs d’alimentation de l’ensemble des boîtiers. Notez que chacun de ces blocs d’alimentation présente un courant de fuite à la terre de 1,0 mA maximum à 60 Hz, 264 V. Il peut être nécessaire d’afficher l’avertissement suivant sur le rack : « COURANT DE FUITE ÉLEVÉ. Connexion à la terre (masse) indispensable avant le branchement d’une alimentation. »
 * Lorsque les boîtiers sont installés, le rack doit répondre aux exigences de sécurité des normes UL 60950-1 et IEC 60950-1/EN 60950-1.
 
-![Icône Avis](./media/storsimple-safety/IC740881.png) **AVIS :**
+![Icône Avis](./media/storsimple-safety/IC740881.png)**AVIS :**
 
 Pour garantir le refroidissement correct du système de rack :
 
@@ -110,13 +108,13 @@ Pour garantir le refroidissement correct du système de rack :
 ## <a name="power-cooling-module-pcm-precautions"></a>Précautions relatives aux modules d’alimentation et de refroidissement (PCM)
 L’appareil est conçu pour fonctionner avec deux PCM. Chacun de ces PCM est équipé d’un bloc d’alimentation et d’un ventilateur à deux axes. En cas de situation critique, le système est capable de continuer à fonctionner normalement si l’un des blocs d’alimentation tombe en panne. Deux PCM (et donc deux blocs d’alimentation) doivent être installés en permanence. Un PCM unique ne fournit pas d’alimentation redondante. Par conséquent, la défaillance d’un PCM unique est susceptible d’entraîner des temps d’arrêt ou des pertes de données.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de blessure, d’électrocution ou de mort :
 
 * Ne retirez pas les couvercles du PCM. Vous risqueriez de vous électrocuter en touchant l’intérieur. Pour retourner le PCM et obtenir son remplacement, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-![Icône Avis](./media/storsimple-safety/IC740881.png) **AVIS :**
+![Icône Avis](./media/storsimple-safety/IC740881.png)**AVIS :**
 
 Pour garantir le bon fonctionnement du matériel et éviter tout endommagement du produit :
 
@@ -124,7 +122,7 @@ Pour garantir le bon fonctionnement du matériel et éviter tout endommagement d
 * Ne retirez pas de PCM à moins de pouvoir installer immédiatement un PCM de rechange. Le boîtier ne doit pas être utilisé si tous les modules ne sont pas en place.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>Précautions relatives aux décharges électrostatiques
-![Icône Avis](./media/storsimple-safety/IC740881.png) **AVIS :**
+![Icône Avis](./media/storsimple-safety/IC740881.png)**AVIS :**
 
 Respectez les précautions relatives aux décharges électrostatiques ci-après.
 
@@ -136,7 +134,7 @@ Respectez les précautions relatives aux décharges électrostatiques ci-après.
 ## <a name="battery-disposal-precautions"></a>Précautions relatives à la mise au rebut de la batterie
 Le bloc d’alimentation utilise une batterie spéciale conçue pour protéger le contenu de la mémoire pendant les pannes électriques temporaires à court terme. Cette batterie est située dans le PCM. Gardez à l’esprit les informations suivantes concernant la batterie.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de court-circuit, d’incendie, d’explosion ou de décès :
 
@@ -144,7 +142,7 @@ Pour réduire le risque de court-circuit, d’incendie, d’explosion ou de déc
 * Évitez de démonter, d’écraser, de chauffer au-dessus de 60 degrés Celsius ou d’incinérer la batterie. Remplacez la batterie du PCM par une batterie fournie uniquement. L’utilisation d’une autre batterie peut présenter un risque d’incendie ou d’explosion.
 * Placez des embouts de protection sur les batteries si vous retirez ces dernières du bloc d’alimentation.
 
-![Icône Avis](./media/storsimple-safety/IC740881.png) **AVIS :**
+![Icône Avis](./media/storsimple-safety/IC740881.png)**AVIS :**
 
 Pour l’expédition des batteries ou leur transport par voie aérienne, suivez le document de référence de l’IATA sur les batteries au lithium disponible à l’adresse [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
@@ -153,5 +151,4 @@ Une fois que vous avez lu attentivement ces consignes de sécurité, les étapes
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour un appareil 8100, consultez la rubrique [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md).
 * Pour un appareil 8600, consultez la rubrique [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
-
 

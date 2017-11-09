@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: 24552ef153f5aa601b2998129a7bbacc8f9da6bf
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 881ce13b6e4b10064294e590431434b29da3fb33
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud
 Azure Active Directory (Azure AD) Connect Health vous permet de surveiller et d’analyser votre infrastructure d’identité locale et les services de synchronisation. Il vous permet de maintenir une connexion fiable à Office 365 et à Microsoft Online Services en fournissant des fonctionnalités de surveillance de vos composants d’identification clés tels que les serveurs Active Directory Federation Services (AD FS), les serveurs Azure AD Connect (moteur de synchronisation), les contrôleurs de domaine Active Directory, etc. En outre, les points de données clés sur ces composants sont facilement accessibles, ce qui vous permet d’obtenir des données d’utilisation et d’autres informations importantes pour prendre des décisions avisées.
@@ -28,8 +27,8 @@ Ces informations sont toutes présentées dans le [portail Azure AD Connect Heal
 
 ![Présentation d’Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
-Au fur et à mesure que le nombre de fonctionnalités d’Azure AD Connect Health augmente, le portail fournit un tableau de bord unique en fonction de l’identité. Vous obtenez ainsi un environnement encore plus robuste, intégré et sain pour vos utilisateurs, afin d’augmenter leur capacité à effectuer des actions.
 
+Au fur et à mesure que le nombre de fonctionnalités d’Azure AD Connect Health augmente, le portail fournit un tableau de bord unique en fonction de l’identité. Vous obtenez ainsi un environnement encore plus robuste, intégré et sain pour vos utilisateurs, afin d’augmenter leur capacité à effectuer des actions.
 ## <a name="why-use-azure-ad-connect-health"></a>Pourquoi utiliser Azure AD Connect Health ?
 Lorsque vous intégrez vos répertoires locaux avec Azure AD, vos utilisateurs gagnent en productivité car ils disposent d’une identité commune pour accéder aux ressources cloud et locales. Toutefois, cette intégration nécessite que vous vous assuriez que cet environnement est sécurisé pour que les utilisateurs puissent accéder aux ressources locales et cloud en toute sécurité depuis n’importe quel appareil. Azure AD Connect Health vous aide à surveiller et à obtenir facilement des informations sur l’infrastructure d’identité locale utilisée pour accéder à Office 365 ou à d’autres applications Azure AD. Son installation est aussi simple que celle d’un agent sur chacun de vos serveurs d’identité local.
 
@@ -41,11 +40,14 @@ Azure AD Connect Health pour AD FS prend en charge AD FS 2.0 dans Windows Server
 * Tendances des données de performance, utiles pour la planification des capacités d’AD FS
 * Analyse de l’utilisation des connexions AD FS avec un autre tableau croisé dynamique (applications, utilisateurs, emplacement réseau, etc.), utile pour comprendre comment AD FS est utilisé
 * Rapports AD FS comme le Top 50 des utilisateurs avec des tentatives ayant échoué en raison de noms d’utilisateur/mots de passe incorrects et leur dernière adresse IP
+  
+Pour en savoir plus sur l’[Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)
 
 La vidéo suivante fournit une vue d’ensemble d’Azure AD Connect Health pour AD FS.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Connect-Health--Monitor-you-identity-bridge/player]
 >
+
 >
 
 ## <a name="azure-ad-connect-health-for-syncactive-directory-aadconnect-health-syncmd"></a>[Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md)
@@ -56,6 +58,8 @@ Azure AD Connect Health pour la synchronisation surveille et fournit des informa
 * Analyse opérationnelle de synchronisation, notamment les graphiques de latence pour les opérations de synchronisation et les tendances dans différentes opérations, en particulier les ajouts, les mises à jour, les suppressions
 * Rapide aperçu des informations sur les propriétés de synchronisation et la dernière réussite de l’exportation vers Azure AD
 * Rapports sur les erreurs de synchronisation de niveau objet \(ne nécessite pas Azure AD Premium\)
+
+Pour en savoir plus sur l’[Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md)
 
 La vidéo suivante fournit une vue d’ensemble d’Azure AD Connect Health pour la synchronisation.
 
@@ -70,6 +74,8 @@ Azure AD Connect Health pour Active Directory Domain Service (AD DS) permet de s
 * Tableau de bord des contrôleurs de domaine qui fournit un aperçu rapide de l’intégrité et de l’état de fonctionnement de vos contrôleurs de domaine
 * Tableau de bord d’état de réplication fournissant les dernières informations de réplication, ainsi que des liens vers des guides de dépannage lorsque des erreurs sont détectées
 * Accès rapide n’importe où aux graphiques de données de compteurs de performances populaires, nécessaires pour la résolution des problèmes et à des fins de surveillance
+
+Pour en savoir plus sur l’[Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md)
 
 La vidéo suivante fournit une vue d’ensemble d’Azure AD Connect Health pour AD DS.
 
@@ -125,4 +131,3 @@ Ce portail vous permet d’afficher des alertes, de surveiller les performances 
 * [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md)
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historique des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

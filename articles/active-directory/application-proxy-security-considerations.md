@@ -11,21 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
-Cet article explique comment le proxy d’application Azure Active Directory fournit un service sécurisé pour la publication et l’accès à distance de vos applications.
+Cet article décrit les composants qui facilitent la protection des utilisateurs et des applications quand vous utilisez le proxy d’application Azure Active Directory.
 
 Le diagramme ci-dessous illustre la façon dont Azure AD permet un accès à distance sécurisé à vos applications locales.
 
@@ -61,7 +59,7 @@ Tout le trafic est arrêté dans le cloud.
 
 Vous n’avez pas besoin d’ouvrir de connexion sortante sur le réseau d’entreprise.
 
-Les connecteurs de proxy d’application utilisent uniquement des connexions sortantes vers le service de proxy d’application Azure AD, ce qui signifie qu’il n’est pas nécessaire d’ouvrir des ports de pare-feu pour les connexions entrantes. Les proxys traditionnels exigeaient un réseau de périmètre (également appelé *DMZ*, *zone démilitarisée* et *sous-réseau filtré*) et autorisaient l’accès à des connexions non authentifiées sur le périmètre du réseau. Ce scénario nécessitait d’investir davantage dans des produits de pare-feu d’application web pour analyser le trafic et offrir des protections supplémentaires à l’environnement. Avec le proxy d’application, vous pouvez même vous passer de réseau de périmètre, car toutes les connexions sont sortantes et sur un canal sécurisé.
+Les connecteurs de proxy d’application utilisent uniquement des connexions sortantes vers le service de proxy d’application Azure AD, ce qui signifie qu’il n’est pas nécessaire d’ouvrir des ports de pare-feu pour les connexions entrantes. Les proxys traditionnels exigeaient un réseau de périmètre (également appelé *DMZ*, *zone démilitarisée* et *sous-réseau filtré*) et autorisaient l’accès à des connexions non authentifiées sur le périmètre du réseau. Ce scénario nécessitait d’investir dans des produits de pare-feu d’application web pour analyser le trafic et protéger l’environnement. Avec le proxy d’application, vous pouvez même vous passer de réseau de périmètre, car toutes les connexions sont sortantes et sur un canal sécurisé.
 
 Pour plus d’informations sur les connecteurs, consultez [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md).
 
@@ -69,7 +67,7 @@ Pour plus d’informations sur les connecteurs, consultez [Présentation des con
 
 Bénéficiez d’une protection de sécurité de pointe.
 
-Comme il fait partie d’Azure Active Directory, le proxy d’application peut tirer parti [d’Azure AD Identity Protection](active-directory-identityprotection.md), grâce aux données et renseignements pilotés par apprentissage automatique du MSRC (Microsoft Security Response Center) et de la DCU (Digital Crimes Unit). Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection en temps réel contre les connexions à haut risque. Nous prenons en compte divers facteurs, dont l’accès à partir d’appareils infectés et à travers des réseaux anonymes, ainsi qu’à partir d’emplacements atypiques et peu probables.
+Comme il fait partie d’Azure Active Directory, le proxy d’application peut tirer parti [d’Azure AD Identity Protection](active-directory-identityprotection.md), grâce aux données du MSRC (Microsoft Security Response Center) et de la DCU (Digital Crimes Unit). Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection contre les connexions à haut risque. Nous prenons en compte plusieurs facteurs pour déterminer les tentatives de connexion à haut risque. Ces facteurs incluent le marquage des appareils infectés, l’anonymisation des réseaux et les emplacements atypiques ou peu probables.
 
 Nombre de ces rapports et événements sont déjà disponibles via une API pour l’intégration avec vos systèmes de gestion des événements et des informations de sécurité.
 
@@ -80,6 +78,14 @@ Vous n’avez pas à vous soucier de la maintenance et de l’application de cor
 Les logiciels sans correctifs sont toujours responsables d’un grand nombre d’attaques. Le proxy d’application Azure AD est un service Internet contrôlé par Microsoft ; vous obtenez donc toujours les derniers correctifs de sécurité et mises à niveau.
 
 Pour améliorer la sécurité des applications publiées par le proxy d’application Azure AD, nous empêchons les robots web d’indexer et d’archiver vos applications. Chaque fois qu’un robot web tente de récupérer les paramètres de robots d’une application publiée, le proxy d’application répond avec un fichier robots.txt qui inclut `User-agent: * Disallow: /`.
+
+### <a name="ddos-prevention"></a>Prévention des attaques DDoS
+
+Les applications publiées via le proxy d’application sont protégées contre les attaques par déni de service distribué (DDoS).
+
+Le service de proxy d’application surveille la quantité de trafic qui tente d’atteindre vos applications et réseau. Si le nombre d’appareils qui demandent un accès à distance à vos applications augmente nettement, Microsoft limite l’accès à votre réseau. 
+
+Microsoft surveille des modèles de trafic pour les applications individuelles et pour votre abonnement dans son ensemble. Si une application reçoit une quantité de demandes anormalement élevée, les demandes d’accès à cette application sont refusées pendant une courte période de temps. Si vous recevez une quantité de demandes anormalement élevée pour l’ensemble de votre abonnement, les demandes d’accès à toutes vos applications sont refusées. Avec cette mesure préventive, vos serveurs d’applications ne sont pas surchargés de demandes d’accès à distance, ce qui permet à vos utilisateurs locaux de continuer à accéder à leurs applications. 
 
 ## <a name="under-the-hood"></a>Sous le capot
 
@@ -104,7 +110,7 @@ Le connecteur utilise un certificat client pour authentifier le service de proxy
 Le flux suivant se déroule lorsque le connecteur est configuré pour la première fois :
 
 1. L’inscription du connecteur sur le service se produit dans le cadre de l’installation du connecteur. Les utilisateurs sont invités à saisir leurs informations d’identification administrateur Azure AD. Le jeton obtenu à partir de cette authentification est ensuite présenté au service de proxy d’application Azure AD.
-2. Le service de proxy d’Application évalue le jeton. Il garantit que l’utilisateur est un administrateur d’entreprise au sein du locataire pour lequel le jeton a été émis. Si l’utilisateur n’est pas un administrateur, le processus se termine.
+2. Le service de proxy d’Application évalue le jeton. Il vérifie si l’utilisateur est un administrateur d’entreprise dans le locataire. Si l’utilisateur n’est pas un administrateur, le processus se termine.
 3. Le connecteur génère une demande de certificat client et la transmet, ainsi que le jeton, au service de proxy d’application. À son tour, le service vérifie le jeton et signe la demande de certificat client.
 4. Le connecteur utilise le certificat client pour les communications ultérieures avec le service de proxy d’application.
 5. Le connecteur effectue une extraction initiale des données de configuration système à partir du service à l’aide de son certificat client et est désormais prêt à recevoir des demandes.
@@ -114,7 +120,7 @@ Le flux suivant se déroule lorsque le connecteur est configuré pour la premiè
 Chaque fois que le service de proxy d’application met à jour les paramètres de configuration, les événements de flux suivants ont lieu :
 
 1. Le connecteur se connecte au point de terminaison de configuration dans le service de proxy d’application à l’aide de son certificat client.
-2. Une fois que le certificat client a été validé, le service de proxy d’application renvoie les données de configuration au connecteur (par exemple, le groupe auquel le connecteur appartient).
+2. Une fois que le certificat client est validé, le service de proxy d’application renvoie les données de configuration au connecteur (par exemple, le groupe auquel le connecteur appartient).
 3. Le connecteur génère une nouvelle demande de certificat si le certificat actuel date de plus de 180 jours. Ainsi, dans les faits, le certificat client est mis à jour tous les 180 jours.
 
 ### <a name="accessing-published-applications"></a>Accès aux applications publiées
@@ -179,4 +185,3 @@ Une partie du traitement de l’application peut se produire ici. Si vous avez c
 [Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure AD](application-proxy-network-topology-considerations.md)
 
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)
-

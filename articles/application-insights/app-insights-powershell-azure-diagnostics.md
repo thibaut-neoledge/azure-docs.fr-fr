@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2015
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/16/2016
-
+ms.author: mbullwin
+ms.openlocfilehash: 46f148cc69a8e36500dc351f74fa87576eb86a6b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Utilisation de PowerShell pour configurer Application Insights pour une application web Azure
 [Microsoft Azure](https://azure.com) peut être [configuré pour envoyer des Diagnostics Azure](app-insights-azure-diagnostics.md) vers [Azure Application Insights](app-insights-overview.md). Les tests de diagnostic concernent Azure Cloud Services et les machines virtuelles Azure. Ils permettent de compléter les données de télémétrie que vous envoyez depuis l’application à l’aide du kit de développement logiciel d’Application Insights. Dans le cadre de l’automatisation du processus de création de nouvelles ressources dans Azure, vous pouvez configurer des diagnostics avec PowerShell.
@@ -138,5 +137,4 @@ Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 * [Surveiller les applications Azure Cloud Services avec Application Insights](app-insights-cloudservices.md)
 * [Envoyer des diagnostics Azure vers Application Insights.](app-insights-azure-diagnostics.md)
 * [Automatisation de la configuration des alertes](app-insights-powershell-alerts.md)
-
 

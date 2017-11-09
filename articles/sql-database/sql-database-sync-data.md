@@ -9,18 +9,18 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
+ms.reviewer: douglasl
+ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -98,11 +98,13 @@ Data Sync utilise des déclencheurs d’insertion, de mise à jour et de suppres
 
 ### <a name="requirements"></a>Configuration requise
 
--   Chaque table doit avoir une clé primaire.
+-   Chaque table doit avoir une clé primaire. Ne modifiez pas la valeur de la clé primaire dans une ligne. Si vous avez à le faire, supprimez la ligne et recréez-la avec la nouvelle valeur de clé primaire. 
 
 -   Une table ne peut pas avoir une colonne d’identité qui n’est pas la clé primaire.
 
 -   Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
+
+-   L’isolement de capture instantanée doit être activé. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>Limitations des dimensions de la base de données et du service
 
@@ -140,6 +142,11 @@ Ce message d’erreur indique l’un des deux problèmes suivants :
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Comment Data Sync traite-t-il les références circulaires ? Autrement dit, lorsque les mêmes données sont synchronisées dans plusieurs groupes de synchronisation et changent constamment en conséquence ?
 Data Sync ne traite pas les références circulaires. Veillez à les éviter. 
 
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Comment puis-je exporter et importer une base de données avec Data Sync ?
+Après avoir exporté une base de données sous forme de fichier .bacpac et avoir importé ce fichier pour créer une base de données, vous devez effectuer les deux tâches suivantes pour utiliser Data Sync dans la nouvelle base de données :
+1.  Nettoyer les objets Data Sync et les tables annexes de la **nouvelle base de données** à l’aide de [ce script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Ce script supprime tous les objets Data Sync requis de la base de données.
+2.  Recréer le groupe de synchronisation avec la nouvelle base de données. Si vous n’avez plus besoin de l’ancien groupe de synchronisation, supprimez-le.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur SQL Data Sync, consultez :
@@ -150,8 +157,6 @@ Pour plus d’informations sur SQL Data Sync, consultez :
     -   [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [Télécharger la documentation technique complète sur la synchronisation des données SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
-
 -   [Télécharger la documentation de l’API REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Pour plus d’informations sur SQL Database, consultez :
@@ -159,4 +164,3 @@ Pour plus d’informations sur SQL Database, consultez :
 -   [Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
 
 -   [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
-

@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/20/2017
 ms.author: magoedte;banders
+ms.openlocfilehash: 562a7a73e2d440c0c3e3e8ab9e94ffd6c1fba7d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: cd21a08de9dbf795b9a295de22e55a24fa9535ef
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solution Container Monitoring dans Log Analytics
 
@@ -289,12 +288,12 @@ Si vous souhaitez utiliser des secrets pour sécuriser l’ID de votre espace de
      WSID:   37 bytes  
     ```
 
-#### <a name="configure-an-oms-agent-for-kubernetes"></a>Configurer un agent OMS pour Kubernetes
+#### <a name="configure-an-oms-linux-agent-for-kubernetes"></a>Configurer un agent OMS Linux pour Kubernetes
 
-Pour Kubernetes, vous utilisez un script afin de générer le fichier .yaml de secrets pour votre ID d’espace de travail et votre clé primaire. Sur la page [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) (GitHub Kubernetes Docker OMS), il existe des fichiers que vous pouvez utiliser avec ou sans vos informations secrètes.
+Pour Kubernetes, vous utilisez un script afin de générer le fichier yaml de secrets pour votre ID d’espace de travail et votre clé primaire pour installer l’agent OMS pour Linux. Sur la page [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) (GitHub Kubernetes Docker OMS), il existe des fichiers que vous pouvez utiliser avec ou sans vos informations secrètes.
 
-- Le daemon-set par défaut de l’agent OMS ne comprend pas d’informations secrètes (omsagent.yaml).
-- Le fichier yaml daemon-set de l’agent OMS utilise les informations secrètes (omsagent-ds-secrets.yaml) avec des scripts de génération de secrets pour générer le fichier yaml de secrets (omsagentsecret.yaml).
+- Le DaemonSet par défaut de l’agent OMS pour Linux ne comprend pas d’informations secrètes (omsagent.yaml).
+- Le fichier yaml DaemonSet de l’agent OMS pour Linux utilise les informations secrètes (omsagent-ds-secrets.yaml) avec des scripts de génération de secrets pour générer le fichier yaml de secrets (omsagentsecret.yaml).
 
 Vous pouvez choisir de créer le DaemonSet de l’agent OMS avec ou sans secrets.
 
@@ -371,7 +370,7 @@ Vous pouvez choisir de créer le DaemonSet de l’agent OMS avec ou sans secrets
     ```
 
 
-Pour Kubernetes, utilisez un script afin de générer le fichier .yaml de secrets pour l’ID d’espace de travail et la clé primaire. Utilisez les informations de l’exemple suivant avec le [fichier yaml de l’agent OMS](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) pour sécuriser vos informations secrètes.
+Pour Kubernetes, utilisez un script afin de générer le fichier yaml de secrets pour l’ID d’espace de travail et la clé primaire pour l’agent OMS pour Linux. Utilisez les informations de l’exemple suivant avec le [fichier yaml de l’agent OMS](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) pour sécuriser vos informations secrètes.
 
 ```
 keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
@@ -387,6 +386,98 @@ Data
 WSID:   36 bytes
 KEY:    88 bytes
 ```
+
+#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Configurer un agent OMS pour Windows Kubernetes
+Pour Windows Kubernetes, vous utilisez un script afin de générer le fichier yaml de secrets pour votre ID d’espace de travail et votre clé primaire pour installer l’agent OMS. Sur la page [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) (GitHub Kubernetes Docker OMS), il existe des fichiers que vous pouvez utiliser avec vos informations secrètes.  Vous devez installer l’agent OMS séparément pour les nœuds principaux et d’agent.  
+
+1. Pour utiliser le DaemonSet de l’agent OMS à l’aide des informations secrètes sur le nœud principal, commencez par vous connecter et par créer les secrets.
+    1. Copiez le fichier de modèle de secret et le script, et assurez-vous qu’ils se trouvent dans le même répertoire.
+        - Script de génération de secrets - secret-gen.sh
+        - Modèle de secret - secret-template.yaml
+
+    2. Exécutez le script, comme l’exemple suivant. Le script demande l’ID d’espace de travail OMS et la clé primaire, et une fois que vous les entrez, le script crée un fichier .yaml de secrets que vous pouvez exécuter.   
+
+        ```
+        #> sudo bash ./secret-gen.sh
+        ```
+    3. Créer votre DaemonsSet de l’agent OMS en exécutant ``` kubectl create -f omsagentsecret.yaml ```
+    4. Pour vérifier, exécutez la commande suivante :
+    
+        ``` 
+        root@ubuntu16-13db:~# kubectl get secrets
+        ```
+
+        La sortie doit ressembler à :
+
+        ```
+        NAME                  TYPE                                  DATA      AGE
+        default-token-gvl91   kubernetes.io/service-account-token   3         50d
+        omsagent-secret       Opaque                                2         1d
+        root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+        Name:           omsagent-secret
+        Namespace:      default
+        Labels:         <none>
+        Annotations:    <none>
+    
+        Type:   Opaque
+    
+        Data
+        ====
+        WSID:   36 bytes
+        KEY:    88 bytes 
+        ```
+
+    5. Créer votre DaemonsSet de l’agent OMS en exécutant ```kubectl create -f ws-omsagent-de-secrets.yaml```
+
+2. Vérifiez que le DaemonSet de l’agent OMS s’exécute, comme ce qui suit :
+
+    ```
+    root@ubuntu16-13db:~# kubectl get deployment omsagent
+    NAME       DESIRED   CURRENT   NODE-SELECTOR   AGE
+    omsagent   1         1         <none>          1h
+    ```
+
+3. Pour installer l’agent sur le nœud Worker qui exécute Windows, suivez les étapes décrites dans la section [Installer et configurer des hôtes de conteneur Windows](#install-and-configure-windows-container-hosts). 
+
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Utiliser Helm pour déployer l’agent OMS sur Linux Kubernetes 
+Pour utiliser Helm afin de déployer l’agent OMS sur votre environnement Linux Kubernetes, procédez comme suit.
+
+1. Créer votre DaemonsSet de l’agent OMS en exécutant ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+2. Les résultats ressemblent à ce qui suit :
+
+    ```
+    NAME:   omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     3s
+
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         3s
+    ```
+3. Vous pouvez vérifier l’état de l’agent OMS en exécutant : ```helm status "omsagent"```. Le résultat doit ressembler à ce qui suit :
+
+    ```
+    keiko@k8s-master-3814F33-0:~$ helm status omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+ 
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
+    ```
+Pour plus d’informations, consultez [Azure Log Analytics Container Monitoring Solution](https://aka.ms/omscontainerhelm) (Solution de surveillance de conteneur Azure Log Analytics).
 
 ### <a name="install-and-configure-windows-container-hosts"></a>Installer et configurer des hôtes de conteneur Windows
 
@@ -501,7 +592,7 @@ Dans la zone **État du conteneur**, cliquez sur la zone supérieure, comme illu
 
 La fenêtre Recherche dans les journaux s’ouvre et affiche des informations sur l’état de vos conteneurs.
 
-![Recherche dans les journaux pour les conteneurs](./media/log-analytics-containers/containers-log-search.png)
+![Recherche de journal pour les conteneurs](./media/log-analytics-containers/containers-log-search.png)
 
 À partir d’ici, vous pouvez modifier la requête de recherche de façon à trouver les informations spécifiques qui vous intéressent. Pour plus d’informations sur les recherches dans les journaux, voir [Recherches de journal dans Log Analytics](log-analytics-log-searches.md).
 
@@ -574,4 +665,3 @@ Après avoir créé une requête qui vous semble utile, enregistrez-la en cliqua
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour consulter des enregistrements de données de conteneur détaillées.
-

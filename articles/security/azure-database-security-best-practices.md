@@ -14,25 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 5bd6fe0dd369b3bbc7ca0d697c964badda557cb8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-best-practices"></a>Meilleures pratiques en matière de sécurité pour les bases de données Azure
 
 La sécurité est une préoccupation majeure lorsqu’il s’agit de gérer des bases de données, et cela a toujours été une priorité pour Azure SQL Database. Vos bases de données peuvent être étroitement sécurisées pour permettre de répondre aux exigences réglementaires ou de sécurité, notamment HIPAA, ISO 27001/27002 et PCI DSS Level 1. Une liste à jour des certifications de conformité en matière de sécurité est disponible sur le [site du Centre de gestion de la confidentialité Microsoft](http://azure.microsoft.com/support/trust-center/services/). Vous pouvez également choisir de placer vos bases de données dans des centres de données Azure spécifiques, en fonction des exigences réglementaires.
 
 Dans cet article, nous aborderons différentes meilleures pratiques en matière de sécurité pour les bases de données Azure. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la sécurité des bases de données Azure, mais également de celle des clients comme vous.
 
-Pour chaque meilleure pratique, nous détaillons les éléments suivants :
+Pour chaque bonne pratique, nous détaillons les éléments suivants :
 
--   Nature de la meilleure pratique
--   Raison pour laquelle activer cette meilleure pratique
--   Conséquence possible en cas de non-utilisation de la meilleure pratique
+-   Nature de la bonne pratique
+-   Raison pour laquelle activer cette bonne pratique
+-   Conséquence possible en cas de non-utilisation de la bonne pratique
 -   Comment apprendre à utiliser la meilleure pratique
 
 Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensembles de fonctions de la plateforme Azure disponibles au moment de la rédaction du présent document. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
@@ -172,4 +170,3 @@ Azure Database est une plateforme robuste de base de données, avec un éventail
 - Pour en savoir plus sur les règles de pare-feu, consultez [Règles de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 - Pour en savoir plus sur les utilisateurs et les connexions, consultez [Gérer les connexions](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 - Pour obtenir un didacticiel, consultez [Sécuriser votre base de données Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).
-

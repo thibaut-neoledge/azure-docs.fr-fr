@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configuration de Multipath I/O pour votre appareil StorSimple
 Microsoft a créé la prise en charge de la fonctionnalité MPIO (Multipath I/O) dans Windows Server pour vous aider à créer des configurations SAN hautement disponibles et tolérantes aux pannes. MPIO utilise les composants de chemin d’accès physique redondants (adaptateurs, câbles et commutateurs) pour créer des chemins d’accès logiques entre le serveur et l’appareil de stockage. En cas de défaillance de composant à l’origine de l’échec du chemin d’accès logique, la logique de gestion multivoie utilise un autre chemin pour l’E/S afin que les applications puissent toujours accéder à leurs données. De plus, selon votre configuration, MPIO peut également améliorer les performances en rééquilibrant la charge sur ces chemins d’accès. Pour plus d’informations, consultez la [Présentation de MPIO](https://technet.microsoft.com/library/cc725907.aspx "Présentation de MPIO and features").  
@@ -115,8 +114,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 13. Initialisez le disque et créez un nouveau volume. Pendant le processus de formatage, sélectionnez une taille de bloc de 64 Ko.
     ![Gestion des disques](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. Sous **Gestion des disques**, cliquez avec le bouton droit sur le **Disque** et sélectionnez **Propriétés**.
-15. Dans la boîte de dialogue du modèle StorSimple #### **Propriétés du périphérique de disque à chemins multiples**, cliquez sur l’onglet **MPIO**.
-    ![DeviceProp disque à chemins d’accès multiples StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. Dans la boîte de dialogue du modèle StorSimple #### **Propriétés du périphérique de disque à chemins multiples**, cliquez sur l’onglet **MPIO**. ![DeviceProp disque à chemins d’accès multiples StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 16. Dans la section **Nom DSM**, cliquez sur **Détails** et vérifiez que les paramètres par défaut sont définis. Les paramètres par défaut sont les suivants :
     
     * Période de vérification du chemin d’accès = 30
@@ -169,5 +167,4 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l' [utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple](storsimple-modify-device-config.md).
-
 

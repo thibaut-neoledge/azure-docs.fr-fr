@@ -36,6 +36,7 @@
 #### [Gestion des travaux](storsimple-virtual-array-manage-jobs.md)
 #### [Modifier le mot de passe d’un appareil](storsimple-virtual-array-change-device-admin-password.md)
 #### [Configurer MPIO sur un hôte Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Surveiller à l’aide d’alertes](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnostiquer et résoudre les problèmes](storsimple-virtual-array-diagnose-problems.md)
 #### [Créer une demande de support](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [Quelle est la solution ?](storsimple-overview.md)
 ### [Carte d’apprentissage StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Sécurité](storsimple-8000-security.md)
+### [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md)
 
 ## Prise en main
 
@@ -99,6 +101,7 @@
 ##### [Gestion de conteneurs de volume](storsimple-8000-manage-volume-containers.md)
 ##### [Gérer les volumes - en cours](storsimple-8000-manage-volumes-u2.md)
 ###### [Forum aux Questions : volumes épinglés localement](storsimple-8000-local-volume-faq.md)
+##### [Contrôle d’accès en fonction du rôle](storsimple-8000-role-based-access-control.md)
 ##### [Gérer les ACR](storsimple-8000-manage-acrs.md)
 ##### [Modèles de bande passante](storsimple-8000-manage-bandwidth-templates.md)
 ##### [Afficher et gérer les travaux](storsimple-8000-manage-jobs-u2.md)
@@ -117,6 +120,7 @@
 ##### [Modifier les paramètres DATA 0](storsimple-8000-modify-data-0.md)
 
 
+
 #### [Utilisation de StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 ##### [À propos de l’interface StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
@@ -127,6 +131,11 @@
 ##### [Gérer les travaux de sauvegarde via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [Gérer les volumes via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Utiliser les actions MMC dans StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+
+### Automatisation
+
+#### [Utiliser des exemples de scripts Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
+#### [Utiliser des runbooks Azure Automation](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Créer des solutions
 #### [StorSimple avec Veeam](storsimple-configure-backup-target-veeam.md)
@@ -185,7 +194,7 @@
 #### [Version commerciale - GA](storsimple-july-2014-release-notes.md)
 
 ## Référence
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [API REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell pour les applets de commande StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 # Gamme StorSimple 8000 (portail Azure Classic)

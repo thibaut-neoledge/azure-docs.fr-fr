@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: sethm;clemensv
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Présentation du modèle de sécurité et de l'authentification Event Hubs
 
@@ -99,9 +98,9 @@ Lorsque le client envoie des données dans un hub d’événements, il balise sa
 
 Si un jeton est volé par un intrus, celui-ci peut emprunter l’identité du client à qui le jeton a été volé. L’inscription d’un client sur liste noire le rend inutilisable, jusqu’à ce qu’il reçoive un nouveau jeton qui utilise un éditeur différent.
 
-## <a name="authentication-of-back-end-applications"></a>Authentification des applications backend
+## <a name="authentication-of-back-end-applications"></a>Authentification des applications principales
 
-Pour authentifier des applications backend qui consomment les données générées par les clients Event Hubs, Event Hubs utilise un modèle de sécurité qui est similaire au modèle utilisé pour les rubriques Service Bus. Un groupe de consommateurs Event Hubs est équivalent à un abonnement à une rubrique Service Bus. Un client peut créer un groupe de consommateurs si la requête de création du groupe de consommateurs est accompagnée d’un jeton qui accorde des droits de gestion pour le hub d’événements ou pour l’espace de noms auxquels appartient le hub d’événements. Un client est autorisé à consommer des données à partir d’un groupe de consommateurs si la requête de réception est accompagnée d’un jeton qui accorde des droits de réception pour ce groupe de consommateurs, le hub d’événements ou l’espace de noms auxquels appartient le hub d’événements.
+Pour authentifier des applications principales qui consomment les données générées par les clients Event Hubs, Event Hubs utilise un modèle de sécurité qui est similaire au modèle utilisé pour les rubriques Service Bus. Un groupe de consommateurs Event Hubs est équivalent à un abonnement à une rubrique Service Bus. Un client peut créer un groupe de consommateurs si la requête de création du groupe de consommateurs est accompagnée d’un jeton qui accorde des droits de gestion pour le hub d’événements ou pour l’espace de noms auxquels appartient le hub d’événements. Un client est autorisé à consommer des données à partir d’un groupe de consommateurs si la requête de réception est accompagnée d’un jeton qui accorde des droits de réception pour ce groupe de consommateurs, le hub d’événements ou l’espace de noms auxquels appartient le hub d’événements.
 
 La version actuelle de Service Bus ne prend pas en charge les règles SAS pour les abonnements individuels. Il en va de même pour les groupes de consommateurs de hubs d'événements. La prise en charge SAS sera ajoutée ultérieurement pour ces deux fonctionnalités.
 
@@ -111,12 +110,11 @@ En l'absence d'authentification SAS pour les groupes de consommateurs individuel
 
 Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 
-* [Qu’est-ce qu’Event Hubs ?]
+* [Vue d’ensemble des hubs d’événements]
 * [Présentation des signatures d’accès partagé]
 * [Exemples d’applications qui utilisent des Event Hubs]
 
-[Qu’est-ce qu’Event Hubs ?]: event-hubs-what-is-event-hubs.md
+[Vue d’ensemble des hubs d’événements]: event-hubs-what-is-event-hubs.md
 [Exemples d’applications qui utilisent des Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Présentation des signatures d’accès partagé]: ../service-bus-messaging/service-bus-sas.md
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 4ca9268c26f681fcc96955b6161fe4a119b2dcf4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Didacticiel : Intégration d’Azure Active Directory à CA PPM
 
@@ -112,9 +110,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :  `https://ca.ondemand.saml.20.post.<companyname>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://ca.ondemand.saml.20.post.<companyname>`
     
-    b. Dans la zone de texte **URL de réponse**, tapez :  `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    b. Dans la zone de texte **URL de réponse**, tapez : `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’identificateur réel. Contactez l’[équipe de support technique CA PPM](mailto:catechnicalsupport@ca.com) pour obtenir cette valeur.
@@ -226,5 +224,4 @@ Lorsque vous cliquez sur la mosaïque CA PPM dans le volet d’accès, vous deve
 [201]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_203.png
-
 

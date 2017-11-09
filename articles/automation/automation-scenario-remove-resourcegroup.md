@@ -3,7 +3,7 @@ title: Automatiser la suppression des groupes de ressources | Microsoft Docs
 description: "Version du workflow PowerShell d’un scénario d’Azure Automation incluant des runbooks pour supprimer tous les groupes de ressources de votre abonnement."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-
-
+ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-automation-scenario-automate-removal-of-resource-groups"></a>Scénario Azure Automation - Automatiser la suppression de groupes de ressources
+# <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scénario Azure Automation - Automatiser la suppression de groupes de ressources
 De nombreux clients créent plusieurs groupes de ressources. Certains peuvent être utilisés pour la gestion des applications de production, et d’autres comme environnement de développement, de test et intermédiaires. Automatiser le déploiement de ces ressources est une chose, mais être capable de désactiver un groupe de ressources d’un simple clic en est une autre. Vous pouvez simplifier cette tâche de gestion courante à l’aide d’Azure Automation. Cela est également utile si vous travaillez avec un abonnement Azure présentant une limite de dépense obtenue via une offre spéciale réservée aux membres de MSDN ou du programme Microsoft Partner Network Cloud Essentials.
 
 Ce scénario repose sur un runbook PowerShell et est conçu pour supprimer un ou plusieurs groupes de ressources que vous spécifiez de votre abonnement. Le paramètre par défaut du runbook consiste à effectuer un test avant de continuer. Cela garantit de ne pas supprimer accidentellement le groupe de ressources avant d’être prêt à effectuer cette procédure.   
@@ -33,12 +33,12 @@ Ce scénario se compose d’un runbook PowerShell que vous pouvez télécharger 
 | Remove-ResourceGroup |Supprime un ou plusieurs groupes de ressources Azure et les ressources associées de l’abonnement. |
 
 <br>
- Les paramètres d’entrée suivants sont définis pour ce runbook :
+Les paramètres d’entrée suivants sont définis pour ce runbook :
 
 | Paramètre | Description |
 | --- | --- |
 | NameFilter (obligatoire) |Spécifie un filtre de nom pour limiter les groupes de ressources que vous avez l’intention de supprimer. Vous pouvez transmettre plusieurs valeurs à l’aide d’une liste séparée par des virgules.<br>Le filtre ne respecte pas la casse et établit une correspondance avec tous les groupes de ressources qui contiennent cette chaîne. |
-| PreviewMode (facultatif) |Exécutez le runbook pour voir quels groupes de ressources seraient supprimés, sans procéder à leur suppression.<br> **true** afin d’éviter la suppression accidentelle de groupes de ressources transmis au runbook. |
+| PreviewMode (facultatif) |Exécutez le runbook pour voir quels groupes de ressources seraient supprimés, sans procéder à leur suppression.<br>**true** afin d’éviter la suppression accidentelle de groupes de ressources transmis au runbook. |
 
 ## <a name="install-and-configure-this-scenario"></a>Installer et configurer ce scénario
 ### <a name="prerequisites"></a>Composants requis
@@ -67,9 +67,3 @@ Le **Résumé du travail** inclut les messages des flux de sortie, des flux d’
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour vous familiariser avec la création de votre propre runbook, consultez [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md).
 * Pour prendre en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 5bfbeb038dbedae2bf77016abbc19458c3dc22c9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>Utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple
 ## <a name="overview"></a>Vue d’ensemble
@@ -119,5 +118,4 @@ Pour échanger ou réaffecter les adresses IP virtuelles d’interfaces réseau,
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [configurer MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
 

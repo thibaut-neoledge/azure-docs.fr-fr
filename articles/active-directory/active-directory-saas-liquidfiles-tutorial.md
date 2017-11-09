@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: b858c6d26b78be4641a46b3453f53d103b512356
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Didacticiel : Intégration d’Azure Active Directory avec LiquidFiles
 
@@ -249,5 +248,4 @@ Lorsque vous cliquez sur la vignette LiquidFiles dans le volet d’accès, vous 
 [201]: ./media/active-directory-saas-liquidfiles-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-liquidfiles-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-liquidfiles-tutorial/tutorial_general_203.png
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 278ebf464fbe815568fbe332f80d5ea6b29e1811
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-samanage-for-automatic-user-provisioning"></a>Didacticiel : configuration de Samanage pour l’approvisionnement automatique d’utilisateurs
 
 
@@ -105,4 +103,3 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](active-directory-saas-provisioning-reporting.md)
-

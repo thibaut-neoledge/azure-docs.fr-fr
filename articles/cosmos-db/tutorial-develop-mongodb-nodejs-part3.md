@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 1fb8d7b9f1014f37f0f3afa20605fce10c45a967
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB - Partie 3 : générer l’interface utilisateur avec Angular
 
@@ -74,7 +73,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
     ![Ouvrez le fichier app-module.ts](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-    Maintenant que vous avez votre composant héros, créez un nouveau fichier pour l’HTML du composant héros. Étant donné que nous avons créé une application minimale, le HTML devrait être placé dans le même fichier que le fichier TypeScript. Toutefois, nous voulons les séparer et créer un fichier distinct.
+    Maintenant que vous avez votre composant héros, créez un nouveau fichier pour le code HTML du composant héros. Étant donné que nous avons créé une application minimale, le code HTML devrait être placé dans le même fichier que le fichier TypeScript. Toutefois, nous voulons les séparer et créer un fichier distinct.
 
 5. Dans le volet **Explorateur**, cliquez avec le bouton droit sur le dossier **app**, cliquez sur **Nouveau fichier** et nommez-le *heroes.component.html*.
 
@@ -521,7 +520,7 @@ Maintenant que nous avons le composant, comment l’afficher sur l’écran ? C
 
 5. Dans Visual Studio Code, revenez à **heroes.components.ts**. Notez qu’à la ligne `constructor(private heroService: HeroService) {}` (ligne 13), `HeroService` est souligné en rouge. Cliquez sur `HeroService` et l’ampoule apparaît sur le côté gauche du bloc de code. Cliquez sur l’ampoule, puis sur **Importer HeroService depuis « ./hero.service ».** ou **Importer HeroService depuis « client/app/hero.service ».**
 
-    Cliquer sur l’ampoule insère une nouvelle ligne de code à la ligne 2. Si la ligne 2 fait référence au dossier client/app/hero, modifiez-la afin de référencer le fichier héros à partir du dossier local (./hero). La ligne 2 doit se présenter comme suit :
+    Quand vous cliquez sur l’ampoule, une nouvelle ligne de code est insérée à la ligne 2. Si la ligne 2 fait référence au dossier client/app/hero, modifiez-la afin de référencer le fichier héros à partir du dossier local (./hero). La ligne 2 doit se présenter comme suit :
     
     ```javascript
     import { HeroService } from "./hero.service"
@@ -559,4 +558,3 @@ Vous pouvez passer à la partie suivante du didacticiel afin de créer un compte
 
 > [!div class="nextstepaction"]
 > [Créer un compte Azure Cosmos DB à l’aide d’Azure CLI](tutorial-develop-mongodb-nodejs-part4.md)
-

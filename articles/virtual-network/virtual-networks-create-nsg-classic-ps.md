@@ -1,6 +1,6 @@
 ---
 title: "Création de groupes de sécurité réseau (portail Classic) dans Azure - PowerShell| Microsoft Docs"
-description: "Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l&quot;aide de PowerShell"
+description: "Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l'aide de PowerShell"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 097f0f7df8db8ec06d91e598cedcfb92a4cc160c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: e3f84e4757e3854fc63e3069e179446174f0c0bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-nsgs-classic-in-powershell"></a>Procédure de création des groupes de sécurité réseau (classique) dans PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -208,4 +206,3 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
                    ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
-

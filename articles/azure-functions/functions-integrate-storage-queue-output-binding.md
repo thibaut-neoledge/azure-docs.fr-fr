@@ -1,5 +1,5 @@
 ---
-title: "Créer une fonction dans Azure déclenchée par des messages de file d’attente | Microsoft Docs"
+title: "Ajouter des messages à une file d’attente de Stockage Azure à l’aide d’Azure Functions | Microsoft Docs"
 description: "Utilisez Azure Functions pour créer une fonction sans serveur appelée par un message soumis à une file d’attente de stockage Azure."
 services: azure-functions
 documentationcenter: na
@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: 822879861ee8189cdd413f0061f26fb91819d88d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
@@ -128,7 +127,6 @@ Vous avez ajouté une liaison de sortie à une fonction existante.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Pour en savoir plus sur la liaison vers le stockage de files d’attente, consultez la page [Liaisons de file d’attente de stockage Azure Functions](functions-bindings-storage-queue.md). 
-
 
 
 

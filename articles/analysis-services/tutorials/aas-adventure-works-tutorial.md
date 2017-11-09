@@ -4,7 +4,7 @@ description: "Présente le didacticiel Adventure Works d’Azure Analysis Servic
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 257e0bc442f29bfe6683fb0511deac50d92c1720
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Didacticiel Adventure Works
 
@@ -107,5 +106,4 @@ Pour commencer, consultez [Leçon 1 : Créer un projet de modèle tabulaire](.
   
   
   
-
 

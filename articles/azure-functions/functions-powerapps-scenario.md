@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
+ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0fd127293edfaf7eb19a4561ab8d0a19f993bcad
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-a-function-from-powerapps"></a>Appeler une fonction dans PowerApps
 La plateforme [PowerApps](https://powerapps.microsoft.com) est conçue pour les experts d’entreprise qui souhaitent créer des applications sans code d’application traditionnel. Les développeurs professionnels peuvent utiliser Azure Functions pour étendre les fonctionnalités de PowerApps, tout en évitant les détails techniques liés à la création d’applications PowerApps.
 
 Dans cette rubrique, vous allez créer une application en suivant un scénario de maintenance d’éoliennes. Cette rubrique vous montre comment appeler la fonction que vous avez définie dans [Créer une définition OpenAPI pour une fonction](functions-openapi-definition.md). La fonction détermine si la réparation d’urgence d’une éolienne est rentable.
 
 ![Application terminée dans PowerApps](media/functions-powerapps-scenario/finished-app.png)
+
+Pour plus d’informations sur l’appel à la même fonction à partir de Microsoft Flow, consultez [Appeler une fonction de Microsoft Flow](functions-flow-scenario.md).
 
 Dans cette rubrique, vous allez apprendre à :
 
@@ -251,4 +251,4 @@ Dans cette rubrique, vous avez appris à effectuer les opérations suivantes :
 
 Pour en savoir plus sur PowerApps, consultez [Présentation de PowerApps](https://powerapps.microsoft.com/tutorials/getting-started/).
 
-Pour connaître un autre scénario intéressant qui utilise Azure Functions, consultez [Créer une fonction qui s’intègre avec Azure Logic Apps](functions-twitter-email.md).
+Pour connaître d’autre scénarios intéressants qui utilisent Azure Functions, consultez [Appeler une fonction de Microsoft Flow](functions-flow-scenario.md) et [Créer une fonction qui s’intègre avec Azure Logic Apps](functions-twitter-email.md).

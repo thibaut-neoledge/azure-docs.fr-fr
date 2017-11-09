@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: bde645624ab1860d19ba18470f55845855a7d1fb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="rate-limiting-for-sms-messages-emails-and-webhook-posts"></a>Limitation de la fréquence des SMS, e-mails et publications Webhook
 La limitation de la fréquence est une suspension des notifications qui se produit lorsque trop de notifications sont envoyées à une adresse e-mail ou un numéro de téléphone donné. Elle garantit que les alertes sont faciles à gérer et exploitables.
 
@@ -42,4 +40,3 @@ Aucune limitation de la fréquence n’est appliquée aux Webhooks.
 * En savoir plus sur le [comportement des alertes SMS](monitoring-sms-alert-behavior.md).
 * Obtenir une [vue d’ensemble des alertes du journal d’activité](monitoring-overview-alerts.md) et découvrir comment recevoir des alertes.  
 * Découvrir comment [configurer des alertes lorsqu’une notification d’intégrité de service est publiée](monitoring-activity-log-alerts-on-service-notifications.md).
-

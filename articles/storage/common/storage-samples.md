@@ -3,7 +3,7 @@ title: "Exemples de code relatifs au service Stockage Azure | Microsoft Docs"
 description: "Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers, qui utilisent des bibliothèques clientes de stockage .NET, Java, Node.js et C++."
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 8fceeff7-dd8a-47d6-b2cd-564a34a2a776
@@ -13,14 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/03/2017
-ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: aa2b53c514890aa980bc89626e8c7c7336b77a0b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/05/2017
-
-
+ms.author: tamram
+ms.openlocfilehash: 371db3bdbedf4abe12b0b903ea8f428f19f07a9f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-samples"></a>Exemples relatifs à Microsoft Azure Storage
 

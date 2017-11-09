@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 10/06/2017
 ms.author: juanpere
+ms.openlocfilehash: 4f716d85a60650a77d393eb725493e2e4d11de7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 42e594dc6a8a8be619b5652bf8e44cf883650489
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Planifier et diffuser des travaux (Node)
 
@@ -36,22 +35,22 @@ Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la p
 Pour en savoir plus sur chacune de ces fonctionnalités, consultez les articles suivants :
 
 * Représentation d’appareil et propriétés : [Prise en main des représentations d’appareil][lnk-get-started-twin] et [Tutorial: How to use device twin properties][lnk-twin-props] (Didacticiel : Utilisation des propriétés de représentation d’appareil)
-* méthodes directes : [Guide du développeur IoT Hub - Méthodes directes][lnk-dev-methods] et [Didacticiel : méthodes directes][lnk-c2d-methods]
+* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes][lnk-dev-methods] et [Didacticiel : méthodes directes][lnk-c2d-methods]
 
 Ce didacticiel vous explique les procédures suivantes :
 
-* Créer une application d’appareil simulé disposant d’une méthode directe permettant **lockDoor** qui peut être appelé par le serveur de solutions principal.
+* Créer une application d’appareil simulé Node.js disposant d’une méthode directe compatible avec **lockDoor**, qui peut être appelée par le back end de la solution.
 * Créer une application console Node.js qui appelle la méthode directe **lockDoor** sur l’application d’appareil simulé à l’aide d’un travail et met à jour les propriétés souhaitées à l’aide d’un travail d’appareil.
 
-À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
+À la fin de ce didacticiel, vous disposerez de deux applications Node.js :
 
 **simDevice.js**, qui se connecte à IoT Hub avec l’identité de l’appareil et reçoit une méthode directe **lockDoor**.
 
-**scheduleJobService.js**, qui appelle une méthode directe sur l’application d’appareil simulé et met à jour les propriétés souhaitées de la représentation d’appareil à l’aide d’un travail.
+**scheduleJobService.js**, qui appelle une méthode directe sur l’application d’appareil simulé et met à jour les propriétés souhaitées du jumeau d’appareil à l’aide d’un travail.
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 0.12.x ou version ultérieure. <br/>  L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
+* Node.js version 4.0.x ou version ultérieure. <br/>  L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -59,7 +58,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
-Dans cette section, vous créez une application console Node.js qui répond à une méthode directe appelée par le cloud, qui déclenche un redémarrage de l’appareil simulé et utilise les propriétés signalées pour permettre aux requêtes de la représentation d’appareil d’identifier des appareils et de déterminer le moment de leur dernier redémarrage.
+Dans cette section, vous allez créer une application console Node.js qui répond à une méthode directe appelée par le cloud, ce qui déclenche une méthode **lockDoor** simulée.
 
 1. Créez un dossier vide appelé **simDevice**.  Dans le dossier **simDevice** , créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
    
@@ -153,7 +152,7 @@ Dans cette section, vous créez une application console Node.js qui lance **lock
     var maxExecutionTimeInSeconds =  3600;
     var jobClient = JobClient.fromConnectionString(connectionString);
     ```
-6. Ajoutez la fonction suivante qui permet de surveiller l’exécution du travail :
+6. Ajoutez la fonction suivante, qui permet de surveiller l’exécution du travail :
    
     ```
     function monitorJob (jobId, callback) {
@@ -206,11 +205,13 @@ Dans cette section, vous créez une application console Node.js qui lance **lock
    
     ```
     var twinPatch = {
-        etag: '*',
-        desired: {
-            building: '43',
-            floor: 3
-        }
+       etag: '*', 
+       properties: {
+           desired: {
+               building: '43', 
+               floor: 3
+           }
+       }
     };
    
     var twinJobId = uuid.v4();
@@ -270,4 +271,3 @@ Afin d’approfondir l’apprentissage de IoT Hub, consultez [Getting started wi
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-

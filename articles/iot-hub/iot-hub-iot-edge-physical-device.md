@@ -12,17 +12,15 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 09/28/2017
 ms.author: andbuc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 02962a91c739a53dfcf947bcc736e5c293b9384f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/26/2017
-
-
+ms.openlocfilehash: b24828ee1a09ba8e5f657954e11936f124270173
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-azure-iot-edge-on-a-raspberry-pi-to-forward-device-to-cloud-messages-to-iot-hub"></a>Utiliser Azure IoT Edge sur un Raspberry Pi pour transférer les messages Appareil vers cloud à IoT Hub
+# <a name="forward-device-to-cloud-messages-to-iot-hub-using-azure-iot-edge-on-a-raspberry-pi"></a>Transférer les messages appareil-à-cloud vers IoT Hub à l’aide d’Azure IoT Edge sur un Raspberry Pi
 
 Cette procédure pas à pas de [l’exemple à faible consommation d’énergie Bluetooth][lnk-ble-samplecode] vous montre comment utiliser [la passerelle Azure IoT Edge][lnk-sdk] pour :
 
@@ -41,7 +39,7 @@ La procédure pas à pas vous montre comment générer et exécuter une passerel
 Lorsque vous exécutez la passerelle IoT Edge, celle-ci :
 
 * Se connecte à un appareil SensorTag à l’aide du protocole Bluetooth Low Energy (BLE).
-* Se connecte à IoT Hub à l’aide du protocole HTTP.
+* Se connecte à IoT Hub à l’aide du protocole HTTPS.
 * Transfère les données de télémétrie à partir de l’appareil SensorTag vers IoT Hub.
 * Achemine les commandes vers l’appareil SensorTag à partir d’IoT Hub.
 
@@ -65,7 +63,11 @@ Les étapes qu’un élément de télémétrie suit lors de son transfert entre 
 1. L’appareil BLE génère un exemple de température et l’envoie au module BLE de la passerelle via Bluetooth.
 1. Le module BLE reçoit l’exemple et le publie dans le répartiteur avec l’adresse MAC de l’appareil.
 1. Le module de mappage d’identité récupère ce message et utilise une table interne pour convertir l’adresse MAC de l’appareil en une identité d’appareil IoT Hub. Une identité d’appareil IoT Hub se compose d’un ID d’appareil et d’une clé d’appareil.
-1. Le module de mappage d’identité publie un nouveau message contenant les exemples de données de température, l’adresse MAC de l’appareil, l’ID de l’appareil et la clé de l’appareil.
+1. Le module de mappage d’identité publie un nouveau message qui contient les informations suivantes :
+   - Exemples de données de température
+   - Adresse MAC de l’appareil
+   - ID de l’appareil
+   - Clé de l’appareil  
 1. Le module IoT Hub reçoit ce nouveau message (généré par le module de mappage d’identité) et le publie dans IoT Hub.
 1. Le module enregistreur journalise tous les messages reçus du répartiteur dans un fichier local.
 
@@ -135,7 +137,7 @@ Les modules BLE communiquent avec le matériel Bluetooth via la pile BlueZ. Pour
 
     ```sh
     sudo apt-get update
-    sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
+    sudo apt-get install bluetooth bluez-tools build-essential autoconf libtool glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
     ```
 
 1. Téléchargez le code source de BlueZ à partir de bluez.org :
@@ -197,20 +199,20 @@ Avant d’exécuter l’exemple, vous devez vérifier que votre Raspberry Pi 3
     bluetoothctl --version
     ```
 
-1. Pour entrer l’interpréteur de commandes Bluetooth interactif, démarrez le service Bluetooth et exécutez la commande **bluetoothctl** :
+1. Pour accéder à l’interpréteur de commandes Bluetooth interactif, démarrez le service Bluetooth et exécutez la commande **bluetoothctl** :
 
     ```sh
     sudo systemctl start bluetooth
     bluetoothctl
     ```
 
-1. Entrez la commande **power on** pour mettre le contrôleur bluetooth sous tension. La commande retourne un résultat semblable à l’exemple suivant :
+1. Entrez la commande **power on** pour mettre le contrôleur bluetooth sous tension. La commande retourne un résultat semblable à l’exemple suivant :
 
     ```sh
     [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
 
-1. Dans le shell interactif bluetooth, entrez la commande **scan on** pour rechercher des appareils bluetooth. La commande retourne un résultat semblable à l’exemple suivant :
+1. Dans le shell interactif bluetooth, entrez la commande **scan on** pour rechercher des appareils bluetooth. La commande retourne un résultat semblable à l’exemple suivant :
 
     ```sh
     Discovery started
@@ -285,7 +287,7 @@ Lors de la rédaction du présent article, IoT Edge prenait uniquement en charge
 Installer les dépendances pour Azure IoT Edge :
 
 ```sh
-sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
+sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev libtool
 ```
 
 Utilisez les commandes suivantes pour cloner IoT Edge et tous ses sous-modules dans votre répertoire de base :
@@ -304,9 +306,9 @@ cd ~/iot-edge
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configurer et exécuter l’exemple de BLE sur votre appareil Raspberry Pi 3
 
-Pour démarrer et exécuter l’exemple, vous devez configurer chaque module IoT Edge qui fait partie de la passerelle. Cette configuration est fournie dans un fichier JSON et vous devez configurer les cinq modules IoT Edge participants. Le référentiel contient un exemple de fichier JSON nommé **gateway\_sample.json** que vous pouvez utiliser comme point de départ pour créer votre propre fichier de configuration. Ce fichier se trouve dans le dossier **samples/ble_gateway_hl/src**, dans la copie locale du dépôt IoT Edge.
+Pour démarrer et exécuter l’exemple, configurez chaque module IoT Edge qui fait partie de la passerelle. Cette configuration est fournie dans un fichier JSON et vous devez configurer les cinq modules IoT Edge participants. Le référentiel contient un exemple de fichier JSON nommé **gateway\_sample.json** que vous pouvez utiliser comme point de départ pour créer votre propre fichier de configuration. Ce fichier se trouve dans le dossier **samples/ble_gateway_hl/src**, dans la copie locale du dépôt IoT Edge.
 
-Les sections suivantes décrivent comment modifier ce fichier de configuration pour l’exemple BLE et supposent que le dépôt IoT Edge se trouve dans le dossier **/home/pi/iot-edge/** sur votre Raspberry Pi 3. Si le référentiel se trouve ailleurs, vous devez ajuster les chemins d’accès en conséquence.
+Les sections suivantes décrivent comment modifier ce fichier de configuration pour l’exemple BLE. Nous partons du principe que le référentiel IoT Edge est dans le dossier **/home/pi/iot-edge/** sur votre Raspberry Pi 3. Si le référentiel se trouve ailleurs, vous devez ajuster les chemins d’accès en conséquence.
 
 #### <a name="logger-configuration"></a>Configuration de l’enregistreur
 
@@ -582,4 +584,3 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
 [lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
 [lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
-

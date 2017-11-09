@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/24/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: bb55a7a4bff0fd4319de6f6ce958686ad8a4142b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>Utiliser le service StorSimple Manager pour gérer les conteneurs de volumes StorSimple
 ## <a name="overview"></a>Vue d’ensemble
@@ -61,5 +59,4 @@ Un conteneur de volumes comporte plusieurs volumes. Il peut être supprimé uniq
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md). 
 * En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
 

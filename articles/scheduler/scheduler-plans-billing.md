@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5452a42cff5204fce780af41368b9515f9652d91
-
-
+ms.openlocfilehash: f0662230c5d1663e37ee2be58f234934ec3d55dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Plans et facturation dans Azure Scheduler
 ## <a name="job-collection-plans"></a>Plans de collections de travaux
@@ -85,10 +85,4 @@ Pour plus d’informations sur la tarification, voir l’article [Tarification d
  [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

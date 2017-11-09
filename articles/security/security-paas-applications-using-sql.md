@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 18509b3fc3a73118f67583a0b087c58f0e51993c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-paas-databases-in-azure"></a>Sécurisation des bases de données PaaS dans Azure
 
@@ -92,4 +91,3 @@ Dans cet article, nous avons abordé un ensemble de bonnes pratiques de sécurit
 
 - [Sécurisation des déploiements PaaS](security-paas-deployments.md)
 - [Sécurisation des applications mobiles et web PaaS à l’aide d’Azure App Services](security-paas-applications-using-app-services.md)
-

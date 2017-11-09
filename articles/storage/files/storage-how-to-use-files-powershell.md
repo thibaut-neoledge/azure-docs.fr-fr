@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de PowerShell pour gérer le Stockage Fichier Azure | Microsoft Docs"
-description: "Découvrez comment utiliser PowerShell pour gérer le Stockage Fichier Azure."
+title: "Comment utiliser PowerShell pour gérer Azure Files | Microsoft Docs"
+description: "Découvrez comment utiliser PowerShell pour gérer Azure Files."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,16 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: f919e1880f709b416867a29de14f1dcc63a165fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>Utilisation de PowerShell pour gérer le Stockage Fichier Azure
+# <a name="how-to-use-powershell-to-manage-azure-files"></a>Comment utiliser PowerShell pour gérer Azure Files
 Vous pouvez utiliser Azure PowerShell pour créer et gérer des partages de fichiers.
 
 ## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Installation des applets de commande PowerShell pour Azure Storage
@@ -96,7 +95,7 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
+Consultez ces liens pour en savoir plus sur Azure Files.
 
 * [FAQ](../storage-files-faq.md)
 * [Résolution des problèmes sur Windows](storage-troubleshoot-windows-file-connection-problems.md)      

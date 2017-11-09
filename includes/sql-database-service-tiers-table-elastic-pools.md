@@ -101,7 +101,7 @@ sql-database-elastic-pool.md
 ||||||||
 
 > [!IMPORTANT]
-> \* Les tailles de stockage supérieures à la quantité de stockage incluse sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour plus d’informations, visitez la [page de tarification du service SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour plus d’informations, visitez la [page de tarification du service SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+> \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour plus d’informations, visitez la [page de tarification du service SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour plus d’informations, visitez la [page de tarification du service SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 >
 > \* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie et Canada Est. 
 >

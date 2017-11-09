@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: babanisa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.date: 10/16/2017
+ms.author: sethm
+ms.openlocfilehash: 2bf65b7c5b0518da59e767db18fe6f4193e0ab6e
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="service-bus-diagnostic-logs"></a>Journaux de diagnostic Service Bus
 
@@ -99,4 +97,3 @@ Pour en savoir plus sur Service Bus, consultez les liens suivants :
 
 * [Introduction à Service Bus](service-bus-messaging-overview.md)
 * [Bien démarrer avec Service Bus](service-bus-dotnet-get-started-with-queues.md)
-

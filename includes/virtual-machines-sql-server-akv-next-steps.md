@@ -1,6 +1,4 @@
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir activé Azure Key Vault Integration, vous pouvez activer le chiffrement SQL Server sur votre machine virtuelle SQL. Tout d'abord, vous devez créer une clé asymétrique à l'intérieur de votre coffre de clés et une clé symétrique dans SQL Server sur votre machine virtuelle. Ensuite, vous serez en mesure d'exécuter les instructions T-SQL pour activer le chiffrement pour vos bases de données et sauvegardes.
 
@@ -12,9 +10,7 @@ Il existe plusieurs types de chiffrement que vous pouvez exploiter :
 
 Les scripts Transact-SQL suivants fournissent des exemples pour chacune de ces options.
 
-<a id="prerequisites-for-examples" class="xliff"></a>
-
-### Configuration requise pour les exemples
+### <a name="prerequisites-for-examples"></a>Configuration requise pour les exemples
 
 Chaque exemple est basé sur les deux conditions préalables : une clé asymétrique de votre coffre de clés appelée **CONTOSO_KEY** et une information d’identification créée par le biais de la fonctionnalité AKV Integration appelée **Azure_EKM_TDE_cred**. Les commandes Transact-SQL suivantes installent cette configuration requise pour l’exécution des exemples.
 
@@ -55,9 +51,7 @@ WITH PROVIDER_KEY_NAME = 'keytestvault',  --key name
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-<a id="transparent-data-encryption-tde" class="xliff"></a>
-
-### Chiffrement transparent des données (TDE)
+### <a name="transparent-data-encryption-tde"></a>Chiffrement transparent des données (TDE)
 
 1. Créez une connexion SQL Server utilisable par le moteur de base de données pour le chiffrement transparent des données, puis ajoutez-lui les informations d'identification.
 
@@ -94,9 +88,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="encrypted-backups" class="xliff"></a>
-
-### Sauvegardes chiffrées
+### <a name="encrypted-backups"></a>Sauvegardes chiffrées
 
 1. Créez une connexion SQL Server utilisable par le moteur de base de données pour les sauvegardes chiffrées, puis ajoutez-lui les informations d'identification.
 
@@ -126,9 +118,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="column-level-encryption-cle" class="xliff"></a>
-
-### Chiffrement au niveau des colonnes (CLE)
+### <a name="column-level-encryption-cle"></a>Chiffrement au niveau des colonnes (CLE)
 
 Ce script crée une clé symétrique protégée par la clé asymétrique dans le coffre de clés et utilise ensuite la clé symétrique pour chiffrer les données dans la base de données.
 
@@ -153,9 +143,7 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-<a id="additional-resources" class="xliff"></a>
-
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 
 Pour plus d'informations sur l'utilisation de ces fonctionnalités de chiffrement, consultez [Utilisation d'EKM avec les fonctionnalités de chiffrement SQL Server (en Anglais)](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 

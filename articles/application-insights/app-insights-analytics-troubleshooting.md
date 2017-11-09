@@ -3,7 +3,7 @@ title: "Dépannage d’Analytics dans Azure Application Insights | Microsoft Doc
 description: "Des problèmes avec Application Insights Analytics ? Démarrer ici. "
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 82a1888cca687ce60f811c2c3cec6b971d4a0461
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Dépannage d’Analytics dans Application Insights
 Des problèmes avec [Application Insights Analytics](app-insights-analytics.md)? Démarrer ici. Analytics est le puissant outil de recherche d’Azure Application Insights.
@@ -109,5 +108,4 @@ L’URL n’est pas valide.
 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andredm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Élever l’accès en tant qu’administrateur client avec le contrôle d’accès en fonction du rôle
 
@@ -27,7 +26,18 @@ Le contrôle d’accès en fonction du rôle permet aux administrateurs clients 
 
 Cette fonctionnalité est importante, car elle permet à l’administrateur client d’afficher tous les abonnements qui existent dans une organisation. Elle permet également aux applications d’automatisation (comme la facturation et les audits) d’accéder à tous les abonnements et de fournir une vue précise de l’état de l’organisation pour la facturation et la gestion des actifs.  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Utiliser elevateAccess pour donner l’accès client
+## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Comment utiliser elevateAccess pour l’accès client au centre d’administration Azure AD
+
+Dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com), vous pouvez appeler cette fonctionnalité à partir des **Propriétés**.
+Cette fonctionnalité est nommée **Administrateur général peut gérer des abonnements Azure**. Elle peut donner l’impression d’être une propriété globale pour Azure Active Directory, toutefois, elle fonctionne par utilisateur, pour l’utilisateur actuellement connecté. Lorsque vous disposez des droits d’administrateur général dans Azure Active Directory, vous pouvez appeler la fonction elevateAccess pour l’utilisateur avec lequel vous êtes connecté dans le centre d’administration de Azure Active Directory.
+
+Sélection de **Oui** puis **Enregistrer** : cela **assigne** le rôle **Administrateur d’accès utilisateur** au niveau de la racine « / » (étendue de la racine) pour l’utilisateur avec lequel vous êtes actuellement connecté au portail.
+
+Sélection de **Non** puis **Enregistrer** : cela **retire** le rôle **Administrateur d’accès utilisateur** au niveau de la racine « / » (étendue de la racine) pour l’utilisateur avec lequel vous êtes actuellement connecté au portail.
+
+![Centre d’administration Azure AD - Propriétés - L’administrateur général peut gérer l’abonnement Azure - capture d’écran](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Utiliser elevateAccess pour donner l’accès client avec l’API REST
 
 Le processus de base comprend les étapes suivantes :
 
@@ -56,7 +66,7 @@ Le processus de base comprend les étapes suivantes :
 4. Révoquez vos privilèges d’administrateur des accès utilisateur jusqu’à ce que vous en ayez à nouveau besoin.
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>Annuler l’action elevateAccess
+## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Annuler l’action elevateAccess avec l’API REST
 
 Lorsque vous appelez *elevateAccess*, vous créez une attribution de rôle pour vous-même : pour révoquer ces privilèges, vous devez donc supprimer l’attribution.
 
@@ -107,4 +117,3 @@ Lorsque vous appelez *elevateAccess*, vous créez une attribution de rôle pour 
 - En savoir plus sur la [gestion du contrôle d’accès en fonction du rôle à l’aide de REST](role-based-access-control-manage-access-rest.md)
 
 - [Gérer les attributions d’accès](role-based-access-control-manage-assignments.md) dans le Portail Azure
-

@@ -10,14 +10,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/25/2017
 ms.author: johnkem
+ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 5c96a1cfa56d1535549cb15d5a7bcf03bd11e723
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données.
@@ -412,7 +411,93 @@ Cette catégorie contient l’enregistrement de tous les événements liés au f
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
 | subscriptionId |ID d’abonnement Azure. |
 
+## <a name="security"></a>Sécurité
+Cette catégorie contient l’enregistrement de toutes les alertes générées par Azure Security Center. Voici un exemple du type d’événement que vous pouvez voir dans cette catégorie : « Suspicious double extension file executed. » (Fichier à extension double suspect exécuté.).
+
+### <a name="sample-event"></a>Exemple d’événement
+```json
+{
+    "channels": "Operation",
+    "correlationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "description": "Suspicious double extension file executed. Machine logs indicate an execution of a process with a suspicious double extension.\r\nThis extension may trick users into thinking files are safe to be opened and might indicate the presence of malware on the system.",
+    "eventDataId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "eventName": {
+        "value": "Suspicious double extension file executed",
+        "localizedValue": "Suspicious double extension file executed"
+    },
+    "category": {
+        "value": "Security",
+        "localizedValue": "Security"
+    },
+    "eventTimestamp": "2017-10-18T06:02:18.6179339Z",
+    "id": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
+    "level": "Informational",
+    "operationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "operationName": {
+        "value": "Microsoft.Security/locations/alerts/activate/action",
+        "localizedValue": "Microsoft.Security/locations/alerts/activate/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Security",
+        "localizedValue": "Microsoft.Security"
+    },
+    "resourceType": {
+        "value": "Microsoft.Security/locations/alerts",
+        "localizedValue": "Microsoft.Security/locations/alerts"
+    },
+    "resourceId": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": null
+    },
+    "submissionTimestamp": "2017-10-18T06:02:52.2176969Z",
+    "subscriptionId": "d4742bb8-c279-4903-9653-9858b17d0c2e",
+    "properties": {
+        "accountLogonId": "0x2r4",
+        "commandLine": "c:\\mydirectory\\doubleetension.pdf.exe",
+        "domainName": "hpc",
+        "parentProcess": "unknown",
+        "parentProcess id": "0",
+        "processId": "6988",
+        "processName": "c:\\mydirectory\\doubleetension.pdf.exe",
+        "userName": "myUser",
+        "UserSID": "S-3-2-12",
+        "ActionTaken": "Detected",
+        "Severity": "High"
+    },
+    "relatedEvents": []
+}
+
+```
+
+### <a name="property-descriptions"></a>Description des propriétés
+| Nom de l’élément | Description |
+| --- | --- |
+| channels | Toujours Operation (Opération). |
+| correlationId | Un GUID au format chaîne. |
+| description |Description textuelle statique de l’événement de sécurité. |
+| eventDataId |Identificateur unique de l’événement de sécurité. |
+| eventName |Nom convivial de l’événement de sécurité. |
+| id |URI (Unique Resource Identifier) de l’événement de sécurité. |
+| level |Niveau de l’événement. L’une des valeurs suivantes : Critical (Critique), Error (Erreur), Warning (Avertissement), Informational (Information) ou Verbose (Détaillé). |
+| resourceGroupName |Nom du groupe de ressources de la ressource. |
+| resourceProviderName |Nom du fournisseur de ressources pour Azure Security Center. Toujours Microsoft.Security. |
+| resourceType |Type de ressource qui a généré l’événement de sécurité, par exemple « Microsoft.Security/locations/alerts ». |
+| resourceId |ID de ressource de l’alerte de sécurité. |
+| operationId |Un GUID partagé par les événements correspondant à une opération unique. |
+| operationName |Nom de l’opération. |
+| properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. Ces propriétés varient selon le type d’alerte de sécurité. Pour obtenir une description des types d’alertes qui proviennent de Security Center, consultez [cette page](../security-center/security-center-alerts-type.md). |
+| properties.Severity |Niveau de gravité. Les valeurs possibles sont High (Élevé), Medium (Moyen) ou Low (Bas). |
+| status |Chaîne décrivant l’état de l’opération. Certaines valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| subStatus | Généralement nul pour les événements de sécurité. |
+| eventTimestamp |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
+| submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
+| subscriptionId |ID d’abonnement Azure. |
+
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](monitoring-overview-activity-logs.md)
 * [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](monitoring-stream-activity-logs-event-hubs.md)
-

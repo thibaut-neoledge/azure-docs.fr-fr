@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9fe3f343ef95106c52c4ea3ff22143a5e855c6c7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a2cd51279476f0964164705cf60b9b4e177972fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-configuring-the-azure-ad-application-proxy"></a>Problèmes lors de la configuration du proxy d’application Azure AD
 
 
@@ -53,4 +51,3 @@ ms.lasthandoff: 04/17/2017
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Je rencontre un problème avec le connecteur d’agent du proxy d’application
   Les documents suivants peuvent vous aider à résoudre certains des problèmes les plus courants de cette catégorie.
   * [Je rencontre des problèmes lors de l’installation du connecteur d’agent du proxy d’application](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

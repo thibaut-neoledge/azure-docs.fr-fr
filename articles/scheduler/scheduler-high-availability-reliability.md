@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-high-availability-and-reliability"></a>Haute disponibilité et fiabilité de Scheduler
 ## <a name="azure-scheduler-high-availability"></a>Haute disponibilité d'Azure Scheduler
@@ -79,9 +79,3 @@ Pour savoir comment configurer un point de terminaison alternatif, consultez [er
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

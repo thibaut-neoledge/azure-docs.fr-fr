@@ -1,6 +1,6 @@
 ---
 title: "En savoir plus sur la limitation dans BizTalk Services | Microsoft Docs"
-description: "En savoir plus sur les seuils de limitation et les comportements qui s&quot;ensuivent lors de l&quot;exécution pour BizTalk Services. La limitation est basée sur l&quot;utilisation de la mémoire et le nombre de messages. MABS, WABS"
+description: "En savoir plus sur les seuils de limitation et les comportements qui s'ensuivent lors de l'exécution pour BizTalk Services. La limitation est basée sur l'utilisation de la mémoire et le nombre de messages. MABS, WABS"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: e14f42497d5ee0c89fe1fa0824431e2d82e6555a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 145e7470bbc01c676a1fb5856c0f9a8726e667fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-throttling"></a>Limitation BizTalk Services
 
@@ -47,7 +45,7 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
   L'instance RoleInstanceA est limitée. L'instance RoleInstanceB ne l'est pas. Dans ce cas, les messages dans RoleInstanceB sont traités normalement. Les messages dans RoleInstanceA sont ignorés et le message d'erreur suivant est affiché :<br/><br/>
   **Le serveur est occupé. Réessayez.**<br/><br/>
 * Les sources d'extraction cessent d'interroger et de télécharger les messages. Par exemple : <br/>
-   Un pipeline extrait les messages depuis une source FTP externe. L'instance de rôle responsable de l'extraction passe en mode limité. Dans cette situation, le pipeline cesse de télécharger de nouveaux messages tant que l'instance de rôle est limitée.
+  Un pipeline extrait les messages depuis une source FTP externe. L'instance de rôle responsable de l'extraction passe en mode limité. Dans cette situation, le pipeline cesse de télécharger de nouveaux messages tant que l'instance de rôle est limitée.
 * Une réponse est envoyée au client afin qu'il puisse soumettre le message de nouveau.
 * Vous devez patienter jusqu'à la fin de la limitation. Plus précisément, vous devez attendre que le seuil minimal soit atteint.
 
@@ -59,7 +57,7 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
 
 ## <a name="additional-azure-biztalk-services-topics"></a>Autres rubriques Azure BizTalk Services
 * [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Didacticiels : Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Didacticiels : Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
@@ -70,5 +68,4 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
 * [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-
 

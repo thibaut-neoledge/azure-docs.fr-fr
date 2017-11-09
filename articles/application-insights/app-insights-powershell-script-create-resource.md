@@ -3,7 +3,7 @@ title: "Script PowerShell de création d’une ressource Application Insights | 
 description: "Automatisez la création des ressources Application Insights."
 services: application-insights
 documentationcenter: windows
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 4a7a4b719176a1d10bee2fc4f6b65204cc77bee8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.author: mbullwin
+ms.openlocfilehash: 376bcb542e4e83c2464d9f3f53ea71965ce79c33
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Script PowerShell de création d’une ressource Application Insights
 
@@ -114,5 +113,4 @@ Il existe deux façons de mettre l’iKey à disposition du kit de développemen
 * [Créer des ressources Application Insights et de test Web  templates à partir de modèles (en anglais)](app-insights-powershell.md)
 * [Configurer la surveillance de diagnostics Azure avec PowerShell (en anglais](app-insights-powershell-azure-diagnostics.md) 
 * [Définition d’alertes à l’aide de PowerShell](app-insights-powershell-alerts.md)
-
 

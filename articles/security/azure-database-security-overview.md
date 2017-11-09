@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/01/2017
 ms.author: TomSh
+ms.openlocfilehash: 3c83645f61cd42c8c2b46f787c9e7531726d3fbb
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="azure-database-security-overview"></a>Vue d’ensemble de la sécurité des bases de données Azure
 
 La sécurité est une préoccupation majeure lors de la gestion de bases de données, et elle a toujours été une priorité pour Azure SQL Database. Azure SQL Database prend en charge la sécurité de connexion avec des règles de pare-feu et un chiffrement de connexion. Il prend en charge l’authentification avec nom d’utilisateur et mot de passe, ainsi que l’authentification Azure Active Directory qui utilise des identités gérées par Azure Active Directory. L’autorisation utilise le contrôle d’accès en fonction du rôle.
@@ -71,7 +69,7 @@ Un problème lorsque vous administrez un réseau est la sécurisation des donné
 
 Dans le processus d’authentification, un client TLS/SSL envoie un message à un serveur TLS/SSL qui répond avec les informations dont il a besoin pour s’authentifier. Le client et le serveur effectuent un échange supplémentaire de clés de session, puis la boîte de dialogue d’authentification se ferme. Une fois l’authentification terminée, les communications SSL sécurisées peuvent commencer entre le serveur et le client à l’aide de clés de chiffrement symétriques établies pendant le processus d’authentification.
 
-Toutes les connexions à la base de données SQL Microsoft Azure doivent être chiffrées à tout moment (via SSL/TLS) lorsque les données sont « en transit » depuis et vers la base de données. SQL Azure utilise TLS/SSL pour authentifier les serveurs et les clients, puis pour chiffrer les messages entre les parties authentifiées. Dans la chaîne de connexion de votre application, vous devez spécifier des paramètres permettant de chiffrer la connexion et non d’approuver le certificat de serveur (le système effectue cette opération pour vous lorsque vous copiez la chaîne de connexion hors du portail Azure Classic). Dans le cas contraire, la connexion ne vérifie pas l’identité du serveur et peut être la cible d’attaques de type MITM (« Man-In-The-Middle »). Pour le pilote ADO.NET, par exemple, ces paramètres de chaîne de connexion sont les suivants : Encrypt=True et TrustServerCertificate=False.
+Toutes les connexions à la base de données SQL Microsoft Azure doivent être chiffrées à tout moment (via SSL/TLS) lorsque les données sont « en transit » depuis et vers la base de données. SQL Azure utilise TLS/SSL pour authentifier les serveurs et les clients, puis pour chiffrer les messages entre les parties authentifiées. Dans la chaîne de connexion de votre application, vous devez spécifier des paramètres permettant de chiffrer la connexion et non d’approuver le certificat de serveur (le système effectue cette opération pour vous lorsque vous copiez la chaîne de connexion hors du portail Azure). Dans le cas contraire, la connexion ne vérifie pas l’identité du serveur et peut être la cible d’attaques de type MITM (« Man-In-The-Middle »). Pour le pilote ADO.NET, par exemple, ces paramètres de chaîne de connexion sont les suivants : Encrypt=True et TrustServerCertificate=False.
 
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 Vous pouvez prendre plusieurs précautions pour sécuriser la base de données telles que la conception d’un système sécurisé, le chiffrement de ressources confidentielles et la création d'un pare-feu autour des serveurs de base de données. Toutefois, dans un scénario où le support physique (par exemple, les lecteurs ou les bandes de sauvegarde) est volé, une personne malveillante peut juste restaurer ou attacher la base de données et consulter les données.
@@ -219,4 +217,3 @@ La Place de marché Azure rassemble en une seule plateforme les écosystèmes pa
 - En savoir plus sur [Azure Security Center et SQL Database](https://docs.microsoft.com/azure/security-center/security-center-sql-database).
 - En savoir plus sur la [Détection de menaces pour les bases de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 - En savoir plus sur la manière de [Résoudre les problèmes de performances et optimiser votre base de données](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial). 
-

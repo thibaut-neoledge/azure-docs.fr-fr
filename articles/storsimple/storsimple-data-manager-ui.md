@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 692f00bf342e2cd6d3d76754d18751c773aeedc5
 ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-using-the-storsimple-data-manager-service-ui-private-preview"></a>Gérer l’utilisation de l’interface utilisateur du service StorSimple Data Manager (version préliminaire privée)
 
 Cet article vous explique comment utiliser l’interface utilisateur StorSimple Data Manager pour effectuer la transformation des données hébergées sur les appareils StorSimple série 8000. Les données transformées peuvent ensuite être consommées par d’autres services Azure, comme Azure Media Services, Azure HDInsight, Azure Machine Learning et Azure Search. 
@@ -109,8 +109,3 @@ Chaque fois qu’il vous est nécessaire de transférer des données de StorSimp
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Utilisez .NET SDK pour lancer les travaux StorSimple Data Manager](storsimple-data-manager-dotnet-jobs.md).
-
-
-<!--HONumber=Nov16_HO4-->
-
-

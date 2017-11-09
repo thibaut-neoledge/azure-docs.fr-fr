@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Inscription de l’utilisateur actif aux notifications Push à l’aide d’ASP.NET
 > [!div class="op_single_selector"]
@@ -220,9 +220,3 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 [Notification des utilisateurs avec Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Prise en main de Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

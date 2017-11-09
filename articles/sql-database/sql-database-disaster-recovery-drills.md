@@ -1,6 +1,6 @@
 ---
 title: "Exercices de récupération d’urgence de SQL Database | Microsoft Docs"
-description: "Découvrez des conseils et des meilleures pratiques en matière d’utilisation de la base de données Azure SQL pour effectuer des exercices de récupération d’urgence qui vous aideront à maintenir la résistance aux pannes de vos applications métier stratégiques en cas de défaillances."
+description: "Découvrez les conseils et meilleures pratiques pour l’utilisation d’Azure SQL Database pour effectuer des exercices de récupération d’urgence."
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -12,16 +12,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 07/31/2016
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 8e395153fc9907107156c3412e5e0de554c83750
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Exécution d'un exercice de récupération d'urgence
 Nous recommandons de valider régulièrement la préparation des applications à la récupération. La vérification du comportement de l'application et des implications en matière de pertes de données et/ou d'interruptions en cas basculement constitue une bonne pratique. Il s'agit également d'une exigence figurant dans la plupart des normes industrielles dans le cadre d'une certification de la continuité des activités.
@@ -66,4 +64,3 @@ Pour simuler la défaillance, vous pouvez désactiver l’application web ou une
 * Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
 * Pour découvrir des options de récupération plus rapides, voir [Géoréplication active](sql-database-geo-replication-overview.md).  
-

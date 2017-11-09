@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 2a5e8f6d1443681c43db95da5cef0b7f2ef92291
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Didacticiel : Intégration d’Azure AD à TeamSeer
 
@@ -147,7 +145,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Paramètres SAML](./media/active-directory-saas-teamseer-tutorial/ic789637.png "Paramètres SAML")   
 
-    a. Collez la valeur de **l’URL du service d’authentification unique** dans la zone de texte **URL**.
+    a. Collez la valeur de **	l’URL du service d’authentification unique** dans la zone de texte **URL**.
           
     b. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Public Certificate** (Certificat public de fournisseur d’identité).
 
@@ -279,5 +277,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 [201]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_203.png
-
 

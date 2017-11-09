@@ -3,7 +3,7 @@ title: "Utilisation du stockage d’objets blob à partir de C++ | Microsoft Doc
 description: "Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 services: storage
 documentationcenter: .net
-author: michaelhauss
+author: MichaelHauss
 manager: vamshik
 editor: tysonn
 ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
+ms.openlocfilehash: 9fe2112370f7d29eb0fde856995768660f9871e6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: daf480b7be78dc001712010eac6386d4744c3c1d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Utilisation du stockage d'objets blob à partir de C++
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -48,7 +47,7 @@ Pour ce faire, vous devez installer la bibliothèque cliente Azure Storage pour 
 Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
 * **Linux :** suivez les instructions disponibles sur la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
-* **Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
+* **Windows :** dans Visual Studio, cliquez sur **Outils &gt; Gestionnaire de package NuGet &gt; Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
   
      Install-Package wastorage
 
@@ -58,6 +57,8 @@ Ajoutez l'instruction include suivante au début du fichier C++ dans lequel vous
 ```cpp
 #include <was/storage_account.h>
 #include <was/blob.h>
+#include <cpprest/filestream.h>  
+#include <cpprest/containerstream.h> 
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configuration d’une chaîne de connexion de stockage Azure
@@ -273,5 +274,4 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 * [Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 * [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../storage-use-azcopy.md)
-
 

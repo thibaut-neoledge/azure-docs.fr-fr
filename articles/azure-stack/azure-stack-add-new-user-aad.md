@@ -1,6 +1,6 @@
 ---
-title: Add a new Azure Stack tenant account in Azure Active Directory | Microsoft Docs
-description: "After deploying Microsoft Azure Stack Development Kit, you’ll need to create at least one tenant user account so you can explore the tenant portal."
+title: Ajouter un nouveau compte client Azure Stack dans Azure Active Directory | Microsoft Docs
+description: "Après le déploiement du Kit de développement Microsoft Azure Stack, vous devrez créer au moins un compte utilisateur client pour pouvoir explorer le portail client."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -12,50 +12,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
+ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 4401de010dec808f080f5460298bb738ddd39312
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Add a new Azure Stack tenant account in Azure Active Directory
-After [deploying the Azure Stack Development Kit](azure-stack-run-powershell-script.md), you'll need a tenant user account so you can explore the tenant portal and test your offers and plans. You can create a tenant account by [using the Azure portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) or by [using PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
+*S’applique à : Kit de développement Azure Stack*
 
-## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Create an Azure Stack tenant account using the Azure portal
-You must have an Azure subscription to use the Azure portal.
+# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Ajouter un nouveau compte de locataire Azure Stack dans Azure Active Directory
+Après le [déploiement du Kit de développement Azure Stack](azure-stack-run-powershell-script.md), vous aurez besoin d’un compte utilisateur client afin de pouvoir explorer le portail client et tester vos offres et vos plans. Vous pouvez créer un compte client [à l’aide du portail Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) ou [à l’aide de PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
 
-1. Log in to [Azure](http://manage.windowsazure.com).
-2. In Microsoft Azure left navigation bar, click **Active Directory**.
-3. In the directory list, click the directory that you want to use for Azure Stack, or create a new one.
-4. On this directory page, click **Users**.
-5. Click **Add user**.
-6. In the **Add user** wizard, in the **Type of user** list, choose **New user in your organization**.
-7. In the **User name** box, type a name for the user.
-8. In the **@** box, choose the appropriate entry.
-9. Click the next arrow.
-10. In the **User profile** page of the wizard, type a **First name**, **Last name**, and **Display name**.
-11. In the **Role** list, choose **User**.
-12. Click the next arrow.
-13. On the **Get temporary password** page, click **Create**.
-14. Copy the **New password**.
-15. Log in to Microsoft Azure with the new account. Change the password when prompted.
-16. Log in to `https://portal.local.azurestack.external` with the new account to see the tenant portal.
+## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Création d’un compte de locataire Azure Stack à l’aide du portail Azure
+Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
 
-## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>Create an Azure Stack tenant account using PowerShell
-If you don't have an Azure subscription, you can't use the Azure portal to add a tenant user account. In this case, you can use the Azure Active Directory Module for Windows PowerShell instead.
+1. Connectez-vous à [Azure](http://manage.windowsazure.com).
+2. Dans la barre de navigation gauche Microsoft Azure, cliquez sur **Active Directory**.
+3. Dans la liste des répertoires, cliquez sur le répertoire que vous souhaitez utiliser pour Azure Stack, ou créez-en un.
+4. Sur la page de ce répertoire, cliquez sur **Utilisateurs**.
+5. Cliquez sur **Add User**.
+6. Dans l’assistant **Ajouter un utilisateur**, dans la liste **Type d’utilisateur**, choisissez **Nouvel utilisateur dans votre organisation**.
+7. Dans la zone **Nom d’utilisateur** , saisissez le nom de l’utilisateur.
+8. Dans l’assistant **@** , sélectionnez l’entrée appropriée.
+9. Cliquez sur la flèche Suivant.
+10. Dans la page **Profil utilisateur** de l’assistant, tapez un **Prénom**, un **Nom** et un **Nom d’affichage**.
+11. Dans la liste **Rôle**, choisissez **Utilisateur**.
+12. Cliquez sur la flèche Suivant.
+13. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
+14. Copiez le **Nouveau mot de passe**.
+15. Connectez-vous à Microsoft Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
+16. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail client.
+
+## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>Création d’un compte de locataire Azure Stack à l’aide de PowerShell
+Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portail Azure pour ajouter un compte utilisateur client. Dans ce cas, vous pouvez utiliser le module Azure Active Directory pour Windows PowerShell à la place.
 
 > [!NOTE]
-> If you are using Microsoft Account (Live ID) to deploy Azure Stack Development Kit, you can't use AAD PowerShell to create tenant account. 
+> Si vous utilisez un compte Microsoft (Live ID) pour déployer le Kit de développement Azure Stack, vous ne pouvez pas utiliser AAD PowerShell pour créer le compte client. 
 > 
 > 
 
-1. Install the [Microsoft Online Services Sign-In Assistant for IT Professionals RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Install the [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297) and open it.
-3. Run the following cmdlets:
+1. Installez [l’Assistant de connexion Microsoft Online Services pour les professionnels de l’informatique RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
+2. Installez le [module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297) et ouvrez-le.
+3. Exécutez les applets de commande suivantes :
 
     ```powershell
     # Provide the AAD credential you use to deploy Azure Stack Development Kit
@@ -70,7 +70,6 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
 
     ```
 
-1. Sign in to Microsoft Azure with the new account. Change the password when prompted.
-2. Sign in to `https://portal.local.azurestack.external` with the new account to see the tenant portal.
-
+1. Connectez-vous à Microsoft Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
+2. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail client.
 

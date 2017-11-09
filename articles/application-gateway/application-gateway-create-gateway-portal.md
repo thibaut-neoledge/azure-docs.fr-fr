@@ -3,7 +3,7 @@ title: "Créer une passerelle Application Gateway - Portail Azure | Microsoft 
 description: "Découvrez comment créer une passerelle Application Gateway à l’aide du portail"
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: 17d09ce98c40717d1db0927f791a7c97ea7835e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: d3c39cfe3159cd4059a81f966fb551175188278b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-with-the-portal"></a>Créer une passerelle Application Gateway avec le portail
 
@@ -39,7 +38,7 @@ Pour créer une passerelle Application Gateway, procédez comme suit : La passe
 
     ![Création d’une passerelle Application Gateway][1]
 
-1. Dans le panneau **De base** qui s’affiche, entrez les valeurs suivantes et cliquez sur **OK** :
+1. Dans le panneau **De base** qui s’affiche, entrez les valeurs suivantes et cliquez sur **OK** :
 
    | **Paramètre** | **Valeur** | **Détails**|
    |---|---|---|
@@ -128,4 +127,3 @@ Découvrez comment protéger vos applications grâce au [Pare-feu d’applicatio
 [4]: ./media/application-gateway-create-gateway-portal/figure4.png
 [5]: ./media/application-gateway-create-gateway-portal/figure5.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
-

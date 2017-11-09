@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
+ms.openlocfilehash: 44dc7b18d46d1e75e8b55b6e32a346272a06bda9
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 12389b4be03b714d99edcf3fd621bd2d9c586540
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Comparaison entre Azure IoT Hub et Azure Event Hub
 L’une des principales utilisations IoT Hub consiste à rassembler des mesures de télémétrie relevées par des appareils. Pour cette raison, IoT Hub est souvent comparé à [Azure Event Hubs][Azure Event Hubs]. Tout comme IoT Hub, les hubs d’événements constituent un service de traitement des événements. Celui-ci fournit des entrées d’événements et de télémétrie vers le cloud à grande échelle, avec une faible latence et une grande fiabilité.
@@ -30,11 +29,11 @@ Toutefois, les services présentent de nombreuses différences répertoriées da
 | --- | --- | --- |
 | Modèles de communication | Active [device-to-cloud communications][lnk-d2c-guidance] (messagerie, chargements de fichiers et propriétés signalées) et [cloud-to-device communications][lnk-c2d-guidance] (méthodes directes, propriétés désirées). |Permet uniquement une entrée d’événement (en général utilisé pour les scénarios appareil-à-cloud). |
 | Informations d’état de l’appareil | Des [jumeaux d’appareils][lnk-twins] peuvent stocker et interroger les informations d’état de l’appareil. | Aucune information d’état de l’appareil ne peut être stockée. |
-| Prise en charge du protocole d’appareil |Prend en charge MQTT, MQTT sur WebSockets, AMQP, AMQP sur WebSocket et HTTP. En outre, IoT Hub fonctionne avec la [passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], une implémentation de passerelle de protocole personnalisable pour prendre en charge les protocoles personnalisés. |Prend en charge AMQP, AMQP sur WebSocket et HTTP. |
+| Prise en charge du protocole d’appareil |Prend en charge MQTT, MQTT sur WebSockets, AMQP, AMQP sur WebSocket et HTTPS. En outre, IoT Hub fonctionne avec la [passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], une implémentation de passerelle de protocole personnalisable pour prendre en charge les protocoles personnalisés. |Prend en charge AMQP, AMQP sur WebSocket et HTTPS. |
 | Sécurité |Fournit une identité par appareil et le contrôle d’accès révocable. Consultez la [section Sécurité du guide du développeur IoT Hub]. |Fournit des [stratégies d’accès partagé][Event Hubs - security] à l’échelle d’Event Hubs, avec une prise en charge de révocation limitée par le biais de [stratégies de l’éditeur][Event Hubs publisher policies]. Les solutions IoT sont souvent nécessaires pour implémenter une solution personnalisée afin de prendre en charge les informations d’identification par appareil et les mesures de lutte contre l’usurpation d’identité. |
 | Surveillance des opérations |Permet aux solutions IoT de s’abonner à un vaste ensemble d’événements de gestion d’identité d’appareil et de connectivité tels que des erreurs d’authentification de chaque appareil, la limitation et les exceptions de format incorrect. Ces événements permettent d’identifier rapidement les problèmes de connectivité au niveau de chaque appareil. |Expose uniquement les mesures d’agrégation. |
 | Scale |est optimisé pour prendre en charge des millions d’appareils connectés simultanément. |Limite les connexions tel que défini dans [Quotas Event Hubs][Azure Event Hubs quotas]. En revanche, Event Hubs vous permet de spécifier une partition pour chaque message envoyé. |
-| Kits de développement logiciel (SDK) d’appareil |fournissent des [appareils SDK][Azure IoT SDKs] pour une grande variété de plateformes et de langages, ainsi que MQTT direct, AMQP et les API HTTP. |sont pris en charge sur .NET, Java et C en plus des interfaces d’envoi HTTP et AMQP. |
+| Kits de développement logiciel (SDK) d’appareil |fournissent des [appareils SDK][Azure IoT SDKs] pour une grande variété de plateformes et de langages, ainsi que MQTT direct, AMQP et les API HTTPS. |sont pris en charge sur .NET, Java et C en plus des interfaces d’envoi HTTPS et AMQP. |
 | Chargement de fichiers |Permet à des solutions IoT de charger des fichiers à partir d’appareils vers le cloud. Comprend un point de terminaison de notification de fichier pour l’intégration du workflow et une catégorie de surveillance des opérations pour le débogage de la prise en charge. | Non pris en charge. |
 | Router des messages vers plusieurs points de terminaison | Un maximum de 10 points de terminaison personnalisés sont pris en charge. Les règles déterminent la façon dont les messages sont routés vers les points de terminaison personnalisés. Pour plus d’informations, consultez [Envoyer et recevoir des messages avec IoT Hub][lnk-devguide-messaging]. | Nécessite l’écriture et l’hébergement de code supplémentaire pour la distribution des messages. |
 
@@ -66,4 +65,3 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-

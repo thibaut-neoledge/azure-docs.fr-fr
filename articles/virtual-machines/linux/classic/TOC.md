@@ -5,7 +5,7 @@
 ## [FAQ](faq.md)
 
 # Prise en main
-## [Créer une machine virtuelle Linux à l’aide du portail](createportal.md)
+## [Créer une machine virtuelle Linux à l’aide du portail Azure](createportal.md)
 ## [Installation de l’interface de ligne de commande Azure](../../../cli-install-nodejs.md)
 ## [Créer des clés SSH](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Réinitialiser des clés ou des mots de passe Linux, réparer le protocole SSH et vérifier les disques](reset-access.md)
 ### [Maintenance](planned-maintenance-schedule.md)
 ### [Créer un hôte Docker à l’aide de l’interface de ligne de commande](cli-use-docker.md)
-### [Créer un hôte Docker à l’aide du portail](portal-use-docker.md)
+### [Créer un hôte Docker à l’aide du portail Azure](portal-use-docker.md)
 ### [Comment utiliser docker avec swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Utiliser le stockage
@@ -67,7 +67,7 @@
 ### [Attacher un disque dur virtuel pour résoudre des problèmes de machine virtuelle](troubleshoot-recovery-disks-portal.md)
 
 # Référence
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interface de ligne de commande Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Créer des modèles Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

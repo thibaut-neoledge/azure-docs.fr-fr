@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-security-overview"></a>Vue d’ensemble des fonctionnalités de sécurité d’Azure Storage
 Azure Storage est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et l’extensibilité pour répondre aux besoins des clients. Azure Storage fournit un ensemble complet de fonctionnalités de sécurité :
@@ -98,5 +97,4 @@ Azure Disk Encryption utilise [Azure Key Vault](https://azure.microsoft.com/serv
 En savoir plus :
 
 * [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-whatis.md)
-* [Bien démarrer avec Azure Key Vault](../key-vault/key-vault-get-started.md)
-
+* [Prise en main du coffre de clés Azure](../key-vault/key-vault-get-started.md)

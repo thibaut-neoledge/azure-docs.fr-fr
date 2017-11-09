@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
+ms.custom: devcenter
+ms.openlocfilehash: 2bf77f1df1dfaea8978f0f1b046baf58f4c9f8d5
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 7536978bbb1e41b6484b66fd1b51c900fc3e545d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB : Prise en main de l’API DocumentDB et de .NET Core
 > [!div class="op_single_selector"]
@@ -59,8 +59,10 @@ Commençons dès maintenant !
 Vérifiez que vous disposez des éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/). 
-    * Vous pouvez également utiliser [l’émulateur Azure Cosmos DB](local-emulator.md) pour ce didacticiel.
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
     * Si vous travaillez sous Mac OS ou Linux, vous pouvez développer des applications .NET Core à partir de la ligne de commande en installant le [kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/core#macos) pour la plateforme de votre choix. 
     * Si vous travaillez sous Windows, vous pouvez développer des applications .NET Core à partir de la ligne de commande en installant le [kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/core#windows). 
     * Vous pouvez utiliser votre propre éditeur, ou télécharger [Visual Studio Code](https://code.visualstudio.com/) qui est disponible gratuitement et fonctionne sous Windows, Linux et Mac OS. 
@@ -597,4 +599,3 @@ Pour restaurer les références à l’API DocumentDB pour le SDK .NET Core Azur
 
 [create-documentdb-dotnet.md#create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
-

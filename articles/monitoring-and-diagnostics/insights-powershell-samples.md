@@ -1,5 +1,5 @@
 ---
-title: "Exemples de démarrage rapide Azure Monitor PowerShell. | Microsoft Docs"
+title: "Exemples de démarrage rapide avec Azure Monitor PowerShell. | Microsoft Docs"
 description: "Utilisez PowerShell pour accéder aux fonctionnalités d’Azure Monitor telles que la mise à l’échelle, les alertes, les webhooks et la recherche dans les journaux d’activité."
 author: kamathashwin
 manager: orenr
@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
+ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f06e5dd7d17c1d7795fb1f112e649cd42d7dd6d4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide Azure Monitor PowerShell
-Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
+# <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide avec Azure Monitor PowerShell
+Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions Azure Monitor. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
 
 > [!NOTE]
 > Azure Monitor est le nouveau nom de ce qui était appelé « Azure Insights » jusqu’au 25 septembre 2016. Toutefois, les espaces de noms et, par conséquent, les commandes suivantes contiennent toujours « insights ».
@@ -152,15 +151,15 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 | Emplacement de cette règle d'alerte |Est des États-Unis |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName de l'alerte créée |\PhysicalDisk(_Total)\Écritures disque/s. Pour savoir comment récupérer le nom exact des métriques, voir la cmdlet `Get-MetricDefinitions`. |
+| MetricName de l'alerte créée |\PhysicalDisk(_Total)\Disk Writes/sec. Pour savoir comment récupérer le nom exact des métriques, consultez l’applet de commande `Get-MetricDefinitions`. |
 | operator |GreaterThan |
 | Valeur de seuil (nombre/s pour cette métrique) |1 |
 | WindowSize (format hh:mm:ss) |00:05:00 |
 | agrégation (statistique de la métrique, qui utilise la valeur Average dans ce cas) |Moyenne |
-| courriers électroniques personnalisés (tableau de chaînes) |'foo@example.com','bar@example.com' |
-| envoyer un courrier électronique aux propriétaires, contributeurs et lecteurs |-SendToServiceOwners |
+| e-mails personnalisés (tableau de chaînes) |'foo@example.com','bar@example.com' |
+| envoyer un  e-mail aux propriétaires, contributeurs et lecteurs |-SendToServiceOwners |
 
-Créer un courrier électronique
+Créer un e-mail
 
 ```PowerShell
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
@@ -209,7 +208,7 @@ Voici la procédure que nous allons suivre :
 
 1. Créez une ou plusieurs règles.
 2. Créez un ou plusieurs profils correspondant aux règles que vous avez créées précédemment pour les profils.
-3. Facultatif : créez des notifications de mise à l'échelle automatique en configurant les propriétés de courrier électronique et webhook.
+3. Facultatif : créez des notifications de mise à l'échelle automatique en configurant les propriétés d’ e-mail et webhook.
 4. Créez un paramètre de mise à l'échelle automatique avec un nom pour la ressource cible en mappant les profils et les notifications que vous avez créés aux étapes précédentes.
 
 Les exemples suivants montrent comment créer un paramètre de mise à l’échelle automatique pour un groupe de machines virtuelles identiques sur un système d’exploitation Windows à l’aide de la métrique d’utilisation du processeur.
@@ -232,13 +231,13 @@ Puis créez un profil pour les règles.
 $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "My_Profile"
 ```
 
-Créez une propriété webhook
+Créez une propriété de webhook
 
 ```PowerShell
 $webhook_scale = New-AzureRmAutoscaleWebhook -ServiceUri "https://example.com?mytoken=mytokenvalue"
 ```
 
-Créez la propriété de notification pour le paramètre de mise à l'échelle automatique, y compris les propriétés de courrier électronique et webhook que vous avez créées précédemment.
+Créez la propriété de notification pour le paramètre de mise à l'échelle automatique, y compris les propriétés d’e-mail et de webhook que vous avez créées précédemment.
 
 ```PowerShell
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
@@ -320,7 +319,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Configuration des journaux de diagnostic
-De nombreux services Azure fournissent des journaux et des télémétries supplémentaires qui peuvent être configurés pour enregistrer des données dans votre compte de stockage Azure, les envoyer à Event Hubs et/ou les envoyer à un espace de travail Log Analytics OMS. Cette opération ne peut être effectuée qu’au niveau d’une ressource, et le compte de stockage ou l’Event Hub doit être présent dans la même région que la ressource cible où les paramètres de diagnostic sont configurés.
+De nombreux services Azure fournissent des journaux et des télémétries supplémentaires qui peuvent être configurés pour enregistrer des données dans votre compte de stockage Azure, les envoyer à Event Hubs et/ou les envoyer à un espace de travail Log Analytics OMS. Cette opération ne peut être effectuée qu’au niveau d’une ressource, et le compte de stockage ou le hub d’événements doit être présent dans la même région que la ressource cible où les paramètres de diagnostic sont configurés.
 
 ### <a name="get-diagnostic-setting"></a>Obtenir le paramètre de diagnostic
 ```PowerShell
@@ -363,4 +362,3 @@ Activer le paramètre de diagnostic pour OMS
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
 
 ```
-

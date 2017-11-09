@@ -12,15 +12,14 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 03/03/2017
 ms.author: carlrab
+ms.openlocfilehash: b22307ee0cade40370b096ee49bb15dcfd2f0071
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 3db5be35b3087bbbe87e623a623e7a10156b932f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Études techniques de l’implémentation client Azure SQL Database
 
@@ -38,3 +37,4 @@ ms.lasthandoff: 07/18/2017
 
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam) : cette brève étude de cas met en évidence les bonnes pratiques et leçons apprises avec l’expérience de l’équipe du produit Dynamics 365 for Operations relative à la migration vers Azure SQL Database afin de fournir aux clients une offre SaaS (Software as a Service) entièrement gérée. Avec Azure SQL Database, l’équipe Dynamics 365 for Operations pouvait gérer et activer le service avec beaucoup moins de personnel, et effectuer facilement la mise à l’échelle avec les fonctionnalités de facilité de gestion prêtes à l’emploi, telles que des sauvegardes de base de données automatiques, la rétention des sauvegardes de base de données ainsi que les fonctionnalités de haute disponibilité et récupération d’urgence. Ces fonctionnalités et la capacité de déployer les bases de données avec une automation simple ont fait d’Azure SQL Database une plateforme idéale pour soutenir des services à grande échelle.
 
+- [Microsoft OneDrive et SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states) : cette brève étude de cas raconte une migration de Microsoft OneDrive et SharePoint Online vers Azure SQL Database, et explique comment cette migration a permis une gestion de capacité élastique quasi illimitée, tout en réduisant considérablement les coûts opérationnels et les frais liés à l’infrastructure.

@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: TomSh
+ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="governance-in-azure"></a>Gouvernance dans Azure
 
 Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services est de tirer parti de sa large gamme de fonctionnalités et outils de sécurité. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée.
@@ -181,7 +179,7 @@ Dans chaque abonnement, vous pouvez accorder jusqu’à 2000 attributions de r�
 
 À l’origine, Azure fournissait uniquement le modèle de déploiement classique. Dans ce modèle, chaque ressource existait indépendamment. Il n’existait aucun moyen de regrouper des ressources associées. Au lieu de cela, il fallait suivre manuellement les ressources qui composaient la solution ou l’application manuellement, et veiller à les gérer selon une approche coordonnée.
 
-Pour déployer une solution, il fallait soit créer chaque ressource individuellement via le portail classique, soit créer un script qui déployait toutes les ressources dans le bon ordre. Pour supprimer une solution, il fallait supprimer chaque ressource individuellement. Il était difficile d’appliquer et de mettre à jour des stratégies de contrôle d’accès pour des ressources liées. Enfin, il n’était pas possible d’appliquer des balises aux ressources afin de les étiqueter à l’aide de termes qui facilitent la surveillance des ressources et la gestion de la facturation.
+Pour déployer une solution, il fallait soit créer chaque ressource individuellement via le portail Azure, soit créer un script qui déployait toutes les ressources dans le bon ordre. Pour supprimer une solution, il fallait supprimer chaque ressource individuellement. Il était difficile d’appliquer et de mettre à jour des stratégies de contrôle d’accès pour des ressources liées. Enfin, il n’était pas possible d’appliquer des balises aux ressources afin de les étiqueter à l’aide de termes qui facilitent la surveillance des ressources et la gestion de la facturation.
 
 En 2014, Azure a introduit le modèle de déploiement Resource Manager, et avec celui-ci le concept de groupe de ressources. Un groupe de ressources est un conteneur de ressources qui partagent un cycle de vie commun. Le modèle de déploiement Resource Manager présente plusieurs avantages :
 
@@ -493,4 +491,3 @@ Voici les outils principaux :
 - [Exemples d’implémentation de la gouvernance des abonnements Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-examples).
 
 - [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/).
-

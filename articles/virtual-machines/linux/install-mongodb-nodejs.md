@@ -14,16 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# Guide pratique d’installation et de configuration de MongoDB sur une machine virtuelle Linux avec Azure CLI 1.0
-<a id="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10" class="xliff"></a>
+# <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Guide pratique d’installation et de configuration de MongoDB sur une machine virtuelle Linux avec Azure CLI 1.0
 [MongoDB](http://www.mongodb.org) est une base de données NoSQL open-source qui offre des performances élevées. Cet article vous montre comment installer et configurer MongoDB sur une machine virtuelle Linux dans Azure à l’aide du modèle de déploiement de Resource Manager. Présentations d’exemples détaillant comment :
 
 * [Installer et configurer une instance MongoDB de base manuellement](#manually-install-and-configure-mongodb-on-a-vm)
@@ -31,16 +28,14 @@ ms.lasthandoff: 05/12/2017
 * [Créer un cluster partitionné MongoDB complexe avec jeux de réplicas à l’aide d’un modèle Resource Manager](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
 
 
-## Versions de l’interface de ligne de commande permettant d’effectuer la tâche
-<a id="cli-versions-to-complete-the-task" class="xliff"></a>
+## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - Azure CLI 1.0 : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
 - [Azure CLI 2.0](create-cli-complete-nodejs.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
 
 
-## Installer et configurer MongoDB manuellement sur une machine virtuelle
-<a id="manually-install-and-configure-mongodb-on-a-vm" class="xliff"></a>
+## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Installer et configurer MongoDB manuellement sur une machine virtuelle
 MongoDB [propose des instructions d’installation](https://docs.mongodb.com/manual/administration/install-on-linux/) pour les distributions Linux, notamment Red Hat / CentOS, SUSE, Ubuntu et Debian. L’exemple suivant crée une machine virtuelle *CentOS* à l’aide d’une clé SSH stockée sur *~/.ssh/id_rsa.pub*. Répondez aux invites pour le nom de compte de stockage, le nom DNS et les informations d’identification d’administrateur :
 
 ```azurecli
@@ -115,8 +110,7 @@ sudo chkconfig mongod on
 ```
 
 
-## Créeation d’une instance MongoDB de base sur CentOS à l’aide d’un modèle
-<a id="create-basic-mongodb-instance-on-centos-using-a-template" class="xliff"></a>
+## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Créeation d’une instance MongoDB de base sur CentOS à l’aide d’un modèle
 Vous pouvez créer une instance MongoDB de base sur une machine virtuelle CentOS unique en utilisant le modèle de démarrage rapide Azure suivant à partir de GitHub. Ce modèle utilise l’extension de script personnalisé pour Linux pour ajouter un référentiel `yum` à votre nouvelle machine virtuelle CentOS, puis installer MongoDB.
 
 * [Instance MongoDB de base sur CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
@@ -163,8 +157,7 @@ test
 ```
 
 
-## Création d’un cluster partitionné MongoDB complexe sur CentOS à l’aide d’un modèle
-<a id="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template" class="xliff"></a>
+## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Création d’un cluster partitionné MongoDB complexe sur CentOS à l’aide d’un modèle
 Vous pouvez créer une instance MongoDB complexe sur un cluster partitionné en utilisant le modèle de démarrage rapide Azure suivant à partir de GitHub. Ce modèle suit les [meilleures pratiques pour les clusters partitionnés MongoDB](https://docs.mongodb.com/manual/core/sharded-cluster-components/) pour fournir la redondance et la haute disponibilité. Le modèle crée deux partitions, avec trois nœuds dans chaque jeu de réplicas. Un jeu de réplicas de serveur de configuration avec trois nœuds est également créé, ainsi que deux serveurs de routeur **mongos** pour assurer la cohérence des applications au sein des partitions.
 
 * [Cluster de partitionnement MongoDB sur CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
@@ -185,12 +178,10 @@ azure group create \
 > L’interface de ligne de commande Azure vous renvoie à une invite quelques secondes après la création du déploiement, mais l’installation et la configuration peuvent prendre plus d’une heure. Vérifiez l’état du déploiement avec `azure group deployment show myResourceGroup`, en ajustant le nom de votre groupe de ressources. Attendez que **ProvisioningState** (État d’approvisionnement) indique *Succeeded* (Opération réussie) avant de vous connecter aux machines virtuelles.
 
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 Dans ces exemples, vous vous connectez à l’instance MongoDB localement à partir de la machine virtuelle. Si vous souhaitez vous connecter à l’instance MongoDB à partir d’une autre machine virtuelle ou d’un autre réseau, vérifiez que les bonnes [règles de groupe de sécurité réseau sont créées](nsg-quickstart.md).
 
 Pour en savoir plus sur la création avec des modèles, voir [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 Les modèles Azure Resource Manager utilisent l’extension de script personnalisé pour télécharger et exécuter des scripts sur vos machines virtuelles. Pour plus d’informations, consultez [Utilisation de l’extension de script personnalisé Azure avec des machines virtuelles Linux](extensions-customscript.md).
-
 

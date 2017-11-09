@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
+ms.openlocfilehash: 0d84dde1f70023abcfd0c15f5425d3cbaeb8c765
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 890690f704f033895e42877e3c9355a5a3df07b7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C : Ajout de Google+ en tant que fournisseur d’identités OAuth2 à l’aide de stratégies personnalisées
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -83,7 +81,7 @@ Pour utiliser Google+ en tant que fournisseur d’identité dans Azure Active Di
 
     ![Google+ - Sélectionner un type d’application](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Fournissez un **nom** pour votre application, entrez `https://login.microsoftonline.com` dans le champ **Origines JavaScript autorisées**, et `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **URI de redirection autorisée**. Remplacez **{tenant}** par votre nom de client (par exemple, contosob2c.onmicrosoft.com). La valeur **{tenant}** respecte la casse. Cliquez sur **Create**.
+13.  Fournissez un **nom** pour votre application, entrez `https://login.microsoftonline.com` dans le champ **Origines JavaScript autorisées**, et `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **URI de redirection autorisée**. Remplacez **{tenant}** par votre nom de client (par exemple, contosob2c.onmicrosoft.com). La valeur **{tenant}** respecte la casse. Cliquez sur **Créer**.
 
     ![Google+ - Fournir les origines autorisées de JavaScript et les URI de redirection](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 
@@ -100,12 +98,12 @@ La fédération avec les comptes Google+ requiert une clé client secrète pour 
 4.  Pour **Options**, utilisez **Manuel**.
 5.  Pour **Nom**, utilisez `GoogleSecret`.  
     Il est possible que le préfixe `B2C_1A_` soit ajouté automatiquement.
-6.  Dans la zone **Secret**, entrez votre clé secrète d’application Microsoft à partir de https://apps.dev.microsoft.com
+6.  Dans la boîte **Secret**, saisissez votre clé secrète d’application depuis la [console développeurs de Google](https://console.developers.google.com/) copiée ci-dessus.
 7.  Pour **Utilisation de la clé**, utilisez **Signature**.
 8.  Cliquez sur **Créer**
 9.  Vérifiez que vous avez créé la clé `B2C_1A_GoogleSecret`.
 
-## <a name="add-a-claims-provider-in-your-extension-policy"></a>Ajout d’un fournisseur de revendications dans votre stratégie d’extension
+## <a name="add-a-claims-provider-in-your-extension-policy"></a>Ajouter un fournisseur de revendications à une stratégie d’extension
 
 Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Google+, vous devez définir le compte Google+ comme fournisseur de revendications. En d’autres termes, vous devez spécifier un point de terminaison avec lequel Azure AD B2C communiquera. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
@@ -175,15 +173,15 @@ Le fournisseur d’identité a été configuré.  Toutefois, il n’est disponib
 >Si vous avez copié l’élément `<UserJourneys>` à partir du fichier de base de votre stratégie vers le fichier d’extension (TrustFrameworkExtensions.xml), vous pouvez ignorer cette section.
 
 1.  Ouvrez le fichier de base de votre stratégie (par exemple, TrustFrameworkBase.xml).
-2.  Recherchez l’élément `<UserJourneys>` et copiez le contenu entier du nœud `<UserJourneys>`.
+2.  Recherchez l’élément `<UserJourneys>` et copiez la totalité du contenu du nœud `<UserJourneys>`.
 3.  Ouvrez le fichier d’extension (par exemple, TrustFrameworkExtensions.xml), puis recherchez l’élément `<UserJourneys>`. Si l’élément n’existe pas, ajoutez-en un.
 4.  Collez l’intégralité du contenu du nœud `<UserJournesy>` que vous avez copié en tant qu’enfant de l’élément `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Afficher le bouton
-L’élément `<ClaimsProviderSelections>` définit la liste des options de sélection de fournisseur de revendications et leur ordre.  L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur une page d’inscription/de connexion. Si vous ajoutez un élément `<ClaimsProviderSelection>` pour un compte Google+, un nouveau bouton apparaît quand un utilisateur accède à la page. Pour ajouter cet élément :
+L’élément `<ClaimsProviderSelections>` définit la liste des options de sélection du fournisseur de revendications et leur ordre.  L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur une page d’inscription/de connexion. Si vous ajoutez un élément `<ClaimsProviderSelection>` pour un compte Google+, un nouveau bouton apparaît quand un utilisateur accède à la page. Pour ajouter cet élément :
 
 1.  Recherchez le nœud `<UserJourney>` incluant `Id="SignUpOrSignIn"` dans le parcours utilisateur que vous avez copié.
-2.  Recherchez le nœud `<OrchestrationStep>` qui inclut `Order="1"`
+2.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 3.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 
 ```xml
@@ -231,7 +229,7 @@ Vous pouvez également ajouter le fournisseur d’identité du compte Google+ au
 ### <a name="display-the-button"></a>Afficher le bouton
 1.  Ouvrez le fichier d’extension de votre stratégie (par exemple, TrustFrameworkExtensions.xml).
 2.  Recherchez le nœud `<UserJourney>` incluant `Id="ProfileEdit"` dans le parcours utilisateur que vous avez copié.
-3.  Recherchez le nœud `<OrchestrationStep>` qui inclut `Order="1"`
+3.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 4.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 
 ```xml
@@ -246,12 +244,11 @@ Vous pouvez également ajouter le fournisseur d’identité du compte Google+ au
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
 
-### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Tester la stratégie de modification de profil personnalisée en utilisant Exécuter maintenant
+### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Tester la stratégie personnalisée de modification de profil en utilisant Exécuter maintenant
 
 1.  Ouvrez **Paramètres Azure AD B2C** et accédez à **Infrastructure d’expérience d’identité**.
 2.  Ouvrez **B2C_1A_ProfileEdit**, la stratégie personnalisée de partie de confiance que vous avez chargée. Sélectionnez **Exécuter maintenant**.
 3.  Vous devriez être en mesure de vous connecter à l’aide de votre compte Google+.
 
 ## <a name="download-the-complete-policy-files"></a>Télécharger les fichiers de stratégie complets
-Facultatif : nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée après avoir effectué la prise en main des stratégies personnalisées au lieu d’utiliser ces exemples de fichiers.  [Exemples de fichiers de stratégie de référence](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-goog-app)
-
+Facultatif : nous vous recommandons de créer votre scénario avec vos propres fichiers de stratégie personnalisée après avoir suivi la procédure pas à pas Bien démarrer avec les stratégies personnalisées, au lieu d’utiliser ces exemples de fichiers.  [Exemples de fichiers de stratégie de référence](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-goog-app)

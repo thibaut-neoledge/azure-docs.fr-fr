@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: bf46da35a55608d7e4656c9dd3ad9d5f2253e225
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Didacticiel : Intégration d’Azure Active Directory avec Mimecast Personal Portal
 
@@ -308,5 +307,4 @@ Lorsque vous cliquez sur la vignette Mimecast Personal Portal dans le panneau d�
 [201]: ./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_general_203.png
-
 

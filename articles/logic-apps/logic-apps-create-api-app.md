@@ -1,7 +1,7 @@
 ---
-title: "Créer des API web et des API REST en tant que connecteurs - Azure Logic Apps | Microsoft Docs"
-description: "Créer des API web et des API REST pour appeler vos API, vos services ou vos systèmes dans les flux de travail d’intégration système avec Azure Logic Apps"
-keywords: "API web, API REST, connecteurs, flux de travail, intégration système"
+title: "Créer des API Web et des API REST pour Azure Logic Apps | Microsoft Docs"
+description: "Créez des API Web et des API REST pour appeler vos API, vos services ou vos systèmes à partir de workflows d’applications logiques pour les intégrations système."
+keywords: "API Web, API REST, workflows, intégrations système"
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -15,30 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 4ae98804aced23c0261c1d58721cb18d8152c6f1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
+ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Créer des API personnalisées qui peuvent être appelées à partir de workflows d’applications logiques
 
-# <a name="create-custom-apis-as-connectors-for-logic-apps"></a>Créer des API personnalisées en tant que connecteurs pour les applications logiques
-
-Bien qu’Azure Logic Apps offre [plus de 100 connecteurs intégrés](../connectors/apis-list.md), que vous pouvez utiliser dans les flux de travail d’application logique, vous voudrez peut-être appeler des API, des systèmes et des services qui ne sont pas disponibles en tant que connecteurs. Vous pouvez créer vos propres API personnalisées qui fournissent des actions et des déclencheurs à utiliser dans les applications logiques. Voici d’autres raisons pour lesquelles vous pouvez vouloir créer vos propres API à utiliser en tant que connecteurs dans les applications logiques :
+Bien qu’Azure Logic Apps offre [plus de 100 connecteurs intégrés](../connectors/apis-list.md), que vous pouvez utiliser dans les flux de travail d’application logique, vous voudrez peut-être appeler des API, des systèmes et des services qui ne sont pas disponibles en tant que connecteurs. Vous pouvez créer vos propres API personnalisées, qui fournissent des actions et des déclencheurs utilisables dans des applications logiques. Voici d’autres raisons qui peuvent vous amener à vouloir créer vos propres API de façon à les appeler à partir de workflows d’applications logiques :
 
 * Étendre l’intégration de votre système actuel et les flux de travail d’intégration de données.
 * Aider les clients à utiliser votre service pour gérer des tâches personnelles ou professionnelles.
 * Étendre la portée, la détectabilité et l’utilisation de votre service.
 
-En principe, les connecteurs sont des API web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](http://swagger.io/specification/) pour la documentation et JSON en tant que format d’échange de données. Étant donné que les connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, comme .NET, Java ou Node.js, pour la création de connecteurs. Vous pouvez également héberger votre API sur [Azure App Service](../app-service/app-service-value-prop-what-is.md), une offre de plateforme en tant que service (PaaS) qui fournit une des manières les plus optimales, les plus simples et les plus évolutives d’héberger des API. 
+En principe, les connecteurs sont des API web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](http://swagger.io/specification/) pour la documentation et JSON en tant que format d’échange de données. Étant donné que les connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, comme .NET, Java ou Node.js, pour la création de connecteurs. Vous pouvez également héberger votre API sur [Azure App Service](../app-service/app-service-web-overview.md), une offre de plateforme en tant que service (PaaS) qui fournit une des manières les plus optimales, les plus simples et les plus évolutives d’héberger des API. 
 
 Pour que les API personnalisées fonctionnent avec les applications logiques, votre API peut fournir des [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) qui effectuent des tâches spécifiques dans les flux de travail des applications logiques. Votre API peut également faire office de [*déclencheur*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) qui démarre le flux de travail d’une application logique lorsque de nouvelles données ou un événement répondent à une condition donnée. Cette rubrique décrit les modèles courants que vous pouvez suivre pour la création d’actions et de déclencheurs dans votre API, en fonction du comportement que vous souhaitez que votre API adopte.
 
+Vous pouvez héberger vos API sur [Azure App Service](../app-service/app-service-web-overview.md), une offre PaaS (platform as a service) qui propose un hébergement d’API simple et hautement évolutif.
+
 > [!TIP] 
-> Bien que vous puissiez déployer votre API comme les [applications web](../app-service-web/app-service-web-overview.md), envisagez de la déployer comme les [applications API](../app-service-api/app-service-api-apps-why-best-platform.md), ce qui peut simplifier votre travail lorsque vous générez, hébergez et consommez des API dans le cloud et en local. Vous n’êtes pas obligé de modifier du code dans votre API. Il vous suffit de déployer votre code dans une application API. Découvrez comment [créer des applications API avec ASP.NET](../app-service-api/app-service-api-dotnet-get-started.md), [Java](../app-service-api/app-service-api-java-api-app.md), ou [Node.js](../app-service-api/app-service-api-nodejs-api-app.md). 
+> Bien que vous puissiez déployer vos API comme des applications web, envisagez la possibilité de les déployer comme des applications API, car cela pourrait vous faciliter la tâche lorsque vous créerez, hébergerez et consommerez des API dans le cloud et en local. Vous n’êtes pas obligé de modifier le code dans vos API. Il vous suffit de déployer votre code dans une application API. Par exemple, découvrez comment générer des applications API créées dans les langages suivants : 
+> 
+> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md) 
+> * [Java](../app-service/app-service-web-get-started-java.md)
+> * [Node.JS](../app-service/app-service-web-get-started-nodejs.md)
+> * [PHP](../app-service/app-service-web-get-started-php.md)
+> * [Python](../app-service/app-service-web-get-started-python.md)
 >
 > Pour obtenir des exemples d’application API générées pour les applications logiques, consultez le [référentiel GitHub Azure Logic Apps](http://github.com/logicappsio) ou le [blog](http://aka.ms/logicappsblog).
+
+## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Quelles sont les différences entre les API personnalisées et les connecteurs personnalisés ?
+
+Les API personnalisées et les [connecteurs personnalisés](../logic-apps/custom-connector-overview.md) sont des API Web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](http://swagger.io/specification/) pour la documentation et JSON comme format d’échange de données. Et, dans la mesure où ces API et connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, par exemple, .NET, Java ou Node.js, pour créer des API et des connecteurs personnalisés.
+
+Les API personnalisées permettent d’appeler des API qui ne sont pas des connecteurs, et fournissent des points de terminaison qui peuvent être appelés avec HTTP + Swagger, la Gestion des API Azure ou App Services. Les connecteurs personnalisés fonctionnent comme des API personnalisées, avec ces attributs en plus :
+
+* Ils sont inscrits comme des ressources de connecteur Logic Apps dans Azure.
+* Ils apparaissent sous forme d’icônes avec les connecteurs gérés par Microsoft dans le Concepteur Logic Apps.
+* Ils sont uniquement accessibles aux auteurs du connecteur et aux utilisateurs de l’application logique qui ont le même client Azure Active Directory et un abonnement Azure dans la région où sont déployées les applications logiques.
+
+Vous pouvez également proposer des connecteurs inscrits à la certification Microsoft. Ce processus vérifie que les connecteurs inscrits répondent aux critères d’utilisation publique et les met à la disposition des utilisateurs de Microsoft Flow et de Microsoft PowerApps.
+
+Pour plus d’informations sur les connecteurs personnalisés, consultez les pages : 
+
+* [Vue d’ensemble des connecteurs personnalisés](../logic-apps/custom-connector-overview.md)
+* [Créer des connecteurs personnalisés à partir d’API Web](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
+* [Inscrire des connecteurs personnalisés dans Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
 
 ## <a name="helpful-tools"></a>Outils utiles
 
@@ -120,7 +144,7 @@ Pour ce modèle, définissez deux points de terminaison sur votre contrôleur :
 ![Modèle d’action Webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
 > [!NOTE]
-> Actuellement, le Concepteur d’application logique ne prend pas en charge la découverte des points de terminaison Webhook via Swagger. Pour ce modèle, vous devez donc ajouter une action [**Webhook**](../connectors/connectors-native-webhook.md) et spécifier l’URL, les en-têtes et le corps de votre requête. Voir également [Actions et déclencheurs de flux de travail](logic-apps-workflow-actions-triggers.md#api-connection-webhook-action). Pour transmettre l’URL de rappel, vous pouvez utiliser la fonction de flux de travail `@listCallbackUrl()` dans un de ces champs en fonction des besoins.
+> Actuellement, le Concepteur d’application logique ne prend pas en charge la découverte des points de terminaison Webhook via Swagger. Pour ce modèle, vous devez donc ajouter une action [**Webhook**](../connectors/connectors-native-webhook.md) et spécifier l’URL, les en-têtes et le corps de votre requête. Voir également [Actions et déclencheurs de flux de travail](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Pour transmettre l’URL de rappel, vous pouvez utiliser la fonction de flux de travail `@listCallbackUrl()` dans un de ces champs en fonction des besoins.
 
 > [!TIP]
 > Pour un exemple de modèle Webhook, consultez cet [exemple de déclencheur Webhook dans GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
@@ -146,21 +170,24 @@ Voici les étapes spécifiques d’un déclencheur d’interrogation, décrites 
 
 | Il existe de nouvelles données ou un nouvel événement ?  | Réponse de l’API | 
 | ------------------------- | ------------ |
-| Trouvé | Renvoyez un état HTTP `200 OK` avec la charge utile de réponse (entrée pour l’étape suivante). <br/>Cette réponse crée une instance d’application logique et démarre le flux de travail. |
-| Introuvable | Renvoyez un état HTTP `202 ACCEPTED` avec un en-tête `location` et un en-tête `retry-after`. <br/>Pour les déclencheurs, l’en-tête `location` doit également contenir un paramètre de requête `triggerState`, qui est généralement un « timestamp ». Votre API peut utiliser cet identificateur pour vérifier quand l’application logique a été déclenchée pour la dernière fois. |
+| Trouvé | Renvoyez un état HTTP `200 OK` avec la charge utile de réponse (entrée pour l’étape suivante). <br/>Cette réponse crée une instance d’application logique et démarre le flux de travail. | 
+| Introuvable | Renvoyez un état HTTP `202 ACCEPTED` avec un en-tête `location` et un en-tête `retry-after`. <br/>Pour les déclencheurs, l’en-tête `location` doit également contenir un paramètre de requête `triggerState`, qui est généralement un « timestamp ». Votre API peut utiliser cet identificateur pour vérifier quand l’application logique a été déclenchée pour la dernière fois. | 
+||| 
 
 Par exemple, pour vérifier périodiquement la présence de nouveaux fichiers dans votre service, vous pouvez générer un déclencheur d’interrogation qui possède ces comportements :
 
-| La requête inclut `triggerState` ? | Réponse de l’API |
-| -------------------------------- | -------------|
-| Non | Renvoyez un état HTTP `202 ACCEPTED` plus un en-tête `location` avec `triggerState` défini sur l’heure actuelle et l’intervalle `retry-after` sur 15 secondes. |
-| Oui | Vérifiez la présence de fichiers ajoutés après le `DateTime` pour `triggerState` dans votre service. |
+| La requête inclut `triggerState` ? | Réponse de l’API | 
+| -------------------------------- | -------------| 
+| Non | Renvoyez un état HTTP `202 ACCEPTED` plus un en-tête `location` avec `triggerState` défini sur l’heure actuelle et l’intervalle `retry-after` sur 15 secondes. | 
+| Oui | Vérifiez la présence de fichiers ajoutés après le `DateTime` pour `triggerState` dans votre service. | 
+||| 
 
-| Nombre de fichiers trouvés | Réponse de l’API |
-| --------------------- | -------------|
-| Fichier unique | Renvoyez un état HTTP `200 OK` et la charge utile du contenu, mettez à jour `triggerState` vers `DateTime` pour le fichier renvoyé et définissez l’intervalle `retry-after` sur 15 secondes. |
-| Fichiers multiples | Renvoyez un seul fichier à la fois et un état HTTP `200 OK`, mettez à jour `triggerState` et définissez l’intervalle `retry-after` sur 0 seconde. </br>Ces étapes informent le moteur que des données supplémentaires sont disponibles, et qu’il doit demander immédiatement des données à partir de l’URL dans l’en-tête `location`. |
-| Aucun fichier | Renvoyez un état HTTP `202 ACCEPTED`, ne modifiez pas `triggerState` et définissez l’intervalle `retry-after` sur 15 secondes. |
+| Nombre de fichiers trouvés | Réponse de l’API | 
+| --------------------- | -------------| 
+| Fichier unique | Renvoyez un état HTTP `200 OK` et la charge utile du contenu, mettez à jour `triggerState` vers `DateTime` pour le fichier renvoyé et définissez l’intervalle `retry-after` sur 15 secondes. | 
+| Fichiers multiples | Renvoyez un seul fichier à la fois et un état HTTP `200 OK`, mettez à jour `triggerState` et définissez l’intervalle `retry-after` sur 0 seconde. </br>Ces étapes informent le moteur que des données supplémentaires sont disponibles, et qu’il doit demander immédiatement des données à partir de l’URL dans l’en-tête `location`. | 
+| Aucun fichier | Renvoyez un état HTTP `202 ACCEPTED`, ne modifiez pas `triggerState` et définissez l’intervalle `retry-after` sur 15 secondes. | 
+||| 
 
 > [!TIP]
 > Pour obtenir un exemple de modèle de déclencheur d’interrogation, consultez cet [exemple de contrôleur de déclencheur d’interrogation dans GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
@@ -186,26 +213,30 @@ Les déclencheurs Webhook agissent de façon très similaire aux [actions Webhoo
 > [!TIP]
 > Pour un exemple de modèle Webhook, consultez cet [exemple de contrôleur de déclencheur Webhook dans GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## <a name="deploy-call-and-secure-custom-apis"></a>Déployer, appeler et sécuriser les API personnalisées
+## <a name="secure-calls-to-your-apis-from-logic-apps"></a>Sécuriser les appels aux API émis par des applications logiques
 
-Une fois les API personnalisées créées, configurez-les pour le déploiement, de façon à pouvoir les appeler en toute sécurité. Découvrez comment [déployer, appeler et sécuriser les API personnalisées pour les applications logiques](./logic-apps-custom-hosted-api.md).
+Après avoir créé vos API personnalisées, configurez l’authentification de vos API afin de pouvoir les appeler en toute sécurité à partir d’applications logiques. Découvrez [comment sécuriser les appels à des API personnalisées émis par des applications logiques](../logic-apps/logic-apps-custom-api-authentication.md).
+
+## <a name="deploy-and-call-your-apis"></a>Déployer et appeler les API
+
+Après avoir configuré l’authentification, passez au déploiement de vos API. Découvrez [comment déployer et appeler des API personnalisées à partir d’applications logiques](../logic-apps/logic-apps-custom-api-host-deploy-call.md).
 
 ## <a name="publish-custom-apis-to-azure"></a>Publier des API personnalisées dans Azure
 
-Pour rendre vos API personnalisées publiques et utilisables dans Azure, soumettez vos nominations au [programme Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+Pour mettre vos API personnalisées à la disposition d’autres utilisateurs Logic Apps dans Azure, vous devez ajouter un dispositif de sécurité et les inscrire en tant que connecteurs Logic Apps. Pour plus d’informations, consultez la page [Vue d’ensemble des connecteurs personnalisés](../logic-apps/custom-connector-overview.md). 
 
-## <a name="get-help"></a>Obtenir de l'aide
+Pour mettre vos API personnalisées à la disposition de tous les utilisateurs de Logic Apps, Microsoft Flow et Microsoft PowerApps, vous devez ajouter un dispositif de sécurité, inscrire vos API en tant que connecteurs Logic Apps et les proposer au [Programme Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
-Pour obtenir de l’aide concernant les API personnalisées, contactez [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
+## <a name="get-support"></a>Obtenir de l'aide
 
-Pour poser des questions, répondre aux questions et voir ce que font les autres utilisateurs d’Azure Logic Apps, visitez le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour obtenir de l’aide concernant les API personnalisées, contactez [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
-Afin d’améliorer Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site de commentaires utilisateur Logic Apps](http://aka.ms/logicapps-wish). 
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+* Afin de contribuer à améliorer Logic Apps, votez pour des idées ou soumettez-en sur le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Mesure de l’utilisation des actions et des déclencheurs](logic-apps-pricing.md)
-* [Gérer les types de contenu](./logic-apps-content-type.md)
-* [Gérer les erreurs et exceptions](./logic-apps-exception-handling.md)
-* [Sécurisation de l’accès à vos applications logiques](./logic-apps-securing-a-logic-app.md)
-* [Appeler, déclencher ou imbriquer des applications logiques via des points de terminaison HTTP](./logic-apps-http-endpoint.md)
+* [Gérer les erreurs et exceptions](../logic-apps/logic-apps-exception-handling.md)
+* [Appeler, déclencher ou imbriquer des applications logiques via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md)
+* [Mesure de l’utilisation des actions et des déclencheurs](../logic-apps/logic-apps-pricing.md)

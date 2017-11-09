@@ -12,25 +12,17 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/01/2017
-
-
+ms.openlocfilehash: 43064ddbdfec3e2ddae8de8c69f6c03dc7f8f45e
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
-<a id="get-started-with-service-bus-topics" class="xliff"></a>
-
-# Prise en main des rubriques Service Bus
+# <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Les opérations que nous allons effectuer
 
 Ce didacticiel couvre les étapes suivantes :
 
@@ -40,29 +32,23 @@ Ce didacticiel couvre les étapes suivantes :
 4. Écrire une application de console pour envoyer un message vers la rubrique.
 5. Écrivez une application console pour recevoir ce message depuis l’abonnement.
 
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Composants requis
 
-## Composants requis
-
-1. [Visual Studio 2015 ou une version ultérieure](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017.
+1. [Visual Studio 2015 ou une version ultérieure](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017.
 2. Un abonnement Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Créer un espace de noms à l’aide du Portail Azure
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Créer un espace de noms à l’aide du Portail Azure
 
 Si vous avez déjà créé un espace de noms Service Bus Messaging, passez directement à la section [Créer une rubrique à l’aide du portail Azure](#2-create-a-topic-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-topic-using-the-azure-portal" class="xliff"></a>
-
-## 2. Créer une rubrique à l’aide du Portail Azure
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Créer une rubrique à l’aide du Portail Azure
 
 1. Connectez-vous au [portail Azure][azure-portal].
-2. Dans le volet de navigation gauche du portail, cliquez sur **Service Bus** (si vous ne voyez pas **Service Bus**, cliquez sur **Plus de services**).
+2. Dans le volet de navigation gauche du portail, cliquez sur **Service Bus** (si vous ne voyez pas **Service Bus**, cliquez sur **Plus de services** ou sur **Toutes les ressources**).
 3. Cliquez sur l’espace de noms dans lequel vous souhaitez créer la rubrique. Le panneau de vue d’ensemble d’espace de noms s’affiche :
    
     ![Création d'une rubrique][createtopic1]
@@ -74,9 +60,7 @@ Si vous avez déjà créé un espace de noms Service Bus Messaging, passez direc
     ![Sélectionner Nouveau][createtopic3]
 6. Au bas du panneau, cliquez sur **Créer**.
 
-<a id="3-create-a-subscription-to-the-topic" class="xliff"></a>
-
-## 3. Créer un abonnement à la rubrique
+## <a name="3-create-a-subscription-to-the-topic"></a>3. Créer un abonnement à la rubrique
 
 1. Dans le volet ressources du portail, cliquez sur l’espace de noms que vous avez créé à l’étape 1, puis cliquez sur le nom de la rubrique que vous avez créée à l’étape 2.
 2. Sur la partie supérieure du volet Vue d’ensemble, cliquez sur le signe plus à côté de l’option **Abonnement** pour ajouter un abonnement à cette rubrique.
@@ -85,30 +69,22 @@ Si vous avez déjà créé un espace de noms Service Bus Messaging, passez direc
 
 3. Entrez un nom pour l’abonnement. Conservez les valeurs par défaut des autres options.
 
-<a id="4-send-messages-to-the-topic" class="xliff"></a>
-
-## 4. Envoyez des messages à la rubrique
+## <a name="4-send-messages-to-the-topic"></a>4. Envoyez des messages à la rubrique
 
 Pour envoyer des messages vers la rubrique, nous écrivons une application de console C# à l’aide de Visual Studio.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Création d’une application console
+### <a name="create-a-console-application"></a>Création d’une application console
 
 Ouvrez Visual Studio et créez un projet **Application de console (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Ajout du package NuGet Service Bus
+### <a name="add-the-service-bus-nuget-package"></a>Ajout du package NuGet Service Bus
 
 1. Cliquez avec le bouton droit sur le projet créé et sélectionnez **Gérer les packages NuGet**.
-2. Cliquez sur l’onglet **Parcourir**, recherchez **Microsoft Azure Service Bus**, puis sélectionnez l’élément **WindowsAzure.ServiceBus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
+2. Cliquez sur l’onglet **Parcourir**, recherchez **WindowsAzure.ServiceBus**, puis sélectionnez l’élément **WindowsAzure.ServiceBus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
    
     ![Sélectionner un package NuGet][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-topic" class="xliff"></a>
-
-### Écrire du code pour envoyer un message vers la rubrique
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Écrire du code pour envoyer un message vers la rubrique
 
 1. Ajoutez l’instruction `using` suivante au début du fichier Program.cs.
    
@@ -170,9 +146,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Framewo
    
       ![Taille des messages][topic-message]
 
-<a id="5-receive-messages-from-the-subscription" class="xliff"></a>
-
-## 5. Réception des messages de l’abonnement
+## <a name="5-receive-messages-from-the-subscription"></a>5. Réception des messages de l’abonnement
 
 1. Pour recevoir le ou les messages que vous venez d’envoyer, créez une application console et ajoutez une référence au package NuGet Service Bus, identique à l’application de l’expéditeur précédente.
 2. Ajoutez l’instruction `using` suivante au début du fichier Program.cs.
@@ -180,7 +154,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Framewo
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Ajoutez le code suivant à la méthode `Main` . Configurez la variable `connectionString` en tant que chaîne de connexion obtenue lors de la création de l’espace de noms, puis configurez `topicName` en tant que nom utilisé lors de la création de la rubrique.
+3. Ajoutez le code suivant à la méthode `Main` . Configurez la variable `connectionString` en tant que chaîne de connexion obtenue lors de la création de l’espace de noms, puis configurez `topicName` en tant que nom utilisé lors de la création de la rubrique. Assurez-vous de remplacer `<your subscription name>` par le nom de l’espace de noms de l’abonnement créé à l’étape 3. 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -233,9 +207,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Framewo
 
 Félicitations ! Vous avez créé une rubrique et un abonnement, envoyé un message et reçu ce message.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les [référentiels GitHub accompagnés d’exemples](https://github.com/Azure/azure-service-bus/tree/master/samples) qui illustrent certaines des fonctionnalités les plus avancées de la messagerie Service Bus.
 
@@ -250,4 +222,3 @@ Consultez les [référentiels GitHub accompagnés d’exemples](https://github.c
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-

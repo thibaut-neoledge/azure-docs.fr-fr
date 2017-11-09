@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: f9c1e41c423cc0d638d5c1d273d58b2fe713fa1c
-ms.openlocfilehash: 2aeb1f20255264ca97b8aff6bd506b5fa1832e28
-
-
+ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C : un outil d’assistance utilisé pour illustrer la fonctionnalité de personnalisation de l’interface utilisateur de la page
 Cet article complète le [principal article sur la personnalisation de l’interface utilisateur](active-directory-b2c-reference-ui-customization.md) dans Azure Active Directory (Azure AD) B2C. Les étapes suivantes décrivent l’utilisation de la fonctionnalité de personnalisation de l’interface utilisateur de la page à l’aide de l’exemple de contenu HTML et CSS que nous vous avons fourni.
@@ -86,10 +86,4 @@ Dans le même référentiel, décompressez `B2CAzureStorageClient.zip` et exécu
 Maintenant que vous avez chargé l'exemple de contenu sur votre propre compte de stockage, vous devez modifier votre stratégie d'inscription pour le référencer. Répétez les étapes à partir de la section [« Personnalisation de votre stratégie »](#customize-your-policy) ci-dessus, en utilisant cette fois l'URL de votre propre compte de stockage. Par exemple, l'emplacement de votre fichier `unified.html` serait `<url-of-your-container>/wingtip/unified.html`.
 
 Vous pouvez à présent utiliser le bouton **Exécuter maintenant** ou votre propre application pour réexécuter votre stratégie. Le résultat devrait être quasiment identique puisque vous avez utilisé le même exemple de contenu HTML et CSS dans les deux cas. Cependant, vos stratégies référencent maintenant votre propre instance d’Azure Blob Storage, et vous êtes libre de modifier et de recharger les fichiers. Pour plus d’informations sur la personnalisation du contenu HTML et CSS, reportez-vous à [l’article sur la personnalisation de l’interface utilisateur principale](active-directory-b2c-reference-ui-customization.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

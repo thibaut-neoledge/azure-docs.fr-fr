@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1cad3594be32e59ea6bd3d3ba2289d391bd92c0b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: dc6ef1771f4f09b274f12606d1278e1f29c23103
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Télémétrie des événements : modèle de données Application Insights
 
@@ -44,4 +43,3 @@ Longueur maximale : 512 caractères
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
 - [Écrire des données de télémétrie d’événement personnalisées](app-insights-api-custom-events-metrics.md#trackevent)
 - Découvrez quelles [plateformes](app-insights-platforms.md) sont prises en charge par Application Insights.
-

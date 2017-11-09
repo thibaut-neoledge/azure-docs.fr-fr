@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -49,7 +48,7 @@ Si vous souhaitez utiliser dans l’environnement 1.0 (ou ultérieur) des scrip
 
 ## <a name="create-a-backup-vault"></a>Créer un coffre de sauvegarde
 > [!WARNING]
-> Pour les clients utilisant Azure Backup pour la première fois, vous devez enregistrer le fournisseur Azure Backup à utiliser avec votre abonnement. Pour cela, exécutez la commande suivante : Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> Pour les clients utilisant Sauvegarde Azure pour la première fois, vous devez enregistrer le fournisseur Sauvegarde Azure à utiliser avec votre abonnement. Pour cela, exécutez la commande suivante : Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 >
 >
 
@@ -99,8 +98,8 @@ Les options disponibles incluent :
 | /pu |Nom d’utilisateur de l’hôte proxy |- |
 | /pw |Mot de passe du proxy |- |
 
-## <a name="registering-with-the-azure-backup-service"></a>Inscription auprès du service Azure Backup
-Avant de pouvoir vous inscrire auprès du service Azure Backup, vous devez vous assurer que les [conditions préalables](backup-configure-vault.md) sont remplies. Vous devez respecter les consignes suivantes :
+## <a name="registering-with-the-azure-backup-service"></a>Inscription auprès du service Sauvegarde Azure
+Avant de pouvoir vous inscrire auprès du service Sauvegarde Azure, vous devez vous assurer que les [prérequis](backup-configure-vault.md) sont remplis. Vous devez respecter les consignes suivantes :
 
 * Avoir un abonnement Azure valide
 * Disposer d’un coffre de sauvegarde
@@ -129,7 +128,7 @@ Machine registration succeeded.
 ```
 
 > [!IMPORTANT]
-> N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans la cmdlet.
+> N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans l’applet de commande.
 >
 >
 
@@ -138,7 +137,7 @@ Lorsque l’ordinateur Windows accède à Internet via un serveur proxy, les par
 
 L’utilisation de la bande passante peut également être contrôlée avec les options ```work hour bandwidth``` et ```non-work hour bandwidth```, certains jours de la semaine.
 
-La définition des détails sur le proxy et la bande passante s’effectue à l’aide de la cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) :
+La définition des détails sur le proxy et la bande passante s’effectue à l’aide de l’applet de commande [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) :
 
 ```
 PS C:\> Set-OBMachineSetting -NoProxy
@@ -149,7 +148,7 @@ Server properties updated successfully.
 ```
 
 ## <a name="encryption-settings"></a>Paramètres de chiffrement
-Les données sauvegardées envoyées à Azure Backup sont chiffrées pour garantir leur confidentialité. Le mot de passe du chiffrement est le « mot de passe » permettant de déchiffrer les données lors de la restauration.
+Les données sauvegardées envoyées à Sauvegarde Azure sont chiffrées pour garantir leur confidentialité. Le mot de passe du chiffrement est le « mot de passe » permettant de déchiffrer les données lors de la restauration.
 
 ```
 PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
@@ -195,7 +194,7 @@ PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 ### <a name="configuring-a-retention-policy"></a>Configuration d'une stratégie de rétention
-La stratégie de rétention définit la durée de conservation des points de récupération créés à partir des travaux de sauvegarde. Lorsque vous créez une stratégie de rétention à l'aide de l’applet de commande [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) , vous pouvez spécifier le nombre de jours pendant lesquels les points de récupération de sauvegarde doivent être conservés avec Azure Backup. L'exemple suivant définit une stratégie de rétention de 7 jours.
+La stratégie de rétention définit la durée de conservation des points de récupération créés à partir des travaux de sauvegarde. Lorsque vous créez une stratégie de rétention à l'aide de l’applet de commande [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) , vous pouvez spécifier le nombre de jours pendant lesquels les points de récupération de sauvegarde doivent être conservés avec Sauvegarde Azure. L'exemple suivant définit une stratégie de rétention de 7 jours.
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
@@ -326,7 +325,7 @@ PolicyState     : Valid
 ```
 
 ### <a name="applying-the-policy"></a>Application de la stratégie
-L'objet de stratégie est à présent complet. Il est associé à une planification de sauvegarde, à une stratégie de rétention et à une liste d’inclusion/exclusion de fichiers. Cette stratégie peut maintenant être validée à des fins d’utilisation par Azure Backup. Avant d’appliquer la stratégie que vous venez de créer, vérifiez qu’aucune stratégie de sauvegarde existante n’est associée au serveur à l’aide de l’applet de commande [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415). Lors de la suppression de la stratégie, vous êtes invité à confirmer l'opération. Pour ignorer la confirmation, utilisez l’indicateur ```-Confirm:$false``` avec l'applet de commande.
+L'objet de stratégie est à présent complet. Il est associé à une planification de sauvegarde, à une stratégie de rétention et à une liste d’inclusion/exclusion de fichiers. Cette stratégie peut maintenant être validée à des fins d’utilisation par Sauvegarde Azure. Avant d’appliquer la stratégie que vous venez de créer, vérifiez qu’aucune stratégie de sauvegarde existante n’est associée au serveur à l’aide de l’applet de commande [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415). Lors de la suppression de la stratégie, vous êtes invité à confirmer l'opération. Pour ignorer la confirmation, utilisez l’indicateur ```-Confirm:$false``` avec l'applet de commande.
 
 ```
 PS C:> Get-OBPolicy | Remove-OBPolicy
@@ -433,8 +432,8 @@ Job completed.
 The backup operation completed successfully.
 ```
 
-## <a name="restore-data-from-azure-backup"></a>Restauration des données à partir d'Azure Backup
-Cette section vous guide tout au long des étapes d'automatisation de la récupération des données à partir d’Azure Backup. Cette opération implique les étapes suivantes :
+## <a name="restore-data-from-azure-backup"></a>Restauration des données à partir de Sauvegarde Azure
+Cette section vous guide tout au long des étapes d'automatisation de la récupération des données à partir de Sauvegarde Azure. Cette opération implique les étapes suivantes :
 
 1. Sélection du volume source
 2. Choix d’un point de sauvegarde à restaurer
@@ -442,7 +441,7 @@ Cette section vous guide tout au long des étapes d'automatisation de la récup�
 4. Déclenchement du processus de restauration
 
 ### <a name="picking-the-source-volume"></a>Sélection du volume source
-Pour restaurer un élément à partir d’Azure Backup, vous devez d'abord identifier la source associée. Étant donné que nous exécutons les commandes dans le contexte d'un serveur ou d’un client Windows, l'ordinateur est déjà identifié. L'étape suivante pour identifier la source consiste à identifier le volume qui la contient. Vous pouvez récupérer la liste des volumes ou des sources en cours de sauvegarde à partir de cet ordinateur en exécutant l’applet de commande [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) . Cette commande renvoie un tableau de toutes les sources sauvegardées à partir de ce serveur/client.
+Pour restaurer un élément à partir de Sauvegarde Azure, vous devez d'abord identifier la source associée. Étant donné que nous exécutons les commandes dans le contexte d'un serveur ou d’un client Windows, l'ordinateur est déjà identifié. L'étape suivante pour identifier la source consiste à identifier le volume qui la contient. Vous pouvez récupérer la liste des volumes ou des sources en cours de sauvegarde à partir de cet ordinateur en exécutant l’applet de commande [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) . Cette commande renvoie un tableau de toutes les sources sauvegardées à partir de ce serveur/client.
 
 ```
 PS C:> $source = Get-OBRecoverableSource
@@ -556,7 +555,7 @@ The recovery operation completed successfully.
 
 
 ## <a name="uninstalling-the-azure-backup-agent"></a>Désinstallation de l’agent Azure Backup
-La désinstallation de l’agent Azure Backup peut être effectuée à l’aide de la commande suivante :
+La désinstallation de l’agent de sauvegarde Azure peut être effectuée à l’aide de la commande suivante :
 
 ```
 PS C:\> .\MARSAgentInstaller.exe /d /q
@@ -571,7 +570,7 @@ La désinstallation des fichiers binaires de l'agent de l'ordinateur a certaines
 Cependant, les données stockées dans Azure sont conservées selon la stratégie de rétention que vous avez définie. Les points plus anciens deviennent automatiquement obsolètes.
 
 ## <a name="remote-management"></a>Gestion à distance
-L’intégralité de la gestion concernant l’agent Azure Backup, les stratégies et les sources de données peut être effectuée à distance par le biais de PowerShell. L’ordinateur qui sera géré à distance doit être correctement préparé.
+L’intégralité de la gestion concernant l’agent de sauvegarde Azure, les stratégies et les sources de données peut être effectuée à distance par le biais de PowerShell. L’ordinateur qui sera géré à distance doit être correctement préparé.
 
 Par défaut, le service WinRM est configuré pour un démarrage manuel. Le type de démarrage doit être défini sur *Automatique* et le service devrait être démarré. Pour vérifier que le service WinRM est exécuté, la valeur de la propriété État devrait être défini sur *En cours d’exécution*.
 
@@ -607,8 +606,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur Azure Backup pour client/serveur Windows, consultez
+Pour plus d’informations sur Sauvegarde Azure pour client/serveur Windows, consultez
 
-* [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
+* [Présentation de Sauvegarde Azure](backup-introduction-to-azure-backup.md)
 * [Sauvegarder des serveurs Windows](backup-configure-vault.md)
-

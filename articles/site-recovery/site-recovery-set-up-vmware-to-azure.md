@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
+ms.openlocfilehash: 49cc01e54158b68e440f1efbfe2f8b0d076a5692
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Configurer l’environnement source (VMware vers Azure)
 > [!div class="op_single_selector"]
 > * [VMware vers Azure](./site-recovery-set-up-vmware-to-azure.md)
@@ -37,7 +35,11 @@ Cet article suppose que vous avez déjà créé les éléments suivants :
 - Une machine virtuelle sur laquelle installer le serveur de configuration.
 
 ## <a name="configuration-server-minimum-requirements"></a>Configuration minimale requise du serveur
-Le logiciel du serveur de configuration doit être déployé sur une machine virtuelle VMware à haute disponibilité. Le tableau suivant présente la configuration minimale requise pour le matériel, le logiciel et le réseau pour un serveur de configuration.
+Le tableau suivant présente la configuration minimale requise pour le matériel, le logiciel et le réseau pour un serveur de configuration.
+
+> [!IMPORTANT]
+> Quand vous déployez un serveur de configuration pour protéger des machines virtuelles VMware, nous vous recommandons de le déployer en tant que machine virtuelle **hautement disponible**.
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
@@ -99,4 +101,3 @@ Sélectionnez **+vCenter** pour connecter un serveur VMware vCenter ou un ordina
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Configurez votre environnement cible](./site-recovery-prepare-target-vmware-to-azure.md) dans Azure.
-

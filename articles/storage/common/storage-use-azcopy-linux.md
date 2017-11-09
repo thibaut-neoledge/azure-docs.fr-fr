@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 28/9/2017
 ms.author: seguler
+ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 441227d84b9c1ec721ae36fdc423ba797654f128
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transférer des données avec AzCopy sur Linux
 AzCopy sur Linux est un utilitaire en ligne de commande conçu pour copier des données depuis et vers un stockage de fichier et de blob Microsoft Azure en utilisant des commandes simples avec des performances optimales. Vous pouvez copier des données d’un objet vers un autre au sein de votre compte de stockage ou entre des comptes de stockage.
@@ -29,16 +28,19 @@ Il existe deux versions d’AzCopy que vous pouvez télécharger. AzCopy sur Lin
 ## <a name="download-and-install-azcopy"></a>Téléchargement et installation d’AzCopy
 ### <a name="installation-on-linux"></a>Installation sur Linux
 
-AzCopy sur Linux nécessite que l’infrastructure .NET Core soit installée sur la plateforme. Consultez les instructions d’installation sur la page [.NET Core](https://www.microsoft.com/net/core#linuxubuntu).
+L’article inclut des commandes pour différentes versions d’Ubuntu.  Utilisez la commande `lsb_release -a` pour confirmer la version et le nom de code de votre distribution. 
 
-Par exemple, nous allons installer .NET Core sur Ubuntu 16.10. Pour consulter le guide d’installation le plus récent, rendez-vous sur la page d’installation [.NET Core sur Linux](https://www.microsoft.com/net/core#linuxubuntu).
+AzCopy sur Linux nécessite l’installation de .NET Core Framework (version 1.1.x) sur la plateforme. Consultez les instructions d’installation sur la page [.NET Core](https://www.microsoft.com/net/download/linux).
+
+À titre d’exemple, nous allons installer .NET Core sur Ubuntu 16.04. Pour consulter le guide d’installation le plus récent, rendez-vous sur la page d’installation [.NET Core sur Linux](https://www.microsoft.com/net/download/linux).
 
 
 ```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.3
+sudo apt-get install dotnet-dev-1.1.4
 ```
 
 Une fois que vous avez installé .NET Core, téléchargez et installez AzCopy.
@@ -51,76 +53,6 @@ sudo ./install.sh
 
 Vous pouvez supprimer les fichiers extraits une fois qu’AzCopy sur Linux est installé. Si vous n’avez pas de privilèges de super utilisateur, vous pouvez également exécuter AzCopy à l’aide du script d’interpréteur de commandes « azcopy » dans le fichier extrait. 
 
-### <a name="alternative-installation-on-ubuntu"></a>Installation alternative sur Ubuntu
-
-**Ubuntu 14.04**
-
-Ajoutez une source apt pour .Net Core :
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Ajoutez une source apt pour le référentiel de produit Microsoft Linux et installez AzCopy :
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.04**
-
-Ajoutez une source apt pour .Net Core :
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Ajoutez une source apt pour le référentiel de produit Microsoft Linux et installez AzCopy :
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.10**
-
-Ajoutez une source apt pour .Net Core :
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Ajoutez une source apt pour le référentiel de produit Microsoft Linux et installez AzCopy :
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.10/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
 
 ## <a name="writing-your-first-azcopy-command"></a>Écriture de votre première commande AzCopy
 La syntaxe de base d’une commande AzCopy est :
@@ -564,7 +496,7 @@ azcopy \
     --sync-copy
 ```
 
-Pendant la copie depuis le stockage de fichier vers le stockage d'objets Blob, le type d'objet Blob par défaut est l'objet Blob de blocs. L'utilisateur peut spécifier l'option `/BlobType:page` pour modifier le type d'objet Blob de destination.
+Pendant la copie depuis le stockage de fichier vers le stockage d'objets Blob, le type d'objet Blob par défaut est l'objet Blob de blocs. L'utilisateur peut spécifier l'option `--blob-type page` pour modifier le type d'objet Blob de destination. Les types disponibles sont `page | block | append`.
 
 Notez que `--sync-copy` peut générer des coûts de sortie supplémentaires par rapport à la copie asynchrone. L’approche recommandée consiste à utiliser cette option dans une machine virtuelle Azure qui se trouve dans la même région que votre compte de stockage source afin d’éviter les frais de sortie.
 
@@ -758,5 +690,4 @@ Pour plus d’informations sur le stockage Azure et AzCopy, consultez les ressou
 * [AzCopy – Transfer data with re-startable mode and SAS Token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx) (AzCopy : Transfert des données avec mode reprise et jeton SAP)
 * [AzCopy : Utilisation de copie d'objets blob sur plusieurs comptes](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
 

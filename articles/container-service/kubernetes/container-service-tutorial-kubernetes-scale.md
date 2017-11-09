@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
+ms.openlocfilehash: 25d7e56c7d7755e44fdb16e3b5585a112e495e77
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: bb528c424bc71f0309439e741c30e16d0d13c7d7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Mettre à l’échelle des pods Kubernetes et l’infrastructure Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Si vous avez suivi les didacticiels, vous disposez d’un cluster Kubernetes opérationnel dans Azure Container Service et vous avez déployé l’application Azure Vote. 
 
@@ -160,5 +160,4 @@ Passez au didacticiel suivant pour en savoir plus sur la mise à jour d’une ap
 
 > [!div class="nextstepaction"]
 > [Mettre à jour une application dans Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
-
 

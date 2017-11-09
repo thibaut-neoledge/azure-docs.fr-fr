@@ -1,5 +1,4 @@
 ---
-
 title: "Exemples PowerShell pour les licences basées sur les groupes dans Azure AD | Microsoft Docs"
 description: "Scénarios PowerShell pour la licence basée sur le groupe Azure Active Directory"
 services: active-directory
@@ -16,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a322365b2764dc13b5079f2c4c0634c9c950d92
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: 6ee08bb48b8612b16a4609570c12363664788f63
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell pour les licences basées sur les groupes dans Azure AD
 
 Toutes les fonctionnalités pour l’affectation de licences basée sur les groupes sont disponibles via le [portail Azure](https://portal.azure.com), et la prise en charge de PowerShell est actuellement limitée. Toutefois, il existe certaines tâches utiles qui peuvent être effectuées à l’aide des [applets de commande MSOnline PowerShell](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory). Ce document fournit des exemples de ce qui est possible.
@@ -386,7 +382,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ieq "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -487,4 +483,3 @@ Pour plus d’informations sur l’ensemble de fonctionnalités de gestion des l
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Migration des utilisateurs individuels sous licence vers les licences basées sur les groupes dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Autres scénarios de licences basées sur les groupes Azure Active Directory](active-directory-licensing-group-advanced.md)
-

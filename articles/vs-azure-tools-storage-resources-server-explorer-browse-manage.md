@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 456daea494ed1daed9bd809b68ae12fceb800299
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Consulter et gérer les ressources de stockage à l’aide de l’Explorateur de serveurs
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -69,7 +68,7 @@ Vous pouvez effectuer les opérations suivantes sur les objets blob en utilisant
   
 * Entrer une valeur de filtre et l’appliquer.
 * Actualiser la liste des objets blob du conteneur.
-* Charger un fichier.
+* Chargez un fichier.
 * Supprimer un objet blob.
     
   > [!NOTE]
@@ -151,8 +150,8 @@ Quand vous développez un service cloud qui utilise des files d’attente, vous 
 Dans l’Explorateur de serveurs, vous pouvez afficher les files d’attente dans un compte de stockage, créer et supprimer des files d’attente, ouvrir une file d’attente pour consulter ses messages et ajouter des messages à une file d’attente. Quand vous ouvrez une file d’attente, vous pouvez afficher les messages qu’elle contient. De plus, vous pouvez effectuer les actions suivantes sur la file d’attente à l’aide des boutons situés dans l’angle supérieur gauche :
 
 * Actualiser la vue de la file d’attente.
-* Ajouter un message dans la file d’attente.
-* Supprimer le premier message de la file d’attente.
+* Ajoutez un message dans la file d’attente.
+* Supprimer le premier message de la file d’attente
 * Effacer l’intégralité du contenu de la file d’attente.
 
 L’illustration suivante montre une file d’attente contenant deux messages :
@@ -287,5 +286,4 @@ Si vous supprimez un compte de stockage, toutes les informations de clé enregis
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’utilisation des services de stockage Azure, consultez la page [Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
-
 

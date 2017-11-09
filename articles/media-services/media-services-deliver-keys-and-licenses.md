@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
+ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 69019f41bcc72b71bcc7d0bf8a66fe37d5243b7b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilisation d’Azure Media Services pour fournir des licences DRM ou des clés AES
 Azure Media Services (AMS) vous permet de recevoir, d’encoder, d’ajouter une protection de contenu et de diffuser votre contenu (voir [cet](media-services-protect-with-drm.md) pour plus de détails). Toutefois, il existe des clients qui souhaitent seulement utiliser AMS pour fournir des licences et/ou des clés et faire de l’encodage, du chiffrement et de la diffusion en continu à l’aide de leurs serveurs locaux. Cet article décrit comment vous pouvez utiliser AMS pour fournir des licences PlayReady et/ou Widevine et exécuter les autres opérations avec vos serveurs locaux. 
@@ -41,7 +40,7 @@ Vous pouvez télécharger l’exemple décrit dans cet article à partir d’ [i
 1. Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 2. Ajoutez les éléments suivants aux **appSettings** définis dans votre fichier app.config :
 
-    <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
+    <add key="Issuer" value="http://testacs.com"/><add key="Audience" value="urn:test"/>
 
 ## <a name="net-code-example"></a>Exemple de code .NET
 
@@ -338,5 +337,4 @@ L’exemple de code suivant montre comment créer une clé de contenu courante e
 [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-protect-with-aes128.md)
 
 [Utilisation de partenaires pour fournir des licences Widevine à Azure Media Services](media-services-licenses-partner-integration.md)
-
 

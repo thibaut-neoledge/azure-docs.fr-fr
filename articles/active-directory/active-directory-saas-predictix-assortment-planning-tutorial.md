@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: cc7ad4aa5260276e26406b6b79c039372e5ee69f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Didacticiel : Intégration d’Azure Active Directory à Predictix Assortment Planning
 
@@ -174,7 +173,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Créer un utilisateur de test Predictix Assortment Planning
 
@@ -239,5 +238,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_203.png
-
 

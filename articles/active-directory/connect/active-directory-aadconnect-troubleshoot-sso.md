@@ -12,40 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: b383a21500c753d8d2fe6747756541a3ff94ef02
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
 Cet article fournit des informations sur les problèmes courants liés à l’authentification unique transparente Azure AD.
 
 ## <a name="known-issues"></a>Problèmes connus
 
+- Dans certains cas, l’activation de l’authentification unique transparente peut prendre jusqu’à 30 minutes.
+- La prise en charge du navigateur Edge n’est pas disponible.
+- Le lancement des clients Office, en particulier dans les scénarios d’ordinateurs partagés, entraîne l’affichage d’invites de connexion supplémentaires. Les utilisateurs doivent fréquemment entrer leur nom d’utilisateur, mais pas leur mot de passe.
+- Si l’authentification unique transparente réussit, l’utilisateur n’a pas la possibilité de choisir l’option « Maintenir la connexion ». En raison de ce comportement, les scénarios de mappage SharePoint et OneDrive ne fonctionnent pas.
+- L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox.
+- L’authentification unique transparente ne fonctionne pas sur Internet Explorer quand le mode protégé amélioré est activé.
+- L’authentification unique transparente ne fonctionne pas sur les navigateurs mobiles iOS et Android.
 - Si vous synchronisez 30 forêts AD ou plus, vous ne pouvez pas activer l’authentification unique transparente à l’aide d’Azure AD Connect. En guise de solution de contournement, vous pouvez [activer manuellement](#manual-reset-of-azure-ad-seamless-sso) la fonctionnalité pour votre locataire.
 - L’ajout des URL du service Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à la zone « Sites de confiance » plutôt qu’à la zone « Intranet local », **empêche les utilisateurs de se connecter**.
-- L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox et Edge. Il en va de même sur Internet Explorer lorsque le mode Protégé amélioré est activé.
-
->[!IMPORTANT]
->Nous avons récemment restauré la prise en charge de Edge afin d’examiner les problèmes signalés par le client.
 
 ## <a name="check-status-of-the-feature"></a>Vérifiez l’état de la fonctionnalité
 
 Assurez-vous que la fonctionnalité Authentification unique transparente est toujours **activée** sur votre client. Vous pouvez vérifier l’état en accédant au panneau **Azure AD Connect** sur le [centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centre d’administration d’Azure Active Directory - panneau Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+![Centre d’administration Azure Active Directory - panneau Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
-## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory
+## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
 
-Pour résoudre les problèmes de connexion utilisateur avec l’authentification unique transparente, commencez par examiner le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
+Si votre locataire dispose d’une licence Azure AD Premium, vous pouvez également consulter le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centre d’administration d’Azure Active Directory - rapport de connexions](./media/active-directory-aadconnect-sso/sso9.png)
+![Centre d’administration Azure Active Directory - rapport de connexions](./media/active-directory-aadconnect-sso/sso9.png)
 
 Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/), puis cliquez sur une activité de connexion. Recherchez le champ **Code d’erreur de connexion**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
 
@@ -120,4 +121,3 @@ Si vous n’avez pas réussi à résoudre le problème, vous pouvez réinitialis
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Étape 5. Activer la fonctionnalité pour votre locataire
 
 Appelez `Enable-AzureADSSO`, puis tapez « true » à l’invite `Enable: ` pour activer la fonctionnalité dans votre locataire.
-

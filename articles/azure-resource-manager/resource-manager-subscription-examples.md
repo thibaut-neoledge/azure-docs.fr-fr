@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
-ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
-
-
+ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exemples d’implémentation d’une structure d’entreprise Azure
 Cette rubrique fournit des exemples montrant comment une entreprise peut implémenter les recommandations pour une [structure d’entreprise Azure](resource-manager-subscription-governance.md). Elle utilise une société fictive nommée Contoso pour illustrer les bonnes pratiques pour des scénarios courants.
@@ -46,8 +46,8 @@ Dave crée un abonnement pour prendre en charge des outils de développement qui
 | Item | Nom | Description |
 | --- | --- | --- |
 | Abonnement |Contoso ETS DeveloperTools Production |Prend en charge des outils de développement courants |
-| Groupe de ressources |rgBitBucket |Contient le serveur d’applications web et le serveur de base de données |
-| Groupe de ressources |rgCoreNetworks |Contient les réseaux virtuels et la connexion à la passerelle de site à site |
+| Groupe de ressources |bitbucket-prod-rg |Contient le serveur d’applications web et le serveur de base de données |
+| Groupe de ressources |corenetworks-prod-rg |Contient les réseaux virtuels et la connexion à la passerelle de site à site |
 
 ### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 Après avoir créé son abonnement, Dave veut s’assurer que les équipes et les propriétaires d’applications appropriés peuvent accéder à leurs ressources. Dave tient compte du fait que chaque équipe a des exigences différentes. Il utilise les groupes qui ont été synchronisésde l’Active Directory (AD) Contoso local sur Azure Active Directory et fournit le niveau d’accès adapté aux équipes.
@@ -56,9 +56,9 @@ Dave attribue les rôles suivants pour l’abonnement :
 
 | Rôle | Affecté à | Description |
 | --- | --- | --- |
-| [Propriétaire](../active-directory/role-based-access-built-in-roles.md#owner) |ID géré à partir de l’AD Contoso |Cet ID est contrôlé avec un accès Just in Time (JIT) par le biais de l’outil de gestion des identités de Contoso et garantit que l’accès propriétaire à l’abonnement est entièrement audité. |
-| [Gestionnaire de sécurité](../active-directory/role-based-access-built-in-roles.md#security-manager) |Service de gestion de la sécurité et des risques |Ce rôle permet aux utilisateurs de consulter l’Azure Security Center et l’état des ressources. |
-| [Collaborateur de réseau](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Équipe réseau |Ce rôle permet à l’équipe réseau de Contoso de gérer la connexion VPN de site à site et les réseaux virtuels. |
+| [Propriétaire](../active-directory/role-based-access-built-in-roles.md#owner) |ID géré à partir de l’AD Contoso |Cet ID est contrôlé avec un accès Just in Time (JIT) par le biais de l’outil de gestion des identités de Contoso et garantit que l’accès propriétaire à l’abonnement est entièrement audité |
+| [Gestionnaire de sécurité](../active-directory/role-based-access-built-in-roles.md#security-manager) |Service de gestion de la sécurité et des risques |Ce rôle permet aux utilisateurs de consulter l’Azure Security Center et l’état des ressources |
+| [Collaborateur de réseau](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Équipe réseau |Ce rôle permet à l’équipe réseau de Contoso de gérer la connexion VPN de site à site et les réseaux virtuels |
 | *Rôle personnalisé* |Propriétaire de l’application |Dave crée un rôle qui permet de modifier les ressources au sein du groupe de ressources. Pour en savoir plus, consultez la rubrique [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../active-directory/role-based-access-control-custom-roles.md) |
 
 ### <a name="policies"></a>Stratégies
@@ -66,7 +66,7 @@ Dave a les exigences suivantes pour la gestion des ressources dans l’abonnemen
 
 * Les outils de développement assistant les développeurs dans le monde entier, il ne souhaite pas empêcher les utilisateurs de créer des ressources dans n’importe quelle région. Toutefois, il doit savoir où les ressources sont créées.
 * Il doit surveiller les coûts. Par conséquent, il souhaite empêcher les propriétaires d’applications de créer des machines virtuelles inutiles et coûteuses.  
-* Étant donné que cette application sert aux développeurs de nombreuses divisions, il souhaite baliser chaque ressource avec la division et le propriétaire d’application.. À l’aide de ces balises, ETS peut facturer les équipes appropriées.
+* Étant donné que cette application sert aux développeurs de nombreuses divisions, il souhaite baliser chaque ressource avec la division et le propriétaire d’application. À l’aide de ces balises, ETS peut facturer les équipes appropriées.
 
 Il crée les [stratégies de Resource Manager](resource-manager-policy.md) suivantes :
 
@@ -85,8 +85,8 @@ Il ajoute les [balises](resource-group-using-tags.md) suivantes aux groupes de r
 
 | Nom de la balise | Valeur de la balise |
 | --- | --- |
-| ApplicationOwner |Le nom de la personne responsable de cette application. |
-| CostCenter |Le centre de coût du groupe qui paie pour la consommation d’Azure. |
+| ApplicationOwner |Le nom de la personne responsable de cette application |
+| CostCenter |Le centre de coût du groupe qui paie pour la consommation d’Azure |
 | BusinessUnit |**ETS** (la division associée à l’abonnement) |
 
 ### <a name="core-network"></a>Réseau principal
@@ -96,9 +96,9 @@ Il crée les ressources suivantes :
 
 | Type de ressource | Nom | Description |
 | --- | --- | --- |
-| Réseau virtuel |vnInternal |Utilisé avec l’application BitBucket et connecté au réseau d’entreprise de Contoso par le biais d’ExpressRoute.  Un sous-réseau (sbBitBucket) fournit l’application avec un espace d’adresses IP spécifique. |
-| Réseau virtuel |vnExternal |Disponible pour des applications futures qui nécessitent des points de terminaison accessible au pusblic. |
-| Groupe de sécurité réseau |nsgBitBucket |Garantit que la surface d’attaque de cette charge de travail est réduite en autorisant des connexions uniquement sur le port 443 du sous-réseau sur lequel l’application réside (sbBitBucket). |
+| Réseau virtuel |internal-vnet |Utilisé avec l’application BitBucket et connecté au réseau d’entreprise de Contoso par le biais d’ExpressRoute.  Un sous-réseau (`bitbucket`) fournit l’application avec un espace d’adresses IP spécifique |
+| Réseau virtuel |external-vnet |Disponible pour des applications futures qui nécessitent des points de terminaison accessible au public |
+| Groupe de sécurité réseau |bitbucket-nsg |Garantit que la surface d’attaque de cette charge de travail est réduite en autorisant des connexions uniquement sur le port 443 du sous-réseau sur lequel l’application réside (`bitbucket`) |
 
 ### <a name="resource-locks"></a>Verrous de ressources
 Dave reconnaît que la connectivité du réseau d’entreprise de Contoso au réseau virtuel interne doit être protégée de tout script versatile ou de toute suppression accidentelle.
@@ -107,7 +107,7 @@ Il crée le [verrou de ressources suivant](resource-group-lock-resources.md) :
 
 | Type de verrou | Ressource | Description |
 | --- | --- | --- |
-| **CanNotDelete** |vnInternal |Empêche les utilisateurs de supprimer le réseau virtuel ou des sous-réseaux, mais n’empêche pas l’ajout de nouveaux sous-réseaux. |
+| **CanNotDelete** |internal-vnet |Empêche les utilisateurs de supprimer le réseau virtuel ou des sous-réseaux, mais n’empêche pas l’ajout de nouveaux sous-réseaux |
 
 ### <a name="azure-automation"></a>Azure Automation
 Dave n’a rien à automatiser pour cette application. Même s’il a créé un compte Azure Automation, il ne l’utilisera pas au cours des étapes initiales.
@@ -125,8 +125,8 @@ Dave se connecte à l’Azure Enterprise Portal et voit que le service Chaîne d
 
 | Utilisation de l’abonnement | Nom |
 | --- | --- |
-| Développement |SupplyChain ResearchDevelopment LoyaltyCard Development |
-| Production |SupplyChain Operations LoyaltyCard Production |
+| Développement |Contoso SupplyChain ResearchDevelopment LoyaltyCard Development |
+| Production |Contoso SupplyChain Operations LoyaltyCard Production |
 
 ### <a name="policies"></a>Stratégies
 Dave et Alice discutent de l’application et concluent que cette application sert uniquement aux clients dans la région Amérique du Nord.  Alice et son équipe envisagent d’utiliser l’environnement de service d’application de d’Azure et SQL Azure pour créer l’application. Il se peut qu’ils doivent créer des machines virtuelles pendant le développement.  Alice souhaite faire en sorte que les développeurs disposent des ressources dont ils ont besoin pour explorer et examiner les problèmes sans s’inclure dans ETS.
@@ -143,10 +143,10 @@ Pour **l’abonnement de production**, ils créent les stratégies suivantes :
 
 | Champ | Résultat | Description |
 | --- | --- | --- |
-| location |deny |Interdire la création de toute ressource en dehors des centres de données des États-Unis. |
+| location |deny |Interdire la création de toute ressource en dehors des centres de données des États-Unis |
 | tags |deny |Exiger la balise de propriétaire de l’application |
-| tags |deny |Exiger une balise de service. |
-| tags |append |Ajouter une balise pour chaque groupe de ressources qui indique l’environnement de production. |
+| tags |deny |Exiger une balise de service |
+| tags |append |Ajouter une balise pour chaque groupe de ressources qui indique l’environnement de production |
 
 Elles ne limitent pas le type de référence (SKU) qu'un utilisateur peut créer en mode de production.
 
@@ -155,9 +155,9 @@ Dave sait qu’il doit disposer d’informations spécifiques pour identifier le
 
 | Nom de la balise | Valeur de la balise |
 | --- | --- |
-| ApplicationOwner |Le nom de la personne responsable de cette application. |
-| department |Le centre de coût du groupe qui paie pour la consommation d’Azure. |
-| EnvironmentType |**Production** (même si l’abonnement inclut **Production** dans son nom, inclure cette balise permet de faciliter l’identification en cas de recherche de ressources dans le portail ou sur la facture). |
+| ApplicationOwner |Le nom de la personne responsable de cette application |
+| department |Le centre de coût du groupe qui paie pour la consommation d’Azure |
+| EnvironmentType |**Production** (même si l’abonnement inclut **Production** dans son nom, inclure cette balise permet de faciliter l’identification en cas de recherche de ressources dans le portail ou sur la facture) |
 
 ### <a name="core-networks"></a>Réseaux principaux
 L’équipe Contoso ETS en charge de la gestion de la sécurité des informations et des risques passe en revue le plan de migration des applications dans Azure proposé par Dave. Elle veut s’assurer que l’application de la carte de fidélité est correctement isolée et protégée dans un réseau DMZ.  Pour satisfaire cette exigence, Alice et Dave créent un réseau virtuel externe et un groupe de sécurité réseau pour isoler l’application de carte de fidélité du réseau d’entreprise de Contoso.  
@@ -166,14 +166,14 @@ Pour **l’abonnement de développement**, ils créent :
 
 | Type de ressource | Nom | Description |
 | --- | --- | --- |
-| Réseau virtuel |vnInternal |Sert à l’environnement de développement de la carte de fidélité de Contoso et est connecté au réseau d’entreprise de Contoso par le biais d’ExpressRoute. |
+| Réseau virtuel |internal-vnet |Sert à l’environnement de développement de la carte de fidélité de Contoso et est connecté au réseau d’entreprise de Contoso par le biais d’ExpressRoute |
 
 Pour **l’abonnement de production**, ils créent :
 
 | Type de ressource | Nom | Description |
 | --- | --- | --- |
-| Réseau virtuel |vnExternal |Héberge l’application de carte de fidélité et n’est pas connecté directement à la connexion ExpressRoute de Contoso. Un code est envoyé par le biais du système de code source directement aux services PaaS. |
-| Groupe de sécurité réseau |nsgBitBucket |Garantit que la surface d’attaque de cette charge de travail est réduite en autorisant uniquement les communications entrantes sur le port TCP 443.  Contoso examine également une éventuelle protection supplémentaire par le biais d’un pare-feu d’applications web. |
+| Réseau virtuel |external-vnet |Héberge l’application de carte de fidélité et n’est pas connecté directement à la connexion ExpressRoute de Contoso. Un code est envoyé par le biais du système de code source directement aux services PaaS |
+| Groupe de sécurité réseau |loyaltycard-nsg |Garantit que la surface d’attaque de cette charge de travail est réduite en autorisant uniquement les communications entrantes sur le port TCP 443.  Contoso examine également une éventuelle protection supplémentaire par le biais d’un pare-feu d’applications web |
 
 ### <a name="resource-locks"></a>Verrous de ressources
 Dave et Alice discutent et décident d’ajouter des verrous de ressources sur certaines ressources clés dans l’environnement afin d’éviter une suppression accidentelle en cas de code errant de type push.
@@ -182,7 +182,7 @@ Ils créent le verrou suivant :
 
 | Type de verrou | Ressource | Description |
 | --- | --- | --- |
-| **CanNotDelete** |vnExternal |Pour empêcher des personnes de supprimer le réseau virtuel ou des sous-réseaux. Le verrou n’empêche pas l’ajout de nouveaux sous-réseaux. |
+| **CanNotDelete** |external-vnet |Pour empêcher des personnes de supprimer le réseau virtuel ou des sous-réseaux. Le verrou n’empêche pas l’ajout de nouveaux sous-réseaux |
 
 ### <a name="azure-automation"></a>Azure Automation
 Alice et son équipe de développement disposent de runbooks complets complète pour gérer l’environnement de cette application. Les runbooks permettent l’ajout ou la suppression de nœuds de l’application et d’autres tâches DevOps.
@@ -196,10 +196,3 @@ Pour répondre à ces exigences, Dave active l’Azure Security Center. Il garan
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la création de modèles Resource Manager, consultez la rubrique [Bonnes pratiques relatives à la création de modèles Azure Resource Manager](resource-manager-template-best-practices.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

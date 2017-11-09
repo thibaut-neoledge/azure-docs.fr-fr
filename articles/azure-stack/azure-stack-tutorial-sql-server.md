@@ -1,6 +1,6 @@
 ---
-title: Make SQL databases available to your Azure Stack users | Microsoft Docs
-description: Tutorial to install the SQL Server resource provider and create offers that let Azure Stack users create SQL databases.
+title: "Mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack | Microsoft Docs"
+description: "Didacticiel pour installer le fournisseur de ressources SQL Server et de créer des offres permettant aux utilisateurs d’Azure Stack de créer des bases de données SQL."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -11,80 +11,79 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
+ms.openlocfilehash: f774888ba3921d0688feddac669ed1dca4667441
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: bba8257bc4477f985d1a9399e65a1338d237f134
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Make SQL databases available to your Azure Stack users
+# <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
 
-As an Azure Stack cloud administrator, you can create offers that let your users (tenants) create SQL databases that they can use with their cloud-native apps, websites, and workloads. By providing these custom, on-demand, cloud-based databases to your users, you can save them time and resources. To set this up, you will:
+En tant qu’administrateur de cloud Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs de créer des bases de données SQL qu’ils peuvent utiliser avec leurs applications cloud natives, sites web et charges de travail. En fournissant à vos utilisateurs ces bases de données cloud à la demande et personnalisées, vous pouvez leur faire gagner du temps et économiser des ressources. Pour effectuer cette configuration, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
-> * Deploy the SQL Server resource provider
-> * Create an offer
-> * Test the offer
+> * Déployer le fournisseur de ressources SQL Server
+> * Créer une offre
+> * Tester l’offre
 
-## <a name="deploy-the-sql-server-resource-provider"></a>Deploy the SQL Server resource provider
+## <a name="deploy-the-sql-server-resource-provider"></a>Déployer le fournisseur de ressources SQL Server
 
-The deployment process is described in detail in the [Use SQL databases on Azure Stack article](azure-stack-sql-resource-provider-deploy.md), and is comprised of the following primary steps:
+Le processus de déploiement est décrit en détail dans l’[article Utiliser des bases de données SQL sur Azure Stack](azure-stack-sql-resource-provider-deploy.md), et se compose des étapes principales suivantes :
 
-1.  [Deploy the SQL resource provider]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2.  [Verify the deployment]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
-3.  [Provide capacity by connecting to a hosting SQL server]( azure-stack-sql-resource-provider-deploy.md#provide-capacity-by-connecting-to-a-hosting-sql-server).
+1. [Déployez un fournisseur de ressources SQL]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
+2. [Vérifiez le déploiement]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+3. Fournissez de la capacité par le biais d’une connexion à un serveur SQL d’hébergement.
 
-## <a name="create-an-offer"></a>Create an offer
+## <a name="create-an-offer"></a>Créer une offre
 
-1.  [Set a quota](azure-stack-setting-quotas.md) and name it *SQLServerQuota*. Select **Microsoft.SQLAdapter** for the **Namespace** field.
-2.  [Create a plan](azure-stack-create-plan.md). Name it *TestSQLServerPlan*, select the **Microsoft.SQLAdapter** service, and **SQLServerQuota** quota.
+1.  [Définissez un quota](azure-stack-setting-quotas.md) et nommez-le *SQLServerQuota*. Sélectionnez **Microsoft.SQLAdapter** pour le champ **Namespace**.
+2.  [Créez un plan](azure-stack-create-plan.md). Nommez-le *TestSQLServerPlan*, puis sélectionnez le service **Microsoft.SQLAdapter** et le quota **SQLServerQuota**.
 
     > [!NOTE]
-    > To let users create other apps, other services might be required in the plan. For example, Azure Functions requires that the plan include the **Microsoft.Storage** service, while Wordpress requires **Microsoft.MySQLAdapter**.
+    > Pour permettre aux utilisateurs de créer d’autres applications, il est possible que d’autres services soient exigés dans le plan. Par exemple, Azure Functions exige que le plan inclue le service **Microsoft.Storage**, tandis que Wordpress exige **Microsoft.MySQLAdapter**.
     > 
     >
 
-3.  [Create an offer](azure-stack-create-offer.md), name it **TestSQLServerOffer** and select the **TestSQLServerPlan** plan.
+3.  [Créez une offre](azure-stack-create-offer.md), nommez-la **TestSQLServerOffer**, puis sélectionnez le plan **TestSQLServerPlan**.
 
-## <a name="test-the-offer"></a>Test the offer
+## <a name="test-the-offer"></a>Tester l’offre
 
-Now that you've deployed the SQL Server resource provider and created an offer, you can sign in as a user, subscribe to the offer, and create a database.
+Maintenant que vous avez déployé le fournisseur de ressources SQL Server et créé une offre, vous pouvez vous connecter en tant qu’utilisateur, vous abonner à l’offre, puis créer une base de données.
 
-### <a name="subscribe-to-the-offer"></a>Subscribe to the offer
-1. Sign in to the Azure Stack portal (https://portal.local.azurestack.external) as a tenant.
-2. Click **Get a subscription** and then type **TestSQLServerSubscription** under **Display Name**.
-3. Click **Select an offer** > **TestSQLServerOffer** > **Create**.
-4. Click **More services** > **Subscriptions** > **TestSQLServerSubscription** > **Resource providers**.
-5. Click **Register** next to the **Microsoft.SQLAdapter** provider.
+### <a name="subscribe-to-the-offer"></a>S’abonner à l’offre
+1. Connectez-vous au portail Azure Stack (https://portal.local.azurestack.external) en tant que locataire.
+2. Cliquez sur **Prendre un abonnement**, puis tapez **TestSQLServerSubscription** sous **Nom d’affichage**.
+3. Cliquez sur **Sélectionner une offre** > **TestSQLServerOffer** > **Créer**.
+4. Cliquez sur **Plus de services** > **Abonnements** > **TestSQLServerSubscription** > **Fournisseurs de ressources**.
+5. Cliquez sur **Inscrire** en regard du fournisseur **Microsoft.SQLAdapter**.
 
-### <a name="create-a-sql-database"></a>Create a SQL database
+### <a name="create-a-sql-database"></a>Créer une base de données SQL
 
-1. Click **+** > **Data + Storage** > **SQL Database**.
-2. Leave the defaults for the fields, or you can use these examples:
-    - **Database Name**: SQLdb
-    - **Max Size in MB**: 100
-    - **Subscription**: TestSQLOffer
-    - **Resource Group**: SQL-RG
-3. Click **Login Settings**, enter credentials for the database, and then click **OK**.
-4. Click **SKU** > select the SQL SKU that you created for the SQL Hosting Server > **OK**.
-5. Click **Create**.
+1. Cliquez sur **+** > **Données et stockage** > **Base de données SQL**.
+2. Conservez les valeurs par défaut pour les champs ou utilisez les exemples suivants :
+    - **Nom de la base de données** : SQLdb
+    - **Taille maximale (en Mo)** : 100
+    - **Abonnement** : TestSQLOffer
+    - **Groupe de ressources** : SQL-RG
+3. Cliquez sur **Paramètres de connexion**, entrez les informations d’identification pour la base de données, puis cliquez sur **OK**.
+4. Cliquez sur **Référence** > sélectionnez le SKU SQL que vous avez créé pour le serveur d’hébergement SQL > **OK**.
+5. Cliquez sur **Créer**.
 
-In this tutorial, you learned how to:
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Deploy the SQL Server resource provider
-> * Create an offer
-> * Test the offer
+> * Déployer le fournisseur de ressources SQL Server
+> * Créer une offre
+> * Tester l’offre
 
-Advance to the next tutorial to learn how to:
+Passez au didacticiel suivant pour savoir comment :
 
 > [!div class="nextstepaction"]
-> [Make web, mobile, and API apps available to your users]( azure-stack-tutorial-app-service.md)
-
+> [Rendre les applications web, mobiles et API disponibles pour vos utilisateurs]( azure-stack-tutorial-app-service.md)
 

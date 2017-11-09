@@ -15,14 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 7d21ab1180fcd6df39a5dcc5c095c9521c00f6fd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/10/2017
-
+ms.openlocfilehash: 18442c87b049200fac5ed41cc7034ba7a848b8d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Ajout et exécution d’un code personnalisé pour des applications logiques avec Azure Functions
 
 Pour exécuter des extraits de code personnalisés de C# ou node.js dans des applications logiques, vous pouvez créer des fonctions personnalisées par le biais d’Azure Functions. 
@@ -78,4 +76,3 @@ Le concepteur génère ensuite un modèle de fonction que vous pouvez créer sou
 <!--Image references-->
 [1]: ./media/logic-apps-azure-functions/callfunction.png
 [2]: ./media/logic-apps-azure-functions/createfunction.png
-

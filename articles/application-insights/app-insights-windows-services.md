@@ -3,7 +3,7 @@ title: "Azure Application Insights pour les serveurs Windows et les rôles de tr
 description: "Ajoutez manuellement le Kit de développement logiciel (SDK) Application Insights à votre application ASP.NET pour analyser l’utilisation, la disponibilité et les performances."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: bf7921926c69fff214e94a2d0edc22b28fb8eac0
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e7b78907fafcee99c807bfe8f7b311986ba7ffcc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurer manuellement Application Insights pour des applications .NET
 
@@ -90,14 +89,14 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
 * Définissez la clé d’instrumentation dans le code, par exemple dans `main()`: 
   
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *votre clé* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*votre clé*`";` 
 * [Écrivez vos propres données de télémétrie à l’aide de l’API](app-insights-api-custom-events-metrics.md#ikey).
 
 **Si vous avez installé d’autres packages Application Insights** , vous pouvez, si vous préférez, utiliser le fichier .config pour définir la clé d’instrumentation :
 
 * Modifiez ApplicationInsights.config (qui a été ajouté par l’installation NuGet). Insérez ceci juste avant la balise de fermeture :
   
-    `<InstrumentationKey>` *la clé d’instrumentation que vous avez copiée* `</InstrumentationKey>`
+    `<InstrumentationKey>`*la clé d’instrumentation que vous avez copiée*`</InstrumentationKey>`
 * Assurez-vous que les propriétés du fichier ApplicationInsights.config dans l’Explorateur de solutions sont définies sur **Build Action = Content, Copy to Output Directory = Copy**.
 
 Ile est utile de définir la clé d’instrumentation dans le code si vous voulez [changer la clé pour différentes configurations de build](app-insights-separate-resources.md). Si vous définissez la clé dans le code, vous n’êtes pas obligé de la définir dans le fichier `.config`.
@@ -149,5 +148,4 @@ Consultez cet article de [résolution des problèmes](app-insights-asp-net-troub
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajoutez des données de télémétrie](app-insights-asp-net-more.md) pour obtenir une vue à 360 degrés de votre application.
-
 

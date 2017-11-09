@@ -3,7 +3,7 @@ title: "Conservation et stockage des données dans Azure Application Insights | 
 description: Retention and privacy policy statement
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: d82f27c9a657a97f23b60ade352e4d2a87166233
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -213,5 +212,4 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-
 

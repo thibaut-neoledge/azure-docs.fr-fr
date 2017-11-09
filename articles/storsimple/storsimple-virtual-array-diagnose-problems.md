@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: a75e68c84a50977b162ca4d3a4a02936ca78cb6b
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour corriger les problèmes de votre instance StorSimple Virtual Array
 ## <a name="overview"></a>Vue d'ensemble
@@ -42,10 +43,4 @@ Vous pouvez afficher certains des problèmes courants identifiés avec l’insta
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrir comment [consigner un ticket de support](storsimple-virtual-array-log-support-ticket.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

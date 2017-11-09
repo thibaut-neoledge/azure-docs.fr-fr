@@ -3,7 +3,7 @@ title: "Prise en main d’Azure DNS à l’aide de PowerShell | Microsoft Docs"
 description: "Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide de PowerShell."
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,14 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
-ms.lasthandoff: 04/20/2017
-
+ms.author: kumud
+ms.openlocfilehash: 0b0d474752615e60747ffe7681c2d04cd2685bba
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-powershell"></a>Prise en main d’Azure DNS à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 04/20/2017
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
-Cet article vous indique la procédure à suivre pour créer votre première zone et votre premier enregistrement DNS à l’aide d’Azure PowerShell. Vous pouvez également effectuer ces étapes à l’aide du portail Azure ou de l’interface de ligne de commande Azure multiplateforme.
+Cet article vous indique la procédure à suivre pour créer votre première zone et votre premier enregistrement DNS à l’aide d’Azure PowerShell. Vous pouvez également effectuer ces étapes à l’aide du portail Azure ou de l’interface de ligne de commande Azure multiplateforme. Azure DNS prend également en charge la création de domaines privés. Pour obtenir des instructions détaillées sur la création de votre première zone DNS privée et enregistrement, consultez [Bien démarrer avec les zones privées Azure DNS à l’aide de PowerShell](private-dns-getstarted-powershell.md).
 
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Enfin, pour publier votre zone DNS sur Internet, vous devez configurer les serveurs de noms du domaine. Chacune de ces étapes est décrite ci-dessous.
 
@@ -107,5 +106,4 @@ Pour en savoir plus sur Azure DNS, consultez [Vue d’ensemble d’Azure DNS](dn
 Pour en savoir plus sur la gestion des zones DNS dans Azure DNS, consultez [Gestion des zones DNS à l’aide de PowerShell](dns-operations-dnszones.md).
 
 Pour en savoir plus sur la gestion des enregistrements DNS dans Azure DNS, consultez [Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell](dns-operations-recordsets.md).
-
 

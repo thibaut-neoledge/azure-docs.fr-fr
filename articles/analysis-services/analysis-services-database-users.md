@@ -4,7 +4,7 @@ description: "Découvrez comment gérer les rôles et les utilisateurs sur un se
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: 53e946bba6bbd882e78b51ee8d222ab0d3ec056a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: d0bc7d7514f111b4bbde33bd60ae21264bd797fc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
 
@@ -151,5 +150,4 @@ Les filtres de lignes s’appliquent aux lignes spécifiées et aux lignes conne
   [Gérer les administrateurs de serveur](analysis-services-server-admins.md)   
   [Gérer Azure Analysis Services avec PowerShell](analysis-services-powershell.md)  
   [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
-
 

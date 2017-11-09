@@ -1,6 +1,6 @@
 ---
-title: Deploy the Azure Stack Development Kit | Microsoft Docs
-description: Learn how to prepare the Azure Stack Development Kit and run the PowerShell script to deploy it.
+title: "Déployer le Kit de développement Azure Stack | Microsoft Docs"
+description: "Découvrez comment préparer le Kit de développement Azure Stack et exécuter le script PowerShell pour le déployer."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,53 +14,55 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
+ms.openlocfilehash: b67cabf0ecdb48f137bfcfbce95eee568a1c298d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ce2978d345262b68b177a38a978133a71da2806f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="deploy-the-azure-stack-development-kit"></a>Deploy the Azure Stack Development Kit
-To deploy the development kit, you must complete the following steps:
+# <a name="deploy-the-azure-stack-development-kit"></a>Déployer le Kit de développement Azure Stack
 
-1. [Download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) to get the Cloudbuilder.vhdx.
-2. [Prepare the cloudbuilder.vhdx](#prepare-the-development-kit-host) by running the asdk-installer.ps1 script to configure the computer (the development kit host) on which you want to install development kit. After this step, the development kit host will boot to the Cloudbuilder.vhdx.
-3. [Deploy the development kit](#deploy-the-development-kit) on the development kit host.
+*S’applique à : Kit de développement Azure Stack*
 
-> [!NOTE]
-> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 evaluation version can be activated at deployment time. If the Windows Server 2016 evaluation version is not activated within 10 days, it shuts down.
-> 
-> 
+Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous devez effectuer les étapes suivantes :
 
-## <a name="download-and-extract-the-development-kit"></a>Download and extract the development kit
-1. Before you start the download, make sure that your computer meets the following prerequisites:
-
-   * The computer must have at least 60 GB of free disk space.
-   * [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
-
-2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
-3. Under **Download the software**, click **Azure Stack Development Kit**.
-4. Run the downloaded AzureStackDownloader.exe file.
-5. In the **Azure Stack Development Kit Downloader** window, follow steps 1 through 5.
-6. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
-7. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
-8. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
-9. Select the Destination for the files to be extracted, click **Next**.
-   * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack
-10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~25 GB) and ThirdPartyLicenses.rtf files. This process will take some time to complete.
+1. [Téléchargez le package de déploiement](https://azure.microsoft.com/overview/azure-stack/try/?v=try) pour obtenir le fichier Cloudbuilder.vhdx.
+2. [Préparez le fichier cloudbuilder.vhdx](#prepare-the-development-kit-host) en exécutant le script asdk-installer.ps1 pour configurer l’ordinateur (l’hôte du Kit de développement) sur lequel vous voulez installer le Kit de développement. Après cette étape, l’hôte du Kit de développement démarre à partir du fichier Cloudbuilder.vhdx.
+3. [Déployez le Kit de développement](#deploy-the-development-kit) sur l’hôte du Kit de développement.
 
 > [!NOTE]
-> After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
+> Pour un résultat optimal, même si vous voulez utiliser un environnement Azure Stack déconnecté, il est préférable de déployer en étant connecté à Internet. De cette façon, la version d’évaluation de Windows Server 2016 peut être activée au moment du déploiement.
 > 
 > 
 
-## <a name="prepare-the-development-kit-host"></a>Prepare the development kit host
-1. Make sure that you can physically connect to the development kit host, or have physical console access (such as KVM). You must have such access after you reboot the development kit host in step 13 below.
-2. Make sure the development kit host meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
-3. Sign in as the Local Administrator to your development kit host.
-4. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
-5. Run the following script to download the development kit installer file (asdk-installer.ps1) to the c:\AzureStack_Installer folder on your development kit host.
+## <a name="download-and-extract-the-development-kit"></a>Télécharger et extraire le Kit de développement
+1. Avant de commencer le téléchargement, vérifiez que votre ordinateur répond aux prérequis suivants :
+
+   * L’ordinateur doit avoir au moins 60 Go d’espace disque libre.
+   * [.NET Framework 4.6 (ou ultérieur)](https://aka.ms/r6mkiy) doit être installé.
+
+2. [Accédez à la page de démarrage](https://azure.microsoft.com/overview/azure-stack/try/?v=try), spécifiez vos informations, puis cliquez sur **Envoyer**.
+3. Sous **Télécharger le logiciel**, cliquez sur **Kit de développement Azure Stack**.
+4. Exécutez le fichier AzureStackDownloader.exe téléchargé.
+5. Dans la fenêtre **Téléchargeur du Kit de développement Azure Stack**, suivez les étapes 1 à 5.
+6. Une fois le téléchargement terminé, cliquez sur **Exécuter** pour lancer le programme MicrosoftAzureStackPOC.exe.
+7. Passez en revue l’écran Contrat de licence et les informations de l’Assistant Auto-extracteur, puis cliquez sur **Suivant**.
+8. Passez en revue l’écran Déclaration de confidentialité et les informations de l’Assistant Auto-extracteur, puis cliquez sur **Suivant**.
+9. Sélectionnez la destination pour les fichiers à extraire et cliquez sur **Suivant**.
+   * La destination par défaut est : <drive letter>:\<dossier actif>\Microsoft Azure Stack
+10. Passez en revue l’écran Emplacement de destination et les informations de l’Assistant Auto-extracteur, puis cliquez sur **Extraire** pour extraire les fichiers CloudBuilder.vhdx (environ 25 Go) et ThirdPartyLicenses.rtf. Ce processus prend un certain temps.
+
+> [!NOTE]
+> Après avoir extrait les fichiers, vous pouvez supprimer les fichiers .exe et .bin pour récupérer de l’espace sur la machine. Vous pouvez aussi déplacer ces fichiers à un autre emplacement : ainsi, si vous devez redéployer, vous n’avez pas besoin de retélécharger les fichiers.
+> 
+> 
+
+## <a name="prepare-the-development-kit-host"></a>Préparer l’hôte du Kit de développement
+1. Vérifiez que vous pouvez vous connecter physiquement à l’hôte du Kit de développement ou avoir accès à une console physique (par exemple KVM). Vous devez disposer de ce type d’accès après le redémarrage de l’hôte du Kit de développement à l’étape 13 ci-dessous.
+2. Vérifiez que l’hôte du Kit de développement répond à la [configuration minimale requise](azure-stack-deploy.md). Vous pouvez utiliser le [vérificateur de déploiement pour Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) afin de vérifier la configuration requise.
+3. Connectez-vous en tant qu’administrateur local à votre hôte du Kit de développement.
+4. Copiez ou déplacez le fichier CloudBuilder.vhdx à la racine du lecteur C:\ (C:\CloudBuilder.vhdx).
+5. Exécutez le script suivant pour télécharger le fichier du programme d’installation du Kit de développement (asdk-installer.ps1) dans le dossier c:\AzureStack_Installer sur votre hôte du Kit de développement.
     ```powershell
     # Variables
     $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
@@ -72,82 +74,88 @@ To deploy the development kit, you must complete the following steps:
     # Download file
     Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
     ```
-6. Open an elevated PowerShell console > run the C:\AzureStack_Installer\asdk-installer.ps1 script > click **Prepare vhdx**.
-7. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the cloudbuilder.vhdx file that you downloaded in the previous steps.
-8. Optional: Check the **Add drivers** box to specify a folder containing additional drivers that you want on the host.
-9. On the **Optional settings** page, provide the local administrator account for the development kit host. If you don't provide these credentials, you'll need KVM access to the host during the install process below.
-10. Also on the **Optional settings** page, you have the option to set the following:
-    - **Computername**: This option sets the name for the development kit host. The name must comply with FQDN requirements and must be 15 characters or less in length. The default is a random computer name generated by Windows.
-    - **Time zone**: Sets the time zone for the development kit host. The default is (UTC-8:00) Pacific Time (US & Canada).
-    - **Static IP configuration**: Sets your deployment to use a static IP address. Otherwise, when the installer reboots into the cloudbuilder.vhx, the network interfaces are configured with DHCP.
-11. Click **Next**.
-12. If you chose a static IP configuration in the previous step, you must now:
-    - Select a network adapter. Make sure you can connect to the adapter before you click **Next**.
-    - Make sure that the **IP address**, **Gateway**, and **DNS** values are correct and then click **Next**.
-13. Click **Next** to start the preparation process.
-14. When the preparation indicates **Completed**, click **Next**.
-15. Click **Reboot now** to boot into the cloudbuilder.vhdx and continue the deployment process.
+6. Ouvrez une console PowerShell avec élévation de privilèges > Exécutez le script C:\AzureStack_Installer\asdk-installer.ps1 > Cliquez sur **Préparer environnement**.
+7. Dans la page **Sélectionner le fichier vhdx Cloudbuilder** du programme d’installation, recherchez et sélectionnez le fichier cloudbuilder.vhdx que vous avez téléchargé dans les étapes précédentes.
+8. Facultatif : Cochez la case **Ajouter des pilotes** pour spécifier un dossier contenant les pilotes supplémentaires que vous voulez sur l’hôte.
+9. Dans la page **Paramètres facultatifs**, spécifiez un compte d’administrateur local pour l’hôte du Kit de développement. Si vous ne spécifiez pas ces informations d’identification, KVM doit accéder à l’hôte pendant le processus d’installation ci-dessous.
+10. Dans la page **Paramètres facultatifs**, vous pouvez aussi définir les paramètres suivants :
+    - **Nom de l’ordinateur** : cette option définit le nom de l’hôte du Kit de développement. Le nom doit respecter les spécifications des noms de domaine complets et ne pas dépasser 15 caractères. La valeur par défaut est un nom d’ordinateur aléatoire généré par Windows.
+    - **Fuseau horaire** : définit le fuseau horaire pour l’hôte du Kit de développement. La valeur par défaut est (UTC-8:00) Heure du Pacifique (États-Unis et Canada).
+    - **Configuration IP statique** : indique que votre déploiement doit utiliser une adresse IP statique. Dans le cas contraire, quand le programme d’installation redémarre dans cloudbuilder.vhx, les interfaces réseau sont configurées avec DHCP.
+11. Cliquez sur **Suivant**.
+12. Si vous avez choisi une configuration IP statique à l’étape précédente, vous devez maintenant :
+    - Sélectionner une carte réseau. Vérifiez que vous pouvez vous connecter à la carte avant de cliquer sur **Suivant**.
+    - Vérifiez que les valeurs pour **Adresse IP**, **Passerelle** et **DNS** sont correctes, puis cliquez sur **Suivant**.
+13. Cliquez sur **Suivant** pour démarrer le processus de préparation.
+14. Quand la préparation indique **Terminé**, cliquez sur **Suivant**.
+15. Cliquez sur **Redémarrer maintenant** pour démarrer dans cloudbuilder.vhdx et continuer le processus de déploiement.
 
-## <a name="deploy-the-development-kit"></a>Deploy the development kit
-1. Sign in as the Local Administrator to the development kit host. Use the credentials specified in the previous steps.
+## <a name="deploy-the-development-kit"></a>Déployer le Kit de développement
+1. Connectez-vous en tant qu’administrateur local à l’hôte du Kit de développement. Utilisez les informations d’identification spécifiées dans les étapes précédentes.
 
     > [!IMPORTANT]
-    > For Azure Active Directory deployments, Azure Stack requires access to the Internet, either directly or through a transparent proxy. The deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
+    > Pour les déploiements Azure Active Directory, Azure Stack nécessite l’accès à Internet, directement ou via un proxy transparent. Le déploiement prend en charge une seule carte réseau pour la mise en réseau. Si vous avez plusieurs cartes réseau, vérifiez qu’une seule d’entre elles est activée (et que toutes les autres sont désactivées) avant d’exécuter le script de déploiement dans la section suivante.
     
-2. Open an elevated PowerShell console > run the \AzureStack_Installer\asdk-installer.ps1 script (which may be on a different drive in the Cloudbuilder.vhdx) > click **Install**.
-3. In the **Type** box, select **Azure Cloud** or **ADFS**.
-    - **Azure Cloud**: Azure Active Directory is the identity provider. Use this parameter to specify a specific directory where the AAD account has global admin permissions. Full name of an AAD Directory tenant in the format of .onmicrosoft.com. 
-    - **ADFS**: The default stamp Directory Service is the identity provider, the default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
-4. Under **Local administrator password**, in the **Password** box, type the local administrator password (which must match the current configured local administrator password), and then click **Next**.
-5. Select a network adapter to use for the development kit and then click **Next**.
-6. Select DHCP or static network configuration for the BGPNAT01 virtual machine.
-    - **DHCP** (default): The virtual machine gets the IP network configuration from the DHCP server.
-    - **Static**: Only use this option if DHCP can’t assign a valid IP address for Azure Stack to access the Internet. A static IP address must be specified with the subnetmask length (for example, 10.0.0.5/24).
-7. Optionally, set the following values:
-    - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). 
-    - **DNS forwarder**: A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
-    - **Time server**: Sets a specific time server. 
-8. Click **Next**. 
-9. On the **Verifying network interface card properties** page, you'll see a progress bar. 
-    - If it says **An update cannot be downloaded**, follow the instructions on the page.
-    - When it says **Completed**, click **Next**.
-10. On **Summary** page, click **Deploy**.
-11. If you're using an Azure Active Directory deployment, you'll be asked to enter your Azure Active Directory global administrator account credentials.
-12. The deployment process can take a few hours, during which the system automatically reboots once.
+2. Ouvrez une console PowerShell avec élévation de privilèges > Exécutez le script \AzureStack_Installer\asdk-installer.ps1 (qui peut être sur un lecteur différent dans Cloudbuilder.vhdx) > Cliquez sur **Installer**.
+3. Dans la zone **Type**, sélectionnez **Cloud Azure** ou **ADFS**.
+    - **Cloud Azure** : Azure Active Directory est le fournisseur d’identité. Utilisez ce paramètre pour spécifier un annuaire spécifique où le compte AAD a des autorisations d’administrateur général. Nom complet d’un locataire de répertoire AAD. Par exemple,. onmicrosoft.com. 
+    - **ADFS**: le service d’annuaire de marquage par défaut est le fournisseur d’identité, le compte par défaut avec lequel se connecter est azurestackadmin@azurestack.local et le mot de passe à utiliser est celui que vous avez fourni dans le cadre de l’installation.
+4. Sous **Mot de passe de l’administrateur local**, dans la zone **Mot de passe**, tapez le mot de passe de l’administrateur local (qui doit correspondre au mot de passe de l’administrateur local actuellement configuré), puis cliquez sur **Suivant**.
+5. Sélectionnez une carte réseau à utiliser pour le Kit de développement, puis cliquez sur **Suivant**.
+6. Sélectionnez une configuration réseau DHCP ou statique pour la machine virtuelle BGPNAT01.
+    - **DHCP** (par défaut) : la machine virtuelle obtient la configuration réseau IP auprès du serveur DHCP.
+    - **Statique** : utilisez cette option seulement si DHCP ne peut pas affecter une adresse IP valide pour l’accès Internet d’Azure Stack. Une adresse IP statique doit être spécifiée avec la longueur du masque de sous-réseau (par exemple 10.0.0.5/24).
+7. Si vous le souhaitez, vous pouvez aussi définir les valeurs suivantes :
+    - **ID de VLAN** : définit l’ID du réseau local virtuel. Utilisez cette option seulement si l’hôte et AzS-BGPNAT01 doivent configurer l’ID du réseau local virtuel pour accéder au réseau physique (et à Internet). 
+    - **Redirecteur DNS** : un serveur DNS est créé dans le cadre du déploiement d’Azure Stack. Pour permettre aux ordinateurs de la solution de résoudre les noms en dehors du marquage, spécifiez le serveur DNS de votre infrastructure existante. Le serveur DNS couvert par le marquage transfère les demandes de résolution de noms inconnus à ce serveur.
+    - **Serveur de temps** : ce champ requis définit le serveur de temps et doit être une adresse IP. Pour rechercher l’adresse IP d’un serveur de temps, visitez [pool.ntp.org](http:\\pool.ntp.org) ou effectuez un test ping time.windows.com. 
+8. Cliquez sur **Suivant**. 
+9. Dans la page **Vérification des propriétés de la carte d’interface réseau**, vous voyez une barre de progression. 
+    - Si elle indique **Impossible de télécharger une mise à jour**, suivez les instructions de la page.
+    - Quand elle indique **Terminé**, cliquez sur **Suivant**.
+10. Dans la page **Récapitulatif**, cliquez sur **Déployer**.
+11. Si vous utilisez un déploiement Azure Active Directory, vous êtes invité à entrer vos informations d’identification du compte d’administrateur général Azure Active Directory.
+12. Le processus de déploiement peut prendre quelques heures, au cours desquelles le système ne redémarre automatiquement qu’une seule fois.
    
    > [!IMPORTANT]
-   > If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
+   > Si vous voulez surveiller la progression du déploiement, connectez-vous en tant que azurestack\AzureStackAdmin. Si vous vous connectez en tant qu’administrateur local une fois que la machine est jointe au domaine, vous ne voyez pas la progression du déploiement. Ne réexécutez pas le déploiement : au lieu de cela, connectez-vous en tant que azurestack\AzureStackAdmin pour vérifier qu’il est en cours d’exécution.
    > 
    > 
    
-    When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**.
+    Quand le déploiement est terminé, la console PowerShell affiche : **TERMINÉ : Action « Déploiement »**.
    
-If the deployment fails, you can use the following PowerShell rerun script from the same elevated PowerShell window:
+Si le déploiement échoue, vous pouvez utiliser le script de réexécution PowerShell suivant à partir de la même fenêtre PowerShell avec élévation de privilèges :
 
 ```powershell
 cd c:\CloudDeployment\Setup
 .\InstallAzureStackPOC.ps1 -Rerun
 ```
 
-This script will restart the deployment from the last step that succeeded.
+Ce script va redémarrer le déploiement à partir de la dernière étape qui a réussi.
 
-Or, you can [redeploy](azure-stack-redeploy.md) from scratch.
-
-
-## <a name="reset-the-password-expiration-to-180-days"></a>Reset the password expiration to 180 days
-
-To make sure that the password for the development kit host doesn't expire too soon, follow these steps after you deploy:
-
-1. On the development kit host, open **Group Policy Management** and navigate to **Group Policy Management** – **Forest: azurestack.local** – **Domains** – **azurestack.local**.
-2. Right click on **MemberServer** and click **Edit**.
-3. In the Group Policy Management Editor, navigate to **Computer Configuration** – **Policies** – **Windows Settings** – **Security Settings** – **Account Policies** – **Password Policy**.
-4. In the right pane, double-click on **Maximum password age**.
-5. In the **Maximum password age Properties** dialog box, change the **Password will expire in** value to 180, then Click **OK**.
+Vous pouvez aussi [redéployer](azure-stack-redeploy.md) à partir de zéro.
 
 
-## <a name="next-steps"></a>Next steps
-[Register Azure Stack with your Azure subscription](azure-stack-register.md)
+## <a name="reset-the-password-expiration-to-180-days"></a>Réinitialiser l’expiration du mot de passe à 180 jours
 
-[Connect to Azure Stack](azure-stack-connect-azure-stack.md)
+Pour faire en sorte que le mot de passe de l’hôte du Kit de développement n’expire pas trop tôt, suivez ces étapes après avoir déployé :
 
+Pour modifier la stratégie d’expiration de mot de passe à partir de Powershell :
+1. Dans la fenêtre Powershell, exécutez la commande ; Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
+
+Pour modifier la stratégie d’expiration de mot de passe manuellement :
+1. Sur l’hôte du Kit de développement, ouvrez **Gestion des stratégies de groupe** et accédez à **Gestion des stratégies de groupe** – **Forêt : azurestack.local** – **Domaines** – **azurestack.local**.
+2. Cliquez avec le bouton droit sur **Stratégie de domaine par défaut**, puis cliquez sur **Modifier**.
+3. Dans l’Éditeur de gestion de stratégie de groupe, accédez à **Configuration de l’ordinateur** – **Stratégies** – **Paramètres Windows** – **Paramètres de sécurité**– **Stratégies de comptes** – **Stratégie de mot de passe**.
+4. Dans le volet droit, double-cliquez sur **Antériorité maximale du mot de passe**.
+5. Dans la boîte de dialogue **Antériorité maximale du mot de passe - Propriétés**, remplacez la valeur de **Le mot de passe expirera dans** par 180, puis cliquez sur **OK**.
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Installer PowerShell](azure-stack-powershell-configure-quickstart.md)
+
+[Inscrire Azure Stack auprès de votre abonnement Azure](azure-stack-register.md)
+
+[Se connecter à Azure Stack](azure-stack-connect-azure-stack.md)
 

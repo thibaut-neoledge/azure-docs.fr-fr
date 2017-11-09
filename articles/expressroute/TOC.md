@@ -17,35 +17,37 @@
 
 # Procédure
 ## Créer et modifier un circuit
-### [portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Interface de ligne de commande Azure](howto-circuit-cli.md)
 ## Créer et modifier une configuration de l’homologation
 ### [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Interface de ligne de commande Azure](howto-routing-cli.md)
 ## Lier un réseau virtuel à un circuit ExpressRoute
 ### [Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Interface de ligne de commande Azure](howto-linkvnet-cli.md)
 ## Configurer une passerelle de réseau virtuel pour ExpressRoute
 ### [Portail Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configurer la coexistence de connexions de site à site et ExpressRoute](expressroute-howto-coexist-resource-manager.md)
 ## Configurer des filtres de routage pour l’homologation Microsoft
 ### [Portail Azure](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
 ## [Migrer un circuit d’un déploiement classique vers Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrer les réseaux virtuels associés du déploiement classique vers Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configurer un routeur pour ExpressRoute
 ### [Configurer un routeur](expressroute-config-samples-routing.md)
 ### [Exemples de configuration de routeur pour NAT](expressroute-config-samples-nat.md)
+## [Configurer Network Performance Monitor pour ExpressRoute](how-to-npm.md)
 
-## Meilleures pratiques
-### [Meilleures pratiques pour la sécurité réseau et les services cloud](../best-practices-network-security.md)
+## Bonnes pratiques
+### [Bonnes pratiques pour la sécurité réseau et les services cloud](../best-practices-network-security.md)
 ### [Optimiser le routage](expressroute-optimize-routing.md)
 ### [Routage asymétrique](expressroute-asymmetric-routing.md)
-### [NAT pour ExpressRoute](expressroute-routing-nat.md)
+### [NAT pour ExpressRoute](expressroute-nat.md)
 
 ## Résolution des problèmes
 ### [Vérification de la connectivité ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
@@ -53,7 +55,7 @@
 ### [Obtention de tables ARP (classique)](expressroute-troubleshooting-arp-classic.md)
 
 # Référence
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Interface de ligne de commande Azure](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classique)](https://msdn.microsoft.com/library/azure/dn606310)

@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 27bb185d0243b1e8c0fd7697650eaf7bbd5eefa7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-map-in-application-insights"></a>Mise en correspondance d’applications dans Application Insights
 Dans [Azure Application Insights](app-insights-overview.md), la mise en correspondance d’applications est une présentation visuelle des relations de dépendance des composants de votre application. Chaque composant affiche des indicateurs de performance clés, tels que la charge, les performances, les échecs et les alertes, pour vous aider à détecter n’importe quel composant à l’origine de problèmes de performances ou de défaillances. Vous pouvez cliquer sur n’importe quel composant pour obtenir des diagnostics plus détaillés, par exemple des événements Application Insights. Si votre application utilise les services Azure, vous pouvez également accéder aux diagnostics Azure, et notamment aux recommandations de SQL Database Advisor.
@@ -129,4 +128,3 @@ Merci d’envoyer des commentaires via l’option de commentaires du portail.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [portail Azure](https://portal.azure.com)
-

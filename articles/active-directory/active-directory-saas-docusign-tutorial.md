@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 29c99fdf39d366df90abc070f7b836320935035c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Didacticiel : Intégration d’Azure Active Directory avec DocuSign
 
@@ -266,7 +265,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-* [Configurer l’approvisionnement des utilisateurs](active-directory-saas-docusign-provisioning-tutorial.md)
+* [Configurer l’approvisionnement de l’utilisateur](active-directory-saas-docusign-provisioning-tutorial.md)
 
 
 <!--Image references-->
@@ -292,5 +291,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-docusign-tutorial/tutorial_general_203.png
-
 

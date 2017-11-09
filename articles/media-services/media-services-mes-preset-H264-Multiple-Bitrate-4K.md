@@ -1,6 +1,6 @@
 ---
 title: "Présélection de tâches Media Encoder Standard H264 multidébit 4K - Azure | Microsoft Docs"
-description: "Cette rubrique offre une vue d’ensemble de la présélection de tâches **H264 multidébit 4K**."
+description: "Cette rubrique vous procure une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission multiple - 4K**."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,23 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 33aacbaca96bb234e53af47f1d1f019e4271a5cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 2d150fec68378e22ac644c0b8ccfe09c7f364738
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/27/2017
 ---
-
-# <a name="h264-multiple-bitrate-4k"></a>H264 multidébit 4 K
+# <a name="h264-multiple-bitrate-4k"></a>H264 - Vitesse de transmission multiple - 4 K
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création de travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Cette rubrique représente la présélection `H264 Multiple Bitrate 4K` aux formats XML et JSON.  
   
- Cette présélection produit un ensemble de 12 fichiers MP4 alignés sur le groupe d’images, de 20 000 kbits/s à 1 000 kbits/s, et de l’audio stéréo AAC. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le format XML ou JSON défini ci-dessous. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [chéma Media Encoder Standard](media-services-mes-schema.md).  
+ Cette présélection produit un ensemble de 12 fichiers MP4 alignés sur le groupe d’images, de 20 000 kbits/s à 1 000 kbits/s, et de l’audio stéréo AAC. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le format XML ou JSON défini ci-dessous. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Schéma Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Pour les encodages 4K, vous devez obtenir le type d’unité réservée Premium. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
+>  Pour les encodages 4K, vous devez obtenir le type d’unité réservée Premium. Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
 > [!NOTE]
 >  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1 920 x 1 080, 1 280 x 720, 1 080 x 576, 640 x 360. Vous ne devez pas utiliser un mélange de proportions, comme : 1 280 x 720, 720 x 480, 640 x 360.  
@@ -440,4 +438,3 @@ ms.lasthandoff: 01/27/2017
   ]  
 }  
 ```
-

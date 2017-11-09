@@ -1,11 +1,11 @@
 ---
-title: "Registres de conteneurs Docker privés dans Azure | Microsoft Docs"
+title: "Registres de conteneurs Docker privés dans Azure"
 description: "Présentation du service Azure Container Registry, proposant des registres Docker privés, gérés et basés sur le cloud."
 services: container-registry
 documentationcenter: 
 author: stevelas
 manager: balans
-editor: dlepow
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: ee2b652b-fb7c-455b-8275-b8d4d08ffeb3
@@ -14,27 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 10/13/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: d54caa45078221cdbe091649cb3fe3b65eaa47e8
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: fd0356286be46f99fd9ab8eabc53256103038407
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/14/2017
 ---
-# <a name="introduction-to-private-docker-container-registries"></a>Présentation des registres de conteneurs Docker privés
-
+# <a name="introduction-to-private-docker-container-registries-in-azure"></a>Présentation des registres de conteneurs Docker privés dans Azure
 
 Azure Container Registry est un service de [registre Docker](https://docs.docker.com/registry/) géré basé sur le Registre open source Docker 2.0. Créez et gérez des registres de conteneur Azure pour stocker et gérer vos images de [conteneur Docker](https://www.docker.com/what-docker) privées. Utilisez des registres de conteneur dans Azure avec vos pipelines de développement et de déploiement existants, et exploitez l’expertise de la communauté de Docker.
 
-Pour plus d’informations sur Docker et les conteneurs, voir :
-
-* [Guide d'utilisation Docker](https://docs.docker.com/engine/userguide/)
-
-
-
+Pour en savoir plus Docker et des conteneurs, consultez le [guide d’utilisation Docker](https://docs.docker.com/engine/userguide/).
 
 ## <a name="use-cases"></a>Cas d'utilisation
 Extrayez des images à partir d’un registre de conteneur Azure pour différents objectifs de déploiement :
@@ -44,34 +36,22 @@ Extrayez des images à partir d’un registre de conteneur Azure pour différent
 
 Les développeurs peuvent également effectuer un push vers un registre de conteneur dans le cadre d’un flux de travail de développement de conteneur. Par exemple, ciblez un registre de conteneur à partir d’un outil de développement et d’intégration continu comme [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) ou [Jenkins](https://jenkins.io/).
 
-
-
-
-
 ## <a name="key-concepts"></a>Concepts clés
-* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Chaque registre est pris en charge par un [compte de stockage](../storage/common/storage-introduction.md) Azure standard dans le même emplacement. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
+* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Les registres sont disponibles dans trois références (SKU) : [Basique, Standard et Premium](container-registry-skus.md), chacune prenant en charge l’intégration de Webhook, l’authentification de référentiels avec Azure Active Directory, et la fonctionnalité de suppression. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Utilisez la fonctionnalité [géoréplication](container-registry-geo-replication.md) des registres Premium pour les scénarios avancés de réplication et de distribution d’image conteneur. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
 
   Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneur à l’aide d’un [principal de service](../active-directory/active-directory-application-objects.md) pris en charge par Azure Active Directory ou un compte d’administration fourni. Exécutez la commande `docker login` standard pour vous authentifier auprès d’un registre.
 
-* **Registre géré** : niveau qui offre des fonctionnalités supplémentaires pour les registres dans trois références SKU, De base, Standard et Premium. Les images de ces SKU sont stockées dans des comptes de stockage gérés par le service Azure Container Registries, ce qui améliore la fiabilité et donne accès à de nouvelles fonctionnalités. Ces fonctionnalités comprennent l’intégration des webhooks, l’authentification des référentiels auprès d’Azure Active Directory et la prise en charge de la fonctionnalité de suppression. Les utilisateurs ont la possibilité de choisir parmi des registres gérés ou de créer un registre qui s’appuie sur leur propre compte de stockage lors de la création des registres.
-
-* **Référentiel** : un registre contient un ou plusieurs référentiels, qui sont des groupes d’images de conteneur. Azure Container Registry prend en charge les espaces de noms de référentiel à plusieurs niveaux. Cette fonctionnalité vous permet de regrouper des collections d’images liées à une application spécifique, ou une collection d’applications à des équipes opérationnelles ou de développement spécifiques. Par exemple :
+* **Référentiel** : un registre contient un ou plusieurs référentiels, qui sont des groupes d’images de conteneur. Azure Container Registry prend en charge les espaces de noms de référentiel à plusieurs niveaux. Dans le cas des espaces de noms à plusieurs niveaux, vous pouvez regrouper des collections d’images liées à une application spécifique, ou une collection d’applications à des équipes opérationnelles ou de développement précises. Par exemple :
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` représente une image de l’entreprise.
   * `myregistry.azurecr.io/warrantydept/dotnet-build` représente une image utilisée pour créer des applications .NET, partagées par le service de garantie.
-  * `myregistry.azrecr.io/warrantydept/customersubmissions/web` représente une image web, regroupée dans l’application des envois du client, détenue par le service de garantie.
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` représente une image web, regroupée dans l’application des envois du client, détenue par le service de garantie.
 
 * **Image** : stockée dans un référentiel, chaque image est une capture instantanée en lecture seule d’un conteneur Docker. Les registres de conteneur Azure peuvent inclure des images de Windows et Linux. Vous contrôlez les noms d’images pour tous les déploiements de votre conteneur. Utilisez des [commandes Docker](https://docs.docker.com/engine/reference/commandline/) standard pour envoyer les images dans un référentiel ou extraire une image d’un référentiel.
 
-* **Conteneur** : un conteneur définit une application logicielle et ses dépendances encapsulées dans un système de fichiers complet, y compris le code, l’exécution, les outils système et les bibliothèques. Exécutez des conteneurs Docker basés sur des images Windows ou Linux que vous extrayez à partir d’un registre de conteneur. Les conteneurs en cours d’exécution sur un même ordinateur partagent le noyau du système d’exploitation. Les conteneurs Docker sont entièrement portables sur toutes les principales distributions Linux, Mac et Windows.
-
-
-
+* **Conteneur** : un conteneur définit une application logicielle et ses dépendances encapsulées dans un système de fichiers complet, y compris le code, l’exécution, les outils système et les bibliothèques. Exécutez des conteneurs Docker basés sur des images Windows ou Linux que vous extrayez à partir d’un registre de conteneur. Les conteneurs en cours d’exécution sur un même ordinateur partagent le noyau du système d’exploitation. Les conteneurs Docker sont entièrement portables sur toutes les principales distributions Linux, macOS et Windows.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer un registre de conteneur à l’aide du portail Azure](container-registry-get-started-portal.md)
 * [Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure](container-registry-get-started-azure-cli.md)
 * [Effectuer un push de votre première image à l’aide de l’interface CLI Docker](container-registry-get-started-docker-cli.md)
-* Pour générer une intégration continue et un workflow de déploiement à l’aide de Visual Studio Team Services, Azure Container Service et Azure Container Registry, consultez [ce didacticiel](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
-* Si vous souhaitez configurer votre propre registre privé Docker dans Azure (sans les points de terminaison publics), consultez [Déploiement de votre propre registre Docker privé sur Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
-

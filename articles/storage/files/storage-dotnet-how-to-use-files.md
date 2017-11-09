@@ -1,6 +1,6 @@
 ---
-title: "Développer pour Stockage Fichier Azure avec .NET | Microsoft Docs"
-description: "Apprenez à développer des services et applications .NET qui utilisent Stockage Fichier Azure pour stocker les données de fichiers."
+title: "Développement pour Azure Files avec .NET | Microsoft Docs"
+description: "Découvrez comment développer des services et applications .NET qui utilisent Azure Files pour stocker les données de fichiers."
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -12,27 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 51180530790fc0077cea4d8aea7088f1f871681b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b94e70619324bb8dc8e7f8306f00f06e7476c1f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
-
-# <a name="develop-for-azure-file-storage-with-net"></a>Développer pour Stockage Fichier Azure avec .NET 
+# <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET 
 > [!NOTE]
-> Cet article explique comment gérer le stockage Fichier Azure avec du code .NET. Pour en savoir plus sur Stockage Fichier Azure, consultez [Introduction à Stockage Fichier Azure](storage-files-introduction.md) .
+> Cet article explique comment gérer Azure Files avec du code .NET. Pour en savoir plus sur Azure Files, consultez la [présentation des fichiers Azure](storage-files-introduction.md).
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="about-this-tutorial"></a>À propos de ce didacticiel
-Ce tutoriel vous montre les principes fondamentaux de l’utilisation de .NET pour développer des applications ou services qui utilisent Stockage Fichier Azure pour stocker les données de fichiers. Dans ce tutoriel, vous allez créer une application console simple et effectuer des actions de base avec .NET et Stockage Fichier Azure :
+Ce didacticiel décrit les principes fondamentaux de l’utilisation de .NET pour développer des applications ou services qui utilisent Azure Files pour stocker les données de fichiers. Dans ce tutoriel, vous créez une application console simple et effectuez des actions de base avec .NET et Azure Files :
 
 * Obtenir le contenu d’un fichier
 * Définir le quota (taille maximale) pour le partage de fichiers
@@ -42,7 +39,7 @@ Ce tutoriel vous montre les principes fondamentaux de l’utilisation de .NET po
 * Utiliser Azure Storage Metrics pour la résolution des problèmes.
 
 > [!Note]  
-> Étant donné que Stockage Fichier Azure est accessible sur SMB, il est possible d’écrire de simples applications qui accèdent au partage de fichiers Azure à l’aide des classes System.IO standard pour les E/S de fichier. Cet article indique comment écrire des applications qui utilisent le SDK .NET Stockage Azure, lequel utilise l’[API REST Stockage Fichier Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Stockage Fichier Azure. 
+> Étant donné qu’Azure Files est accessible sur SMB, il est possible d’écrire de simples applications qui accèdent au partage Azure Files à l’aide des classes System.IO standard pour les E/S de fichier. Cet article indique comment écrire des applications qui utilisent le SDK .NET Stockage Azure, lequel a recours à l’[API REST Fichier](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec Azure Files. 
 
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Création de l’application console et obtention de l’assembly
@@ -86,7 +83,7 @@ Enregistrez ensuite vos informations d’identification dans le fichier app.conf
 ```
 
 > [!NOTE]
-> La dernière version de l’émulateur de stockage Azure ne prend pas en charge Stockage Fichier Azure. Votre chaîne de connexion doit cibler un compte de stockage Azure dans le cloud pour fonctionner avec Stockage Fichier Azure.
+> La dernière version de l’émulateur de stockage Azure ne prend pas en charge Azure Files. Votre chaîne de connexion doit cibler un compte de stockage Azure dans le cloud pour fonctionner avec Azure Files.
 
 ## <a name="add-using-directives"></a>Ajouter des directives d’utilisation
 Ouvrez le fichier `Program.cs` à partir de l’Explorateur de solutions. puis ajoutez les directives d’utilisation suivantes en haut du fichier.
@@ -95,7 +92,7 @@ Ouvrez le fichier `Program.cs` à partir de l’Explorateur de solutions. puis a
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -104,7 +101,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 Ajoutez ensuite le code suivant à la méthode `Main()` (après le code montré ci-dessus) pour récupérer la chaîne de connexion. Ce code obtient une référence vers le fichier créé plus tôt et renvoie son contenu dans la fenêtre de console.
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -138,7 +135,7 @@ if (share.Exists())
 Exécutez l’application console pour voir le résultat.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Définition de la taille maximale d’un partage de fichiers
-Depuis la version 5.x de la bibliothèque cliente Azure Storage, vous pouvez définir le quota (ou la taille maximale) pour un partage de fichier, en gigaoctets. Vous pouvez également vérifier la quantité de données actuellement stockée sur le partage.
+Depuis la version 5.x de la bibliothèque cliente du stockage Azure, vous pouvez définir le quota (ou la taille maximale) pour un partage de fichier, en gigaoctets. Vous pouvez également vérifier la quantité de données actuellement stockée sur le partage.
 
 En définissant le quota pour un partage, vous pouvez limiter la taille totale des fichiers stockés sur ce partage. Si la taille totale des fichiers sur le partage dépasse le quota défini sur celui-ci, les clients ne peuvent pas augmenter la taille des fichiers existants ou créer des fichiers, sauf si ces fichiers sont vides.
 
@@ -149,7 +146,7 @@ L’exemple ci-dessous illustre comment vérifier l’utilisation actuelle pour 
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -184,7 +181,7 @@ L’exemple suivant crée une stratégie d’accès partagé sur un partage, pui
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -242,7 +239,7 @@ Vous pouvez également utiliser AzCopy pour copier un fichier dans un autre ou p
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -286,7 +283,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -327,14 +324,86 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Vous pouvez copier un objet blob dans un fichier de la même façon. Si l’objet source est un objet blob, créez une SAP pour authentifier l’accès à cet objet blob pendant l’opération de copie.
 
-## <a name="troubleshooting-azure-file-storage-using-metrics"></a>Résolution des problèmes Stockage Fichier Azure à l’aide de métriques
-Azure Storage Analytics prend à présent en charge les métriques pour Stockage Fichier Azure. Avec les données de métriques, vous pouvez suivre les demandes et diagnostiquer les problèmes.
+## <a name="share-snapshots-preview"></a>Instantanés de partage (préversion)
+Depuis la version 8.5 de la bibliothèque cliente de stockage Azure, vous pouvez créer un instantané de partage (préversion). Vous pouvez également répertorier ou parcourir des instantanés de partage et les supprimer. Les instantanés de partage sont en lecture seule. Aucune opération d’écriture n’est autorisée sur ceux-ci.
+
+**Créer des instantanés de partage**
+
+L’exemple suivant permet de créer un instantané de partage de fichier.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**Répertorier les instantanés de partage**
+
+L’exemple suivant répertorie les instantanés de partage figurant sur un partage.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**Parcourir les fichiers et répertoires dans des instantanés de partage**
+
+L’exemple suivant permet de parcourir les fichiers et les répertoires au sein des instantanés de partage.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**Répertorier des partages et des instantanés de partage et restaurer des partages de fichiers ou des fichiers à partir d’instantanés de partage** 
+
+Prendre un instantané d’un partage de fichiers vous permet de récupérer des fichiers ou l’ensemble du partage de fichiers ultérieurement. 
+
+Vous pouvez restaurer un fichier à partir d’un instantané de partage de fichiers en interrogeant les instantanés de partage d’un partage de fichiers. Vous pouvez ensuite récupérer un fichier qui appartient à un instantané de partage spécifique et utiliser cette version à des fins de lecture directe et de comparaison ou de restauration.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
 
 
-Vous pouvez activer les métriques pour Stockage Fichier Azure par le biais du [portail Azure](https://portal.azure.com). Vous pouvez également activer les métriques par programmation en appelant l’opération de définition des propriétés du service de fichiers via l’API REST ou l’un de ses analogues dans la bibliothèque cliente de stockage.
+**Supprimer des instantanés de partage**
 
+L’exemple suivant permet de supprimer un instantané de partage de fichier.
 
-L’exemple de code suivant explique comment utiliser la bibliothèque cliente Stockage Azure pour .NET afin d’activer les métriques Stockage Fichier Azure.
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
+
+## <a name="troubleshooting-azure-files-using-metrics"></a>Résolution des problèmes d’Azure Files à l’aide de métriques
+Azure Storage Analytics prend à présent en charge les métriques pour Azure Files. Avec les données de métriques, vous pouvez suivre les demandes et diagnostiquer les problèmes.
+
+Vous pouvez activer les métriques pour Azure Files par le biais du [portail Azure](https://portal.azure.com). Vous pouvez également activer les métriques par programmation en appelant l’opération de définition des propriétés du service de fichiers via l’API REST ou l’un de ses analogues dans la bibliothèque cliente de stockage.
+
+L’exemple de code suivant explique comment utiliser la bibliothèque cliente de stockage pour .NET afin d’activer les métriques pour Azure Files.
 
 Commencez par ajouter les directives `using` suivantes à votre fichier `Program.cs`, en plus de celles que vous avez ajoutées ci-dessus :
 
@@ -343,7 +412,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-Bien que les services Blob, Table et File d’attente Azure utilisent le type `ServiceProperties` partagé dans l’espace de noms `Microsoft.WindowsAzure.Storage.Shared.Protocol`, Stockage Fichier Azure utilise son propre type (`FileServiceProperties`) dans l’espace de noms `Microsoft.WindowsAzure.Storage.File.Protocol`. Pour pouvoir compiler le code suivant, vous devez cependant référencer les deux espaces de noms à partir de votre code.
+Bien qu’Azure Blobs, Azure Table et Azure Queues utilisent le type `ServiceProperties` partagé dans l’espace de noms `Microsoft.WindowsAzure.Storage.Shared.Protocol`, Azure Files utilise son propre type (`FileServiceProperties`) dans l’espace de noms `Microsoft.WindowsAzure.Storage.File.Protocol`. Pour pouvoir compiler le code suivant, vous devez cependant référencer les deux espaces de noms à partir de votre code.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -386,26 +455,26 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Vous pouvez également vous référer à [l’article Résolution des problèmes relatifs à Stockage Fichier Azure](storage-troubleshoot-windows-file-connection-problems.md) pour obtenir une aide de bout en bout.
+Vous pouvez également vous référer à [l’article Résolution des problèmes relatifs aux fichiers Azure](storage-troubleshoot-windows-file-connection-problems.md) pour obtenir une aide de bout en bout.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
+Consultez ces liens pour en savoir plus sur Azure Files.
 
 ### <a name="conceptual-articles-and-videos"></a>Vidéos et articles conceptuels
-* [Stockage Fichier Azure : un système de fichiers SMB dans le cloud sans friction pour Windows et Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Utilisation de Stockage Fichier Azure avec Linux](storage-how-to-use-files-linux.md)
+* [Azure Files : un système de fichiers SMB cloud transparent pour Windows et Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Comment utiliser Azure Files avec Linux](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>Outils pris en charge pour le stockage de fichiers
 * [Utilisation de AzCopy avec Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Résolution des problèmes de stockage de fichiers Azure](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Résolution des problèmes liés à Azure Files](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Référence
 * [Référence de la bibliothèque cliente de stockage pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>Billets de blog :
-* [Le stockage de fichiers Azure est désormais mis à la disposition générale](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Dans le Stockage Fichier Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files est désormais mis à la disposition générale](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Dans Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure File storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Conservation des connexions vers Stockage Fichier Microsoft Azure)
+* [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

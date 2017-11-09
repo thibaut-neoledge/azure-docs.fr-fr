@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 5dd6701f25c69f5e870d3add79c312f9aeec6bf4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator pour Android
 Votre administrateur peut vous avoir recommandé d’utiliser Microsoft Azure Authenticator pour vous connecter de façon à accéder à vos ressources de travail. Cette application fournit ces deux options de connexion :
@@ -120,5 +118,4 @@ Sur un appareil Android Samsung, des privilèges d’administrateur d’applicat
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 Si vous voyez l’ **erreur Keystore**, la raison peut en être que votre écran de verrouillage n’est pas configuré avec un code confidentiel. Pour contourner ce problème, désinstallez l’application Azure Authentificator, configurez un code confidentiel pour votre écran de verrouillage et réinstallez l’application.
-
 

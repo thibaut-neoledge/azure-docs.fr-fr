@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2017
+ms.date: 09/26/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 9c0d9274ac78a5e1c4c12ea8e373b69b6f9e165c
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a9df4ee4f1fb33f7c99be44b8337a18929175c0e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurer un principal de service Azure Active Directory pour un cluster Kubernetes dans Container Service
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Dans Azure Container Service, un cluster Kubernetes nécessite un [principal de service Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) pour interagir avec des API Azure. Le principal de service est nécessaire pour gérer dynamiquement des ressources telles que des [itinéraires définis par l’utilisateur](../../virtual-network/virtual-networks-udr-overview.md) et [Azure Load Balancer de couche 4](../../load-balancer/load-balancer-overview.md). 
+Dans Azure Container Service, un cluster Kubernetes nécessite un [principal de service Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) pour interagir avec des API Azure. Le principal de service est nécessaire pour gérer dynamiquement des ressources telles que des [itinéraires définis par l’utilisateur](../../virtual-network/virtual-networks-udr-overview.md) et [Azure Load Balancer de couche 4](../../load-balancer/load-balancer-overview.md).
 
 
 Cet article indique les différentes options permettant de configurer un principal de service pour votre cluster Kubernetes. Par exemple, si vous avez installé et configuré [Azure CLI 2.0](/cli/azure/install-az-cli2), vous pouvez exécuter la commande [`az acs create`](/cli/azure/acs#create) pour créer le cluster Kubernetes et le principal du service en même temps.
@@ -37,19 +36,19 @@ Cet article indique les différentes options permettant de configurer un princip
 
 Vous pouvez utiliser un principal de service Azure AD existant qui répond aux exigences ci-dessous ou en créer un.
 
-* **Étendue** : groupe de ressources de l’abonnement utilisé pour déployer le cluster Kubernetes ou abonnement utilisé pour déployer le cluster (de façon moins restrictive).
+* **Portée** : abonnement utilisé pour déployer le cluster.
 
 * **Rôle** : **Collaborateur**
 
 * **Clé secrète client** : doit être un mot de passe. Actuellement, vous ne pouvez pas utiliser de principal du service configuré pour l’authentification par certificat.
 
-> [!IMPORTANT] 
-> Pour créer un principal de service, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si voir si vous disposez des autorisations requises, [procédez à une vérification dans le portail](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions). 
+> [!IMPORTANT]
+> Pour créer un principal de service, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si voir si vous disposez des autorisations requises, [procédez à une vérification dans le portail](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Option 1 : créer un principal de service dans Azure Active Directory
 
-Si vous souhaitez créer un principal de service Azure AD avant de déployer votre cluster Kubernetes, Azure propose plusieurs méthodes. 
+Si vous souhaitez créer un principal de service Azure AD avant de déployer votre cluster Kubernetes, Azure propose plusieurs méthodes.
 
 L’exemple de commande suivant vous montre comment procéder avec [l’Azure CLI 2.0](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Vous pouvez également créer un principal de service à l’aide [d’Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), du [portail](../../azure-resource-manager/resource-group-create-service-principal-portal.md) ou d’autres méthodes.
 
@@ -58,9 +57,9 @@ az login
 
 az account set --subscription "mySubscriptionID"
 
-az group create -n "myResourceGroupName" -l "westus"
+az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
 
 Le résultat est semblable à ce qui suit (illustré ici de manière rédigée) :
@@ -76,7 +75,7 @@ Fournissez **l’ID client** (également appelé `appId`, pour l’ID de l’app
 
 Vous pouvez spécifier ces paramètres lors du déploiement du cluster Kubernetes à l’aide [d’Azure CLI 2.0](container-service-kubernetes-walkthrough.md), du [portail Azure](../dcos-swarm/container-service-deployment.md) ou d’autres méthodes.
 
->[!TIP] 
+>[!TIP]
 >Lorsque vous spécifiez **l’ID client**, veillez à utiliser l’`appId`, et non l’`ObjectId`, du principal du service.
 >
 
@@ -95,8 +94,8 @@ L’exemple suivant illustre une manière de transmettre les paramètres avec Az
 
     az account set --subscription "mySubscriptionID"
 
-    az group create --name "myResourceGroup" --location "westus" 
-    
+    az group create --name "myResourceGroup" --location "westus"
+
     az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
@@ -105,7 +104,7 @@ L’exemple suivant illustre une manière de transmettre les paramètres avec Az
 
 Si vous exécutez la commande [`az acs create`](/cli/azure/acs#create) pour créer le cluster Kubernetes, vous pouvez générer un principal de service automatiquement.
 
-Comme avec d’autres options de création de clusters Kubernetes, vous pouvez spécifier des paramètres pour un principal du service existant lorsque vous exécutez `az acs create`. Toutefois, si vous omettez ces paramètres, Azure CLI en crée un automatiquement à utiliser avec Container Service. Cette procédure est réalisée en toute transparence au cours du déploiement. 
+Comme avec d’autres options de création de clusters Kubernetes, vous pouvez spécifier des paramètres pour un principal du service existant lorsque vous exécutez `az acs create`. Toutefois, si vous omettez ces paramètres, Azure CLI en crée un automatiquement à utiliser avec Container Service. Cette procédure est réalisée en toute transparence au cours du déploiement.
 
 La commande suivante crée un cluster Kubernetes et génère des clés SSH et des informations d’identification du principal du service :
 
@@ -115,11 +114,11 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 > [!IMPORTANT]
 > Si votre compte ne dispose pas des autorisations Azure AD ni des autorisations d’abonnement pour créer un principal de service, la commande génère une erreur semblable à `Insufficient privileges to complete the operation.`
-> 
+>
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 
-* Si vous ne disposez pas des autorisations pour créer un principal de service dans votre abonnement, vous devrez peut-être demander à votre administrateur Azure AD ou à l’administrateur de votre abonnement de vous attribuer les autorisations nécessaires ou de créer un principal de service à utiliser avec Azure Container Service. 
+* Si vous ne disposez pas des autorisations pour créer un principal de service dans votre abonnement, vous devrez peut-être demander à votre administrateur Azure AD ou à l’administrateur de votre abonnement de vous attribuer les autorisations nécessaires ou de créer un principal de service à utiliser avec Azure Container Service.
 
 * Le principal de service pour Kubernetes fait partie de la configuration du cluster. Toutefois, n’utilisez pas l’identité pour déployer le cluster.
 
@@ -129,7 +128,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Sur les machines virtuelles principales et d’agent du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier /etc/kubernetes/azure.json.
 
-* Si vous utilisez la commande `az acs create` pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier ~/.azure/acsServicePrincipal.json sur la machine utilisée pour exécuter la commande. 
+* Si vous utilisez la commande `az acs create` pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier ~/.azure/acsServicePrincipal.json sur la machine utilisée pour exécuter la commande.
 
 * Si vous utilisez la commande `az acs create` pour générer automatiquement le principal de service, ce dernier peut également s’authentifier auprès d’un registre [Azure Container Registry](../../container-registry/container-registry-intro.md) créé dans le même abonnement.
 

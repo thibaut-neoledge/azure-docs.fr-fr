@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/24/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-logic-apps-features"></a>Utiliser les fonctionnalités des applications logiques
 
@@ -104,7 +102,7 @@ Même si vous avez le concepteur d’applications logiques, vous pouvez modifier
 
 2. Pour enregistrer vos modifications, cliquez sur **Enregistrer**.
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 Certaines fonctionnalités de Logic Apps sont disponibles uniquement en mode code, les paramètres par exemple. Les paramètres simplifient la réutilisation des valeurs dans votre application logique. Par exemple, si vous avez une adresse de messagerie que vous souhaitez utiliser dans plusieurs actions, vous devez la définir en tant que paramètre.
 
@@ -122,8 +120,7 @@ L’exemple montre comment mettre à jour votre application logique existante po
 2. Naviguez jusqu’à l’action `When_a_feed-item_is_published`, recherchez la section `queries` et remplacez la valeur de la requête par `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
 
     Pour joindre deux chaînes ou plus, vous pouvez également utiliser la fonction `concat`. 
-    Par exemple, `"@concat('#',parameters('currentFeedUrl'))"` 
-    fonctionne de la même façon que ci-dessus.
+    Par exemple, `"@concat('#',parameters('currentFeedUrl'))"` fonctionne de la même façon que ci-dessus.
 
 3.  Une fois ces opérations effectuées, sélectionnez **Enregistrer**. 
 

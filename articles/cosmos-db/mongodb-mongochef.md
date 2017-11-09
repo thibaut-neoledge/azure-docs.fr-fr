@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Utiliser MongoChef avec un compte Azure Cosmos DB : API pour MongoDB
 
@@ -118,4 +116,3 @@ Pour créer une base de données, une collection et des documents à l’aide de
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Explorez les [exemples](mongodb-samples.md) d’Azure Cosmos DB : API pour MongoDB.
-

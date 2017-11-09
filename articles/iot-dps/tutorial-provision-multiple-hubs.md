@@ -12,15 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Approvisionner des appareils sur des hubs IoT à charge équilibrée
 
 Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs IoT à charge équilibrée en utilisant le service Device Provisioning (DPS). Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -33,7 +30,7 @@ Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs Io
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Ce didacticiel s’appuie sur le précédent didacticiel [Approvisionner un appareil sur un hub](tutorial-provision-device-to-hub.md).
 
@@ -53,7 +50,7 @@ La liste d’inscriptions indique au service DPS la méthode d’attestation (m�
 
 La stratégie d’allocation est un paramètre DPS qui détermine la façon dont les appareils sont affectés à un hub IoT. Trois stratégies d’allocation sont prises en charge : 
 
-1. **Latence la plus faible** : les appareils sont configurés sur un hub IoT en fonction du hub ayant la plus faible latence sur l’appareil.
+1. **Latence la plus faible** : les appareils sont configurés pour un hub IoT en fonction du hub ayant la plus faible latence sur l’appareil.
 2. **Distribution uniformément pondérée** (par défaut) : les hubs IoT liés sont susceptibles d’avoir des appareils approvisionnés dans des proportions égales. Il s’agit du paramètre par défaut. Si vous approvisionnez des appareils sur un seul hub IoT, vous pouvez conserver ce paramètre. 
 3. **Configuration statique par le biais de la liste d'inscriptions** : la spécification du hub IoT souhaité dans la liste d’inscriptions est prioritaire sur la stratégie d’allocation au niveau du service DPS.
 
@@ -69,7 +66,7 @@ Liez le service DPS et le hub IoT afin que le service puisse enregistrer des app
 
 1. Dans la page **Toutes les ressources**, cliquez sur le service DPS que vous avez créé.
 2. Dans la page du service DPS, cliquez sur **Hubs IoT liés**.
-3. Cliquez sur **Ajouter**.
+3. Cliquez sur **Add**.
 4. Dans la page **Ajouter un lien au hub IoT**, utilisez les cases d’option pour spécifier si le hub IoT lié se trouve dans l’abonnement actuel ou dans un autre abonnement. Ensuite, choisissez le nom du hub IoT dans la zone **Hub IoT**.
 5. Cliquez sur **Enregistrer**.
 
@@ -88,4 +85,3 @@ Dans ce didacticiel, vous avez appris à :
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 -->
-

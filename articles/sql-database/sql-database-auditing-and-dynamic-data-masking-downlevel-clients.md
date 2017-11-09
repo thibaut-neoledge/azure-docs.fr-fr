@@ -9,21 +9,18 @@ editor:
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1447a75758475dd6536ef1bcd0e8432e5618dab8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: 42c89f09eee4394fec7d2f33f51ddc5875587530
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database : prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit de table
 
 > [!IMPORTANT]
@@ -85,4 +82,3 @@ Le nouveau point de terminaison IP de la base de données dépend de la région 
 | Est du Canada |40.86.227.82, 40.86.225.194 |
 | Royaume-Uni Nord |13.87.101.18, 13.87.100.232 |
 | Royaume-Uni Sud 2 |13.87.32.202, 13.87.32.226 |
-

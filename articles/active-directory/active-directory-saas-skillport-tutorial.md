@@ -11,15 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 668fc5ae4f964bd776904c3a9dbc2b203689d50c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
-
+ms.openlocfilehash: a3d9c2c08a3b23530ab772e5f0532ac2f9dcc9a3
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Didacticiel : Intégration d’Azure AD avec Skillport
 
@@ -112,20 +110,23 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL :
       
-      Centre de données Europe : `https://<subdomain>.skillport.eu`
+      Centre de données Europe : `https://adfs.skillport.eu`
    
-      Centre de données États-Unis : `https://<subdomain>.skillport.com`
-   
-    b. Dans la zone de texte **URL de réponse** , tapez une URL en respectant les formats suivants :
-    
-      Centre de données Europe : `https://<subdomain>.skillport.eu/adfs/ls/`
-    
-      Centre de données États-Unis : `https://<subdomain>.skillport.com/sp/ACS.saml2`
+      Centre de données États-Unis : `https://sso.skillport.com`
 
-    > [!NOTE] 
-    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Skillport](https://www.skillsoft.com/contact.asp).
+    b. Dans la zone de texte **Identificateur**, tapez l’URL suivante :
+      
+      Centre de données Europe : `http://adfs.skillport.eu/adfs/services/trust`
+   
+      Centre de données États-Unis : `https://sso.skillport.com`
+   
+    c. Dans la zone de texte **URL de réponse**, tapez l’URL suivante :
+    
+      Centre de données Europe : ` https://adfs.skillport.eu/adfs/ls/`
+    
+      Centre de données États-Unis : `https://sso.skillport.com/sp/ACS.saml2`
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
@@ -229,5 +230,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-skillport-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-skillport-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-skillport-tutorial/tutorial_general_203.png
-
 

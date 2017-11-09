@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 06/11/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 269cbd80fb6e861fa8588025eec70b6c6e2890d7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C : connexion à l’aide de comptes Salesforce via SAML
 
@@ -238,7 +237,7 @@ L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisse
 
 ### <a name="upload-the-updated-extension-file"></a>Téléchargez le fichier d’extension mis à jour
 
-Vous avez terminé la modification du fichier d’extension. Enregistrez et charger ce fichier. Vérifiez que toutes les validations réussissent.
+Vous avez terminé la modification du fichier d’extension. Enregistrez et chargez ce fichier. Faites en sorte que toutes les validations réussissent.
 
 ### <a name="update-the-relying-party-file"></a>Mettre à jour le fichier de partie de confiance
 
@@ -256,4 +255,3 @@ Pour tester la stratégie personnalisée que vous venez de charger, dans le port
 ## <a name="next-steps"></a>Étapes suivantes
 
 Envoyez vos commentaires à l’adresse [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
-

@@ -11,16 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/17/2017
 ms.author: bwren
+ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Questions fréquentes (FAQ) sur la nouvelle recherche dans les journaux Log Analytics et problèmes connus
 
 Cet article regroupe les questions fréquentes et les problèmes connus relatifs à la mise à niveau de [Log Analytics avec le nouveau langage de requête](log-analytics-log-search-upgrade.md).  Nous vous invitons à lire cet article dans son intégralité avant de vous décider à mettre à niveau votre espace de travail.
@@ -30,6 +28,10 @@ Cet article regroupe les questions fréquentes et les problèmes connus relatifs
 
 ### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Question : J’ai un grand nombre de règles d’alerte. Dois-je les recréer dans la nouvelle langue après la mise à niveau ?  
 Non, vos règles d’alerte sont automatiquement converties en nouveau langage de recherche pendant la mise à niveau.  
+
+### <a name="question-i-have-alert-rules-with-webhook-and-runbook-actions-will-these-continue-to-work-when-i-upgrade"></a>Question : J’ai des règles d’alerte avec des actions de Webhook et de runbook. Fonctionneront-elles toujours après la mise à niveau ?
+
+Non. Certaines modifications apportées aux actions de Webhook et de runbook risquent de vous obliger à revoir votre façon de gérer la charge utile. Nous avons apporté ces modifications afin de normaliser les différents formats de sortie et de réduire la taille de la charge utile. Pour plus d’informations sur ces formats, consultez la page [Ajouter des actions à des règles d’alerte dans Log Analytics](log-analytics-alerts-actions.md).
 
 
 ## <a name="computer-groups"></a>Groupes d’ordinateurs
@@ -48,7 +50,7 @@ Voici un exemple de requête permettant de créer un groupe d’ordinateurs qui 
 ## <a name="dashboards"></a>Tableaux de bord
 
 ### <a name="question-can-i-still-use-dashboards-in-an-upgraded-workspace"></a>Question : Puis-je toujours utiliser des tableaux de bord dans un espace de travail mis à niveau ?
-Vous pouvez continuer d’utiliser les vignettes que vous avez ajoutées à **Mon tableau de bord** avant la mise à niveau de votre espace de travail, mais vous ne pouvez ni les modifier ni en ajouter de nouvelles.  Vous pouvez continuer de créer et modifier des vues à l’aide du [Concepteur de vues](log-analytics-view-designer.md) mais aussi créer des tableaux de bord dans le portail Azure.
+Avec la mise à niveau, nous entamons un processus à l’issue duquel **Mon tableau de bord** sera déconseillé.  Vous pouvez continuer d’utiliser les vignettes que vous avez ajoutées au tableau de bord avant la mise à niveau de votre espace de travail, mais vous ne pouvez ni les modifier ni en ajouter de nouvelles.  Vous pouvez encore créer et modifier des affichages à l’aide du [Concepteur de vues](log-analytics-view-designer.md), qui comporte davantage de fonctionnalités, mais aussi créer des tableaux de bord sur le Portail Azure.
 
 
 ## <a name="log-searches"></a>Recherches dans les journaux
@@ -58,6 +60,21 @@ Vous pouvez utiliser l’outil de conversion de langage dans la page de recherch
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Question : Pourquoi mes résultats de requête ne sont pas triés ?
 Par défaut, les résultats ne sont pas triés dans le nouveau langage de requête.  Utilisez l’[opérateur de tri](https://go.microsoft.com/fwlink/?linkid=856079) pour trier vos résultats selon une ou plusieurs propriétés.
+
+### <a name="question-where-did-the-metrics-view-go-after-i-upgraded"></a>Question : Où se trouve l’affichage des mesures après la mise à niveau ?
+L’affichage des mesures offrait une représentation graphique des données de performances à partir d’une Recherche dans les journaux.  Cet affichage n’est plus disponible après la mise à niveau.  Vous pouvez utiliser [l’opérateur de rendu](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) pour mettre en forme la sortie d’une requête dans une frise chronologique.
+
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>Question : Où se trouve Minify après la mise à niveau ?
+Minify est une fonctionnalité qui fournit une synthèse de vos résultats de recherche.  Une fois la mise à niveau effectuée, l’option Minify ne s’affiche plus dans le portail de recherche dans les journaux.  Vous pouvez obtenir des fonctionnalités similaires avec le nouveau langage de recherche en utilisant [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) ou [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problème connu : Les résultats de recherche figurant dans une liste peuvent inclure des propriétés sans données
 Les résultats des recherches dans les journaux figurant dans une liste peuvent présenter des propriétés sans données.  Avant la mise à niveau, ces propriétés n’auraient pas été incluses.  Ce problème sera corrigé pour que les propriétés vides ne s’affichent pas.
@@ -77,6 +94,18 @@ Avant la mise à niveau, quand vous sélectionniez une valeur dans un graphique,
 Vous pouvez consulter un comparatif des deux portails dans [Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics](log-analytics-log-search-portals.md).  Chacun présentant des avantages particuliers, vous pouvez choisir celui qui répond le mieux à vos besoins.  Il est courant d’écrire des requêtes dans le portail Analytique avancée et de les coller à d’autres endroits comme le Concepteur de vue.  Avant d’effectuer une telle opération, prenez connaissance des [problèmes potentiels](log-analytics-log-search-portals.md#advanced-analytics-portal).
 
 
+### <a name="question--after-upgrade-i-get-an-error-trying-to-run-queries-and-am-also-seeing-errors-in-my-views"></a>Question : Après la mise à niveau, je reçois une erreur quand je tente d’exécuter des requêtes et j’obtiens aussi des erreurs dans mes vues.
+
+Votre navigateur doit pouvoir accéder aux adresses suivantes pour exécuter des requêtes Log Analytics après la mise à niveau.  Si votre navigateur accède au portail Azure par le biais d’un pare-feu, vous devez activer l’accès à ces adresses.
+
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamique | 80,443 |
+| api.loganalytics.io    | Dynamique | 80,443 |
+| docs.loganalytics.io   | Dynamique | 80,443 |
+
+
+
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Question : Existe-t-il des changements suite à l’intégration de Power BI ?
@@ -86,10 +115,12 @@ Oui.  Une fois votre espace de travail mis à niveau, puis le processus d’expo
 L’exportation d’une requête Log Analytics vers Power BI est actuellement limitée à une taille de 8 Mo.  Cette limite sera prochainement rehaussée.
 
 
-##<a name="powershell-cmdlets"></a>Applets de commande PowerShell
+## <a name="powershell-cmdlets"></a>Applets de commande PowerShell
 
 ### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>Question : L’applet de commande PowerShell de recherche dans les journaux est-elle mise à jour après la mise à niveau ?
-L’applet de commande [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) n’a pas encore été mise à niveau avec le nouveau langage de recherche.  Continuez d’utiliser le langage de requête existant avec cette applet de commande, même après avoir mis à niveau votre espace de travail.  Une documentation mise à jour de l’applet de commande sera mise à disposition quand celle-ci sera mise à jour.
+[Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) sera déprécié au terme de la mise à niveau de tous les espaces de travail.  Utilisez l’[applet de commande Invoke-LogAnalyticsQuery](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets) pour effectuer des recherches dans les journaux dans les espaces de travail mis à niveau.
+
+
 
 
 ## <a name="resource-manager-templates"></a>Modèles Resource Manager
@@ -125,11 +156,11 @@ Toutes les solutions continueront de fonctionner dans un espace de travail mis �
 ### <a name="known-issue-capacity-and-performance-solution"></a>Problème connu : Solution Capacity and Performance
 Certaines parties de la vue [Capacity and Performance](log-analytics-capacity.md) peuvent être vides.  Ce problème sera prochainement corrigé.
 
-### <a name="known-issue-device-health-solution"></a>Problème connu : Solution Intégrité de l’appareil
-La [solution Intégrité de l’appareil](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) ne collecte pas de données dans un espace de travail mis à niveau.  Ce problème sera prochainement corrigé.
-
 ### <a name="known-issue-application-insights-connector"></a>Problème connu : Application Insights Connector
 Dans la [solution Application Insights Connector](log-analytics-app-insights-connector.md), les perspectives ne sont pas prises en charge dans un espace de travail mis à niveau pour l’instant.  Un correctif permettant de résoudre ce problème est en cours d’analyse.
+
+### <a name="known-issue-backup-solution"></a>Problème connu : solution Sauvegarde
+La solution Sauvegarde ne collecte pas de données dans un espace de travail mis à niveau. Une nouvelle solution Sauvegarde qui fonctionne avec l’espace de travail mis à niveau sera annoncée sous peu.
 
 ## <a name="upgrade-process"></a>Mise à niveau
 
@@ -142,11 +173,9 @@ Non. Les données de journal disponibles pour vos recherches d’espace de trava
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Question : Que se passe-t-il si je ne mets pas à niveau mon espace de travail ?  
 La recherche de journal héritée sera déconseillée dans les prochains mois. Les espaces de travail qui ne sont pas mis à niveau à ce moment-là seront automatiquement mis à niveau.
 
-### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>Question : Je n’ai pas opté pour la mise à niveau, mais mon espace de travail a quand même été mis à niveau. Que s’est-il passé ?  
-Un autre administrateur de cet espace de travail peut l’avoir mis à niveau. Veuillez noter que tous les espaces de travail sont mis à niveau automatiquement lorsque la nouvelle langue est rendue publique.  
+### <a name="question-can-i-revert-back-after-i-upgrade"></a>Question : Puis-je revenir à la dernière version après la mise à niveau ?
+Avant la disponibilité générale, vous pouviez revenir à la dernière version de votre espace de travail après la mise à niveau.  Le nouveau langage étant désormais en phase de disponibilité générale, cette fonctionnalité a été supprimée et la plateforme héritée va progressivement être mise hors service.
 
-### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>Question : J’ai effectué par erreur la mise à niveau et dois à présent l’annuler et tout restaurer. Que dois-je faire ?  
-Pas de problème.  Nous créons une capture instantanée de votre espace de travail avant la mise à niveau, afin de pouvoir le restaurer. Toutefois, gardez à l’esprit que les recherches, alertes ou images que vous avez enregistrées après la mise à niveau seront perdues.  Pour restaurer l’environnement de votre espace de travail, suivez la procédure décrite dans la section [Puis-je revenir en arrière après la mise à niveau ?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade).
 
 
 ## <a name="views"></a>Views
@@ -161,4 +190,3 @@ Quand vous cliquez sur l’option *Afficher tout* au bas d’un graphique en cou
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Plus d’informations sur la [mise à niveau de votre espace de travail vers le nouveau langage de requête de Log Analytics](log-analytics-log-search-upgrade.md).
-

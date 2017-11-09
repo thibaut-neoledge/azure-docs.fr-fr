@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/09/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 6ba37cbfc8c92d00cf0ec02dd7b1ea9795946bcd
 ms.openlocfilehash: 100eed4694d2017333ef25eca86034d17cce78d1
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Présentation de StorSimple Virtual Array
 ## <a name="overview"></a>Vue d'ensemble
@@ -189,10 +190,4 @@ Les fonctionnalités de protection des données de StorSimple permettent de cré
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [préparer le portail du groupe virtuel](storsimple-virtual-array-deploy1-portal-prep.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Approvisionner de nouveaux locataires dans une application mutualisée utilisant Azure SQL Database | Microsoft Docs"
-description: "Découvrez comment approvisionner et cataloguer de nouveaux locataires dans l’application SaaS Wingtip"
+description: "Découvrez comment approvisionner et cataloguer de nouveaux locataires dans une application SaaS multilocataire Azure SQL Database."
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -10,20 +10,19 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
+ms.openlocfilehash: eda330a7202de8a325d645b37a0d05ef8df8985b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 8fa4c4f95386a92c8c818eef1a5b4de5a086fe07
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Approvisionner de nouveaux locataires et les inscrire dans le catalogue
+# <a name="learn-how-to-provision-and-catalog-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner et cataloguer de nouveaux locataires, et les inscrire dans le catalogue.
 
 Ce didacticiel décrit les modèles SaaS d’approvisionnement et d’inscription au catalogue et comment ils sont implémentés dans l’application SaaS Wingtip. Vous allez créer et initialiser de nouvelles bases de données de clients et les enregistrer dans le catalogue de clients de l’application. Le catalogue est une base de données qui gère le mappage entre les nombreux clients des applications SaaS et les données associées. Le catalogue joue un rôle important, car il dirige les demandes de l’application vers la base de données appropriée.  
 
@@ -71,7 +70,7 @@ L’application SaaS Wingtip approvisionne les nouveaux clients en copiant une b
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Étapes de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procédure de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Procédure pas à pas détaillée sur l’approvisionnement et l’inscription dans le catalogue
@@ -176,4 +175,3 @@ Essayez le [didacticiel Surveillance des performances](sql-database-saas-tutoria
 * Autres [didacticiels reposant sur l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Bibliothèque cliente de base de données élastique](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Déboguer les scripts dans l’ISE Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
-

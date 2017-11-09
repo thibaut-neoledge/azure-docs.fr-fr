@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/17-->
+<!--author=alkohli last changed: 09/28/17-->
 
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Pour mener à bien la configuration minimale d’un appareil StorSimple
 
@@ -21,7 +21,7 @@
 
             ![Interfaces réseau de la configuration minimale d’un appareil StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
-            Les adresses IP fixes du contrôleur servent à traiter les mises à jour de l’appareil. Par conséquent, les adresses IP fixes doivent être routables et être en mesure de se connecter à Internet. Vous pouvez vérifier que vos adresses IP de contrôleur fixe sont routables à l’aide de l’applet de commande [Test-HcsmConnection][Test]. Dans l’exemple suivant, les adresses IP de contrôleur fixe sont routées à Internet et peuvent accéder aux serveurs Microsoft Update.
+            Les adresses IP fixes du contrôleur servent à traiter les mises à jour de l’appareil et à nettoyer la mémoire. Par conséquent, les adresses IP fixes doivent être routables et être en mesure de se connecter à Internet. Vous pouvez vérifier que vos adresses IP de contrôleur fixe sont routables à l’aide de l’applet de commande [Test-HcsmConnection][Test]. Dans l’exemple suivant, les adresses IP de contrôleur fixe sont routées à Internet et peuvent accéder aux serveurs Microsoft Update.
 
             ![Test-HcsmConnection indiquant les adresses IP routables](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 

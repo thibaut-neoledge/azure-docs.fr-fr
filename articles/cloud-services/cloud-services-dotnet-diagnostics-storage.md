@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 16ce99cab9077450a5cfa8e95f7e306ffc1afb6d
-
-
+ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Stocker et afficher des données de diagnostic dans Azure Storage
 Les données de diagnostic ne sont pas définitivement stockées, sauf si vous les transférez vers l’émulateur de stockage Microsoft Azure ou dans le stockage Azure. Une fois dans le stockage, elles peuvent être affichées avec un des outils disponibles.
@@ -84,10 +84,4 @@ Plusieurs outils sont disponibles pour afficher les données après leur transfe
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

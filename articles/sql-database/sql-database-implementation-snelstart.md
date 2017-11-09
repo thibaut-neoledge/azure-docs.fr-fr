@@ -12,16 +12,14 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 0c37a035cfc782e05dd72da7323fe244eadc4ce9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/12/2017
-
-
+ms.openlocfilehash: 4fa21cf9cbd1680ddd855189f50af50e1068ccd5
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Avec Azure, SnelStart a rapidement développé ses services d’entreprise au rythme de 1 000 nouvelles bases de données Azure SQL Database par mois
 ![Logo SnelStart](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -109,5 +107,4 @@ L’objectif immédiat de SnelStart est de continuer à faire croître sa base d
 * Pour plus d’informations sur les rôles Web et de travail, consultez [Rôles de travail](../fundamentals-introduction-to-azure.md#compute).    
 * Pour plus d’informations sur Azure SQL Data Warehouse, consultez [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Pour plus d’informations sur SnelStart, consultez [SnelStart](http://www.snelstart.nl).
-
 

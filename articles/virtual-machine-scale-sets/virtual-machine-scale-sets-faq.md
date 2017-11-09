@@ -13,17 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 10/20/2017
 ms.author: negat
 ms.custom: na
+ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
 Obtenez des réponses aux questions fréquemment posées sur les groupes de machines virtuelles identiques dans Azure.
@@ -329,7 +327,7 @@ Actuellement, nous ne prenons pas en charge les fichiers .cer. Pour utiliser des
 
 
 
-## <a name="compliance"></a>Conformité
+## <a name="compliance-and-security"></a>Conformité et sécurité
 
 ### <a name="are-virtual-machine-scale-sets-pci-compliant"></a>Les groupes de machines virtuelles identiques sont-ils compatibles avec PCI ?
 
@@ -339,9 +337,9 @@ Du point de vue de la conformité, les groupes de machines virtuelles identiques
 
 Pour plus d’informations, consultez le [Centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>L’[identité du service administré Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) fonctionne-t-elle avec VM Scale Sets ?
 
-
-
+Oui. Vous pouvez voir des exemples de modèles MSI dans les modèles de démarrage rapide Azure. Linux : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Extensions
@@ -461,11 +459,6 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Pour exécuter un script personnalisé qui est hébergé dans un compte de stockage privé, configurez les paramètres protégés avec le nom et la clé du compte de stockage. Pour plus d’informations, consultez [Extension de script personnalisé pour Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
-
-
-
-
-
 ## <a name="networking"></a>Mise en réseau
  
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>Est-il possible d’affecter un groupe de sécurité réseau (NSG) à un groupe identique, afin de l’appliquer à toutes les cartes réseau de machines virtuelles du groupe ?
@@ -510,7 +503,7 @@ Oui. Un groupe de sécurité réseau peut être appliqué directement à un grou
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Comment effectuer un échange d’adresses IP virtuelles pour les groupes de machines virtuelles identiques dans le même abonnement et la même région ?
 
-Si vous disposez de deux groupes de machines virtuelles identiques avec serveurs frontaux Azure Load Balancer, et qu’ils font partie d’une région et d’un abonnement identique, vous pouvez libérer l’adresse IP publique d’un groupe pour l’assigner à l’autre. Consultez [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Échange d’adresse IP virtuelle (VIP) : Déploiement Bleu/vert dans Azure Resource Manager) pour avoir un exemple. À noter que cela implique un délai, car les ressources doivent être libérées/allouées au niveau du réseau. Une option plus rapide consiste à utiliser la passerelle Azure Application Gateway avec deux pools backend et une règle de routage. Une autre option consiste à héberger votre application avec [Azure App service](https://azure.microsoft.com/en-us/services/app-service/), qui fournit une assistance pour basculer rapidement entre emplacements intermédiaires et emplacements de production.
+Si vous disposez de deux groupes de machines virtuelles identiques avec serveurs frontaux Azure Load Balancer, et qu’ils font partie d’une région et d’un abonnement identique, vous pouvez libérer l’adresse IP publique d’un groupe pour l’assigner à l’autre. Consultez [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Échange d’adresse IP virtuelle (VIP) : Déploiement Bleu/vert dans Azure Resource Manager) pour avoir un exemple. À noter que cela implique un délai, car les ressources doivent être libérées/allouées au niveau du réseau. Une option plus rapide consiste à utiliser la passerelle Azure Application Gateway avec deux pools backend et une règle de routage. Une autre option consiste à héberger votre application avec [Azure App service](https://azure.microsoft.com/services/app-service/), qui fournit une assistance pour basculer rapidement entre emplacements intermédiaires et emplacements de production.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Comment spécifier une plage d’adresses IP privées à utiliser pour l’allocation d’adresse IP privée statique ?
 
@@ -650,7 +643,15 @@ Oui, vous pouvez utiliser l’opération de réinitialisation pour réinitialise
 
 Pour plus d’informations, consultez [Gérer toutes les machines virtuelles dans un groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Est-il possible d’intégrer des groupes identiques avec Azure OMS (Operations Management Suite) ?
 
+Oui, vous pouvez, en installant l’extension OMS sur les machines virtuelles du groupe identique. Voici un exemple d’interface de ligne de commande Azure :
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+Vous trouverez les éléments workspaceId et workspaceKey requis dans le portail OMS. Dans la page de présentation, cliquez sur la vignette Paramètres. Cliquez sur l’onglet Sources connectées, situé en haut de la page.
+
+Remarque : si la valeur _upgradePolicy_ du groupe identique est définie sur Manuel, vous devez appliquer l’extension à toutes les machines virtuels du groupe en appelant la mise à niveau. Dans l’interface de ligne de commande, cela se traduirait par _az vmss update-instances_.
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
@@ -703,5 +704,4 @@ La principale différence entre la suppression d’une machine virtuelle dans un
 - Vous souhaitez démarrer un groupe de machines virtuelles plus rapidement par rapport à la montée en puissance d’un groupe de machines virtuelles identiques.
   - En relation avec ce scénario, vous avez peut-être créé votre propre moteur de mise à l’échelle automatique et souhaitez obtenir une mise à l’échelle de bout en bout plus rapide.
 - Vous avez un groupe de machines virtuelles identiques qui est distribué inégalement entre les domaines d’erreur ou les domaines de mise à jour. Cela peut être dû au fait que vous avez supprimé sélectivement des machines virtuelles, ou parce que des machines virtuelles ont été supprimées après le sur-approvisionnement. Exécutez `stop deallocate` suivi de `start` sur le groupe de machines virtuelles identiques pour distribuer uniformément les machines virtuelles entre les domaines d’erreur ou les domaines de mise à jour.
-
 

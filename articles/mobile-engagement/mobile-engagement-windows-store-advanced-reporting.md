@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Génération de rapports avancés avec le Kit de développement logiciel (SDK) des applications Windows Universal Engagement
 > [!div class="op_single_selector"]
@@ -160,10 +160,4 @@ Nous vous recommandons d'appeler `StartActivity` à l'intérieur de la méthode 
 Vous pouvez éventuellement signaler les événements, erreurs et tâches spécifiques à l'application. Pour cela, utilisez les autres méthodes disponibles dans la classe `EngagementAgent`. L'API Engagement permet d'utiliser toutes les fonctionnalités avancées d'Engagement.
 
 Pour plus d'informations, consultez [Utilisation de l'API de marquage avancée Mobile Engagement dans votre application Windows Phone](mobile-engagement-windows-store-use-engagement-api.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

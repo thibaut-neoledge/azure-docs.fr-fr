@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: ea9ae8373ff67bf9557b06bbc8a4b0d82a03e2d0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="application-gateway-redirect-overview"></a>Vue d’ensemble de la redirection Application Gateway
 
 Un scénario courant pour de nombreuses applications web consiste à prendre en charge la redirection automatique de HTTP vers HTTPS pour vous assurer que toutes les communications entre l’application et ses utilisateurs auront lieu via un chemin d’accès chiffré. Dans le passé, les utilisateurs utilisaient des techniques telles que la création d’un pool backend dédié dont le seul objectif consistait à rediriger les demandes qu’il recevait sur HTTP vers HTTPS.  La passerelle d’application prend désormais en charge la possibilité de rediriger le trafic sur Application Gateway. Cela simplifie la configuration de l’application, optimise l’utilisation des ressources et prend en charge de nouveaux scénarios de redirection, notamment la redirection globale et basée sur le chemin d’accès. La prise en charge de la redirection Application Gateway n’est pas limitée à la seule redirection HTTP -> HTTPS. Il s’agit d’un mécanisme de redirection générique, qui permet la redirection du trafic reçu au niveau d’un écouteur vers un autre écouteur sur Application Gateway. Il prend également en charge la redirection vers un site externe. La prise en charge de la redirection Application Gateway offre les fonctionnalités suivantes :
@@ -37,4 +35,3 @@ Avec cette modification, les clients doivent créer un nouvel objet de configura
 ### <a name="next-steps"></a>Étapes suivantes
 
 [Configurer la redirection d’URL sur une passerelle d’application](application-gateway-configure-redirect-powershell.md)
-

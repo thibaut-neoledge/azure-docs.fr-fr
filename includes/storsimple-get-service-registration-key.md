@@ -16,7 +16,7 @@
 > 
 > 
 
-![Vidéo disponible](./media/storsimple-get-service-registration-key/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-get-service-registration-key/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo qui montre comment obtenir la clé d’inscription du service, cliquez [ici](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 

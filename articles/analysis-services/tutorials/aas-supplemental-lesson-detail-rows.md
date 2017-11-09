@@ -4,7 +4,7 @@ description: "Explique comment créer une expression de lignes de détails dans 
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: fde5cd9a9efc3a13e731a91962ced5c086a72355
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Leçon supplémentaire – Lignes de détails
 
@@ -86,4 +85,3 @@ Nous aimerions voir ici une table contenant des colonnes et des lignes de donné
 [SELECTCOLUMNS, fonction (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
 [Leçon supplémentaire – Sécurité dynamique](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Leçon supplémentaire – Hiérarchies déséquilibrées](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
-

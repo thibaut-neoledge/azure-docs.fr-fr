@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: 526666301aad1e5284c621024649d9cd52c92d18
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-linkedin-elevate-for-automatic-user-provisioning"></a>Didacticiel : Configuration de LinkedIn Elevate pour approvisionner automatiquement des utilisateurs
 
 
@@ -48,9 +46,9 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Conseils importants pour l’affectation d’utilisateurs à LinkedIn Elevate
 
-*    Il est recommandé d’affecter un seul utilisateur Azure AD à LinkedIn Elevate pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+*   Il est recommandé d’affecter un seul utilisateur Azure AD à LinkedIn Elevate pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-*    Quand vous affectez un utilisateur à LinkedIn Elevate, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’affectation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
+*   Quand vous affectez un utilisateur à LinkedIn Elevate, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’affectation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Configuration de l’approvisionnement des utilisateurs sur LinkedIn Elevate
@@ -92,9 +90,9 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 8) Si vous avez déjà configuré LinkedIn Elevate pour l’authentification unique, recherchez votre instance de LinkedIn Elevate à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter**, puis recherchez **LinkedIn Elevate** dans la galerie d’applications. Sélectionnez LinkedIn Elevate dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
 
-9)    Sélectionnez votre instance de LinkedIn Elevate, puis sélectionnez l’onglet **Approvisionnement**.
+9)  Sélectionnez votre instance de LinkedIn Elevate, puis sélectionnez l’onglet **Approvisionnement**.
 
-10)    Définissez le **Mode d’approvisionnement** sur **Automatique**.
+10) Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
 ![Approvisionnement LinkedIn Elevate](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
@@ -125,4 +123,3 @@ Cette commande démarre la synchronisation initiale des utilisateurs et/ou group
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-

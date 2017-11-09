@@ -12,17 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/23/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: b1b8b1ebc013a5dfb69528f9353369e18f84e61f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 91d6d0466789daa662162c60bc3c97ba6115e7eb
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-
-
 # <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>Planifier un mappage réseau pour la réplication de machine virtuelle Hyper-V avec Site Recovery
 
 
@@ -139,4 +136,3 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrir la [planification de l’infrastructure réseau](site-recovery-network-design.md).
-

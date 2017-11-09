@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 6ae024e59d29d20c223243b71aceae1db7eefdf5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: 3fdef7bb58a5cd5dfbe4d37d9baf9c8e392ebe42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Configuration requise pour Azure Data Catalog
 
@@ -52,4 +51,3 @@ La stratégie d’authentification globale vous permet d’activer séparément 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez [Configuration des stratégies d’authentification](https://technet.microsoft.com/library/dn486781.aspx).
-

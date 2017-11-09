@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>Utiliser le service StorSimple Manager pour gérer les volumes
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
@@ -123,7 +121,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
    3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis sélectionnez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Suivant**.
    4. Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Une fois l’Assistant terminé, le volume doit afficher la taille augmentée.
 
-![Vidéo disponible](./media/storsimple-manage-volumes/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-manage-volumes/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo expliquant comment étendre un volume, cliquez [ici](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
@@ -179,5 +177,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
 

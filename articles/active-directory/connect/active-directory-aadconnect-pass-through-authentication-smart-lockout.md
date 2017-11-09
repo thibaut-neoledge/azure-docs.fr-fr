@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Authentification directe Azure Active Directory : Verrouillage intelligent
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -45,6 +43,9 @@ Pour vous assurer que les comptes AD locaux de vos utilisateurs sont correctemen
 1.  le seuil de verrouillage d’Azure AD est _inférieur_ au seuil de verrouillage du compte AD. Nous vous recommandons de définir les valeurs de sorte que le seuil de verrouillage du compte AD soit au moins deux ou trois fois égal au seuil de verrouillage d’Azure AD.
 2.  La durée de verrouillage d’Azure AD (représentée en secondes) est _plus longue_ que Réinitialiser le compteur de verrouillage du compte après (exprimée en minutes) d’AD.
 
+>[!IMPORTANT]
+>Actuellement, un administrateur ne peut pas déverrouiller les comptes cloud des utilisateurs si ceux-ci ont été verrouillés à l’aide de la fonctionnalité Smart Lockout. Ils doivent attendre que la durée de verrouillage expire.
+
 ## <a name="verify-your-ad-account-lockout-policies"></a>Vérifiez vos stratégies de verrouillage de compte AD
 
 Utilisez les instructions suivantes pour vérifier vos stratégies de verrouillage de compte AD :
@@ -56,7 +57,7 @@ Utilisez les instructions suivantes pour vérifier vos stratégies de verrouilla
 
 ![Stratégies de verrouillage de compte AD](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values"></a>Utilisez l’API Graph pour gérer les valeurs de verrouillage intelligent de votre client
+## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-needs-premium-license"></a>Utilisez l’API Graph pour gérer les valeurs de verrouillage intelligent de votre locataire (licence Premium nécessaire)
 
 >[!IMPORTANT]
 >Modifier les valeurs du seuil de verrouillage et de la durée de verrouillage d’Azure AD à l’aide de l’API Graph est une fonctionnalité d’Azure AD Premium P2. Vous devez également être un Administrateur global sur votre client.
@@ -79,7 +80,7 @@ Procédez comme suit pour définir les valeurs de verrouillage intelligent de vo
 1. Connectez-vous à l’Explorateur graphique en tant qu’administrateur global de votre client. Si vous y êtes invité, accordez l’accès pour les autorisations demandées.
 2. Cliquez sur « Modifier les autorisations » et sélectionnez l’autorisation « Directory.ReadWrite.All ».
 3. Configurez la requête d’API Graph comme suit : définir la version sur « BETA », le type de requête sur « POST » et l’URL sur `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Copiez et collez la requête JSON suivante dans le champ « Corps de la requête ». Modifiez les valeurs de verrouillage intelligent comme il convient et utilisez un GUID aléatoire pour `templateId`.
+4. Copiez et collez la requête JSON suivante dans le champ « Corps de la requête ».
 5. Cliquez sur « Exécuter la requête » pour définir les valeurs de verrouillage intelligent de votre client.
 
 ```
@@ -149,4 +150,3 @@ Vérifiez que vous avez mis à jour les valeurs de verrouillage intelligent de v
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des requêtes de nouvelles fonctionnalités.
-

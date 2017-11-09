@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f593ecca4f4c82dcbd07e6f57ad120537f7d2134
-ms.openlocfilehash: 4c3f7f95b1052512547a9996019803b6185a3405
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 2a4c3b69a9ab31e6382cb5cf863101861fa2a78e
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer
 Cet article vous aide à résoudre les problèmes suivants :
@@ -95,5 +94,4 @@ Si vous rencontrez des problèmes pour désinstaller l’extension, vous pouvez 
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Déploiement de l'extension du volet d'accès pour Internet Explorer à l'aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md)
-
 

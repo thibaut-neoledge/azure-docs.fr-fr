@@ -53,9 +53,9 @@ Une fois les erreurs résolues, démontez et détachez le disque dur virtuel exi
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>Créer une machine virtuelle à partir du disque dur d’origine
 
-Pour créer une machine virtuelle à partir de votre disque dur d’origine, utilisez le [portail Azure Classic](https://manage.windowsazure.com).
+Pour créer une machine virtuelle à partir de votre disque dur virtuel d’origine, utilisez le [portail Azure](https://portal.azure.com).
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Au bas du portail, sélectionnez **Nouveau** > **Calcul** > **Machine virtuelle** > **Depuis la galerie**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. En haut à gauche du portail, sélectionnez **Nouveau** > **Calcul** > **Machine virtuelle** > **Depuis la galerie**.
 3. Dans la section **Choisir une image**, sélectionnez **Mes disques**, puis le disque dur virtuel d’origine. Vérifiez les informations d’emplacement. Il s’agit de la région dans laquelle vous devez déployer la machine virtuelle. Cliquez sur Suivant.
 4. Dans la section **Configuration de la machine virtuelle**, entrez le nom de la machine virtuelle et sélectionnez une taille.

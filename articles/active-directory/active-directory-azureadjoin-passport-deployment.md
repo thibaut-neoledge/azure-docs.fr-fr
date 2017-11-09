@@ -13,15 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08fcdb4ec6dd124760cff54c522d998d5a0327
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: 8fd9f3a51651fc163abd79aaf21ec3dd92502bb5
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Activer Microsoft Windows Hello Entreprise dans votre organisation
 Après avoir [connecté les appareils du domaine Windows 10 à Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), procédez comme suit pour activer Microsoft Windows Hello Entreprise dans votre organisation :
@@ -78,7 +76,7 @@ Il est conseillé d’utiliser System Center Configuration Manager lorsque vous 
    
     a. Dans la zone de texte **Nom**, entrez un nom pour votre profil, par exemple, **Mon profil WHfB**.
    
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 4. Dans la boîte de dialogue **Plateformes prises en charge**, sélectionnez les plateformes qui seront configurées avec ce profil Windows Hello Entreprise, puis cliquez sur **Suivant**.
    
     ![Configurer Windows Hello Entreprise](./media/active-directory-azureadjoin-passport-deployment/04.png)
@@ -92,7 +90,7 @@ Il est conseillé d’utiliser System Center Configuration Manager lorsque vous 
    
     c. En tant que **Méthode d’authentification**, sélectionnez **Basée sur un certificat**.
    
-    d. Cliquez sur **Next**.
+    d. Cliquez sur **Suivant**.
 6. Sur la page **Résumé**, cliquez sur **Suivant**.
 7. Dans la boîte de dialogue **Exécution terminée**, cliquez sur **Fermer**.
 8. Dans la barre d’outils en haut, cliquez sur **Déployer**.
@@ -110,9 +108,8 @@ Sur la page **Enregistrement SCEP** du profil de certificat, vous devez choisir 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
-* [Authentification des identités sans mot de passe avec Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [S’authentifier sans mots de passe](active-directory-azureadjoin-passport.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
-
 

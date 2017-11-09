@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bf015f8f646ecce6821379affd4d041329967fc8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: b2ad45e76320c59d18dce7b39166679801b4170a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Présentation de la vérification des flux IP dans Azure Network Watcher
 
 La vérification des flux IP contrôle si un paquet est autorisé ou refusé en direction ou en provenance d’une machine virtuelle en fonction des informations à 5 tuples. Ces informations se composent de la direction, du protocole, de l’adresse IP locale, de l’adresse IP distante, du port local et du port distant. Si le paquet est refusé par un groupe de sécurité, le nom de la règle qui a refusé le paquet est renvoyé. Même si toutes les adresses IP source et de destination peuvent être choisies, cette fonctionnalité permet aux administrateurs de diagnostiquer rapidement les problèmes de connectivité en provenance ou à destination d’Internet et en provenance ou à destination de l’environnement local.
@@ -37,7 +35,6 @@ Une instance de Network Watcher doit être créée dans toutes les régions dans
 Consultez l’article suivant pour savoir si un paquet est autorisé ou refusé pour une machine virtuelle spécifique via le portail. [Vérifier si le trafic est autorisé ou refusé en direction ou en provenance d’une machine virtuelle avec le composant de vérification des flux IP d’Azure Network Watcher](network-watcher-check-ip-flow-verify-portal.md)
 
 [1]: ./media/network-watcher-ip-flow-verify-overview/figure1.png
-
 
 
 

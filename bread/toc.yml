@@ -34,18 +34,18 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
       items:
-        - name: Web Apps pour les conteneurs
+        - name: Web App for Containers
           tocHref: /azure/app-service/containers/
           topicHref: /azure/app-service/containers/
+        - name: Environnements App Service
+          tocHref: /azure/app-service/environment/
+          topicHref: /azure/app-service/environment/
         - name: "Web\_Apps"
-          tocHref: /azure/app-service-web/
-          topicHref: /azure/app-service-web/
+          tocHref: /azure/app-service/
+          topicHref: /azure/app-service/
         - name: "Mobile\_Apps"
           tocHref: /azure/app-service-mobile/
           topicHref: /azure/app-service-mobile/
-        - name: API Apps
-          tocHref: /azure/app-service-api/
-          topicHref: /azure/app-service-api/
     - name: Advisor
       tocHref: /azure/advisor/
       topicHref: /azure/advisor/
@@ -70,7 +70,7 @@
     - name: Allemagne
       tocHref: /azure/germany/
       topicHref: /azure/germany/
-    - name: Portail
+    - name: Portail Azure
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
     - name: Gestionnaire de ressources
@@ -79,6 +79,9 @@
     - name: Azure Stack
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
+    - name: Utilisateur Azure Stack
+      tocHref: /azure/azure-stack/user/
+      topicHref: /azure/azure-stack/user/
     - name: Prise en charge
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
@@ -207,6 +210,19 @@
     - name: "Machine\_Learning"
       tocHref: /azure/machine-learning/
       topicHref: /azure/machine-learning/
+      items:
+        - name: Services (version préliminaire)
+          tocHref: /azure/machine-learning/preview
+          topicHref: /azure/machine-learning/preview/
+        - name: Studio
+          tocHref: /azure/machine-learning/studio
+          topicHref: /azure/machine-learning/studio/
+        - name: TDSP (Team Data Science Process)
+          tocHref: /azure/machine-learning/team-data-science-process
+          topicHref: /azure/machine-learning/team-data-science-process/overview
+        - name: Machine virtuelle de science des données
+          tocHref: /azure/machine-learning/data-science-virtual-machine
+          topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
     - name: Consommateur de Place de marché
       tocHref: /azure/marketplace-consumer/
       topicHref: /azure/marketplace-consumer/
@@ -253,6 +269,9 @@
     - name: Power BI Embedded
       tocHref: /azure/power-bi-embedded/
       topicHref: /azure/power-bi-embedded/
+    - name: "Collections d’espaces de travail Power\_BI"
+      tocHref: /azure/power-bi-workspace-collections/
+      topicHref: /azure/power-bi-workspace-collections/
     - name: Cache Redis
       tocHref: /azure/redis-cache/
       topicHref: /azure/redis-cache/

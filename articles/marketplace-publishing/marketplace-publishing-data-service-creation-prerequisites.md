@@ -1,6 +1,6 @@
 ---
 title: "Prérequis techniques pour la création d’un service de données pour Azure Marketplace | Microsoft Docs"
-description: "Identifier la configuration requise pour la création d&quot;un service de données à déployer et à vendre sur Azure Marketplace"
+description: "Identifier la configuration requise pour la création d'un service de données à déployer et à vendre sur Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 52827723477677bc292c645e2390c435fbad3ee4
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="technical-pre-requisites-for-creating-a-data-service-offer-for-the-azure-marketplace"></a>Conditions techniques préalables à la création d’une offre de service de données pour Azure Marketplace
 > [!IMPORTANT]
@@ -67,9 +67,3 @@ Maintenant que vous avez passé en revue les conditions préalables et effectué
 Ou, si vous souhaitez passer en revue le processus global et les articles respectifs de chacune des phases de publication, consultez l'article [Mise en route : publier une offre sur Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

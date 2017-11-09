@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/18/2017
 ms.author: banders
+ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
-ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solution Analyseur de performances réseau dans Log Analytics
 
@@ -93,28 +92,24 @@ Utilisez les informations suivantes pour installer et configurer la solution.
     >[!NOTE]
     >Les agents des systèmes d’exploitation serveur Windows prennent en charge les protocoles de transaction synthétique TCP et ICMP. Les agents des systèmes d’exploitation client Windows prennent en charge uniquement le protocole de transaction synthétique ICMP.
 
-2. Ajoutez la solution Analyseur de performances réseau à votre espace de travail depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).  
-   ![Symbole de l’Analyseur de performances réseau](./media/log-analytics-network-performance-monitor/npm-symbol.png)
-3. Dans le portail OMS, vous voyez une nouvelle vignette libellée **Analyseur de performances réseau**, avec le message *La solution nécessite une configuration supplémentaire*. Vous devez configurer la solution pour ajouter des réseaux basés sur les sous-réseaux et les nœuds découverts par les agents. Cliquez sur **Analyseur de performances réseau** pour commencer à configurer le réseau par défaut.  
-   ![La solution nécessite une configuration supplémentaire](./media/log-analytics-network-performance-monitor/npm-config.png)
+2. Ajoutez la solution Analyseur de performances réseau à votre espace de travail depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).<br><br> ![Symbole de l’Analyseur de performances réseau](./media/log-analytics-network-performance-monitor/npm-symbol.png)  
+3. Dans le portail OMS, vous voyez une nouvelle vignette libellée **Analyseur de performances réseau**, avec le message *La solution nécessite une configuration supplémentaire*. Cliquez sur la vignette pour accéder à l’onglet **Déploiement** et sélectionnez le protocole à utiliser pour effectuer les transactions synthétiques pour la surveillance de votre réseau.  Consultez [Choisir le bon protocole : ICMP ou TCP](#choose-the-right-protocol-icmp-or-tcp) pour vous aider à choisir le protocole adapté à votre réseau.<br><br> ![La solution nécessite de choisir le protocole](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
-### <a name="configure-the-solution-with-a-default-network"></a>Configurer la solution avec un réseau par défaut
-Dans la page de configuration, vous voyez un seul réseau nommé **Par défaut**. Si vous n’avez pas défini de réseau, tous les sous-réseaux détectés automatiquement sont placés dans le réseau Par défaut.
-
-Chaque fois que vous créez un réseau, vous y ajoutez un sous-réseau qui est retiré du réseau Par défaut. Si vous supprimez un réseau, toutes ses sous-réseaux sont automatiquement restitués au réseau Par défaut.
-
-En d’autres termes, le réseau Par défaut est le conteneur pour tous les sous-réseaux non contenus dans un réseau défini par un utilisateur. Vous ne pouvez pas modifier ou supprimer le réseau Par défaut. Il reste toujours dans le système. En revanche, vous pouvez créer autant de réseaux que nécessaire.
-
-Dans la plupart des cas, les sous-réseaux de votre organisation sont organisés en plusieurs réseaux, et vous devez créer un ou plusieurs réseaux pour regrouper vos sous-réseaux de façon logique.
+4. Après avoir choisi le protocole, vous êtes redirigé vers la page **Vue d’ensemble de la solution OMS**. Pendant que la solution agrège les données à partir de votre réseau, la vignette de vue d’ensemble de Network Performance Monitor affiche le message *Agrégation des données en cours*.<br><br> ![La solution agrège les données](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
+5. Une fois les données collectées et indexées, la vignette de vue d’ensemble change et vous indique que vous devez effectuer une configuration supplémentaire.<br><br> ![La vignette de la solution nécessite une configuration supplémentaire](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+6. Cliquez sur la vignette et démarrez la configuration de la solution en suivant les étapes ci-dessous.
 
 ### <a name="create-new-networks"></a>Créer des réseaux
-Dans l’Analyseur de performances réseau, un réseau est un conteneur de sous-réseaux. Vous pouvez créer un réseau sous le nom de votre choix, puis y ajouter des sous-réseaux. Par exemple, vous pouvez créer un réseau nommé *Building1*, puis ajouter des sous-réseaux, ou créer un réseau nommé *DMZ*, puis y ajouter tous les sous-réseaux appartenant à la zone démilitarisée.
+Dans Network Performance Monitor, un réseau est un conteneur logique de sous-réseaux. Vous pouvez créer un réseau avec un nom convivial et lui ajouter des sous-réseaux selon votre logique métier. Par exemple, vous pouvez créer un réseau nommé *London* et ajouter tous les sous-réseaux de votre centre de données de Londres, ou un réseau nommé *ContosoFrontEnd* et ajouter tous les sous-réseaux alimentant le serveur frontal de votre application nommée Contoso sur ce réseau.
+Dans la page de configuration, vous voyez un réseau nommé **Par défaut** dans l’onglet Réseaux. Si vous n’avez pas créé de réseau, tous les sous-réseaux détectés automatiquement sont placés dans le réseau Par défaut.
+Chaque fois que vous créez un réseau, vous y ajoutez un sous-réseau qui est retiré du réseau Par défaut. Si vous supprimez un réseau, toutes ses sous-réseaux sont automatiquement restitués au réseau Par défaut.
+En d’autres termes, le réseau Par défaut joue le rôle de conteneur pour tous les sous-réseaux non contenus dans un réseau défini par un utilisateur. Vous ne pouvez pas modifier ou supprimer le réseau Par défaut. Il reste toujours dans le système. En revanche, vous pouvez créer autant de réseaux personnalisés que nécessaire.
+Dans la plupart des cas, les sous-réseaux de votre organisation sont organisés en plusieurs réseaux, et vous devez créer un ou plusieurs réseaux pour regrouper vos sous-réseaux selon votre logique métier.
 
 #### <a name="to-create-a-new-network"></a>Pour créer un réseau
 1. Cliquez sur **Ajouter un réseau**, puis tapez le nom et la description du réseau.
 2. Sélectionnez un ou plusieurs sous-réseaux, puis cliquez sur **Ajouter**.
-3. Pour enregistrer la configuration, cliquez sur **Enregistrer**.  
-   ![Ajouter un réseau](./media/log-analytics-network-performance-monitor/npm-add-network.png)
+3. Pour enregistrer la configuration, cliquez sur **Enregistrer**.<br><br> ![Ajouter un réseau](./media/log-analytics-network-performance-monitor/npm-add-network.png)
 
 ### <a name="wait-for-data-aggregation"></a>Attendre l’agrégation de données
 Après que vous avez enregistré la configuration pour la première fois, la solution commence à collecter des informations sur les pertes de paquets et la latence du réseau entre les nœuds où des agents sont installés. Ce processus peut prendre du temps, parfois plus de 30 minutes. Dans cet état, la vignette Analyseur de performances réseau dans la page d’aperçu affiche le message *Agrégation des données en cours*.
@@ -136,8 +131,7 @@ Tous les sous-réseaux où au moins un agent a été installé sont répertorié
 1. Activez ou désactivez la case en regard de **ID de sous-réseau**, puis assurez-vous que l’option **Utiliser pour la surveillance** est activée ou désactivée de façon appropriée. Vous pouvez activer ou désactiver plusieurs sous-réseaux. Les sous-réseaux désactivés ne sont pas analysés, car les agents seront mis à jour pour arrêter l’envoi de commandes ping à d’autres agents.
 2. Choisissez les nœuds que vous souhaitez surveiller pour un sous-réseau particulier en sélectionnant celui-ci dans la liste, puis en déplaçant les nœuds requis entre les listes de nœuds non analysés et analysés.
    Vous pouvez ajouter une **description** personnalisée au sous-réseau si vous le souhaitez.
-3. Pour enregistrer la configuration, cliquez sur **Enregistrer**.  
-   ![Modifier un sous-réseau](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
+3. Pour enregistrer la configuration, cliquez sur **Enregistrer**.<br><br> ![Modifier un sous-réseau](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
 
 ### <a name="choose-nodes-to-monitor"></a>Choisir les nœuds à surveiller
 Tous les nœuds sur lesquels un agent est installé sont répertoriés sous l’onglet **Nœuds**.
@@ -145,25 +139,28 @@ Tous les nœuds sur lesquels un agent est installé sont répertoriés sous l’
 #### <a name="to-enable-or-disable-monitoring-for-nodes"></a>Pour activer ou désactiver l’analyse de nœuds
 1. Activez ou désactivez les nœuds que vous souhaitez surveiller ou cesser de surveiller.
 2. Cliquez sur **Utiliser pour la surveillance** ou désactivez cette option selon le cas.
-3. Cliquez sur **Enregistrer**.  
-   ![Activer l’analyse du nœud](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
+3. Cliquez sur **Enregistrer**.<br><br> ![Activer l’analyse du nœud](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### <a name="set-monitoring-rules"></a>Définir les règles d’analyse
-L’Analyseur de performances réseau génère des événements d’intégrité relatifs à la connectivité entre une paire de nœuds ou de liaisons réseau ou sous-réseau en cas de dépassement d’un seuil. Le système peut apprendre ces seuils automatiquement, et vous pouvez également configurer des règles d’alerte personnalisées.
+Network Performance Monitor génère des événements d’intégrité lorsque le seuil des performances des connexions réseau entre 2 sous-réseaux ou 2 réseaux est dépassé. Le système peut apprendre ces seuils automatiquement, et vous pouvez également indiquer des seuils personnalisés.
+Le système crée automatiquement une règle par défaut. Celle-ci crée un événement d’intégrité chaque fois qu’une perte ou une latence entre une paire quelconque de liaisons réseau/sous-réseau dépasse le seuil appris par le système. Cela permet à la solution de surveiller votre infrastructure réseau tant que vous n’avez pas créé explicitement de règles de surveillance. Si la règle par défaut est activée, tous les nœuds assurent la surveillance en envoyant des transactions synthétiques à tous les autres nœuds que vous avez activés. La règle par défaut est utile sur les réseaux de petite taille, par exemple, si vous avez un petit nombre de serveurs qui exécutent un microservice et que vous souhaitez vous assurer que tous les serveurs sont connectés les uns aux autres.
 
-La *Règle par défaut* est créée par le système. Elle crée un événement d’intégrité chaque fois qu’une perte ou une latence entre une paire quelconque de liaisons réseau ou sous-réseau dépasse le seuil appris par le système. Vous pouvez choisir de désactiver la règle par défaut et de créer des règles d’analyse personnalisées.
+>[!NOTE]
+>Il est recommandé de désactiver la règle par défaut et de créer des règles de surveillance personnalisées, en particulier pour les réseaux importants dans lesquels vous utilisez un grand nombre de nœuds pour la surveillance. Cela limitera le trafic généré par la solution et vous aidera à organiser la surveillance de votre réseau.
+
+Créez des règles de surveillance personnalisées selon votre logique métier. Par exemple, si vous souhaitez surveiller les performances de la connectivité réseau de 2 bureaux au siège social, regroupez tous les sous-réseaux du bureau 1 dans le réseau O1, tous les sous-réseaux du bureau 2 dans le réseau O2 et tous les sous-réseaux du siège social dans le réseau H. Créez deux règles de surveillance : une entre O1 et H et l’autre entre O2 et H.
+
 
 #### <a name="to-create-custom-monitoring-rules"></a>Pour créer des règles d’analyse personnalisées
 1. Cliquez sur **Ajouter une règle** sous l’onglet **Surveiller**, puis entrez le nom et la description de la règle.
 2. Sélectionnez la paire de liaisons réseau ou sous-réseau à surveiller dans les listes.
 3. Commencez par sélectionner le réseau contenant le(s) premier(s) sous-réseau(x) d’intérêt dans la liste déroulante de réseau, puis sélectionnez le(s) sous-réseau(x) dans la liste déroulante de sous-réseaux correspondante.
    Sélectionnez **Tous les sous-réseaux** si vous souhaitez analyser tous les sous-réseaux dans une liaison réseau. Sélectionnez de la même manière les autres sous-réseaux d’intérêt. Vous pouvez également cliquer sur **Ajouter une Exception** pour exclure l’analyse de liens de sous-réseau spécifiques de la sélection que vous avez faite.
-4. Choisissez entre le protocole ICMP et le protocole TCP pour l’exécution des transactions synthétiques.
+4. [Choisissez entre le protocole ICMP et le protocole TCP](#choose-the-right-protocol-icmp-or-tcp) pour l’exécution des transactions synthétiques.
 5. Si vous ne souhaitez pas créer d’événements d’intégrité pour les éléments que vous avez sélectionnés, désactivez l’option **Activer la surveillance de l’intégrité sur les liens couverts par cette règle**.
 6. Choisissez les conditions d’analyse.
    Vous pouvez définir des seuils personnalisés pour la génération d’événements d’intégrité en tapant des valeurs de seuil. Chaque fois que la valeur d’une condition dépasse son seuil sélectionné pour la paire de réseaux/sous-réseaux sélectionnée, un événement d’intégrité est généré.
-7. Pour enregistrer la configuration, cliquez sur **Enregistrer**.  
-   ![Créer un règle d’analyse personnalisée](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
+7. Pour enregistrer la configuration, cliquez sur **Enregistrer**.<br><br> ![Créer un règle d’analyse personnalisée](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
 Vous pouvez intégrer la règle d’analyse que vous avez enregistrée à Gestion des alertes en cliquant sur **Créer une alerte**. Une règle d’alerte est créée automatiquement avec la requête de recherche et d’autres paramètres requis renseignés automatiquement. En utilisant une règle d’alerte, vous pouvez recevoir des alertes par e-mail en plus des alertes existant dans la solution Analyseur de performances réseau. Les alertes peuvent également déclencher des actions correctives avec les runbooks ou elles peuvent s’intégrer aux solutions existantes de gestion des services à l’aide des webhooks. Vous pouvez cliquer sur **Manage Alert (Gérer une alerte)** pour modifier les paramètres d’alerte.
 
@@ -193,7 +190,9 @@ Vous pouvez utiliser des scripts PowerShell pour configurer des règles de pare-
 Contrairement à TCP, le protocole ICMP n’utilise pas de port. Dans la plupart des scénarios d’entreprise, le trafic ICMP est autorisé à franchir les pare-feu pour vous permettre d’utiliser des outils de diagnostic réseau comme l’utilitaire Ping. Si un test Ping effectué entre deux ordinateurs aboutit, vous pouvez utiliser le protocole ICMP sans avoir à configurer les pare-feu manuellement.
 
 > [!NOTE]
-> En cas de doute sur le protocole à utiliser, choisissez ICMP pour commencer. Si vous n’êtes pas satisfait des résultats, vous pouvez toujours passer à TCP.
+> Certains pare-feu peuvent bloquer le protocole ICMP, ce qui peut entraîner la création d’un grand nombre d’événements dans votre système de gestion des événements et des informations de sécurité lors de la retransmission. Assurez-vous que le protocole que vous choisissez n’est pas bloqué par un pare-feu réseau/NSG. Si c’est le cas, NPM ne sera pas en mesure de surveiller le segment de réseau.  De ce fait, nous vous recommandons d’utiliser le protocole TCP pour la surveillance. Vous devez utiliser le protocole ICMP dans les cas où vous ne pouvez pas utiliser le protocole TCP, par exemple lorsque :
+> * Vous utilisez des nœuds basés sur un client Windows, étant donné que les sockets bruts du protocole TCP ne sont pas autorisés dans le client Windows
+> * Votre pare-feu réseau/NSG bloque le protocole TCP
 
 
 #### <a name="how-to-switch-the-protocol"></a>Comment changer de protocole
@@ -206,8 +205,6 @@ Si vous avez choisi ICMP durant le déploiement, vous pouvez basculer vers TCP �
 3.  Cliquez sur **Enregistrer** pour appliquer le paramètre.
 
 Même si la règle par défaut utilise un protocole spécifique, vous pouvez créer des règles avec un autre protocole. Vous pouvez même créer une combinaison de règles : certaines règles utilisant ICMP et d’autres TCP.
-
-
 
 
 ## <a name="data-collection-details"></a>Détails sur la collecte de données
@@ -293,20 +290,14 @@ Toutes les données présentées sous forme graphique via le tableau de bord de 
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>Rechercher la cause première d’une alerte d’intégrité
 À présent que vous savez ce qu’est le moniteur de performances réseau, voyons comment identifier simplement la cause première d’un événement d’intégrité.
 
-1. La page Vue d’ensemble fournit une capture instantanée de l’intégrité de votre réseau via la vignette **Moniteur de performances réseau**. Vous pouvez constater que sur les 6 liens de sous-réseau analysés, 2 sont défectueux. Cela mérite d’être examiné. Cliquez sur la vignette pour afficher le tableau de bord de la solution.  
-   ![Vignette Moniteur de performances réseau](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
-2. Dans l’exemple d’image ci-dessous, vous remarquerez qu’il existe un événement d’intégrité dans un lien réseau qui n’est pas intègre. Vous décidez d’analyser le problème et cliquez sur le lien réseau **DMZ2-DMZ1** pour déterminer la cause du problème.  
-   ![Exemple de liaison réseau défectueuse](./media/log-analytics-network-performance-monitor/npm-investigation02.png)
-3. La page détaillée affiche tous les liens de sous-réseau du lien réseau **DMZ2-DMZ1**. Vous pouvez remarquer que, pour les deux liens le sous-réseau, la latence a dépassé le seuil au-delà duquel la liaison réseau est jugée défectueuse. Vous pouvez également voir les tendances de latence des deux liens de sous-réseau. Le contrôle de sélection du temps dans le graphe vous permet de vous concentrer sur la plage de temps requise. Vous pouvez voir l’heure à laquelle la latence a atteint son pic. Vous pouvez ensuite effectuer une recherche dans les journaux correspondant à cette période pour étudier le problème. Cliquez sur **Afficher les liens de nœud** pour consulter des détails supplémentaires.  
-   ![Exemple de liens de sous-réseau défectueux](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
-4. Comme la page précédente, la page détaillée relative au lien de sous-réseau concerné répertorie les liens de nœud qui le composent. Vous pouvez effectuer ici des actions similaires à celles que vous avez faites à l’étape précédente. Cliquez sur **Afficher la topologie** pour afficher la topologie entre les 2 nœuds.  
-   ![Exemple de liens de nœud défectueux](./media/log-analytics-network-performance-monitor/npm-investigation04.png)
-5. Tous les chemins entre les 2 nœuds sélectionnés sont représentés dans la carte topologique. Vous pouvez visualiser, tronçon par tronçon, la topologie des itinéraires entre deux nœuds sur la carte topologique. Vous obtenez ainsi une vision claire du nombre d’itinéraires existant entre les nœuds et des chemins qu’empruntent les paquets de données. Les goulots d’étranglement des performances du réseau sont marqués en rouge. Vous pouvez localiser une connexion réseau ou un appareil réseau défectueux en examinant les éléments colorés en rouge sur la carte topologique.  
-   ![Exemple d’affichage topologique défectueux](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
+1. La page Vue d’ensemble fournit une capture instantanée de l’intégrité de votre réseau via la vignette **Moniteur de performances réseau**. Vous pouvez constater que sur les 6 liens de sous-réseau analysés, 2 sont défectueux. Cela mérite d’être examiné. Cliquez sur la vignette pour afficher le tableau de bord de la solution.<br><br> ![Vignette Moniteur de performances réseau](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
+2. Dans l’exemple d’image ci-dessous, vous remarquerez qu’il existe un événement d’intégrité dans un lien réseau qui n’est pas intègre. Vous décidez d’analyser le problème et cliquez sur le lien réseau **DMZ2-DMZ1** pour déterminer la cause du problème.<br><br> ![Exemple de liaison réseau défectueuse](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
+3. La page détaillée affiche tous les liens de sous-réseau du lien réseau **DMZ2-DMZ1**. Vous pouvez remarquer que, pour les deux liens le sous-réseau, la latence a dépassé le seuil au-delà duquel la liaison réseau est jugée défectueuse. Vous pouvez également voir les tendances de latence des deux liens de sous-réseau. Le contrôle de sélection du temps dans le graphe vous permet de vous concentrer sur la plage de temps requise. Vous pouvez voir l’heure à laquelle la latence a atteint son pic. Vous pouvez ensuite effectuer une recherche dans les journaux correspondant à cette période pour étudier le problème. Cliquez sur **Afficher les liens de nœud** pour consulter des détails supplémentaires.<br><br> ![Exemple de liens de sous-réseau défectueux](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
+4. Comme la page précédente, la page détaillée relative au lien de sous-réseau concerné répertorie les liens de nœud qui le composent. Vous pouvez effectuer ici des actions similaires à celles que vous avez faites à l’étape précédente. Cliquez sur **Afficher la topologie** pour afficher la topologie entre les 2 nœuds.<br><br> ![Exemple de liens de nœud défectueux](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
+5. Tous les chemins entre les 2 nœuds sélectionnés sont représentés dans la carte topologique. Vous pouvez visualiser, tronçon par tronçon, la topologie des itinéraires entre deux nœuds sur la carte topologique. Vous obtenez ainsi une vision claire du nombre d’itinéraires existant entre les nœuds et des chemins qu’empruntent les paquets de données. Les goulots d’étranglement des performances du réseau sont marqués en rouge. Vous pouvez localiser une connexion réseau ou un appareil réseau défectueux en examinant les éléments colorés en rouge sur la carte topologique.<br><br> ![Exemple d’affichage topologique défectueux](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
 6. Vous pouvez consulter les pertes, la latence et le nombre de sauts de chaque chemin dans le volet **Actions**. Utilisez la barre de défilement pour afficher les détails de ces chemins défectueux.  Utilisez les filtres pour sélectionner les chemins d’accès avec le saut défectueux afin de tracer uniquement la topologie des chemins d’accès sélectionnés. Vous pouvez utiliser la roulette de votre souris pour effectuer un zoom avant ou arrière sur la carte topologique.
 
-   Dans l’image ci-dessous, vous pouvez voir clairement la cause première des aspects problématiques d’une section spécifique du réseau en examinant les chemins et les tronçons marqués de rouge. Un clic sur un nœud dans la carte topologique révèle les propriétés du nœud, dont son nom de domaine complet et son adresse IP. Un clic sur un tronçon affiche l’adresse IP de celui-ci.  
-   ![topologie défectueuse : exemple de détails d’un chemin](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+   Dans l’image ci-dessous, vous pouvez voir clairement la cause première des aspects problématiques d’une section spécifique du réseau en examinant les chemins et les tronçons marqués de rouge. Un clic sur un nœud dans la carte topologique révèle les propriétés du nœud, dont son nom de domaine complet et son adresse IP. Un clic sur un tronçon affiche l’adresse IP de celui-ci.<br><br> ![topologie défectueuse : exemple de détails d’un chemin](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
@@ -315,4 +306,3 @@ Toutes les données présentées sous forme graphique via le tableau de bord de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
-

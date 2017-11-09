@@ -1,5 +1,5 @@
 ---
-title: Gestion des solutions de partenaire dans Azure Security Center | Microsoft Docs
+title: "Gestion des solutions de partenaire connectées dans Azure Security Center | Microsoft Docs"
 description: "Ce document vous explique comment le Centre de sécurité Azure vous permet de surveiller en un clin d’œil l’intégrité de vos solutions de partenaires intégrées à votre abonnement Azure."
 services: security-center
 documentationcenter: na
@@ -12,64 +12,61 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 10/16/2017
 ms.author: terrylan
+ms.openlocfilehash: 181e1e00716987732ee809df6171c2f71087f3e1
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2ebb930e877c5027f4d7b0a316a7f5ebe84471b1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="monitoring-partner-solutions-with-azure-security-center"></a>Surveillance des solutions de partenaire avec le Centre de sécurité Azure
-Ce document explique comment surveiller l’état d’intégrité de vos solutions de partenaire dans le Centre de sécurité Azure.
-
-> [!NOTE]
-> Ce document présente le service à l’aide d’un exemple de déploiement. Ce document n'est pas un guide pas à pas.
->
->
+# <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Gestion des solutions de partenaire connectées avec Azure Security Center
+Cet article explique comment gérer et surveiller des solutions de sécurité connectées dans Azure Security Center.
 
 ## <a name="monitoring-partner-solutions"></a>Surveillance des solutions de partenaire
-La mosaïque **Solutions de partenaire** du panneau **Security Center** vous permet de surveiller en un clin d’œil l’intégrité de vos solutions de partenaire intégrées à votre abonnement Azure.
+Pour surveiller l’état d’intégrité des solutions de sécurité connectées et effectuer des opérations de gestion de base :
 
-![Mosaïque Solutions de partenaire][1]
+1. Sous **Security Center - Vue d’ensemble**, sélectionnez **Solutions de sécurité**.
 
-La mosaïque **Solutions de partenaires** affiche le nombre de solutions de partenaires intégrées à votre abonnement. Si votre abonnement ne comporte aucune solution intégrée, la mosaïque indique zéro.
+  ![Sélectionner des solutions de sécurité][1]
 
-Pour afficher l’intégrité de vos solutions de partenaire :
+  La section **Solutions connectées** comprend des solutions de sécurité qui sont connectées à Security Center et des informations sur l’état d’intégrité de chaque solution.
 
-1. Sélectionnez la vignette **Solutions de partenaires** . Le panneau **Solutions de partenaires** vous présente la liste de vos solutions de partenaires connectées au Centre de sécurité.
-
-   ![Solutions de partenaires][3]
+  ![Solutions de partenaires][2]
 
    L’état d’une solution de partenaire peut être :
 
-   * Protégé (vert) : aucun problème d’intégrité.
+   * Sain (vert) : aucun problème d’intégrité.
    * Défectueux (rouge) : problème d’intégrité nécessitant une action immédiate.
-   * Arrêté (orange) : état d’intégrité non signalé par la solution.
-   * Inconnu (orange) : intégrité de la solution inconnue pour l’instant en raison d’un échec de l’ajout d’une nouvelle ressource à la solution existante.
-   * Non signalé (gris) : état non encore signalé par la solution (ce qui peut être le cas si celle-ci a été récemment connectée et est en cours de déploiement).
+   * Problèmes d’intégrité (orange) : état d’intégrité non signalé par la solution.
+   * Non signalé (gris) : état non encore signalé par la solution (ce qui peut être le cas si celle-ci a été récemment connectée et est en cours de déploiement), ou aucune donnée d’intégrité n’est disponible.
 
-2. Sélectionnez une solution de partenaire. Dans cet exemple, sélectionnons la solution **Qualys**.  Un panneau s'ouvre et affiche l'état de la solution partenaire et des ressources associées à cette solution. Sélectionnez **Console de solution** afin d’ouvrir l’expérience de gestion du partenaire pour cette solution.
+   > [!NOTE]
+   > Si les données sur l’état d’intégrité ne sont pas disponibles, Security Center affiche la date et l’heure du dernier événement reçu pour indiquer si la solution signale ou non des données. Si aucune donnée d’intégrité n’est disponible et qu’aucune alerte n’a été reçue au cours des 14 derniers jours, Security Center indique que la solution est défectueuse ou qu’elle ne signale pas de données.
+   >
+   >
 
-   ![Détail de la solution partenaire][4]
-3. Revenez au panneau **Qualys** et sélectionnez **Associer la machine virtuelle**. Le panneau **Associer les applications** s’ouvre. Il vous permet de connecter des ressources à la solution de partenaire.
+2. Sélectionnez **AFFICHAGE** pour obtenir des informations et des options supplémentaires, notamment :
 
-   ![Associer des ressources à la solution de partenaire][5]
+  - **Console de solution**. Ouvre l’expérience de gestion pour cette solution.
+  - **Associer la machine virtuelle**. Ouvre le panneau Associer les applications. Il vous permet de connecter des ressources à la solution de partenaire.
+  - **Supprimer la solution**.
+  - **Configurer**.
+
+   ![Détail de la solution partenaire][3]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce document vous a présenté la mosaïque **Solutions de partenaire** du Centre de sécurité. Pour plus d’informations sur Security Center, consultez les articles suivants :
+Dans cet article, vous avez appris à gérer et à surveiller des solutions de sécurité connectées dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-* [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
-* [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-* [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-* [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
+* [Vue d’ensemble des solutions de sécurité](security-center-partner-integration.md) : découvrez comment connecter et gérer les solutions de sécurité.
+* [Connexion de Microsoft Advanced Threat Analytics (ATA)](security-center-ata-integration.md) : découvrez comment connecter les alertes issues d’ATA.
+* [Connexion d’Azure Active Directory (AD) Identity Protection ](security-center-aadip-integration.md) : découvrez comment connecter les alertes issues d’Azure AD Identity Protection.
+* [Intégration de solutions de partenaires](security-center-partner-integration.md) : découvrez comment intégrer d’autres solutions de sécurité.
+* [Gestion et résolution des alertes de sécurité](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
+* [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
+* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
-[3]: ./media/security-center-partner-solutions/partner-solutions.png
-[4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
-[5]: ./media/security-center-partner-solutions/link-applications.png
-
+[2]: ./media/security-center-partner-solutions/partner-solutions.png
+[3]: ./media/security-center-partner-solutions/partner-solutions-detail.png

@@ -10,14 +10,12 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: ea281e9c83bb37f78c248c6c4011a7da60b45c01
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2017
 ---
-
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Créer un serveur Jenkins sur une machine virtuelle Linux Azure à partir du portail Azure
 
 Ce démarrage rapide montre comment installer [Jenkins](https://jenkins.io) sur une machine virtuelle Linux Ubuntu avec les outils et les plug-ins configurés pour fonctionner avec Azure. Lorsque vous avez terminé, vous disposez d’un serveur de Jenkins s’exécutant dans Azure qui génère un exemple d’application Java à partir de [Github](https://github.com).
@@ -43,7 +41,7 @@ Dans l’onglet **Configurer les paramètres de base**, renseignez les champs su
 * Entrez un **Nom d’utilisateur**. Le nom d’utilisateur doit répondre aux [exigences spécifiques](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
 * Sélectionnez **Mot de passe** comme **Type d’authentification** et entrez un mot de passe. Le mot de passe doit comprendre au moins une majuscule, un chiffre et un caractère spécial.
 * Utilisez **myJenkinsResourceGroup** pour le **Groupe de ressources**.
-* Choisissez **Est des États-Unis** comme [Région Azure](https://azure.microsoft.com/regions/) à partir de la liste déroulante **Emplacement**.
+* Choisissez **Est des États-Unis** comme [Région Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) à partir de la liste déroulante **Emplacement**.
 
 Sélectionnez **OK** pour accéder à l’onglet **Configurer des options supplémentaires**. Entrez un nom de domaine unique pour identifier le serveur Jenkins et sélectionnez **OK**.
 
@@ -113,4 +111,3 @@ Accédez à `complete/build/libs` et assurez-vous que le `gs-spring-boot-0.1.0.j
 
 > [!div class="nextstepaction"]
 > [Ajouter des machines virtuelles Azure en tant qu’agents Jenkins](jenkins-azure-vm-agents.md)
-

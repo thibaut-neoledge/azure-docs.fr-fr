@@ -15,12 +15,11 @@ ms.workload8: na
 ms.date: 08/07/2017
 ms.author: TomSh
 ms.custom: azlog
+ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: bc543cdf3d375076af5b5f17f8ca216dd5bf72b0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-log-integration-faq"></a>Forum aux questions sur l’intégration des journaux Azure
 Cet article contient les réponses à certaines questions fréquemment posées sur l’intégration des journaux Azure. 
@@ -133,4 +132,3 @@ Azure Network Watcher génère de grandes quantités d’informations de journal
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
-

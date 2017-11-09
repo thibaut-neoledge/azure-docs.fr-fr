@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 4d9e1564c3fcbdfd59edb0e24158df9954c26026
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 25b3ca9af2639860d9cfcb1492aef745fb47beb9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Utilisation de l’Assistant Publication d’application Azure dans Visual Studio
 Une fois que vous avez développé une application web dans Visual Studio, vous pouvez publier cette application dans un service cloud Azure à l’aide de l’Assistant **Publication d’application Azure**. 
@@ -59,7 +58,7 @@ Vous pouvez accéder à l’Assistant Publication d’application Azure de deux�
 
 ![Paramètres courants](./media/vs-azure-tools-publish-azure-application-wizard/settings-common-settings.png)
 
-**Service cloud** : dans la liste déroulante, sélectionnez un service cloud existant ou **&lt;Créer un nouveau>**, puis créez un service cloud. Le centre de données s’affiche entre parenthèses pour chaque service cloud. Il est recommandé que l’emplacement du centre de données du service cloud soit identique à celui du compte de stockage (Paramètres avancés).  
+**Service cloud** : dans la liste déroulante, sélectionnez un service cloud existant ou **&lt;Créer un nouveau&gt;**, puis créez un service cloud. Le centre de données s’affiche entre parenthèses pour chaque service cloud. Il est recommandé que l’emplacement du centre de données du service cloud soit identique à celui du compte de stockage (Paramètres avancés).  
 
 **Environnement** : sélectionnez **Production** ou **Intermédiaire**. Choisissez l’environnement intermédiaire si vous souhaitez déployer votre application dans un environnement de test. 
 
@@ -77,7 +76,7 @@ Vous pouvez accéder à l’Assistant Publication d’application Azure de deux�
 
 **Étiquette de déploiement** : acceptez le nom par défaut ou entrez le nom de votre choix. Pour ajouter la date à l'étiquette de déploiement, laissez la case cochée. 
    
-**Compte de stockage** : sélectionnez le compte de stockage que vous souhaitez utiliser pour ce déploiement, **&lt;Créer un nouveau> pour créer un compte de stockage. Le centre de données s’affiche entre parenthèses pour chaque compte de stockage. Il est recommandé que l’emplacement du centre de données du compte de stockage soit identique à celui du service cloud (Paramètres avancés).  
+**Compte de stockage** : sélectionnez le compte de stockage que vous souhaitez utiliser pour ce déploiement, **&lt;Créer un nouveau&gt; pour créer un compte de stockage. Le centre de données s’affiche entre parenthèses pour chaque compte de stockage. Il est recommandé que l’emplacement du centre de données du compte de stockage soit identique à celui du service cloud (Paramètres avancés).  
    
 Le compte de stockage Azure stocke le package pour le déploiement de l'application. Une fois l'application déployée, le package est supprimé du compte de stockage.
 

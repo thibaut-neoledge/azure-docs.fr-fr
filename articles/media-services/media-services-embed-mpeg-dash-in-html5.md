@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35ba9161f70a27a215685830d1a9e7c1881cc3bb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporation d'une vidéo de diffusion en continu adaptative MPEG-DASH dans une application HTML5 avec DASH.js
 ## <a name="overview"></a>Vue d'ensemble
@@ -106,5 +105,4 @@ Pour lire une vidéo, pointez votre navigateur sur le fichier basicPlayback.html
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js) 
-
 

@@ -1,3 +1,5 @@
+- name: Documentation Stockage Azure
+  href: index.yml
 - name: Vue d'ensemble
   items:
     - name: Introduction

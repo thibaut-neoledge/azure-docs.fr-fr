@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 1f1c453267ea17d749a251539f4232131dae53d3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 0c32ac27187a88dd13bb747f541968d2e81c5064
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -58,6 +57,10 @@ Exemple :
 | 3 | 51 | 1 serveur Active Directory Federation Services (AD FS), 1 proxy AD FS et 1 contrôleur de domaine |
 | 4 | 76 | 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
 | 5 | 101 | 1 serveur Azure AD Connect, 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
+
+**Q : Azure AD Connect Health prend-il en charge Azure Germany Cloud ?**
+
+Azure AD Connect Health propose une [installation](active-directory-aadconnect-health-agent-install.md) compatible avec Azure Germany. Toutes les données des clients du cloud allemand sont stockées dans Azure Germany Cloud.
 
 
 ## <a name="installation-questions"></a>Questions sur l’installation
@@ -186,4 +189,3 @@ CheckForMS17-010
 * [Utilisation d'Azure AD Connect Health pour la synchronisation (en Anglais)](active-directory-aadconnect-health-sync.md)
 * [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md)
 * [Historique des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

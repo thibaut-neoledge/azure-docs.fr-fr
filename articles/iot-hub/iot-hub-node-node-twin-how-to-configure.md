@@ -12,15 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 09/07/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: f8a6705879905d5cf419fc8c5c2322cb5536d244
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
-
-
+ms.openlocfilehash: 6ff6f1c331d5a77e7ac0a47af6806f5d90fb0fdc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-desired-properties-to-configure-devices-node"></a>Utilisation des propriétés souhaitées pour configurer des appareils (Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -37,7 +35,7 @@ ms.lasthandoff: 05/09/2017
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 0.10.x ou ultérieure.
+* Node.js version 4.0.x ou version ultérieure.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
 Si vous avez suivi le didacticiel [Prise en main des représentations d’appareil][lnk-twin-tutorial], vous avez déjà un IoT Hub et une identité d’appareil nommée **myDeviceId**. Vous pouvez passer à la section [Créer l’application pour appareil simulée][lnk-how-to-configure-createapp].
@@ -96,7 +94,7 @@ Dans cette section, vous créez une application console Node.js qui se connecte 
    
     L’objet **Client** expose toutes les méthodes requises pour interagir avec des représentations d’appareil à partir de l’appareil. Le code précédent, après avoir initialisé l’objet **Client**, récupère la représentation d’appareil de **myDeviceId**, puis attache un gestionnaire pour la mise à jour sur les propriétés souhaitées. Le gestionnaire vérifie l’existence d’une demande de modification de configuration réelle en comparant les configIds, puis appelle une méthode qui démarre la modification de configuration.
    
-    Notez que, par souci de simplicité, le code précédent utilise une valeur par défaut codées en dur pour la configuration initiale. Une application réelle chargerait probablement la configuration à partir d’un stockage local.
+    Notez que, par souci de simplicité, le code précédent utilise une valeur par défaut codée en dur pour la configuration initiale. Une application réelle chargerait probablement la configuration à partir d’un stockage local.
    
    > [!IMPORTANT]
    > Les événements de modification de propriété souhaitée étant toujours émis une seule fois lors de la connexion de l’appareil, assurez-vous de l’existence d’une modification réelle dans les propriétés souhaitées avant d’exécuter toute action.
@@ -170,7 +168,7 @@ Dans cette section, vous allez créer une application console Node.js qui met à
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. À l’aide d’un éditeur de texte, créez un fichier **SetDesiredAndQuery.js** dans le dossier **addtagsandqueryapp**.
+3. À l’aide d’un éditeur de texte, créez un fichier **SetDesiredAndQuery.js** dans le dossier **setdesiredandqueryapp**.
 4. Ajoutez le code suivant au fichier **SetDesiredAndQuery.js**, puis remplacez l’espace réservé **{iot hub connection string}** par la chaîne de connexion que vous avez copiée lors de la création de votre IoT Hub :
    
         'use strict';
@@ -277,4 +275,3 @@ Utilisez les ressources suivantes :
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 [lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
-

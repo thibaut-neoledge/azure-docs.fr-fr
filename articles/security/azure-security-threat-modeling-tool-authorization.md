@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/service | Article |
 | --------------- | ------- |
@@ -29,7 +27,7 @@ ms.lasthandoff: 08/23/2017
 | **Application web** | <ul><li>[Appliquer l’ordre d’étapes séquentiel pendant le traitement du flux de logique d’entreprise](#sequential-logic)</li><li>[Implémenter le mécanisme de limitation du débit pour empêcher une énumération](#rate-enumeration)</li><li>[Vérifier que l’autorisation appropriée est en place et que le principe de privilèges minimum est respecté](#principle-least-privilege)</li><li>[Les décisions de logique d’entreprise et d’autorisation d’accès aux ressources ne doivent pas être basées sur les paramètres de demande entrante](#logic-request-parameters)</li><li>[Vérifier que le contenu et les ressources ne sont pas énumérables ou accessibles via la navigation forcée](#enumerable-browsing)</li></ul> |
 | **Base de données** | <ul><li>[Vérifier que des comptes avec des privilèges minimum sont utilisés pour se connecter au serveur de base de données](#privileged-server)</li><li>[Implémenter la sécurité au niveau des lignes (RLS) pour empêcher les locataires d’accéder aux données des autres](#rls-tenants)</li><li>[Le rôle Administrateur système doit comporter uniquement des utilisateurs valides nécessaires](#sysadmin-users)</li></ul> |
 | **Passerelle de cloud IoT** | <ul><li>[Se connecter à la passerelle de cloud à l’aide de jetons avec des privilèges minimum](#cloud-least-privileged)</li></ul> |
-| **Hub d'événement d'Azure** | <ul><li>[Utiliser une clé SAP d’autorisations d’envoi seulement pour générer des jetons d’appareil](#sendonly-sas)</li><li>[Ne pas utiliser des jetons d’accès qui fournissent un accès direct au concentrateur d’événement](#access-tokens-hub)</li><li>[Se connecter au concentrateur d’événement à l’aide des clés SAP qui disposent des autorisations minimales requises](#sas-minimum-permissions)</li></ul> |
+| **Azure Event Hub** | <ul><li>[Utiliser une clé SAP d’autorisations d’envoi seulement pour générer des jetons d’appareil](#sendonly-sas)</li><li>[Ne pas utiliser des jetons d’accès qui fournissent un accès direct au concentrateur d’événement](#access-tokens-hub)</li><li>[Se connecter au concentrateur d’événement à l’aide des clés SAP qui disposent des autorisations minimales requises](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[Utiliser autant que possible des jetons de ressource pour se connecter à DocumentDB](#resource-docdb)</li></ul> |
 | **Délimitation d’approbation Azure** | <ul><li>[Activer la gestion des accès précis à un abonnement Azure à l’aide de RBAC](#grained-rbac)</li></ul> |
 | **Délimitation d’approbation Service Fabric** | <ul><li>[Restreindre l’accès client aux opérations de cluster à l’aide de RBAC](#cluster-rbac)</li></ul> |
@@ -462,4 +460,3 @@ public class CustomController : ApiController
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
 | **Étapes** | La passerelle de champ doit autoriser l’appelant afin de vérifier si l’appelant dispose des autorisations nécessaires pour exécuter l’action demandée. Par exemple, les autorisations pour une interface/API d’utilisateur administrateur doivent être différentes de celles utilisées pour configurer une passerelle de champ par rapport aux appareils qui s’y connectent.|
-

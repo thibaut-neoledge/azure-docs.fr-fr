@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Intégrer des répertoires locaux à Azure Active Directory
 Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD. Cette rubrique vous guide dans les étapes de planification, de déploiement et opérationnelles. Elle comporte un ensemble de liens vers les rubriques associées à cette zone.
@@ -89,7 +88,7 @@ Azure AD Connect est doté de plusieurs fonctionnalités que vous pouvez activer
 
 [synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) synchronise le hachage de mot de passe dans Active Directory sur Azure AD. Cela permet à l’utilisateur final d’utiliser le même mot de passe en local et dans le cloud, mais uniquement de le gérer dans un seul emplacement. Dans la mesure où cela utilise votre Active Directory local en tant qu’autorité, vous pourrez également utiliser votre propre stratégie de mot de passe.
 
-[Réécriture du mot de passe](../active-directory-passwords-getting-started.md) permettra à vos utilisateurs de modifier et de réinitialiser leurs mots de passe dans le cloud et d’appliquer votre stratégie de mot de passe locale.
+[écriture différée du mot de passe](../active-directory-passwords-getting-started.md) permettra à vos utilisateurs de modifier et de réinitialiser leurs mots de passe dans le cloud et d’appliquer votre stratégie de mot de passe locale.
 
 [L’écriture différée d’appareils](active-directory-aadconnect-feature-device-writeback.md) autorise un appareil inscrit dans Azure AD à bénéficier de l’écriture différée dans Active Directory en local afin de pouvoir être utilisé pour l’accès conditionnel.
 
@@ -102,7 +101,7 @@ La [mise à niveau automatique](active-directory-aadconnect-feature-automatic-up
 | --- | --- |
 |Configurer le filtrage | [Azure AD Connect Sync : Configurer le filtrage](active-directory-aadconnectsync-configure-filtering.md)|
 |synchronisation de mot de passe | [Azure AD Connect Sync : implémenter la synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md)|
-|Réécriture du mot de passe | [Prise en main de la gestion de mot de passe](../active-directory-passwords-getting-started.md)|
+|écriture différée du mot de passe | [Prise en main de la gestion de mot de passe](../active-directory-passwords-getting-started.md)|
 |L’écriture différée d’appareils | [Activation de l’écriture différée des appareils dans Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |prévention des suppressions accidentelles | [Azure AD Connect Sync : Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Mise à jour automatique | [Azure AD Connect : Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md)|
@@ -127,6 +126,15 @@ Le modèle de configuration dans la synchronisation est appelé [Approvisionneme
 |Modifier la configuration par défaut | [Meilleures pratiques pour la modification de la configuration par défaut](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Configuration de fonctionnalités de fédération
+
+Azure AD Connect fournit plusieurs fonctionnalités qui simplifient la fédération avec Azure AD à l’aide d’AD FS, ainsi que la gestion de l’approbation de fédération. Azure AD Connect prends en charge AD FS sur Windows Server 2012R2 et les versions ultérieures.
+
+[Mettez à jour le certificat SSL de la batterie de serveurs AD FS](active-directory-aadconnectfed-ssl-update.md), même si vous n’utilisez pas Azure AD Connect pour gérer l’approbation de votre fédération.
+
+[Ajoutez un serveur AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) à votre batterie de serveurs pour l’étendre selon vos besoins.
+
+[Réparez l’approbation](active-directory-aadconnect-federation-management.md#repairthetrust) avec Azure AD en quelques clics.
+
 ADFS peut être configuré de manière à prendre en charge [plusieurs domaines](active-directory-aadconnect-multiple-domains.md). Par exemple, vous pouvez avoir plusieurs domaines principaux que vous devez utiliser pour la fédération.
 
 Si votre serveur ADFS n’a pas été configuré pour mettre à jour automatiquement les certificats Azure AD ou si vous utilisez une solution non ADFS, vous recevrez une notification lorsque vous devrez [mettre à jour des certificats](active-directory-aadconnect-o365-certs.md).
@@ -157,5 +165,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
 

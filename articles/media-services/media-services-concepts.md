@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
+ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: ed3417f69bb13043db0affc9249f3ff5e49d7c79
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-concepts"></a>Concepts Azure Media Services
 Cette rubrique fournit une vue d'ensemble des concepts les plus importants liés à Media Services.
@@ -154,7 +153,7 @@ Lorsque vous configurez la stratégie de restriction par jeton, vous devez défi
 Pour plus d’informations, consultez les articles suivants :
 
 [Vue d’ensemble de la protection du contenu](media-services-content-protection-overview.md)
- [Protéger avec AES-128](media-services-protect-with-aes128.md)
+[Protéger avec AES-128](media-services-protect-with-aes128.md)
 [ Protéger par DRM](media-services-protect-with-drm.md)
 
 ## <a name="delivering"></a>Remise
@@ -231,5 +230,4 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

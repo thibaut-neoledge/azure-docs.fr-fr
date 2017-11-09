@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
 ms.openlocfilehash: 55e1cd90df0e4413ce027361c636257d823a50d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>Configuration requise logicielle, de haute disponibilité et de réseau StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -122,13 +121,13 @@ Les algorithmes de routage sont différents selon la version logicielle s’exé
 
 Cela comprend les versions logicielles antérieures à Update 1 telles que la version mise à la disponibilité générale, 0.1, 0.2 ou 0.3. L'ordre basé sur les métriques de routage est le suivant :
 
-   *Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet*
+   *Dernière configuration interface réseau 10 GbE &gt; Autre interface réseau 10 GbE &gt; Dernière configuration interface réseau 1 Gigabit Ethernet &gt; Autre interface réseau 1 Gigabit Ethernet*
 
 **Versions comprises entre Update 1 et Update 2**
 
 Cela comprend les versions logicielles telles que 1, 1.1 ou 1.2. L'ordre basé sur les métriques de routage est défini comme suit :
 
-   *DATA 0 > Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet*
+   *DATA 0 &gt; Dernière configuration interface réseau 10 GbE &gt; Autre interface réseau 10 GbE &gt; Dernière configuration interface réseau 1 Gigabit Ethernet &gt; Autre interface réseau 1 Gigabit Ethernet*
 
    Dans Update 1, le métrique de routage de DATA 0 est effectué au plus bas ; par conséquent, tout le trafic cloud est acheminé via DATA 0. Prenez-en note au cas où il existerait plusieurs interfaces réseau compatibles cloud sur votre appareil StorSimple.
 
@@ -151,13 +150,13 @@ Update 2 présente plusieurs améliorations en matière de réseau et les métr
 
 * L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :
   
-    *Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
+    *Data 0 &gt; Data 1 &gt; Date 2 &gt; Data 3 &gt; Data 4 &gt; Data 5*
   
     Cela peut s’expliquer par l’exemple suivant.
   
     Prenez l’exemple d’un appareil StorSimple avec deux interfaces réseau activées pour le cloud, Data 0 et Data 5. Data 1 à Data 4 sont désactivées pour le cloud mais disposent d’une passerelle configurée. L’ordre dans lequel le trafic sera acheminé pour cet appareil est le suivant :
   
-    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+    *Data 0 (1) &gt; Data 5 (6) &gt; Data 1 (20) &gt; Data 2 (30) &gt; Data 3 (40) &gt; Data 4 (50)*
   
     *où les nombres entre parenthèses indiquent les métriques de routage respectives.*
   
@@ -251,4 +250,3 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

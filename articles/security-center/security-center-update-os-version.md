@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ce0d178914907750e5da59f223a4b1e04b9bb6fb
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Mettre à jour la version du système d’exploitation dans Azure Security Center
 Pour les machines virtuelles des services cloud, Azure Security Center recommande que le système d’exploitation soit mis à jour si une version plus récente est disponible.  Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés.
@@ -52,9 +52,3 @@ Pour plus d’informations sur Security Center, consultez :
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

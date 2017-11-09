@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 614e4de3335574f4b56c7d641af4fcfafdb17d12
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Didacticiel : Intégration d’Azure Active Directory à TINFOIL SECURITY
 
@@ -273,5 +272,4 @@ Lorsque vous cliquez sur la vignette TINFOIL SECURITY dans le volet d’accès, 
 [201]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_203.png
-
 

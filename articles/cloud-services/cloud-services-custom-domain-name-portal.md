@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
+ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: cf43d86dddc3a68573e1ba1b09118c54f0b16bc5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 > [!div class="op_single_selector"]
@@ -35,7 +34,7 @@ Toutefois, vous pouvez également exposer votre application sur votre propre nom
 Vous avez compris ce que sont les enregistrements CNAME et A ? [Passez l’explication](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Les procédures décrites dans cette tâche s’appliquent aux services cloud Azure. Pour App Services, consultez [cette page](../app-service-web/web-sites-custom-domain-name.md). Pour les comptes de stockage, consultez [cette page](../storage/blobs/storage-custom-domain-name.md).
+> Les procédures décrites dans cette tâche s’appliquent aux services cloud Azure. Pour App Services, consultez [cette page](../app-service/app-service-web-tutorial-custom-domain.md). Pour les comptes de stockage, consultez [cette page](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 
@@ -154,4 +153,3 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 [portail Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-

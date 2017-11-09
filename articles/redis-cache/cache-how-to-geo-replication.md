@@ -12,15 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 09/15/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 71b0d4add7e642487f6d67cda692c500ee78b0e6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: 332326ce4188385aa6e569c812e16c3daa68bd5d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Comment configurer la géoréplication pour Cache Redis Azure
 
@@ -103,6 +101,9 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 - [Puis-je lier deux caches de tailles différentes ?](#can-i-link-two-caches-with-different-sizes)
 - [Puis-je utiliser la géoréplication quand le clustering est activé ?](#can-i-use-geo-replication-with-clustering-enabled)
 - [Puis-je utiliser la géoréplication avec mes caches dans un réseau virtuel ?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [Quelle est la planification de réplication pour la géoréplication Redis ?](#what-is-the-replication-schedule-for-redis-geo-replication)
+- [Quelle est la durée de réplication pour la géoréplication ?](#how-long-does-geo-replication-replication-take)
+- [Y a-t-il un point de récupération de la réplication garanti ?](#is-the-replication-recovery-point-guaranteed)
 - [Puis-je utiliser PowerShell ou Azure CLI pour gérer la géoréplication ?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [Combien coûte la réplication de mes données entre des régions Azure ?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - [Pourquoi ma tentative de suppression de mon cache lié a-t-elle échoué ?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
@@ -141,6 +142,18 @@ Oui, la géoréplication de caches dans des réseaux virtuels est prise en charg
 - La géoréplication entre caches figurant dans un même réseau virtuel est prise en charge.
 - La géoréplication entre caches figurant dans des réseaux virtuels différents est également prise en charge pour autant que les deux réseaux soient configurés de telle sorte que leurs ressources soient en mesure de s’atteindre mutuellement via des connexions TCP.
 
+### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Quelle est la planification de réplication pour la géoréplication Redis ?
+
+La réplication n’est pas effectuée selon une planification établie. Elle s’effectue en continu et de manière asynchrone, c’est-à-dire que toutes les écritures dans le cache principal sont instantanément répliquées de façon asynchrone dans le cache secondaire.
+
+### <a name="how-long-does-geo-replication-replication-take"></a>Quelle est la durée de réplication pour la géoréplication ?
+
+La réplication s’effectue en continu de manière incrémentielle et asynchrone. Sa durée est généralement proche de la latence entre les régions. Dans certaines circonstances, le cache secondaire a parfois besoin d’effectuer une synchronisation complète des données à partir du cache principal. Dans ce cas, la durée de la réplication dépend de plusieurs facteurs tels que la charge du cache principal, la bande passante disponible sur la machine du cache, la latence entre les régions, etc. Par exemple, d’après certains tests réalisés, la durée de réplication d’une paire géorépliquée complète de 53 Go entre les régions de l’Est et de l’Ouest des États-Unis se situe entre 5 et 10 minutes.
+
+### <a name="is-the-replication-recovery-point-guaranteed"></a>Y a-t-il un point de récupération de la réplication garanti ?
+
+Actuellement, pour les caches en mode géorépliqué, la fonctionnalité de persistance et d’importation/exportation est désactivée. Si un basculement a été lancé par un client ou si un lien de réplication a été rompu entre la paire géorépliquée, le serveur secondaire conserve les données en mémoire qu’il a synchronisées à partir du cache principal jusqu’à ce point dans le temps. Il n’y a pas de point de récupération garanti dans ces situations.
+
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Puis-je utiliser PowerShell ou Azure CLI pour gérer la géoréplication ?
 
 Actuellement, vous pouvez gérer la géoréplication uniquement par le biais du portail Azure.
@@ -167,5 +180,4 @@ Actuellement, pour lancer le basculement, vous devez supprimer le lien de géor�
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur le [Niveau Premium de Cache Redis Azure](cache-premium-tier-intro.md).
-
 

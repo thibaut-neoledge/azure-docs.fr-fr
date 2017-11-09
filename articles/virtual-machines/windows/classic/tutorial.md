@@ -1,6 +1,6 @@
 ---
 title: "Créer une machine virtuelle sur le Portail Azure | Microsoft Docs"
-description: "Création d&quot;une machine virtuelle Windows dans le portail Azure."
+description: "Création d'une machine virtuelle Windows dans le portail Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Créer une machine virtuelle exécutant Windows dans le portail Azure
 > [!div class="op_single_selector"]
@@ -43,11 +41,10 @@ Vous pouvez également créer des machines virtuelles en utilisant [vos propres 
 
 <!-- 02/27/2017 Video removed as it was based on the classic portal. -->
 
-## <a id="createvirtualmachine"> </a>Créer la machine virtuelle
+## <a id="createvirtualmachine"></a>Créer la machine virtuelle
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [créer une machine virtuelle à l’aide du modèle de déploiement Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sur le Portail Azure.
 * Connectez-vous à votre machine virtuelle. Pour obtenir des instructions, consultez [Connexion à une machine virtuelle exécutant Windows Server](connect-logon.md).
 * Attacher un disque pour stocker des données. Vous pouvez attacher des disques, qu'ils soient vides ou non. Pour obtenir des instructions, consultez la page [Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement Classic](attach-disk.md).
-

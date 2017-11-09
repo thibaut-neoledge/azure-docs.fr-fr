@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: juliako
+ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Développement de fonctions Azure Functions avec Media Services
 
@@ -32,10 +31,6 @@ Si vous souhaitez explorer et déployer des fonctions Azure existantes qui utili
 - Pour créer votre première fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 - Si vous souhaitez créer des fonctions Azure Functions qui effectuent des actions sur votre compte Azure Media Services (AMS) ou qui écoutent des événements envoyés par Media Services, vous devez créer un compte AMS, comme décrit [ici](media-services-portal-create-account.md).
     
-## <a name="considerations"></a>Considérations
-
--  Azure Functions s’exécutant sur le plan Consommation a une limite de délai d’expiration de 5 minutes.
-
 ## <a name="create-a-function-app"></a>Créer une Function App
 
 1. Accédez au [Portail Azure](http://portal.azure.com) et connectez-vous avec votre compte Azure.
@@ -47,10 +42,6 @@ Si vous souhaitez explorer et déployer des fonctions Azure existantes qui utili
 ## <a name="configure-function-app-settings"></a>Configuration des paramètres Function App
 
 Lorsque vous développez des fonctions Media Services, il est utile d’ajouter des variables d’environnement qui seront utilisées dans toutes vos fonctions. Pour configurer les paramètres d’application, cliquez sur le lien Configurer les paramètres de l’application. Pour en savoir plus, consultez [Configuration des paramètres d’application Azure Function](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
-
-Par exemple :
-
-![Paramètres](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
 La fonction, définie dans cet article, suppose que les variables d’environnement suivantes se trouvent dans vos paramètres d’application :
 
@@ -345,6 +336,9 @@ Pour tester votre fonction, vous devez charger un fichier MP4 dans le conteneur 
 3. Cliquez sur **+ conteneur**. Nommez le conteneur **input**.
 4. Appuyez sur **Charger**, puis accédez au fichier .mp4 que vous souhaitez charger.
 
+>[!NOTE]
+> Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob après qu’une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les objets blob sont traités immédiatement. Pour plus d’informations, consultez [Déclencheurs et liaisons de stockage blob](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 À ce stade, vous êtes prêt à commencer le développement d’une application Media Services. 
@@ -355,5 +349,4 @@ Consultez également [Utiliser Azure WebHooks pour surveiller les notifications 
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

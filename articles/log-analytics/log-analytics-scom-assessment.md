@@ -1,6 +1,6 @@
 ---
 title: Optimisation de votre environnement System Center Operations Manager avec Azure Log Analytics | Microsoft Docs
-description: "La solution System Center Operations Manager Assessment permet d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers."
+description: "La solution System Center Operations Manager Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,22 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
-ms.author: banders
+ms.date: 10/27/2017
+ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
-ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/27/2017
 ---
+# <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Health Check (préversion)
 
-# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Assessment (version préliminaire)
+![Symbole de System Center Operations Manager Health Check](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
-![Symbole de System Center Operations Manager Assessment](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
-
-La solution System Center Operations Manager Assessment permet d’évaluer les risques et l’intégrité de vos environnements de serveurs System Center Operations Manager à intervalles réguliers. Cet article vous aide à installer, à configurer et à utiliser la solution pour vous permettre de prendre les mesures correctives en vue de régler des problèmes potentiels.
+La solution System Center Operations Manager Health Check permet d’évaluer les risques et l’intégrité de votre groupe de gestion System Center Operations Manager à intervalles réguliers. Cet article vous aide à installer, à configurer et à utiliser la solution pour vous permettre de prendre les mesures correctives en vue de régler des problèmes potentiels.
 
 Cette solution fournit une liste hiérarchisée de recommandations propres à votre infrastructure de serveurs déployée. Les recommandations sont classées en quatre domaines pour vous aider à rapidement mesurer les risques et prendre les mesures correctives appropriées.
 
@@ -35,69 +33,77 @@ Les recommandations proposées sont basées sur les connaissances et l'expérien
 
 Vous pouvez choisir les domaines les plus importants pour votre organisation et suivre votre progression vers un environnement sans risque et intègre.
 
-Une fois la solution ajoutée et l’évaluation terminée, le résumé des informations de domaines s’affiche sur le tableau de bord **System Center Operations Manager Assessment** de votre infrastructure. Les sections suivantes expliquent comment utiliser les informations du tableau de bord **System Center Operations Manager Assessment**, dans lequel vous pouvez afficher et exécuter les actions recommandées pour votre infrastructure SCOM.
+Une fois la solution ajoutée et l’évaluation effectuée, le résumé des informations de domaines s’affiche sur le tableau de bord **System Center Operations Manager Health Check** de votre infrastructure. Les sections suivantes expliquent comment utiliser les informations du tableau de bord **System Center Operations Manager Health Check**, dans lequel vous pouvez afficher et exécuter les actions recommandées pour votre environnement Operations Manager.
 
-![Mosaïque de la solution System Center Operations Manager](./media/log-analytics-scom-assessment/scom-tile.png)
+![Mosaïque de la solution System Center Operations Manager](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-tile.png)
 
-![Tableau de bord System Center Operations Manager Assessment](./media/log-analytics-scom-assessment/scom-dashboard01.png)
+![Tableau de bord System Center Operations Manager Health Check](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png)
 
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
 
-La solution fonctionne avec Microsoft System Operations Manager 2012 R2 et 2012 SP1.
+La solution fonctionne avec Microsoft System Operations Manager 2012 Service Pack (SP) 1 et 2012 R2.
 
 Utilisez les informations suivantes pour installer et configurer la solution.
 
- - Avant de pouvoir utiliser une solution d’évaluation dans OMS, vous devez avoir installé cette solution. Installez la solution depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
+ - Avant de pouvoir utiliser une solution Health Check dans Log Analytics, vous devez avoir installé cette solution. Installez la solution depuis [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - Après avoir ajouté la solution à l’espace de travail, la mosaïque System Center Operations Manager Assessment sur le tableau de bord affiche un message de configuration supplémentaire requis. Cliquez sur la mosaïque et suivez les étapes de configuration mentionnées dans la page
+ - Après avoir ajouté la solution à l’espace de travail, la mosaïque **System Center Operations Manager Health Check** sur le tableau de bord affiche un message de configuration supplémentaire requis. Cliquez sur la mosaïque et suivez les étapes de configuration mentionnées dans la page
 
  ![Mosaïque du tableau de bord System Center Operations Manager](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
 
- La configuration de System Center Operations Manager peut être effectuée via le script en suivant les étapes présentées dans la page de configuration de la solution dans OMS.
+> [!NOTE]
+> La configuration de System Center Operations Manager peut être effectuée via un script en suivant les étapes présentées dans la page de configuration de la solution dans Log Analytics.
 
- À la place, pour configurer l’évaluation via la console SCOM, suivez les étapes dans l’ordre ci-dessous
-1. [Définir le compte d’identification pour l’évaluation de System Center Operations Manager](#operations-manager-run-as-accounts-for-oms)  
-2. [Configurer la règle d’évaluation de System Center Operations Manager Assessment](#configure-the-assessment-rule)
+ Pour configurer l’évaluation via la console Operations Manager, effectuez les étapes ci-dessous dans l’ordre suivant :
+1. [Définir le compte d’identification pour System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
+2. [Configurer la règle System Center Operations Manager Health Check](#configure-the-assessment-rule)
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Détails de l’évaluation de la collecte de données System Center Operations Manager
 
-System Center Operations Manager Assessment collecte des données WMI, des données de registre, des données EventLog, des données Operations Manager via Windows PowerShell, les Requêtes SQL, le Collecteur d’informations sur le fichier à l’aide du serveur que vous avez activé.
+L’évaluation de System Center Operations Manager collecte des données à partir des sources suivantes : 
 
-Le tableau suivant présente les méthodes de collecte de données pour System Center Operations Manager Assessment, et précise la fréquence à laquelle les données sont collectées par un agent.
+* Registre
+* Windows Management Instrumentation (WMI)
+* Journal des événements
+* Données de fichier
+* Directement à partir d’Operations Manager à l’aide de PowerShell et de requêtes SQL, à partir d’un serveur d’administration que vous avez spécifié.  
 
-| plateforme | Agent direct | Agent SCOM | Stockage Azure | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows | | | | &#8226; | | sept jours |
+Les données sont collectées sur le serveur d’administration et transmises à Log Analytics tous les sept jours.  
 
-## <a name="operations-manager-run-as-accounts-for-oms"></a>Comptes d’identification Operations Manager pour OMS
+## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Comptes d’identification Operations Manager pour Log Analytics
 
-OMS utilise les packs d’administration pour les charges de travail afin de fournir des services à valeur ajoutée. Chaque charge de travail nécessite des privilèges spécifiques à la charge de travail pour exécuter les packs d’administration dans un contexte de sécurité différent, comme un compte de domaine. Configurez un compte d’identification Operations Manager pour fournir les informations d’identification.
+Log Analytics utilise les packs d’administration pour les charges de travail afin de fournir des services à valeur ajoutée. Chaque charge de travail nécessite des privilèges spécifiques de la charge de travail pour exécuter les packs d’administration dans un contexte de sécurité différent, comme un compte d’utilisateur de domaine. Configurez un compte d’identification Operations Manager avec élévation des informations d’identification. Pour plus d’informations, consultez [Guide pratique pour créer un compte d’identification](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) dans la documentation Operations Manager. 
 
-Utilisez les informations suivantes pour définir le compte d'identification Operations Manager pour System Center Operations Manager Assessment.
+Utilisez les informations suivantes pour définir le compte d'identification Operations Manager pour System Center Operations Manager Health Check.
 
 ### <a name="set-the-run-as-account"></a>Configuration du compte d’identification
 
-1. Dans la console Operations Manager, accédez à l’onglet **Administration**.
+Le compte d’identification doit respecter les conditions suivantes avant de continuer :
+
+* Un compte d’utilisateur de domaine qui est membre du groupe Administrateurs locaux sur tous les serveurs prenant en charge n’importe quel rôle Operations Manager : serveur d’administration, SQL Server qui héberge les opérations, entrepôt de données et base de données ACS, création de rapports, console Web et serveur de passerelle.
+* Rôle Administrateur Operations Manager pour le groupe de gestion en cours d’évaluation
+* Si le compte ne dispose pas de droits d’administrateur système SQL, exécutez le [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) pour accorder des autorisations granulaires au compte sur chaque instance SQL Server qui héberge une ou toutes les bases de données Operations Manager. 
+
+1. Dans la console Operations Manager, sélectionnez le bouton de navigation **Administration**.
 2. Sous **Configuration d’identification**, cliquez sur **Comptes**.
-3. Créez le compte d’identification, en suivant les étapes de l’Assistant et en créant un compte Windows. Le compte à utiliser est celui identifié et qui dispose de toutes les conditions requises ci-dessous :
+3. Dans l’Assistant **Créer un compte d’identification**, sur la page **Introduction**, cliquez sur **suivant**.
+4. Sur la page **Propriétés générales**, sélectionnez **Windows** dans la liste **Type de compte d’identification :** .
+5. Entrez un nom d’affichage dans la zone de texte **Nom d’affichage**, saisissez éventuellement une description dans la zone **Description**, puis cliquez sur **Suivant**. 
+6. Sur la page **Sécurité de la distribution**, sélectionnez **Plus sécurisé**.
+7. Cliquez sur **Créer**.  
 
-    >[!NOTE]
-    Le compte d’identification doit respecter les conditions suivantes :
-    - Un compte de domaine membre du groupe Administrateurs local sur tous les serveurs dans l’environnement (tous les rôles Operations Manager - Serveur de gestion, Base de données OpsMgr, Entrepôt de données, Création de rapports, Console Web, Passerelle)
-    - Rôle Administrateur Operations Manager pour le groupe de gestion en cours d’évaluation
-    - Exécutez le [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) pour accorder les autorisations granulaires au compte sur l’instance SQL utilisée par Operations Manager.
-      Remarque : si ce compte dispose déjà des droits d’administrateur système, vous pouvez ignorer l’exécution du script.
+Maintenant que le compte d’identification est créé, il doit cibler les serveurs d’administration dans le groupe d’administration et être associé à un profil d’identification prédéfini afin que les flux de travail s’exécutent à l’aide des informations d’identification.  
 
-4. Sous **Sécurité de la distribution**, sélectionnez **Plus sécurisé**.
-5. Spécifiez le serveur de gestion sur lequel le compte est distribué.
-3. Revenez à la Configuration d’identification et cliquez sur **Profils**.
+1. Sous **Configuration d’identification**, **Comptes**, dans le volet des résultats, double-cliquez sur le compte que vous avez créé précédemment.
+2. Dans l’onglet **Distribution**, cliquez sur **Ajouter** pour **Ordinateurs sélectionnés** et ajoutez le serveur d’administration auquel distribuer le compte.  Cliquez deux fois sur **OK** pour enregistrer vos modifications.
+3. Sous **Configuration d’identification**, cliquez sur **Profils**. 
 4. Recherchez *Profil d’évaluation SCOM*.
 5. Le nom du profil doit être : *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
-6. Avec le bouton droit, mettez à jour ses propriétés et ajoutez le nouveau compte d’identification créé à l’étape 3.
+6. Avec le bouton droit, mettez à jour ses propriétés et ajoutez le nouveau compte d’identification créé précédemment.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL octroyant des autorisations granulaires au compte d’identification
 
-Exécutez le script SQL suivant pour accorder les autorisations requises au compte d’identification sur l’instance SQL utilisée par Operations Manager.
+Exécutez le script SQL suivant pour accorder les autorisations requises au compte d’identification sur l’instance SQL Server utilisée par Operations Manager qui héberge les opérations, l’entrepôt de données et la base de données ACS.
 
 ```
 -- Replace <UserName> with the actual user name being used as Run As Account.
@@ -145,34 +151,32 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ```
 
+### <a name="configure-the-health-check-rule"></a>Configurer la règle de contrôle d’intégrité
 
-### <a name="configure-the-assessment-rule"></a>Configuration de la règle d’évaluation
+Le pack de gestion de la solution System Center Operations Manager Health Check inclut une règle nommée *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*. Cette règle est responsable de l’exécution du contrôle d’intégrité. Pour activer la règle et configurer la fréquence, utilisez les procédures ci-dessous.
 
-Le pack de gestion de la solution System Center Operations Manager Assessment inclut une règle nommée *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*. Cette règle est responsable de l’exécution de l’évaluation. Pour activer la règle et configurer la fréquence, utilisez les procédures ci-dessous.
-
-Par défaut, Microsoft System Center Advisor SCOM Assessment Run Assessment Rule est désactivée. Pour exécuter l’évaluation, vous devez activer la règle sur un serveur de gestion. Utilisez les étapes suivantes.
+Par défaut, Microsoft System Center Advisor SCOM Assessment Run Assessment Rule est désactivée. Pour exécuter le contrôle d’intégrité, vous devez activer la règle sur un serveur de gestion. Utilisez les étapes suivantes.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Activation de la règle pour un serveur de gestion spécifique
 
 1. Dans l’espace de travail **Création** de la console Operations Manager, recherchez la règle *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* dans le panneau **Règles**.
 2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : serveur de gestion*.
 3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Substitutions** > **Pour un objet spécifique de la classe : serveur de gestion**.
-4.  Dans la liste de serveurs de gestion disponibles, sélectionnez le serveur de gestion où la règle doit être exécutée.
-5.  Veillez à modifier la valeur de substitution sur **True** pour la valeur du paramètre **Activé**.  
-    ![paramètre de substitution](./media/log-analytics-scom-assessment/rule.png)
+4.  Dans la liste de serveurs de gestion disponibles, sélectionnez le serveur de gestion où la règle doit être exécutée.  Il doit s’agir du même serveur d’administration que vous avez configuré précédemment pour y associer le compte d’identification.
+5.  Veillez à modifier la valeur de substitution sur **True** pour la valeur du paramètre **Activé**.<br><br> ![paramètre de substitution](./media/log-analytics-scom-assessment/rule.png)
 
-Toujours dans cette fenêtre, configurez la fréquence de l’exécution à l’aide de la procédure suivante.
+    Toujours dans cette fenêtre, configurez la fréquence de l’exécution à l’aide de la procédure suivante.
 
 #### <a name="configure-the-run-frequency"></a>Configuration de la fréquence d’exécution
 
-L’évaluation est configurée pour s’exécuter toutes les 10 080 minutes (ou sept jours), l’intervalle par défaut. Vous pouvez substituer la valeur par la valeur minimale de 1 440 minutes (ou un jour). La valeur représente l’intervalle de temps minimal requis entre les exécutions d’évaluation successives. Pour substituer l’intervalle, utilisez les étapes ci-dessous.
+L’évaluation est configurée pour s’exécuter toutes les 10 080 minutes (ou sept jours) par défaut. Vous pouvez substituer la valeur par la valeur minimale de 1 440 minutes (ou un jour). La valeur représente l’intervalle de temps minimal requis entre les exécutions d’évaluation successives. Pour substituer l’intervalle, utilisez les étapes ci-dessous.
 
-1. Dans l’espace de travail **Création** de la console Operations Manager, recherchez la règle *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* dans le panneau **Règles**.
+1. Dans l’espace de travail **Création** de la console Operations Manager, recherchez la règle *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* dans la section **Règles**.
 2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : serveur de gestion*.
 3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Remplacer la règle** > **Pour tous les objets de la classe : serveur de gestion**.
-4. Modifiez la valeur du paramètre **Intervalle** sur la valeur de l’intervalle souhaité. Dans l’exemple ci-dessous, la valeur est définie sur 1 440 minutes (1 jour).  
-    ![paramètre d’intervalle](./media/log-analytics-scom-assessment/interval.png)  
-    Si la valeur est inférieure à 1 440 minutes, la règle s’exécute selon un intervalle d’une journée. Dans cet exemple, la règle ignore la valeur de l’intervalle et s’exécute à la fréquence d’un jour.
+4. Modifiez la valeur du paramètre **Intervalle** sur la valeur de l’intervalle souhaité. Dans l’exemple ci-dessous, la valeur est définie sur 1 440 minutes (1 jour).<br><br> ![paramètre d’intervalle](./media/log-analytics-scom-assessment/interval.png)<br>  
+
+    Si la valeur est inférieure à 1440 minutes, la règle s’exécute selon un intervalle d’une journée. Dans cet exemple, la règle ignore la valeur de l’intervalle et s’exécute à la fréquence d’un jour.
 
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Hiérarchisation des recommandations
@@ -205,84 +209,94 @@ Pas nécessairement. Les recommandations sont basées sur les connaissances et l
 
 Chaque recommandation inclut une justification de son importance. Utilisez cette explication pour évaluer si la mise en œuvre de la recommandation est importante pour vous, en fonction de la nature de vos services informatiques et des besoins de votre organisation.
 
-## <a name="use-assessment-focus-area-recommendations"></a>Utilisation des recommandations des domaines d'évaluation
+## <a name="use-health-check-focus-area-recommendations"></a>Utilisation des recommandations des domaines Health Check
 
-Avant de pouvoir utiliser une solution d’évaluation dans OMS, vous devez avoir installé cette solution. Pour plus d’informations sur l’installation des solutions, consultez la rubrique [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md). Une fois le pack installé, vous pouvez afficher un résumé des recommandations à l’aide de la mosaïque System Center Operations Manager Assessment de la page Vue d’ensemble dans OMS.
+Avant de pouvoir utiliser une solution de contrôle d’intégrité dans Log Analytics, vous devez avoir installé cette solution. Pour plus d’informations sur l’installation des solutions, consultez la rubrique [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md). Une fois le pack installé, vous pouvez afficher un résumé des recommandations à l’aide de la mosaïque System Center Operations Manager Health Check de la page Vue d’ensemble dans le portail OMS.
 
 Consultez le résumé des évaluations de conformité pour votre infrastructure, puis explorez les recommandations.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
-
-1. Dans la page **Vue d’ensemble**, cliquez sur la mosaïque **System Center Operations Manager Assessment**.
-2. Dans la page **System Center Operations Manager Assessment**, passez en revue les informations de résumé dans l’un des panneaux relatifs à un domaine, puis cliquez sur l’un d’entre eux pour afficher les recommandations afférentes.
-3. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.  
-    ![domaine](./media/log-analytics-scom-assessment/focus-area.png)
-4. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l'élément traité, les évaluations ultérieures indiqueront que des mesures ont été prises et votre score de conformité augmentera. Les éléments corrigés apparaissent comme **objets passés**.
+1. Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
+2. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis cliquez sur la vignette **Portail OMS**.  
+4. Dans la page **Vue d’ensemble**, cliquez sur la mosaïque **System Center Operations Manager Health Check**.
+5. Dans la page **System Center Operations Manager Health Check**, passez en revue les informations de résumé dans l’un des panneaux relatifs à un domaine, puis cliquez sur l’un d’entre eux pour afficher les recommandations afférentes.
+6. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![domaine](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
+7. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l'élément traité, les évaluations ultérieures indiqueront que des mesures ont été prises et votre score de conformité augmentera. Les éléments corrigés apparaissent comme **objets passés**.
 
 ## <a name="ignore-recommendations"></a>Ignorer les recommandations
 
-Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier texte qu’OMS utilise pour empêcher les recommandations d’apparaître dans les résultats de votre évaluation.
+Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier texte que Log Analytics utilise pour empêcher les recommandations d'apparaître dans les résultats de votre évaluation.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Pour identifier les recommandations que vous voulez ignorer
-
-1. Connectez-vous à votre espace de travail et ouvrez Recherche de journal. Utilisez la requête suivante pour répertorier les recommandations qui ont échoué pour les ordinateurs de votre environnement.
+1. Dans le portail Azure, dans la page d’espace de travail Log Analytics pour votre espace de travail sélectionné, cliquez sur la vignette **Recherche dans les journaux**.
+2. Utilisez la requête suivante pour répertorier les recommandations qui ont échoué pour les ordinateurs de votre environnement.
 
     ```
-    Type=SCOMAssessmentRecommendationRecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
+    Type=SCOMAssessmentRecommendationRecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
     ```
 
-    Voici une capture d’écran montrant la requête Recherche de journal :   
-    ![recherche de journal](./media/log-analytics-scom-assessment/scom-log-search.png)
+    >[!NOTE]
+    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), remplacez la requête ci-dessus par la requête ci-dessous.
+    >
+    > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-2. Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
+    Voici une capture d’écran montrant la requête Recherche de journal : <br><br> ![recherche de journal](./media/log-analytics-scom-assessment/scom-log-search.png)<br>
+
+3. Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Pour créer et utiliser un fichier texte IgnoreRecommendations.txt
 
 1. Créez un fichier nommé IgnoreRecommendations.txt.
-2. Collez ou saisissez chaque valeur RecommendationId de chaque recommandation qu’OMS doit ignorer sur une ligne distincte, puis enregistrez et fermez le fichier.
-3. Placez le fichier dans le dossier suivant sur chaque ordinateur sur lequel OMS doit ignorer les recommandations.
+2. Collez ou saisissez chaque valeur RecommendationId de chaque recommandation que Log Analytics doit ignorer sur une ligne distincte, puis enregistrez et fermez le fichier.
+3. Placez le fichier dans le dossier suivant sur chaque ordinateur sur lequel Log Analytics doit ignorer les recommandations.
 4. Sur le serveur de gestion Operations Manager : *lecteur_système*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server.
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Pour vérifier que les recommandations sont ignorées
 
-1. Une fois la prochaine évaluation planifiée exécutée, par défaut tous les sept jours, les recommandations spécifiées sont marquées comme Ignorées et n’apparaissent pas dans le tableau de bord d’évaluation.
+1. Une fois la prochaine évaluation planifiée exécutée, par défaut tous les sept jours, les recommandations spécifiées sont marquées comme Ignorées et n’apparaissent pas dans le tableau de bord de contrôle d’intégrité.
 2. Vous pouvez utiliser les requêtes Recherche de journal suivantes pour répertorier toutes les recommandations ignorées.
 
     ```
     Type=SCOMAssessmentRecommendationRecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 
+    >[!NOTE]
+    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), remplacez la requête ci-dessus par la requête ci-dessous.
+    >
+    > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 3. Si vous décidez ultérieurement d’afficher les recommandations ignorées, supprimez tous les fichiers IgnoreRecommendations.txt, ou supprimez les valeurs RecommendationID de ces fichiers.
 
-## <a name="system-center-operations-manager-assessment-solution-faq"></a>FAQ sur la solution System Center Operations Manager Assessment
+## <a name="system-center-operations-manager-health-check-solution-faq"></a>FAQ sur la solution System Center Operations Manager Health Check
 
-*J’ai ajouté la solution d’évaluation à mon espace de travail OMS. Mais je ne vois pas les recommandations. Pourquoi ?* Après avoir ajouté la solution, utilisez la procédure suivante pour afficher les recommandations du tableau de bord OMS.  
+*J’ai ajouté la solution Health Check à mon espace de travail Log Analytics. Mais je ne vois pas les recommandations. Pourquoi ?* Après avoir ajouté la solution, utilisez la procédure suivante pour afficher les recommandations du tableau de bord Log Analytics.  
 
-- [Définir le compte d’identification pour l’évaluation de System Center Operations Manager](#operations-manager-run-as-accounts-for-oms)  
-- [Configurer la règle d’évaluation de System Center Operations Manager Assessment](#configure-the-assessment-rule)
+- [Définir le compte d’identification pour System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
+- [Configurer la règle System Center Operations Manager Health Check](#configure-the-health-check-rule)
 
 
-*Est-il possible de configurer la fréquence d'exécution de l'évaluation ?* Oui. Consultez [Configuration de la fréquence d’exécution](#configure-the-run-frequency).
+*Est-il possible de configurer la fréquence d'exécution du contrôle ?* Oui. Consultez [Configuration de la fréquence d’exécution](#configure-the-run-frequency).
 
 *Si un autre serveur est découvert après l’ajout de la solution System Center Operations Manager Assessment, ce serveur sera-t-il évalué ?* Oui, après la découverte, il sera évalué ; par défaut, tous les sept jours.
 
 *Quel est le nom du processus qui effectue la collecte de données ?* AdvisorAssessment.exe
 
-*Où est exécuté le processus AdvisorAssessment.exe ?* AdvisorAssessment.exe s’exécute sous le service de contrôle d’intégrité du serveur de gestion où la règle d’évaluation est activée. À l’aide de ce processus, la découverte de l’ensemble de votre environnement s’effectue par le biais de la collecte de données distante.
+*Où est exécuté le processus AdvisorAssessment.exe ?* AdvisorAssessment.exe s’exécute sous le processus HealthService du serveur d’administration où le contrôle d’intégrité est activé. À l’aide de ce processus, la découverte de l’ensemble de votre environnement s’effectue par le biais de la collecte de données distante.
 
 *Combien de temps la collecte de données prend-elle ?* La collecte de données sur le serveur prend environ une heure. Elle peut prendre plus de temps dans les environnements comportant plusieurs bases de données ou instances d’Operations Manager.
 
 *Que se passe-t-il si je définis l’intervalle d’évaluation sur une valeur inférieure à 1 440 minutes ?* L’évaluation est préconfigurée pour s’exécuter au maximum une fois par jour. Si vous remplacez la valeur de l’intervalle par une valeur inférieure à 1 440 minutes, l’évaluation utilise alors la valeur de 1 440 minutes en tant que valeur d’intervalle.
 
-*Comment savoir s’il existe des échecs liés aux conditions préalables ?* Si l’évaluation s’est exécutée et qu’aucun résultat ne s’affiche, il est probable que certaines des conditions préalables pour l’évaluation ont échoué. Vous pouvez exécuter les requêtes : `Type=Operation Solution=SCOMAssessment` et `Type=SCOMAssessmentRecommendation FocusArea=Prerequisites` dans la Recherche de journal pour afficher les conditions préalables qui ont échoué.
+*Comment savoir s’il existe des échecs liés aux conditions préalables ?* Si le contrôle d’intégrité s’est exécuté et qu’aucun résultat ne s’affiche, il est probable que certaines des conditions préalables pour le contrôle ont échoué. Vous pouvez exécuter les requêtes : `Operation Solution=SCOMAssessment` et `SCOMAssessmentRecommendation FocusArea=Prerequisites` dans la Recherche de journal pour afficher les conditions préalables qui ont échoué.
 
-*Il y a un message `Failed to connect to the SQL Instance (….).` dans les échecs liés aux conditions préalables. Quel est le problème ?* AdvisorAssessment.exe, le processus qui collecte les données, s’exécute sous le service de contrôle d’intégrité du serveur de gestion. Dans le cadre de l’évaluation, le processus tente de se connecter au serveur SQL Server où se trouve la base de données Operations Manager. Cette erreur peut se produire lorsque les règles du pare-feu bloquent la connexion à l’instance SQL Server.
+*Il y a un message `Failed to connect to the SQL Instance (….).` dans les échecs liés aux conditions préalables. Quel est le problème ?* AdvisorAssessment.exe, le processus qui collecte les données, s’exécute sous le processus HealthService du serveur de gestion. Dans le cadre du contrôle d’intégrité, le processus tente de se connecter au serveur SQL Server où se trouve la base de données Operations Manager. Cette erreur peut se produire lorsque les règles du pare-feu bloquent la connexion à l’instance SQL Server.
 
 *Quels types de données sont collectés ?* Les types de données suivants sont collectés : - Données WMI - Données de registre - Données EventLog - Données Operations Manager via Windows PowerShell, Requêtes SQL et Collecteur d’informations sur le fichier.
 
-*Pourquoi faut-il configurer un compte d'identification ?* Plusieurs requêtes SQL sont exécutées pour un serveur Operations Manager. Pour permettre leur exécution, vous devez utiliser un compte d’identification avec les autorisations nécessaires. En outre, pour les requêtes WMI, des informations d'identification d'administrateur local sont requises.
+*Pourquoi faut-il configurer un compte d'identification ?* Avec Operations Manager, plusieurs requêtes SQL sont exécutées. Pour permettre leur exécution, vous devez utiliser un compte d’identification avec les autorisations nécessaires. En outre, pour les requêtes WMI, des informations d'identification d'administrateur local sont requises.
 
 *Pourquoi afficher uniquement les 10 premières recommandations ?* Au lieu de vous communiquer une liste de tâches trop importante, nous vous recommandons de vous concentrer sur les recommandations prioritaires. Une fois que vous les aurez suivies, de nouvelles recommandations apparaîtront. Si vous préférez afficher la liste détaillée de toutes les recommandations, utilisez Recherche de journal.
 
@@ -291,5 +305,4 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Lancez une recherche dans les journaux](log-analytics-log-searches.md) pour afficher les données System Center Operations Manager Assessment détaillées et des recommandations.
-
+- [Rechercher dans les journaux](log-analytics-log-searches.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.

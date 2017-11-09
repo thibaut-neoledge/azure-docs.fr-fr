@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 63e4719a448a289aaa74ad050b36412969c5452d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 912e1af684c90cd84b6b00bacbc7dd8d4434c5b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>Obtenir les clés de compte pour Azure Cosmos DB avec PowerShell
 
 Cet exemple obtient les clés de compte de n’importe quel type de compte Azure Cosmos DB.  
@@ -32,7 +30,7 @@ Cet exemple obtient les clés de compte de n’importe quel type de compte Azure
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "Obtenir les clés pour un compte Azure Cosmos DB")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "Get the keys for an Azure Cosmos DB account")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 

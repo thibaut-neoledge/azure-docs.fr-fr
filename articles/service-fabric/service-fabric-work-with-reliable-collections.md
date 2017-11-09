@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rajak
-translationtype: Human Translation
-ms.sourcegitcommit: 407f2631044fb836930093a774f5b718c91f711d
-ms.openlocfilehash: 822941aa3f745e51f653b4274bf0add9c44ff0c8
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: f53f13e4fb83b1cd370ec673e86e5311cd93055f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-reliable-collections"></a>Utilisation des collections fiables
 Service Fabric propose un modèle de programmation avec état disponible pour les développeurs .NET via les collections fiables. Plus précisément, Service Fabric fournit un dictionnaire fiable et des classes de file d’attente fiables. Lorsque vous utilisez ces classes, votre état est partitionné (pour l’évolutivité) répliqué (pour la disponibilité) et traité dans une partition (pour la sémantique ACID). Nous allons examiner un exemple d’utilisation type d’un objet de dictionnaire fiable afin de voir ses fonctionnalités réelles.
@@ -217,4 +216,3 @@ Pour découvrir les meilleures pratiques relatives au contrôle de version des c
 Pour savoir comment implémenter des contrats de données à tolérance de version, consultez [Rappels de sérialisation avec tolérance de version](https://msdn.microsoft.com/library/ms733734.aspx).
 
 Pour savoir comment fournir une structure de données capable d’interagir entre plusieurs versions, consultez [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
-

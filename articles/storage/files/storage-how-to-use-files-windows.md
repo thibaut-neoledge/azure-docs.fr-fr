@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/21/2017
 ---
-
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montage d’un partage de fichiers Azure et accès au partage dans Windows
-Le [Stockage Fichier Azure](../storage-dotnet-how-to-use-files.md) est le système de fichiers dans le cloud, facile à utiliser, de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows et Windows Server. Cet article présente trois méthodes différentes de montage d’un partage de fichiers Azure sur Windows : avec l’interface utilisateur de l’Explorateur de fichiers, via PowerShell ou via l’invite de commandes. 
+[Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows et Windows Server. Cet article présente trois méthodes différentes de montage d’un partage de fichiers Azure sur Windows : avec l’interface utilisateur de l’Explorateur de fichiers, via PowerShell ou via l’invite de commandes. 
 
 Pour monter un partage de fichiers Azure en dehors de la région Azure sur laquelle il est hébergé, par exemple localement ou dans une région Azure différente, le système d’exploitation doit prendre en charge SMB 3.0. 
 
@@ -31,7 +29,8 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 
 | Version de Windows        | Version SMB | Version montable dans une machine virtuelle Azure | Montable en local |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Oui | Oui |
+| Canal semestriel Windows Server <sup>1</sup> | SMB 3.0 | Oui | Oui |
+| Windows 10 <sup>2</sup>  | SMB 3.0 | Oui | Oui |
 | Windows Server 2016    | SMB 3.0     | Oui                   | Oui                  |
 | Windows 8.1            | SMB 3.0     | Oui                   | Oui                  |
 | Windows Server 2012 R2 | SMB 3.0     | Oui                   | Oui                  |
@@ -39,7 +38,8 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 | Windows 7              | SMB 2.1     | Oui                   | Non                   |
 | Windows Server 2008 R2 | SMB 2.1     | Oui                   | Non                   |
 
-<sup>1</sup>Les versions 1507, 1511, 1607 et 1703 de Windows 10
+<sup>1</sup>La version 1709 de Windows Server.  
+<sup>2</sup>Les versions 1507, 1607, 1703 et 1709 de Windows 10.
 
 > [!Note]  
 > Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows.
@@ -49,7 +49,7 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 
 * **Clé du compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
-* **Assurez-vous que le port 445 est ouvert** : le Stockage Fichier Azure utilise le protocole SMB. SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 à partir de la machine cliente.
+* **Assurez-vous que le port 445 est ouvert** : Azure Files utilise le protocole SMB. SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 à partir de la machine cliente.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Montage du partage de fichiers Azure avec l’Explorateur de fichiers
 > [!Note]  
@@ -63,7 +63,7 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 
 3. **Copiez le chemin d’accès UNC depuis le volet « Connexion » dans le portail Azure** : découvrez en détail comment trouver ces informations, en cliquant [ici](storage-how-to-use-files-portal.md#connect-to-file-share).
 
-    ![Le chemin d’accès UNC dans le volet de connexion Stockage Fichier Azure](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![Le chemin d’accès UNC du volet Azure Files Connect](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Sélectionnez la lettre de lecteur et entrez le chemin d’accès UNC.** 
     
@@ -121,28 +121,27 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 >   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
+Consultez ces liens pour en savoir plus sur Azure Files.
 
 * [FAQ](../storage-files-faq.md)
 * [Résolution des problèmes sur Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Vidéos et articles conceptuels
-* [Stockage Fichier Azure : un système de fichiers SMB dans le cloud sans friction pour Windows et Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Utilisation de Stockage Fichier Azure avec Linux](../storage-how-to-use-files-linux.md)
+* [Azure Files : un système de fichiers SMB cloud transparent pour Windows et Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Comment utiliser Azure Files avec Linux](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Outils pour le Stockage Fichier Azure
+### <a name="tooling-support-for-azure-files"></a>Prise en charge des outils pour Azure Files
 * [Utilisation de AzCopy avec Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Résolution des problèmes liés au stockage Fichier Azure - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Résolution des problèmes liés au stockage Fichier Azure - Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Résolution des problèmes liés à Azure Files - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Résolution des problèmes liés à Azure Files - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Billets de blog :
-* [Le stockage de fichiers Azure est désormais mis à la disposition générale](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Dans le Stockage Fichier Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files est désormais mis à la disposition générale](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Dans Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migration de données vers le fichier Azure](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
 ### <a name="reference"></a>Référence
 * [Référence de la bibliothèque cliente de stockage pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-

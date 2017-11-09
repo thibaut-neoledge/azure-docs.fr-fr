@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18c71608f7429f7c52720282ca66f44c88de2d84
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# Notifications Reliable Services
-<a id="reliable-services-notifications" class="xliff"></a>
+# <a name="reliable-services-notifications"></a>Notifications Reliable Services
 Les notifications permettent aux clients de suivre les modifications apportées à un objet qui les intéresse. Deux types d’objets prennent en charge les notifications : *Gestionnaire d’état fiable* et *Dictionnaire fiable*.
 
 Raisons courantes d’utiliser les notifications :
@@ -33,8 +30,7 @@ Raisons courantes d’utiliser les notifications :
 
 Les notifications sont déclenchées dans le cadre de l’application d’opérations. Pour cette raison, les notifications doivent être traitées le plus rapidement possible, et les événements synchrones ne doivent pas inclure d’opérations coûteuses.
 
-## Notifications du Gestionnaire d’état fiable
-<a id="reliable-state-manager-notifications" class="xliff"></a>
+## <a name="reliable-state-manager-notifications"></a>Notifications du Gestionnaire d’état fiable
 Le Gestionnaire d’état fiable fournit des notifications pour les événements suivants :
 
 * Transaction
@@ -109,8 +105,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## Notifications Dictionnaire fiable
-<a id="reliable-dictionary-notifications" class="xliff"></a>
+## <a name="reliable-dictionary-notifications"></a>Notifications Dictionnaire fiable
 Dictionnaire fiable fournit des notifications pour les événements suivants :
 
 * Reconstruction : appelée quand **ReliableDictionary** a récupéré son état à partir d’une sauvegarde ou d’un état local récupéré ou copié.
@@ -207,8 +202,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## Recommandations
-<a id="recommendations" class="xliff"></a>
+## <a name="recommendations"></a>Recommandations
 * *Complétez* les événements de notification le plus rapidement possible.
 * *N’exécutez aucune* opération coûteuse (par exemple des opérations d’E/S) dans le cadre d’événements synchrones.
 * *Vérifiez* le type d’action avant de traiter l’événement. De nouveaux types d’actions pourront être ajoutés à l’avenir.
@@ -221,11 +215,9 @@ Voici quelques points à retenir :
 * Pour les transactions qui contiennent plusieurs opérations, les opérations sont appliquées dans l’ordre dans lequel elles ont été reçues sur le réplica principal.
 * Lors du traitement d’une mauvaise progression, certaines opérations peuvent être annulées. Des notifications sont déclenchées pour ces opérations d’annulation afin de ramener le réplica à un état stable. Les notifications d’annulation présentent une importante différence. En effet, les événements avec des clés en double sont agrégés. Par exemple, si la transaction T1 est annulée, vous ne verrez qu’une seule notification Delete(X).
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 * [Collections fiables](service-fabric-work-with-reliable-collections.md)
 * [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Sauvegarde et restauration de Reliable Services (récupération d’urgence)](service-fabric-reliable-services-backup-restore.md)
 * [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
 

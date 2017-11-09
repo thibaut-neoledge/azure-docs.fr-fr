@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
+ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 7dd58ae747a1009b5db99e0fec741272d98b36ad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9211b28debc2f0df194eded564e2a4d52303f3e6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Déployer un cluster Azure Kubernetes pour des conteneurs Windows
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide explique en détail comment utiliser Azure CLI pour déployer un cluster [Kubernetes](https://kubernetes.io/docs/home/) dans [Azure Container Service](../container-service-intro.md). Une fois le cluster déployé, vous vous y connectez avec l’outil en ligne de commande Kubernetes `kubectl`, et vous déployez votre premier conteneur Windows.
 
@@ -110,7 +110,7 @@ Vous pouvez exécuter un conteneur Docker à l’intérieur d’un *pod* Kuberne
 
 Cet exemple de base utilise un fichier JSON pour spécifier un conteneur Microsoft Internet Information Server (IIS), puis crée le pod à l’aide de la commande `kubctl apply`. 
 
-Créez un fichier local nommé `iis.json` et copiez-y le texte suivant. Ce fichier demande à Kubernetes d’exécuter IIS sur Windows Server 2016 Nano Server, à l’aide d’une image conteneur publique provenant de [Docker Hub](https://hub.docker.com/r/nanoserver/iis/). Le conteneur utilise le port 80, mais au début il n’est accessible que dans le réseau du cluster.
+Créez un fichier local nommé `iis.json` et copiez-y le texte suivant. Ce fichier demande à Kubernetes d’exécuter IIS sur Windows Server 2016 Nano Server, à l’aide d’une image conteneur publique provenant de [Docker Hub](https://hub.docker.com/r/microsoft/iis/). Le conteneur utilise le port 80, mais au début il n’est accessible que dans le réseau du cluster.
 
  ```JSON
  {
@@ -126,7 +126,7 @@ Créez un fichier local nommé `iis.json` et copiez-y le texte suivant. Ce fichi
     "containers": [
       {
         "name": "iis",
-        "image": "nanoserver/iis",
+        "image": "microsoft/iis:nanoserver",
         "ports": [
           {
           "containerPort": 80
@@ -168,7 +168,7 @@ Pour exposer le pod avec une adresse IP publique, tapez la commande suivante :
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Avec cette commande, Kubernetes crée un service et une [règle Azure Load Balancer](container-service-kubernetes-load-balancing.md) avec une adresse IP publique pour ce service. 
+Avec cette commande, Kubernetes crée un service et une règle Azure Load Balancer avec une adresse IP publique pour ce service. 
 
 Exécutez la commande suivante pour afficher l’état du service.
 
@@ -203,4 +203,3 @@ Par le biais de ce guide de démarrage rapide, vous avez déployé un cluster Ku
 
 > [!div class="nextstepaction"]
 > [Gérer un cluster Kubernetes ACS](container-service-tutorial-kubernetes-prepare-app.md)
-

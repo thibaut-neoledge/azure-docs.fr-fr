@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 58194b71b22b63f7d4a2a6bf0f4e66f456a96d03
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
 
 Cet article décrit comment un profil avec le type de routage **Priorité** peut être créé pour diriger les utilisateurs vers deux points de terminaison Azure Web Apps. Avec le type de routage **Priorité**, tout le trafic est acheminé vers le premier point de terminaison tandis que le deuxième est conservé en tant que sauvegarde. Par conséquent, les utilisateurs peuvent être dirigés vers le deuxième point de terminaison si le premier point de terminaison devient défaillant.
 
-Dans cet article, deux points de terminaison Azure Web Apps créés précédemment sont associés à ce nouveau profil Traffic Manager. Pour en savoir plus sur la création de points de terminaison Azure Web Apps, visitez la [page de documentation Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/). Vous pouvez ajouter n’importe quel point de terminaison qui a un nom DNS et est accessible via l’Internet public. Nous utilisons des points de terminaison Azure Web Apps comme exemple.
+Dans cet article, deux points de terminaison Azure Web Apps créés précédemment sont associés à ce nouveau profil Traffic Manager. Pour en savoir plus sur la création de points de terminaison Azure Web Apps, visitez la [page de documentation Azure Web Apps](https://docs.microsoft.com/azure/app-service/). Vous pouvez ajouter n’importe quel point de terminaison qui a un nom DNS et est accessible via l’Internet public. Nous utilisons des points de terminaison Azure Web Apps comme exemple.
 
 ### <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
 1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’un mois](https://azure.microsoft.com/free/). 
@@ -54,13 +53,13 @@ Dans cet article, deux points de terminaison Azure Web Apps créés précédemme
     5. Pour **Priorité**, sélectionnez **1**. Ainsi, tout le trafic est dirigé vers ce point de terminaison, s’il est intègre.
     6. Vérifiez que la case **Ajouter comme désactivé** est désélectionnée.
     7. Cliquez sur **OK**
-5.    Répétez les étapes 3 et 4 pour le prochain point de terminaison Azure Web Apps. Veillez à ajouter à sa valeur de **Priorité** définie sur **2**.
-6.    Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans le panneau du **profil Traffic Manager** ainsi que leur état de surveillance en tant que **En ligne**.
+5.  Répétez les étapes 3 et 4 pour le prochain point de terminaison Azure Web Apps. Veillez à ajouter à sa valeur de **Priorité** définie sur **2**.
+6.  Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans le panneau du **profil Traffic Manager** ainsi que leur état de surveillance en tant que **En ligne**.
 
     ![Ajouter un point de terminaison Traffic Manager](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Utiliser le profil Traffic Manager
-1.    Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous avez créé dans la section précédente. Dans les résultats affichés, cliquez sur le profil Traffic Manager.
+1.  Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous avez créé dans la section précédente. Dans les résultats affichés, cliquez sur le profil Traffic Manager.
 2. Dans le panneau **Profil Traffic Manager**, cliquez sur **Vue d’ensemble**.
 3. Le panneau **Profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être acheminés vers le point de terminaison correct, comme déterminé par le type de routage. Dans ce cas, toutes les demandes sont acheminées vers le premier point de terminaison et si Traffic Manager détecte que celui-ci n’est pas intègre, le trafic bascule automatiquement vers le point de terminaison suivant.
 
@@ -72,7 +71,6 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources et le pr
 - En savoir plus sur les [types de routage](traffic-manager-routing-methods.md).
 - En savoir plus sur les [types de point de terminaison](traffic-manager-endpoint-types.md).
 - En savoir plus sur la [surveillance du point de terminaison](traffic-manager-monitoring.md).
-
 
 
 

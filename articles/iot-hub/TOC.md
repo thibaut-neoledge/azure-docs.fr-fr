@@ -32,6 +32,7 @@
 ##### [Configurer Intel NUC comme une passerelle](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Connecter la passerelle à IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Utiliser la passerelle pour la conversion de données](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Dépannage](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Scénarios IoT étendus
 ### [Gérer la messagerie de périphérique cloud avec iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,10 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.JS](iot-hub-node-node-c2d.md)
-### [Charger des fichiers à partir d’appareils](iot-hub-csharp-csharp-file-upload.md)
+### Charger des fichiers à partir d’appareils
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.JS](iot-hub-node-node-file-upload.md)
 ### Prise en main des représentations d’appareils
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,40 +100,54 @@
 ### Prise en main de la gestion d’appareils
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Serveur principal Java/appareil Java](iot-hub-java-java-device-management-getstarted.md)
 ### Utilisation des propriétés des représentations
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Serveur principal Java/appareil Java](iot-hub-java-java-twin-how-to-configure.md)
 ### Utiliser des travaux d’appareils pour mettre à jour le microprogramme des appareils
 #### [Serveur principal Node/appareil Node](iot-hub-node-node-firmware-update.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-firmware-update.md)
+#### [Serveur principal Java/appareil Java](iot-hub-java-java-firmware-update.md)
 ### Planifier et diffuser des travaux
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Gérer
 ### Créer un hub IoT 
-#### [Utiliser le portail](iot-hub-create-through-portal.md)
-#### [Utiliser PowerShell](iot-hub-create-using-powershell.md)
-#### [Utiliser l’interface de ligne de commande 2.0](iot-hub-create-using-cli.md)
+#### [Utiliser le portail Azure](iot-hub-create-through-portal.md)
+#### [Utilisation d'Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Utiliser l’interface de ligne de commande Microsoft Azure](iot-hub-create-using-cli.md)
 #### [Utiliser l’interface de ligne de commande](iot-hub-create-using-cli-nodejs.md)
 #### [Utiliser l’API REST](iot-hub-rm-rest.md)
-#### [Utiliser un modèle à partir de PowerShell](iot-hub-rm-template-powershell.md)
+#### [Utiliser un modèle à partir d’Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Utiliser un modèle à partir de .NET](iot-hub-rm-template.md)
 ### Configurer le chargement de fichiers
-#### [Utiliser le portail](iot-hub-configure-file-upload.md)
-#### [Utiliser PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [Utiliser l’interface de ligne de commande 2.0](iot-hub-configure-file-upload-cli.md)
-### [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
+#### [Utiliser le portail Azure](iot-hub-configure-file-upload.md)
+#### [Utilisation d'Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Utiliser l’interface de ligne de commande Microsoft Azure](iot-hub-configure-file-upload-cli.md)
+### [Surveiller avec Diagnostics](iot-hub-monitor-resource-health.md)
+#### [Migrer vers les paramètres des diagnostics](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Surveillance des opérations](iot-hub-operations-monitoring.md)
 ### [Mesures d’utilisation](iot-hub-metrics.md)
-### [Surveillance des opérations](iot-hub-operations-monitoring.md)
+### [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Configurer le filtrage d’adresse IP](iot-hub-ip-filtering.md)
+
 ## Sécuriser
 ### [Tout savoir sur la sécurité](iot-hub-security-ground-up.md)
 ### [Meilleures pratiques en matière de sécurité](iot-hub-security-best-practices.md)
 ### [Architecture de la sécurité](iot-hub-security-architecture.md)
 ### [Sécuriser votre déploiement IoT](iot-hub-security-deployment.md)
+### Sécurisation à l’aide de certificats d’autorité de certification X.509
+#### [Vue d’ensemble d’un certificat d’autorité de certification X.509](iot-hub-x509ca-overview.md)
+##### [Concepts d’un certificat d’autorité de certification X.509](iot-hub-x509ca-concept.md)
+#### [Prise en main de la sécurité d’un certificat d’autorité de certification X.509](iot-hub-security-x509-get-started.md)
+##### [Création de certificat - PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Vue d'ensemble](iot-hub-iot-edge-overview.md)
 ### Prise en main
@@ -161,7 +179,8 @@
 ## [.NET (appareils)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (appareils)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Kits de développement logiciel (SDK) Node.js](http://azure.github.io/azure-iot-sdk-node/)
+## [Node.js (appareils)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
+## [Node.js (service)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
 ## [SDK d’appareils C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (fournisseur de ressources)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

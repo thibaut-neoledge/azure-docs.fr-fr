@@ -15,16 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Comprendre les jetons utilisateur Azure AD B2B Collaboration
 
 Si vous souhaitez savoir à quoi ressemble le jeton pour un utilisateur de B2B Collaboration, voici les détails du jeton du porteur ainsi que le contenu des jetons pour un invité Azure Active Directory (Azure AD) et un invité de compte Microsoft dans le locataire de la ressource (pour tenantid:04dcc6ab-388a-4559-b527-fbec656300ea). Utilisez [https://jwt.io/](https://jwt.io/) ou [http://calebb.net](http://calebb.net/) pour afficher le contenu des jetons web JSON (JWT).
@@ -54,4 +50,3 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [Mappage des revendications utilisateur B2B Collaboration](active-directory-b2b-claims-mapping.md)
 * [Partage externe d’Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitations actuelles de B2B Collaboration](active-directory-b2b-current-limitations.md)
-

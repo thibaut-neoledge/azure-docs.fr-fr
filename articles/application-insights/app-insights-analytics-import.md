@@ -4,21 +4,20 @@ description: "Importez des données statiques à associer à la télémétrie de
 services: application-insights
 keywords: "schéma ouvert, importation de données"
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-ms.author: bwren
+ms.date: 10/04/2017
+ms.author: mbullwin
+ms.openlocfilehash: f124748434be1b8f0c4704fe6ffba70414c47916
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="import-data-into-analytics"></a>Importer des données dans Analytics
 
@@ -367,5 +366,4 @@ Utilisez ce code pour chaque blob.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation du langage de requête Log Analytics](app-insights-analytics-tour.md)
-* [Use *Logstash* to send data to Application Insights (Utiliser Logstash pour envoyer des données à Application Insights)](https://github.com/Microsoft/logstash-output-application-insights)
-
+* Si vous utilisez Logstash, utilisez le [plug-in Logstash pour envoyer des données à Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

@@ -3,7 +3,7 @@ title: Plusieurs adresses IP virtuelles par service cloud
 description: "Vue d’ensemble de multiVIP et définition de plusieurs adresses IP virtuelles sur un service cloud"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer
@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: f40e0501eed8d5f296e7c79d8a35705a695ae6fd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: b6b7b0b2d7a7f33facaf72bbd2d7937364770673
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configuration de plusieurs adresses IP virtuelles pour un service cloud
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Vous pouvez accéder aux services cloud Azure via Internet à l’aide d’une adresse IP fournie par Azure. Cette adresse IP publique est appelée adresse IP virtuelle, car elle est liée à l’équilibrage de charge Azure et non aux instances de la machine virtuelle (VM) dans le service cloud. Vous pouvez accéder à une instance de machine virtuelle dans un service cloud à l’aide d’une adresse IP virtuelle unique.
 
@@ -180,4 +180,3 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 [Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
 
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gestion d’un profil Azure Traffic Manager
 
 Les profils Traffic Manager permettent de contrôler la distribution du trafic vers les points de terminaison de votre site Web ou de vos services cloud selon des méthodes de routage du trafic. Cet article explique comment créer et gérer ces profils.
@@ -76,4 +74,3 @@ Vous pouvez désactiver un profil existant afin que Traffic Manager ne renvoie p
 * [Configurer la méthode de routage géographique](traffic-manager-configure-geographic-routing-method.md) 
 * [Configurer la méthode de routage en fonction de la pondération](traffic-manager-configure-weighted-routing-method.md)
 * [Configurer la méthode de routage basé sur les performances](traffic-manager-configure-performance-routing-method.md)
-

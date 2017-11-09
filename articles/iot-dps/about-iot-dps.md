@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Approvisionner des appareils avec le service Azure IoT Hub Device Provisioning (préversion)
 Microsoft Azure fournit un ensemble complet de services cloud publics intégrés qui répondent à tous les besoins de votre solution IoT. Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui permet d’effectuer un approvisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi approvisionner des millions d’appareils de façon sécurisée et scalable.
 
@@ -48,7 +46,7 @@ Tous les scénarios listés dans la section précédente peuvent être réalisé
 7. L’appareil se connecte au hub IoT.
 8. L’appareil obtient l’état souhaité de son jumeau dans le hub IoT.
 
-## <a name="provisioning-process"></a>Processus d’approvisionnement
+## <a name="provisioning-process"></a>Processus de mise en service
 Le processus de déploiement d’un appareil, dans lequel le service Device Provisioning joue un rôle qui peut être effectué indépendamment, se déroule en deux étapes :
 
 * L’**étape de fabrication** qui permet de créer et préparer l’appareil en usine.
@@ -116,4 +114,3 @@ Vous avez maintenant une vue d’ensemble de l’approvisionnement des appareils
 > [Configurer le service IoT Hub Device Provisioning avec le portail Azure](quick-setup-auto-provision.md)
 > [Créer et approvisionner un appareil simulé](quick-create-simulated-device.md)
 > [Configurer un appareil pour l’approvisionnement](tutorial-set-up-device.md)
-

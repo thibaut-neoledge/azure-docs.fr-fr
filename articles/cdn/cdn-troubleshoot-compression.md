@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27561c3c401f93d4024974a19581d79cda9c4eee
-
-
+ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Résolution des problèmes de compression des fichiers CDN
 Cet article vous aide à résoudre les problèmes de [compression des fichiers CDN](cdn-improve-performance.md).
@@ -117,10 +117,4 @@ L’en-tête HTTP **Via** indique au serveur web que la requête est transmise p
 
 * **IIS 6**: [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](https://msdn.microsoft.com/library/ms525390.aspx)
 * **IIS 7 et versions ultérieures** : [définissez **noCompressionForHttp10** et **noCompressionForProxies** sur False dans la configuration du serveur](http://www.iis.net/configreference/system.webserver/httpcompression)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

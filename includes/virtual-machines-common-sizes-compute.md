@@ -1,10 +1,29 @@
 <!-- F-series, Fs-series* -->
 
-La série F est basée sur le processeur Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz pouvant aller jusqu’à 3,1 GHz avec Intel Turbo Boost Technology 2.0. Ce sont les mêmes performances d’UC que la série Dv2 de machines virtuelles.  Affichant le coût le plus bas par heure, la série F offre le meilleur rapport prix-performances de la gamme Azure si l’on considère les unités de calcul Azure (ACU) par processeur virtuel. 
+La série Fsv2 repose sur le processeur Intel® Xeon® Platinum 8168, avec une fréquence de base de 2,7 GHz et une fréquence turbo monocœur maximale de 3,7 GHz. Les instructions Intel® AVX-512, une nouveauté sur les processeurs évolutifs Intel, fourniront jusqu'à 2X plus de performances pour les charges de travail de traitement vectoriel pour les opérations en virgule flottante simple ou double précision. En d’autres termes, elles sont très rapides pour les charges de travail de calcul. 
+
+Affichant le coût le plus bas par heure, la série Fsv2 offre le meilleur rapport prix-performances de la gamme Azure si l’on considère les unités de calcul Azure (ACU) par processeur virtuel. 
+
+La série F est basée sur le processeur Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz pouvant aller jusqu’à 3,1 GHz avec Intel Turbo Boost Technology 2.0. Ce sont les mêmes performances d’UC que la série Dv2 de machines virtuelles.  
 
 Les machines virtuelles de la série F sont un excellent choix pour les charges de travail qui exigent des processeurs plus rapides, mais n’ont pas besoin d’autant de mémoire ou de stockage temporaire par processeur virtuel.  Les charges de travail telles que l’analyse, les serveurs de jeux, les serveurs web et le traitement par lots tireront avantage de la série F.
 
 La série Fs propose tous les avantages de la série F, en plus du stockage Premium.
+
+# <a name="fsv2-series"></a>Série Fsv2
+
+ACU : 195 - 210
+
+| Taille             | Processeurs virtuels | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
+|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
+| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Modéré                                       |
+| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Modéré                                       |
+| Standad_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | Élevé                                           |
+| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Élevé                                           |
+| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extrêmement élevée                                 |
+| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extrêmement élevée                                 |
+| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extrêmement élevée                                 |
+
 
 ## <a name="fs-series"></a>Série Fs*
 

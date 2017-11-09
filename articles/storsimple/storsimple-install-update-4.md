@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/30/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 7dc2f29db64218b9db17eaf555c43a7ad282ea07
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installer Update 4 sur votre appareil StorSimple
 
@@ -103,5 +101,4 @@ Procédez comme suit pour télécharger et importer les correctifs logiciels.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez plus en détail la [version Update 4](storsimple-update4-release-notes.md).
-
 

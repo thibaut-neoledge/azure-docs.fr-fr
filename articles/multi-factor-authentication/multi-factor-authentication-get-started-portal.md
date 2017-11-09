@@ -15,12 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: a4eb403d3d21b7dbe63c2645b488a7bddb6d39fd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -42,11 +41,11 @@ Selon votre environnement, il peut être nécessaire de déployer le portail de 
 Quel que soit le scénario, si le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web Service **n’est pas déjà installé** sur le serveur Azure Multi-Factor Authentication (MFA), effectuez les étapes suivantes.
 
 1. Ouvrez la console du serveur Azure Multi-Factor Authentication.
-2. Accédez au **Kit de développement logiciel (SDK) du service Web**, puis cliquez sur **Installer le Kit de développement logiciel du service Web**.
+2. Accédez au **Kit de développement logiciel (SDK) du service Web**, puis cliquez sur **Installer le kit de développement logiciel du service Web**.
 3. À moins que vous n’ayez besoin de les modifier, terminez l’installation à l’aide des paramètres par défaut.
 4. Lier un certificat SSL personnalisé à un site avec IIS.
 
-Si vous avez des questions à propos de la configuration du certificat SSl personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 Le Kit de développement logiciel (SDK) Web Service doit être sécurisé avec un certificat SSL. Un certificat auto-signé peut être ajouté à cet effet. Importez le certificat dans le magasin « Racine des autorités de certification approuvée » du compte Ordinateur local sur le serveur Web du portail de l’utilisateur afin qu’il approuve ce certificat lors de l’initialisation de la connexion SSL.
 
@@ -70,7 +69,7 @@ Pour déployer le portail de l’utilisateur, procédez comme suit :
    > [!NOTE]
    > Le certificat SSL est généralement un certificat SSL signé publiquement.
 
-4. Ouvrez un navigateur web sur un ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth). Assurez-vous qu'aucun avertissement ou erreur de certificat n’est affiché.
+4. Ouvrez un navigateur web sur un ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 
 ![Installation du portail de l’utilisateur du serveur MFA](./media/multi-factor-authentication-get-started-portal/install.png)
 
@@ -139,7 +138,7 @@ Le serveur Azure Multi-Factor Authentication fournit plusieurs options pour le p
 | Autoriser les utilisateurs à lancer le contournement à usage unique | Autorise les utilisateurs à lancer un contournement à usage unique. Si un utilisateur configure cette option, celle-ci prendra effet lors de la prochaine connexion de celui-ci. L'invite à saisir les secondes du contournement affiche une zone qui permet à l'utilisateur de modifier la valeur par défaut de 300 secondes. Dans le cas contraire, le contournement à usage unique n'est valable que 300 secondes. |
 | Autoriser les utilisateurs à sélectionner la méthode | Permet aux utilisateurs de spécifier leur méthode de contact principale. Cela peut être un appel téléphonique, un message texte, une application mobile ou un jeton OATH. |
 | Autoriser les utilisateurs à sélectionner la langue | Permet aux utilisateurs de modifier la langue utilisée pour l’appel téléphonique, le message texte, l’application mobile ou le jeton OATH. |
-| Autoriser les utilisateurs à activer l'application mobile | Permet aux utilisateurs de générer un code d’activation pour terminer le processus d’activation de l’application mobile, utilisé avec le serveur.  Vous pouvez également définir le nombre d’appareils (entre 1 et 10) sur lesquels les utilisateurs peuvent activer l’application. |
+| Autoriser les utilisateurs à activer l'application mobile | Permet aux utilisateurs de générer un code d’activation pour terminer le processus d’activation de l’application mobile, utilisé avec le serveur.  Vous pouvez également définir le nombre d’appareils (entre 1 et 10) sur lesquels les utilisateurs peut activer l’application. |
 | Utiliser les questions de sécurité de secours | Autorise les questions de sécurité en cas d’échec de la vérification en deux étapes. Vous pouvez spécifier le nombre de questions de sécurité qui doivent être traitées avec succès. |
 | Autoriser les utilisateurs à associer un jeton OATH tiers | Permet aux utilisateurs de spécifier un jeton OATH tiers. |
 | Utiliser le jeton OATH de secours | Permet d’utiliser un jeton OATH si la vérification en deux étapes échoue. Vous pouvez également spécifier le délai d'expiration de la session en minutes. |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: a2beec313c0dfcd9cf7f7c1ad716223dcaf453b7
 ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Didacticiel : Intégration d’Azure Active Directory avec Inkling
 
@@ -124,7 +124,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Créer un certificat**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)     
+    ![Configurer l’authentification unique](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)    
 
 5. Dans la boîte de dialogue **Créer un certificat**, cliquez sur l’icône de calendrier et sélectionnez une **date d’expiration**. Ensuite, cliquez sur le bouton **Enregistrer**.
 
@@ -242,8 +242,3 @@ Lorsque vous cliquez sur la vignette Inkling dans le volet d’accès, vous deve
 [201]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Feb17_HO2-->
-
-

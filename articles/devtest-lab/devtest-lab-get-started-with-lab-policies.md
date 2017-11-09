@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer les stratégies de laboratoire de base dans Azure DevTest Labs
 
 Azure DevTest Labs vous permet de contrôler les coûts et de réduire le gaspillage dans vos laboratoires en gérant les stratégies (paramètres) de chacun d’entre eux. Dans cet article, vous allez découvrir les stratégies en apprenant à définir deux d’entre elles parmi les plus critiques : la limitation du nombre de machines virtuelles pouvant être créées ou revendiquées par un seul utilisateur et la configuration de l’arrêt automatique. Pour savoir comment définir chaque stratégie de laboratoire, consultez l’article [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
@@ -92,4 +89,3 @@ La stratégie de démarrage automatique vous permet de spécifier quand les mach
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md) - Apprenez à modifier les autres stratégies de laboratoire 
-

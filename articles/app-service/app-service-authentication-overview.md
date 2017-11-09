@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
-ms.openlocfilehash: e89ba5613c615c41af93e8f63b3703da8395095c
-
-
+ms.openlocfilehash: f0d2644903181cd2e20166feae4f90ddd4037fa8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 ## <a name="what-is-app-service-authentication--authorization"></a>Qu’est-ce que l’authentification/autorisation App Service ?
@@ -26,11 +26,7 @@ L’authentification/autorisation App Service est une fonctionnalité qui permet
 
 App Service utilise l’identité fédérée, dans laquelle un fournisseur d’identité tiers stocke les comptes et authentifie les utilisateurs. L’application utilise les informations sur cette identité pour qu’elle n’ait pas à stocker ces informations elle-même. App Service prend en charge cinq fournisseurs d’identité prêts à l’emploi : Azure Active Directory, Facebook, Google, Compte Microsoft et Twitter. Votre application peut exploiter plusieurs de ces fournisseurs d’identité, afin de proposer à vos utilisateurs plusieurs options de connexion. Vous pouvez étendre cette prise en charge intégrée en ajoutant un autre fournisseur d’identité ou [votre propre solution d’identité personnalisée][custom-auth].
 
-Si vous voulez commencer tout de suite, consultez l’un des didacticiels suivants :
-
-* [Ajout de l’authentification à votre application iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou encore [Cordova])
-* [Authentification utilisateur pour API Apps dans Azure App Service][apia-user]
-* [Prise en main d’Azure App Service, 2e partie][web-getstarted]
+Si vous souhaitez commencer immédiatement, consultez un des didacticiels suivants [Ajout de l’authentification à votre application iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova]).
 
 ## <a name="how-authentication-works-in-app-service"></a>Fonctionnement de l’authentification dans App Service
 Pour s’authentifier à l’aide d’un des fournisseurs d’identité, vous devez d’abord configurer le fournisseur d’identité pour qu’il reconnaisse votre application. Le fournisseur d’identité vous fournit alors des ID et des secrets, que vous devez fournir à votre tour à App Service. Cela termine la relation d’approbation pour qu’App Service puisse valider des assertions d’utilisateur du fournisseur d’identité, telles que les jetons d’authentification.
@@ -69,18 +65,18 @@ Bien que vous puissiez fournir aux utilisateurs l’accès à votre application,
 > 
 > 
 
-Pour les scénarios de service à service, App Service peut protéger votre application à l’aide d’Azure Active Directory. Il suffit que l’application appelante fournisse un jeton d’autorisation du principal de service Azure Active Directory, en fournissant l’ID du client et son secret via Azure Active Directory. Vous trouverez un exemple de ce scénario utilisant des applications API ASP.NET dans le didacticiel [Authentification de principal du service pour API Apps dans Azure App Service][apia-service].
+Pour les scénarios de service à service, App Service peut protéger votre application à l’aide d’Azure Active Directory. Il suffit que l’application appelante fournisse un jeton d’autorisation du principal de service Azure Active Directory, en fournissant l’ID du client et son secret via Azure Active Directory. Vous trouverez un exemple de ce scénario utilisant des applications API ASP.NET dans le didacticiel [Authentification de principal du service pour API Apps][apia-service].
 
-Si vous souhaitez utiliser l’authentification App Service pour gérer un scénario de service à service, vous pouvez utiliser les certificats clients ou l’authentification de base. Pour plus d’informations sur les certificats clients dans Azure, consultez [Configuration de l’authentification mutuelle TLS pour une application Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Pour en savoir plus sur l’authentification de base dans ASP.NET, voir [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters)(Filtres d’authentification dans ASP.NET Web API 2).
+Si vous souhaitez utiliser l’authentification App Service pour gérer un scénario de service à service, vous pouvez utiliser les certificats clients ou l’authentification de base. Pour plus d’informations sur les certificats clients dans Azure, consultez [Configuration de l’authentification mutuelle TLS pour une application Web](app-service-web-configure-tls-mutual-auth.md). Pour en savoir plus sur l’authentification de base dans ASP.NET, voir [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters)(Filtres d’authentification dans ASP.NET Web API 2).
 
 L’authentification du compte de service à partir d’une application logique App Service vers une application API est un cas particulier, qui est expliqué en détail dans la section [Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques](../logic-apps/logic-apps-custom-hosted-api.md).
 
-## <a name="a-nameauthorizationahow-authorization-works-in-app-service"></a><a name="authorization"></a>Fonctionnement de l’autorisation dans App Service
+## <a name="authorization"></a>Fonctionnement de l’autorisation dans App Service
 Vous bénéficiez d’un contrôle absolu sur les requêtes pouvant accéder à votre application. Vous pouvez configurer les fonctionnalités d’authentification/d’autorisation d’App Service en leur affectant l’un des comportements suivants :
 
 * Autoriser uniquement les requêtes authentifiées à accéder à votre application.
   
-    Si un navigateur reçoit une requête anonyme, App Service la redirige vers la page de connexion du fournisseur d’identité de votre choix pour que les utilisateurs puissent se connecter. Si la requête provient d’un appareil mobile, une réponse HTTP du type *401 non autorisé* est renvoyée.
+    Si un navigateur envoie une requête anonyme, App Service la redirige vers la page de connexion du fournisseur d’identité de votre choix pour que les utilisateurs puissent se connecter. Si la requête provient d’un appareil mobile, une réponse HTTP du type *401 non autorisé* est renvoyée.
   
     Grâce à cette option, vous n’avez pas besoin d’écrire du code d’authentification dans votre application. S’il vous faut une autorisation plus fine, vous pouvez tirer parti des informations sur l’utilisateur disponibles pour votre code.
 * Autoriser toutes les requêtes à atteindre votre application, mais valider les requêtes authentifiées et transmettre les informations d’authentification dans les en-têtes HTTP.
@@ -90,7 +86,7 @@ Vous bénéficiez d’un contrôle absolu sur les requêtes pouvant accéder à 
   
     Dans ce cas, la fonctionnalité d’authentification/d’autorisation est désactivée. Les tâches d’authentification et d’autorisation sont entièrement à la charge du code de votre application.
 
-Les comportements ci-dessus sont contrôlés par le biais de l’option **Action à exécuter quand une demande n’est pas authentifiée** du portail Azure. Si vous choisissez **Log in with *provider name* **(Se connecter avec nom du fournisseur), toutes les demandes doivent être authentifiées. L’option **Autoriser la demande (aucune action)** confie les décisions en matière d’autorisation à votre code, mais fournit malgré tout des informations d’authentification. Si vous souhaitez que votre code gère toutes ces opérations, vous pouvez désactiver la fonctionnalité d’autorisation/d’authentification.
+Les comportements ci-dessus sont contrôlés par le biais de l’option **Action à exécuter quand une demande n’est pas authentifiée** du portail Azure. Si vous choisissez **Se connecter avec *nom du fournisseur***, toutes les demandes doivent être authentifiées. L’option **Autoriser la demande (aucune action)** confie les décisions en matière d’autorisation à votre code, mais fournit malgré tout des informations d’authentification. Si vous souhaitez que votre code gère toutes ces opérations, vous pouvez désactiver la fonctionnalité d’autorisation/d’authentification.
 
 ## <a name="working-with-user-identities-in-your-application"></a>Utilisation des identités des utilisateurs dans votre application
 App Service transmet certaines informations sur les utilisateurs à votre application, au moyen d’en-têtes spéciaux. Ces en-têtes ne sont pas autorisés dans les requêtes externes ; ils ne seront présents que si la fonctionnalité d’autorisation/d’authentification d’App Service les définit. Voici quelques exemples d’en-têtes :
@@ -115,11 +111,6 @@ Les didacticiels suivants montrent comment configurer App Service pour exploiter
 * [Comment configurer votre application App Service de manière à utiliser la connexion via Twitter][Twitter]
 
 Si vous voulez utiliser un système d’identité différent de ceux indiqués ici, vous pouvez également exploiter la [prise en charge de l’authentification personnalisée en version préliminaire dans le Kit de développement logiciel (SDK) du serveur .NET de Mobile Apps][custom-auth], qui peut être utilisée dans les applications web, Mobiles Apps ou API Apps.
-
-### <a name="web-applications"></a>Applications web
-Les didacticiels suivants montrent comment ajouter l’authentification à une application web :
-
-* [Prise en main d’Azure App Service, 2e partie][web-getstarted]
 
 ### <a name="mobile-applications"></a>Applications mobiles
 Les didacticiels suivants expliquent comment ajouter une fonctionnalité d’authentification à vos clients mobiles en utilisant le flux dirigé vers le serveur :
@@ -150,16 +141,11 @@ Utilisez les ressources suivantes si vous souhaitez exploiter le flux dirigé ve
 
 * [Kit de développement logiciel (SDK) Google Sign-In pour iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
-### <a name="api-applications"></a>Applications API
-Les didacticiels suivants expliquent comment protéger vos applications API :
+<!-- ### API applications
+The following tutorials show how to protect your API apps:
 
-* [Authentification utilisateur pour API Apps dans Azure App Service][apia-user]
-* [Authentification de principal du service pour API Apps dans Azure App Service][apia-service]
-
-[apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
-[apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
-
-[web-getstarted]: ../app-service-web/app-service-web-get-started-2.md#authenticate-your-users
+* [User authentication for API Apps in Azure App Service][apia-user]
+* [Service principal authentication for API Apps in Azure App Service][apia-service] -->
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
@@ -169,20 +155,14 @@ Les didacticiels suivants expliquent comment protéger vos applications API :
 [Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
 [Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
+[Google]: app-service-mobile-how-to-configure-google-authentication.md
+[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
 [ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -1,6 +1,6 @@
 ---
 title: "Comment les applications sont ajoutées à Azure AD"
-description: "Cet article décrit la façon dont les applications sont ajoutées à une instance d&quot;Azure Active Directory."
+description: "Cet article décrit la façon dont les applications sont ajoutées à une instance d'Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: shoatman
@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 65c8a2c020d5ef7ce47905927a248b9e73d2ed1b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 L'une des choses surprenantes au premier abord lorsque vous affichez une liste des applications de votre instance d'Azure Active Directory consiste à comprendre d'où proviennent les applications et pourquoi elles sont là.  Cet article fournit une vue d'ensemble détaillée de la manière dont les applications sont représentées dans le répertoire et vous fournissent un contexte qui vous aidera à comprendre comment une application s'est retrouvée dans votre répertoire.
@@ -123,7 +121,7 @@ Ceci peut paraître inquiétant, mais gardez ce qui suit à l'esprit :
 * Les applications qui utilisent Azure AD pour oAuth décident en détail des autorisations que les utilisateurs sont en mesure d'accorder aux applications et des autorisations nécessitant un administrateur pour les confirmer.  Il va sans dire que seuls les administrateurs peuvent donner leur consentement à de plus grandes étendues et des autorisations plus importantes.
 * Les utilisateurs qui ajoutent et autorisent des applications pour accéder à leurs données sont des événements audités afin de pouvoir afficher les rapports d'audit dans le portail de gestion d'Azure, dans le but de déterminer de quelle façon une application a été ajoutée au répertoire.
 
-**Remarque :** *Microsoft a lui-même fonctionné pendant plusieurs mois avec la configuration par défaut.*
+**Remarque :***Microsoft a lui-même fonctionné pendant plusieurs mois avec la configuration par défaut.*
 
 Cela étant, il est possible d'empêcher les utilisateurs de votre répertoire d'ajouter des applications et d'exercer une discrétion sur les informations qu'ils partagent avec les applications en modifiant la configuration de répertoire dans le portail de gestion Azure.  La configuration suivante est accessible dans le portail de gestion Azure, dans l'onglet « Configuration » de votre répertoire.
 
@@ -146,4 +144,3 @@ En savoir plus sur les procédures d'ajout d'applications à Azure AD et de con
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]:../media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
-

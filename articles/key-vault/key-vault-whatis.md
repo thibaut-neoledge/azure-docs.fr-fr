@@ -3,7 +3,7 @@ title: "Qu’est-ce qu’Azure Key Vault ? | Microsoft Docs"
 description: "Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les clients peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM)."
 services: key-vault
 documentationcenter: 
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/19/2017
-ms.author: cabailey
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a178f6b88054425177092225095b016c902cfc78
-ms.openlocfilehash: 59b1e2a5398d687d71708f6e641cda321062dd7d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.date: 10/16/2017
+ms.author: barclayn
+ms.openlocfilehash: f4981996a92abb3ecb4b6b92add8f1a0c7b1cbef
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -60,4 +59,3 @@ Pour en savoir plus sur l’utilisation des clés et des secrets avec Azure Key
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-

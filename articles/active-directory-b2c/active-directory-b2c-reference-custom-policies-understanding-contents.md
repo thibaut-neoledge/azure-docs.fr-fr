@@ -14,15 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 9847bcfcc139a769847678c1cca6a8b9c3a30e93
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Présentation des stratégies personnalisées du pack de démarrage Azure AD B2C Custom Policy
 
 Cette section répertorie les principaux éléments de la stratégie B2C_1A_base qui est fournie avec le **Pack de démarrage** et utilisée pour créer ses propres stratégies via l’héritage de la *stratégie B2C_1A_base_extensions*.
@@ -40,9 +37,9 @@ La *stratégie B2C_1A_base* comporte des types de revendication, des transformat
 
 Ce schéma de revendications comprend trois sections :
 
-1.    La première section répertorie les revendications minimales requises pour garantir le bon fonctionnement des parcours utilisateur.
-2.    La deuxième section répertorie les revendications requises pour les paramètres de chaîne de requête et d’autres paramètres spéciaux devant être transférés à d’autres fournisseurs de revendications, notamment login.microsoftonline.com pour l’authentification. **Ne modifiez pas ces revendications**.
-3.    Enfin, la troisième section répertorie toutes les revendications supplémentaires et facultatives qui peuvent être collectées à partir de l’utilisateur, stockées dans le répertoire et transmises aux jetons lors de la connexion. Vous pouvez ajouter dans cette section tout nouveau type de revendications à collecter à partir de l’utilisateur et/ou à transmettre au jeton.
+1.  La première section répertorie les revendications minimales requises pour garantir le bon fonctionnement des parcours utilisateur.
+2.  La deuxième section répertorie les revendications requises pour les paramètres de chaîne de requête et d’autres paramètres spéciaux devant être transférés à d’autres fournisseurs de revendications, notamment login.microsoftonline.com pour l’authentification. **Ne modifiez pas ces revendications**.
+3.  Enfin, la troisième section répertorie toutes les revendications supplémentaires et facultatives qui peuvent être collectées à partir de l’utilisateur, stockées dans le répertoire et transmises aux jetons lors de la connexion. Vous pouvez ajouter dans cette section tout nouveau type de revendications à collecter à partir de l’utilisateur et/ou à transmettre au jeton.
 
 > [!IMPORTANT]
 > Le schéma de revendications inclut des restrictions pour certaines revendications, telles que des noms d’utilisateur et des mots de passe. La stratégie Trust Framework (TF) traite Azure AD comme n’importe quel autre fournisseur de revendications et toutes ses restrictions sont modélisées dans la stratégie premium. Vous pouvez modifier une stratégie pour y ajouter de nouvelles restrictions ou utiliser un autre fournisseur de revendications pour le stockage d’informations d’identification avec ses propres restrictions.
@@ -220,4 +217,3 @@ Cette section décrit les parcours utilisateur déjà déclarés dans la straté
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |
-

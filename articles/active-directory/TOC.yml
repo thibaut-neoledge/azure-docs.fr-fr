@@ -1,3 +1,5 @@
+- name: Présentation de la gestion des accès
+  href: manage-access-to-azure-resources.md
 - name: Accès aux ressources dans Azure
   href: active-directory-understanding-resource-access.md
 - name: Contrôle d’accès en fonction du rôle
@@ -31,44 +33,66 @@
       href: role-based-access-control-troubleshooting.md
     - name: Opérations du fournisseur de ressources
       href: role-based-access-control-resource-provider-operations.md
+- name: Privileged Identity Management (PIM) pour RBAC
+  href: pim-azure-resource.md
+- name: Accès conditionnel pour la gestion Azure
+  href: conditional-access-azure-management.md
 - name: Identité du service administré
   href: msi-overview.md
   items:
-    - name: Configurer MSI pour la machine virtuelle Windows
+    - name: Connecter ou obtenir un jeton
+      href: msi-how-to-get-access-token-using-msi.md
+    - name: Configurer MSI pour une machine virtuelle Azure
       items:
-        - name: Avec le portail Azure
+        - name: En passant par le portail Azure
           href: msi-qs-configure-portal-windows-vm.md
-        - name: Avec PowerShell
+        - name: Utiliser PowerShell
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: Avec l’interface de ligne de commande Azure
+        - name: Utilisation de l’interface de ligne de commande Azure
           href: msi-qs-configure-cli-windows-vm.md
-        - name: Avec un modèle Azure Resource Manager
+        - name: Utilisation d’un modèle Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
-    - name: Affecter un accès MSI à une ressource Azure
+        - name: Utilisation du Kit de développement logiciel (SDK) Azure
+          href: msi-qs-configure-sdk-windows-vm.md
+    - name: Accorder un accès à une MSI de machine virtuelle au gestionnaire des ressources
       items:
-        - name: Avec le portail Azure
+        - name: En passant par le portail Azure
           href: msi-howto-assign-access-portal.md
-        - name: Avec PowerShell
+        - name: Utiliser PowerShell
           href: msi-howto-assign-access-powershell.md
-        - name: Avec l’interface de ligne de commande Azure
+        - name: Utilisation de l’interface de ligne de commande Azure
           href: msi-howto-assign-access-cli.md
-    - name: Utiliser MSI pour accéder à Azure Resource Manager
+    - name: Utiliser une MSI de machine virtuelle pour accéder à Azure Data Lake Store
       items:
-        - name: Avec une machine virtuelle Windows
+        - name: À partir d’une machine virtuelle Windows
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: À partir d’une machine virtuelle Linux
+          href: msi-tutorial-linux-vm-access-datalake.md
+    - name: Utiliser une MSI de machine virtuelle pour accéder à Azure Resource Manager
+      items:
+        - name: À partir d’une machine virtuelle Windows
           href: msi-tutorial-windows-vm-access-arm.md
-        - name: Avec une machine virtuelle Linux
+        - name: À partir d’une machine virtuelle Linux
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: Utiliser MSI pour accéder au stockage Azure
+    - name: Utiliser une MSI de machine virtuelle pour accéder à Azure SQL
       items:
-        - name: Avec une machine virtuelle Windows
+        - name: À partir d’une machine virtuelle Windows
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Utiliser une MSI de machine virtuelle pour accéder au stockage Azure
+      items:
+        - name: À partir d’une machine virtuelle Windows à l’aide d’une clé d’accès
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: Avec une machine virtuelle Linux
+        - name: À partir d’une machine virtuelle Windows à l’aide de SAS
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: À partir d’une machine virtuelle Linux à l’aide d’une clé d’accès
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: Utiliser MSI pour accéder à une ressource hors Azure AD
+        - name: À partir d’une machine virtuelle Linux à l’aide de SAS
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Utiliser une MSI de machine virtuelle pour accéder à Azure Key Vault
       items:
-        - name: Avec une machine virtuelle Windows
+        - name: À partir d’une machine virtuelle Windows
           href: msi-tutorial-windows-vm-access-nonaad.md
-        - name: Avec une machine virtuelle Linux
+        - name: À partir d’une machine virtuelle Linux
           href: msi-tutorial-linux-vm-access-nonaad.md
-    - name: Problèmes connus
+    - name: FAQ et problèmes connus
       href: msi-known-issues.md

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
+ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure
 
 Découvrez comment ajouter, modifier et supprimer des adresses IP publiques et privées pour une interface réseau. Les adresses IP privées assignées à une interface réseau permettent à une machine virtuelle de communiquer avec d’autres ressources dans un réseau virtuel Azure et des réseaux connectés. Une adresse IP privée permet également une communication sortante vers Internet à l’aide d’une adresse IP non prédictible. Une [adresse IP publique](virtual-network-public-ip-address.md) assignée à une interface réseau permet d’établir une communication entrante vers une machine virtuelle à partir d’Internet. L’adresse permet également d’établir une communication sortante de la machine virtuelle vers Internet à l’aide d’une adresse IP prédictible. Pour en savoir plus, consultez [Comprendre les connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
@@ -190,12 +188,18 @@ Vous pouvez assigner zéro ou une adresse [IPv6](#ipv6) privée à une configura
 
 Vous ne pouvez pas assigner d’adresse IPv6 publique à une configuration IP principale ou secondaire.
 
+## <a name="skus"></a>Références (SKU)
+
+Une adresse IP publique est créée avec la référence SKU de base ou standard.  Pour plus d’informations sur les différences entre les références SKU, consultez [Gérer les adresses IP publiques](virtual-network-public-ip-address.md).
+
+> [!NOTE]
+> Quand vous assignez une adresse IP publique de référence SKU standard à l’interface réseau d’une machine virtuelle, vous devez explicitement autoriser le trafic prévu avec un [groupe de sécurité réseau](security-overview.md#network-security-groups). La communication avec la ressource est possible uniquement si vous créez et associez un groupe de sécurité réseau et que vous autorisez explicitement le trafic prévu.
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec différentes configurations IP, consultez les articles suivants :
 
-|Tâche|Outil|
+|Task|Outil|
 |---|---|
 |Créer une machine virtuelle avec plusieurs cartes d’interface réseau|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Créer une machine virtuelle à carte réseau unique avec plusieurs adresses IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Créer une machine virtuelle à carte réseau unique avec une adresse IPv6 privée (derrière Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [modèle Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-

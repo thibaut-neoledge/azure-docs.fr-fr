@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
+ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: e4fe5400ffcf4446392015aada031dd4dfbf238a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -32,8 +31,6 @@ Cet article explique :
 * Le mode de définition de l’étendue des informations d’identification pour limiter l’accès à des ressources spécifiques.
 * La prise en charge par IoT Hub des certificats X.509.
 * Les mécanismes d’authentification d’appareil personnalisés qui utilisent des registres d’identités d’appareil ou des schémas d’authentification existants.
-
-### <a name="when-to-use"></a>Quand utiliser
 
 Pour accéder à tout point de terminaison IoT Hub, vous devez disposer des autorisations appropriées. Par exemple, un appareil doit inclure un jeton contenant des informations d’identification de sécurité dans chaque message envoyé à IoT Hub.
 
@@ -73,7 +70,7 @@ Pour plus d’informations sur la construction et l’utilisation des jetons de 
 
 ### <a name="protocol-specifics"></a>Spécifications de protocole
 
-Chaque protocole pris en charge (par exemple, MQTT, AMQP et HTTP) transporte des jetons de différentes façons.
+Chaque protocole pris en charge (par exemple, MQTT, AMQP et HTTPS) transporte des jetons de différentes façons.
 
 Lorsque vous utilisez MQTT, le paquet CONNECT utilise deviceid en tant que ClientId, {iothubhostname}/{deviceId} dans le champ Nom d’utilisateur et un jeton SAP dans le champ Mot de passe. {iothubhostname} doit être le nom canonique (CNAME) complet d’IoT Hub (par exemple, contoso.azure-devices.net).
 
@@ -88,7 +85,7 @@ Pour SASL PLAIN, le **nom d’utilisateur** peut être :
 
 Dans les deux cas, le champ de mot de passe contient le jeton, comme le décrit [Jetons de sécurité IoT Hub][lnk-sas-tokens].
 
-Le protocole HTTP implémente l’authentification en incluant un jeton valide dans l’en-tête de demande **Authorization** .
+Le protocole HTTPS implémente l’authentification en incluant un jeton valide dans l’en-tête de requête **Authorization**.
 
 #### <a name="example"></a>Exemple
 
@@ -101,7 +98,7 @@ Mot de passe (générer le jeton SAP avec l’outil [Explorateur d’appareils][
 
 ### <a name="special-considerations-for-sasl-plain"></a>Considérations spécifiques concernant SASL PLAIN
 
-Lorsque vous utilisez SASL PLAIN avec AMQP, un client qui se connecte à un IoT Hub peut utiliser un jeton unique pour chaque connexion TCP. Lorsque le jeton expire, la connexion TCP est déconnectée du service, ce qui déclenche une reconnexion. Bien que non problématique pour une application principale, ce comportement peut créer des dommages pour une application d’appareil pour les motifs suivants :
+Lorsque vous utilisez SASL PLAIN avec AMQP, un client qui se connecte à un IoT Hub peut utiliser un jeton unique pour chaque connexion TCP. Quand le jeton expire, la connexion TCP est déconnectée du service, ce qui déclenche une reconnexion. Bien que non problématique pour une application principale, ce comportement peut créer des dommages pour une application d’appareil pour les motifs suivants :
 
 * Les passerelles se connectent généralement au nom de nombreux appareils. Lorsque vous utilisez SASL PLAIN, elles doivent créer une connexion TCP distincte pour chaque appareil se connectant à un hub IoT. Ce scénario augmente considérablement la consommation des ressources d’alimentation et de mise en réseau, ainsi que la latence de chaque connexion d’appareil.
 * Les appareils avec des contraintes de ressources sont affectés par l’utilisation accrue des ressources pour se reconnecter après chaque expiration du jeton.
@@ -116,7 +113,7 @@ Il s’agit d’un mécanisme semblable à la [Stratégie de publication d’Eve
 
 IoT Hub utilise des jetons de sécurité pour authentifier les appareils et les services afin d’éviter d’envoyer des clés sur le réseau. En outre, la validité et la portée des jetons sont limitées dans le temps. Les kits [Azure IoT SDK ][lnk-sdks] génèrent automatiquement les jetons sans configuration spéciale. Certains scénarios nécessitent toutefois que vous génériez et utilisiez directement des jetons de sécurité. Il s’agit entre autres des scénarios suivants :
 
-* Utilisation directe des surfaces MQTT, AMQP ou HTTP
+* Utilisation directe des surfaces MQTT, AMQP ou HTTPS.
 * Implémentation du modèle de service de jeton, comme expliqué dans [Authentification d’appareil personnalisée][lnk-custom-auth].
 
 IoT Hub permet également aux appareils de s’authentifier avec IoT Hub à l’aide de [certificats X.509][lnk-x509].
@@ -194,6 +191,39 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
 
+La fonctionnalité en C# pour générer un jeton de sécurité est la suivante :
+
+```C#
+using System;
+using System.Globalization;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+
+public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+{
+    TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
+
+    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+
+    HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
+    string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+
+    if (!String.IsNullOrEmpty(policyName))
+    {
+        token += "&skn=" + policyName;
+    }
+
+    return token;
+}
+
+```
+
+
 > [!NOTE]
 > Étant donné que la validité du jeton est validée sur les ordinateurs IoT Hub, la dérive de l’horloge de l’ordinateur qui génère le jeton doit être minime.
 
@@ -211,7 +241,7 @@ Les points de terminaison côté appareil sont (quel que soit le protocole) :
 | Point de terminaison | Fonctionnalités |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Envoyer des messages appareil-à-cloud. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |Recevoir des messages cloud-à-appareil. |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Recevoir des messages cloud-à-appareil. |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Utilisation d’une clé symétrique dans le registre d’identité
 
@@ -384,7 +414,7 @@ Pour qu’un appareil se connecte à votre hub, vous devez l’ajouter au regist
 
 ### <a name="comparison-with-a-custom-gateway"></a>Comparaison avec une passerelle personnalisée
 
-Le modèle de service de jeton est la méthode recommandée pour implémenter un schéma de registre d’identité/d’authentification avec IoT Hub. Ce modèle est recommandé car il laisse IoT Hub gérer la plupart du trafic de la solution. Toutefois, si l’entrelacement entre le schéma d’authentification personnalisé et le protocole SSL est conséquent, vous aurez peut-être besoin d’une *passerelle personnalisée* pour traiter tout le trafic. [Le protocole TLS (Transport Layer Security) et les clés prépartagées (PSK)][lnk-tls-psk] en sont un exemple. Pour plus d’informations, consultez la rubrique [Passerelle de protocole][lnk-protocols].
+Le modèle de service de jeton est la méthode recommandée pour implémenter un schéma de registre d’identité/d’authentification avec IoT Hub. Ce modèle est recommandé car il laisse IoT Hub gérer la plupart du trafic de la solution. Toutefois, si l’entrelacement entre le schéma d’authentification personnalisé et le protocole SSL est conséquent, vous aurez peut-être besoin d’une *passerelle personnalisée* pour traiter tout le trafic. [Le protocole TLS (Transport Layer Security) et les clés prépartagées (PSK)][lnk-tls-psk] en sont un exemple. Pour plus d’informations, consultez l’article [Passerelle de protocole][lnk-protocols].
 
 ## <a name="reference-topics"></a>Rubriques de référence :
 
@@ -406,20 +436,20 @@ Le tableau suivant répertorie les autorisations que vous pouvez utiliser pour c
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
-* La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas et le comportement de limitation qui s’appliquent au service IoT Hub.
+* La rubrique [Référence - Quotas et limitation IoT Hub][lnk-quotas] décrit les quotas et le comportement de limitation qui s’appliquent au service IoT Hub.
 * La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
-* La rubrique [Langage de requête d’IoT Hub][lnk-query] décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
+* La rubrique [Référence - Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À présent que vous savez comment contrôler l’accès à IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT Hub :
+Maintenant que vous savez comment contrôler l’accès à IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT Hub :
 
-* [Utiliser des jumeaux d’appareil pour synchroniser les données d’état et de configuration][lnk-devguide-device-twins]
+* [Utiliser des représentations d’appareil pour synchroniser les données d’état et de configuration][lnk-devguide-device-twins]
 * [Appeler une méthode directe sur un appareil][lnk-devguide-directmethods]
 * [Planifier des travaux sur plusieurs appareils][lnk-devguide-jobs]
 
-Si vous souhaitez tenter de mettre en pratique certains des concepts décrits dans cet article, vous serez peut-être intéressé par les didacticiels IoT Hub suivants :
+Si vous souhaitez tenter de mettre en pratique certains des concepts décrits dans cet article, consultez les didacticiels IoT Hub suivants :
 
 * [Mise en route d’Azure IoT Hub][lnk-getstarted-tutorial]
 * [Envoyer des messages cloud-à-appareil avec IoT Hub][lnk-c2d-tutorial]
@@ -462,4 +492,3 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-

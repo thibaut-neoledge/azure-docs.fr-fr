@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3f46d743b85b1133f64309f01074cbc3b430183f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d6a13ceb8ccd9207ecacc166247535d496d5dec7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-secure-cluster"></a>Se connecter à un cluster sécurisé
 
@@ -313,6 +312,8 @@ Pour atteindre [Service Fabric Explorer](service-fabric-visualizing-your-cluster
 
 L'URL complète est également disponible dans le volet des éléments essentiels du cluster dans le portail Azure.
 
+Pour vous connecter à un cluster sécurisé sur Windows ou OS X à l’aide d’un navigateur, vous pouvez importer le certificat client et le navigateur vous demande le certificat à utiliser pour la connexion au cluster.  Sur les ordinateurs Linux, le certificat devra être importé à l’aide de paramètres du navigateur avancés (chaque navigateur dispose de mécanismes différents) et faites-le pointer vers l’emplacement du certificat sur le disque.
+
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Se connecter à un cluster sécurisé à l’aide d’Azure Active Directory
 
 Pour vous connecter à un cluster sécurisé avec AAD, dirigez votre navigateur vers :
@@ -355,5 +356,4 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md)
 * [Sécurité des applications et RunAs](service-fabric-application-runas-security.md)
-* [Bien démarrer avec l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
-
+* [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)

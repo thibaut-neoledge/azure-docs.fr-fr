@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: 5358404881b65d217ab36a41ca04a73f2c462c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Connexion aux applications web Java et déconnexion de ces dernières avec Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -1723,4 +1722,3 @@ Vous disposez désormais d’une application Java fonctionnelle qui peut authent
 * Clonez le fichier à partir de GitHub en entrant la commande suivante :
 
  ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-

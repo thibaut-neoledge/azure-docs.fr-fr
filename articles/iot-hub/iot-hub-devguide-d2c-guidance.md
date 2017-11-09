@@ -12,34 +12,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 10/09/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a36283053939ccd53856a394cd9efb66285271ae
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: 335928776e1e62caf2855cd5a5684ccaf37f73cd
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Recommandations sur les communications appareil-à-cloud
 Lors de l’envoi d’informations de l’application d’appareil au serveur principal de solution, IoT Hub expose trois options :
 
 * Les [messages appareil-à-cloud][lnk-d2c], pour la télémétrie et les alertes de série chronologique.
-* Les [propriétés signalées][lnk-twins], pour la consignation des informations sur l’état de l’appareil, telles que les fonctionnalités disponibles, les conditions ou l’état des flux de travail de longue durée. Par exemple, les mises à jour de configuration et de logiciels.
+* Les [propriétés signalées du jumeau d’appareil][lnk-twins], pour la consignation des informations sur l’état de l’appareil, telles que les fonctionnalités disponibles, les conditions ou l’état des flux de travail de longue durée. Par exemple, les mises à jour de configuration et de logiciels.
 * Le [chargement des fichiers][lnk-fileupload], pour les contenus multimédias et les gros traitements télémétriques par lots chargés par des appareils connectés par intermittence ou compressés pour économiser de la bande passante.
 
 Voici une comparaison détaillée des différentes options de communication appareil-à-cloud.
 
-|  | Messages appareil-à-cloud | Propriétés signalées | Chargements de fichiers |
+|  | Messages appareil-à-cloud | Propriétés signalées du jumeau d’appareil | Chargements de fichiers |
 | ---- | ------- | ---------- | ---- |
 | Scénario | Télémétrie et alertes de série chronologique. Par exemple, les lots de données de capteur de 256 Ko envoyés toutes les 5 minutes. | Capacités et conditions disponibles. Par exemple, le mode de connectivité d’appareil actuel, tel que réseau mobile ou Wi-Fi. Synchronisation des workflows de longue durée, comme les mises à jour logicielles et de la configuration. | Fichiers multimédias. Lots de télémétrie volumineux (généralement compressés). |
 | Stockage et récupération | Stockage temporaire par IoT Hub, jusqu’à 7 jours. Lecture uniquement séquentielle. | Stockage par IoT Hub dans le jumeau d’appareil. Récupérables à l’aide du [langage de requête IoT Hub][lnk-query]. | Stockées dans le compte de stockage Azure fourni par l’utilisateur. |
 | Taille | Messages d’une taille maximale de 256 Ko. | La taille maximale des propriétés signalées est de 8 Ko. | Taille maximale de fichier prise en charge par le stockage Blob Azure. |
 | Fréquence | Élevée. Pour plus d’informations, consultez les [limites d’IoT Hub][lnk-quotas]. | Moyenne. Pour plus d’informations, consultez les [limites d’IoT Hub][lnk-quotas]. | Faible. Pour plus d’informations, consultez les [limites d’IoT Hub][lnk-quotas]. |
-| Protocole | Disponible sur tous les protocoles. | Disponible actuellement uniquement lorsque vous utilisez MQTT. | Disponible sur tous les protocoles, mais nécessite HTTP sur l’appareil. |
+| Protocole | Disponible sur tous les protocoles. | Disponible à l’aide du protocole MQTT ou AMQP. | Disponible avec tous les protocoles, mais nécessite HTTPS sur l’appareil. |
 
-Il est possible qu’une application nécessite l’envoi d’informations en tant que série chronologique de télémétrie ou alerte, et sa mise à disposition sur le jumeau d’appareil. Dans ce scénario, vous pouvez choisir l’une des options suivantes :
+Il est possible qu’une application nécessite l’envoi d’informations en tant que série chronologique de télémétrie ou alerte, et sa mise à disposition sur le jumeau d’appareil. Dans ce scénario, vous pouvez choisir l’une des options suivantes :
 
 * L’application pour appareil envoie un message appareil-à-cloud et signale une modification de propriété.
 * Le serveur principal de la solution peut stocker les informations dans les étiquettes du jumeau d’appareil quand il reçoit le message.
@@ -52,4 +50,3 @@ Dans la mesure où les messages appareil-à-cloud prennent en charge un débit b
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md
-

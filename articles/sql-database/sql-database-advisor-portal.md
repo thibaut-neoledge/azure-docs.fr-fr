@@ -1,6 +1,6 @@
 ---
 title: "Appliquer les recommandations relatives aux performances - Azure SQL Database | Microsoft Docs"
-description: "Vous pouvez utiliser le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre Azure SQL Database ou pour résoudre un problème identifié dans votre charge de travail."
+description: "Utilisez le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -12,17 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 018afaa8b08bd001e55693390e80c8e2c4f33a30
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
-
+ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
@@ -75,30 +72,30 @@ La base de données reste en ligne tant que la recommandation est appliquée. L�
 ### <a name="apply-an-individual-recommendation"></a>Appliquer une recommandation individuelle
 Vous pouvez consulter et accepter les recommandations une à la fois.
 
-1. Dans le panneau **Recommandations**, cliquez sur une recommandation.
-2. Dans le panneau **Détails**, cliquez sur le bouton **Appliquer**.
+1. Dans la page **Recommandations**, cliquez sur une recommandation.
+2. Dans la page **Détails**, cliquez sur le bouton **Appliquer**.
    
     ![Appliquer une recommandation](./media/sql-database-advisor-portal/apply.png)
 
-La recommandation sélectionnée est appliquée sur la base de données.
+La recommandation sélectionnée est appliquée à la base de données.
 
 ### <a name="removing-recommendations-from-the-list"></a>Suppression de recommandations de la liste
 Si votre liste de recommandations contient des éléments que vous souhaitez supprimer de la liste, vous pouvez ignorer la recommandation :
 
 1. Sélectionnez une recommandation dans la liste des **Recommandations** pour afficher les informations.
-2. Cliquez sur **Ignorer** dans le panneau **Détails**.
+2. Dans la page **Détails**, cliquez sur **Ignorer**.
 
 Si vous le souhaitez, vous pouvez rajouter des éléments rejetés à la liste **Recommandations** :
 
-1. Dans le panneau **Recommandations**, cliquez sur **Afficher les éléments ignorés**.
+1. Dans la page **Recommandations**, cliquez sur **Affichage ignoré**.
 2. Sélectionnez un élément rejeté dans la liste pour afficher les détails le concernant.
 3. Si vous le souhaitez, vous pouvez cliquer sur **Annuler le rejet** pour ajouter l’index à la liste principale de **Recommandations**.
 
 
 ### <a name="enable-automatic-tuning"></a>Activer le réglage automatique
-Vous pouvez configurer Azure SQL Database de manière à implémenter automatiquement des recommandations. Dès qu’une recommandation est disponible, elle est automatiquement appliquée. Comme avec toutes les recommandations gérées par le service, si l’impact sur les performances est négatif, la recommandation est annulée.
+Vous pouvez configurer Azure SQL Database de manière à implémenter automatiquement des recommandations. Dès qu’une recommandation est disponible, elle est automatiquement appliquée. Comme pour toutes les recommandations gérées par le service, si l’impact sur les performances est négatif, la recommandation est annulée.
 
-1. Dans le panneau **Recommandations**, cliquez sur **Automatiser** :
+1. Dans la page **Recommandations**, cliquez sur **Automatiser**:
    
     ![Paramètres du conseiller](./media/sql-database-advisor-portal/settings.png)
 2. Sélectionnez les actions à automatiser :
@@ -113,7 +110,7 @@ Sélectionnez une recommandation, puis cliquez sur **Afficher le script**. Exéc
 ### <a name="canceling-recommendations"></a>Annulation de recommandations
 Les recommandations ayant l’état **En attente**, **En cours de vérification** ou **Réussite** peuvent être annulées. Les recommandations avec l'état **En cours d'exécution** ne peuvent pas être annulées.
 
-1. Sélectionnez une recommandation dans la zone **Historique de paramétrage** pour ouvrir le panneau **Détails des recommandations**.
+1. Sélectionnez une recommandation dans la zone **Historique des réglages** pour ouvrir la page **Détails des recommandations**.
 2. Cliquez sur **Annuler** pour abandonner le processus d'application de la recommandation.
 
 ## <a name="monitoring-operations"></a>Surveillance des opérations
@@ -134,23 +131,23 @@ Cliquez sur une recommandation en cours dans la liste pour afficher ses détails
 ![Index recommandés](./media/sql-database-advisor-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Annulation d'une recommandation
-Si vous avez utilisé les recommandations en matière de performances pour appliquer la recommandation (situation dans laquelle vous n’avez pas exécuté manuellement le script T-SQL), il l’annule automatiquement si l’impact sur les performances est négatif. Si vous souhaitez simplement annuler une recommandation, vous pouvez effectuer ce qui suit :
+Si vous avez utilisé les recommandations en matière de performances pour appliquer la recommandation (ce qui signifie que vous n’avez pas exécuté manuellement le script T-SQL), celle-ci annule automatiquement la modification s’il apparaît que son impact sur les performances est négatif. Si vous souhaitez simplement annuler une recommandation, vous pouvez procéder comme suit :
 
 1. Sélectionnez une recommandation appliquée avec succès dans la zone **Historique de paramétrage** .
-2. Cliquez sur **Annuler** dans le panneau **Détails de la recommandation**.
+2. Dans la page **Détails de la recommandation**, cliquez sur **Annuler**.
 
 ![Index recommandés](./media/sql-database-advisor-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>Analyse de l’impact des recommandations d’index sur les performances
-Une fois les recommandations correctement implémentées (actuellement, seulement les opérations d’index et les recommandations de paramétrage des requêtes), vous pouvez cliquer sur **Informations sur la requête** dans le panneau Détails de la recommandation pour ouvrir [Query Performance Insight](sql-database-query-performance.md) et voir l’impact de vos principales requêtes sur les performances.
+Une fois les recommandations correctement implémentées (actuellement, seulement les opérations d’index et les recommandations de paramétrage des requêtes), vous pouvez cliquer sur **Informations sur la requête** dans la page Détails de la recommandation pour ouvrir [Query Performance Insight](sql-database-query-performance.md) et voir l’impact de vos principales requêtes sur les performances.
 
 ![Surveiller l’impact sur les performances](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>Résumé
-Azure SQL Database fournit des recommandations pour améliorer les performances des bases de données SQL. Les scripts T-SQL, ainsi que les options individuelles et entièrement automatiques, facilitent l’optimisation de votre base de données, avec à la clé une amélioration des performances des requêtes.
+Azure SQL Database fournit des recommandations pour améliorer les performances des bases de données SQL. Les scripts T-SQL vous aident à optimiser votre base de données, avec à la clé une amélioration des performances des requêtes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. Azure SQL Database va continuer à surveiller et à fournir des recommandations pouvant potentiellement améliorer les performances de votre base de données. 
+Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. Azure SQL Database continue à surveiller et à fournir des recommandations pouvant potentiellement améliorer les performances de votre base de données. 
 
 * Consultez [Réglage automatique](sql-database-automatic-tuning.md) pour en savoir plus sur le réglage automatique dans Azure SQL Database.
 * Consultez [Recommandations en matière de performances](sql-database-advisor.md) pour obtenir une vue d’ensemble des recommandations relatives aux performances Azure SQL Database.
@@ -160,5 +157,4 @@ Surveillez vos recommandations et continuez à les appliquer pour affiner les pe
 * [Magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md)
-
 

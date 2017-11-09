@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 120ae95fe12daa8fc213d0062ca446d5c1b10134
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>Adresses IP réservées (Classic)
 
@@ -169,5 +167,4 @@ Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d�
 * Découvrez comment [l’adressage IP](virtual-network-ip-addresses-overview-classic.md) fonctionne dans le modèle de déploiement Classic.
 * En savoir plus sur [les adresses IP privées réservées](virtual-networks-reserved-private-ip.md).
 * En savoir plus sur [les adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip.md).
-
 

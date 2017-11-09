@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: d42045b1c354b7bd5f9299181aefd6d98fda382b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: afe5dcab2beca2c6bf3d116adf249fc9717eeb09
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/04/2017
 ---
-
 # <a name="iot-hub-documentation"></a>Documentation IoT Hub 
 
 Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des milliards de ressources IoT (Internet of Things, Internet des objets). Les didacticiels, références d’API, vidéos et autres documents vous aident à déployer une communication fiable et bidirectionnelle entre des appareils IoT et une solution back-end. 
@@ -50,7 +48,7 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_video.svg" alt="" />
+                            <img src="media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +66,7 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -86,7 +84,7 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -104,7 +102,7 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_road-map.svg" alt="" />
+                            <img src="media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -138,14 +136,27 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <h3>Exemples de code</h3>
+                        <p><a href="https://azure.microsoft.com/resources/samples/?service=iot-hub">Exemples de code</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (service)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (appareils)</a></p>
                         <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">SDK d’appareils C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (appareils)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">Kits de développement logiciel (SDK) Node.js</a></p>
-                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/">Node.js (appareils)</a></p>
+                        <p><a href="/javascript/api/azure-iothub">Node.js (service)</a></p>
+                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
             </div>
@@ -168,4 +179,3 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
         </div>
     </li>
 </ul>
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure
 Cet article explique comment configurer un serveur de sauvegarde Azure pour sauvegarder un serveur Microsoft Exchange dans une sauvegarde Microsoft Azure.  
@@ -54,7 +52,7 @@ Pour installer l’agent de protection du serveur de sauvegarde Azure sur le se
 
    * Je souhaite une protection à court terme à l’aide de Disque.
    * Je voudrais une protection en ligne.
-6. Cliquez sur **Next**.
+6. Cliquez sur **Suivant**.
 7. Sélectionnez l’option **Exécuter Eseutil pour vérifier l’intégrité des données** si vous souhaitez vérifier l’intégrité des bases de données Exchange Server.
 
     Une fois cette option sélectionnée, une vérification de la cohérence de sauvegarde s’exécute sur le serveur de sauvegarde Azure, afin d’éviter le trafic d’E/S généré lors de l’exécution de la commande **eseutil** sur le serveur Exchange.
@@ -113,4 +111,3 @@ Pour les points de récupération en ligne, il existe cinq types de récupérati
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
-

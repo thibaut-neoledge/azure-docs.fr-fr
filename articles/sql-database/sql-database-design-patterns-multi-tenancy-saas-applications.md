@@ -1,6 +1,6 @@
 ---
 title: "Modèles de conception pour les applications SaaS multilocataires et Azure SQL Database | Microsoft Docs"
-description: "Cet article décrit la configuration requise et les modèles d’architecture de données les plus courants pour les applications de base de données multilocataires s’exécutant dans un environnement cloud, ainsi que les compromis associés à ces modèles. Il explique également comment Azure SQL Database, avec ses outils et ses pools élastiques, permet de satisfaire ces exigences sans aucun compromis."
+description: "Découvrez les exigences et les modèles d’architecture de données les plus courants pour les applications de base de données SaaS (Software as a Service) multilocataires qui s’exécutent dans un environnement cloud."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -13,16 +13,14 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-design
+ms.workload: Active
 ms.date: 02/01/2017
 ms.author: srinia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: eef48cfcbc7d6c241b5ece863df0be6ecad78ca7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Modèles de conception pour les applications SaaS multilocataires et Azure SQL Database
 Cet article vous fournit des informations sur la configuration requise et les modèles d’architecture de données les plus courants pour les applications de base de données SaaS (Software as a Service) multilocataires s’exécutant dans un environnement cloud. Il explique également les facteurs à prendre en compte et les compromis en fonction de chaque modèle de conception. Les pools élastiques et les outils élastiques dans Azure SQL Database peuvent vous aider à répondre à des besoins spécifiques sans compromettre d’autres objectifs.
@@ -169,5 +167,4 @@ Découvrez comment [surveiller et gérer un pool élastique](sql-database-elasti
 ## <a name="questions-and-feature-requests"></a>Questions et demandes de fonctionnalités
 
 Pour toute question, retrouvez-nous sur le [forum de Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Ajoutez une demande de fonctionnalité dans le [forum de commentaires de Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
-
 

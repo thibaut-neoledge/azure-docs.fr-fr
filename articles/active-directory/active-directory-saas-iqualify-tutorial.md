@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: cab1ce3694372c137667e0179caf8d3523147f7a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Didacticiel : Intégration d’Azure Active Directory à iQualify LMS
 
@@ -33,7 +32,7 @@ L’intégration d’iQualify LMS avec Azure AD vous offre les avantages suivan
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour configurer l’intégration d’Azure AD avec iQualify LMS, vous avez besoin des éléments suivants :
 
@@ -191,7 +190,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 14. Dans la boîte de dialogue **SAML Authentication Settings** , procédez comme suit :
 
-    ![SAML Authentication Settings](./media/active-directory-saas-iqualify-tutorial/setting4.png)
+    ![Paramètres d’authentification SAML](./media/active-directory-saas-iqualify-tutorial/setting4.png)
 
     a. Dans la zone **SAML SINGLE SIGN-ON SERVICE URL**, entrez la valeur de la zone **URL du service d’authentification unique SAML** copiée à partir de la fenêtre Configuration de l’application Azure AD.
     
@@ -201,7 +200,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     d. Dans **LOGIN BUTTON LABEL**, entrez le nom du bouton à afficher dans la page de connexion.
     
-    e. Cliquez sur **SAVE**.
+    e. Cliquez sur **ENREGISTRER**.
 
     f. Cliquez sur **UPDATE**.
 
@@ -238,7 +237,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-an-iqualify-lms-test-user"></a>Créer un utilisateur de test iQualify LMS
 
@@ -308,5 +307,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_203.png
-
 

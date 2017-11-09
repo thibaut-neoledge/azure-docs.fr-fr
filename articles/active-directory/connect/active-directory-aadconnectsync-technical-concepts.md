@@ -12,18 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: 3623537c80bd0e4190d1e51f289a4b194c13878d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/25/2017
-
+ms.openlocfilehash: e178c5fa453c753aabdc38449273f46a90e1194a
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-<a id="azure-ad-connect-sync-technical-concepts" class="xliff"></a>
-
-# Azure AD Connect Sync : Concepts techniques
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync : Concepts techniques
 Cet article est un résumé de la rubrique [Présentation de l’architecture](active-directory-aadconnectsync-technical-concepts.md).
 
 Azure AD Connect Sync repose sur une plateforme de synchronisation de méta-annuaire solide.
@@ -40,13 +37,10 @@ Les sections suivantes fournissent plus de détails sur les aspects suivants du 
 * Métaverse
 * Approvisionnement
 
-<a id="connector" class="xliff"></a>
-
-## Connecteur
+## <a name="connector"></a>Connecteur
 Les modules de code utilisés pour communiquer avec un annuaire connecté sont appelés connecteurs (anciennement agents de gestion).
 
-Ils sont installés sur l’ordinateur exécutant Azure AD Connect Sync.
-Les connecteurs permettent de converser sans agent à l’aide de protocoles système distants, au lieu de reposer sur le déploiement d’agents spécialisés. Cela se traduit par une réduction des risques et de la durée de déploiement, en particulier quand il s’agit de systèmes et d’applications critiques.
+Ils sont installés sur l’ordinateur exécutant Azure AD Connect Sync. Les connecteurs permettent de converser sans agent à l’aide de protocoles système distants, au lieu de reposer sur le déploiement d’agents spécialisés. Cela se traduit par une réduction des risques et de la durée de déploiement, en particulier quand il s’agit de systèmes et d’applications critiques.
 
 Dans l’illustration ci-dessus, le connecteur est synonyme de l’espace de connecteur mais il englobe toutes les communications avec le système externe.
 
@@ -54,31 +48,23 @@ Le connecteur est responsable de toutes les fonctionnalités d’importation et 
 
 Les importations et exportations ont lieu uniquement quand elles sont planifiées, ce qui offre une isolation supplémentaire par rapport aux modifications qui se produisent dans le système, dans la mesure où les modifications ne se propagent pas automatiquement à la source de données connectée. En outre, les développeurs peuvent également créer leurs propres connecteurs pour se connecter à pratiquement n'importe quelle source de données.
 
-<a id="attribute-flow" class="xliff"></a>
-
-## Flux d’attributs
+## <a name="attribute-flow"></a>Flux d’attributs
 Le métaverse est l’affichage consolidé de toutes les identités jointes des espaces de connecteur voisins. Dans la figure ci-dessus, le flux des attributs est représenté par des lignes comportant des flèches pour les flux entrant et sortant. Le flux des attributs est le processus de copie ou de transformation de données d'un système vers un autre et vers tous les flux d’attributs (entrants ou sortants).
 
 Le flux d’attributs se produit entre l’espace de connecteur et le métaverse de manière bidirectionnelle quand l’exécution d’opérations de synchronisation (complète ou delta) est planifiée.
 
 Le flux d’attributs se produit uniquement quand ces synchronisations sont exécutées. Les flux d’attributs sont définis dans des règles de synchronisation. Ces règles peuvent être entrantes (ISR dans l’image ci-dessus) ou sortantes (OSR dans l’image ci-dessus).
 
-<a id="connected-system" class="xliff"></a>
-
-## Système connecté
+## <a name="connected-system"></a>Système connecté
 Système connecté (également appelé annuaire connecté) fait référence au système distant auquel Azure AD Connect Sync s'est connecté et vers lequel et à partir duquel il lit et écrit des données d'identité.
 
-<a id="connector-space" class="xliff"></a>
-
-## Espace de connecteur
+## <a name="connector-space"></a>Espace de connecteur
 Chaque source de données connectée est représentée comme un sous-ensemble filtré des objets et des attributs dans l’espace de connecteur.
 Cela permet au service de synchronisation de s’exécuter localement sans qu’il soit nécessaire de contacter le système distant lors de la synchronisation des objets et cela limite l’interaction aux importations et exportations.
 
 Quand la source de données et le connecteur peuvent fournir une liste de modifications (une importation delta), l’efficacité opérationnelle augmente considérablement car seules les modifications apportées depuis le dernier cycle d’interrogation sont échangées. L’espace de connecteur isole la source de données connectée des modifications qui se propagent automatiquement en exigeant que le connecteur planifie les importations et les exportations. Cette assurance supplémentaire vous procure une tranquillité d’esprit lors des tests, de l’examen ou de la confirmation de la mise à jour suivante.
 
-<a id="metaverse" class="xliff"></a>
-
-## Métaverse
+## <a name="metaverse"></a>Métaverse
 Le métaverse est l’affichage consolidé de toutes les identités jointes des espaces de connecteur voisins.
 
 À mesure que des identités sont liées et que l’autorité est attribuée pour différents attributs via des mappages de flux d’importation, l’objet de métaverse central commence à regrouper les informations provenant de plusieurs systèmes. À partir de ce flux d’attributs d’objets, des mappages transmettent des informations aux systèmes sortants.
@@ -90,21 +76,16 @@ Impossible de modifier directement les objets de métaverse. Toutes les données
 Lors de la découverte de nouvelles sources de données pouvant contenir des objets à gérer, Azure AD Connect Sync utilise un processus appelé règle de jointure pour évaluer les candidats potentiels avec lesquels établir un lien.
 Une fois le lien établi, cette évaluation ne se reproduit pas et le flux d’attributs normal peut se produire entre la source de données connectée et le métaverse.
 
-<a id="provisioning" class="xliff"></a>
-
-## Approvisionnement
+## <a name="provisioning"></a>Approvisionnement
 Quand une source faisant autorité projette un nouvel objet dans le métaverse, un nouvel objet d’espace de connecteur peut être créé dans un autre connecteur représentant une source de données connectée en aval.
 
 Cela établit intrinsèquement un lien, et le flux d’attributs peut se produire de manière bidirectionnelle.
 
 Chaque fois qu’une règle détermine qu’un nouvel objet d’espace de connecteur doit être créé, on emploie le terme d’« approvisionnement ». Toutefois, étant donné que cette opération n’a lieu que dans l’espace de connecteur, elle n’est reportée dans la source de données connectée qu’une fois qu’une exportation est effectuée.
 
-<a id="additional-resources" class="xliff"></a>
-
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
-

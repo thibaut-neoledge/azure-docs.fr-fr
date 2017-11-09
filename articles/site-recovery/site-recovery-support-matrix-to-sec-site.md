@@ -12,59 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/24/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matrice de prise en charge pour la réplication sur un site secondaire avec Azure Site Recovery
 
-Cet article résume ce qui est pris en charge lorsque vous utilisez Azure Site Recovery pour répliquer sur un site secondaire local.
+Cet article résume ce qui est pris en charge lorsque vous utilisez le service [Azure Site Recovery](site-recovery-overview.md) pour répliquer sur un site secondaire local.
 
-## <a name="deployment-options"></a>Options de déploiement
+## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-**Déploiement** | **Serveur VMware/physique** | **Hyper-V (avec ou sans SCVMM)**
---- | --- | --- | ---
-**Portail Azure** | Machines virtuelles VMware locales vers site VMware secondaire.<br/><br/> Téléchargez le [guide de l’utilisateur InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponible dans le portail Azure). | Machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire.<br></br> Non pris en charge sans VMM  <br/><br/> Réplication Hyper-V standard uniquement. SAN non pris en charge.
-**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Mode Maintenance uniquement<br></br> Non pris en charge sans SCVMM
-**PowerShell** | Non pris en charge | Pris en charge<br></br> Non pris en charge sans SCVMM
-
-## <a name="on-premises-servers"></a>Serveurs locaux
-
-### <a name="virtualization-servers"></a>Serveurs de virtualisation
-
-**Déploiement** | **Support**
+**Déploiement** | **Détails** 
 --- | ---
-**Machine virtuelle VMware/serveur physique** | vSphere 6.0, 5.5 ou 5.1 avec les dernières mises à jour
-**Hyper-V (avec VMM)** | VMM 2016 et VMM 2012 R2
+**VMware vers VMware** | Récupération d’urgence de machines virtuelles VMware locales vers un site VMware secondaire.<br/><br/> Télécharger le [guide de l’utilisateur InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**Hyper-V vers Hyper-V** | Récupération d’urgence de machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire.<br></br> Non pris en charge sans VMM.
 
-  >[!Note]
-  > Les clouds VMM 2016 qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge.
 
-### <a name="host-servers"></a>Serveurs hôtes
+
+  
+
+## <a name="host-servers"></a>Serveurs hôtes
 
 **Déploiement** | **Support**
 --- | ---
 **Machine virtuelle VMware/serveur physique** | vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement) 
-**Hyper-V (sans VMM)** | Configuration non prise en charge pour la réplication vers un site secondaire
-**Hyper-V avec VMM** | Windows Server 2016 et Windows Server 2012 R2 avec les dernières mises à jour.<br/><br/> Les hôtes Windows Server 2016 doivent être gérés par VMM 2016.
+**Hyper-V avec VMM** | Windows Server 2016 et Windows Server 2012 R2 avec les dernières mises à jour.<br/><br/> Les hôtes Windows Server 2016 doivent être gérés par VMM 2016.<br/><br/> Les clouds VMM 2016 qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge.<br/><br/> Les déploiements comprenant la mise à niveau d’une VMM 2012 R2 existant vers System Center 2016 ne sont actuellement pas pris en charge.
+
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Prise en charge des versions de système d’exploitation de machine répliquée
-Le tableau ci-dessous récapitule la prise en charge des systèmes d’exploitation dans différents scénarios de déploiement lors de l’utilisation d’Azure Site Recovery. Cette prise en charge est applicable pour toutes les charges de travail en cours d’exécution sur le système d’exploitation mentionné.
+
+Le tableau suivant récapitule la prise en charge du système d’exploitation pour les machines répliquées avec Site Recovery. Toute charge de travail peut être exécutée sur le système d’exploitation pris en charge.
 
 **Serveur VMware/physique** | **Hyper-V (avec VMM)**
---- | --- | ---
+--- | ---
 Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Tout système d’exploitation invité [pris en charge par Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
->[!Note]
->Seules les machines Linux avec le stockage suivant peuvent être répliquées : système de fichiers (EXT3, ETX4, ReiserFS, XFS) ; logiciel Multipath - Mappeur d’appareil ; gestionnaire de volume (LVM2).
->Les serveurs physiques avec stockage de contrôleur HP CCISS ne sont pas pris en charge.
->Le système de fichiers ReiserFS n’est pris en charge que sur SUSE Linux Enterprise Server 11 SP3.
+## <a name="linux-machine-storage"></a>Stockage de machine Linux
+
+Seules les machines Linux avec le stockage suivant peuvent être répliquées :
+
+- Système de fichiers (EXT3, ETX4, ReiserFS, XFS).
+- Logiciel multichemin-device Mapper.
+- Gestionnaire de volume (LVM2).
+- Les serveurs physiques avec stockage de contrôleur HP CCISS ne sont pas pris en charge.
+- Le système de fichiers ReiserFS n’est pris en charge que sur SUSE Linux Enterprise Server 11 SP3.
 
 ## <a name="network-configuration"></a>Configuration réseau
 
@@ -137,6 +132,5 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Répliquer des machines virtuelles Hyper-V résidant dans des clouds VMM vers un site secondaire](site-recovery-vmm-to-vmm.md)
-- [Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire](site-recovery-vmware-to-vmware.md)
-
+- [Répliquer des machines virtuelles Hyper-V résidant dans des clouds VMM vers un site secondaire](tutorial-vmm-to-vmm.md)
+- [Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire](tutorial-vmware-to-vmware.md)

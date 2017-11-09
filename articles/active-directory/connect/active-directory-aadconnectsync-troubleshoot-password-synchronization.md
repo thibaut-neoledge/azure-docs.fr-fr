@@ -14,15 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
+ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Résolution des problèmes de synchronisation de mot de passe avec Azure AD Connect Sync
-Cette rubrique explique comment résoudre les problèmes de synchronisation de mot de passe. Si les mots de passe ne se synchronisent pas comme prévu, il peut s’agir d’un sous-ensemble d’utilisateurs ou de tous les utilisateurs. Pour un déploiement d’Azure Active Directory (Azure AD) Connect avec la version 1.1.524.0 ou ultérieure, il existe désormais une applet de commande de diagnostic que vous pouvez utiliser pour résoudre les problèmes de synchronisation de mot de passe :
+Cette rubrique explique comment résoudre les problèmes de synchronisation de mot de passe. Si les mots de passe ne se synchronisent pas comme prévu, il peut s’agir d’un sous-ensemble d’utilisateurs ou de tous les utilisateurs.
+
+Pour un déploiement d’Azure Active Directory (Azure AD) Connect version 1.1.614.0 ou ultérieure, utilisez la tâche de résolution des problèmes de l’Assistant pour résoudre les problèmes de synchronisation de mot de passe :
+
+* Si vous rencontrez un problème qui bloque la synchronisation de tous les mots de passe, consultez la section [Aucun mot de passe n’est synchronisé : résoudre les problèmes à l’aide de la tâche de résolution des problèmes](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task).
+
+* Si vous rencontrez des problèmes avec certains objets, consultez la section [Un objet ne synchronise pas les mots de passe : résoudre les problèmes à l’aide de la tâche de résolution des problèmes](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task).
+
+Pour un déploiement de la version 1.1.524.0 ou ultérieure, il existe une applet de commande de diagnostic que vous pouvez utiliser pour résoudre les problèmes de synchronisation de mot de passe :
 
 * Si vous rencontrez un problème qui bloque la synchronisation de tous les mots de passe, consultez la section [Aucun mot de passe n’est synchronisé : résoudre les problèmes à l’aide de l’applet de commande de diagnostic](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet).
 
@@ -34,25 +41,33 @@ Pour les versions antérieures de déploiement Azure AD Connect :
 
 * Si vous avez un problème avec des objets spécifiques, consultez la section [Un objet ne synchronise pas les mots de passe : étapes de dépannage manuel](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps).
 
-## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Aucun mot de passe n’est synchronisé : résoudre les problèmes à l’aide de l’applet de commande de diagnostic
-Vous pouvez utiliser l’applet de commande `Invoke-ADSyncDiagnostics` pour déterminer la raison pour laquelle aucun mot de passe n’est synchronisé.
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>Aucun mot de passe n’est synchronisé : résoudre les problèmes à l’aide de la tâche de résolution des problèmes
+Vous pouvez utiliser la tâche de résolution des problèmes pour déterminer la raison pour laquelle aucun mot de passe n’est synchronisé.
 
 > [!NOTE]
-> L’applet de commande `Invoke-ADSyncDiagnostics` est disponible uniquement pour Azure AD Connect version 1.1.524.0 ou ultérieure.
+> La tâche de résolution des problèmes est uniquement disponible pour Azure AD Connect version 1.1.614.0 ou ultérieure.
 
-### <a name="run-the-diagnostics-cmdlet"></a>Exécuter l’applet de commande de diagnostic
+### <a name="run-the-troubleshooting-task"></a>Exécuter la tâche de résolution des problèmes
 Pour résoudre les problèmes bloquant la synchronisation de tous les mots de passe
 
 1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option **Exécuter en tant qu’administrateur**.
 
 2. Exécutez `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
 
-3. Exécutez `Import-Module ADSyncDiagnostics`.
+3. Lancez l’Assistant Azure AD Connect.
 
-4. Exécutez `Invoke-ADSyncDiagnostics -PasswordSync`.
+4. Accédez à la page **Tâches supplémentaires**, sélectionnez **Résoudre les problèmes**, puis cliquez sur **Suivant**.
 
-### <a name="understand-the-results-of-the-cmdlet"></a>Comprendre les résultats de l’applet de commande
-L’applet de commande de diagnostic effectue les vérifications suivantes :
+5. Dans la page de résolution des problèmes, cliquez sur **Lancer** pour ouvrir le menu de dépannage de PowerShell.
+
+6. Dans le menu principal, sélectionnez **Troubleshoot Password Synchronization** (Résoudre les problèmes de synchronisation de mot de passe).
+
+7. Dans le sous-menu, sélectionnez **Password Synchronization does not work at all** (La synchronisation des mots de passe ne fonctionne pas du tout).
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Comprendre les résultats de la tâche de résolution des problèmes
+La tâche de résolution des problèmes effectue les vérifications suivantes :
 
 * Elle vérifie que la fonctionnalité de synchronisation de mot de passe est activée pour votre locataire Azure AD.
 
@@ -74,7 +89,7 @@ L’image suivante illustre les résultats de l’applet de commande pour une to
 
 ![Sortie de diagnostic pour la synchronisation de mot de passe](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
 
-Le reste de cette section décrit les résultats spécifiques qui sont retournés par l’applet de commande et les problèmes correspondants.
+Le reste de cette section décrit les résultats qui sont retournés par la tâche et les problèmes correspondants.
 
 #### <a name="password-synchronization-feature-isnt-enabled"></a>La fonctionnalité de synchronisation de mot de passe n’est pas activée
 Si vous n’avez pas encore activé la synchronisation de mot de passe à l’aide de l’Assistant Azure AD Connect, l’erreur suivante est retournée :
@@ -101,32 +116,34 @@ Si le compte AD DS utilisé par le connecteur Active Directory local pour synchr
 
 ![Informations d’identification incorrectes](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
 
-## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Un objet ne synchronise pas les mots de passe : résoudre les problèmes à l’aide de l’applet de commande de diagnostic
-Vous pouvez utiliser l’applet de commande `Invoke-ADSyncDiagnostics` pour déterminer pourquoi un objet ne synchronise pas les mots de passe.
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task"></a>Un objet ne synchronise pas les mots de passe : résoudre les problèmes à l’aide de la tâche de résolution des problèmes
+
+Vous pouvez utiliser la tâche de résolution des problèmes pour déterminer la raison pour laquelle un objet ne synchronise pas les mots de passe.
 
 > [!NOTE]
-> L’applet de commande `Invoke-ADSyncDiagnostics` est disponible uniquement pour Azure AD Connect version 1.1.524.0 ou ultérieure.
+> La tâche de résolution des problèmes est uniquement disponible pour Azure AD Connect version 1.1.614.0 ou ultérieure.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>Exécuter l’applet de commande de diagnostic
-Pour résoudre les problèmes bloquant la synchronisation de tous les mots de passe
+Pour résoudre les problèmes liés à un objet utilisateur :
 
 1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option **Exécuter en tant qu’administrateur**.
 
 2. Exécutez `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
 
-3. Exécutez `Import-Module ADSyncDiagnostics`.
+3. Lancez l’Assistant Azure AD Connect.
 
-4. Exécutez l’applet de commande suivante :
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
-   ```
-   Par exemple :
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
-   ```
+4. Accédez à la page **Tâches supplémentaires**, sélectionnez **Résoudre les problèmes**, puis cliquez sur **Suivant**.
 
-### <a name="understand-the-results-of-the-cmdlet"></a>Comprendre les résultats de l’applet de commande
-L’applet de commande de diagnostic effectue les vérifications suivantes :
+5. Dans la page de résolution des problèmes, cliquez sur **Lancer** pour ouvrir le menu de dépannage de PowerShell.
+
+6. Dans le menu principal, sélectionnez **Troubleshoot Password Synchronization** (Résoudre les problèmes de synchronisation de mot de passe).
+
+7. Dans le sous-menu, sélectionnez **Password is not synchronized for a specific user account** (Le mot de passe n’est pas synchronisé pour un compte utilisateur).
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Comprendre les résultats de la tâche de résolution des problèmes
+La tâche de résolution des problèmes effectue les vérifications suivantes :
 
 * Elle examine l’état de l’objet Active Directory dans l’espace de connecteur Active Directory, dans le métaverse et dans l’espace de connecteur Azure AD.
 
@@ -154,6 +171,52 @@ Actuellement, Azure AD Connect ne prend pas en charge la synchronisation des mot
 Par défaut, Azure AD Connect stocke les résultats des tentatives de synchronisation de mot de passe pendant sept jours. Si aucun résultat n’est disponible pour l’objet Active Directory sélectionné, l’avertissement suivant est retourné :
 
 ![Sortie de diagnostic pour un seul objet - aucun historique de synchronisation de mot de passe](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnohistory.png)
+
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Aucun mot de passe n’est synchronisé : résoudre les problèmes à l’aide de l’applet de commande de diagnostic
+Vous pouvez utiliser l’applet de commande `Invoke-ADSyncDiagnostics` pour déterminer la raison pour laquelle aucun mot de passe n’est synchronisé.
+
+> [!NOTE]
+> L’applet de commande `Invoke-ADSyncDiagnostics` est disponible uniquement pour Azure AD Connect version 1.1.524.0 ou ultérieure.
+
+### <a name="run-the-diagnostics-cmdlet"></a>Exécuter l’applet de commande de diagnostic
+Pour résoudre les problèmes bloquant la synchronisation de tous les mots de passe
+
+1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option **Exécuter en tant qu’administrateur**.
+
+2. Exécutez `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
+
+3. Exécutez `Import-Module ADSyncDiagnostics`.
+
+4. Exécutez `Invoke-ADSyncDiagnostics -PasswordSync`.
+
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Un objet ne synchronise pas les mots de passe : résoudre les problèmes à l’aide de l’applet de commande de diagnostic
+Vous pouvez utiliser l’applet de commande `Invoke-ADSyncDiagnostics` pour déterminer pourquoi un objet ne synchronise pas les mots de passe.
+
+> [!NOTE]
+> L’applet de commande `Invoke-ADSyncDiagnostics` est disponible uniquement pour Azure AD Connect version 1.1.524.0 ou ultérieure.
+
+### <a name="run-the-diagnostics-cmdlet"></a>Exécuter l’applet de commande de diagnostic
+Pour résoudre les problèmes liés à l’absence de synchronisation des mots de passe pour un utilisateur :
+
+1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option **Exécuter en tant qu’administrateur**.
+
+2. Exécutez `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
+
+3. Exécutez `Import-Module ADSyncDiagnostics`.
+
+4. Exécutez l’applet de commande suivante :
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
+   ```
+   Par exemple :
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
+   ```
+
 
 
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Aucun mot de passe n’est synchronisé : étapes de dépannage manuel
@@ -354,4 +417,3 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Implémentation de la synchronisation de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md)
 * [Azure AD Connect Sync : Personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
-

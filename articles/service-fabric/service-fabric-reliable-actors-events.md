@@ -12,15 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/13/2017
+ms.date: 10/06/2017
 ms.author: amanbha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: eef9c1ab69153d3a2e4d8e7363108703819823a7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
-
-
+ms.openlocfilehash: 779d39e2910d0de25ee07b8fae3ca7a0e9772776
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="actor-events"></a>Événements d’acteurs
 Les événements d’acteur sont un moyen d’envoyer des notifications Meilleur effort de l’acteur aux clients. Les événements d’acteur sont conçus pour la communication acteur-client et ne doivent pas être utilisés pour la communication acteur-acteur.
@@ -97,7 +95,7 @@ return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler()
 
 En cas de basculement, l’acteur peut basculer sur un nœud ou processus différent. Le proxy de l’acteur gère les abonnements actifs et s’y réabonne automatiquement. Vous pouvez contrôler l’intervalle de réabonnement via l’API `ActorProxyEventExtensions.SubscribeAsync<TEvent>` . Pour vous désabonner, utilisez l’API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` .
 
-Sur l'acteur, publiez simplement les événements à mesure qu'ils se produisent. Le runtime Actors envoie la notification aux abonnés à l’événement, le cas échéant.
+Sur l’acteur, publiez les événements à mesure qu’ils se produisent. Le runtime Actors envoie la notification aux abonnés à l’événement, le cas échéant.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
@@ -116,4 +114,3 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Exemple de code C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Exemple de code C# .NET Core](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
 * [Exemple de code Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
-

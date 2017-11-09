@@ -8,20 +8,17 @@ author: torsteng
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/22/2017
-
-
-
+ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Interroger des bases de données cloud de schémas différents (version préliminaire)
 ![Requête sur plusieurs tables dans des bases de données différentes][1]
@@ -196,4 +193,3 @@ Vous pouvez utiliser des chaînes de connexion SQL Server standard pour connecte
 
 
 <!--anchors-->
-

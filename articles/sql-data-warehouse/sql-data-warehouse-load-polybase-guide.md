@@ -1,6 +1,6 @@
 ---
 title: "Guide d’utilisation de PolyBase dans SQL Data Warehouse | Microsoft Docs"
-description: "Instructions et recommandations relatives à l&quot;utilisation de PolyBase dans les scénarios SQL Data Warehouse."
+description: "Instructions et recommandations relatives à l'utilisation de PolyBase dans les scénarios SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -12,17 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 6/5/2016
+ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
-
-
+ms.openlocfilehash: e8ae0eb96200c167a8758df4ce20b51452cc59a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guide d'utilisation de PolyBase dans SQL Data Warehouse
 Ce guide fournit des informations pratiques pour l'utilisation de PolyBase dans SQL Data Warehouse.
@@ -46,21 +43,9 @@ Lorsque vous avez migré toutes vos tables externes vers la nouvelle source de d
 2. suppression du premier fichier d’informations d’identification de niveau base de données en fonction de la clé d'accès de stockage secondaire ;
 3. connexion à Azure et régénération de la clé d'accès primaire, pour la prochaine fois.
 
-## <a name="query-azure-blob-storage-data"></a>Interroger des données de l’espace de stockage d’objets Blob Microsoft Azure
-Les requêtes dirigées vers les tables externes utilisent le nom de table, comme s’il s’agissait d’une table relationnelle.
 
-```sql
--- Query Azure storage resident data via external table.
-SELECT * FROM [ext].[CarSensor_Data]
-;
-```
 
-> [!NOTE]
-> Une requête sur une table externe peut échouer avec l’erreur *« Requête abandonnée : le seuil de rejet maximal a été atteint lors de la lecture à partir d’une source externe »*. Cela indique que vos données externes contiennent des enregistrements *à l’intégrité compromise* . Un enregistrement de données est considéré comme « compromis » si les types de données / le nombre de colonnes réels ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié. Pour résoudre ce problème, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d'enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans le DDL CREATE EXTERNAL TABLE.
-> 
-> 
-
-## <a name="load-data-from-azure-blob-storage"></a>Charger des données à partir d’objets Blob Microsoft Azure Storage
+## <a name="load-data-with-external-tables"></a>Charger des données avec des tables externes
 Dans cet exemple, les données des objets Blob Microsoft Azure Storage sont chargées dans la base de données SQL Data Warehouse.
 
 En stockant directement les données, vous éliminez l’intervalle de transfert de données associé aux requêtes. Le stockage des données avec un index columnstore multiplie jusqu’à dix fois les performances des requêtes d’analyse.
@@ -86,6 +71,12 @@ FROM   [ext].[CarSensor_Data]
 
 Consultez [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
+> [!NOTE]
+> Une charge qui utilise une table externe peut échouer avec l’erreur suivante : *« Requête abandonnée : le seuil de rejet maximal a été atteint durant la lecture d’une source externe »*. Cela indique que vos données externes contiennent des enregistrements *à l’intégrité compromise* . Un enregistrement de données est considéré comme « compromis » si les types de données / le nombre de colonnes réels ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié. Pour résoudre ce problème, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d'enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans le DDL CREATE EXTERNAL TABLE.
+> 
+> 
+
+
 ## <a name="create-statistics-on-newly-loaded-data"></a>Créer des statistiques sur des données nouvellement chargées
 Azure SQL Data Warehouse ne prend pas encore en charge les statistiques à création ou mise à jour automatique.  Pour optimiser les performances de vos requêtes, il est important de créer les statistiques sur toutes les colonnes de toutes les tables après le premier chargement ou après toute modification substantielle dans les données.  Pour obtenir une explication détaillée des statistiques, consultez la rubrique [Statistiques][Statistics] dans le groupe de rubriques sur le développement.  Voici un exemple rapide de la création de statistiques sur le tableau chargé dans cet exemple.
 
@@ -97,8 +88,8 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>Exportation de données vers le stockage d’objets blob Azure
-Cette section montre comment exporter les données de SQL Data Warehouse vers le stockage d’objets blob Azure. Cet exemple utilise CREATE EXTERNAL TABLE AS SELECT, une instruction Transact-SQL très performante, pour exporter les données en parallèle à partir de tous les nœuds de calcul.
+## <a name="export-data-with-external-tables"></a>Exporter des données avec des tables externes
+Cette section montre comment exporter les données de SQL Data Warehouse vers le Stockage Blob Azure à l’aide de tables externes. Cet exemple utilise CREATE EXTERNAL TABLE AS SELECT, une instruction Transact-SQL très performante, pour exporter les données en parallèle à partir de tous les nœuds de calcul.
 
 L’exemple suivant crée une table externe Weblogs2014 à l’aide des définitions de colonne et des données de la table dbo.Weblogs. La définition de la table externe est stockée dans SQL Data Warehouse et les résultats de l’instruction SELECT sont exportés vers le répertoire « /archive/log2014 » sous le conteneur d’objets blob spécifié par la source de données. Les données sont exportées au format de fichier texte spécifié.
 
@@ -132,6 +123,21 @@ Les créateurs des schémas A et B verrouillent maintenant leurs schémas à l
 ```   
  Suite à cette opération, user_A et user_B ne doivent maintenant plus avoir accès au schéma de l’autre service.
  
+## <a name="polybase-performance-optimizations"></a>Optimisation des performances de PolyBase
+Pour obtenir des performances de chargement optimales avec PolyBase, nous vous suggérons ce qui suit :
+- Fractionnez les fichiers compressés volumineux en plusieurs petits fichiers compressés. Les types de compression pris en charge actuellement ne sont pas fractionnables. Par conséquent, les performances sont impactées par le chargement d’un fichier volumineux.
+- Pour un chargement plus rapide, chargez les fichiers dans une table de mise en lots de segments de mémoire avec tourniquet (round robin). Il s’agit du moyen le plus efficace de déplacer des données de la couche de stockage vers l’entrepôt de données.
+- Tous les formats de fichier présentent des caractéristiques de performances différentes. Pour un chargement plus rapide, utilisez des fichiers texte délimités compressés. La différence entre les performances des formats UTF-8 et UTF-16 est minime.
+- Colocalisez votre couche de stockage et votre entrepôt de données pour réduire la latence.
+- Procédez à une montée en puissance de votre entrepôt de données si vous devez charger un fichier volumineux.
+
+## <a name="polybase-limitations"></a>Limites de PolyBase
+Dans l’entrepôt de données SQL, PolyBase présente certaines limites qui doivent être prises en considération lorsque vous concevez une tâche de chargement :
+- La largeur d’une ligne ne peut pas dépasser 1 000 000 d’octets. Ceci est valable, quel que soit le schéma de table défini.
+- Lorsque vous exportez des données au format de fichier ORC à partir de SQL Server ou d’Azure SQL Data Warehouse, le nombre de colonnes contenant beaucoup de texte peut être limité à 50, en raison d’erreurs Java de mémoire insuffisante. Pour contourner ce problème, exportez uniquement un sous-ensemble de ces colonnes.
+
+
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -167,4 +173,3 @@ Pour en savoir plus sur le déplacement de données dans SQL Data Warehouse, con
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
 <!-- External Links -->
-

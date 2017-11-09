@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
+ms.openlocfilehash: 15d423bff629650e205f70c61c592da91339c834
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fbdd3c2450c5385b782d72eb90008a093f6a7298
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Utilisation de l’interface utilisateur Web Kubernetes avec Azure Container Service
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Composants requis
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
@@ -134,5 +134,4 @@ Modifiez le champ `spec.replicas` pour avoir la valeur `2`, et cliquez sur **Met
 Il n’y aura donc plus que deux réplicas, car l’un de vos pods sera supprimé.
 
  
-
 

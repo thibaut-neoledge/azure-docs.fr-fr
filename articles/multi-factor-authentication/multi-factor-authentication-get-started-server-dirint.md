@@ -3,7 +3,7 @@ title: "Intégration d'annuaires entre Azure Multi-Factor Authentication et Acti
 description: "Il s'agit de la page d'authentification multifacteur Azure qui décrit comment intégrer le serveur Azure Multi-Factor Authentication avec Active Directory afin de pouvoir synchroniser les annuaires."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
@@ -12,15 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/16/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Intégration d'annuaires entre le serveur Azure MFA et Active Directory
 Utilisez la section Intégration de répertoires du serveur Azure MFA pour l’intégrer à Active Directory ou un autre répertoire LDAP. Vous pouvez configurer des attributs pour correspondre au schéma du répertoire et configurer la synchronisation automatique des utilisateurs.
@@ -139,4 +138,3 @@ Les boutons Déplacer vers le haut et Déplacer vers le bas permettent à l'admi
 Il est possible de configurer des serveurs MFA supplémentaires en tant que proxy RADIUS de secours, proxy LDAP ou pour l'authentification IIS. La configuration de la synchronisation est partagée par tous les agents. Toutefois, le service du serveur MFA ne peut s'exécuter que sur un seul agent. Cet onglet vous permet de sélectionner le serveur MFA qui doit être activé pour la synchronisation.
 
 ![Serveurs MFA](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-

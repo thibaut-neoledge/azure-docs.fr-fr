@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
+ms.openlocfilehash: 26ce9e96dd4df170e80c2c61dcc08c70357eec22
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
-ms.sourcegitcommit: 79b215eed38959efd630e21633d235cbc857abd8
-ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="describing-a-service-fabric-cluster"></a>Description d’un cluster Service Fabric
 Le Gestionnaire de ressources de cluster Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster. Pendant l’exécution, Cluster Resource Manager utilise ces informations pour garantir une haute disponibilité des services en cours d’exécution dans le cluster. Tout en appliquant ces règles importantes, il essaie aussi d’optimiser la consommation de ressources au sein du cluster.
 
@@ -41,7 +39,7 @@ Il est important que les domaines d’erreur soient configurés correctement, ca
 > [!WARNING]
 > Il est important que les informations de domaine d’erreur fournies à Service Fabric soient précises. Par exemple, supposons que les nœuds de votre cluster Service Fabric s’exécutent à l’intérieur de 10 machines virtuelles, s’exécutant sur cinq hôtes physiques. Dans ce cas, même s’il y a 10 ordinateurs virtuels, il y a seulement 5 domaines d’erreur (de niveau supérieur) différents. Le partage d’un même hôte physique amène les machines virtuelles à partager le même domaine d’erreur racine, car les machines virtuelles subissent une défaillance coordonnée si leur hôte physique subit une défaillance.  
 >
-> Comme Service Fabric s’attend à ce que le domaine d’erreur d’un nœud ne change pas, les autres mécanismes visant à assurer une haute disponibilité des machines virtuelles, tels que [HA-VM](https://technet.microsoft.com/en-us/library/cc967323.aspx), utilisent une migration transparente des machines virtuelles d’un hôte vers un autre. Ces mécanismes ne reconfigurent ni ne notifient le code s’exécutant dans la machine virtuelle. À ce titre, ils ne sont **pas prises en charge** en tant qu’environnements d’exécution de clusters Service Fabric. Service Fabric doit être la seule technologie de haute disponibilité employée. La migration dynamique de machines virtuelles, les SAN et autres mécanismes ne sont pas nécessaires. S’ils sont utilisés avec Service Fabric, ces mécanismes _réduisent_ la disponibilité et la fiabilité des applications, car ils introduisent une complexité supplémentaire, ajoutent des sources centralisées de défaillance et utilisent des stratégies de fiabilité et de disponibilité qui sont en conflit avec celles de Service Fabric. 
+> Service Fabric s’attend à ce que le domaine d’erreur d’un nœud ne change pas. Les autres mécanismes visant à assurer une haute disponibilité des machines virtuelles, tels que [HA-VM](https://technet.microsoft.com/en-us/library/cc967323.aspx), peuvent entraîner des conflits avec Service Fabric car ils utilisent une migration transparente des machines virtuelles d’un hôte vers un autre. Ces mécanismes ne reconfigurent ni ne notifient le code s’exécutant dans la machine virtuelle. À ce titre, ils ne sont **pas prises en charge** en tant qu’environnements d’exécution de clusters Service Fabric. Service Fabric doit être la seule technologie de haute disponibilité employée. La migration dynamique de machines virtuelles, les SAN et autres mécanismes ne sont pas nécessaires. S’ils sont utilisés avec Service Fabric, ces mécanismes _réduisent_ la disponibilité et la fiabilité des applications, car ils introduisent une complexité supplémentaire, ajoutent des sources centralisées de défaillance et utilisent des stratégies de fiabilité et de disponibilité qui sont en conflit avec celles de Service Fabric. 
 >
 >
 
@@ -382,7 +380,7 @@ Les mesures sont différentes des contraintes de placement et des propriétés d
 
 Il est important de noter que, comme pour les contraintes de placement et les propriétés de nœud, Service Fabric Cluster Resource Manager ne comprend pas ce que signifient les noms des mesures. Les noms des mesures ne sont que des chaînes. Il est recommandé de déclarer les unités dans le cadre des noms des mesures que vous créez lorsque cela peut être ambigu.
 
-## <a name="capacity"></a>Capacité
+## <a name="capacity"></a>Capacity
 Si vous avez désactivé toutes les fonctions d’*équilibrage* des ressources, Cluster Resource Manager de Service Fabric est tout de même en mesure de garantir qu’aucun nœud ne dépasse sa capacité. Il est possible de gérer les dépassements de capacité, sauf si le cluster est saturé ou si la charge de travail dépasse la capacité d’un nœud. La capacité est une autre *contrainte* que Cluster Resource Manager utilise pour comprendre la quantité d’une ressource dont un nœud dispose. La capacité restante est également suivie pour le cluster dans son ensemble. La capacité et la consommation au niveau du service sont toutes deux exprimées en termes de métriques. Par exemple, pour une métrique appelée « ClientConnections », un nœud donné peut avoir une capacité de 32768. Les autres nœuds peuvent avoir d’autres limites. Un service s’exécutant sur ce nœud peut indiquer qu’il consomme actuellement 32256 de la métrique « ClientConnections ».
 
 Pendant l’exécution, Cluster Resource Manager assure le suivi de la capacité restante dans le cluster et sur les nœuds. Pour ce faire, Cluster Resource Manager soustrait la consommation de chaque service à la capacité du nœud sur lequel le service s’exécute. Grâce à ces informations, Cluster Resource Manager de Service Fabric peut déterminer où placer ou déplacer les réplicas afin que les nœuds ne dépassent pas la capacité.
@@ -529,4 +527,3 @@ LoadMetricInformation     :
 [Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
 [Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
-

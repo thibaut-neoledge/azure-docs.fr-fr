@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
+ms.openlocfilehash: 16ceef9c923b6a933a5caf752991b466346e0ebc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: c29f5afe59f57112fe1f115df6bc53645f3c0d34
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-connectivity-check-in-azure-network-watcher"></a>Présentation de la vérification de connectivité dans Azure Network Watcher
 
 La fonctionnalité de connectivité de Network Watcher permet de vérifier la connexion TCP directe entre deux machines virtuelles, le nom de domaine complet, l’URI ou l’adresse IPv4. Les scénarios de réseau sont complexes. Ils sont implémentés à l’aide de groupes de sécurité réseau, de pare-feu, d’itinéraires définis par l’utilisateur et de ressources fournies par Azure. Ces configurations complexes rendent difficile la résolution des problèmes de connectivité. Network Watcher permet de réduire le temps de détection des problèmes de connectivité. Les résultats obtenus peuvent indiquer si le problème de connectivité est dû à un problème de configuration de la plateforme ou à un problème de configuration utilisateur. La connectivité peut être vérifiée avec [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md) et l’[API REST](network-watcher-connectivity-rest.md).
@@ -90,5 +88,4 @@ Découvrez comment vérifier la connectivité à une ressource dans : [Vérifie
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png
-
 

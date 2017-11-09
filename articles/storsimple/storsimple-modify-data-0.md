@@ -1,6 +1,6 @@
 ---
 title: "Modifier les paramètres DATA 0 sur un appareil StorSimple | Microsoft Docs"
-description: "Découvrez comment utiliser Windows PowerShell for StorSimple pour reconfigurer l&quot;interface réseau DATA 0 sur votre appareil StorSimple."
+description: "Découvrez comment utiliser Windows PowerShell for StorSimple pour reconfigurer l'interface réseau DATA 0 sur votre appareil StorSimple."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>Modification des paramètres de l’interface réseau DATA 0 sur votre périphérique StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -68,10 +68,4 @@ Vous pouvez également reconfigurer l’interface réseau DATA 0 via l’applet
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer les interfaces réseau autres que DATA 0, utilisez la [page Configurer du portail Azure Classic](storsimple-modify-device-config.md). 
 * Si vous rencontrez des problèmes lors de la configuration de vos interfaces réseau, consultez la page [Résolution des problèmes de déploiement](storsimple-troubleshoot-deployment.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

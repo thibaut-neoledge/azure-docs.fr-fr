@@ -33,13 +33,15 @@
       href: tutorial-virtual-network.md
     - name: 9 – Sauvegarder les machines virtuelles
       href: tutorial-backup-vms.md
-    - name: 10 – Surveiller les machines virtuelles
+    - name: 10 - Surveiller et mettre à jour les machines virtuelles
       href: tutorial-monitoring.md
     - name: 11 – Gérer la sécurité des machines virtuelles
       href: tutorial-azure-security.md
     - name: 12 – CI/CD Team Services
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - Serveur web sécurisé avec SSL
+    - name: 13 - Installer une pile SQL\IIS\.NET
+      href: tutorial-iis-sql.md
+    - name: 14 - Sécuriser un serveur web avec SSL
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:
@@ -55,10 +57,38 @@
       href: regions-and-availability.md
     - name: Types et tailles des machines virtuelles
       href: sizes.md
+      items:
+        - name: Usage général
+          href: sizes-general.md
+          items:
+            - name: Série B modulable
+              href: b-series-burstable.md
+        - name: Optimisé pour le calcul
+          href: sizes-compute.md
+        - name: Mémoire optimisée
+          href: sizes-memory.md
+        - name: Optimisé pour le stockage
+          href: sizes-storage.md
+        - name: Optimisé pour le GPU
+          href: sizes-gpu.md
+          items:
+            - name: Configuration des pilotes GPU
+              href: n-series-driver-setup.md
+        - name: Calcul haute performance
+          href: sizes-hpc.md
+        - name: Unités de calcul Azure (ACU)
+          href: sizes-general.md
     - name: Maintenance et mises à jour
       href: maintenance-and-updates.md
-    - name: Storage
+    - name: Stockage
       href: about-disks-and-vhds.md
+      items:
+        - name: Stockage Premium
+          href: premium-storage.md
+        - name: Performances de stockage Premium
+          href: premium-storage-performance.md
+        - name: Stockage Standard
+          href: standard-storage.md
     - name: Mise en réseau
       href: network-overview.md
     - name: Applications de mise à l’échelle automatique
@@ -131,6 +161,8 @@
           href: download-template.md
         - name: Agent de machine virtuelle Azure
           href: agent-user-guide.md
+        - name: Maintenance planifiée
+          href: maintenance-notifications.md
         - name: Événements planifiés
           href: scheduled-events.md
         - name: Surveiller des métadonnées
@@ -143,7 +175,7 @@
           href: prepare-for-upload-vhd-image.md
         - name: Utiliser une image généralisée
           href: create-vm-generalized-managed.md
-        - name: Utiliser une image spécialisée
+        - name: Utiliser un disque spécialisé
           href: create-vm-specialized.md
         - name: Capturer la machine virtuelle dans l’image
           href: capture-image-resource.md
@@ -161,6 +193,12 @@
           href: manage-availability.md
         - name: Mise à l’échelle verticale
           href: vertical-scaling-automation.md
+        - name: Créer une machine virtuelle dans une zone de disponibilité
+          items:
+            - name: PowerShell
+              href: create-powershell-availability-zone.md
+            - name: Portail
+              href: create-portal-availability-zone.md
     - name: Utiliser des outils d’automatisation
       items:
         - name: Chef
@@ -168,7 +206,7 @@
     - name: Exécuter des applications
       items:
         - name: SQL Server
-          href: /sql/virtual-machines-windows-sql-server-iaas-overview
+          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
         - name: MongoDB
           href: install-mongodb.md
         - name: SAP sur Azure
@@ -204,13 +242,17 @@
           href: detach-disk.md
         - name: Redimensionner un disque
           href: expand-os-disk.md
+        - name: Sauvegarde et récupération d’urgence pour les disques
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Effectuer la capture instantanée d’un disque
           href: snapshot-copy-managed-disk.md
         - name: Sauvegarder des disques non managés
           href: incremental-snapshots.md
         - name: Convertir un disque Standard en disque Premium
           href: convert-disk-storage.md
-        - name: Utiliser le stockage de fichier File Storage
+        - name: Migrer vers le stockage Premium avec Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Utiliser le stockage Fichier
           href: mount-azure-file-storage.md
         - name: Déployer des disques avec un modèle
           href: using-managed-disks-template-deployments.md
@@ -336,11 +378,13 @@
               href: troubleshoot-recovery-disks-portal.md
         - name: Utiliser PerfInsights
           href: how-to-use-perfInsights.md
+        - name: Extension de diagnostic de performance des machines virtuelles
+          href: performance-diagnostics-vm-extension.md
 - name: Référence
   items:
     - name: Interface de ligne de commande Azure
       href: /cli/azure/vm
-    - name: PowerShell
+    - name: "Azure\_PowerShell"
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
@@ -366,7 +410,7 @@
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'

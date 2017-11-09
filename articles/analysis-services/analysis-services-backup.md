@@ -4,7 +4,7 @@ description: "Explique comment sauvegarder et restaurer une base de données Azu
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 ms.assetid: 
 ms.service: analysis-services
@@ -12,16 +12,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: f96e72e4decd475e7859eb7f70046a277b718ac8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bffa481a498b130ef1f2388a5ba856da5d164ee0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="backup-and-restore"></a>Sauvegarde et restauration
 
 La sauvegarde de bases de données de modèles tabulaires dans Azure Analysis Services est relativement semblable à celle des Analysis Services locaux. La principale différence réside dans le lieu où vous enregistrez vos fichiers de sauvegarde. Les fichiers de sauvegarde doivent être enregistrés dans un conteneur dans un [compte de stockage Azure](../storage/common/storage-create-storage-account.md). Vous pouvez utiliser un compte de stockage et un conteneur que vous avez déjà, ou bien en créer de nouveaux lors de la configuration des paramètres de stockage de votre serveur.
@@ -115,4 +113,3 @@ Utilisez l’applet de commande [Restore-ASDatabase](https://docs.microsoft.com/
 [Des comptes de stockage Azure](../storage/common/storage-create-storage-account.md)  
 [Haute disponibilité](analysis-services-bcdr.md)     
 [Gérer Azure Analysis Services](analysis-services-manage.md)
-

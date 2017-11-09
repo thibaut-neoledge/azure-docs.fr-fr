@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 7288f8fa173f8018570cd17aa7274f56a4eead41
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les Restrictions du client pour gérer l’accès aux applications cloud SaaS
 
@@ -124,9 +122,9 @@ Si vous souhaitez tester la fonctionnalité Restrictions du client avant de l’
 
 Fiddler est un proxy de débogage web gratuit qui peut être utilisé pour capturer et modifier le trafic HTTP/HTTPS, notamment l’insertion d’en-têtes HTTP. Pour configurer Fiddler afin de tester les Restrictions du client, procédez comme suit :
 
-1.    [Téléchargez et installez Fiddler](http://www.telerik.com/fiddler).
-2.    Configurez Fiddler pour déchiffrer le trafic HTTPS, conformément à [la documentation d’aide de Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
-3.    Configurez Fiddler pour insérer les en-têtes *Restrict-Access-To-Tenants* et *Restrict-Access-Context* à l’aide de règles personnalisées :
+1.  [Téléchargez et installez Fiddler](http://www.telerik.com/fiddler).
+2.  Configurez Fiddler pour déchiffrer le trafic HTTPS, conformément à [la documentation d’aide de Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+3.  Configurez Fiddler pour insérer les en-têtes *Restrict-Access-To-Tenants* et *Restrict-Access-Context* à l’aide de règles personnalisées :
   1. Dans l’outil débogueur web Fiddler, sélectionnez le menu **Règles** et sélectionnez **Personnaliser les règles...** pour ouvrir le fichier CustomRules.
   2. Ajoutez les lignes suivantes au début de la fonction *OnBeforeRequest*. Remplacez le \<domaine du client\> par un domaine enregistré auprès de votre client, par exemple, contoso.onmicrosoft.com. Remplacez \<l’ID de répertoire\> par l’identificateur GUID Azure AD de votre client.
 
@@ -148,8 +146,8 @@ Après avoir configuré Fiddler, vous pouvez capturer le trafic en accédant au 
 
 En fonction des capacités de votre infrastructure de proxy, vous pourriez être en mesure d’étalonner le déploiement des paramètres pour vos utilisateurs. Voici deux options principales à prendre en compte :
 
-1.    Utilisez des fichiers PAC pour pointer les utilisateurs test vers une infrastructure de proxy test, tandis que les utilisateurs normaux continuent à utiliser l’infrastructure du proxy de production.
-2.    Certains serveurs proxy peuvent prendre en charge des configurations différentes à l’aide de groupes.
+1.  Utilisez des fichiers PAC pour pointer les utilisateurs test vers une infrastructure de proxy test, tandis que les utilisateurs normaux continuent à utiliser l’infrastructure du proxy de production.
+2.  Certains serveurs proxy peuvent prendre en charge des configurations différentes à l’aide de groupes.
 
 Consultez la documentation de votre serveur proxy pour obtenir des informations spécifiques.
 
@@ -158,4 +156,3 @@ Consultez la documentation de votre serveur proxy pour obtenir des informations 
 - En savoir plus sur [l’authentification moderne Office 365 mise à jour](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
 
 - Consultez les [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-

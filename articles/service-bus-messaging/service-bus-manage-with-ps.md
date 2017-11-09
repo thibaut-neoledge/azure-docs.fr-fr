@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utiliser PowerShell pour gérer les ressources Service Bus
 
@@ -27,7 +26,7 @@ Microsoft Azure PowerShell est un environnement de création de scripts vous per
 
 Vous pouvez également gérer les entités Service Bus à l’aide de modèles Azure Resource Manager. Pour plus d’informations, consultez l’article [Création de ressources Service Bus à l’aide de modèles Azure Resource Manager](service-bus-resource-manager-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Avant de commencer, vérifiez que les prérequis suivants sont respectés :
 
@@ -177,4 +176,3 @@ D’autres manières de gérer les entités Service Bus sont décrites dans les 
 [purchase options]: http://azure.microsoft.com/pricing/purchase-options/
 [member offers]: http://azure.microsoft.com/pricing/member-offers/
 [free account]: http://azure.microsoft.com/pricing/free-trial/
-

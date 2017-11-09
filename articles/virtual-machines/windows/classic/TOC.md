@@ -1,13 +1,13 @@
 # Vue d'ensemble
-## [À propos des machines virtuelles](../../virtual-machines-windows-about.md)
+## [À propos des machines virtuelles](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Disques et disques durs virtuels](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Réseaux virtuels](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
-## [Comparaison des machines virtuelles, des sites web et des services cloud](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [Comparaison des machines virtuelles, des sites web et des services cloud](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Conteneurs](../../virtual-machines-windows-containers.md)
 
 # Prise en main
-## [Créer une machine virtuelle à l’aide du portail](tutorial.md)
+## [Créer une machine virtuelle à l’aide du portail Azure](tutorial.md)
 ## [Se connecter à une machine virtuelle](connect-logon.md)
 ## [Installation d'Azure PowerShell](/powershell/azure/overview)
 ## [Installation de l’interface de ligne de commande Azure](../../../cli-install-nodejs.md)
@@ -85,15 +85,15 @@
 ### [Attacher un disque dur virtuel pour résoudre des problèmes de machine virtuelle](troubleshoot-recovery-disks-portal.md)
 
 # Référence
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interface de ligne de commande Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Créer des modèles Resource Manager](../../../resource-group-authoring-templates.md)
 ## [Modèles fournis par la communauté](https://azure.microsoft.com/documentation/templates)
-## [REST Compute](/rest/api/compute)
-## [REST Réseau](/rest/api)
-## [REST Stockage](/rest/api/storageservices)
+## [REST Compute](https://msdn.microsoft.com/library/jj157206.aspx)
+## [REST Réseau](https://msdn.microsoft.com/library/jj157182.aspx)
+## [REST Stockage](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=compute)

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: f8caa023da05863372b7ef92b47a92168445d741
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Didacticiel : Intégration d'Azure Active Directory à BenSelect
 
@@ -125,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_06.png)
 
-6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique** :
+6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique** :
 
     a. Dans la liste déroulante **Identificateur de l’utilisateur**, sélectionnez **ExtractMailPrefix**.
 
@@ -236,5 +234,4 @@ Quand vous cliquez sur la vignette BenSelect dans le volet d’accès, vous deve
 [201]: ./media/active-directory-saas-benselect-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-benselect-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-benselect-tutorial/tutorial_general_203.png
-
 

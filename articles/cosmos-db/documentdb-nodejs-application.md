@@ -15,12 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
+ms.openlocfilehash: 32d4b4a7db134975158e53fc964c24b52b14a1e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: bfd970a78becfe3f29518b71c4ece24ada2861b2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="_Toc395783175"></a>Création d’une application web Node.js avec Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -517,7 +516,7 @@ Ceci devrait être suffisant pour que notre application puisse fonctionner.
 5. Pour arrêter l’application, appuyez sur CTRL + C dans la fenêtre de terminal, puis saisissez **Y** pour arrêter le traitement par lots.
 
 ## <a name="_Toc395783182"></a>Étape 7 : Déploiement de votre projet de développement d’application sur Sites Web Azure
-1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la marche à suivre dans la rubrique [Déploiement Git local vers Azure App Service](../app-service-web/app-service-deploy-local-git.md) .
+1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la marche à suivre dans la rubrique [Déploiement Git local vers Azure App Service](../app-service/app-service-deploy-local-git.md) .
 2. Ajoutez votre site web Azure en tant que git distant.
    
         git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
@@ -540,5 +539,4 @@ Ceci devrait être suffisant pour que notre application puisse fonctionner.
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
-
 

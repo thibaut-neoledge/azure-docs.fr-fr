@@ -3,7 +3,7 @@ title: "Configurer un pare-feu d’applications web : passerelle Azure Applicati
 description: "Cet article explique comment utiliser un pare-feu d’applications web sur une passerelle Application Gateway nouvelle ou existante."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: c9c740a3a1a28a1a9a4f2abf579fe2adb54e4f47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 999d1ad3ee54d84e155254655dbb7a39ac60572c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Configurer un pare-feu d’application web sur une passerelle Application Gateway nouvelle ou existante avec Azure CLI
 
@@ -161,4 +160,3 @@ az network public-ip show \
 Pour savoir comment personnaliser les règles WAF, consultez [Personnaliser les règles de pare-feu d’applications web par le biais d’Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
-

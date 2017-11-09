@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 9af6c0fc3df2863c8e7b9a6a62acf5ba6b7d2d0a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: daef11a0cea11b0f6633ab32f7d84fac4591180a
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurer Service Map dans Operations Management Suite
 Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cette solution permet d’afficher les serveurs comme on se les représente, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP, sans configuration requise autre que l’installation d’un agent.
@@ -139,6 +138,55 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sh InstallDependencyAgent-Linux64.bin -s
 ```
 
+## <a name="azure-vm-extension"></a>Extension de machine virtuelle Azure
+Vous pouvez facilement déployer l’Agent de dépendances sur vos machines virtuelles Azure à l’aide d’une [Extension de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Avec l’Extension de machine virtuelle Azure, vous pouvez déployer l’Agent de dépendances sur vos machines virtuelles par le biais d’un script PowerShell ou directement dans le modèle Azure Resource Manager de la machine virtuelle.  Une extension est disponible pour Windows (DependencyAgentWindows) et Linux (DependencyAgentLinux).  Si vous déployez par le biais de l’Extension de machine virtuelle Azure, vos agents peuvent être mis à jour automatiquement avec les dernières versions.
+
+Pour déployer l’Extension de machine virtuelle Azure par le biais de PowerShell, vous pouvez utiliser l’exemple suivant :
+```PowerShell
+#
+# Deploy the Dependency Agent to every VM in a Resource Group
+#
+
+$version = "9.1"
+$ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
+$OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
+$rmgroup = "<Your Resource Group Here>"
+
+Get-AzureRmVM -ResourceGroupName $rmgroup |
+ForEach-Object {
+    ""
+    $name = $_.Name
+    $os = $_.StorageProfile.OsDisk.OsType
+    $location = $_.Location
+    $vmRmGroup = $_.ResourceGroupName
+    "${name}: ${os} (${location})"
+    Date -Format o
+    $ext = $OsExtensionMap.($os.ToString())
+    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
+    $result.IsSuccessStatusCode
+}
+```
+
+Pour être sûr que l’Agent de dépendances se trouve sur chacune de vos machines virtuelles, le moyen le plus simple consiste à inclure l’agent dans votre modèle Azure Resource Manager.  Notez que l’Agent de dépendances dépend toujours de l’Agent OMS. Ainsi, [l’Extension de machine virtuelle de l’Agent OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) doit être déployée en premier.  Vous pouvez ajouter l’extrait de code JSON suivant à la section *resources* de votre modèle.
+```JSON
+"type": "Microsoft.Compute/virtualMachines/extensions",
+"name": "[concat(parameters('vmName'), '/DependencyAgent')]",
+"apiVersion": "2017-03-30",
+"location": "[resourceGroup().location]",
+"dependsOn": [
+"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+],
+"properties": {
+    "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+    "type": "DependencyAgentWindows",
+    "typeHandlerVersion": "9.1",
+    "autoUpgradeMinorVersion": true
+}
+
+```
+
+
 ## <a name="desired-state-configuration"></a>Configuration de l’état souhaité (DSC)
 Pour déployer l’agent de dépendances avec Desired State Configuration, vous pouvez utiliser le module xPSDesiredStateConfiguration et un peu de code comme ceci :
 ```
@@ -235,6 +283,7 @@ Service Map est actuellement disponible dans les régions Azure suivantes :
 - Est des États-Unis
 - Europe de l'Ouest
 - Centre-Ouest des États-Unis
+- Asie du Sud-Est
 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
@@ -326,7 +375,7 @@ Les sections suivantes répertorient les systèmes d’exploitation pris en char
 | 10 SP4 | 2.6.16.60 |
 
 ## <a name="diagnostic-and-usage-data"></a>Données relatives aux diagnostics et à l’utilisation
-Microsoft collecte automatiquement les données sur l’utilisation et les performances via votre utilisation du service Carte de service. Microsoft utilise ces données pour fournir et améliorer la qualité, la sécurité et l’intégrité du service Service Map. Elles comprennent des informations sur la configuration du logiciel, notamment son système d’exploitation et sa version. Elles incluent également l’adresse IP, le nom DNS et le nom de la station de travail afin de fournir des capacités de dépannage précises et efficaces. Nous ne collectons pas votre nom, votre adresse, ni vos autres coordonnées.
+Microsoft collecte automatiquement les données sur l’utilisation et les performances via votre utilisation du service Service Map. Microsoft utilise ces données pour fournir et améliorer la qualité, la sécurité et l’intégrité du service Service Map. Elles comprennent des informations sur la configuration du logiciel, notamment son système d’exploitation et sa version. Elles incluent également l’adresse IP, le nom DNS et le nom de la station de travail afin de fournir des capacités de dépannage précises et efficaces. Nous ne collectons pas votre nom, votre adresse, ni vos autres coordonnées.
 
 Pour plus d’informations sur la collecte et l’utilisation des données, consultez la [Déclaration de confidentialité Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
@@ -334,4 +383,3 @@ Pour plus d’informations sur la collecte et l’utilisation des données, cons
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [utiliser Service Map](operations-management-suite-service-map.md) une fois le déploiement et la configuration effectués.
-

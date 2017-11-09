@@ -1,5 +1,5 @@
 ---
-title: 'Troubleshooting: ''Active Directory'' item is missing or not available | Microsoft Docs'
+title: "Dépannage : l’élément « Active Directory » est manquant ou non disponible | Microsoft Docs"
 description: "Que faire lorsque l’élément de menu Active Directory n’apparaît pas dans le portail de gestion Azure."
 services: active-directory
 documentationcenter: na
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c52e9257272c5b0c55c488d2c7ca6fef500260b
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Dépannage : l’élément « Active Directory » est manquant ou non disponible
 De nombreuses instructions relatives à l’utilisation des fonctionnalités et des services d’Azure Active Directory commencent par « Accédez au portail de gestion Azure et cliquez sur **Active Directory**. » Mais que faire si l’élément de menu ou l’extension Active Directory n’apparaît pas ou si elle est marquée comme **non disponible**? Cette rubrique d’aide répond à cette question. Elle décrit les conditions dans lesquelles **Active Directory** n’apparaît pas ou n’est pas disponible et explique comment procéder.
@@ -52,5 +51,4 @@ Lorsque vous cliquez sur **+ New** > **App Services**, un élément **Active Di
 Toutefois, pendant le chargement de la page, l’élément est estompé et est marqué comme **non disponible**. Il s’agit d’un état temporaire. Si vous attendez quelques secondes, l’élément devient disponible. Si le délai se prolonge, l’actualisation de la page Web résout souvent le problème.
 
 ![Capture d’écran : Active Directory n’est pas disponible](./media/active-directory-troubleshooting/not-available.png)
-
 

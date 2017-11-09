@@ -50,7 +50,7 @@
 
 ## Exemples de scripts
 ### [Interface de ligne de commande Azure](cli-samples.md)
-### [PowerShell](powershell-samples.md)
+### [Azure PowerShell](powershell-samples.md)
 
 ## Didacticiels
 ### [Équilibrer la charge des machines virtuelles](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -58,7 +58,7 @@
 
 # Référence
 ## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network)
-## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
 ## [Node.JS](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)

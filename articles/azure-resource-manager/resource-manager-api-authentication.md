@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
-
-
+ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 ## <a name="introduction"></a>Introduction
@@ -89,7 +87,7 @@ Les résultats incluent l’ID de l’application, dont vous avez besoin pour vo
 ### <a name="optional-configuration---certificate-credential"></a>Configuration facultative : informations d’identification des certificats
 Azure AD prend également en charge les informations d’identification des certificats pour les applications : vous créez un certificat auto-signé, conservez la clé privée et ajoutez la clé publique lors de l’inscription de votre application Azure AD. Dans le cadre de l’authentification, votre application envoie une petite charge utile à Azure AD, signée à l’aide de votre clé privée ; ensuite, Azure AD valide la signature à l’aide de la clé publique que vous avez inscrite.
 
-Pour plus d’informations sur la création d’une application Active Directory avec un certificat, consultez [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) ou [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
+Pour plus d’informations sur la création d’une application Active Directory avec un certificat, consultez [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) ou [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](resource-group-authenticate-service-principal-cli.md).
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Obtention de l’ID du client à partir de l’ID d’abonnement
 Pour demander un jeton permettant d’appeler Resource Manager, votre application doit connaître l’ID du client Azure AD qui héberge l’abonnement Azure. Vos utilisateurs connaissent sûrement leurs ID d’abonnement, mais pas nécessairement leurs ID de client Azure Active Directory. Pour obtenir l’ID de client d’un utilisateur, demandez-lui l’ID d’abonnement. Indiquez cet ID d’abonnement lors de l’envoi d’une demande sur l’abonnement :
@@ -363,4 +361,3 @@ Seuls les utilisateurs dotés d’une autorisation de gestion des accès sur l�
 La méthode [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) de l’exemple d’application MVC ASP.NET implémente cet appel.
 
 Et voilà ! Les utilisateurs peuvent maintenant se connecter et gérer facilement leurs abonnements Azure avec votre application.
-

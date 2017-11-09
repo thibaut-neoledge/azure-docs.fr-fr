@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4d33237833f34495e6049e348ad4518a2b70ee51
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 55c5abccb2472d653a4e355e39a19a224b979b85
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Problèmes lors de la configuration et de l’approvisionnement des utilisateurs pour une application
 
 
@@ -35,4 +33,3 @@ ms.lasthandoff: 04/17/2017
   * [J’ai rencontré un problème lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [J’ai configuré l’approvisionnement pour mon application relevant de la galerie Azure AD, mais aucun utilisateur n’est approvisionné](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [J’ai configuré l’approvisionnement pour mon application relevant de la galerie Azure AD, mais les utilisateurs approvisionnés ne sont pas les bons.](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

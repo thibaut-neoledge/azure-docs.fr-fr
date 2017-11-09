@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 644713d365191bf5e51517d0cc565efbc2abc144
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: b541cd5cb7e49468af2c522b16c3a3b9fe75fd54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Découvrez le type de tronçon suivant grâce à la fonction Tronçon suivant Azure Network Watcher à l’aide de l’API REST
 
 > [!div class="op_single_selector"]
@@ -132,7 +130,6 @@ Voici les résultats au format json.
 ## <a name="next-steps"></a>Étapes suivantes
 
 Lorsque vous avez trouvé le tronçon suivant pour une machine virtuelle, vous pouvez afficher la sécurité de vos ressources réseau en vous rendant dans la [vue d’ensemble de la vue de sécurité](network-watcher-security-group-view-overview.md)
-
 
 
 

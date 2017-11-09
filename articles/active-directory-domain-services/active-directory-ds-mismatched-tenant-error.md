@@ -4,7 +4,7 @@ description: "Comprendre et résoudre des erreurs d’annuaire incompatible pour
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 10/30/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ca9ff29f5f91b8d796a29706ab49a82e417d1ecd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Résoudre des erreurs d’annuaire incompatible pour des domaines managés Azure AD Domain Services existants
 Vous avez un domaine managé existant qui a été activé à l’aide du portail Azure Classic. Lorsque vous accédez au nouveau portail Azure et affichez le domaine managé, vous voyez le message d’erreur suivant :
@@ -44,7 +43,7 @@ En résumé, vous ne pouvez pas activer un domaine managé pour un locataire Azu
 
 ![Configuration de locataire incompatible](./media/getting-started/mismatched-tenant-config.png)
 
-Par conséquent, dans les scénarios où le domaine managé et le réseau virtuel dans lequel il est activé appartiennent à deux locataires Azure AD différents, vous voyez cette erreur.
+Par conséquent, quand le domaine managé et le réseau virtuel dans lequel il est activé appartiennent à deux locataires Azure AD différents, vous voyez cette erreur.
 
 Les règles suivantes s’appliquent dans l’environnement du Gestionnaire de ressources :
 - Un annuaire Azure AD peut avoir plusieurs abonnements Azure.
@@ -56,12 +55,11 @@ Les règles suivantes s’appliquent dans l’environnement du Gestionnaire de r
 ## <a name="resolution"></a>Résolution :
 Vous avez deux options pour résoudre l’erreur d’annuaire incompatible. Ces options sont les suivantes :
 
-- Cliquez sur le bouton **Supprimer** pour supprimer le domaine managé existant. Recréez un domaine managé à l’aide du [portail Azure](https://portal.azure.com), de façon à ce que le domaine managé et le réseau virtuel dans lequel il est disponible appartiennent à l’annuaire Azure AD. Vous devez joindre à nouveau au domaine managé que vous venez de créer toutes les machines précédemment jointes au domaine supprimé.
+- Cliquez sur le bouton **Supprimer** pour supprimer le domaine managé existant. Recréez un domaine managé à l’aide du [portail Azure](https://portal.azure.com), de façon à ce que le domaine managé et le réseau virtuel dans lequel il est disponible appartiennent à l’annuaire Azure AD. Joignez au domaine managé que vous venez de créer toutes les machines précédemment jointes au domaine supprimé.
 
-- Contactez le support technique Azure pour déplacer l’abonnement Azure contenant le réseau virtuel vers l’annuaire Azure AD auquel appartient votre domaine managé. Cliquez sur **Nouvelle demande de support**, puis spécifiez **annuaire incompatible** dans la section **Détails** de la demande. Incluez dans la demande de support les informations fournies dans le message d’erreur.
+- Déplacez l’abonnement Azure contenant le réseau virtuel vers l’annuaire Azure AD auquel appartient votre domaine managé. Suivez les étapes indiquées dans l’article [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md).
 
 
 ## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
 * [Azure AD Domain Services : guide de dépannage](active-directory-ds-troubleshooting.md)
-

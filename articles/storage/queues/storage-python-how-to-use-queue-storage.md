@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
+ms.openlocfilehash: 8311d8e29845f2801c4b33f994512113044fcbf7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 963c11acb7939993568a774cd281145a8059b5a6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Utilisation du stockage de files d'attente à partir de Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -32,6 +31,26 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>Télécharger et installer le SDK Stockage Azure pour Python
+
+Le SDK Stockage Azure pour Python requiert Python 2.7, 3.3, 3.4, 3.5 ou 3.6 et est fourni dans 4 packages différents : `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` et `azure-storage-queue`. Dans ce didacticiel, nous allons utiliser le package `azure-storage-queue`.
+ 
+### <a name="install-via-pypi"></a>Effectuer l’installation via PyPi
+
+Pour effectuer l’installation via PyPI (Python Package Index), tapez :
+
+```bash
+pip install azure-storage-queue
+```
+
+
+> [!NOTE]
+> Si vous effectuez une mise à niveau à partir du SDK Stockage Azure pour Python version 0.36 ou antérieure, vous devez d’abord effectuer une désinstallation au moyen de `pip uninstall azure-storage` car nous ne publierons plus le SDK Stockage pour Python dans un package unique.
+> 
+> 
+
+Pour connaître les autres méthodes d’installation, visitez la page consacrée au [SDK Stockage Azure pour Python sur Github](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="how-to-create-a-queue"></a>Création d'une file d'attente
 L'objet **QueueService** permet d'utiliser des files d'attente. Le code suivant permet de créer un objet **QueueService** . Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :

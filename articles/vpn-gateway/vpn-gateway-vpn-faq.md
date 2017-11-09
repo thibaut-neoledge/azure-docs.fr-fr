@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2017
+ms.date: 10/19/2017
 ms.author: cherylmc,yushwang
+ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -71,6 +70,15 @@ Les passerelles basées sur des stratégies implémentent des VPN basés sur des
 
 Les passerelles basées sur des itinéraires implémentent les VPN basés sur des itinéraires. Les VPN basés sur l'itinéraire utilisent des « itinéraires » dans l'adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic pour les VPN basés sur l'itinéraire sont configurés comme universels (ou en caractères génériques).
 
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Puis-je mettre à jour ma passerelle VPN basée sur une stratégie en passerelle VPN basée sur l’itinéraire ?
+Non. Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
+1. Supprimez toutes connexions associées à la passerelle que vous comptez supprimer.
+2. Supprimez la passerelle :
+* [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Azure PowerShell - Classique](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [Créer une passerelle du type souhaité et terminer la configuration VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+
 ### <a name="do-i-need-a-gatewaysubnet"></a>Ai-je besoin d’un « sous-réseau de passerelle » ?
 
 Oui. Le sous-réseau de passerelle contient les adresses IP utilisées par les services de passerelle de réseau virtuel. Vous devez créer un sous-réseau de passerelle pour votre réseau virtuel afin de configurer une passerelle de réseau virtuel. Tous les sous-réseaux de passerelle doivent être nommés « GatewaySubnet » afin de fonctionner correctement. N’attribuez pas un autre nom au sous-réseau de passerelle, et ne déployez pas de machines virtuelles ou d’autres éléments vers le sous-réseau de passerelle.
@@ -111,9 +119,8 @@ Nous sommes limités à l'utilisation de clés prépartagées (PSK) pour l'authe
 #### <a name="classic-deployment-model"></a>Modèle de déploiement classique
 
 * Portail Azure : accédez au réseau virtuel classique > Connexions VPN > Connexions VPN site à site > Nom du site local > Site local > Espace d’adressage du client. 
-* Portail Classic : ajoutez chaque plage que vous souhaitez envoyer via la passerelle de votre réseau virtuel dans la page Réseaux, sous Réseaux locaux. 
 
-### <a name="can-i-configure-forced-tunneling"></a>Puis-je configurer un tunneling forcé ?
+### <a name="can-i-configure-force-tunneling"></a>Puis-je configurer un tunneling forcé ?
 
 Oui. Consultez [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneling.md).
 
@@ -159,9 +166,17 @@ Nous prenons en charge les serveurs de routage et d’accès distant (RRAS) Wind
 
 D’autres solutions VPN logicielles fonctionnent avec notre passerelle tant qu'elles sont conformes aux implémentations IPsec standard. Contactez le fournisseur du logiciel pour obtenir des instructions de configuration et de prise en charge.
 
-## <a name="P2S"></a>Connexions de point à site
+## <a name="P2S"></a>Point à site : authentification par certificat Azure native
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+Cette section s’applique au modèle de déploiement Resource Manager.
+
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>Point à site : authentification RADIUS
+
+Cette section s’applique au modèle de déploiement Resource Manager.
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>Connexions multi-sites et réseau virtuel à réseau virtuel
 
@@ -229,4 +244,3 @@ Des informations supplémentaires sur les réseaux virtuels sont disponibles dan
 
 * Pour plus d’informations sur la passerelle VPN, consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 * Pour plus d’informations sur les paramètres de configuration de la passerelle VPN, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
-

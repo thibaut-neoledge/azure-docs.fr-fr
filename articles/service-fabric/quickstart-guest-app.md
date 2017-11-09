@@ -9,19 +9,17 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
+ms.openlocfilehash: f63cf0baf7636d0294ced7c2dc6b3112fa9900ee
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/15/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/14/2017
 ---
-
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Héberger une application Node.js sur Microsoft Azure Service Fabric
 
 Ce démarrage rapide vous permet de déployer une application existante (Node.js dans cet exemple) dans un cluster Service Fabric s’exécutant sur Azure.
@@ -45,7 +43,7 @@ Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Cloud > Applicati
 Nommez l’application **MyGuestApp**, puis cliquez sur **OK**.
 
 >[!IMPORTANT]
->Node.js peut facilement dépasser la limite de 260 caractères pour les chemins d’accès de Windows. Utilisez un chemin d’accès court pour le projet en lui-même, par exemple **c:\code\svc1**.
+>Node.js peut facilement dépasser la limite de 260 caractères pour les chemins d’accès de Windows. Utilisez un chemin d’accès court pour le projet en lui-même, par exemple **c:\code\svc1**. Vous pouvez éventuellement suivre [ces instructions](https://stackoverflow.com/a/41687101/1664231) pour activer les chemins d’accès longs des fichiers dans Windows 10.
    
 ![Boîte de dialogue Nouveau projet dans Visual Studio][new-project]
 

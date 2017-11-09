@@ -11,15 +11,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli
+ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 0c9825f11733127a547e06e159172a08cef736eb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendre la limite de dépense d’Azure et comment la désactiver
 
@@ -69,7 +68,11 @@ La limite de dépense peut vous empêcher de déployer ou d’utiliser certains 
 
 ### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>Comment faire pour activer la limite de dépense après l’avoir supprimée ?
 
-La limite de dépense ne s’active qu’automatiquement. Malheureusement, il n’existe aucune option permettant de l’activer vous-même après sa suppression. Veillez à sélectionner l’option **Supprimer la limite de dépense pour la période de facturation en cours** si vous craignez que la limite ne puisse pas se réactiver.
+Cette fonctionnalité est disponible uniquement lorsque la limite de dépense a été supprimée indéfiniment. Modifiez cette option pour l’activer automatiquement au début de la prochaine période de facturation.
+
+1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions).
+1. Cliquez sur la bannière jaune pour modifier l’option de limite de dépense.
+1. Choisissez **Activer la limite de dépense de la prochaine période de facturation \<date de début de la période de facturation\>**
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Comment faire pour définir une limite de dépense personnalisée ?
 
@@ -82,4 +85,3 @@ Certains [services Microsoft et services de marque tierce](billing-understand-yo
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-

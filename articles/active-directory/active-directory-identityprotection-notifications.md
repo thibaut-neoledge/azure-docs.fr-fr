@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
-ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/22/2016
-
+ms.openlocfilehash: abc0f3926905295a9cf239146cce7fc57da7eb29
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifications d’Azure Active Directory Identity Protection
 Azure AD Identity Protection envoie deux types d’e-mails de notification automatisés pour vous aider à gérer le risque des utilisateurs et les événements à risque :
@@ -42,25 +41,24 @@ Il inclut :
 * Des liens vers les rapports connexes dans Identity Protection
 
 <br>
-![Correction](./media/active-directory-identityprotection-notifications/400.png "Remediation")
+![Correction](./media/active-directory-identityprotection-notifications/400.png "Correction")
 <br>
 
 Vous pouvez désactiver l’envoi de l’e-mail de synthèse hebdomadaire.
 <br><br>
-![Risques des utilisateurs](./media/active-directory-identityprotection-notifications/62.png "User risks")
+![Risques des utilisateurs](./media/active-directory-identityprotection-notifications/62.png "Risques des utilisateurs")
 <br>
 
 **Pour ouvrir la boîte de dialogue de configuration connexe**:
 
 1. Dans le panneau **Azure AD Identity Protection**, cliquez sur **Paramètres**.
    <br><br>
-   ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection-notifications/401.png "User risk policy")
+   ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection-notifications/401.png "Stratégie de risque d’utilisateur")
    <br>
 2. Dans la section **Général**, cliquez sur **Notifications**.
    <br><br>
-   ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
+   ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection-notifications/405.png "Stratégie de risque d’utilisateur")
    <br>
 
 ## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2daa6c07191da7bd732cadf62b414f8027682071
-ms.openlocfilehash: 35d7ac416c35c74d38f4370ee7e34a96eb18d000
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: 6c990a184d44771c78330f54f518bb4c35a36a35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health : historique de publication des versions
 L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect Health avec de nouvelles fonctions et fonctionnalités. Cet article répertorie les versions et les fonctionnalités qui ont été publiées.
@@ -91,11 +90,10 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 
 * Alertes de surveillance des serveurs AD FS et de proxy AD FS avec les notifications par e-mail.
 * Accès facile à la topologie et aux modèles AD FS dans les compteurs de performances AD FS.
-* Tendances des demandes de jeton réussies sur les serveurs AD FS regroupés par applications, méthodes d’authentification, demande d’emplacement réseau, etc..
-* Tendances des demandes ayant échoué sur les serveurs AD FS regroupés par applications, types d’erreur, etc..
+* Tendances des demandes de jeton réussies sur les serveurs AD FS regroupés par applications, méthodes d’authentification, demande d’emplacement réseau, etc.
+* Tendances des demandes ayant échoué sur les serveurs AD FS regroupés par applications, types d’erreur, etc.
 * Déploiement d’agent plus simple à l’aide des informations d’identification d’administrateur général Azure AD.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](active-directory-aadconnect-health.md).
-
 

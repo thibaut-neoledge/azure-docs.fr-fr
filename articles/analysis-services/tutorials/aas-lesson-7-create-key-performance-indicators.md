@@ -4,7 +4,7 @@ description: "Indique comment créer des indicateurs de performance clés dans l
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: ca386cfd23b010af25fa9afb00fdad322e3e2946
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Leçon 7 : Créer des indicateurs de performance clés
 
@@ -49,7 +48,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 
     Cette mesure sert de mesure de base pour l’indicateur de performance clé.  
   
-4.  Cliquez avec le bouton droit sur **InternetCurrentQuarterSalesPerformance** > **Créer un KPI**.   
+4.  Dans la grille de mesures, cliquez avec le bouton droit sur **InternetCurrentQuarterSalesPerformance** > **Créer un KPI**.   
   
 5.  Dans la boîte de dialogue Indicateur de performance clé (KPI), dans **Cible**, sélectionnez **Valeur absolue**, puis tapez **1.1**.  
   
@@ -88,4 +87,3 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 [Leçon 8 : Créer des perspectives](../tutorials/aas-lesson-8-create-perspectives.md).
   
   
-

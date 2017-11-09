@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
+ms.openlocfilehash: e8b22dad84e89be6051041e60ca9d72ec4aa3c56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8cc23d5c284123c7c04dda4b71fdb6275d32bf8d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Utilisation du stockage de tables Azure à partir de Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -30,8 +29,7 @@ Cette rubrique décrit le déroulement de scénarios courants dans le cadre de l
 
 Les exemples de code de cette rubrique partent du principe que vous disposez déjà d'une application Node.js. Pour plus d’informations sur la création d’une application Node.js dans Azure, consultez les rubriques suivantes :
 
-* [Créer une application web Node.js dans Azure App Service](../app-service-web/app-service-web-get-started-nodejs.md)
-* [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+* [Créer une application web Node.js dans Azure App Service](../app-service/app-service-web-get-started-nodejs.md)
 * [Création et déploiement d’une application Node.js dans un service cloud Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (avec Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -451,4 +449,4 @@ Pour plus d'informations, consultez les ressources suivantes.
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 * [Kit de développement logiciel (SDK) Azure Storage pour Node](https://github.com/Azure/azure-storage-node) sur GitHub.
 * [Centre de développement Node.js](/develop/nodejs/)
-* [Création et déploiement d’une application Node.js sur un site web Azure](../app-service-web/app-service-web-get-started-nodejs.md)
+* [Création et déploiement d’une application Node.js sur un site web Azure](../app-service/app-service-web-get-started-nodejs.md)

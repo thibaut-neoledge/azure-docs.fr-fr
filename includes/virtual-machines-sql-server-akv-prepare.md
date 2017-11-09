@@ -15,8 +15,7 @@ Tout d’abord, votre abonnement doit comporter un [Azure Active Directory](http
 
 Inscrivez ensuite une application auprès d'ADD. Vous obtiendrez un compte Principal du service ayant un accès à votre coffre de clés dont votre machine virtuelle a besoin. Dans l’article Coffre de clés Azure, vous pouvez trouver ces étapes dans la section [Inscription d’une application auprès d’Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register), ou vous pouvez voir les étapes avec des captures d’écran dans la section **Obtention d’une identité pour l’application** de [ce billet de blog](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Avant d'effectuer ces étapes, notez que vous devez collecter les informations suivantes au cours de cette inscription. Elles seront nécessaires ultérieurement lorsque vous activerez Azure Key Vault Integration dans votre machine virtuelle SQL.
 
-* Une fois l’application ajoutée, recherchez **l’ID CLIENT** dans l’onglet **CONFIGURER**. 
-    ![ID de Client Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Une fois l’application ajoutée, recherchez **l’ID CLIENT** dans l’onglet **CONFIGURER**.   ![ID de Client Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
     L’ID client est affecté ultérieurement au paramètre **$spName** (nom du principal du service) dans le script PowerShell pour activer l’intégration du Coffre de clés Azure. 
 * Au cours de ces étapes, lorsque vous créez votre clé, copiez également son secret comme indiqué dans la capture d'écran suivante. Ce secret de clé est affecté ultérieurement au paramètre **$spSecret** (secret du principal du service) dans le script PowerShell.  

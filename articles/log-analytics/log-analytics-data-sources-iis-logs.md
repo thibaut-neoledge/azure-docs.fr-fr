@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: bwren
+ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="iis-logs-in-log-analytics"></a>Journaux IIS dans Log Analytics
 Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  
@@ -71,17 +70,6 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 
 | Interroger | Description |
 |:--- |:--- |
-| Type=W3CIISLog |Tous les enregistrements de journaux IIS. |
-| Type=W3CIISLog scStatus=500 |Tous les enregistrements de journaux IIS dont l’état renvoyé est 500. |
-| Type=W3CIISLog &#124; Measure count() by cIP |Nombre d’entrées de journaux IIS par adresse IP du client. |
-| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
-| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
-
->[!NOTE]
-> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les requêtes ci-dessous.
-
-> | Interroger | Description |
-|:--- |:--- |
 | W3CIISLog |Tous les enregistrements de journaux IIS. |
 | W3CIISLog &#124; où scStatus==500 |Tous les enregistrements de journaux IIS dont l’état renvoyé est 500. |
 | W3CIISLog &#124; résumer count() par cIP |Nombre d’entrées de journaux IIS par adresse IP du client. |
@@ -92,4 +80,3 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 * Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
 * Configurez les alertes dans Log Analytics pour être informé de façon proactive des conditions importantes rencontrées dans les journaux IIS.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: e163f3c2e9a78b057dc2a7a42924c59d0aac3fab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Partage d’état vers et depuis les modèles Azure Resource Manager
 Cette rubrique présente les bonnes pratiques pour gérer et partager l’état dans les modèles. Les paramètres et les variables présentés dans cette rubrique sont des exemples du type d'objets que vous pouvez définir pour organiser aisément votre déploiement. À partir de ces exemples, vous pouvez implémenter vos propres objets avec les valeurs de propriété pertinentes pour votre environnement.
@@ -440,4 +439,3 @@ Au moment de définir la machine virtuelle, vous affectez à **osProfile** la va
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les sections du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 * Pour consulter les fonctions disponibles dans un modèle, voir [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md)
-

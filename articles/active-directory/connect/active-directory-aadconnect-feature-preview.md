@@ -14,19 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b110b2e3041cf7839d1bf1c4d384b28b243efbd8
-ms.openlocfilehash: c1653c769a6b42d18ffb0da71220ce06c6556587
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: cbf8f729d0ebfb271bb0d8702ac043442b42c262
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# Plus de détails sur les fonctionnalités de la version préliminaire
-<a id="more-details-about-features-in-preview" class="xliff"></a>
+# <a name="more-details-about-features-in-preview"></a>Plus de détails sur les fonctionnalités de la version préliminaire
 Cette rubrique décrit l’utilisation des fonctionnalités disponibles dans la version préliminaire.
 
-## Écriture différée de groupe
-<a id="group-writeback" class="xliff"></a>
+## <a name="group-writeback"></a>Écriture différée de groupe
 L’option pour l’écriture différée de groupe dans les fonctionnalités facultatives permet l’écriture différée de **groupes dans Office 365** vers une forêt avec Exchange installé. Il s’agit d’un nouveau type de groupe qui est toujours contrôlé dans le cloud. Si Exchange est installé sur site, vous pouvez réécrire ces groupes en local afin que les utilisateurs disposant d’une boîte aux lettres Exchange locale puissent envoyer et recevoir des e-mails de la part de ces groupes.
 
 Vous trouverez [ici](http://aka.ms/O365g)d’autres informations sur les groupes Office 365 et la façon de les utiliser.
@@ -45,16 +42,13 @@ Un groupe Office 365 est représenté comme un groupe de distribution dans les v
 > 
 >
 
-## Écriture différée de l’utilisateur
-<a id="user-writeback" class="xliff"></a>
+## <a name="user-writeback"></a>Écriture différée de l’utilisateur
 > [!IMPORTANT]
 > La fonctionnalité d’écriture différée utilisateur en version préliminaire a été supprimée lors de la mise à jour d’Azure AD Connect en août 2015. Si vous l'avez activée, vous devez désactiver cette fonctionnalité.
 >
 >
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 Poursuivez votre [installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-

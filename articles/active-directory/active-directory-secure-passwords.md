@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
+ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: de9d41cfb157c71f324f5662c1c037ff515e7108
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Une approche à plusieurs niveaux de la sécurité des mots de passe dans Azure AD
 
@@ -86,4 +85,3 @@ Pour plus d’informations sur la réinitialisation de mot de passe dans Azure A
 * [Comment mettre à jour votre mot de passe](active-directory-passwords-update-your-own-password.md)
 * [Principes de base de la gestion des identités Azure](fundamentals-identity.md)
 * [Rapport sur l’activité de réinitialisation de mot de passe](active-directory-passwords-reporting.md)
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: mobile
 ms.date: 12/16/2015
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dec722c49be99a0d186611e2ec8c324917609fdc
-
-
+ms.openlocfilehash: d185fdafebad56f8970e390b2a0672c3fb84df8f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Ajout de Mobile Services à l’aide des services connectés de Visual Studio
 Avec Visual Studio 2015, vous pouvez vous connecter à Azure Mobile Services à partir de la boîte de dialogue **Ajouter un service connecté** . Vous pouvez établir une connexion de n’importe quelle application cliente C#, application JavaScript ou application interplateforme Cordova. Une fois connecté, vous pouvez créer et utiliser des données, créer des API personnalisées et des tâches planifiées, et ajouter la prise en charge des notifications Push.  Les services connectés ajoutent toutes les références et le code de connexion appropriés. Vous pouvez également tirer parti de la prise en charge intégrée de l’authentification avec de nombreux schémas d’identité courants, par exemple les comptes Azure AD, Facebook, Twitter et Microsoft.
@@ -50,7 +50,7 @@ L’utilisation de la boîte de dialogue Services connectés vous permet de vous
    
     Pour créer un compte de service mobile :
    
-   1. Sélectionnez le lien **Créer un service cloud** situé en bas de la boîte de dialogue.
+   1. Sélectionnez le lien **Créer un service** situé au bas de la boîte de dialogue.
        ![Ajouter un nouveau service connecté mobile](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
    2. Dans la boîte de dialogue **Créer un service mobile**, choisissez un service mobile principal JavaScript ou .NET dans la liste déroulante **Runtime**. 
       
@@ -75,10 +75,4 @@ Posez des questions et obtenez de l’aide :
 * [Azure Mobile Services sur le blog de l’équipe Microsoft Azure](https://azure.microsoft.com/blog/topics/mobile/)
 * [Azure Mobile Services sur azure.microsoft.com](https://azure.microsoft.com/services/mobile-services/)
 * [Documentation Azure Mobile Services sur azure.microsoft.com](https://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

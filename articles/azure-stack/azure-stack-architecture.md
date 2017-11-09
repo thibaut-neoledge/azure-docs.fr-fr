@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Development Kit architecture | Microsoft Docs
-description: View the Microsoft Azure Stack Development Kit architecture.
+title: "Architecture du Kit de développement Microsoft Azure Stack | Microsoft Docs"
+description: "Affichez l’architecture du Kit de développement Microsoft Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -12,46 +12,47 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/25/2017
 ms.author: helaw
+ms.openlocfilehash: e8ff17e069bd9237bf06cd79b4c222c50a999eda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: ece8cb785ffcceaed476fa729e7471dc7831c155
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack Development Kit architecture
-The Azure Stack Development Kit is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
+# <a name="microsoft-azure-stack-development-kit-architecture"></a>Architecture du Kit de développement Microsoft Azure Stack
 
-## <a name="logical-architecture-diagram"></a>Logical architecture diagram
-The following diagram illustrates the logical architecture of the Azure Stack development kit and its components.
+*S’applique à : Kit de développement Azure Stack*
+
+Le Kit de développement Azure Stack est un déploiement à nœud unique d’Azure Stack. Tous les composants sont installés sur des machines virtuelles exécutées sur un ordinateur hôte unique. 
+
+## <a name="logical-architecture-diagram"></a>Schéma de l’architecture logique
+Le schéma suivant illustre l’architecture logique du Kit de développement Azure Stack et de ses composants.
 
 ![](media/azure-stack-architecture/image1.png)
 
-## <a name="virtual-machine-roles"></a>Virtual machine roles
-The Azure Stack development kit offers services using the following VMs on the host:
+## <a name="virtual-machine-roles"></a>Rôles de machine virtuelle
+Le Kit de développement Azure Stack offre des services à l’aide des machines virtuelles suivantes sur l’ordinateur hôte :
 
-| Name | Description |
+| Nom | Description |
 | ----- | ----- |
-| **AzS-ACS01** | Azure Stack storage services.|
-| **AzS-ADFS01** | Active Directory Federation Services (ADFS).  |
-| **AzS-BGPNAT01** | Edge router and provides NAT and VPN capabilities for Azure Stack. |
-| **AzS-CA01** | Certificate authority services for Azure Stack role services.|
-| **AzS-DC01** | Active Directory, DNS, and DHCP services for Microsoft Azure Stack.|
-| **AzS-ERCS01** | Emergency Recovery Console VM. |
-| **AzS-GWY01** | Edge gateway services such as VPN site-to-site connections for tenant networks.|
-| **AzS-NC01** | Network Controller, which manages Azure Stack network services.  |
-| **AzS-SLB01** | Load balancing multiplexer services in Azure Stack for both tenants and Azure Stack infrastructure services.  |
-| **AzS-SQL01** | Internal data store for Azure Stack infrastructure roles.  |
-| **AzS-WAS01** | Azure Stack administrative portal and Azure Resource Manager services.|
-| **AzS-WASP01**| Azure Stack user (tenant) portal and Azure Resource Manager services.|
-| **AzS-XRP01** | Infrastructure management controller for Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.|
+| **AzS-ACS01** | Services de stockage Azure Stack.|
+| **AzS-ADFS01** | Services de fédération Active Directory (ADFS).  |
+| **AzS-BGPNAT01** | Routeur Edge et fournit des capacités NAT et VPN pour Azure Stack. |
+| **AzS-CA01** | Services d’autorité de certification pour les services de rôle Azure Stack.|
+| **AzS-DC01** | Services Active Directory, DNS et DHCP pour Microsoft Azure Stack.|
+| **AzS-ERCS01** | Machine virtuelle la console de récupération d’urgence. |
+| **AzS-GWY01** | Services de passerelle Edge, comme les connexions de site à site VPN pour les réseaux locataires.|
+| **AzS-NC01** | Contrôleur réseau qui gère les services réseau Azure Stack.  |
+| **AzS-SLB01** | Services multiplexeur d’équilibrage de charge dans Azure Stack pour les clients et les services d’infrastructure Azure Stack.  |
+| **AzS-SQL01** | Magasin de données interne pour les rôles d’infrastructure Azure Stack.  |
+| **AzS-WAS01** | Portail d’administration Azure Stack et services Azure Resource Manager.|
+| **AzS-WASP01**| Portail utilisateur (locataire) Azure Stack et services Azure Resource Manager.|
+| **AzS-XRP01** | Contrôleur de gestion d’infrastructure pour Microsoft Azure Stack, notamment les fournisseurs de ressources Calcul, Réseau et Stockage.|
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy Azure Stack](azure-stack-deploy.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Déployer Azure Stack](azure-stack-deploy.md)
 
-[First scenarios to try](azure-stack-first-scenarios.md)
-
+[Test des premiers scénarios](azure-stack-first-scenarios.md)
 

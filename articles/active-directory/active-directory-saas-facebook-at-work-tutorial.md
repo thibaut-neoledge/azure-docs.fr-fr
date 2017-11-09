@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 27e62a00832484667117d8718db9f2fc05e2f4e2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Didacticiel : Intégration d’Azure Active Directory à Workplace by Facebook
 
@@ -243,5 +242,4 @@ Pour plus d’informations, consultez [Présentation du volet d’accès](active
 [201]: ./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_203.png
-
 

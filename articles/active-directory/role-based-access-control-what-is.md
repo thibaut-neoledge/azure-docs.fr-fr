@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 68213a40755ae7dc675556c595da032b408be261
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure
 Les entreprises orientées sécurité doivent s’efforcer de donner aux employés les autorisations exactes dont ils ont besoin. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. Le contrôle d’accès en fonction du rôle (RBAC) Azure permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure.
@@ -68,4 +67,3 @@ RBAC Azure prend uniquement en charge les opérations de gestion des ressources 
 * Découvrez le [contrôle d’accès en fonction du rôle dans le portail Azure](role-based-access-control-configure.md).
 * Consultez les [rôles RBAC intégrés](role-based-access-built-in-roles.md)
 * Définissez vos propres [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md)
-

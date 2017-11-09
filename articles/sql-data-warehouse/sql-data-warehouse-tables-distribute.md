@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fe47cc1e5489d094f08b771cc8ec89de84509972
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: d0e12bf821a81826a20b8db84e76c48fa60ad9b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>Distribution de tables dans SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -308,4 +306,3 @@ Pour obtenir une vue d’ensemble des bonnes pratiques, consultez [Bonnes pratiq
 [DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
 
 <!--Other Web references-->
-

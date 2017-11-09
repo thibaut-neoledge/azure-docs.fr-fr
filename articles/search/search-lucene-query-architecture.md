@@ -12,14 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
+ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2017
 ---
-
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
 
 Cet article est destiné aux développeurs qui ont besoin d’une compréhension approfondie du fonctionnement de la recherche en texte intégral Lucene dans la recherche Azure. Pour les requêtes de texte, la recherche Azure. fournit en toute transparence les résultats attendus dans la plupart des scénarios, mais il se peut que vous obteniez un résultat « étrange » dans certains cas. Dans ce cas, le fait d’avoir une connaissance des quatre phases d’exécution des requêtes Lucene (analyse des requêtes, analyse lexicale, mise en correspondance des documents et notation) peut vous permettre d’identifier les modifications spécifiques des paramètres de requête ou de la configuration d’index qui permettront d’obtenir le résultat souhaité. 
@@ -185,11 +183,14 @@ L’analyseur standard fractionne le texte d’entrée en deux jetons, les annot
 }
 ~~~~
 
+<a name="exceptions"></a>
+
 ### <a name="exceptions-to-lexical-analysis"></a>Exceptions à l’analyse lexicale 
 
 L’analyse lexicale s’applique uniquement aux types de requêtes qui nécessitent des termes complets (requête de terme ou requête d’expression). Elle ne s’applique pas aux types de requête avec des termes incomplets : requête de préfixe, requête de caractère générique, requête d’expression régulière ou requête partielle. Ces types de requête, y compris la requête de préfixe avec le terme *air condition\**  dans notre exemple, sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête de ce type est l’utilisation de minuscules.
 
 <a name="stage3"></a>
+
 ## <a name="stage-3-document-retrieval"></a>Étape 3 : Extraction de documents 
 
 L’extraction de documents fait référence à la recherche de documents avec des termes correspondants dans l’index. Vous comprendrez mieux cette étape à l’aide d’un exemple. Commençons par un index des hôtels dont le schéma simple est le suivant : 
@@ -238,7 +239,13 @@ Supposons également que cet index contient les quatre documents suivants :
 
 Pour comprendre l’extraction, il est utile de connaître quelques notions de base sur l’indexation. L’unité de stockage est un index inversé, un pour chaque champ pouvant faire l’objet d’une recherche. Un index inversé comprend la liste triée de tous les termes issus de tous les documents. Chaque terme correspond à la liste des documents dans laquelle il se trouve, comme le montre l’exemple ci-dessous.
 
-Pour produire les termes d’un index inversé, le moteur de recherche effectue une analyse lexicale du contenu des documents, semblable à ce qui se produit lors du traitement des requêtes. Les entrées de texte sont transmises à un analyseur, en minuscules, débarrassées des signes de ponctuation et ainsi de suite, selon la configuration de l’analyseur. Il est commun, mais pas obligatoire, d’utiliser les mêmes analyseurs pour les opérations de recherche et d’indexation afin que les termes de requête ressemblent davantage aux termes de l’index.
+Pour produire les termes d’un index inversé, le moteur de recherche effectue une analyse lexicale sur le contenu des documents, de façon similaire à ce qui se produit pendant le traitement des requêtes :
+
+1. Les *entrées de texte* sont transmises à un analyseur, en minuscules, débarrassées des signes de ponctuation et ainsi de suite, en fonction de la configuration de l’analyseur. 
+2. Les *jetons* sont le résultat de l’analyse de texte.
+3. Les *termes* sont ajoutés à l’index.
+
+Il est commun, mais pas obligatoire, d’utiliser les mêmes analyseurs pour les opérations de recherche et d’indexation afin que les termes de requête ressemblent davantage aux termes de l’index.
 
 > [!Note]
 > La recherche Azure vous permet de spécifier différents analyseurs pour l’indexation et la recherche via les paramètres de champ supplémentaires `indexAnalyzer` et `searchAnalyzer`. Par défaut, l’analyseur défini avec la propriété `analyzer` est utilisé pour l’indexation et la recherche.  
@@ -404,4 +411,3 @@ Cet article a présenté la recherche en texte intégral dans le contexte de la 
 [2]: ./media/search-lucene-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-lucene-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-lucene-query-architecture/azSearch-queryparsing-spacious2.png
-

@@ -14,19 +14,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 10/12/2017
 ms.author: chrande
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
 
-Cet article suppose que vous avez déjà lu la [vue d'ensemble d'Azure Functions](functions-overview.md) et que vous connaissez les [concepts du Kit de développement logiciel (SDK) WebJobs, notamment les déclencheurs, les liaisons et le runtime JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure Functions est fondé sur le SDK WebJobs. 
+Cet article suppose que vous avez déjà lu la [vue d'ensemble d'Azure Functions](functions-overview.md) et que vous connaissez les [concepts du Kit de développement logiciel (SDK) WebJobs, notamment les déclencheurs, les liaisons et le runtime JobHost](https://github.com/Azure/azure-webjobs-sdk/wiki). Azure Functions est fondé sur le SDK WebJobs. 
 
 ## <a name="function-code"></a>Code de fonction
 La *fonction* est le principal concept d'Azure Functions. Vous écrivez du code pour une fonction dans le langage de votre choix et enregistrez le code et les fichiers de configuration dans le même dossier. La configuration est nommée `function.json`, et contient les données de configuration JSON. Plusieurs langages sont pris en charge, et chacun d’entre eux offre une expérience légèrement différente, optimisée pour fonctionner idéalement pour ce langage. 
@@ -79,7 +78,7 @@ Lorsque vous configurez un projet pour déployer des fonctions dans un conteneur
 ## <a id="fileupdate"></a> Comment mettre à jour les fichiers du conteneur de fonctions
 L’éditeur de fonctions intégré au portail Azure vous permet de mettre à jour le fichier *function.json* et le fichier de code pour une fonction. Pour télécharger ou mettre à jour d’autres fichiers comme *package.json* ou *project.json* ou les dépendances, vous devez utiliser d’autres méthodes de déploiement.
 
-Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes les [options de déploiement disponibles sur les applications web standard](../app-service-web/web-sites-deploy.md) le sont également sur les conteneurs de fonctions. Voici des méthodes que vous pouvez utiliser pour télécharger ou mettre à jour les fichiers du conteneur de fonctions. 
+Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes les [options de déploiement disponibles sur les applications web standard](../app-service/app-service-deploy-local-git.md) le sont également sur les conteneurs de fonctions. Voici des méthodes que vous pouvez utiliser pour télécharger ou mettre à jour les fichiers du conteneur de fonctions. 
 
 #### <a name="to-use-app-service-editor"></a>Pour utiliser l’Éditeur App Service
 1. Dans le portail Azure Functions, cliquez sur **Paramètres du conteneur de fonctions**.
@@ -96,7 +95,7 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 3. Accédez à `D:\home\site\wwwroot\` pour mettre à jour *host.json* ou `D:\home\site\wwwroot\<function_name>` pour mettre à jour les fichiers d’une fonction.
 4. Glissez-déplacez un fichier à télécharger dans le dossier approprié dans la grille de fichiers. La grille de fichiers offre deux zones dans lesquelles vous pouvez déposer un fichier. Pour les fichiers *.zip* , une zone s’affiche avec le libellé « Faites glisser ici pour charger et décompresser ». Pour les autres types de fichier, déposez le fichier dans la grille de fichiers, mais en dehors de cette zone.
 
-<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
 #### <a name="to-use-continuous-deployment"></a>Pour utiliser le déploiement continu
 Suivez les instructions de la rubrique [Déploiement continu pour Azure Functions](functions-continuous-deployment.md).
@@ -106,7 +105,7 @@ Lorsque plusieurs événements de déclenchement se produisent plus rapidement q
 
 ## <a name="functions-runtime-versioning"></a>Contrôle de version du runtime Functions
 
-Vous pouvez configurer la version du runtime Functions en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION`. Par exemple, la valeur « ~ 1 » indique que votre application de fonction utilise 1 comme version principale. Les applications Function sont mises à niveau pour chaque nouvelle version secondaire lorsqu’elles sont disponibles. Vous pouvez voir la version exacte de votre application de fonction dans l’onglet **Paramètres** du portail Azure.
+Vous pouvez configurer la version du runtime Functions en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION`. Par exemple, la valeur « ~ 1 » indique que votre application de fonction utilise 1 comme version principale. Les applications Function sont mises à niveau pour chaque nouvelle version secondaire lorsqu’elles sont disponibles. Pour obtenir plus d’informations, notamment sur la façon d’afficher la version exacte de votre application de fonction, consultez [Guide pratique pour cibler des versions du runtime Azure Functions](functions-versions.md).
 
 ## <a name="repositories"></a>Référentiels
 Le code pour Azure Fonctions est open source et stocké dans des dépôts GitHub :
@@ -134,5 +133,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 * [Azure Functions : The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Découverte d’Azure Functions) sur le blog d’Azure App Service. Un historique sur le développement d’Azure Functions.
-
 

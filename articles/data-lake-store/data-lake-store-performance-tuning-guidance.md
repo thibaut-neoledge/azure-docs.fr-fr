@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: e7ea83465328bd4c7479dec4093cd94700463854
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 900447ab931f15e4d27aedd525eba7881ba813b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Paramétrage d’Azure Data Lake Store pour les performances
 
@@ -55,7 +53,7 @@ Après avoir traité les goulots d’étranglement du matériel source et de la 
 | PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Lien](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)   |
 | AdlCopy    | Unités Azure Data Lake Analytics  |   [Lien](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mappeur)   | [Lien](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Lien](../data-factory/data-factory-copy-activity-performance.md)                          |
+| Azure Data Factory| parallelCopies    | [Lien](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mappeur)    |   [Lien](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Structure de votre jeu de données
@@ -147,4 +145,3 @@ Outre les consignes générales ci-dessus, chaque application possède des param
 ## <a name="see-also"></a>Voir aussi
 * [Présentation d’Azure Data Lake Store](data-lake-store-overview.md)
 * [Prise en main d'Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-

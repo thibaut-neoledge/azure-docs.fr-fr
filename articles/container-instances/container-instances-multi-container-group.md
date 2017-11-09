@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 94744e8138d40dd777c0c004472804e3af6c0b1e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-container-group"></a>Déployer un groupe de conteneurs
 
 Azure Container Instances prend en charge le déploiement de plusieurs conteneurs sur un seul hôte à l’aide d’un *groupe de conteneurs*. Cela est utile lors de la création d’une annexe d’application pour la journalisation, la surveillance ou toute autre configuration dans laquelle un service a besoin d’un deuxième processus associé. 
@@ -203,4 +201,3 @@ Ce document a couvert les étapes nécessaires pour le déploiement d’une inst
 
 > [!div class="nextstepaction"]
 > [Didacticiel Azure Container Instances]: ./container-instances-tutorial-prepare-app.md
-

@@ -11,15 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 5583f3d1949614dbba4d2f91d72e4ac6b4d03d1c
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Guide pratique de résolution des problèmes et de surveillance de SAP HANA (grandes instances) sur Azure
 
@@ -42,6 +41,16 @@ Comme avec les machines virtuelles Azure, vous devez déterminer si les classes 
 **Bande passante réseau :** la passerelle de réseau virtuel Azure est limitée en bande passante pour le déplacement des données dans le réseau virtuel Azure. Il est donc utile de surveiller les données reçues par toutes les machines virtuelles Azure au sein d’un réseau virtuel pour déterminer s’il vous reste de la marge par rapport aux limites définies par la référence SKU de la passerelle Azure choisie. Sur l’unité de grande instance HANA, il est pertinent de surveiller également le trafic réseau entrant et sortant, et de suivre les volumes qui sont gérés au fil du temps.
 
 **Espace disque :** la consommation d’espace disque augmente généralement au fil du temps. Il existe plusieurs raisons à cela, les principales étant les suivantes : augmentation du volume de données, exécution de sauvegardes des journaux de transaction, stockage des fichiers de trace et création d’instantanés du stockage. Par conséquent, il est important de surveiller l’espace disque et de gérer l’espace disque associé à l’unité de grande instance HANA.
+
+Pour les **références SKU de Type II** des grandes instances HANA, le serveur est fourni avec des outils de diagnostic système préchargés. Vous pouvez utiliser ces outils de diagnostic pour vérifier l’intégrité du système. Exécutez la commande suivante pour générer le fichier journal de vérification d’intégrité sur /var/log/health_check.
+```
+/opt/sgi/health_check/microsoft_tdi.sh
+```
+Lorsque vous contactez l’équipe de support Microsoft pour résoudre un problème, vous pouvez également être invité à utiliser ces outils de diagnostic pour fournir les fichiers journaux. Pour zipper le fichier, vous pouvez utiliser la commande suivante.
+```
+tar  -czvf health_check_logs.tar.gz /var/log/health_check
+```
+
 
 ## <a name="monitoring-and-troubleshooting-from-hana-side"></a>Surveillance et dépannage à partir de HANA
 
@@ -189,5 +198,4 @@ Exemples de sortie :
 **HANA\_Configuration\_Parameters\_Rev70+** pour vérifier les paramètres de SAP HANA.
 
 ![HANA\_Configuration\_Parameters\_Rev70+ pour vérifier les paramètres de SAP HANA](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
-
 

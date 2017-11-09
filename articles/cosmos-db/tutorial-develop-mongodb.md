@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
+ms.openlocfilehash: a0598d32b5bad240c0a5d77a6e19285115a9f6b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: a5f34e487a6b2a99f5fcd5c4639ceb6da36806d4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB : se connecter à une application MongoDB à l’aide de .NET
 
@@ -62,7 +61,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="set-up-your-mongodb-app"></a>Configurer votre application MongoDB
 
-Vous pouvez utiliser le didacticiel [Création d’une application Web Azure se connectant à MongoDB exécuté sur une machine virtuelle](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) sans grande modification. Il explique comment configurer rapidement une application MongoDB (en local ou publiée dans une application web Azure) qui se connecte à un compte API pour MongoDB.  
+Vous pouvez utiliser le didacticiel [Création d’une application Web Azure se connectant à MongoDB exécuté sur une machine virtuelle](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md) sans grande modification. Il explique comment configurer rapidement une application MongoDB (en local ou publiée dans une application web Azure) qui se connecte à un compte API pour MongoDB.  
 
 1. Suivez le didacticiel en apportant la modification suivante.  Remplacez le code Dal.cs par :
 
@@ -229,5 +228,4 @@ Vous pouvez passer à l’étape suivante du didacticiel et importer vos donnée
 
 > [!div class="nextstepaction"]
 > [Importer des données MongoDB dans Azure Cosmos DB](mongodb-migrate.md)
-
 

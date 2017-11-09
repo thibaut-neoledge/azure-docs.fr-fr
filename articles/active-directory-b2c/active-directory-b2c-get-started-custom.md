@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées
 
@@ -218,4 +217,3 @@ Pour configurer Facebook :
 Le fichier de base utilisé dans ce guide de démarrage contient déjà une partie du contenu dont vous avez besoin pour ajouter d’autres fournisseurs d’identité. Pour plus d’informations sur la configuration des connexions, consultez l’article [Azure Active Directory B2C : se connecter en utilisant des comptes Azure AD](active-directory-b2c-setup-aad-custom.md).
 
 Pour une vue d’ensemble de stratégies personnalisées d’Azure AD B2C qui utilisent l’infrastructure d’expérience d’identité, consultez l’article [Azure Active Directory B2C : stratégies personnalisées](active-directory-b2c-overview-custom.md). 
-

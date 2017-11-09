@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Présentation de la gestion des appareils dans Azure Active Directory
 
@@ -44,7 +43,7 @@ Pour donner le contrôle d’un appareil à Azure AD, vous avez deux options :
 
 **L’inscription** d’un appareil sur Azure AD vous permet de gérer son identité. Lors de l’inscription d’un appareil, Azure AD Device Registration fournit une identité à l’appareil qui sera utilisée pour authentifier l’appareil lors de la connexion de l’utilisateur à Azure AD. Vous pouvez utiliser cette identité pour activer ou désactiver un appareil.
 
-Quand ils sont associés à une solution de gestion des appareils mobiles (MDM) comme Microsoft Intune, les attributs de l’appareil dans Azure AD sont mis à jour avec des informations supplémentaires sur l’appareil. Cela vous permet de créer des règles d’accès conditionnel qui imposent que l’accès à partir des appareils réponde à vos critères de sécurité et de conformité. Pour plus d’informations sur l’inscription d’appareils dans Microsoft Intune, consultez Inscrire des appareils pour la gestion dans Intune.
+Quand ils sont associés à une solution de gestion des périphériques mobiles (GPM) comme Microsoft Intune, les attributs de l’appareil dans Azure AD sont mis à jour avec des informations supplémentaires sur l’appareil. Cela vous permet de créer des règles d’accès conditionnel qui imposent que l’accès à partir des appareils réponde à vos critères de sécurité et de conformité. Pour plus d’informations sur l’inscription d’appareils dans Microsoft Intune, consultez Inscrire des appareils pour la gestion dans Intune.
 
 **La jonction** d’un appareil est une extension de l’inscription d’un appareil. En d’autres termes, cela vous offre tous les avantages de l’inscription d’un appareil et modifie également l’état local de celui-ci. Modifier l’état local permet à vos utilisateurs de se connecter à un appareil à l’aide d’un compte professionnel ou scolaire d’une organisation au lieu d’un compte personnel.
 
@@ -56,7 +55,7 @@ L’objectif des appareils inscrits sur Azure AD est de permettre la prise en ch
 
 L’accès repose sur un compte professionnel ou scolaire saisi sur l’appareil.  
 Par exemple, Windows 10 permet aux utilisateurs d’ajouter un compte professionnel ou scolaire à un ordinateur personnel, une tablette ou un téléphone.  
-Lorsqu’un utilisateur ajoute un compte professionnel ou scolaire, l’appareil est automatiquement inscrit auprès d’Azure AD, voire éventuellement dans le système de gestion des appareils mobiles (MDM) que votre organisation a configuré. Les utilisateurs de votre organisation peuvent facilement ajouter un compte professionnel ou scolaire à un appareil personnel :
+Lorsqu’un utilisateur ajoute un compte professionnel ou scolaire, l’appareil est automatiquement inscrit auprès d’Azure AD, voire éventuellement dans le système de gestion de périphériques mobiles (GPM) que votre organisation a configuré. Les utilisateurs de votre organisation peuvent facilement ajouter un compte professionnel ou scolaire à un appareil personnel :
 
 - Pour votre premier accès à une application professionnelle
 - Manuellement via le menu **Paramètres** dans le cas de Windows 10 
@@ -94,7 +93,7 @@ Bien qu’Azure AD Join soit principalement conçu pour les organisations qui ne
 
 - Vos utilisateurs ont principalement besoin d’accéder à Office 365 ou d’autres applications SaaS intégrées à Azure AD.
 
-- Vous souhaitez gérer un groupe d’utilisateurs dans Azure AD et non dans un annuaire Active Directory. Par exemple, cela peut concerner les travailleurs saisonniers, les prestataires ou les étudiants.
+- Vous souhaitez gérer un groupe d’utilisateurs dans Azure AD et non dans un répertoire Active Directory. Par exemple, cela peut concerner les travailleurs saisonniers, les prestataires ou les étudiants.
 
 - Vous souhaitez fournir des fonctionnalités de jonction aux travailleurs dans des succursales distantes avec une infrastructure locale limitée.
 
@@ -103,7 +102,7 @@ Vous pouvez configurer des appareils joints Azure AD pour les appareils Windows�
 
 ## <a name="hybrid-azure-ad-joined-devices"></a>Appareils joints Azure AD hybrides
 
-Pendant plus de dix ans, de nombreuses organisations ont utilisé la jonction de domaine dans leur annuaire Active Directory local pour permettre :
+Pendant plus de dix ans, de nombreuses organisations ont utilisé la jonction de domaine dans leur répertoire Active Directory local pour permettre :
 
 - Aux services informatiques de gérer les appareils professionnels à partir d’un emplacement central.
 
@@ -128,7 +127,7 @@ Vous pouvez configurer des appareils joints Azure AD hybrides pour Windows 10 e
 
 ## <a name="summary"></a>Résumé
 
-La gestion des appareils dans Azure AD vous permet de : 
+La gestion des périphériques dans Azure AD vous permet de : 
 
 - Simplifier le processus consistant à donner le contrôle d’appareils à Azure AD
 
@@ -155,6 +154,5 @@ En règle générale, vous devez utiliser :
     - Des appareils Windows 10 inscrits à Azure Active Directory, consultez [Guide pratique pour configurer des appareils Windows 10 inscrits à Azure Active Directory](device-management-azuread-registered-devices-windows10-setup.md)
     - Des appareils joints à Azure Active Directory, consultez [Guide pratique pour configurer des appareils joints à Azure Active Directory](device-management-azuread-joined-devices-setup.md)
     - Des appareils hybrides joints à Azure AD, consultez [Guide pratique pour configurer des appareils hybrides joints à Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
-
 
 

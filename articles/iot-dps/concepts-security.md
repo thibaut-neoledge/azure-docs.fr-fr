@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concepts de sécurité du service IoT Hub Device Provisioning 
 
 Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui vous permet de configurer l’approvisionnement sans contact des appareils dans un hub IoT spécifié. Avec le service Device Provisioning, vous pouvez approvisionner des millions d’appareils de manière sécurisée et scalable. Cet article donne une vue d’ensemble des concepts de *sécurité* impliqués dans l’approvisionnement d’appareils. Cet article concerne toutes les personnes impliquées dans la préparation d’un appareil pour le déploiement.
@@ -67,4 +65,3 @@ Un certificat intermédiaire est un certificat X.509 qui a été signé par le c
 ## <a name="leaf-certificate"></a>Certificat feuille
 
 Un certificat feuille, ou certificat d’entité finale, est utilisé pour identifier le détenteur du certificat et sa chaîne d’approbation contient le certificat racine. Le certificat feuille n’est pas utilisé pour signer d’autres certificats.
-

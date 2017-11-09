@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 5eb2b1594eedb2a135d7b8cd501a33d8264e136b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-linkedin-learning-for-automatic-user-provisioning"></a>Didacticiel : Configuration de LinkedIn Learning pour l’approvisionnement automatique d’utilisateurs
 
 
@@ -48,9 +46,9 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devrez
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-learning"></a>Conseils importants pour l’assignation d’utilisateurs à LinkedIn Learning
 
-*    Il est recommandé d’assigner un seul utilisateur Azure AD à LinkedIn Learning pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+*   Il est recommandé d’assigner un seul utilisateur Azure AD à LinkedIn Learning pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-*    Quand vous assignez un utilisateur à LinkedIn Learning, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’assignation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
+*   Quand vous assignez un utilisateur à LinkedIn Learning, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’assignation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-learning"></a>Configuration de l’approvisionnement des utilisateurs sur LinkedIn Learning
@@ -93,9 +91,9 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 8) Si vous avez déjà configuré LinkedIn Learning pour l’authentification unique, recherchez votre instance de LinkedIn Learning à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter**, puis recherchez **LinkedIn Learning** dans la galerie d’applications. Sélectionnez LinkedIn Learning dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
 
-9)    Sélectionnez votre instance de LinkedIn Learning, puis sélectionnez l’onglet **Approvisionnement**.
+9)  Sélectionnez votre instance de LinkedIn Learning, puis sélectionnez l’onglet **Approvisionnement**.
 
-10)    Définissez le **Mode d’approvisionnement** sur **Automatique**.
+10) Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
 ![Approvisionnement LinkedIn Learning](./media/active-directory-saas-linkedinlearning-provisioning-tutorial/linkedin_3.PNG)
 
@@ -126,4 +124,3 @@ Cette commande lance la synchronisation initiale des utilisateurs et/ou groupes 
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-

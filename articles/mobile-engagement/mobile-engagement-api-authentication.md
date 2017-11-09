@@ -14,13 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bf8cd0d645d8a5992864c8a3820ac2049a3ff630
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: b05181d9252c0a804648e01b4058019278ae5abe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Authentifier avec l’API REST de Mobile Engagement
 ## <a name="overview"></a>Vue d’ensemble
@@ -95,7 +93,7 @@ Vous devez suivre l’ensemble des instructions ci-dessous pour effectuer l’in
    
    * **URL de la demande** sous la forme *https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
    * **En-tête Content-Type HTTP** sous la forme *application/x-www-form-urlencoded*
-   * **Corps de la requête HTTP** sous la forme *grant\_type=client\_credentials&client_id={CLIENT\_ID}&client_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
+   * **Corps de la requête HTTP** sous la forme *grant\_type=client\_credentials&amp;client_id={CLIENT\_ID}&amp;client_secret={CLIENT\_SECRET}&amp;resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
      
      Voici un exemple de requête :
      
@@ -130,9 +128,9 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
    
     Pour obtenir les paramètres, cliquez sur le nom de votre application puis sur Tableau de bord : vous verrez alors une page similaire à celle-ci, avec 3 paramètres.
    
-   * **1** `{subscription-id}`
-   * **2** `{app-collection}`
-   * **3** `{app-resource-name}`
+   * **1**`{subscription-id}`
+   * **2**`{app-collection}`
+   * **3**`{app-resource-name}`
    * **4** Le nom de votre groupe de ressources va être **MobileEngagement** sauf si vous en avez créé un autre. 
      
      ![Paramètres URI d’API Mobile Engagement][2]
@@ -150,7 +148,6 @@ Maintenant que vous avez un jeton valide, vous êtes prêt à passer les appels 
 [2]: ./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
-
 
 
 

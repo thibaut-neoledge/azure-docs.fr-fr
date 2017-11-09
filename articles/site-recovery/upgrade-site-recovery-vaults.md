@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/31/2017
 ms.author: rajani-janaki-ram
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>Mettre à niveau un coffre Site Recovery vers un coffre Recovery Services basé sur Azure Resource Manager
 
@@ -63,7 +62,7 @@ Lorsque vous mettez à niveau le type du coffre, en passant du modèle de déplo
 * [Installer la dernière version d’Azure PowerShell MSI](https://github.com/Azure/azure-powershell/releases)
 * [Télécharger le script de mise à niveau du coffre Recovery Services](https://aka.ms/vaultupgradescript)
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Composants requis
 Afin de mettre à niveau les coffres Site Recovery vers des coffres Recovery Services s’appuyant sur Azure Resource Manager, vous devez respecter les conditions suivantes :
 
 * Version minimale de l’agent : la version du fournisseur Azure Site Recovery installée sur votre serveur doit être 5.1.1700.0 ou une version ultérieure.
@@ -111,7 +110,7 @@ Oui. Dans l’option de mise à niveau prise en charge par la plateforme, la pre
 
 Si vous rencontrez des échecs lors de la mise à niveau, notez l’ID d’opération qui est répertorié dans l’erreur. Le Support Microsoft travaille activement en amont à la résolution du problème. Vous pouvez aussi contacter l’équipe de support technique et lui communiquer votre ID d’abonnement, le nom du coffre et l’ID de l’opération. Le support technique s’efforce de résoudre le problème le plus rapidement possible. Ne retentez l’opération que si vous y êtes explicitement invité par Microsoft.
 
-## <a name="run-the-script"></a>Exécuter le script
+## <a name="run-the-script"></a>Exécutez le script
 
 Dans PowerShell, exécutez la commande suivante :
 
@@ -186,4 +185,3 @@ L’illustration suivante montre le flux de travail pour l’affichage de vos é
 Dans le coffre Site Recovery, chaque groupe de protection est configuré à l’aide de la fréquence de copie, la rétention des points de récupération, la fréquence des instantanés de cohérence de l’application ainsi que d’autres paramètres de réplication. Dans le coffre Recovery Services, ces paramètres sont configurés en tant que stratégie de réplication. Le nom de la stratégie est celui du groupe de protection ou de *primarycloud_Policy*.
 
 Pour plus d’informations sur la stratégie de réplication, consultez [Gérer la stratégie de réplication pour VMware vers Azure](site-recovery-setup-replication-settings-vmware.md).
-

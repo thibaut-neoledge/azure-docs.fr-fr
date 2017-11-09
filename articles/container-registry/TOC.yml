@@ -1,0 +1,69 @@
+- name: Azure Container Registry
+  href: ./index.yml
+- name: Vue d'ensemble
+  items:
+    - name: Azure Container Registry
+      href: container-registry-intro.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Container Registry - CLI
+      href: container-registry-get-started-azure-cli.md
+    - name: Container Registry - Portail
+      href: container-registry-get-started-portal.md
+    - name: Container Registry - PowerShell
+      href: container-registry-get-started-powershell.md
+- name: Didacticiels
+  items:
+    - name: Géoréplication (préversion)
+      items:
+        - name: 1 - Préparer le registre de conteneurs
+          href: container-registry-tutorial-prepare-registry.md
+        - name: 2 - Déployer l’application web
+          href: container-registry-tutorial-deploy-app.md
+        - name: 3 - Mettre à jour l’application web
+          href: container-registry-tutorial-deploy-update.md
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Service (ACS)
+      href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Service Fabric
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Concepts
+  items:
+    - name: Références SKU de registres de conteneurs
+      href: container-registry-skus.md
+    - name: Géoréplication (préversion)
+      href: container-registry-geo-replication.md
+    - name: Bonnes pratiques concernant les registres
+      href: container-registry-best-practices.md
+- name: Procédures
+  items:
+    - name: Envoyer et extraire une image
+      href: container-registry-get-started-docker-cli.md
+    - name: Afficher les référentiels
+      href: container-registry-repositories.md
+    - name: Créer un principal du service
+      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
+    - name: S’authentifier avec un registre
+      href: container-registry-authentication.md
+    - name: Utiliser des webhooks ACR
+      href: ./container-registry-webhook.md
+- name: Référence
+  items:
+    - name: Interface de ligne de commande Azure
+      href: /cli/azure/acr
+    - name: REST
+      href: /rest/api/containerregistry
+    - name: PowerShell
+      href: /powershell/module/azurerm.containerregistry
+- name: Ressources
+  items:
+    - name: Feuille de route
+      href: 'https://aka.ms/acr/roadmap'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Disponibilité des régions
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'

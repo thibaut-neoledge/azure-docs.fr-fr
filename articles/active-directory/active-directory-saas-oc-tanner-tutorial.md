@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 9af12372b30d9ee1575e46be3b4144fc3b73ec69
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Didacticiel : Intégration d’Azure Active Directory à O.C. Tanner - AppreciateHub.
 
@@ -235,5 +233,4 @@ Quand vous cliquez sur la vignette O.C. Tanner - AppreciateHub dans le volet d�
 [201]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_203.png
-
 

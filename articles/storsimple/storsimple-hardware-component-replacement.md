@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: f2d197264f066a23468db80686444bd24f6d796f
 ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Remplacer un composant matériel sur votre appareil StorSimple série 8000
 
@@ -52,12 +51,12 @@ Familiarisez-vous avec les informations de sécurité sur votre appareil et avec
 
 Avant d’essayer de remplacer un composant, tenez compte des informations suivantes.
 
-![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Electrical Shock Icon](./media/storsimple-hardware-component-replacement/Electric.png) **AVERTISSEMENT !** 
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png)![Electrical Shock Icon](./media/storsimple-hardware-component-replacement/Electric.png)**AVERTISSEMENT !** 
 
 * Raccordez-vous à la terre correctement en utilisant une décharge  électrostatique ou un tapis antistatique lors de la manipulation des modules et des composants de votre appareil StorSimple.
 * Ne touchez pas les circuits. Utilisez les poignées et les guides fournis lors de la manipulation des composants dont les circuits sont apparents.
 
-![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **INFORMATION :**
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png)![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png)**INFORMATION :**
 
 Quand vous remplacez un module, **ne laissez JAMAIS une baie vide à l’arrière du boîtier**. Procurez-vous un module de remplacement ou un module vide avant de retirer le composant qui pose problème.
 
@@ -66,11 +65,11 @@ Votre appareil StorSimple série 8000 est constitué de plusieurs modules enfich
 
 Les principaux composants matériels de votre appareil sont résumés dans les tableaux suivants. Cliquez sur le lien dans la colonne **Procédure de remplacement** pour accéder au didacticiel associé.
 
-| Composants | # Présent | Module enfichable ? | Procédure de remplacement |
+| Composants | Nombre présent | Module enfichable ? | Procédure de remplacement |
 |:--- |:--- |:--- |:--- |
 | Châssis |1 |Non |[Remplacer le châssis sur votre appareil StorSimple](storsimple-chassis-replacement.md) |
 | Contrôleurs principaux |2 |Oui |[Remplacer un module de contrôleur sur votre appareil StorSimple](storsimple-controller-replacement.md) |
-| PCM (Module d’alimentation et de refroidissement)&764; W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
+| PCM (Module d’alimentation et de refroidissement) 764 W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Batterie de secours |2 |Oui |[Remplacer le module de batterie de secours sur votre appareil StorSimple](storsimple-battery-replacement.md) |
 | Lecteurs de disque |12 |Oui |[Remplacer un lecteur de disque sur votre appareil StorSimple](storsimple-disk-drive-replacement.md) |
 
@@ -78,11 +77,11 @@ Les principaux composants matériels de votre appareil sont résumés dans les t
 
 Le boîtier principal et le boîtier EBOD diffèrent quant à leurs modules d’E-S. En outre, les PCM ont des consommations en watts différentes. Les PCM du boîtier principal consomment 764 W, tandis que ceux du boîtier EBOD consomment 580 W. Les PCM du boîtier principal contiennent également un module de batterie de secours.
 
-| Composants | # Présent | Module enfichable ? | Procédure de remplacement |
+| Composants | Nombre présent | Module enfichable ? | Procédure de remplacement |
 |:--- |:--- |:--- |:--- |
 | Châssis |1 |Non |[Remplacer le châssis sur votre appareil StorSimple](storsimple-chassis-replacement.md) |
 | Contrôleurs EBOD |2 |Oui |[Remplacer un contrôleur EBOD sur votre appareil StorSimple](storsimple-ebod-controller-replacement.md) |
-| PCM (Module d’alimentation et de refroidissement)&580; W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
+| PCM (Module d’alimentation et de refroidissement) 580 W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Lecteurs de disque |12 |Oui |[Remplacer un lecteur de disque sur votre appareil StorSimple](storsimple-disk-drive-replacement.md) |
 
 **Table 2** : Composants matériels dans le boîtier EBOD
@@ -125,8 +124,8 @@ Le boîtier principal et le boîtier EBOD ont tous deux des modules de support d
 Les unités remplaçables sur site suivantes sont disponibles pour votre appareil StorSimple :
 
 * Châssis (y compris le panneau de commande intégré)
-* Module d’alimentation et de refroidissement (PCM) en courant alternatif&764; W
-* Module d’alimentation et de refroidissement (PCM) en courant alternatif&580; W
+* Module d’alimentation et de refroidissement (PCM) en courant alternatif 764 W
+* Module d’alimentation et de refroidissement (PCM) en courant alternatif 580 W
 * Lecteur de disque dur avec module de support de lecteur
 * Module de contrôleur
 * Module de contrôleur du boîtier EBOD
@@ -137,5 +136,4 @@ Les unités remplaçables sur site suivantes sont disponibles pour votre apparei
 
 ## <a name="next-steps"></a>Étapes suivantes
 Passez en revue toutes les [informations de sécurité](storsimple-safety.md) avant d’essayer de remplacer un composant matériel StorSimple.
-
 

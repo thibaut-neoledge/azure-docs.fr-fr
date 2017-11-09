@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Exemples de mappage d’un service web existant à OData via des données CSDL
 > [!IMPORTANT]
@@ -29,7 +27,7 @@ ms.lasthandoff: 07/06/2017
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>Exemple : FunctionImport pour des données de type « Raw » (brutes) renvoyées à l’aide de « POST »
-Utilisez des donnés POST Raw pour créer un subordonné et son URL (emplacement) définie par le serveur ou pour mettre à jour la partie du subordonné dans l’URL définie par le serveur.  Où le subordonné est un flux, par exemple non structuré, notamment un fichier texte.  Prenez garde que POST ne soit pas idempotent sans emplacement.
+Utilisez des donnés POST Raw pour créer un subordonné et son URL (emplacement) définie par le serveur ou pour mettre à jour la partie du subordonné dans l’URL définie par le serveur.  Où le subordonné est un flux, c’est-à-dire non structuré, par exemple un fichier texte.  Prenez garde que POST ne soit pas idempotent sans emplacement.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -108,7 +106,7 @@ Utilisez PUT pour créer un subordonné ou mettre à jour la totalité du subord
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>Exemple : FunctionImport pour des données de type « Raw » (brutes) renvoyées à l’aide de « PUT »
-Utilisez des données PUT Raw pour créer un subordonné ou mettre à jour la totalité du subordonné entière à une URL défini par le serveur.  Où le subordonné est un flux, par exemple non structuré, notamment un fichier texte.  Où le subordonné est une structure, PUT est idempotent. Vous obtiendrez donc plusieurs occurrences dans le même état ; par exemple, x=5.  PUT doit être utilisé avec la totalité du contenu de la ressource spécifiée.
+Utilisez des données PUT Raw pour créer un subordonné ou mettre à jour la totalité du subordonné entière à une URL défini par le serveur.  Où le subordonné est un flux, c’est-à-dire non structuré, par exemple un fichier texte.  Où le subordonné est une structure, PUT est idempotent. Vous obtiendrez donc plusieurs occurrences dans le même état ; par exemple, x=5.  PUT doit être utilisé avec la totalité du contenu de la ressource spécifiée.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -164,5 +162,4 @@ Utilisez la pagination RESTful d’implémentation via vos données avec GET.  L
 * Si vous souhaitez comprendre le processus de mappage OData global et son rôle, lisez l’article [Mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping.md) pour passer en revue des définitions, des structures et des instructions.
 * Si vous souhaitez découvrir et comprendre les nœuds spécifiques et leurs paramètres, lisez l’article [Nœuds de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) pour obtenir des définitions et des explications, des exemples, ainsi qu’un contexte de cas d’utilisation.
 * Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 32b5e5a8025be3381e20aad0b22289b2c641f74e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 786cba7402d8a7e7ecf4667d30c4c393c8d6de5d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure Active Directory Connect Sync : attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
@@ -232,7 +231,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
-| postOfficeBox |X |X | | |
+| postOfficeBox |X |X | |Cet attribut n’est actuellement pas utilisé par SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération. |
@@ -254,7 +253,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 | wWWHomePage |X |X | | |
 
-## <a name="lync-online"></a>Lync Online
+## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (appelé par la suite Skype Entreprise)
 | Nom de l'attribut | Utilisateur | Contact | Groupe | Commentaire |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Détermine si un compte est activé. |
@@ -474,4 +473,3 @@ Les objets d’appareil sont créés dans Active Directory. Ces objets peuvent �
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-

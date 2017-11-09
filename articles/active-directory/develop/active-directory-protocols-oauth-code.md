@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
+ms.openlocfilehash: 916652f2d6336da625be91431c3771a730204a73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # Autoriser l’accès aux applications web à l’aide d’OAuth 2.0 et Azure Active Directory
 Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.
@@ -207,7 +206,7 @@ Le paramètre `id_token` inclut les types de revendication suivants :
 | Type de revendication | Description |
 | --- | --- |
 | aud |Audience du jeton. Lorsque le jeton est émis pour une application cliente, l’audience est le `client_id` du client. |
-| exp |Heure d’expiration. L’heure d’expiration du jeton. Pour que le jeton soit valide, la date et l’heure actuelles doivent être antérieures ou identiques à la valeur `exp` . L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’émission du jeton. |
+| exp |Heure d’expiration. L’heure d’expiration du jeton. Pour que le jeton soit valide, la date et l’heure actuelles doivent être antérieures ou identiques à la valeur `exp` . L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’à l’expiration du jeton.|
 | family_name |Le nom de famille de l’utilisateur. L’application peut afficher cette valeur. |
 | given_name |Le prénom de l’utilisateur. L’application peut afficher cette valeur. |
 | iat |Heure d’émission. L’heure d’émission du jeton JWT. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’émission du jeton. |
@@ -379,4 +378,3 @@ Une réponse d’erreur se présenterait ainsi :
 | correlation_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
 Pour obtenir une description des codes d’erreur et connaître l’action client recommandée, consultez [Codes d’erreur pour les erreurs de point de terminaison de jeton](#error-codes-for-token-endpoint-errors).
-

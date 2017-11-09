@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
-ms.openlocfilehash: e27bb694d0cbcf1ff7c9d8ca4682a79c8b5c5cb1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 61abda6053fe743e294f309df3a6e1041052ec6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualiser les modèles de trafic réseau depuis et vers les machines virtuelles à l’aide d’outils open source
 
 Les captures de paquets contiennent des données réseau qui vous permettent d’effectuer des analyses réseau et une inspection approfondie des paquets. Il existe de nombreux outils open source que vous pouvez utiliser pour analyser des captures de paquets et obtenir des informations sur le réseau. L’un de ces outils est CapAnalysis, un outil de visualisation de capture de paquets open source. La visualisation des données de capture de paquets est un moyen efficace de trouver des informations sur les modèles et anomalies au sein de votre réseau. Les visualisations fournissent également un moyen de partager ces informations d’une manière facilement consommable.
@@ -111,4 +109,3 @@ Découvrez comment visualiser vos journaux de flux de groupe de sécurité rése
 [9]: ./media/network-watcher-using-open-source-tools/figure9.png
 [10]: ./media/network-watcher-using-open-source-tools/figure10.png
 [11]: ./media/network-watcher-using-open-source-tools/figure11.png
-

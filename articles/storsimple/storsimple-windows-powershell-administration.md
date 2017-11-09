@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f9e97bb2352231b46bdf66b1165bf22ec639fddf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 ## <a name="overview"></a>Vue d'ensemble
@@ -165,7 +163,7 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 
 #### <a name="to-update-cmdlet-help"></a>Pour mettre à jour l’aide des applets de commande
 1. Démarrez Windows PowerShell avec l’option **Exécuter en tant qu’administrateur** .
-2. À l’invite de commandes, tapez :  `Update-Help`
+2. À l’invite de commandes, tapez : `Update-Help`
 3. Les fichiers d’aide mis à jour sont installés.
 4. Une fois les fichiers d’aide sont installés, tapez : `Get-Help Get-Command`. Ceci affiche une liste des applets de commande pour lesquelles de l’aide est disponible.
 
@@ -176,5 +174,4 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
 

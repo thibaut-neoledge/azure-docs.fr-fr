@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: fb981f3240799c924464c828b2c835ac5d9879ed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Prise en main de la diffusion de contenus à la demande à l’aide du portail Azure
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -76,17 +75,17 @@ Pour diffuser des vidéos en continu à l’aide de Media Services, chargez les 
 Une fois le chargement terminé, la nouvelle ressource est répertoriée dans le volet **Ressources**. 
 
 ## <a name="encode-assets"></a>Encoder des éléments multimédias
-Pour tirer parti de l’empaquetage dynamique, vous devez encoder votre fichier source en un ensemble de fichiers MP4 à plusieurs vitesses de transmission. Les étapes d’encodage sont présentées dans cette section.
+Pour tirer parti de l’empaquetage dynamique, vous devez encoder votre fichier source en un ensemble de fichiers MP4 multidébits. Les étapes d’encodage sont présentées dans cette section.
 
 ### <a name="encode-assets-in-the-portal"></a>Encoder les ressources dans le portail
 Pour encoder votre contenu à l’aide de Media Encoder Standard dans le portail Azure :
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
-2. Sélectionnez **Paramètres** > **Éléments multimédias**. Sélectionnez la ressource que vous souhaitez encoder.
-3. Cliquez sur le bouton **Encoder** .
-4. Dans la fenêtre **Encoder une ressource**, sélectionnez le processeur **Media Encoder Standard** et choisissez une présélection. Pour plus d’informations sur les présélections, consultez les articles [Générer automatiquement une échelle de vitesses de transmission](media-services-autogen-bitrate-ladder-with-mes.md) et [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md). Il est important de choisir la présélection qui correspond à votre vidéo d’entrée. Par exemple, si vous savez que votre vidéo d’entrée possède une résolution de 1 920 x 1 080 pixels, vous pouvez utiliser la présélection **H264 multidébit 1 080 pixels**. Si vous disposez d’une basse résolution vidéo (640 x 360), n’utilisez pas la présélection **H264 multidébit 1 080 pixels**.
+2. Sélectionnez **Paramètres** > **Éléments multimédias**. Sélectionnez l’actif multimédia que vous souhaitez encoder.
+3. Cliquez sur le bouton **Encoder**.
+4. Dans la fenêtre **Encoder un élément multimédia**, sélectionnez le processeur **Media Encoder Standard**, puis choisissez une présélection. Pour plus d’informations sur les présélections, consultez les articles [Générer automatiquement une échelle de vitesses de transmission](media-services-autogen-bitrate-ladder-with-mes.md) et [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md). Il est important de choisir la présélection qui correspond à votre vidéo d’entrée. Par exemple, si vous savez que votre vidéo d’entrée a une résolution de 1 920 x 1 080 pixels, vous pouvez utiliser la présélection **H264 multidébit 1 080 pixels**. Si vous disposez d’une basse résolution vidéo (640 x 360), n’utilisez pas la présélection **H264 multidébit 1 080 pixels**.
    
-   Pour vous aider à gérer vos ressources, vous pouvez modifier le nom de la ressource de sortie et le nom du travail.
+   Pour vous aider à gérer vos ressources, vous pouvez modifier le nom de l’actif de sortie et le nom de la tâche.
    
    ![Encoder des éléments multimédias](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Sélectionnez **Créer**.
@@ -97,20 +96,20 @@ Pour surveiller la progression du travail d’encodage, en haut de la page, cliq
 ![Tâches](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## <a name="publish-content"></a>Publication de contenu
-Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord publier votre ressource en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans la ressource. Azure Media Services prend en charge deux types de localisateurs : 
+Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord publier votre actif multimédia en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans la ressource. Azure Media Services prend en charge deux types de localisateurs : 
 
 * **Localisateurs de streaming (OnDemandOrigin)**. Les localisateurs de streaming sont utilisés pour la diffusion en continu adaptative . Exemples de diffusion en continu adaptative de HLS, Smooth Streaming et MPEG-DASH. Pour créer un localisateur de streaming, votre ressource doit contenir un fichier .ism. 
 * **Localisateurs progressifs (signature d’accès partagé)**. Les localisateurs progressifs sont utilisés pour diffuser des vidéos par téléchargement progressif.
 
-Pour créer une URL de streaming HLS, ajoutez *(format=m3u8-aapl)* à l’URL :
+Pour créer une URL de streaming HLS, ajoutez *(format=m3u8-aapl)* à l’URL :
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
-Pour générer une URL de streaming afin de lire les ressources Smooth Streaming, utilisez le format d’URL suivant :
+Pour générer une URL de streaming afin de lire les actifs multimédias Smooth Streaming, utilisez le format d’URL suivant :
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
 
-Pour créer une URL de streaming MPEG DASH, ajoutez *(format=mpd-time-csf)* à l’URL :
+Pour créer une URL de streaming MPEG DASH, ajoutez *(format=mpd-time-csf)* à l’URL :
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
@@ -150,11 +149,10 @@ Certaines considérations s’appliquent :
 
 * Pour commencer le streaming, démarrez l’exécution du point de terminaison de streaming par défaut.
 * Assurez-vous que la vidéo a été publiée.
-* Le lecteur multimédia du portail Azure effectue la lecture à partir du point de terminaison de diffusion en continu par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, sélectionnez et copiez l’URL dans un autre lecteur. Par exemple, vous pouvez tester votre vidéo avec le lecteur [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Le lecteur multimédia du portail Azure effectue la lecture à partir du point de terminaison de streaming par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, sélectionnez et copiez l’URL dans un autre lecteur. Par exemple, vous pouvez tester votre vidéo avec le lecteur [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-

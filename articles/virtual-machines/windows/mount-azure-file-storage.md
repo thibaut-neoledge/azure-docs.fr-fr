@@ -13,14 +13,12 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-file-shares-with-windows-vms"></a>Utiliser des partages de fichiers Azure avec des machines virtuelles Windows 
 
 Vous pouvez utiliser des partages de fichiers Azure pour stocker des fichiers et y accéder à partir de votre machine virtuelle. Par exemple, vous pouvez stocker un script ou un fichier de configuration d’application à partager entre toutes vos machines virtuelles. Dans cette rubrique, nous vous expliquons comment créer et monter un partage de fichiers Azure, puis charger et télécharger des fichiers.
@@ -76,4 +74,3 @@ Dans cette section, nous partons du principe que vous disposez déjà d’un par
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également créer et gérer des partages de fichiers à l’aide de PowerShell. Pour plus d’informations, consultez [Prise en main du stockage de fichiers Azure sur Windows](../../storage/files/storage-dotnet-how-to-use-files.md).
-

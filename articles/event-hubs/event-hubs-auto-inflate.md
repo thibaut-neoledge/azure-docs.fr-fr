@@ -12,29 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
-ms.author: shvija;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: b085091ea7bfd601efb0eee84144ddd091422d6e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: 1cd31e0866ee6088483f88e8f80d01f75764c771
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs
 
-## <a name="overview"></a>Vue d'ensemble
+Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Par conséquent, les clients Event Hubs augmentent souvent leur utilisation après leur intégration au service. Ces augmentations obligent à rehausser les unités de débit prédéterminées pour mettre à l’échelle Event Hubs et gérer des taux de transfert plus conséquents. La fonctionnalité de *majoration automatique* (Auto-inflate) d’Event Hubs effectue automatiquement une montée en puissance en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation. Cette opération permet d’éviter les situations de limitation, dans lesquelles :
 
-Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Par conséquent, les clients Event Hubs augmentent souvent leur utilisation après leur intégration au service. Cette augmentation de l’utilisation requiert la hausse des unités de débit (TU) prédéterminées pour mettre à l’échelle Event Hubs et gérer des débits de transfert plus importants. La fonctionnalité de *majoration automatique* (Auto-inflate) d’Event Hubs met automatiquement à l’échelle le nombre d’unités de débit pour répondre aux besoins d’utilisation. L’augmentation du nombre d’unités de débit vous empêche d’être confronté à des scénarios de limitation, dans lesquels :
-
-* Les taux d’entrée des données sont supérieurs aux unités de débit définies.
-* Les taux de demande de sortie des données sont supérieurs aux unités de débit définies.
+* Les taux d’entrée de données sont supérieurs aux unités de débit définies.
+* Les taux de demande de sortie de données sont supérieurs aux unités de débit définies.
 
 ## <a name="how-auto-inflate-works"></a>Fonctionnement de la majoration automatique
 
-Le trafic Event Hubs est contrôlé par les unités de débit. Une unité de débit autorise 1 Mo par seconde d’entrée et deux fois cette quantité de sortie. Les concentrateurs d’événements Standard peuvent être configurés avec un nombre d’unités de débit compris entre 1 et 20. La majoration automatique vous permet de démarrer avec le nombre d’unités de débit minimal requis. Ensuite, la fonctionnalité met automatiquement à l’échelle le nombre d’unités de débit dont vous avez besoin sur la limite maximale, selon l’augmentation de votre trafic. La majoration automatique vous permet de bénéficier des avantages suivants :
+Le trafic Event Hubs est contrôlé par les unités de débit. Une unité de débit autorise 1 Mo/s en entrée et le double en sortie. Les concentrateurs d’événements Standard peuvent être configurés avec un nombre d’unités de débit compris entre 1 et 20. La majoration automatique vous permet de démarrer avec le nombre d’unités de débit minimal requis. Ensuite, la fonctionnalité met automatiquement à l’échelle le nombre d’unités de débit dont vous avez besoin sur la limite maximale, selon l’augmentation de votre trafic. La majoration automatique vous permet de bénéficier des avantages suivants :
 
 - Un mécanisme de mise à l’échelle efficace pour démarrer avec la valeur minimale et monter en puissance à mesure de la croissance de votre activité.
 - Mise à l’échelle automatique sur à la limite supérieure spécifiée sans problèmes de limitation.
@@ -112,4 +107,3 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
 * [Créer un concentrateur d’événements](event-hubs-create.md)
-

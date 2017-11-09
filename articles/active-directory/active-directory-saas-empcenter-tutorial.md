@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: aa27175165f4b15477bef4e70ad1c25016db31a2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Didacticiel : Intégration d’Azure Active Directory à EmpCenter
 
@@ -45,7 +44,7 @@ Pour configurer l’intégration d’Azure AD avec EmpCenter, vous avez besoin d
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -111,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-EmpCenter-tutorial/tutorial_EmpCenter_url.png)
 
-    Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant :
+    Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant :
     | |
     |--|
     | `https://<subdomain>.EmpCenter.com/<instancename>` |
@@ -230,5 +229,4 @@ Si vous cliquez sur la vignette EmpCenter dans le volet d’accès, vous devez v
 [201]: ./media/active-directory-saas-EmpCenter-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-EmpCenter-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-EmpCenter-tutorial/tutorial_general_203.png
-
 

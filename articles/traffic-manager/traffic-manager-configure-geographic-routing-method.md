@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
+ms.openlocfilehash: 13190189074b24b2d28cd3ce46cf8571f3e1e1d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 770b1b8418baba78371dda43eb255dde8a1d13e8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager
 
 La méthode de routage du trafic géographique vous permet de diriger le trafic vers des points de terminaison spécifiques en fonction de l’emplacement géographique d’où proviennent les demandes. Ce didacticiel vous montre comment créer un profil Traffic Manager avec cette méthode de routage et configurer les points de terminaison pour recevoir le trafic à partir de zones géographiques spécifiques.
@@ -65,4 +63,3 @@ La méthode de routage du trafic géographique vous permet de diriger le trafic 
 
 - Découvrez-en davantage sur la [méthode de routage du trafic géographique](traffic-manager-routing-methods.md#geographic).
 - Découvrez comment [tester les paramètres Traffic Manager](traffic-manager-testing-settings.md).
-

@@ -11,15 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: df707f2c54ce6d4fd48490085b182ad16d7cfaed
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analyse des utilisateurs, des sessions et des événements dans Application Insights
 
 Découvrez quand des personnes utilisent votre application web, les pages qui les intéressent le plus, où vos utilisateurs se trouvent, les navigateurs et les systèmes d’exploitation qu’ils utilisent. Analysez les données de télémétrie d’utilisation et d’activité à l’aide d’[Azure Application Insights](app-insights-overview.md).
@@ -74,5 +72,4 @@ La barre latérale Insights regroupe des clusters volumineux d’utilisateurs qu
     - [Flux d’utilisateurs](app-insights-usage-flows.md)
     - [Classeurs](app-insights-usage-workbooks.md)
     - [Ajouter du contexte utilisateur](app-insights-usage-send-user-context.md)
-
 

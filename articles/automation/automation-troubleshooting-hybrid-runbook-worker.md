@@ -3,7 +3,7 @@ title: "Dépanner les runbooks Workers hybrides d’Azure Automation | Microsoft
 description: "Décrit les symptômes, les causes et les solutions liés aux problèmes de runbooks Worker hybrides les plus courants."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: magoedte
+ms.openlocfilehash: 1a72fcf2493396b4744a49b01f3c6da8eed0de40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 9d1ceda5a072f494651a751a25a8ccf66e4c72ef
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-tips-for-hybrid-runbook-worker"></a>Conseils de dépannage pour les runbooks Workers hybrides
 
 Cet article aide à dépanner les erreurs que vous pourriez rencontrer avec les runbooks Workers hybrides d’Azure Automation et suggère des solutions possibles pour les résoudre.

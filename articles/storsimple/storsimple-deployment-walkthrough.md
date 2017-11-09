@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>Déploiement de votre appareil StorSimple local
 > [!div class="op_single_selector"]
@@ -283,5 +282,4 @@ Pour créer une sauvegarde manuelle à la demande pour un seul volume sur votre 
 ## <a name="next-steps"></a>Étapes suivantes
 * Configuration d’un [appareil virtuel](storsimple-virtual-device-u2.md).
 * Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
-
 

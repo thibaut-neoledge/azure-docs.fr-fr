@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
 La capacité *Event Hubs Dedicated* offre des déploiements à locataire unique pour les clients les plus exigeants. Lorsqu’ils sont complètement déployés, les Azure Event Hubs peuvent entrer plus de 2 millions d’événements par seconde ou jusqu’à 2 Go par seconde de télémétrie avec un stockage durable et une latence inférieure à une seconde. Cela permet également des solutions intégrées grâce au traitement en temps réel et par lot sur le même système. Avec [Event Hubs Capture](event-hubs-capture-overview.md) inclus dans l’offre, vous pouvez réduire la complexité de votre solution par le biais d’un seul flux prenant en charge des pipelines en temps réel et par lot.
@@ -55,7 +53,7 @@ Les avantages suivants sont disponibles lorsque vous utilisez Event Hubs Dedicat
 * Aucune maintenance : nous gérons l’équilibrage de la charge, les mises à jour du système d’exploitation, les correctifs de sécurité et le partitionnement.
 * Tarification mensuelle fixe.
 
-Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit du niveau Standard autorisent 1 000 événements par seconde ou 1 Mo par seconde en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des hubs d’événements achetés.
+Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit du niveau Standard autorisent 1 000 événements par seconde ou 1 Mo par seconde en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des concentrateurs d’événements achetés.
 
 Ce service est destiné aux grands utilisateurs de télémétrie et est disponible pour les clients disposant d’un contrat d’entreprise.
 
@@ -70,4 +68,3 @@ Pour plus d’informations sur la tarification, accédez aux liens suivants :
 
 - [Tarification d’Event Hubs Dedicated](https://azure.microsoft.com/pricing/details/event-hubs/). Vous pouvez également contacter votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur la capacité Event Hubs Dedicated.
 - L’article [FAQ sur les hubs d’événements](event-hubs-faq.md) traite des informations de tarification et répond à certaines questions fréquemment posées sur Event Hubs. 
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: a54aec23d951610118246e9f70cdd27752ef39a6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C : Proposer l’inscription et la connexion à des consommateurs disposant de comptes WeChat
 
@@ -49,5 +48,4 @@ Pour utiliser WeChat en tant que fournisseur d’identité dans Azure Active Dir
 7. Entrez la **clé d’application** que vous avez copiée précédemment dans **ID client**.
 8. Entrez le **secret d’application** que vous avez copié précédemment dans **Secret client**.
 9. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration WeChat.
-
 

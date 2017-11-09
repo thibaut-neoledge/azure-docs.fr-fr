@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 5479981ed4c017e6953ef616588ca0e4060ce3b2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Manuel d’Azure Active Directory Identity Protection
 Ce manuel vous aide à :
@@ -81,7 +80,7 @@ La simulation de la condition de voyage impossible est difficile, car l’algori
 5. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com) à l’aide des mêmes informations d’identification que précédemment et dans un délai de quelques minutes seulement après la connexion précédente.
 
 La connexion s’affiche dans le tableau de bord d’Identity Protection dans un délai de 2 à 4 heures.<br>
-En raison des modèles d’apprentissage automatique complexes impliqués, il se peut qu’elle ne soit pas détectée.<br>  Il peut être judicieux de répéter ces étapes pour plusieurs comptes Azure AD.
+En raison des modèles d’apprentissage automatique complexes impliqués, il se peut qu’elle ne soit pas détectée.<br> Il peut être judicieux de répéter ces étapes pour plusieurs comptes Azure AD.
 
 ## <a name="simulating-vulnerabilities"></a>Simulation de vulnérabilités
 Les vulnérabilités sont des points faibles exploitables par une personne malveillante au sein de votre environnement Azure AD. Actuellement, Azure AD Identity Protection présente trois types de vulnérabilités tirant parti d’autres fonctionnalités d’Azure AD. Ces vulnérabilités s’affichent automatiquement dans le tableau de bord d’Identity Protection dès lors que ces fonctionnalités sont configurées.
@@ -110,7 +109,7 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 11. Cliquez sur **Save**.
 12. Vous pouvez maintenant tester l’accès conditionnel en fonction des risques en vous connectant à l’aide d’un compte d’utilisateur présentant un niveau de risque élevé. Si le risque de l’utilisateur est défini sur Moyen, votre connexion sera bloquée ou vous serez obligé de changer votre mot de passe, selon la configuration de votre stratégie. 
     <br><br>
-    ![Manuel](./media/active-directory-identityprotection-playbook/201.png "Playbook")
+    ![Manuel](./media/active-directory-identityprotection-playbook/201.png "Manuel")
     <br>
 
 ## <a name="sign-in-risk"></a>Risque à la connexion
@@ -120,7 +119,7 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 2. Accédez à **Identity Protection**.
 3. Dans le panneau principal **d’Azure AD Identity Protection**, cliquez sur **Paramètres**. 
 4. Dans le panneau **Paramètres du portail** panneau, sous **Règles de sécurité**, cliquez sur **Risque à la connexion**.
-5. Dans le panneau **Risque à la connexion**, sélectionnez **Oui** sous **Activer la règle**. 
+5. Dans le panneau **Risque à la connexion **, sélectionnez **Oui** sous **Activer la règle**. 
 6. Sélectionnez l’une des options suivantes :
    
    a. Pour bloquer l’accès, sélectionnez **Moyen** sous **Bloquer la connexion**
@@ -137,5 +136,4 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 
 ## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
 

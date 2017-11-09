@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
 ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement classique
 > [!div class="op_single_selector"]
@@ -168,10 +168,4 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
   * Obtenir une table d’itinéraires pour déterminer quels préfixes sont publiés sur ExpressRoute.
 * Valider le transfert des données en examinant les octets en entrée et en sortie.
 * Ouvrir une demande de support auprès de [Microsoft Azure - Aide + support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si vous rencontrez encore des problèmes.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

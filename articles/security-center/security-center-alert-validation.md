@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validation des alertes dans Azure Security Center
 Ce document est conçu pour vous apprendre à vérifier si votre système est correctement configuré pour les alertes dans Azure Security Center.
@@ -35,12 +34,15 @@ Après avoir installé l’agent de Security Center sur votre ordinateur, suivez
 3. Ouvrez l’invite de commandes et exécutez ce fichier avec un argument (un faux nom d’argument), tel que : *ASC_AlertTest_662jfi039N.exe -foo*
 4. Patientez 5 à 10 minutes puis ouvrez les alertes dans Security Center. Vous devriez voir une alerte similaire à :
 
-    ![Validation de l’alerte](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![Validation de l’alerte](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 En examinant cette alerte, veillez à ce que la valeur du champ Arguments Auditing Enabled (Audit pour arguments activé) soit true. S’il affiche la valeur false, vous devez activer la ligne de commande d’audit pour arguments. Pour activer cette option, utilisez la ligne de commande suivante :
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> Regardez la vidéo [Validation des alertes dans Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) pour voir comment utiliser cette fonctionnalité. 
 
 ## <a name="see-also"></a>Voir aussi
 Cet article vous a présenté le processus de validation des alertes. Maintenant que vous êtes familiarisé avec la validation, vous pouvez consulter les articles suivants :
@@ -51,5 +53,4 @@ Cet article vous a présenté le processus de validation des alertes. Maintenant
 * [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
-
 

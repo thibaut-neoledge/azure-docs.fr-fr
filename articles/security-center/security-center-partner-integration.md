@@ -1,5 +1,5 @@
 ---
-title: "Intégration des partenaires dans Azure Security Center | Microsoft Docs"
+title: "Intégrer des solutions de sécurité dans Azure Security Center | Microsoft Docs"
 description: "Découvrez comment Azure Security Center s’intègre avec les partenaires pour améliorer la sécurité globale de vos ressources Azure."
 services: security-center
 documentationcenter: na
@@ -12,72 +12,88 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 10/26/2017
 ms.author: yurid
+ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="partner-integration-in-azure-security-center"></a>Intégration des partenaires dans Azure Security Center
+# <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
+Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
 
-Cet article explique comment Azure Security Center s’intègre avec les partenaires pour vous aider à améliorer la sécurité globale. Security Center offre une expérience intégrée dans Azure et tire parti de Place de marché Azure pour la certification et la facturation des partenaires.
+## <a name="integrated-azure-security-solutions"></a>Solutions de sécurité Azure intégrées
+Security Center simplifie l’activation des solutions de sécurité intégrées dans Azure. Voici les avantages :
 
-> [!NOTE] 
-> Depuis juin 2017, Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour plus d’informations, consultez l’article [Migration de plateforme Azure Security Center](security-center-platform-migration.md). Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
->
+- **Déploiement simplifié** : Security Center permet un approvisionnement rationalisé des solutions de partenaire intégrées. Pour des solutions comme les logiciels anti-programme malveillant et l’évaluation des vulnérabilités, Security Center peut approvisionner l’agent nécessaire sur vos machines virtuelles. En outre, pour les appliances de pare-feu, Security Center peut se charger d’une grande partie de la configuration réseau nécessaire.
+- **Détections intégrées** : les événements de sécurité des solutions de partenaire sont automatiquement collectés, agrégés et affichés dans le cadre des alertes et des incidents de Security Center. Ces événements sont également fusionnés avec les détections d’autres sources pour fournir des fonctions de détection de menaces avancées.
+- **Surveillance et gestion unifiées du fonctionnement** : les clients peuvent utiliser les événements d’analyse intégrés pour surveiller toutes les solutions de partenaire en un coup d’œil. La gestion de base offre un accès facile à la configuration avancée avec la solution de partenaire.
 
-## <a name="why-deploy-partner-solutions-from-security-center"></a>Pourquoi déployer des solutions de partenaire à partir de Security Center ?
+Actuellement, les solutions de sécurité intégrées comprennent :
 
-L’intégration des partenaires dans Security Center offre quatre avantages majeurs :
-
-- **Déploiement facile** : il est beaucoup plus facile de déployer une solution de partenaire en suivant la recommandation de Security Center. Le processus de déploiement peut être entièrement automatisé à l’aide d’une topologie de réseau et de configuration par défaut. Alternativement, les clients peuvent choisir une option semi-automatisée pour plus de flexibilité et de personnalisation.
-- **Détections intégrées** : les événements de sécurité des solutions de partenaire sont automatiquement collectés, agrégés et affichés dans le cadre des alertes et des incidents de Security Center. Ces événements sont également fusionnés avec les détections d’autres sources pour fournir des fonctions de détection de menaces avancées.
-- **Gestion et surveillance unifiées de l’intégrité** : Les clients peuvent utiliser des événements d’intégrité intégrés pour surveiller facilement les solutions des partenaires. La gestion de base offre un accès facile à la configuration avancée avec la solution de partenaire.
-- **Export vers SIEM** : Les clients peuvent exporter toutes les alertes des partenaires et de Security Center au format CEF (Common Event Format) vers des systèmes SIEM (Security Information and Event Management) locaux grâce à l’intégration du journal Azure (préversion).
-
-
-## <a name="partners-that-integrate-with-security-center"></a>Partenaires qui s’intègrent à Security Center
-
-Pour le moment, Security Center s’intègre aux solutions suivantes :
-
-- Endpoint protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec et [Microsoft Antimalware pour Azure Cloud Services et Machines Virtuelles](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
-- Pare-feu d’applications web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
-- Pare-feu de nouvelle génération ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) et [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
+- Protection de point de terminaison ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Windows Defender et Protocole d’inscription de certificats simple (SCEP))
+- Pare-feu d’applications web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
+- Pare-feu de nouvelle génération ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) et [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - Évaluation des vulnérabilités ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
 
-Au fil du temps, Security Center augmentera le nombre de partenaires au sein de ces catégories existantes et ajoutera de nouvelles catégories. 
+L’expérience d’intégration protection de point de terminaison peut varier en fonction de la solution. Le tableau suivant contient plus de détails sur l’expérience de chaque solution :
 
-## <a name="deploy-a-partner-solution"></a>Déploiement d’une solution de partenaire
+| Protection du point de terminaison               | Plateformes                             | Installation du centre de sécurité | Détection du centre de sécurité |
+|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
+| Windows Defender (logiciel anti-programme malveillant de Microsoft)                  | Windows Server 2016                   | Non, intégré au système d’exploitation           | Oui                       |
+| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via l’extension                | Oui                       |
+| Trend Micro : toutes les versions         | Gamme Windows Server                 | Via l’extension                | Oui                       |
+| Symantec v12+                     | Gamme Windows Server                 | Non                           | Oui                        |
+| MacAfee                           | Gamme Windows Server                 | Non                           | Non                        |
+| Kaspersky                         | Gamme Windows Server                 | Non                           | Non                        |
+| Sophos                            | Gamme Windows Server                 | Non                           | Non                        |
 
-Selon la configuration de votre environnement Azure et la stratégie de sécurité que vous avez définie, Security Center peut recommander le déploiement d’une solution de partenaire. La recommandation de Security Center vous aide à sélectionner et à installer la solution partenaire. L’expérience de déploiement global peut varier en fonction du type de solution et du partenaire. Pour plus d’informations, consultez les articles suivants :
 
-- [Installer Endpoint Protection](security-center-install-endpoint-protection.md)
-- [Ajouter un pare-feu d’applications web](security-center-add-web-application-firewall.md)
-- [Ajouter un pare-feu de nouvelle génération](security-center-add-next-generation-firewall.md)
-- [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md)
 
-## <a name="manage-partner-solutions"></a>Gestion des solutions de partenaires
+## <a name="how-security-solutions-are-integrated"></a>Comment sont intégrées les solutions de sécurité
+Les solutions de sécurité Azure déployées à partir de Security Center sont automatiquement connectées. Vous pouvez également connecter d’autres sources de données de sécurité, notamment :
 
-Pour afficher les informations concernant l’intégrité de la solution et effectuer les tâches de gestion basiques après le déploiement, accédez au panneau **Security Center** sélectionnez l’option **Solutions de partenaire**. Pour plus d’informations sur la gestion des solutions de partenaire dans Security Center, consultez [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md).
+- Azure AD Identity Protection
+- Ordinateurs exécutés en local ou dans d’autres clouds
+- Solution de sécurité qui prend en charge le format CEF
+- Microsoft Advanced Threat Analytics
 
-![Intégration des partenaires](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
+![Intégration de solutions de partenaire](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
-> [!NOTE]
-> La prise en charge du point de terminaison Symantec se limite à la détection. Aucune alerte d’intégrité n’est disponible.
->
+## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gérer des solutions de sécurité Azure intégrées et d’autres sources de données
 
-## <a name="see-also"></a>Voir aussi
+Après le déploiement, vous pouvez consulter des informations sur le fonctionnement de la solution de sécurité Azure intégrée et effectuer des tâches de gestion de base. Vous pouvez également connecter d’autres types de sources de données de sécurité, telles que des journaux de pare-feu et des alertes Azure AD Identity Protection au format CEF. Dans le tableau de bord de Security Center, sélectionnez Solutions de sécurité.
 
-Dans cet article, vous avez appris à intégrer des solutions de partenaires dans Azure Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
+### <a name="connected-solutions"></a>Solutions connectées
+
+La section **Solutions connectées** inclut des solutions de sécurité qui sont actuellement connectées à Security Center et des informations sur l’état de fonctionnement de chaque solution.  
+
+![Solutions connectées](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
+
+### <a name="discovered-solutions"></a>Solutions découvertes
+
+La section **Solutions découvertes** affiche toutes les solutions ajoutées via Azure. Elle affiche également toutes les solutions auxquelles Security Center suggère de se connecter.
+
+![Solutions découvertes](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+
+Security Center détecte automatiquement d’autres solutions de sécurité s’exécutant dans Azure. Cela inclut les solutions Azure, telles que [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), ainsi que les solutions de partenaire qui s’exécutent dans Azure. Pour intégrer ces solutions à Security Center, sélectionnez **CONNECTER**.
+
+### <a name="add-data-sources"></a>Ajouter des sources de données
+
+La section **Ajouter des sources de données** comprend d’autres sources de données disponibles qui peuvent être connectées. Pour obtenir des instructions sur l’ajout de données à partir d’une de ces sources, cliquez sur **AJOUTER**.
+
+![Sources de données](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans cet article, vous avez appris à intégrer des solutions de partenaires dans Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
 * [Guide des opérations et de planification de Security Center](security-center-planning-and-operations-guide.md)
-* [Gérer et répondre aux alertes de sécurité dans Security Center](security-center-managing-and-responding-alerts.md)
-* [Alertes de sécurité par type dans Security Center](security-center-alerts-type.md)
+* [Connecting Microsoft Advanced Threat Analytics to Azure Security Center](security-center-ata-integration.md) (Connexion de Microsoft Advanced Threat Analytics à Azure Security Center)
+* [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md) (Connexion d’Azure Active Directory Identity Protection à Azure Security Center)
 * [Surveillance de l’intégrité de la sécurité dans Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
-* [Surveillance des solutions de partenaires avec Security Center](security-center-partner-solutions.md). découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
-* [Questions fréquentes : Azure Security Center](security-center-faq.md). Obtenez des réponses aux questions fréquentes concernant l’utilisation du service.
+* [Surveiller les solutions de partenaire avec Security Center](security-center-partner-solutions.md). découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
+* [Questions fréquentes : Azure Security Center](security-center-faq.md). Obtenez des réponses aux questions fréquentes concernant l’utilisation de Security Center.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
-

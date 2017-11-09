@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3756f1a039730bfd99b0375ce9bfeaf27178f2e0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Déploiement continu pour Azure Functions
 Azure Functions vous permet de déployer votre Function App facilement à l’aide de l’intégration continue App Service. Functions s’intègre à BitBucket, Dropbox, GitHub et Visual Studio Team Services (VSTS). Cela permet d’activer un workflow dans lequel les mises à jour du code de fonctions sont effectuées à l’aide d’un de ces services intégrés qui déclenchent le déploiement dans Azure. Si vous ne connaissez pas Azure Functions, commencez par consulter l’article [Vue d’ensemble d’Azure Functions](functions-overview.md).
@@ -30,7 +29,7 @@ Le déploiement continu est une option intéressante pour les projets auxquels p
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * Référentiel externe (Git ou Mercurial)
-* [Référentiel Git local](../app-service-web/app-service-deploy-local-git.md)
+* [Référentiel Git local](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
@@ -149,3 +148,7 @@ Avant de pouvoir télécharger des fichiers à partir de votre Function App via 
 
 [GitHub]: https://github.com/
 
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Meilleures pratiques pour Azure Functions](functions-best-practices.md)

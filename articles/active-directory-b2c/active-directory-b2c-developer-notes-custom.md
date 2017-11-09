@@ -12,15 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 05/05/2017
+ms.date: 10/13/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: 4fa4665115e0682df7c3fe3d8e2664a0f7a77a07
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notes de version pour la version préliminaire publique de la stratégie personnalisée Azure Active Directory B2C
 L’ensemble de fonctionnalités de stratégie personnalisée est désormais disponible à des fins d’évaluation en préversion publique pour tous les clients Azure Active Directory B2C (Azure AD B2C). Cet ensemble de fonctionnalités est destiné aux développeurs d’identité avancés créant les solutions d’identité les plus complexes.  
@@ -50,19 +48,100 @@ Les nouvelles fonctionnalités introduites dans la préversion permettent aux d�
 La configuration de stratégie manuelle accorde le niveau d’accès minimal à la plateforme sous-jacente d’Azure AD B2C et entraîne la création d’une infrastructure approuvée unique et entièrement personnalisable. Les permutations possibles des fournisseurs d’identité personnalisés, les relations d’approbation, les intégrations aux services externes et les flux de travail étape par étape exigeront beaucoup de la part des développeurs avancés qui les utilisent.
 
 Afin de tirer pleinement parti de la préversion publique, nous suggérons aux développeurs qui utilisent l’ensemble de fonctionnalités de stratégie personnalisée de respecter les consignes suivantes :
-* Se familiariser au langage de configuration du moteur d’expérience d’identité et à la gestion clé/secrets.
+* Se familiariser au langage de configuration de l’infrastructure d’expérience d’identité (IEF) et à la gestion clé/secrets.
 * S’approprier les scénarios et les intégrations personnalisées.
 * Effectuer un test de scénario méthodique.
 * Suivre les meilleures pratiques de test et de développement de logiciels avec au minimum un environnement de développement et de test et un environnement de production.
 * Suivre les nouveaux développements des services et fournisseurs d’identité que vous intégrez. Par exemple, suivre les modifications apportées aux secrets, ainsi que les modifications planifiées et non planifiées du service.
 * Configurer la surveillance active et surveiller la réactivité des environnements de production.
-* Garder les adresses e-mail de contact à jour et rester attentif aux e-mails de l’équipe de site en ligne Microsoft.
+* Garder les adresses e-mail de contact à jour dans l’abonnement Azure et rester attentif aux e-mails de l’équipe de site en ligne Microsoft.
 * Prendre les mesures adéquates lorsque cela est recommandé par l’équipe de site en ligne Microsoft. 
 
+## <a name="features-by-stage-and-known-issues"></a>Fonctionnalités par étape et problèmes connus
+Les fonctionnalités IEF et de stratégies personnalisées font l’objet d’un développement rapide et constant.  Le tableau ci-après indique la disponibilité des fonctionnalités/composants.
 
->[!NOTE]
->Ces fonctionnalités peuvent éventuellement être incluses à des stratégies intégrées Azure AD, ce qui les rend plus accessibles à tous les développeurs.
+Postez vos questions sur Stack Overflow à l’adresse [aka.ms/aadb2cso](http://aka.ms/aadb2cso).
+
+
+### <a name="identity-providers-tokens-protocols"></a>Fournisseurs d’identité, jetons et protocoles
+Interfaces avec les applications et composants externes
+
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+|---------------------------------------------|-------------|---------|----|-------|
+| IDP-OpenIDConnect |  | x |  | Par exemple, Google+ |
+| IDP-OAUTH2 |  | x |  | Par exemple, Facebook  |
+| IDP-OAUTH1 |  | x |  | Par exemple, Twitter |
+| IDP-SAML |  | x |  | Par exemple, Salesforce, ADFS |
+| IDP-WSFED | x |  |  |  |
+| OAUTH avec partie de confiance |  | x |  |  |
+| OIDC avec partie de confiance |  | x |  |  |
+| SAML avec partie de confiance | x |  |  |  |
+| WSFED avec partie de confiance | x |  |  |  |
+| API REST avec l’authentification de base et par certificat |  | x |  | Par exemple, Azure Functions |
+
+
+### <a name="component-support"></a>Prise en charge des composants
+
+
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+|-------------------------------------------|-------------|---------|----|-------|
+| Azure Multi-Factor Authentication |  | x |  |  |
+| Azure Active Directory comme annuaire local |  | x |  |  |
+| Sous-système d’e-mail Azure pour l’authentification à 2 facteurs |  | x |  |  |
+| Prise en charge multi-langage|  | x |  |  |
+| Complexité du mot de passe | x |  |  |  |
+
+
+### <a name="content-definition"></a>Définition du contenu
+
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+|-----------------------------------------------------------------------------|-------------|---------|----|-------|
+|   Page d’erreur, api.error |  | x |  |  |
+|   Page de sélection de fournisseurs d’identité, api.idpselections |  | x |  |  |
+|   Sélection de fournisseurs d’identité pour l’inscription, api.idpselections.signup |  | x |  |  |
+|   Mot de passe oublié, api.localaccountpasswordreset |  | x |  |  |
+|   Connexion au compte local, api.localaccountsignin |  | x |  |  |
+|   Inscription à un compte local, api.localaccountsignup |  | x |  |  |
+|   Page MFA, api.phonefactor |  | x |  |  |
+|   Autodéclaration (par exemple, inscription à un compte social), api.selfasserted |  | x |  |  |
+|   Mise à jour de profil autodéclaré, api.selfasserted.profileupdate |  | x |  |  |
+|   Page d’inscription ou de connexion unifiée, api.signuporsignin |  | x |  |  |
+
+
+### <a name="app-ief-integration"></a>Intégration App-IEF
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+|--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
+| Paramètre de chaîne de requête id_token_hint | x |  |  |  |
+| Paramètre de chaîne de requête domain_hint |  | x |  | Disponible comme revendication, peut être passé au fournisseurs d’identité |
+| Paramètre de chaîne de requête login_hint |  | x |  | Disponible comme revendication, peut être passé au fournisseurs d’identité |
+| Insérer du code JSON dans le parcours utilisateur via client_assertion | x |  |  | Fonctionnalité destinée à être dépréciée |
+| Insérer du code JSON dans le parcours utilisateur en tant que id_token_hint | x |  |  | Approche à adopter pour passer JSON |
+
+
+### <a name="session-management"></a>Gestion des sessions
+
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+|---------------------------------|-------------|---------|----|-------|
+| Fournisseur de session par authentification unique |  | x |  |  |
+| Fournisseur de session de connexion externe |  | x |  |  |
+| Fournisseur de session par authentification unique SAML |  | x |  |  |
+
+
+### <a name="security"></a>Sécurité
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+|---------------------------------------------|-------------|---------|----|-------|
+| Clés de stratégie : générer, manuel, charger |  | x |  |  |
+| Clés de stratégie : RSA/certificat, secrets |  | x |  |  |
+
+
+### <a name="developer-interface"></a>Interface de développeur
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+|---------------------------------------------|-------------|---------|----|-------|
+| Expérience utilisateur de l’infrastructure d’expérience d’identité dans le Portail Azure |  | x |  |  |
+| Journaux du parcours utilisateur Application Insights  |  | x |  |  |
+| Journaux d’événements Application Insights |x|  |  |  |
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
-

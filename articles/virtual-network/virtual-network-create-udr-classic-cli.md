@@ -1,6 +1,6 @@
 ---
 title: "Contrôler le routage dans un réseau virtuel Azure - CLI - Classique | Microsoft Docs"
-description: "Apprenez à contrôler le routage dans des réseaux VNet à l&quot;aide de l&quot;Interface de ligne de commande Azure dans le modèle de déploiement classique"
+description: "Apprenez à contrôler le routage dans des réseaux VNet à l'aide de l'Interface de ligne de commande Azure dans le modèle de déploiement classique"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 71153e46d1695611c8286d2e57b109db9e7ad9df
-ms.openlocfilehash: 4a610a65b33f91f46d011e07c6cb11523d3dae0d
-ms.lasthandoff: 02/01/2017
-
-
+ms.openlocfilehash: 8fcb98723e7e872c932908e3456dc8680deb0901
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Contrôle du routage et utilisation des appliances virtuelles (classiques) à l'aide de l'Interface de ligne de commande Azure
 
@@ -138,5 +137,4 @@ Pour créer la table d’itinéraires et l’itinéraire nécessaires au sous-r�
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
-
 

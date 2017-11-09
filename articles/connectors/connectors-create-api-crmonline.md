@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Se connecter à Dynamics 365 à partir de flux de travail d’application logique
 
 Avec les applications Logic Apps, vous pouvez vous connecter à Dynamics 365 (Online) et créer des flux d’activité utiles qui génèrent des enregistrements, mettent à jour les éléments ou renvoient une liste d’enregistrements. Avec le connecteur Dynamics 365, vous pouvez effectuer les opérations suivantes :
@@ -38,27 +36,27 @@ Cette rubrique vous explique comment créer une application logique qui génère
 
 ## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Créer une tâche lorsqu’un prospect est créé dans Dynamics 365
 
-1.    [Connectez-vous à Azure](https://portal.azure.com).
+1.  [Connectez-vous à Azure](https://portal.azure.com).
 
-2.    Dans la zone de recherche Azure, tapez `Logic apps` et appuyez sur ENTRÉE.
+2.  Dans la zone de recherche Azure, tapez `Logic apps` et appuyez sur ENTRÉE.
 
       ![Rechercher Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
-3.    Sous **Logic Apps**, cliquez sur **Ajouter**.
+3.  Sous **Logic Apps**, cliquez sur **Ajouter**.
 
       ![LogicApp - Ajouter](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-4.    Pour créer l’application logique, renseignez les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**, puis cliquez sur **Créer**.
+4.  Pour créer l’application logique, renseignez les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**, puis cliquez sur **Créer**.
 
-5.    Sélectionnez la nouvelle application logique. Lorsque vous recevez la notification **Déploiement réussi**, cliquez sur **Actualiser**.
+5.  Sélectionnez la nouvelle application logique. Lorsque vous recevez la notification **Déploiement réussi**, cliquez sur **Actualiser**.
 
-6.    Sous **Outils de développement**, cliquez sur **Concepteur d’application logique**. Dans la liste des modèles, cliquez sur **Application logique vide**.
+6.  Sous **Outils de développement**, cliquez sur **Concepteur d’application logique**. Dans la liste des modèles, cliquez sur **Application logique vide**.
 
-7.    Dans la zone de recherche, tapez `Dynamics 365`. Dans la liste des déclencheurs Dynamics 365, sélectionnez **Dynamics 365 – Lorsqu'un enregistrement est créé**.
+7.  Dans la zone de recherche, tapez `Dynamics 365`. Dans la liste des déclencheurs Dynamics 365, sélectionnez **Dynamics 365 – Lorsqu'un enregistrement est créé**.
 
-8.    Si vous êtes invité à vous connecter à Dynamics 365, faites-le maintenant.
+8.  Si vous êtes invité à vous connecter à Dynamics 365, faites-le maintenant.
 
-9.    Entrez les informations suivantes dans les détails du déclencheur :
+9.  Entrez les informations suivantes dans les détails du déclencheur :
 
   * **Nom de l’organisation**. Sélectionnez l’instance de Dynamics 365 que l’application logique doit écouter.
 
@@ -174,4 +172,3 @@ Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi
 
 ## <a name="next-steps"></a>Étapes suivantes
 Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
-

@@ -1,6 +1,6 @@
 ---
 title: "Ajouter un pare-feu de nouvelle génération dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous explique comment implémenter les recommandations de l’Azure Security Center **Ajouter un pare-feu de nouvelle génération** et **Acheminer le trafic uniquement via un pare-feu de nouvelle génération**."
+description: "Ce document vous montre comment implémenter les recommandations du Centre de sécurité **Ajouter un pare-feu de nouvelle génération** et **Acheminer le trafic uniquement via un pare-feu de nouvelle génération**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
 ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Ajouter un pare-feu de nouvelle génération dans le Centre de sécurité Azure
 Azure Security Center peut vous recommander l’ajout d’un pare-feu de nouvelle génération d’un partenaire Microsoft afin de renforcer vos protections de sécurité. Ce document inclut un exemple vous expliquant comment procéder.
@@ -80,9 +80,3 @@ Pour plus d’informations sur Security Center, consultez :
 [8]: ./media/security-center-add-next-gen-firewall/select-vm.png
 [9]: ./media/security-center-add-next-gen-firewall/configure-rules-to-limit-access.png
 [10]: ./media/security-center-add-next-gen-firewall/edit-inbound-rule.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

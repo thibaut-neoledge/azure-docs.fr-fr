@@ -1,6 +1,6 @@
 ---
 title: "Création et déploiement d’un service cloud | Microsoft Docs"
-description: "Découvrez comment créer et déployer un service cloud à l&quot;aide du portail Azure."
+description: "Découvrez comment créer et déployer un service cloud à l'aide du portail Azure."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
 ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/22/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Création et déploiement d’un service cloud
 > [!div class="op_single_selector"]
@@ -104,4 +102,3 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
-

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
+ms.openlocfilehash: d24139de04b36044bbb88d0e9b9a1feb6d8edfa8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 56c24eb26faf1729c33b025d5c9fcf5d13abd376
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-documentation"></a>Documentation Event Hubs
 
 Découvrez comment utiliser Event Hubs pour collecter et gérer des millions d’événements par seconde à partir d’appareils IoT connectés et d’applications. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer une ingestion évolutive des événements sur un large éventail de plateformes.
@@ -151,4 +149,3 @@ Découvrez comment utiliser Event Hubs pour collecter et gérer des millions d�
         </div>
     </li>
 </ul>
-

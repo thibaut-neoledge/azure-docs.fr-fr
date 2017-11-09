@@ -3,7 +3,7 @@ title: "Analyse des performances et de l’utilisation pour les applications de 
 description: "Analysez l’utilisation et les performances de votre application de bureau Windows avec HockeyApp et Application Insights."
 services: application-insights
 documentationcenter: windows
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.author: mbullwin
+ms.openlocfilehash: 1d80796073c0e85bb3475f9182c79ad2129ace8b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Analyse des performances et de l’utilisation dans les applications de bureau Windows
 
@@ -38,7 +37,7 @@ ms.lasthandoff: 11/17/2016
 3. Dans Visual Studio, modifiez les packages NuGet de votre projet d’application et ajoutez Microsoft.ApplicationInsights.WindowsServer. (Ou choisissez Microsoft.ApplicationInsights si vous souhaitez simplement l’API nue, sans modules de collecte de télémétrie standard.)
 4. Définissez la clé d’instrumentation dans votre code :
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *votre clé* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*votre clé*`";` 
    
     ou dans ApplicationInsights.config (si vous avez installé l’un des packages de télémétrie standard) :
    
@@ -90,5 +89,4 @@ ms.lasthandoff: 11/17/2016
 * [Recherche de diagnostic](app-insights-diagnostic-search.md)
 * [Exploration des mesures](app-insights-metrics-explorer.md)
 * [Écriture de requêtes Analytics](app-insights-analytics.md)
-
 

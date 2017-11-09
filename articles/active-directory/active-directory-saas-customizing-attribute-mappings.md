@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 6ca2fdc9c68ea0030d938eeaebd57aafa0e2790f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: 6921ca86efeea9d1255bb2d1773f55daa48b9b4a
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’approvisionnement d’utilisateurs pour les applications SaaS dans Azure Active Directory
 Microsoft Azure AD prend en charge l’approvisionnement d’utilisateurs pour les applications SaaS tierces telles que Salesforce, Google Apps et autres. Si vous avez activé l’approvisionnement d’utilisateurs pour une application SaaS tierce, le portail de gestion Azure contrôle ses valeurs d’attributs sous forme d’une configuration appelée « mappage d’attributs ».
@@ -69,7 +67,7 @@ Outre cette propriété, les mappages d’attributs prennent en charge les attri
 - **Attribut source** : attribut utilisateur du système source (par exemple, Azure Active Directory).
 - **Attribut cible** : attribut utilisateur dans le système cible (par exemple, ServiceNow).
 - **Trouver les objets utilisant cet attribut** : indique si ce mappage doit être utilisé ou pas pour identifier les utilisateurs de manière unique entre les systèmes source et cible. Ce champ est généralement défini sur l’attribut userPrincipalName ou mail dans Azure AD, qui est généralement mappé à un champ de nom d’utilisateur dans une application cible.
-- **Priorité de correspondance** : vous pouvez définir plusieurs attributs de correspondance. Si tel est le cas, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué.
+- **Priorité de correspondance** : vous pouvez définir plusieurs attributs de correspondance. S’il en existe plusieurs, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué.
 - **Appliquer ce mappage**
     - **Toujours** : applique ce mappage à la création de l’utilisateur et des actions de mise à jour.
     - **Lors de la création uniquement** : applique ce mappage uniquement aux actions de création d’utilisateur.
@@ -97,5 +95,4 @@ Microsoft Azure AD fournit une implémentation efficace d’un processus de sync
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
 [6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
 [7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
-
 

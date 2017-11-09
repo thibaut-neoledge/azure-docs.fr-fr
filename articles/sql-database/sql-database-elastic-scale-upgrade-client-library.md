@@ -1,6 +1,6 @@
 ---
 title: "Effectuer une mise à niveau vers la dernière version de la bibliothèque cliente de bases de données élastiques | Microsoft Docs"
-description: "Mettre à niveau des applications et des bibliothèques à l’aide de Nuget"
+description: "Utilisez NuGet pour mettre à niveau la bibliothèque cliente de bases de données élastiques."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -8,19 +8,17 @@ author: ddove
 ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 0bbbc4f61c37fe4d296221c372bfdf6dd429a32b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/07/2017
-
-
+ms.openlocfilehash: 62609f2488a01d9b406c6b730c53ecc9f9b6ea1b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Mettre à niveau une application pour utiliser la dernière version de la bibliothèque cliente de bases de données élastiques
 Les nouvelles versions de la [bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md) sont disponibles via NuGet et l’interface du Gestionnaire de package NuGet dans Visual Studio. Les mises à niveau contiennent des résolutions de bogues et offrent une prise en charge des nouvelles fonctionnalités de la bibliothèque cliente.
@@ -80,5 +78,4 @@ Pour l’historique des versions, accédez à [Microsoft.Azure.SqlDatabase.Elast
 
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
-
 

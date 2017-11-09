@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Utilisation des connecteurs dans une application logique
 Les connecteurs permettent d’accéder rapidement aux événements, aux données et aux actions à travers tous les services, protocoles et plates-formes.  La liste complète des connecteurs pris en charge par les applications logiques [est disponible ici](apis-list.md).  Les connecteurs peuvent être utilisés comme déclencheurs ou comme actions dans une application logique, et leur utilisation peut nécessiter une *connexion* configurée (par exemple : autoriser un compte Twitter pour accéder ou publier de votre part).
@@ -63,9 +63,3 @@ Vous pouvez consulter et gérer les connexions dans Azure en cliquant sur **Parc
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
 [2]: ./media/connectors-overview/configureAction.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

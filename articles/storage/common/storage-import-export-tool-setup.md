@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
+ms.openlocfilehash: 6b5febd051d0b956c90cb14c260dda1881adac3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5b73fec119a88cd86e68537199e7567afa3fdba8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="setting-up-the-azure-importexport-tool"></a>Configuration de l’outil Azure Import/Export
 
 L’outil Microsoft Azure Import/Export est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le service Microsoft Azure Import/Export. Vous pouvez utiliser l’outil pour les fonctions suivantes :
@@ -40,7 +38,7 @@ Si vous **préparez des disques** pour un travail d’importation, vous devez re
 * Vous devez avoir un ordinateur (« ordinateur de copie ») avec Windows 7, Windows Server 2008 R2 ou un système d’exploitation Windows plus récent installé.
 * .NET Framework 4 doit être installé sur l’ordinateur de copie.
 * BitLocker doit être activé sur l’ordinateur de copie.
-* Vous devez avoir un ou plusieurs disques durs SATA de 3,5 pouces, vides et connectés à l’ordinateur de copie.
+* Vous avez besoin d’un ou plusieurs disques durs SATA II ou III, ou SSD, 2,5 ou 3,5 pouces, vides et connectés à l’ordinateur de copie.
 * Les fichiers que vous projetez d’importer doivent être accessibles à l’ordinateur de copie, qu’ils soient sur un partage réseau ou un disque dur local.
 
 Si vous essayez de **réparer une importation** qui a partiellement échoué, vous devez disposer des éléments suivants :
@@ -216,4 +214,3 @@ Examples:
 * [Réparation d’un travail d’importation](../storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Réparation d’un travail d’exportation](../storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
-

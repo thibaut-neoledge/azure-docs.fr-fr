@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services : déployer le Proxy d’application Azure Active Directory | Microsoft Docs"
-description: "Utiliser le proxy d&quot;application sur les domaines managés par les Azure Active Directory Domain Services"
+description: "Utiliser le proxy d'application sur les domaines managés par les Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 5121a810badcaa9c66a9f5d85bd83b9f522b9665
-ms.openlocfilehash: 449499ebed1b455af012ec97976d04604a320941
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application sur un domaine managé par les Azure Active Directory Domain Services
 Le service Proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. Avec les Azure AD Domain Services, vous pouvez désormais transférer des applications héritées vers des services d’infrastructure Azure. Vous pouvez ensuite publier ces applications à l’aide du proxy d’application Azure AD pour fournir un accès à distance sécurisé aux utilisateurs de votre organisation.
 
@@ -131,4 +129,3 @@ Si vous avez déployé plusieurs connecteurs de proxy d’application sur votre 
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
 * [Configurer la délégation Kerberos contrainte sur un domaine managé](active-directory-ds-enable-kcd.md)
 * [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/library/jj553400.aspx)
-

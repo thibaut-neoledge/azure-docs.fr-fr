@@ -1,5 +1,5 @@
 ---
-title: "Questions fréquentes (FAQ) sur l’usine connectée Azure IoT Suite | Microsoft Docs"
+title: "Questions fréquentes sur la solution d’usine connectée - Azure | Microsoft Docs"
 description: "Questions fréquentes sur l’usine connectée IoT Suite"
 services: 
 suite: iot-suite
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: corywink
+ms.openlocfilehash: 1f0d6fb377c21f5ece77a878fd285b5dda2f4fbc
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 35cf824210a14410d7ea2aedddde0040309901f9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Questions fréquentes sur la solution préconfigurée d’usine connectée IoT Suite
 
@@ -32,18 +31,18 @@ Le code source est stocké dans le dépôt GitHub suivant :
 
 * [Solution préconfigurée d’usine connectée](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="what-is-opc-ua"></a>En quoi consiste OPC UA ?
+### <a name="what-is-opc-ua"></a>Qu’est-ce que l’UA OPC ?
 
-OPC UA (Unified Architecture) est un standard d’interopérabilité indépendant de la plateforme et orienté services, qui date de 2008. OPC UA est utilisé par différents systèmes et dispositifs industriels tels que les PC industriels, les automates programmables industriels et les capteurs. OPC UA intègre les fonctionnalités des spécifications OPC Classic dans un seul et même framework extensible avec un dispositif de sécurité intégré. La fondation OPC Foundation est à l’origine de ce standard. [OPC Foundation](http://opcfoundation.org/) est une organisation à but non lucratif qui compte plus de 440 membres. L’objectif de cette organisation est d’utiliser les spécifications OPC de façon à favoriser une interopérabilité fiable et sécurisée entre les fabricants et les plateformes par les moyens suivants :
+OPC UA (Unified Architecture) est un standard d’interopérabilité indépendant de la plateforme et orienté services, qui date de 2008. OPC UA est utilisé par différents systèmes et dispositifs industriels tels que les PC industriels, les automates programmables industriels et les capteurs. OPC UA intègre les fonctionnalités des spécifications OPC Classic dans un seul et même framework extensible avec un dispositif de sécurité intégré. La fondation OPC Foundation est à l’origine de cette norme. [OPC Foundation](http://opcfoundation.org/) est une organisation à but non lucratif qui compte plus de 440 membres. L’objectif de cette organisation est d’utiliser les spécifications OPC de façon à favoriser une interopérabilité fiable et sécurisée entre les fabricants et les plateformes par les moyens suivants :
 
 * Infrastructure
 * Spécifications
-* Technologie
+* Technology
 * Processus
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Pourquoi le choix de Microsoft s’est-il porté sur OPC UA en matière de solution préconfigurée d’usine connectée ?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Pourquoi le choix de Microsoft s’est-il porté sur l’UA OPC en matière de solution préconfigurée d’usine connectée ?
 
-Microsoft a choisi OPC UA, car il s’agit d’un standard ouvert éprouvé, non propriétaire, qui ne dépend d’aucune plateforme et qui est reconnu par le secteur. Il est incontournable dans les solutions d’architecture de référence Industrie 4.0 (RAMI4.0), car il assure une interopérabilité entre un grand nombre de processus de fabrication et d’équipements. Microsoft constate une demande de la part des clients pour créer des solutions Industrie 4.0. La prise en charge d’OPC UA permet aux clients d’atteindre leurs objectifs plus facilement tout en leur apportant une valeur commerciale immédiate.
+Microsoft a choisi l’UA OPC, car il s’agit d’une norme ouverte, non propriétaire, ne dépendant pas d’une plateforme, reconnue par le secteur et éprouvée. Elle est exigée pour les solutions d’architecture de référence Industrie 4.0 (RAMI4.0) assurant l’interopérabilité entre un large ensemble de processus de fabrication et les équipements. Microsoft constate une demande de la part des clients pour créer des solutions Industrie 4.0. La prise en charge de l’UA OPC permet de supprimer la barrière empêchant les clients d’atteindre leurs objectifs et leur apporte une valeur commerciale instantanée.
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Comment ajouter une adresse IP publique à la machine virtuelle de simulation ?
 

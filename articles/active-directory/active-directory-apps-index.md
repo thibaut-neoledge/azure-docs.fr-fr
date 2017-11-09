@@ -11,15 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
+ms.openlocfilehash: 3910c62e61d77f479da9fae2e1a8c0575c543281
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ea2dc2762b556da837fa1d6674e01aba32face92
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Index d’articles pour la gestion des applications dans Azure Active Directory
 Cette page fournit la liste complète des documents qui traitent des diverses fonctionnalités d’application dans Azure Active Directory (Azure AD).
@@ -44,7 +43,7 @@ Cette section fournit un accès rapide aux guides de résolution des problèmes 
 | Authentification unique fédérée |[Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md) |
 | Authentification unique par mot de passe |[Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy d’application |[Guide de résolution des problèmes pour le proxy d’application](active-directory-application-proxy-troubleshoot.md) |
-| Authentification unique entre AD en local et Azure AD |[Dépannage de la synchronisation du mot de passe](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Résolution des problèmes de réécriture du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Authentification unique entre AD en local et Azure AD |[Dépannage de la synchronisation du mot de passe](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Résolution des problèmes d’écriture différée du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Appartenances au groupe dynamique |[Résolution des problèmes liés à l’appartenance au groupe dynamique](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Authentification unique (SSO)
@@ -56,7 +55,7 @@ L’authentification unique permet aux utilisateurs d’accéder à différentes
 | Introduction à la fédération et à d’autres types d’authentification |[Authentification unique avec Azure AD](active-directory-appssoaccess-whatis.md) |
 | Des milliers d’applications SaaS pré-intégrées à Azure AD avec des étapes de configuration de l’authentification unique simplifiées |[Prise en main de la galerie d’applications Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Liste complète des applications pré-intégrées qui prennent en charge la fédération](http://aka.ms/aadfederatedapps)<br /><br />[Comment ajouter votre application à la galerie d’applications Azure AD](active-directory-app-gallery-listing.md) |
 | Plus de 150 didacticiels d’application sur la configuration de l’authentification unique pour les applications telles que [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), et bien plus encore |[Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md) |
-| Comment configurer et personnaliser manuellement votre configuration de l’authentification unique |[Configuration de l'authentification unique fédérée pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory](active-directory-saas-custom-apps.md)<br /><br />[Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées](active-directory-saml-claims-customization.md) |
+| Comment configurer et personnaliser manuellement votre configuration de l’authentification unique |[Configuration de l'authentification unique fédérée pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées](active-directory-saml-claims-customization.md) |
 | Guide de dépannage pour les applications fédérées qui utilisent le protocole SAML |[Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md) |
 | Comment configurer la date d’expiration du certificat de votre application et renouveler vos certificats |[Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory](active-directory-sso-certs.md) |
 
@@ -97,11 +96,11 @@ Si votre organisation gère un annuaire Windows Server Active Directory local pa
 | Vue d’ensemble des options d’authentification unique proposées dans Azure AD Connect, ainsi que des informations sur la gestion des environnements hybrides |[Options d’authentification de l’utilisateur dans Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Conseils généraux sur la gestion des environnements comportant à la fois Active Directory en local et Azure Active Directory |[Considérations relatives à la conception d'identités hybrides Azure AD](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md) |
 | Aide sur l’utilisation de la synchronisation de mot de passe pour activer l’authentification unique |[Implémenter la synchronisation de mot de passe avec Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Résoudre les problèmes de synchronisation de mot de passe](https://support.microsoft.com/en-us/kb/2855271) |
-| Aide sur l’utilisation de la réécriture du mot de passe pour activer l’authentification unique |[Prise en main de la gestion de mot de passe dans Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Résoudre les problèmes de réécriture du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Aide sur l’utilisation de l’écriture différée du mot de passe pour activer l’authentification unique |[Prise en main de la gestion de mot de passe dans Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Résoudre les problèmes d’écriture différée du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Aide sur l’utilisation de fournisseurs d’identité tiers pour activer l’authentification unique |[Liste des fournisseurs d’identité de tiers compatibles pouvant être utilisés pour activer l’authentification unique](https://aka.ms/ssoproviders) |
 | Comment les utilisateurs de Windows 10 peuvent profiter des avantages de l’authentification unique par le biais d’Azure AD Join |[Extension des fonctionnalités du cloud aux appareils Windows 10 par le biais d’Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
-Azure AD Connect est disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). La réinitialisation du mot de passe libre-service Azure AD est disponible pour [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) et [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). La réécriture du mot de passe sur Active Directory en local est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
+Azure AD Connect est disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). La réinitialisation du mot de passe libre-service Azure AD est disponible pour [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) et [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). L’écriture différée du mot de passe sur Active Directory en local est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="conditional-access-enforce-additional-security-requirements-for-high-risk-apps"></a>Accès conditionnel : appliquer des exigences de sécurité supplémentaires pour les applications à haut risque
 Une fois que vous avez défini l’authentification unique pour vos applications et ressources, vous pouvez sécuriser davantage les applications sensibles en imposant des exigences de sécurité spécifiques à chaque connexion à l’application concernée. Par exemple, vous pouvez utiliser Azure AD pour imposer que tout accès à une application particulière exige le recours systématique à l’authentification multifacteur, même si cette application ne prend pas en charge intrinsèquement cette fonctionnalité. De même, vous pouvez imposer que les utilisateurs soient connectés au réseau approuvé de l’entreprise pour accéder à une application particulièrement sensible.
@@ -213,4 +212,3 @@ Pour afficher les rapports qui sont inclus dans les différentes éditions d’A
 [Services de domaine Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-

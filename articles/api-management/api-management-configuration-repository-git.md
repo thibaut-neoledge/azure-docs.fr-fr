@@ -3,7 +3,7 @@ title: "Configurer le service Gestion des API à l’aide de Git - Azure | Micro
 description: "Découvrez comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: 87d4e3fc4f30d5c7b147fb460fb43367aef19118
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 > 
@@ -218,10 +218,10 @@ Les quatre premiers paramètres (`RegistrationEnabled`, `UserRegistrationTerms`,
 
 | Paramètre d’identité | Correspond à |
 | --- | --- |
-| RegistrationEnabled |**Rediriger les utilisateurs anonymes vers la page de connexion**  |
-| UserRegistrationTerms |**Conditions d’utilisation liées à l’inscription de l’utilisateur**  |
-| UserRegistrationTermsEnabled |**Afficher les conditions d’utilisation dans la page d’abonnement**  |
-| UserRegistrationTermsConsentRequired |**Exiger le consentement**  |
+| RegistrationEnabled |**Rediriger les utilisateurs anonymes vers la page de connexion** |
+| UserRegistrationTerms |**Conditions d’utilisation liées à l’inscription de l’utilisateur** |
+| UserRegistrationTermsEnabled |**Afficher les conditions d’utilisation dans la page d’abonnement** |
+| UserRegistrationTermsConsentRequired |**Exiger le consentement** |
 
 ![Paramètres d’identité][api-management-identity-settings]
 
@@ -230,9 +230,9 @@ Les quatre paramètres qui suivent (`DelegationEnabled`, `DelegationUrl`, `Deleg
 | Paramètre de délégation | Correspond à |
 | --- | --- |
 | DelegationEnabled |Case à cocher **Déléguer la connexion et l’inscription** |
-| DelegationUrl |**URL de point de terminaison de la délégation**  |
-| DelegatedSubscriptionEnabled |**Déléguer l’abonnement au produit**  |
-| DelegationValidationKey |**Déléguer la clé de validation**  |
+| DelegationUrl |**URL de point de terminaison de la délégation** |
+| DelegatedSubscriptionEnabled |**Déléguer l’abonnement au produit** |
+| DelegationValidationKey |**Déléguer la clé de validation** |
 
 ![Paramètres de délégation][api-management-delegation-settings]
 
@@ -306,7 +306,6 @@ Pour plus d’informations sur d’autres méthodes pour gérer votre instance d
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
 
 
 

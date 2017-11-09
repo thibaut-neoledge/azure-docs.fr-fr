@@ -12,14 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -57,7 +56,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Framewo
 
 ### <a name="add-the-service-bus-nuget-package"></a>Ajout du package NuGet Service Bus
 1. Cliquez avec le bouton droit sur le projet créé et sélectionnez **Gérer les packages NuGet**.
-2. Cliquez sur l’onglet **Parcourir**, recherchez **Microsoft Azure Service Bus**, puis sélectionnez l’élément **WindowsAzure.ServiceBus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
+2. Cliquez sur l’onglet **Parcourir**, recherchez **WindowsAzure.ServiceBus**, puis sélectionnez l’élément **WindowsAzure.ServiceBus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
    
     ![Sélectionner un package NuGet][nuget-pkg]
 
@@ -116,7 +115,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Framewo
         }
     }
     ```
-3. Exécutez le programme et consultez le portail Azure : cliquez sur le nom de votre file d’attente dans le panneau **Vue d’ensemble** de l’espace de noms. Le panneau **Fondamentaux** de la file d’attente est affiché. Notez que la valeur **Nombre de messages actifs** doit à présent être de 1. Chaque fois que vous exécutez l’application de l’expéditeur sans récupérer les messages, cette valeur augmente de 1. Notez également que la taille actuelle de la file d’attente s’incrémente chaque fois que l’application y ajoute un message.
+3. Exécutez le programme et consultez le portail Azure : cliquez sur le nom de votre file d’attente dans la fenêtre **Vue d’ensemble** de l’espace de noms. La fenêtre **Fondamentaux** de la file d’attente est affiché. Notez que la valeur **Nombre de messages actifs** doit à présent être de 1. Chaque fois que vous exécutez l’application de l’expéditeur sans récupérer les messages, cette valeur augmente de 1. Notez également que la taille actuelle de la file d’attente s’incrémente chaque fois que l’application y ajoute un message.
    
       ![Taille des messages][queue-message]
 
@@ -179,7 +178,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Framewo
    
     ![Longueur de la file d’attente][queue-message-receive]
 
-Félicitations ! Vous avez maintenant créé une file d’attente, envoyé un message et reçu un message.
+Félicitations ! Vous avez maintenant créé une file d’attente, envoyé un message à cette dernière et reçu un message de la même file d’attente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -190,5 +189,4 @@ Consultez les [référentiels GitHub accompagnés d’exemples](https://github.c
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 

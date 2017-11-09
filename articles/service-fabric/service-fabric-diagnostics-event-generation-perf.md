@@ -12,16 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
+ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="performance-metrics"></a>Mesures de performances
 
 Les mesures doivent être collectées pour comprendre les performances de votre cluster, et des applications qu’il prend en charge. Pour les clusters Service Fabric, nous vous recommandons de collecter les compteurs de performances suivants.
@@ -42,7 +40,7 @@ Pour les ordinateurs de votre cluster, veuillez collecter les compteurs de perfo
 | PhysicalDisk(per Disk) | Nb d’octets d’écriture de disque/s |
 | Mémoire | Nombre d’octets disponibles |
 | PagingFile | % utilisation |
-| Processus (total) | % temps processeur |
+| Processor(Total) | % temps processeur |
 | Processus (par service) | % temps processeur |
 | Processus (par service) | Traitement ID |
 | Processus (par service) | Octets privés |
@@ -50,6 +48,11 @@ Pour les ordinateurs de votre cluster, veuillez collecter les compteurs de perfo
 | Processus (par service) | Octets virtuels |
 | Processus (par service) | Plage de travail |
 | Processus (par service) | Plage de travail - Privée |
+| Network Interface(all-instances) | Longueur de la file d’attente de sortie |
+| Network Interface(all-instances) | Paquets sortants rejetés |
+| Network Interface(all-instances) | Paquets reçus et rejetés |
+| Network Interface(all-instances) | Paquets sortants, erreurs |
+| Network Interface(all-instances) | Paquets reçus, erreurs |
 
 ## <a name="net-applications-and-services"></a>Applications et services .NET
 
@@ -81,4 +84,3 @@ Si vous utilisez Reliable Collections, nous vous recommandons d’ajouter `Avg. 
 
 * En savoir plus sur la [génération d’événements au niveau de la plateforme](service-fabric-diagnostics-event-generation-infra.md) dans Service Fabric
 * Collecter des mesures de performances via [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
-

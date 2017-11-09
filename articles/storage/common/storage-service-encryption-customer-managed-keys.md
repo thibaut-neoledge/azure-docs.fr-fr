@@ -1,6 +1,6 @@
 ---
 title: "Chiffrement du service de stockage Azure à l’aide de clés gérées par le client dans Azure Key Vault | Microsoft Docs"
-description: "La fonctionnalité Chiffrement du service de stockage permet de chiffrer votre stockage d’objets blob Azure côté service lors du stockage des données et de le déchiffrer lorsque vous récupérez les données à l’aide de clés gérées par le client."
+description: "La fonctionnalité Azure Storage Service Encryption permet de chiffrer votre stockage d’objets blob Azure côté service lors du stockage des données et de le déchiffrer lorsque vous récupérez les données à l’aide de clés gérées par le client."
 services: storage
 documentationcenter: .net
 author: lakasa
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault
 
@@ -29,7 +28,7 @@ Vous pouvez utiliser des clés de chiffrement gérées par Microsoft avec SSE ou
 
 Pour fournir la possibilité d’utiliser vos propres clés de chiffrement, le stockage SSE pour le stockage blob est intégré dans Azure Key Vault (AKV). Vous pouvez créer vos propres clés de chiffrement et les stocker dans AKV, ou utiliser les API d’AKV pour générer des clés de chiffrement. Non seulement AKV vous permet de gérer et de contrôler vos clés, mais il vous permet également d’auditer votre utilisation des clés. 
 
-Pourquoi créer vos propres clés ? Parce que vous gagnez en flexibilité, c’est vous seul qui créez, changez, désactivez et définissez les contrôles d’accès. Cela vous permet également d’effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
+Pourquoi souhaitez-vous créer vos propres clés ? Parce que vous gagnez en flexibilité, c’est vous seul qui créez, changez, désactivez et définissez les contrôles d’accès. Cela vous permet également d’effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
 
 ## <a name="sse-with-customer-managed-keys-preview"></a>SSE avec clés gérées par le client (préversion)
 
@@ -77,7 +76,7 @@ Si vous souhaitez transférer des données dans votre nouveau compte de stockage
 ## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Étape 5 : Interroger l’état des données chiffrées
 Pour interroger l’état des données chiffrées, consultez l’[Étape 4 de la section Mise en route dans l’article Chiffrement du service Stockage Azure pour les données au repos](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
-## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Questions fréquentes sur le Chiffrement du service de stockage Azure pour les données au repos
+## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Forum Aux Questions Azure Storage Service Encryption pour les données au repos
 **Q : J’utilise le stockage Premium. Puis-je utiliser SSE avec des clés gérées par le client ?**
 
 R : Oui, SSE avec des clés gérées par Microsoft ou par le client est pris en charge sur le stockage Standard et sur le stockage Premium. 
@@ -127,4 +126,3 @@ R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.co
 *   Pour plus d’informations sur l’ensemble complet des fonctionnalités de sécurité qui aident les développeurs à créer des applications sécurisées, consultez le [Guide sur la sécurité du stockage](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 *   Pour plus d’informations générales sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis).
 *   Pour prendre en main Azure Key Vault, consultez [Prise en main d’Azure Key Vault](../../key-vault/key-vault-get-started.md).
-

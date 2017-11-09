@@ -3,7 +3,7 @@ title: "Prise en main d’Azure DNS à l’aide d’Azure CLI 2.0 | Microsoft Do
 description: "Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide d’Azure CLI 2.0."
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumuD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,15 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/25/2017
-
+ms.author: kumud
+ms.openlocfilehash: adcbe69abca72aa0372b78eb357efdc56acf1c26
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Prise en main d’Azure DNS à l’aide d’Azure CLI 2.0
 
 > [!div class="op_single_selector"]
@@ -123,4 +121,3 @@ Pour en savoir plus sur Azure DNS, consultez [Vue d’ensemble d’Azure DNS](dn
 Pour en savoir plus sur la gestion des zones DNS dans Azure DNS, consultez [Gérer des zones DNS dans Azure DNS à l’aide d’Azure CLI 2.0](dns-operations-dnszones-cli.md).
 
 Pour en savoir plus sur la gestion des enregistrements DNS dans Azure DNS, consultez [Gérer les enregistrements DNS et les jeux d’enregistrement dans Azure DNS à l’aide d’Azure CLI 2.0](dns-operations-recordsets-cli.md).
-

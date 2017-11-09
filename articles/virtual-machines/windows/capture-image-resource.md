@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 10/09/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: e428b755f6696bd6d4047ad77579a8e9665dfbd8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: d6409ac490f530d49f82c93b07b0fd22adbec4de
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
@@ -51,32 +50,24 @@ Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge p
 ## <a name="create-a-managed-image-in-the-portal"></a>Créer une image managée dans le portail 
 
 1. Ouvrez le [portail](https://portal.azure.com).
-2. Cliquez sur le signe (+) pour créer une ressource.
-3. Dans le filtre de recherche, tapez **Image**.
-4. Sélectionnez **Image** dans les résultats.
-5. Dans le panneau **Image**, cliquez sur **Créer**.
-6. Dans **Nom**, entrez le nom de l’image.
-7. Si vous avez plusieurs abonnements, sélectionnez le bon dans la liste déroulante **Abonnement**.
-7. Dans **Groupe de ressources**, sélectionnez **Créer** et tapez un nom, ou sélectionnez **À partir d’un groupe existant** et choisissez un groupe de ressources à utiliser dans la liste déroulante.
-8. Dans **Emplacement**, choisissez l’emplacement de votre groupe de ressources.
-9. Dans **Type de système d’exploitation**, sélectionnez le type de système d’exploitation, soit Windows, soit Linux.
-11. Dans **Stockage Blob**, cliquez sur **Parcourir** pour rechercher le disque dur virtuel dans votre stockage Azure.
-12. Dans **Type de compte**, choisissez Standard_LRS ou Premium_LRS. Le type Standard utilise des disques durs et Premium, des disques SSD. Les deux utilisent le stockage localement redondant.
-13. Dans **Mise en cache du disque**, sélectionnez l’option de mise en cache de disque appropriée. Options possibles : **Aucune**, **Lecture seule** et **Lecture/écriture**.
-14. Facultatif : vous pouvez également ajouter un disque de données existant à l’image en cliquant sur **+ Ajouter des données**.  
-15. Une fois les sélections terminées, cliquez sur **Créer**.
-16. Une fois que l’image est créée, elle s’affiche en tant que ressource **Image** dans la liste des ressources du groupe de ressources que vous avez choisi.
+2. Dans le menu de gauche, cliquez sur Machines virtuelles, puis sélectionnez la machine virtuelle dans la liste.
+3. Dans la page de la machine virtuelle, dans le menu supérieur, cliquez sur **Capturer**.
+3. Dans **Nom**, tapez le nom à utiliser pour l’image.
+4. Dans **Groupe de ressources**, sélectionnez **Créer** et tapez un nom, ou sélectionnez **Utiliser un groupe existant** et choisissez un groupe de ressources à utiliser dans la liste déroulante.
+5. Pour supprimer la machine virtuelle source une fois que l’image a été créée, sélectionnez **Supprimer automatiquement cette machine virtuelle après avoir créé l’image**.
+6. Lorsque vous avez terminé, cliquez sur **Créer**.
+16. Une fois que l’image est créée, elle s’affiche en tant que ressource **Image** dans la liste des ressources du groupe de ressources.
 
 
 
-## <a name="create-a-managed-image-of-a-vm-using-powershell"></a>Créer une image managée d’une machine virtuelle à l’aide de Powershell
+## <a name="create-an-image-of-a-vm-using-powershell"></a>Créer une image de machine virtuelle à l’aide de Powershell
 
-La création d’une image directement à partir de la machine virtuelle permet de s’assurer qu’elle comprend tous les disques associés à la machine virtuelle, y compris le disque du système d’exploitation et tous les disques de données.
+La création d’une image directement à partir de la machine virtuelle permet de s’assurer qu’elle comprend tous les disques associés à la machine virtuelle, y compris le disque du système d’exploitation et tous les disques de données. Cet exemple montre comment créer une image gérée à partir d’une machine virtuelle qui utilise des disques gérés.
 
 
 Avant de commencer, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. Exécutez la commande suivante pour l’installer.
 
-```powershell
+```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 Pour plus d’informations, consultez la page relative au [contrôle de version d’Azure PowerShell](/powershell/azure/overview).
@@ -84,7 +75,7 @@ Pour plus d’informations, consultez la page relative au [contrôle de version 
 
 1. Définissez des variables.
 
-    ```powershell
+    ```azurepowershell-interactive
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "EastUS"
@@ -92,77 +83,81 @@ Pour plus d’informations, consultez la page relative au [contrôle de version 
     ```
 2. Assurez-vous que la machine virtuelle a été libérée.
 
-    ```powershell
+    ```azurepowershell-interactive
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Définissez l’état de la machine virtuelle sur **Généralisé**. 
    
-    ```powershell
+    ```azurepowershell-interactive
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
 4. Accédez à la machine virtuelle. 
 
-    ```powershell
+    ```azurepowershell-interactive
     $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
     ```
 
 5. Créez la configuration de l’image.
 
-    ```powershell
+    ```azurepowershell-interactive
     $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
     ```
 6. Créez l’image.
 
-    ```powershell
+    ```azurepowershell-interactive
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
+## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Créer une image à partir d’un disque géré à l’aide de PowerShell
 
-
-
-## <a name="create-a-managed-image-of-a-vhd-in-powershell"></a>Créer une image managée d’un disque dur virtuel à l’aide de Powershell
-
-Créez une image managée à l’aide de votre disque dur virtuel généralisé de système d’exploitation.
-
-
-1.  Tout d’abord, définissez les paramètres communs :
-
-    ```powershell
-    $rgName = "myResourceGroupName"
-    $vmName = "myVM"
-    $location = "West Central US" 
-    $imageName = "yourImageName"
-    $osVhdUri = "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
-    ```
-2. Arrêtez/libérez la machine virtuelle.
-
-    ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
-    ```
-    
-3. Indiquez que la machine virtuelle est généralisée.
-
-    ```powershell
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
-    ```
-4.  Créez l’image à l’aide de votre disque dur virtuel généralisé de système d’exploitation.
-
-    ```powershell
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```
-
-
-## <a name="create-a-managed-image-from-a-snapshot-using-powershell"></a>Créer une image managée à partir d’une capture instantanée à l’aide de Powershell
-
-Vous pouvez également créer une image managée à partir d’une capture instantanée du VHD d’une machine virtuelle généralisée.
+Pour simplement créer une image du disque du système d’exploitation, créez une image en spécifiant l’ID du disque géré en tant que disque du système d’exploitation.
 
     
 1. Définissez des variables. 
 
-    ```powershell
+    ```azurepowershell-interactive
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $snapshotName = "mySnapshot"
+    $imageName = "myImage"
+    ```
+
+2. Obtenez la machine virtuelle.
+
+   ```azurepowershell-interactive
+   $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
+   ```
+
+3. Obtenez l’ID du disque géré.
+
+    ```azurepowershell-interactive
+    $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
+    ```
+   
+3. Créez la configuration de l’image.
+
+    ```azurepowershell-interactive
+    $imageConfig = New-AzureRmImageConfig -Location $location
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    ```
+    
+4. Créez l’image.
+
+    ```azurepowershell-interactive
+    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    ``` 
+
+
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Créer une image à partir d’une capture instantanée à l’aide de Powershell
+
+Vous pouvez créer une image gérée à partir d’une capture instantanée d’une machine virtuelle généralisée.
+
+    
+1. Définissez des variables. 
+
+    ```azurepowershell-interactive
     $rgName = "myResourceGroup"
     $location = "EastUS"
     $snapshotName = "mySnapshot"
@@ -171,24 +166,57 @@ Vous pouvez également créer une image managée à partir d’une capture insta
 
 2. Accédez à la capture instantanée.
 
-   ```powershell
+   ```azurepowershell-interactive
    $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
 3. Créez la configuration de l’image.
 
-    ```powershell
+    ```azurepowershell-interactive
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
 4. Créez l’image.
 
-    ```powershell
+    ```azurepowershell-interactive
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
-    
 
+
+## <a name="create-image-from-a-vhd-in-a-storage-account"></a>Créer une image à partir d’un disque dur virtuel dans un compte de stockage
+
+Créez une image gérée à partir d’un disque dur virtuel de système d’exploitation généralisé dans un compte de stockage. Vous devez utiliser l’URI du disque dur virtuel dans le compte de stockage, dont le format est https://*mystorageaccount*.blob.core.windows.net/*container*/*vhd_filename.vhd*. Dans cet exemple, le disque dur virtuel que nous utilisons se trouve dans *mystorageaccount* dans un conteneur nommé *vhdcontainer* et le nom de fichier du disque dur virtuel est *osdisk.vhd*.
+
+
+1.  Tout d’abord, définissez les paramètres communs :
+
+    ```azurepowershell-interactive
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $imageName = "myImage"
+    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
+    ```
+2. Arrêtez/libérez la machine virtuelle.
+
+    ```azurepowershell-interactive
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    ```
+    
+3. Indiquez que la machine virtuelle est généralisée.
+
+    ```azurepowershell-interactive
+    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
+    ```
+4.  Créez l’image à l’aide de votre disque dur virtuel généralisé de système d’exploitation.
+
+    ```azurepowershell-interactive
+    $imageConfig = New-AzureRmImageConfig -Location $location
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    ```
+
+    
 ## <a name="next-steps"></a>Étapes suivantes
 - Vous pouvez à présent [créer une machine virtuelle à partir de l’image managée généralisée](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
-
 

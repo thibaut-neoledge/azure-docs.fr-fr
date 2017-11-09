@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 2e887230a102f5c6289ca2eec0e4700a0e1fdfde
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle avec mise en réseau accélérée
 
@@ -53,7 +52,7 @@ Les limitations suivantes existent lors de l’utilisation de cette fonctionnali
 * **Taille de machine virtuelle :** tailles d’instance à usage général et de calcul optimisé avec au moins huit cœurs. Pour plus d’informations, voir les articles sur les tailles de machine virtuelle [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Le nombre de tailles d’instance de machine virtuelle augmentera dans le futur.
 * **Déploiement via Azure Resource Manager (ARM) uniquement :** la mise en réseau accélérée n’est pas disponible pour le déploiement via ASM/RDFE.
 
-Les modifications de ces limites seront annoncées via la page [Mises à jour concernant la mise en réseau virtuel Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
+Les modifications de ces limites seront annoncées via la page [Mises à jour concernant la mise en réseau virtuel Azure](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/).
 
 ## <a name="create-a-windows-vm"></a>Créer une machine virtuelle Windows
 Pour créer la machine virtuelle, vous pouvez utiliser le Portail Azure ou Azure [PowerShell](#windows-powershell).
@@ -450,4 +449,3 @@ La création d’une machine virtuelle Red Hat Enterprise Linux ou CentOS 7.3 n�
     ```
 
 La machine virtuelle devrait commencer par bond0 configuré, avec activation du chemin de mise réseau accélérée.  Exécutez `ifconfig` pour confirmer.
-

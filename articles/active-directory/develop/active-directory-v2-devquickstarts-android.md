@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 2dfe58c032888ca34e905f4e549fcc4d6e36d324
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Ajouter l’authentification dans une application Android à l’aide d’une bibliothèque tierce avec l’API Graph à l’aide du point de terminaison v2.0
 La plateforme d’identité Microsoft utilise des normes ouvertes telles que OAuth2 et OpenID Connect. Les développeurs peuvent utiliser n’importe quelle bibliothèque qu’ils souhaitent intégrer à nos services. Pour aider les développeurs à utiliser notre plateforme avec d’autres bibliothèques, nous avons rédigé quelques procédures pas à pas comme celle-ci pour présenter la configuration des bibliothèques tierces pour se connecter à la plateforme d’identité de Microsoft. La plupart des bibliothèques qui implémentent [la spécification RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) peuvent se connecter à la plateforme Microsoft Identity.
@@ -95,8 +93,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
     ![Le module d’application par défaut](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 5. Importez des modules à partir du référentiel cloné dans le projet actuel.
    
-    ![Importez le projet gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
-    ![Créez une nouvelle page de module](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+    ![Importez le projet Gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)![Créez une page de module](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 6. Répétez ces étapes pour le module `oidlib-sample` .
 7. Vérifiez les dépendances oidclib sur le module `oidlib-sample` .
    
@@ -191,5 +188,4 @@ Une fois que vous avez été authentifié, sélectionnez le bouton **Request Pro
 
 ## <a name="get-security-updates-for-our-product"></a>Obtenir des mises à jour de sécurité pour notre produit
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [Security TechCenter](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
-
 

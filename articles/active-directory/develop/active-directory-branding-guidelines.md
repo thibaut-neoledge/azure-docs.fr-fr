@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 316f073019abef03227b741d9349d0ca75dda6bd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>Directives de personnalisation des applications
 Cette rubrique décrit les directives de personnalisation que vous devez suivre lors du développement d’applications avec Azure Active Directory (Azure AD). Ces directives vous permettent de diriger vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire géré dans Azure AD ou leur compte personnel pour s’inscrire et se connecter à votre application.
@@ -59,7 +57,7 @@ Une fois que les administrateurs ont donné leur consentement à votre applicati
 
 Toutefois, nous vous recommandons de fournir un texte explicatif plutôt que de vous contenter des boutons. Par exemple :
 
-> *Si vous utilisez déjà Office 365 ou un autre service métier de Microsoft, vous pouvez tout simplement octroyer l’accès de <nom_de_votre_application> aux données de votre organisation. Cela permet à vos utilisateurs d’accéder à <nom_de_votre_application> à l’aide de leur compte professionnel existant.*
+> *Si vous utilisez déjà Office 365 ou un autre service métier de Microsoft, vous pouvez tout simplement octroyer l’accès de &lt;nom_de_votre_application&gt; aux données de votre organisation. Cela permet à vos utilisateurs d’accéder à <nom_de_votre_application> à l’aide de leur compte professionnel existant.*
 > 
 > 
 
@@ -90,5 +88,4 @@ Vous pouvez également utiliser un modèle de couleurs sombres pour les boutons.
 
 ## <a name="navigation-dos-and-donts"></a>Choses à faire et à éviter pour la navigation
 **FOURNISSEZ** aux utilisateurs un moyen de se déconnecter et de passer à un autre compte d’utilisateur. Bien que la plupart des gens aient un seul compte personnel Microsoft/Facebook/Google/Twitter, ils sont souvent associés à plus d’une organisation. La prise en charge de plusieurs utilisateurs connectés sera bientôt offerte.
-
 

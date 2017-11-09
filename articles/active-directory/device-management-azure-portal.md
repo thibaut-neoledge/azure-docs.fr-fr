@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 4b46e1627a229b0649d9ccd2550cd28fda9849f8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-devices-using-the-azure-portal---preview"></a>Gestion des appareils avec le portail Azure - Préversion
 
@@ -28,7 +27,7 @@ ms.lasthandoff: 08/24/2017
 >Cette fonctionnalité est actuellement disponible en préversion publique. Soyez prêt à rétablir ou à supprimer les modifications. La fonctionnalité est disponible dans tout abonnement Azure Active Directory (Azure AD) durant la période de préversion publique. Toutefois, lorsque la fonctionnalité sera généralement disponible, il se peut que certains de ses aspects nécessitent un abonnement Azure Active Directory Premium.
 
 
-La gestion des appareils d’Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos standards de conformité et de sécurité. 
+La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. 
 
 Cette rubrique :
 
@@ -134,7 +133,7 @@ Si un appareil est géré par une autre autorité de gestion (par exemple, Micro
 
 Vous pouvez cliquer sur « … » pour supprimer l’appareil ou cliquer sur l’appareil pour afficher les informations le concernant.
  
-![Supprimer un appareil](./media/device-management-azure-portal/34.png)
+![Suppression d’un appareil](./media/device-management-azure-portal/34.png)
 
 
 **Afficher ou copier l’ID de l’appareil** : vous pouvez utiliser un ID d’appareil pour vérifier les informations d’ID de l’appareil ou utiliser PowerShell lors du dépannage. Pour accéder à l’option de copie, cliquez sur l’appareil.
@@ -197,7 +196,6 @@ Vous pouvez filtrer les entrées, mais également rechercher des entrées spéci
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)
-
 
 
 

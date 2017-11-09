@@ -16,14 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques
 
 Vous pouvez exposer en mode natif les points de terminaison HTTP synchrones en tant que déclencheurs sur des applications logiques, afin que vous puissiez déclencher ou appeler vos applications logiques via une URL. Vous pouvez également imbriquer des workflows dans vos applications logiques à l’aide d’un modèle de points de terminaison pouvant être appelés.
@@ -86,7 +84,7 @@ Pour créer un point de terminaison HTTP, ajoutez un déclencheur qui peut recev
     génère ce schéma :
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {
@@ -147,8 +145,7 @@ Lorsque vous souhaitez que votre URL de point de terminaison HTTP accepte des pa
 5. Pour la valeur **Corps** de votre réponse, incluez le jeton pour le paramètre que vous avez spécifié dans le chemin d’accès relatif de votre déclencheur.
 
     Par exemple, pour renvoyer `Hello {customerID}`, mettez à jour la valeur **Corps** de votre réponse avec `Hello {customerID token}`. 
-    La liste de contenu dynamique doit apparaître et afficher le jeton `customerID` 
-    à sélectionner.
+    La liste de contenu dynamique doit apparaître et afficher le jeton `customerID` à sélectionner.
 
     ![Ajouter un paramètre au corps de la réponse](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
@@ -320,4 +317,3 @@ Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des
 [1]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-

@@ -10,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
+ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 07aaefc0b2f806178651c2192f6abcbae9a31f83
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Démarrage rapide : Ajouter un nom de domaine personnalisé dans Azure Active Directory
 
@@ -54,15 +53,15 @@ Une fois que vous avez ajouté l’entrée DNS, vous êtes prêt à vérifier le
 
 1. Connectez-vous à [Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) en utilisant un compte d’administrateur général pour l’annuaire.
 2. Sur la gauche, sélectionnez **Noms de domaine**.
-3. Dans ***nom_annuaire* - Noms de domaine**, sélectionnez la commande **Ajouter un nom de domaine**. 
+3. Dans ***nom-répertoire* - Noms de domaine**, sélectionnez la commande **Ajouter un nom de domaine**. 
   ![Sélectionner la commande Ajouter](./media/active-directory-domains-add-azure-portal/add-command.png)
-3. Dans ***nom_annuaire* - Noms de domaine**, sélectionnez le nom de domaine non vérifié que vous souhaitez vérifier.
+3. Dans ***nom-répertoire* - Noms de domaine**, sélectionnez le nom de domaine non vérifié que vous souhaitez vérifier.
 4. Dans ***nom_domaine*** (le titre indique le nom de domaine sélectionné), sélectionnez **Vérifier** pour terminer la vérification.
 
 Vous pouvez désormais [affecter des noms d’utilisateur incluant votre nom de domaine personnalisé](active-directory-users-create-azure-portal.md). Vous pouvez créer des comptes d’utilisateur basés sur le cloud et mettre à jour des informations de compte d’utilisateur local précédemment synchronisées, à l’aide de votre nom de domaine personnalisé. Vous pouvez également changer les informations de suffixe de domaine de compte d’utilisateur synchronisées à l’aide de [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) ou de l’[API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
 > [!TIP]
-> Vous pouvez ajouter jusqu’à 900 noms de domaine personnalisés. Toutefois, seul un nom de domaine peut être [défini en tant que nom de domaine principal de votre annuaire Azure AD](active-directory-domains-manage-azure-portal.md#set-the-primary-domain-name-for-your-azure-ad-directory) et utilisé par défaut lorsque vous créez des comptes.
+> Vous pouvez ajouter jusqu’à 900 noms de domaine managé. Si vous envisagez de configurer tous vos domaines pour la fédération localement avec Active Directory, vous pouvez ajouter jusqu’à 450 noms de domaine dans chaque répertoire. Pour plus d’informations, consultez la section [Noms de domaines fédérés et gérés](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 Si vous ne parvenez pas à vérifier un nom de domaine personnalisé, essayez les étapes de dépannage suivantes :

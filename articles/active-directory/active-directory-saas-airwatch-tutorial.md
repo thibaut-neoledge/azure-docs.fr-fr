@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 1996ec97e7c0d94c5606ca43bb5956548f1f3712
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Didacticiel : Intégration d’Azure Active Directory à AirWatch
 
@@ -308,5 +307,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 [201]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_203.png
-
 

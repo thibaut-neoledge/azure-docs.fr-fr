@@ -12,24 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2017
+ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: c8dc0fab1a4da2bf9ae1463cb5e17fc2c2b12e5c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliothèques d’authentification Azure Active Directory v2.0
-Le point de terminaison Azure Active Directory (Azure AD) v2.0 prend en charge les protocoles OAuth 2.0 et OpenID Connect 1.0 standard. Vous pouvez utiliser différentes bibliothèques de Microsoft et d’autres organisations avec le point de terminaison v2.0.
+Le [point de terminaison Azure Active Directory (Azure AD) v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) prend en charge les protocoles OAuth 2.0 et OpenID Connect 1.0 standard. Vous pouvez utiliser différentes bibliothèques de Microsoft et d’autres organisations avec le point de terminaison v2.0.
 
 Lorsque vous créez une application qui utilise le point de terminaison v2.0, nous vous recommandons d’utiliser des bibliothèques écrites par des experts du domaine du protocole qui respectent une méthodologie Security Development Lifecycle (SDL) comme [celle que suit Microsoft][Microsoft-SDL]. Si vous décidez de coder à la main la prise en charge des protocoles, nous vous recommandons de suivre la méthodologie SDL et de bien prendre en compte les considérations relatives à la sécurité que vous trouverez dans les spécifications des normes pour chaque protocole.
 
+> [!NOTE]
+> Vous recherchez les bibliothèques Azure AD v1.0 (ADAL) ? Consultez le [guide des bibliothèques ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> 
+> 
+
 ## <a name="types-of-libraries"></a>Types de bibliothèques
-Azure AD v2.0 prend en charge deux types de bibliothèques :
+Le point de terminaison Azure AD v2.0 prend en charge deux types de bibliothèques :
 
 * **Bibliothèques clientes**. Les serveurs et clients natifs utilisent les bibliothèques clientes afin d’obtenir des jetons d’accès pour appeler une ressource, comme Microsoft Graph.
 * **Bibliothèques de middleware de serveur**. Les applications web utilisent des bibliothèques de middleware de serveur pour la connexion des utilisateurs. Les API web utilisent des bibliothèques de middleware de serveur pour valider les jetons qui sont envoyés par des clients natifs ou par d’autres serveurs.
@@ -126,4 +129,3 @@ Pour plus d’informations sur le point de terminaison Azure AD v2.0, consultez 
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
 [ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
-

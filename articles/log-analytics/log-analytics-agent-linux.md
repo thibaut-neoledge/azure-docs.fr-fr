@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/05/2017
+ms.date: 09/29/2017
 ms.author: magoedte
+ms.openlocfilehash: c9902e1b8644c2b0a894f9cde98f2056564775c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>Connecter des ordinateurs Linux à Operations Management Suite (OMS) 
 
 Avec Microsoft Operations Management Suite (OMS), vous pouvez collecter et agir sur les données générées à partir d’ordinateurs Linux et de solutions de conteneur telles que Docker, résidant dans votre centre de données local en tant que serveurs physiques ou virtuels, de machines virtuelles dans un service hébergé dans le cloud comme Amazon Web Services (AWS), ou de Microsoft Azure. Vous pouvez également utiliser des solutions de gestion disponibles dans OMS telles que Change Tracking pour identifier les modifications de configuration, et Update Management pour administrer les mises à jour logicielles afin de gérer de manière proactive le cycle de vie de vos machines virtuelles Linux. 
@@ -75,7 +73,7 @@ L’agent inclut plusieurs packages. Les packages suivants sont disponibles en e
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
-omsagent | 1.4.0 | Agent Operations Management Suite pour Linux
+omsagent | 1.4.1 | Agent Operations Management Suite pour Linux
 omsconfig | 1.1.1 | Agent de configuration de l’Agent OMS
 omi | 1.2.0 | Open Management Infrastructure (OMI) - Serveur CIM léger
 scx | 1.6.3 | Fournisseurs CIM OMI pour les mesures de performances des systèmes d’exploitation
@@ -93,9 +91,9 @@ L’Agent OMS pour Linux partage ses fichiers binaires avec l’agent System Cen
 ### <a name="system-configuration-changes"></a>Modifications de configuration système
 Après avoir installé les packages de l’Agent OMS pour Linux, les modifications de configuration système suivantes sont appliquées. Ces artefacts sont supprimés lorsque le package omsagent est désinstallé.
 
-* Un utilisateur sans privilège nommé `omsagent` est créé. Il s’agit du compte utilisé par le démon omsagent pour s’exécuter.
-* Un fichier « include » de sudoers est créé à l’emplacement /etc/sudoers.d/omsagent. Cela autorise omsagent à redémarrer les démons syslog et omsagent. Si les directives « include » sudo ne sont pas prises en charge dans la version installée de sudo, ces entrées sont inscrites dans /etc/sudoers.
-* La configuration de syslog est modifiée pour transférer un sous-ensemble d’événements à l’agent. Pour plus d’informations, consultez la section **Configuration de la collecte des données** ci-dessous.
+* Un utilisateur sans privilège nommé `omsagent` est créé. Le démon omsagent s’exécute en tant que ce compte.
+* Un fichier « include » de sudoers est créé à l’emplacement /etc/sudoers.d/omsagent. Ce fichier autorise omsagent à redémarrer les démons syslog et omsagent. Si les directives « include » sudo ne sont pas prises en charge dans la version installée de sudo, ces entrées sont inscrites dans /etc/sudoers.
+* La configuration de syslog est modifiée pour transférer un sous-ensemble d’événements à l’agent. Pour plus d’informations, consultez la section **Configuration de la collecte des données** qui suit.
 
 ### <a name="upgrade-from-a-previous-release"></a>Mettre à niveau à partir d’une version antérieure
 La mise à niveau à partir de versions antérieures à 1.0.0-47 est prise en charge dans cette version. Effectuer l’installation avec la commande `--upgrade` met à niveau tous les composants de l’agent vers la dernière version.
@@ -106,7 +104,7 @@ Cette section décrit comment installer l’Agent OMS pour Linux à l’aide d�
 
 Tout d’abord, vous avez besoin de l’ID et de la clé de votre espace de travail OMS, qui se trouvent dans le [portail classique OMS](https://mms.microsoft.com).  Dans la page **Vue d’ensemble**, dans le menu supérieur, sélectionnez **Paramètres**, puis accédez à **Sources connectées\Serveurs Linux**.  Les valeurs sont situées à droite de **Clé primaire** et **ID de l’espace de travail**.  Copiez-collez ces deux valeurs dans votre éditeur favori.    
 
-1. Téléchargez la dernière version [Agent OMS pour Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) ou [Agent OMS pour Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) à partir de GitHub.  
+1. Téléchargez la dernière version [Agent OMS pour Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x64.sh) ou [Agent OMS pour Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x86.sh) à partir de GitHub.  
 2. Transférez le groupe approprié (x86 ou x64) sur votre ordinateur Linux à l’aide de scp/sftp.
 3. Installez le groupe à l’aide de l’argument `--install` ou `--upgrade`. 
 
@@ -129,8 +127,8 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
-## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>Configuration de l’agent pour une utilisation avec un serveur proxy HTTP ou une passerelle OMS
-L’agent OMS pour Linux prend en charge la communication via un serveur proxy HTTP ou HTTPS ou la passerelle OMS vers le service OMS.  L’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.  
+## <a name="configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway"></a>Configuration de l’agent pour une utilisation avec un serveur proxy ou une passerelle OMS
+OMS Agent for Linux prend en charge la communication via un serveur proxy ou la passerelle OMS avec le service OMS en utilisant le protocole HTTPS.  L’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.  
 
 ### <a name="proxy-configuration"></a>Configuration du proxy
 La valeur de configuration de proxy a la syntaxe suivante :
@@ -139,13 +137,13 @@ La valeur de configuration de proxy a la syntaxe suivante :
 
 Propriété|Description
 -|-
-Protocole|http ou https
+Protocole|https
 user|Nom d’utilisateur facultatif pour l’authentification du proxy
 password|Mot de passe facultatif pour l’authentification du proxy
 proxyhost|Adresse ou nom de domaine complet du serveur proxy/de la passerelle OMS
 port|Numéro de port facultatif pour le serveur proxy/la passerelle OMS
 
-Par exemple : `http://user01:password@proxy01.contoso.com:8080`
+Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 
 Le serveur proxy peut être spécifié lors de l’installation ou en modifiant le fichier de configuration proxy.conf après l’installation.   
 
@@ -153,13 +151,13 @@ Le serveur proxy peut être spécifié lors de l’installation ou en modifiant 
 L’argument `-p` ou `--proxy` pour le groupe d’installation omsagent spécifie la configuration de proxy à utiliser. 
 
 ```
-sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>Définition de la configuration du proxy dans un fichier
 La configuration du proxy peut être définie dans les fichiers `/etc/opt/microsoft/omsagent/proxy.conf` et `/etc/opt/microsoft/omsagent/conf/proxy.conf `. Ces fichiers peuvent être créés ou modifiés directement, mais leurs autorisations doivent être mises à jour pour accorder à l’utilisateur omiuser une autorisation de lecture sur les fichiers. Par exemple :
 ```
-proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
+proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
 sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf  
@@ -237,10 +235,10 @@ Les packages de l’agent peuvent être désinstallés en exécutant le fichier 
 * Les points de terminaison du Service OMS ne sont pas approuvés dans votre centre de données 
 
 #### <a name="resolutions"></a>Résolutions
-1. Réintégrez le service OMS à l’Agent OMS pour Linux à l’aide de la commande suivante avec l’option `-v` activée. Cela autorise une sortie détaillée de l’agent qui se connecte via le proxy au Service OMS. 
+1. Réintégrez le service OMS à l’Agent OMS pour Linux à l’aide de la commande suivante avec l’option `-v` activée. Ce settubg autorise une sortie détaillée de l’agent qui se connecte par le biais du proxy au Service OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Passez en revue la section [Configuration de l’agent pour une utilisation avec un serveur proxy HTTP(#configuring the-agent-for-use-with-a-http-proxy-server) pour vérifier que vous avez correctement configuré l’agent pour communiquer via un serveur proxy.    
+2. Consultez la section [Configuration de l’agent pour une utilisation avec un serveur proxy ou la passerelle OMS](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) pour vérifier que vous avez correctement configuré l’agent pour communiquer via un serveur proxy.    
 * Vérifiez que les points de terminaison du Service OMS suivants sont approuvés :
 
     |Ressource de l'agent| Ports |  
@@ -263,7 +261,7 @@ Les packages de l’agent peuvent être désinstallés en exécutant le fichier 
 3. Relancez l’intégration avec la bonne clé et le bon identifiant d’espace de travail en suivant les instructions d’installation fournies précédemment dans cette rubrique.
 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problème : Vous voyez une erreur 500 et 404 dans le fichier journal juste après l’intégration
-Il s’agit d’un problème connu qui se produit lors du premier chargement de données Linux dans un espace de travail OMS. Cela n’affecte pas les données envoyées ni l’expérience du service.
+Cette erreur est un problème connu qui se produit lors du premier chargement de données Linux dans un espace de travail OMS. Cette erreur n’a pas d’incidence sur les données envoyées ni sur l’expérience du service.
 
 ### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>Problème : Vous ne voyez pas toutes les données dans le portail OMS
 
@@ -281,5 +279,4 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 
     >[!NOTE]
     >Ce problème est résolu dans l’agent version 1.1.0-28 et versions ultérieures.
-
 

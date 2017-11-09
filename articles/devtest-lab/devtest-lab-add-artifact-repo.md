@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
 
@@ -36,7 +35,7 @@ La figure suivante illustre un dépôt contenant des artefacts dans GitHub :
 
 ![Exemple de dépôt d’artefacts GitHub](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
-## <a name="get-the-repository-information-and-credentials"></a>Obtention des informations de dépôt et des informations d’identification
+## <a name="get-the-repository-information-and-credentials"></a>Obtention des informations de référentiel et des informations d’identification
 Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations essentielles de votre dépôt. Les sections suivantes expliquent comment obtenir les informations requises pour les dépôts qui sont hébergés sur GitHub ou Visual Studio Team Services.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Obtenir l’URL de clonage du dépôt GitHub et le jeton d’accès personnel
@@ -50,7 +49,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 7. Dans la page **Nouveau jeton d’accès personnel**, sous **Description du jeton**, entrez une description. Accepter les éléments par défaut sous **Sélectionner des étendues**, puis sélectionnez **Générer un jeton**.
 8. Enregistrez le jeton généré. Vous l’utiliserez ultérieurement.
 9. Fermez GitHub.   
-10. Passez à la section [Connecter votre laboratoire au dépôt](#connect-your-lab-to-the-repository).
+10. Passez à la section [Connecter votre laboratoire au référentiel](#connect-your-lab-to-the-repository).
 
 ### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Obtenir l’URL de clonage du dépôt Visual Studio Team Services et le jeton d’accès personnel
 
@@ -68,16 +67,16 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
    4. Sélectionnez l’option **Toutes les étendues**.
    5. Sélectionnez **Créer le jeton**.
 9. Le nouveau jeton apparaît dans la liste **Jetons d’accès personnels**. Sélectionnez **Copier le jeton**puis enregistrez la valeur du jeton pour utilisation ultérieure.
-10. Passez à la section [Connecter votre laboratoire au dépôt](#connect-your-lab-to-the-repository).
+10. Passez à la section [Connecter votre laboratoire au référentiel](#connect-your-lab-to-the-repository).
 
-## <a name="connect-your-lab-to-the-repository"></a>Connecter votre laboratoire au dépôt
+## <a name="connect-your-lab-to-the-repository"></a>Connecter votre laboratoire au référentiel
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste de services.
 3. Dans la liste de laboratoires, sélectionnez votre laboratoire. 
 4. Sélectionnez **Configuration et stratégies** > **Dépôts** > **+ Ajouter**.
 
     ![Bouton pour ajouter un dépôt](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-5. Sur la seconde page **Dépôts**, spécifiez les informations suivantes :
+5. Sur la seconde page **Référentiels**, spécifiez les informations suivantes :
   1. **Nom**. Entrez un nom pour le dépôt.
   2. **URL Git Clone**. Entrez l’URL de clonage Git HTTPS que vous avez précédemment copiée à partir de GitHub ou Visual Studio Team Services.
   3. **Branche**. Pour obtenir vos définitions, entrez la branche.
@@ -94,9 +93,8 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Après avoir créé votre dépôt Git privé, vous pouvez effectuer au moins l’une des opérations suivantes, selon vos besoins :
+Après avoir créé votre référentiel Git privé, vous pouvez effectuer au moins l’une des opérations suivantes, selon vos besoins :
 * Stocker vos [artefacts personnalisés](devtest-lab-artifact-author.md). Vous pouvez les utiliser ultérieurement pour créer des machines virtuelles.
 * [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS à l’aide des modèles Resource Manager](devtest-lab-create-environment-from-arm.md). Ensuite, vous pouvez stocker les modèles dans votre dépôt privé.
 
-Lorsque vous créez une machine virtuelle, vous pouvez vérifier que les artefacts ou les modèles sont ajoutés à votre dépôt Git. Ils sont immédiatement disponibles dans la liste des modèles ou des artefacts. Le nom de votre dépôt privé est affiché dans la colonne qui spécifie la source. 
-
+Lorsque vous créez une machine virtuelle, vous pouvez vérifier que les artefacts ou les modèles sont ajoutés à votre référentiel Git. Ils sont immédiatement disponibles dans la liste des modèles ou des artefacts. Le nom de votre dépôt privé est affiché dans la colonne qui spécifie la source. 

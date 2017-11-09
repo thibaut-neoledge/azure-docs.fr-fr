@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 09/28/2017
 ms.author: bwren
+ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Sources de données de journal d’événements Windows dans Log Analytics
 Les journaux d’événements Windows sont les [sources de données](log-analytics-data-sources.md) les plus communément utilisées pour collecter des données à l’aide d’agents Windows puisque de nombreuses applications écrivent dans le journal d’événements Windows.  Vous pouvez collecter des événements à partir de journaux standard tels que Système et Application, ou spécifier des journaux personnalisés créés par les applications que vous souhaitez surveiller.
@@ -66,17 +65,6 @@ Les enregistrements d'événements Windows sont de type **Événement** et poss�
 Le tableau suivant fournit plusieurs exemples de recherches qui extraient des enregistrements d’événements Windows.
 
 | Interroger | Description |
-|:--- |:--- |
-| Type=Event |Tous les événements Windows. |
-| Type=Event EventLevelName=error |Tous les événements Windows avec la gravité de l'erreur. |
-| Type=Event &#124; Measure count() by Source |Nombre d’événements Windows par source. |
-| Type=Event EventLevelName=error &#124; Measure count() by Source |Nombre d’événements d’erreur Windows par source. |
-
-
->[!NOTE]
-> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les requêtes ci-dessous.
->
->| Interroger | Description |
 |:---|:---|
 | Événement |Tous les événements Windows. |
 | Événement &#124; où valeur EventLevelName == « erreur » |Tous les événements Windows avec la gravité de l'erreur. |
@@ -89,4 +77,3 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les enregistrements d'événements dans des champs individuels.
 * Configurez la [collecte des compteurs de performances](log-analytics-data-sources-performance-counters.md) à partir de vos agents Windows.
-

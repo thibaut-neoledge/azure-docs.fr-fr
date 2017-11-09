@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Cerner Central pour l’approvisionnement automatique d’utilisateurs
 
 Ce didacticiel vous montre les étapes à effectuer dans Cerner Central et Azure AD pour approvisionner et retirer automatiquement des comptes d’utilisateur d’Azure AD vers une liste d’utilisateurs dans Cerner Central. 
@@ -136,4 +134,3 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
-

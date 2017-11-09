@@ -16,15 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
 
 Cet article explique comment prédire les retards d’arrivée de vols à l’aide d’un modèle de régression logistique **ScaleR** à partir des données sur les retards de vol et météorologiques associées à **SparkR**. Ce scénario illustre les fonctionnalités de ScaleR pour la manipulation des données sur Spark avec Microsoft R Server pour l’analyse. La combinaison de ces technologies vous permet d’appliquer les dernières fonctionnalités de traitement distribué.
@@ -562,4 +559,3 @@ Pour plus d’informations sur l’utilisation de SparkR, consultez les pages su
 - [Document Apache SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)
 
 - [Vue d’ensemble de SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) à partir de Databricks
-

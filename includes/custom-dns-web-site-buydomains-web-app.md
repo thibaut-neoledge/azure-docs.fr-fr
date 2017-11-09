@@ -26,8 +26,3 @@ Vous pouvez acheter des domaines dans le [portail de gestion Azure](https://por
 
 À ce stade, vous devez pouvoir entrer le nom de domaine personnalisé dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

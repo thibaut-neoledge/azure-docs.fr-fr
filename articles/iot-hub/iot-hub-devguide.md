@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: adb9a12899e9040cd83d522c734448989636fe29
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guide du développeur Azure IoT Hub
 
@@ -49,11 +48,11 @@ Ce guide du développeur IoT Hub inclut les articles suivants :
 * L’article [Appeler une méthode directe sur un appareil][devguide-directmethods] décrit le cycle de vie d’une méthode directe et contient des informations sur la manière d’appeler des méthodes sur un appareil à partir de votre application principale et de gérer la méthode directe sur votre appareil.
 * L’article [Planifier des travaux sur plusieurs appareils][devguide-jobs] décrit la manière dont vous pouvez planifier des travaux sur plusieurs appareils. Cet article décrit comment envoyer des travaux qui effectuent des tâches telles que l’exécution d’une méthode directe ou la mise à jour d’un appareil à l’aide d’un jumeau d’appareil. Il décrit également comment interroger l’état d’un travail.
 * L’article [Référence - Choisir un protocole de communication][devguide-protocol] décrit les protocoles de communication que prend en charge IoT Hub pour la communication des appareils et répertorie les ports qui doivent être ouverts.
-* La rubrique [Référence - Points de terminaison IoT Hub][devguide-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion. Cet article explique également comment créer des points de terminaison supplémentaires dans IoT Hub et comment utiliser une passerelle de champ pour activer la connectivité entre les appareils et les points de terminaison IoT Hub dans des scénarios non standard.
+* La rubrique [Référence - Points de terminaison IoT Hub][devguide-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion. Cet article explique également comment créer des points de terminaison supplémentaires dans IoT Hub et comment utiliser une passerelle de champ pour activer la connectivité avec les points de terminaison IoT Hub dans des scénarios non standard.
 * La rubrique [Référence - Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][devguide-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir de votre hub des informations sur vos jumeaux d’appareil et vos travaux.
-* L’article [Référence - Quotas et limitation][devguide-quotas] résume les quotas définis dans le service IoT Hub et le comportement de limitation appliqué lorsque vous dépassez un quota.
+* L’article [Référence - Quotas et limitation][devguide-quotas] récapitule les quotas définis dans le service IoT Hub et la limitation appliquée quand vous dépassez un quota.
 * [Référence - Tarification][devguide-pricing] fournit des informations générales sur les différentes références SKU et les tarifs d’IoT Hub, ainsi que des informations sur la façon dont les différentes fonctionnalités d’IoT Hub sont mesurées en tant que messages par IoT Hub.
-* L’article [Référence - Kits de développement logiciel (SDK) de services et d’appareils][devguide-sdks] répertorie les Kits de développement logiciel (SDK) Azure IoT que vous pouvez utiliser lors du développement d’appareils et d’applications de service qui interagissent avec IoT Hub. L’article inclut des liens vers la documentation en ligne sur les API.
+* L’article [Référence - Kits de développement logiciel (SDK) de services et d’appareils][devguide-sdks] répertorie les SDK Azure IoT que vous pouvez utiliser lors du développement d’appareils et d’applications de service qui interagissent avec IoT Hub. L’article inclut des liens vers la documentation en ligne sur les API.
 * L’article [Référence - Prise en charge de MQTT au niveau d’IoT Hub][devguide-mqtt] fournit des informations détaillées sur la prise en charge du protocole MQTT par IoT Hub. L’article décrit la prise en charge du protocole MQTT intégré dans les Kits de développement logiciel (SDK) Azure IoT et fournit des informations sur l’utilisation directe du protocole MQTT.
 * [Glossaire][devguide-glossary] contient une liste des termes courants relatifs à IoT Hub.
 
@@ -79,4 +78,3 @@ Ce guide du développeur IoT Hub inclut les articles suivants :
 [devguide-messages-c2d]: iot-hub-devguide-messages-c2d.md
 [devguide-format]: iot-hub-devguide-messages-construct.md
 [devguide-protocol]: iot-hub-devguide-protocols.md
-

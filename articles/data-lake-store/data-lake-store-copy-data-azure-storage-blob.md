@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 00b2f08ef40266ad4b99adfa9c8632bd817f9a81
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copier des données d’objets blob Azure Storage vers Data Lake Store
 > [!div class="op_single_selector"]
@@ -146,7 +144,7 @@ Par exemple :
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
-De la même manière, exécutez la commande suivante pour copier à partir d’un objet blob Azure Storage vers un compte Data Lake Store l’aide du compte Data Lake Analytics :
+De même, exécutez la commande ci-après pour copier tous les fichiers à partir d’un dossier spécifique du compte Data Lake Store source vers un dossier du compte Data Lake Store de destination à l’aide du compte Data Lake Analytics :
 
     AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
 
@@ -175,7 +173,7 @@ Dans cette section, vous apprenez à utiliser AdlCopy pour copier des données d
 
 ## <a name="performance-considerations-for-using-adlcopy"></a>Considérations de performances sur l’utilisation d’AdlCopy
 
-AdlCopy prend en charge la copie de données contenant des milliers de fichiers et dossiers. Toutefois, si vous rencontrez des problèmes lors de la copie d’un jeu de données volumineux, vous pouvez distribuer les fichiers et dossiers dans des sous-dossiers plus petits. AdlCopy est conçu pour les copies ad hoc. Si vous tentez de copier des données sur une base périodique, vous envisagez d’utiliser [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md), qui fournit une gestion complète des opérations de copie.
+AdlCopy prend en charge la copie de données contenant des milliers de fichiers et dossiers. Toutefois, si vous rencontrez des problèmes lors de la copie d’un jeu de données volumineux, vous pouvez distribuer les fichiers et dossiers dans des sous-dossiers plus petits. AdlCopy est conçu pour les copies ad hoc. Si vous tentez de copier des données sur une base périodique, vous envisagez d’utiliser [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md), qui fournit une gestion complète des opérations de copie.
 
 ## <a name="release-notes"></a>Notes de publication
 * 1.0.13 – si vous copiez des données sur le même compte Azure Data Lake Store sur plusieurs commandes adlcopy, il n’est pas nécessaire de saisir à nouveau vos informations d’identification pour chaque exécution. Adlcopy met alors en cache ces informations sur plusieurs exécutions.
@@ -184,4 +182,3 @@ AdlCopy prend en charge la copie de données contenant des milliers de fichiers 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 5b689c07bf8baa531c7a50ca50ed5140c1787e7b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Débogage piloté par les données à l’aide du diagramme de travail
 
 Le diagramme de travail dans le panneau **Surveillance** sur le portail Azure peut vous aider à visualiser votre pipeline de travail. Il montre les entrées, les sorties et les étapes de requête. Vous pouvez utiliser le diagramme de travail pour examiner les mesures pour chaque étape, afin d’isoler plus rapidement la source d’un problème lors de la résolution de problèmes.
@@ -96,4 +94,3 @@ Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics
 * [Mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md)
 * [Informations de référence sur le langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

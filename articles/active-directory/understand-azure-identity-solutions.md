@@ -13,12 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
+ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: b7328eea378dde886419be8a4ab5b6f69c0b0d24
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Comprendre les solutions d’identité Azure
 Microsoft Azure Active Directory (Azure AD) est une solution cloud de gestion des identités et des accès qui associe des services d’annuaire, une gouvernance des identités et la gestion de l’accès aux applications. Azure AD [active rapidement l’authentification unique (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) sur des milliers d’applications commerciales et personnalisées dans la [galerie d’applications Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Vous utilisez probablement déjà bon nombre de ces applications : Office 365, Salesforce.com, Box, ServiceNow et Workday.
@@ -40,7 +39,7 @@ Avant de prendre une décision concernant la solution de gestion des identités 
 |Annuaire Azure AD | Chaque client Azure dispose d’un annuaire Azure AD dédié et approuvé contenant ses utilisateurs, groupes et applications. Celui-ci est utilisé pour exécuter des fonctions de gestion des identités et des accès en relation avec les ressources du client. Étant donné qu’un annuaire Azure AD est automatiquement configuré pour représenter votre organisation lorsque vous souscrivez un service Microsoft Cloud tel qu’Azure, Microsoft Intune ou Office 365, les termes *Client*, *Azure AD* et *Azure Active Directory* son parfois utilisés de façon interchangeable. |
 |Domaine personnalisé | Lorsque vous souscrivez pour la première fois un abonnement à un service Microsoft Cloud, votre client (ou organisation) utilise un nom de domaine *.onmicrosoft.com*. Toutefois, la plupart des organisations disposent d’un ou plusieurs noms de domaine utilisés pour les relations commerciales, dont les utilisateurs finaux peuvent se servir pour accéder aux ressources de l’entreprise. Vous pouvez ajouter votre nom de domaine personnalisé à Azure AD afin que vos utilisateurs puissent s’y habituer, par exemple, en spécifiant *alice@contoso.com* au lieu de *alice@contoso.onmicrosoft.com*. |
 |Compte Azure AD | Il s’agit d’identités créées à l’aide d’Azure AD ou d’un autre service Microsoft Cloud tel qu’Office 365. Elles sont stockées dans Azure AD, et accessibles à tout abonnement au service cloud de l’organisation. |
-|Administrateur d’abonnement Azure| L’administrateur de compte est la personne qui s’est inscrite ou a acheté l’abonnement Azure. Il peut utiliser le [Centre des comptes](https://account.windowsazure.com/Home/Index) pour effectuer diverses tâches de gestion comme créer des abonnements, annuler des abonnements, modifier la facturation d’un abonnement et modifier l’administrateur de services fédérés. |
+|Administrateur d’abonnement Azure| L’administrateur de compte est la personne qui s’est inscrite ou a acheté l’abonnement Azure. Il peut utiliser le [Centre des comptes](https://account.azure.com/Subscriptions) pour effectuer diverses tâches de gestion comme créer des abonnements, annuler des abonnements, modifier la facturation d’un abonnement et modifier l’administrateur de services fédérés. |
 |Administrateur général Azure AD | Les administrateurs généraux Azure AD disposent d’un accès illimité à toutes les fonctions d’administration d’Azure AD. La personne qui souscrit un abonnement au service Microsoft Cloud devient automatiquement un administrateur général par défaut. Vous pouvez avoir plusieurs administrateurs généraux, mais seuls ceux-ci peuvent affecter les [autres rôles Administrateur](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) à des utilisateurs. |
 |Compte Microsoft | Les comptes Microsoft (créés par vous pour votre usage personnel) donnent accès à l’ensemble des produits et services cloud Microsoft orientés utilisateur, comme Outlook (Hotmail), OneDrive, Xbox LIVE ou Office 365. Ces identités sont créées et stockées dans le système de comptes d’identité des consommateurs de Microsoft.|
 |Comptes professionnels ou scolaires | Les comptes professionnels ou scolaires (créés par un administrateur pour une utilisation professionnelle ou scolaire) donnent accès à des services cloud Microsoft de niveau professionnel, tels qu’Azure, Intune ou Office 365.|
@@ -128,4 +127,3 @@ Nous pouvons vous proposer une multitude de ressources en ligne très utiles pou
 [En apprendre davantage dans un environnement de preuve de concept Azure](https://aka.ms/aad-poc)
 
 [Déployer Azure AD en production](https://aka.ms/aad-onboard)
-

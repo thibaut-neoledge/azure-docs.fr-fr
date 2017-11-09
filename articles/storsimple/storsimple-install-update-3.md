@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: f48f9dff289c556aea1912ecf7b6415abb902f33
 ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>Installer Update 3 sur votre appareil StorSimple série 8000
 
@@ -119,5 +118,4 @@ Procédez comme suit pour télécharger et importer les correctifs logiciels.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez plus en détails la [version Update 3](storsimple-update3-release-notes.md).
-
 

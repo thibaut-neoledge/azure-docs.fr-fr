@@ -3,7 +3,7 @@ title: "Création, gestion ou suppression d’un compte de stockage à l’aide 
 description: "Créez un compte de stockage, gérez vos clés d’accès au compte ou supprimez un compte de stockage dans le Portail Azure. En savoir plus sur les comptes de stockage standard et Premium."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
@@ -12,18 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-f1_keywords:
-- sql13.swb.windowsazurestorage.connect.f1
-ms.date: 01/23/2017
-ms.author: robinsh
+f1_keywords: sql13.swb.windowsazurestorage.connect.f1
+ms.date: 10/11/2017
+ms.author: tamram
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 848f6b07e51b58b00b81dd42ca1d478fdba20d06
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>À propos des comptes de stockage Azure
+
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -34,6 +33,7 @@ Un compte de stockage Azure fournit un espace de noms unique pour stocker vos ob
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ## <a name="storage-account-billing"></a>Facturation du compte de stockage
+
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -63,7 +63,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu Hub, sélectionnez **Nouveau** -> **Stockage** -> **Compte de stockage**.
+2. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Plus de services**. Faites défiler jusqu’à **Stockage**, puis sélectionnez **Comptes de stockage**. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
 3. Entrez un nom pour votre compte de stockage. Pour plus d’informations sur l’utilisation du nom de compte de stockage pour adresser les objets que vous stockez dans Azure Storage, consultez [Points de terminaison d’un compte de stockage](#storage-account-endpoints) .
    
    > [!NOTE]
@@ -79,7 +79,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 5. Sélectionnez le type de compte de stockage : **Usage général** ou **Stockage Blob**. **Usage général** .
    
-    Si **Usage général** est sélectionné, spécifiez le niveau de performances **Standard** ou **Premium**. Le niveau par défaut est **Standard**. Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Introduction au Stockage Microsoft Azure](storage-introduction.md) et [Stockage Premium : stockage hautes performances pour les charges de travail des Machines Virtuelles Azure](storage-premium-storage.md).
+    Si **Usage général** est sélectionné, spécifiez le niveau de performances **Standard** ou **Premium**. Le niveau par défaut est **Standard**. Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Introduction au Stockage Microsoft Azure](storage-introduction.md) et [Stockage Premium : stockage hautes performances pour les charges de travail des Machines Virtuelles Azure](../../virtual-machines/windows/premium-storage.md).
    
     Si **Stockage Blob** est sélectionné, spécifiez le niveau d’accès **Chaud** ou **Froid**. Le niveau par défaut est **Chaud**. Pour plus d’informations, voir [Stockage d’objets blob Azure : niveaux froid et chaud](../blobs/storage-blob-storage-tiers.md) .
 6. Sélectionnez l’option de réplication du compte de stockage : **LRS**, **GRS**, **RA-GRS** ou **ZRS**. La valeur par défaut est **RA-GRS**. Pour plus d’informations sur les options de réplication d’Azure Storage, consultez [Réplication Azure Storage](storage-redundancy.md).
@@ -149,5 +149,4 @@ Si vous essayez de supprimer un compte de stockage associé à une machine virtu
 * [Configuration des chaînes de connexion Azure Storage](../storage-configure-connection-string.md)
 * [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 * Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
-
 

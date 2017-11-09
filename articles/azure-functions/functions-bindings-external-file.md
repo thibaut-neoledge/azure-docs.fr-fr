@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
+ms.openlocfilehash: 7e3b396d290212d3875385521bd7ae92da196b95
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2082e4e9b23271be93f3e3ab43997c3243238da8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Liaisons de fichiers externes Azure Functions (version préliminaire)
 Cet article montre comment manipuler les fichiers à partir de différents fournisseurs SaaS (par exemple, OneDrive, Dropbox) au sein de votre fonction en utilisant des liaisons intégrées. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour les fichiers externes.
@@ -34,7 +33,7 @@ Cette liaison crée des connexions d’API aux fournisseurs SaaS, ou utilise des
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[FTP](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp)|x|x|x
+|[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive Entreprise](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
@@ -364,4 +363,3 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-

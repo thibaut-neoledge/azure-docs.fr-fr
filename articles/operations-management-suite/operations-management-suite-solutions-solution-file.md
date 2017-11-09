@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Création d’un fichier de solutions de gestion dans Operations Management Suite (OMS) (préversion)
 > [!NOTE]
@@ -246,4 +244,3 @@ Vous pouvez voir des exemples de fichiers de solution avec une ressource de solu
 * [Ajoutez des runbooks et d’autres ressources Automation](operations-management-suite-solutions-resources-automation.md) à votre solution de gestion.
 * Découvrez comment [créer des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.
-

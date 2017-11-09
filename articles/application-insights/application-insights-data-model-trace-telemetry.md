@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 178b1ec0edce5a3fb20dc5c591e12cfe6e721cf2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 0398774e21d89fd084e6929bc5e410697d2aafaa
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Télémétrie des traces : modèle de données Application Insights
 
@@ -44,4 +43,3 @@ Niveau de gravité de trace. La valeur peut être `Verbose`, `Information`, `War
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
 - [Écrire des données de télémétrie de trace personnalisées](app-insights-api-custom-events-metrics.md#tracktrace)
 - Découvrez quelles [plateformes](app-insights-platforms.md) sont prises en charge par Application Insights.
-

@@ -4,7 +4,7 @@ description: "Découvrez comment vous connecter à un serveur Analysis Services 
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: b37f70a0-9166-4173-932d-935d769539d1
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2e1b9495cecac0095a9364752967f868f8e92530
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: d6cafc72f74dc0ec891591d3311f93ba1649f922
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connect-to-an-azure-analysis-services-server"></a>Se connecter à un serveur Azure Analysis Services
 
@@ -81,5 +80,4 @@ Avec les versions antérieures d’Excel, les utilisateurs peuvent se connecter 
 [Connexion avec Excel](analysis-services-connect-excel.md)    
 [Connexion avec Power BI](analysis-services-connect-pbi.md)   
 [Gérer votre serveur](analysis-services-manage.md)   
-
 

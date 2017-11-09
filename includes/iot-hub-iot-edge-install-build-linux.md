@@ -2,11 +2,11 @@
 
 Les étapes de ce didacticiel supposent que vous exécutez Ubuntu Linux.
 
-Ouvrez un interpréteur de commandes et exécutez les commandes suivantes pour installer les packages requis :
+Pour installer les packages requis, ouvrez un interpréteur de commandes et exécutez les commandes suivantes :
 
 ```bash
 sudo apt-get update
-sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
+sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake pkg-config libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
 Dans l’interpréteur de commandes, exécutez la commande suivante pour cloner le référentiel GitHub d’Azure IoT Edge sur l’ordinateur local :

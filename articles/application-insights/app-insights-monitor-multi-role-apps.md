@@ -3,7 +3,7 @@ title: Prise en charge par Azure Application Insights de plusieurs composants, m
 description: "Surveillance des performances et de l’utilisation des applications constituées de plusieurs composants ou de plusieurs rôles."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: d8b466caba7201a5bb8612e773ad61943f6d1cf2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Surveiller des applications multicomposants avec Application Insights (préversion)
 
@@ -49,7 +48,7 @@ Configurez chaque composant de votre application en utilisant la méthode qui co
 
 ### <a name="1-install-the-latest-pre-release-package"></a>1. Installer la préversion la plus récente du package
 
-Mettez à jour ou installez les packages Application Insights dans le projet pour chaque composant serveur. Si vous utilisez Visual Studio :
+Mettre à jour ou installer les packages Application Insights dans le projet pour chaque composant du serveur. Si vous utilisez Visual Studio :
 
 1. Cliquez avec le bouton droit sur un projet et sélectionnez **Gérer les packages NuGet**. 
 2. Sélectionnez **Inclure la préversion**.
@@ -129,4 +128,3 @@ Cliquez pour obtenir une liste corrélée de la télémétrie pour cette opérat
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Télémétrie distincte entre le développement, les tests et la production](app-insights-separate-resources.md)
-

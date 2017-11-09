@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c48dc5cb5dd6dfa09ff9718e78f8d560886851be
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: ea6e6c4044a0163ae36d6790755b67c5066251a8
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -111,4 +110,3 @@ Le Kit de développement logiciel (SDK) à partir de la version `2.4.0-beta1` ut
 - Intégrez tous les composants de votre microservice sur Application Insights. Consultez les [plateformes prises en charge](app-insights-platforms.md).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
 - Découvrez comment [étendre et filtrer la télémétrie](app-insights-api-filtering-sampling.md).
-

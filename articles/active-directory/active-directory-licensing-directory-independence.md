@@ -1,5 +1,5 @@
 ---
-title: "Caractéristiques de l’interaction des locataires Azure Active Directory | Microsoft Docs"
+title: "Caractéristiques de l’interaction des locataires Azure Active Directory | Microsoft Docs"
 description: "Gérer vos locataires Azure Active Directory en les considérant comme des ressources entièrement indépendantes"
 services: active-tenant
 documentationcenter: 
@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
+ms.openlocfilehash: 5c9225212e51d03ae40e3a55a6b9e6c0e74b5ced
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: d25d2c731034d0785bbd404ec693c4c41d913d01
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Comprendre l’interaction entre plusieurs locataires Azure Active Directory
 
 Dans Azure Active Directory (Azure AD), chaque locataire est une ressource entièrement indépendante, c’est-à-dire un homologue logiquement indépendant des autres locataires que vous gérez. Il n’existe pas de relation parent-enfant entre les locataires. Cette indépendance entre les locataires vaut pour les ressources, l’administration et la synchronisation.
@@ -49,9 +47,8 @@ Vous pouvez configurer chaque locataire Azure AD de manière indépendante de s
 Pour ajouter un locataire Azure AD dans le portail Azure, connectez-vous au [portail Azure](https://portal.azure.com) avec un compte qui est un administrateur général Azure AD et, sur la gauche, sélectionnez **Nouveau**.
 
 > [!NOTE]
-> Contrairement aux autres ressources Azure, vos locataires ne sont pas des ressources enfants d’un abonnement Azure. Si votre abonnement Azure est annulé ou qu’il est arrivé à expiration, vous pouvez toujours accéder aux données de votre locataire via Azure PowerShell, l’API Azure Graph ou le centre d’administration Office 365. Vous pouvez aussi associer un autre abonnement au locataire.
+> Contrairement aux autres ressources Azure, vos locataires ne sont pas des ressources enfants d’un abonnement Azure. Si votre abonnement Azure est annulé ou qu’il est arrivé à expiration, vous pouvez toujours accéder aux données de votre locataire via Azure PowerShell, l’API Azure Graph ou le centre d’administration Office 365. Vous pouvez aussi [associer un autre abonnement au locataire](active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et découvrir les bonnes pratiques, consultez [Qu’est-ce que la gestion de licences de locataires Azure Active Directory ?](active-directory-licensing-whatis-azure-portal.md).
-
+Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et découvrir les bonnes pratiques, consultez [Qu’est-ce que la gestion des licences de locataires Azure Active Directory ?](active-directory-licensing-whatis-azure-portal.md).

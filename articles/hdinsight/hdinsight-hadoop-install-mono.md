@@ -12,17 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/23/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 2721b41e8736c9ebd75cd098ad376018b4563d3f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: a6e5712026dc2da3627c07e9b411c81fb9a7e1fb
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="install-or-update-mono-on-hdinsight"></a>Installation ou mise à jour de Mono sur HDInsight
 
 Apprenez à installer une version spécifique de [Mono](https://www.mono-project.com) sur HDInsight 3.4 ou version ultérieure.
@@ -57,9 +55,10 @@ Tout en respectant le document d’action de script, utilisez l’URI suivant :
 
     https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash
 
+Pour spécifier la version Mono qui est installée, utilisez le numéro de version dans le champ __Paramètres__. Par exemple, entrez `5.4` pour installer Mono 5.4.
+
 > [!NOTE]
 > Lorsque vous configurez HDInsight avec ce script, définissez le script sur le statut __Persisted__ (Persistant). Ce paramètre permet à HDInsight d’appliquer le script aux nœuds de travail ajoutés par les opérations de mise à l’échelle.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: d609231d6d9913b0f40b6e311aeedeb9a2391c7c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: b5878d8a2e18cf08b6e9074ecf40cd732624f0c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>Activer la synchronisation hors connexion pour votre application mobile Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -38,8 +37,8 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
 2. Ouvrez le fichier QSTodoService.cs et supprimez les marques de commentaire de la définition `#define OFFLINE_SYNC_ENABLED`.
 3. Régénérez et exécutez l’application cliente. L’application fonctionne comme elle le faisait avant l’activation de la synchronisation hors connexion. Toutefois, la base de données locale est maintenant remplie avec des données qui peuvent être utilisées dans un scénario hors connexion.
 
-## <a name="update-sync"></a>Mise à jour de l’application pour se déconnecter du serveur principal
-Dans cette section, vous rompez la connexion avec l’application mobile afin de simuler un scénario hors connexion. Lorsque vous ajouterez des éléments de données, votre gestionnaire d’exceptions signalera que l’application est en mode hors connexion. Dans cet état, les nouveaux éléments ajoutés au magasin local seront synchronisés avec le backend de l’application mobile lors de la prochaine opération Push en état connecté.
+## <a name="update-sync"></a>Mise à jour de l’application pour se déconnecter du backend
+Dans cette section, vous rompez la connexion avec votre backend d’application mobile afin de simuler un scénario hors connexion. Lorsque vous ajouterez des éléments de données, votre gestionnaire d’exceptions signalera que l’application est en mode hors connexion. Dans cet état, les nouveaux éléments ajoutés au magasin local seront synchronisés avec le backend de l’application mobile lors de la prochaine opération Push en état connecté.
 
 1. Modifiez QSToDoService.cs dans le projet partagé. Modifiez la variable **applicationURL** afin de pointer vers une URL non valide :
 
@@ -58,7 +57,7 @@ Réactivez le réseau.  Lorsque vous exécutez l’application pour la première
 
 1. Ouvrez QSToDoService.cs dans le projet partagé et annulez votre modification de la propriété **applicationURL**.
 2. Régénérez et exécutez l'application. L’application synchronise vos modifications locales avec le serveur principal d’applications mobiles Azure par des opérations d’extraction et d’envoi lorsque la méthode `OnRefreshItemsSelected` s’exécute.
-3. (Facultatif) Affichez les données mises à jour à l’aide de l’Explorateur d’objets SQL Server ou d’un outil REST tel que Fiddler. Notez que les données ont été synchronisées entre la base de données principale Azure Mobile App et le magasin local.
+3. (Facultatif) Affichez les données mises à jour à l’aide de l’Explorateur d’objets SQL Server ou d’un outil REST tel que Fiddler. Notez que les données ont été synchronisées entre la base de données du backend d’application mobile Azure et le magasin local.
 4. Dans l'application, cochez la case en regard de quelques éléments pour les exécuter dans le magasin local.
 
    `CompleteItemAsync` appelle `SyncAsync` pour synchroniser chaque élément complété avec le serveur principal d’applications mobiles. `SyncAsync` appelle des opérations Push et Pull.
@@ -115,4 +114,3 @@ Le projet client Xamarin que vous avez téléchargé quand vous avez suivi le di
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-

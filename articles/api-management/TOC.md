@@ -6,13 +6,15 @@
 ## [Ajouter la mise en cache pour améliorer les performances](api-management-howto-cache.md)
 ## [Forum Aux Questions](api-management-faq.md)
 # Procédures
+## Configurer un service APIM
+### [Créer une instance APIM](get-started-create-service-instance.md)
+### [Mettre à niveau et mettre à l’échelle](upgrade-and-scale.md)
+### [Configurer un domaine personnalisé](configure-custom-domain.md)
 ## Développer des API
 ### [Ajouter et publier un produit API](api-management-howto-add-products.md)
 ### [Ajouter des opérations](api-management-howto-add-operations.md)
 ### [Création d'une API](api-management-howto-create-apis.md)
 ### [Importer une définition d’API](api-management-howto-import-api.md)
-### [Prise en main des révisions](api-management-get-started-revise-api.md)
-### [Prise en main des versions](api-management-get-started-publish-versions.md)
 ## Sécuriser votre serveur principal
 ### [Protéger le serveur principal d’API web avec AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Se connecter à un réseau virtuel](api-management-using-with-vnet.md)
@@ -48,12 +50,13 @@
 ### [Configurer à l’aide de Git](api-management-configuration-repository-git.md)
 ### [Surveiller à l’aide d’Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Utiliser le contrôle d’accès en fonction du rôle](api-management-role-based-access-control.md)
+### [Utiliser l’identité du service administré](api-management-howto-use-managed-service-identity.md)
 ### Intégrer avec Service Fabric
 #### [Vue d'ensemble](../service-fabric/service-fabric-api-management-overview.md)
 #### [Démarrage rapide](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Référence
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Stratégies](api-management-policies.md)

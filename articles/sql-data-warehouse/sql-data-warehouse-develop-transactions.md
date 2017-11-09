@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transactions dans SQL Data Warehouse
 Comme vous le savez, SQL Data Warehouse prend en charge les transactions dans le cadre de la charge de travail de l’entrepôt de données. Toutefois, pour garantir que les performances de SQL Data Warehouse sont maintenues à l’échelle, certaines fonctionnalités sont limitées, par rapport à SQL Server. Cet article identifie les différences et répertorie les autres éléments disponibles. 
@@ -36,7 +35,7 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 * Une distribution égale des données s’est produite 
 * La longueur de ligne moyenne est de 250 octets
 
-| [DWU][DWU] | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | # Nombre de lignes par distribution | Nombre de lignes max par transaction |
+| [DWU][DWU] | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200 |1.5 |60 |90 |6 000 000 |360 000 000 |
@@ -191,4 +190,3 @@ Pour plus d’informations sur l’optimisation des transactions, consultez la p
 <!--MSDN references-->
 
 <!--Other Web references-->
-

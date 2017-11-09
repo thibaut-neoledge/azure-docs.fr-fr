@@ -12,13 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/02/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 068adc72976ec8429312f1909d0fd65460b73e98
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 8f5703d15766f221517cd89352d41685652d32d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C : gestion de la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées
 L’utilisation de stratégies personnalisées vous fournit le même contrôle sur vos configurations de jetons, de sessions et d’authentification unique (SSO) que les stratégies prédéfinies.  Pour connaître l’effet de chaque paramètre, consultez la documentation [ici](#active-directory-b2c-token-session-sso).
@@ -93,4 +91,3 @@ Pour changer le comportement des sessions et les configurations de SSO, vous dev
 **Durée de vie de la session d’application web (minutes)** Pour modifier la durée de vie de la session d’application web, vous devez modifier la valeur de l’élément `<SessionExpiryInSeconds>`.  La valeur par défaut dans les stratégies prédéfinies est de 86 400 secondes (1 440 minutes).
 
 **Délai d’expiration de la session d’application web** Pour modifier le délai d’expiration de la session d’application web, vous devez modifier la valeur de l’élément `<SessionExpiryType>`.  Les valeurs possibles sont `Absolute` et `Rolling`.
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/22/2017
 ms.author: trinadhk;markgal
+ms.openlocfilehash: b6e4c6761e1bd5c17c9c3428491113042d3b1d31
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: d0b6eb8eea8971eb8f80c6623f9a41a3692241b3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
@@ -47,7 +45,7 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 | Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde sur le coffre, contributeur de machine virtuelle sur des machines virtuelles |
 | Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde |
 | Restaurer une machine virtuelle | Opérateur de sauvegarde, collaborateur de groupe de ressources dans lequel des réseaux virtuels et la machine virtuelle vont être déployés |
-| Restaurer des disques et des fichiers individuels à partir d’une sauvegarde de machine virtuelle | Opérateur de sauvegarde |
+| Restaurer des disques et des fichiers individuels à partir d’une sauvegarde de machine virtuelle | Opérateur de sauvegarde, contributeur de machine virtuelle sur des machines virtuelles |
 | Créer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde |
 | Modifier une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde |
 | Supprimer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde |
@@ -62,4 +60,3 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
   * [Interface de ligne de commande Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [API REST](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Résolution des problèmes de contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-troubleshooting.md): obtenez des suggestions pour résoudre les problèmes courants.
-

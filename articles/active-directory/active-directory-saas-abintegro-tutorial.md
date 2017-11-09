@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: a2a3c1a7a338ee1cb35dd08176ad3bb5f3cdc319
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Didacticiel : Intégration d’Azure Active Directory à Abintegro
 
@@ -112,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_url.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL selon le modèle suivant : `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`
 
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez [l’équipe de support technique Abintegro](mailto:support@abintegro.com) pour obtenir cette valeur. 
@@ -224,5 +222,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_203.png
-
 

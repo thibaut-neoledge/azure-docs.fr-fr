@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 10/22/2017
 ms.author: raiye
+ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -30,14 +29,26 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 >
 
 
-> [!NOTE]
-> Le flux RSS a récemment été déconseillé. Surveillez les mises à jour sur un nouveau flux bientôt disponible !
+> [!TIP]
+>  Abonnez-vous au [Flux RSS de mise à jour du SE invité] pour recevoir en temps voulu les notifications relatives à toutes les modifications du SE invité.
+>
+>
+
+> [!IMPORTANT]
+> À partir de la version de novembre, seules les 2 dernières versions du SE invité seront prises en charge et disponibles dans le portail Azure.
 >
 >
 
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+
+###### <a name="october-6-2017"></a>**6 octobre 2017**
+Publication du SE invité septembre. Pour la version de septembre de Windows Server 2016, netfx3 est activé par défaut. Les clients doivent ajouter « dism /online /disable-feature /featurename:netfx3 » dans leur OnStart si leur flux de travail en a besoin pour exécuter une application .NET 2.x avec un runtime 4.x ou s’ils ont exécuté une application .NET 2.x, ont géré une erreur, puis ont exécuté une application .NET 4.x.
+
+###### <a name="september-14-2017"></a>**14 septembre 2017**
+Le déploiement du système d’exploitation invité du mois de septembre commence le 14 septembre, et sa publication est prévue le 9 octobre.
 
 ###### <a name="august-24-2017"></a>**24 août 2017**
 Publication du SE invité août.
@@ -66,16 +77,10 @@ Début du déploiement du SE invité de mai le 12 mai et publication projetée 
 ###### <a name="april-18-2017"></a>**18 avril 2017**
 Début du déploiement du SE invité d’avril le 18 avril et publication projetée le 9 mai.
 
-###### <a name="april-10-2017"></a>**10 avril 2017**
-Le déploiement du SE invité de mars a commencé le 14 mars 2017 et s’est achevé le 10 avril 2017.
-
-###### <a name="january-10-2017"></a>**10 janvier 2017**
-Le SE invité de janvier contient des correctifs qui affectent uniquement la famille de SE 2 (Windows Server 2008 R2). Nous n’avons donc publié que l’image de la famille de SE 2 (WA-GUEST-OS-2.59_201701-01) pour ce mois. Pour toutes les autres familles de SE, le SE de décembre (201612-01) reste la version la plus à jour.
-
 
 ## <a name="releases"></a>Publications
 ## <a name="family-5-releases"></a>Publications de famille 5
-**Windows Server 2016**
+**Windows Server 2016**
 
 .NET Framework est installé : 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
@@ -87,9 +92,10 @@ Le SE invité de janvier contient des correctifs qui affectent uniquement la fam
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.11_201709-01 |6 octobre 2017 |Post 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |24 août 2017 |Post 5.12 |TBD |
 | WA-GUEST-OS-5.9_201707-01 |3 août 2017 |Post 5.11 |TBD |
-| WA-GUEST-OS-5.8_201706-01 |7 juillet 2017 |Post 5.10 |TBD |
+|~~WA-GUEST-OS-5.8_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
@@ -100,7 +106,7 @@ Le SE invité de janvier contient des correctifs qui affectent uniquement la fam
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
 
-Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework est installé : 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Les dates précédées de * sont susceptibles de changer.
@@ -109,9 +115,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.46_201709-01 |6 octobre 2017 |Post 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |24 août 2017 |Post 4.47 |TBD |
 | WA-GUEST-OS-4.44_201707-01 |3 août 2017 |Post 4.46 |TBD |
-| WA-GUEST-OS-4.43_201706-01 |7 juillet 2017 |Post 4.45 |TBD |
+|~~WA-GUEST-OS-4.43_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
@@ -126,7 +133,7 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 ## <a name="family-3-releases"></a>Publications de famille 3
 **Windows Server 2012**
 
-Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework est installé : 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Les dates précédées de * sont susceptibles de changer.
@@ -135,9 +142,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.53_201709-01 |6 octobre 2017 |Post 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |24 août 2017 |Post 3.54 |TBD |
 | WA-GUEST-OS-3.51_201707-01 |3 août 2017 |Post 3.53 |TBD |
-| WA-GUEST-OS-3.50_201706-01 |7 juillet 2017 |Post 3.52 |TBD |
+|~~WA-GUEST-OS-3.50_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
@@ -152,7 +160,7 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
 
-Prend en charge .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework est installé : 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Les dates précédées de * sont susceptibles de changer.
@@ -161,9 +169,10 @@ Prend en charge .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.66_201709-01 |6 octobre 2017 |Post 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |24 août 2017 |Post 2.67 |TBD |
 | WA-GUEST-OS-2.64_201707-01 |3 août 2017 |Post 2.66 |TBD |
-| WA-GUEST-OS-2.63_201706-01 |7 juillet 2017 |Post 2.65 |TBD |
+|~~WA-GUEST-OS-2.63_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
@@ -232,6 +241,7 @@ Si vous procédez à une mise à jour manuelle de votre SE invité, consultez la
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité
 La prise en charge et la stratégie de suppression du SE invité sont détaillées [ici][retirepolicy].
 
+[Flux RSS de mise à jour du SE invité]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -251,4 +261,3 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [correctif]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
-

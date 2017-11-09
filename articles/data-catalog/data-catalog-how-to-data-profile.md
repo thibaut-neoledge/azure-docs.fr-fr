@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1d825277b63e00d93136161d50d780daa95ea8a7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 8f4174f0ed74706b8275c8b1f0a62753f2834fa2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-profile-data-sources"></a>Profilage de données dans des sources de données
 ## <a name="introduction"></a>Introduction
@@ -93,4 +92,3 @@ Le profilage des données fournit des statistiques et des informations sur les r
 ## <a name="see-also"></a>Voir aussi
 * [Inscription de sources de données](data-catalog-how-to-register.md)
 * [Prise en main d’Azure Data Catalog](data-catalog-get-started.md)
-

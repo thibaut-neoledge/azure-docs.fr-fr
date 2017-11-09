@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
-ms.openlocfilehash: 6e66eb076ac7220823a848b5047f147d4101cd55
-
-
+ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertes en temps réel dans Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -34,10 +34,10 @@ Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette 
 ## <a name="creating-a-real-time-alert"></a>Création d’une alerte en temps réel
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN.
    
-    ![Panneau du profil CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
-2. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer** .
+    ![Profil CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
+1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer** .
    
-    ![Bouton de gestion du panneau de profil CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
+    ![Bouton de gestion du profil CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
     Le portail de gestion CDN s'ouvre.
 3. Pointez sur l’onglet **Analyse**, puis sur le menu volant **Statistiques en temps réel**.  Cliquez sur **Alertes en temps réel**.
@@ -59,7 +59,7 @@ Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette 
     ![Type de média avec HTTP Large Object sélectionné](./media/cdn-real-time-alerts/cdn-http-large.png)
    
    > [!IMPORTANT]
-   > Vous devez sélectionner **HTTP Large Object** comme **Type de média**.  Les autres options ne sont pas utilisées par **Azure CDN de Verizon**.  Si vous ne sélectionnez pas **HTTP Large Object** , votre alerte ne se déclenchera jamais.
+   > Vous devez sélectionner **HTTP Large Object** comme **Type de média**.  Les autres options ne sont pas utilisées par **Azure CDN de Verizon**.  Si vous ne sélectionnez pas **Objet volumineux HTTP**, votre alerte ne se déclenche jamais.
    > 
    > 
 8. Créez une **Expression** à surveiller en sélectionnant **Mesure**, **Opérateur** et **Valeur de déclenchement**.
@@ -68,17 +68,17 @@ Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette 
    * **Opérateur** est l’opérateur mathématique qui établit la relation entre la mesure et la valeur du déclencheur.
    * **Valeur de déclenchement** est la valeur de seuil qui doit être atteinte avant l’envoi d’une notification.
      
-     Dans l’exemple ci-dessous, l’expression que j’ai créée indique que je souhaite être averti lorsque le nombre de codes d’état 404 est supérieur à 25.
+     Dans l’exemple suivant, l’expression créée indique qu’une notification est envoyée lorsque le nombre de codes d’état 404 est supérieur à 25.
      
      ![Expression de l’exemple d’alerte en temps réel](./media/cdn-real-time-alerts/cdn-expression.png)
 9. Pour **Intervalle**, entrez la fréquence à laquelle vous souhaitez que l’expression soit évaluée.
 10. Dans la liste déroulante **Notify on (Notifier sur)** , sélectionnez quand vous souhaitez être averti lorsque l’expression est vraie.
     
-    * **Condition Start (Début de la condition)** indique qu’une notification sera envoyée lors de la première détection de la condition spécifiée.
-    * **Condition End (Fin de la condition)** indique qu’une notification sera envoyée lorsque la condition spécifiée ne sera plus détectée. Cette notification ne peut être déclenchée qu’une fois que notre système de surveillance du réseau a détecté que la condition spécifiée s’est produite.
-    * **Continu** indique qu’une notification sera envoyée chaque fois que le système de surveillance du réseau détecte la condition spécifiée. N’oubliez pas que le système de surveillance du réseau ne recherche la condition spécifiée qu’une seule fois par intervalle.
-    * **Condition Start and End (Début et fin de la condition)** indique qu’une notification sera envoyée lors de la première détection de la condition spécifiée, puis à nouveau lorsque la condition ne sera plus détectée.
-11. Si vous souhaitez recevoir des notifications par courrier électronique, cochez la case **Notify by Email (Notifier par courrier électronique)** .  
+    * **Début de la condition** indique qu’une notification est envoyée dès la première détection de la condition spécifiée.
+    * **Fin de la condition** indique qu’une notification est envoyée lorsque la condition spécifiée n’est plus détectée. Cette notification ne peut être déclenchée qu’une fois que notre système de surveillance du réseau a détecté que la condition spécifiée s’est produite.
+    * **Continu** indique qu’une notification est envoyée chaque fois que le système de surveillance du réseau détecte la condition spécifiée. N’oubliez pas que le système de surveillance du réseau ne recherche la condition spécifiée qu’une seule fois par intervalle.
+    * **Début et fin de la condition** indique qu’une notification est envoyée dès la première détection de la condition spécifiée, puis à nouveau lorsque la condition n’est plus détectée.
+1. Si vous souhaitez recevoir des notifications par courrier électronique, cochez la case **Notify by Email (Notifier par courrier électronique)** .  
     
     ![Formulaire de notification par courrier électronique](./media/cdn-real-time-alerts/cdn-notify-email.png)
     
@@ -92,7 +92,7 @@ Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette 
     
     ![Formulaire de notification par HTTP Post](./media/cdn-real-time-alerts/cdn-notify-http.png)
     
-    Dans le champ **Url** , entrez l’adresse URL à laquelle vous souhaitez que le message HTTP soit publié. Dans la zone de texte **En-têtes** , entrez les en-têtes HTTP à envoyer dans la demande.  Pour **Corps**, vous pouvez personnaliser le message à l’aide de la liste **Available keywords (Mots clés disponibles)** pour insérer dynamiquement les données d’alerte lors de l’envoi du message.  La valeur par défaut des zones de texte **En-têtes** et **Corps** est une charge XML semblable à celle de l’exemple ci-dessous.
+    Dans le champ **Url** , entrez l’adresse URL à laquelle vous souhaitez que le message HTTP soit publié. Dans la zone de texte **En-têtes** , entrez les en-têtes HTTP à envoyer dans la demande.  Pour **Corps**, vous pouvez personnaliser le message à l’aide de la liste **Mots clés disponibles** pour insérer dynamiquement les données d’alerte lors de l’envoi du message.  La valeur par défaut des zones **En-têtes** et **Corps** est une charge utile XML semblable à celle de l’exemple suivant :
     
     ```
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
@@ -110,10 +110,4 @@ Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette 
 * Analyser des [statistiques en temps réel dans Azure CDN](cdn-real-time-stats.md)
 * Aller plus loin en vous familiarisant avec les [rapports HTTP avancés](cdn-advanced-http-reports.md)
 * Analysez les [modes d’utilisation](cdn-analyze-usage-patterns.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

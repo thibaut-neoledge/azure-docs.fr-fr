@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f231252c222c5520d0a66f9b40749bd203545f16
-ms.openlocfilehash: 44ee1e58b65b23eeb3fa3710fcb29a1646d5f3ad
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: ff75a7e50142888e4cff4acd40bbdbee31c0e29d
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Activer Azure Active Directory Identity Protection
 Active Directory Azure Identity Protection est une nouvelle fonctionnalité qui offre une vue consolidée des activités de connexion suspectes et des vulnérabilités potentielles, avec des notifications, des recommandations de correction et des stratégies basées sur les risques pour vous aider à protéger votre entreprise. 
@@ -46,5 +45,4 @@ Cette rubrique explique comment activer Azure Active Directory Identity Protecti
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
 

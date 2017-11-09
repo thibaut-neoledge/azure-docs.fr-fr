@@ -1,6 +1,6 @@
 ---
 title: "Base de données Azure SQL Database unique | Microsoft Docs"
-description: "Gérez une base de données SQL Azure unique."
+description: "Gérer le niveau de service, le niveau de performance et le volume de stockage pour une base de données Azure SQL unique."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -12,15 +12,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 08/25/2017
+ms.workload: On Demand
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 12bf76deebda27cdc7e7611e0585dc0bf92bde2f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gérer les ressources pour une base de données unique dans Azure SQL Database
 
@@ -37,7 +36,7 @@ Pour définir ou modifier le niveau de service, le niveau de performance ou la c
 ![Configurer le niveau de service et le niveau de performances](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> Parcourez la section [Limitations actuelles des bases de données P11 et P15 avec une taille maximale de 4 To](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) lors de la sélection d’un niveau de service P11 ou P15.
+> Parcourez la section [Limitations actuelles des bases de données P11 et P15 avec une taille maximale de 4 To](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) lors de la sélection d’un niveau de service P11 ou P15.
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>Gérer les ressources d’une base de données unique via PowerShell
@@ -60,12 +59,12 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 
 | Applet de commande | Description |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |Crée une base de données|
-|[az sql db list](/cli/azure/sql/db#list)|Répertorie toutes les bases de données et les entrepôts de données d’un serveur, ou toutes les bases de données d’un pool élastique|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Répertorie les objectifs de service disponibles et les limites de stockage|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Renvoie les données d’utilisation de la base de données|
-|[az sql db show](/cli/azure/sql/db#show)|Obtient une base de données ou un entrepôt de données|
-|[az sql db update](/cli/azure/sql/db#update)|Met à jour une base de données|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Crée la règle de pare-feu d’un serveur|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Répertorie les règles de pare-feu sur un serveur|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Affiche les détails d’une règle de pare-feu|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Met à jour une règle de pare-feu|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Supprime une règle de pare-feu|
+
 
 > [!TIP]
 > Consultez [Utiliser CLI pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-cli.md) pour obtenir un exemple de script Azure CLI permettant la mise à l’échelle d’une base de données Azure SQL après avoir demandé les informations de taille de la base de données.
@@ -95,14 +94,14 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 
 | Commande | Description |
 | --- | --- |
-|[Bases de données : création ou mise à jour](/rest/api/sql/databases/createorupdate)|Créez une nouvelle base de données ou met à jour une base de données existante.|
-|[Bases de données - Get](/rest/api/sql/databases/get)|Obtient une base de données.|
-|[Bases de données - Get par pool élastique](/rest/api/sql/databases/getbyelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique.|
-|[Bases de données - Get par pool élastique recommandé](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique recommandé.|
-|[Bases de données - Liste par pool élastique](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Bases de données - Liste par pool élastique recommandé](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourne une liste des bases de données à l’intérieur d’un pool élastique recommandé.|
-|[Bases de données - Liste par serveur](/rest/api/sql/databases/listbyserver)|Renvoie une liste des bases de données sur un serveur.|
-|[Bases de données - Mise à jour](/api/sql/databases/update)|Met à jour une base de données existante.|
+|[Bases de données : Create ou Update](/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Bases de données - Obtenir](/rest/api/sql/databases/get)|Obtient une base de données.|
+|[Bases de données - Obtenir par pool élastique](/rest/api/sql/databases/getbyelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique.|
+|[Bases de données - Obtenir par pool élastique recommandé](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique recommandé.|
+|[Bases de données - Lister par pool élastique](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Bases de données - Lister par pool élastique recommandé](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourne une liste de bases de données à l’intérieur d’un pool élastique recommandé.|
+|[Bases de données - Lister par serveur](/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Bases de données - Mettre à jour](/rest/api/sql/databases/update)|Met à jour une base de données existante.|
 
 
 
@@ -111,4 +110,3 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 - Pour en savoir plus sur les niveaux de service, les niveaux de performance et les quantités de stockage, consultez [Niveaux de service](sql-database-service-tiers.md).
 - Pour en savoir plus sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
 - En savoir plus sur [l’abonnement Azure et les limites, quotas et contraintes des services](../azure-subscription-service-limits.md)
-

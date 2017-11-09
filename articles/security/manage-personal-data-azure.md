@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 3b57c92bd744644ea81878712b4272ed3ece4e2e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Gérer les données personnelles dans Microsoft Azure
 
@@ -58,9 +57,9 @@ Vous devez vous connecter avec un compte d’administrateur général de l’ann
 
 #### <a name="how-do-i-correct-or-update-user-profile-and-work-information-in-azure-active-directory"></a>Comment corriger ou mettre à jour des informations professionnelles et de profil utilisateur dans Azure Active Directory ?
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour l’annuaire.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Autres services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
     ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
@@ -82,9 +81,9 @@ Vous devez vous connecter avec un compte d’administrateur général de l’ann
 
 #### <a name="how-do-i-delete-a-user-profile-in-azure-active-directory"></a>Comment supprimer un profil utilisateur dans Azure Active Directory ?
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour l’annuaire.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Autres services**, tapez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
     ![](media/manage-personal-data-azure/image001.png)
 
@@ -129,5 +128,4 @@ Pour obtenir une vue d’ensemble des étapes de l’Assistant, consultez la pag
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) 
 
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-
 

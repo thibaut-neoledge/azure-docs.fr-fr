@@ -3,7 +3,7 @@ title: "Comment ajouter des opérations à une API dans Gestion des API Azure | 
 description: "Découvrez comment ajouter des opérations à une API dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 1158a023-1913-4e9c-93de-9164b672f9b3
@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 8b047c0826590d1cb6a79a2f14ca07764dc2b409
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Ajout d'opérations à une API dans Gestion des API Azure
 Pour qu'une API puisse être utilisée dans Gestion des API, vous devez ajouter des opérations. Ce guide présente comment ajouter et configurer différents types d'opérations pour une API dans Gestion des API.
 
-## <a name="add-operation"> </a>Ajout d’une opération
+## <a name="add-operation"></a>Ajout d’une opération
 Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail des éditeurs, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
@@ -68,7 +66,7 @@ Les appelants de l’opération utilisent le format `/customers?customerid=ALFKI
 
 La description de l'opération peut être ajoutée en texte brut ou au format HTML dans la zone de texte **Description** .
 
-## <a name="operation-caching"> </a>Mise en cache de l’opération
+## <a name="operation-caching"></a>Mise en cache de l’opération
 La mise en cache de la réponse réduit le temps de latence perçu par les consommateurs de l'API, réduit la bande passante consommée et allège la charge sur le service web HTTP qui utilise l'API. 
 
 Pour activer facilement et rapidement la mise en cache pour une opération, sélectionnez l’onglet **Mise en cache** et cochez la case **Activer**.
@@ -83,7 +81,7 @@ Les clés de cache permettent de faire la distinction entre les réponses, afin 
 > 
 > 
 
-## <a name="request-parameters"> </a>Paramètres de la demande
+## <a name="request-parameters"></a>Paramètres de la demande
 Les paramètres de l'opération sont gérés dans l'onglet Paramètres. Les paramètres spécifiés dans **Modèle d’URL**, dans l’onglet **Signature**, sont automatiquement ajoutés et ne peuvent être changés qu’en modifiant le modèle d’URL. D'autres paramètres peuvent être ajoutés manuellement.
 
 Pour ajouter un nouveau paramètre de requête, cliquez sur **Ajouter des paramètres de requête** et entrez les informations suivantes :
@@ -96,7 +94,7 @@ Pour ajouter un nouveau paramètre de requête, cliquez sur **Ajouter des param�
 
 ![Paramètres de la demande][api-management-request-parameters]
 
-## <a name="request-body"> </a>Corps de la demande
+## <a name="request-body"></a>Corps de la demande
 Si l'opération l'autorise (par exemple PUT, POST) et qu'elle nécessite un corps, vous pouvez fournir un exemple dans un des formats pris en charge (JSON, XML, etc.). 
 
 > Le corps de la demande est utilisé uniquement pour information et n'est pas validé.
@@ -111,7 +109,7 @@ Cliquez sur **Ajouter une représentation**, tapez le nom du type de contenu (pa
 
 En plus des représentations, vous pouvez également spécifier une description dans la zone de texte **Description** .
 
-## <a name="responses"> </a>Réponses
+## <a name="responses"></a>Réponses
 Il est conseillé de fournir des exemples de réponses pour tous les codes d'état que l'opération peut produire. Chaque code d'état peut avoir plusieurs exemples de corps de réponse, un pour chacun des types de contenu pris en charge. 
 
 Pour ajouter une réponse, cliquez sur **Ajouter**, puis saisissez le code d’état souhaité. Dans cet exemple, le code d’état est **200 OK**. Une fois le code affiché dans la liste déroulante, sélectionnez-le. Le code de réponse est alors créé et ajouté à votre opération.
@@ -130,7 +128,7 @@ Si vous le souhaitez, vous pouvez spécifier une description dans la zone de tex
 
 Une fois l'opération configurée, cliquez sur **Enregistrer**.
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois les opérations ajoutées à une API, l'étape suivante est l'association de l'API à un produit et sa publication, afin que les développeurs puissent appeler ses opérations.
 
 * [Création et publication d’un produit][How to create and publish a product]
@@ -171,4 +169,3 @@ Une fois les opérations ajoutées à une API, l'étape suivante est l'associati
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
-

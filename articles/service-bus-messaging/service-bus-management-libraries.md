@@ -12,16 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/18/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 384066affe46bfd2917a3a14e4cfa7d2fc8a25f1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 3b7096a073b509217a6ed29b53f88f912e6613f6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
-
 # <a name="service-bus-management-libraries"></a>Bibliothèques de gestion Service Bus
 
 Les bibliothèques de gestion Azure Service Bus peuvent approvisionner dynamiquement des entités et des espaces de noms Service Bus. Cela permet des déploiements et des scénarios de messagerie complexes, et rend possible la définition des entités à approvisionner par programmation. Ces bibliothèques sont actuellement disponibles pour .NET.
@@ -53,8 +51,7 @@ Le modèle pour manipuler une ressource Service Bus quelconque suit un protocole
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
-
-1. Créer l’objet `ServiceBusManagementClient`.
+2. Créer l’objet `ServiceBusManagementClient`.
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -63,8 +60,7 @@ Le modèle pour manipuler une ressource Service Bus quelconque suit un protocole
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-
-1. Définissez les paramètres `CreateOrUpdate` sur vos propres valeurs.
+3. Définissez les paramètres `CreateOrUpdate` sur vos propres valeurs.
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -73,8 +69,7 @@ Le modèle pour manipuler une ressource Service Bus quelconque suit un protocole
        EnablePartitioning = true
    };
    ```
-
-1. Exécuter l’appel.
+4. Exécuter l’appel.
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
@@ -83,4 +78,3 @@ Le modèle pour manipuler une ressource Service Bus quelconque suit un protocole
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exemple de gestion .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Informations de référence sur l’API Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
-

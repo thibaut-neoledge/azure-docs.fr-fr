@@ -1,4 +1,4 @@
----   
+---
 title: "Vue d’ensemble de la stratégie SSL pour Azure Application Gateway | Microsoft Docs"
 description: "Découvrir comme Azure Application Gateway vous permet de configurer la stratégie SSL"
 services: application gateway
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-   
-
 # <a name="application-gateway-ssl-policy-overview"></a>Vue d’ensemble de la stratégie SSL Application Gateway
 
 Vous pouvez utiliser Azure Application Gateway pour centraliser la gestion des certificats SSL et réduire la surcharge de chiffrement et de déchiffrement à partir d’une batterie de serveurs principaux. Cette gestion SSL centralisée permet également de spécifier une stratégie SSL centrale adaptée aux besoins de sécurité de votre organisation. Celle-ci vous aide à respecter les exigences de conformité ainsi que les directives en matière de sécurité et pratiques recommandées.
@@ -107,4 +104,3 @@ Application Gateway prend en charge les suites de chiffrement suivantes à parti
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous voulez apprendre à configurer une stratégie SSL, consultez [Configurer une stratégie SSL sur une passerelle d’application](application-gateway-configure-ssl-policy-powershell.md).
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 408394e529c262c0a47aae680c8f6ea1bc8eb7c6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: e098e27e32f7b7ae2009580a430f262aa7225206
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-seller-insights-report"></a>Présentation des rapports Informations du vendeur
 **En quoi consistent les informations du vendeur ?**
@@ -86,8 +84,7 @@ Lisez attentivement les clauses d’exclusion de responsabilité. Si vous avez d
 Accédez à https://publish.windowsazure.com/ et connectez-vous avec les informations d’identification de votre compte Microsoft.
 ![passwordreminder][7]
 
-**Sélectionnez l’onglet Éditeurs** .
-![selectpublisherstab][8]
+Sélectionnez l’onglet **Éditeurs**. ![selectpublisherstab][8]
 
 Rechercher l’ID d’éditeur dans l’URL :
 
@@ -116,4 +113,3 @@ Si vous avez des questions sur les rapports et les informations, contactez notre
 [8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
+ms.openlocfilehash: 1d857f3d062d8d1b15c64fa4b8c3e27ad6c2247e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: b346b32bd5580d25ac24786fce5aff932b3c15ae
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configuration de la télémétrie Azure Media Services avec .NET
 
 Cette rubrique décrit les étapes générales que vous pouvez suivre lors de la configuration de la télémétrie d’Azure Media Services (AMS) à l’aide du Kit SDK .NET. 
@@ -219,4 +217,3 @@ L’exemple suivant montre comment activer la télémétrie pour le compte AMS s
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

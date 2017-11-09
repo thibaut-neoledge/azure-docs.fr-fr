@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: d6409f1eb87787e5e023aa53b7b264116c9d8026
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 40a872ff310f48bfd543ac184fe7301b85b50258
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="loops-in-sql-data-warehouse"></a>Boucles dans SQL Data Warehouse
 SQL Data Warehouse prend en charge la boucle [WHILE][WHILE] pour les blocs d’instructions dont l’exécution se répète. Cette opération se poursuit aussi longtemps que les conditions spécifiées sont vraies, ou jusqu’à ce que le code arrête la boucle de manière spécifique, via le mot clé `BREAK` . Les boucles sont particulièrement utiles pour remplacer des curseurs définis dans le code SQL. Heureusement, presque tous les curseurs écrits en code SQL présentent le type à avance rapide, en lecture seule. Par conséquent, les boucles [WHILE] sont des méthodes alternatives intéressantes si vous devez en remplacer un.
@@ -86,4 +85,3 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 
 <!--Other Web references-->
-

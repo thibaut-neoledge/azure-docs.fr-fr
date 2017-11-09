@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 72591111f417267c1daaf13a40a499da42a2c303
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a9da67373465cebbdbecae5c8fb8bd0a0ee3c171
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Comment configurer une application de proxy d’application pour utiliser PingAccess
 
 Grâce à notre collaboration avec PingAccess, vous pouvez désormais apporter les avantages du proxy d’application aux applications utilisant l’authentification basée sur l’en-tête. Si vos applications n’utilisent pas d’en-têtes, vous trouverez des informations sur les alternatives disponibles dans notre [documentation sur l’authentification unique](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd).
@@ -38,4 +36,3 @@ Vous devez suivre les quatre étapes suivantes pour configurer une application a
 4.  Configuration les applications dans PingAccess
 
 Pour plus d’informations sur chacune de ces étapes, consultez notre [documentation sur l’authentification unique basée sur les en-têtes](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access).
-

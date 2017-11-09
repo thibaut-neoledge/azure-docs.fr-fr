@@ -12,16 +12,14 @@ ms.custom: load & move data
 ms.devlang: NA
 ms.date: 06/26/2017
 ms.author: carlrab
-ms.workload: data-management
+ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d42df0cbfa20741d4848dbefabb9028128b42ae1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: 34dee9511822acec46ba4854729939b84f3c06c6
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importer un fichier BACPAC dans une nouvelle base de données SQL Azure
 
@@ -38,7 +36,7 @@ Lorsque vous avez besoin d’importer une base de données à partir d’une arc
 
 Cet article fournit des instructions pour créer une base de données SQL Azure à partir d’un fichier BACPAC stocké dans le Stockage Blob Azure à l’aide du [portail Azure](https://portal.azure.com). L’importation à l’aide du portail Azure ne prend en charge que l’importation d’un fichier BACPAC à partir du Stockage Blob Azure.
 
-Pour importer une base de données à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Importer** sur la barre d’outils. Spécifiez le compte de stockage et le conteneur, puis sélectionnez le fichier BACPAC que vous souhaitez importer. Sélectionnez la taille de la base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination.  
+Pour importer une base de données à l’aide du portail Azure, ouvrez la page du serveur auquel associer la base de données, puis cliquez sur **Importer** dans la barre d’outils. Spécifiez le compte de stockage et le conteneur, puis sélectionnez le fichier BACPAC que vous souhaitez importer. Sélectionnez la taille de la base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination.  
 
    ![Importation de base de données](./media/sql-database-import/import.png)
 
@@ -48,7 +46,7 @@ Pour surveiller la progression de l’opération d’importation, ouvrez la page
 
 Pour surveiller la progression de l’opération d’importation, ouvrez la page du serveur logique dans laquelle la base de données est en cours d’importation. Faites défiler jusqu'à **Operations**, puis cliquez sur l’historique **Import/Export**.
    
-   ![importer](./media/sql-database-import/import-history.png) ![état d’importation](./media/sql-database-import/import-status.png)
+   ![importer](./media/sql-database-import/import-history.png)![état d’importation](./media/sql-database-import/import-status.png)
 
 Pour vérifier que la base de données est en ligne sur le serveur, cliquez sur **Bases de données SQL** et assurez-vous que la nouvelle base de données est définie sur **En ligne**.
 
@@ -63,8 +61,6 @@ Consultez la commande SQLPackage suivante pour obtenir un exemple de script afin
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
-
-   ![importer sqlpackage](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
 > [!IMPORTANT]
 > Un serveur logique Azure SQL Database écoute sur le port 1433. Si vous essayez de vous connecter à un serveur logique Azure SQL Database à partir d’un pare-feu d’entreprise, ce port doit être ouvert dans le pare-feu d’entreprise pour que vous puissiez vous connecter.
@@ -117,7 +113,6 @@ Pour un autre exemple de script, consultez [Importation d’une base de données
 * Pour vous connecter et interroger une base de données SQL importée, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
 * Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * Pour une description du processus complet de migration d’une base de données SQL Server, y compris les recommandations relatives aux performances, consultez [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
-
 
 
 

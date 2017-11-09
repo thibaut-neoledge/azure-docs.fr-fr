@@ -13,15 +13,14 @@ ms.custom: mvc,security
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
+ms.openlocfilehash: d25a0461bf194808f9bd66ddbd120448620eeba0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Sécuriser votre base de données SQL Azure
 
@@ -185,10 +184,10 @@ L’audit Azure SQL Database suit les événements de base de données et les é
    > Utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport d’audit.
    > 
 
-5. Cliquez sur **Save**.
+5. Cliquez sur **Enregistrer**.
 
 > [!IMPORTANT]
-> Si vous voulez personnaliser les événements audités, vous pouvez le faire via PowerShell ou l’API REST. Pour plus d’informations, consultez la section [Automation (PowerShell / API REST)](sql-database-auditing.md#subheading-7).
+> Si vous voulez personnaliser les événements audités, vous pouvez le faire via PowerShell ou l’API REST. Pour plus d’informations, consultez [Bien démarrer avec l’audit de bases de données SQL](sql-database-auditing.md).
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Activer la détection de menaces pour les bases de données SQL
@@ -254,5 +253,4 @@ Passez au didacticiel suivant pour apprendre à implémenter une base de donnée
 
 > [!div class="nextstepaction"]
 >[Mettre en œuvre une base de données réparties géographiquement](sql-database-implement-geo-distributed-database.md)
-
 

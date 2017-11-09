@@ -1,9 +1,9 @@
 ---
 title: "Support d’Azure Resource Manager pour l’équilibrage de charge | Microsoft Docs"
-description: "Utilisation de Powershell pour l’équilibrage de charge avec Azure Resource Manager. Utilisation de modèles pour l&quot;équilibrage de charge"
+description: "Utilisation de Powershell pour l’équilibrage de charge avec Azure Resource Manager. Utilisation de modèles pour l'équilibrage de charge"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
-ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
-
+ms.openlocfilehash: 6ba329e55f03cf984ae795c1d3a509e196064e2a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Utilisation de la prise en charge d’Azure Resource Manager pour l’équilibrage de charge Azure
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Resource Manager est l’infrastructure de gestion des services par défaut dans Azure. Azure Load Balancer peut être géré à l’aide des outils et des API basés sur Azure Resource Manager.
 
@@ -28,11 +30,11 @@ Azure Resource Manager est l’infrastructure de gestion des services par défau
 
 Avec Azure Resource Manager, Azure Load Balancer contient les ressources enfants suivantes :
 
-* Configuration d’une adresse IP frontale : un équilibreur de charge peut inclure une ou plusieurs adresses IP frontales, également appelées « adresses IP virtuelles ». Ces adresses IP servent d'entrée pour le trafic.
-* Pool d’adresses principal : il s’agit des adresses IP associées à la carte d’interface réseau (NIC) des machines virtuelles vers lesquelles la charge sera distribuée.
-* Règles d'équilibrage de charge : une propriété de règle mappe une combinaison donnée d'adresse IP et de port frontaux vers un ensemble de combinaisons d'adresses IP et de port principaux. Un même équilibreur de charge peut avoir plusieurs règles d’équilibrage de charge. Chaque règle est une combinaison d’une adresse IP et d’un port frontaux et d’une adresse IP et d’un port principaux associés aux machines virtuelles.
-* Sondes : les sondes vous permettent d'effectuer le suivi de l'intégrité des instances de machine virtuelle. En cas d'échec d'une sonde d'intégrité, l'instance de machine virtuelle est automatiquement mise hors service.
-* Règles NAT de trafic entrant : règles NAT définissant le trafic entrant qui transite via l'adresse IP frontale et est distribué à l'adresse IP principale.
+* Configuration d’une adresse IP frontend : un équilibreur de charge peut inclure une ou plusieurs adresses IP frontend, également appelées « adresses IP virtuelles ». Ces adresses IP servent d'entrée pour le trafic.
+* Pool d’adresses backend : il s’agit des adresses IP associées à la carte d’interface réseau (NIC) des machines virtuelles vers lesquelles la charge est distribuée.
+* Règles d’équilibrage de charge : une propriété de règle mappe une paire adresse IP/port frontend vers une combinaison adresses IP/port backend. Un même équilibreur de charge peut avoir plusieurs règles d’équilibrage de charge. Chaque règle correspond à la combinaison d’une paire adresse IP/port frontend et d’une paire adresse IP/port backend associées aux machines virtuelles.
+* Sondes : les sondes vous permettent d'effectuer le suivi de l'intégrité des instances de machine virtuelle. En cas d’échec d’une sonde d’intégrité, l’instance de machine virtuelle est automatiquement mise hors service.
+* Règles NAT de trafic entrant : règles NAT définissant le trafic entrant qui transite via l’adresse IP frontend et est distribué à l’adresse IP backend.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
@@ -46,7 +48,7 @@ Les modèles peuvent inclure des définitions de machines virtuelles, de réseau
 
 [En savoir plus sur les ressources de réseau](../virtual-network/resource-groups-networking.md)
 
-Des modèles de démarrage rapide utilisant Azure Load Balancer se trouvent dans un [référentiel GitHub](https://github.com/Azure/azure-quickstart-templates) qui héberge un ensemble de modèles générés par la communauté.
+Pour obtenir des modèles de démarrage rapide qui utilisent Azure Load Balancer, consultez le [dépôt GitHub](https://github.com/Azure/azure-quickstart-templates) où se trouve un ensemble de modèles générés par la communauté.
 
 Exemples de modèles :
 
@@ -68,9 +70,3 @@ Prise en main des applets de commande, des outils de ligne de commande et des AP
 Vous pouvez également [commencer par créer un équilibrage de charge avec accès par Internet](load-balancer-get-started-internet-arm-ps.md) et configurer le type de [mode de distribution](load-balancer-distribution-mode.md) pour un comportement spécifique de trafic réseau d’équilibrage de charge.
 
 Découvrez comment gérer les [paramètres de délai d’expiration TCP inactif pour un équilibreur de charge](load-balancer-tcp-idle-timeout.md). C’est important lorsque votre application a besoin de conserver des connexions actives pour les serveurs situés derrière un équilibreur de charge.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

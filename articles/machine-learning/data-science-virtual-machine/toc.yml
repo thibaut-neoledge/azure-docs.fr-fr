@@ -1,0 +1,56 @@
+- name: Documentation sur la machine virtuelle de science des données
+  items: null
+- name: Vue d'ensemble
+  expanded: true
+  items:
+    - name: "Qu’est-ce que la machine virtuelle de science des données\_?"
+      href: overview.md
+    - name: "Qu’est-ce que la machine virtuelle d’apprentissage approfondi\_?"
+      href: deep-learning-dsvm-overview.md
+- name: Prise en main
+  items:
+    - name: Créer une machine virtuelle de science des données Windows
+      href: provision-vm.md
+    - name: Créer une machine virtuelle de science des données Ubuntu
+      href: dsvm-ubuntu-intro.md
+    - name: Créer une machine virtuelle de science des données CentOS
+      href: linux-dsvm-intro.md
+    - name: Créer une machine virtuelle d’apprentissage approfondi
+      href: provision-deep-learning-dsvm.md
+- name: Procédures
+  items:
+    - name: Utiliser une machine virtuelle de science des données Windows
+      href: vm-do-ten-things.md
+    - name: Utiliser une machine virtuelle de science des données Linux
+      href: linux-dsvm-walkthrough.md
+    - name: Utiliser une machine virtuelle d’apprentissage approfondi
+      href: use-deep-learning-dsvm.md
+- name: Référence
+  expanded: true
+  items:
+    - name: Découvrir la machine virtuelle de science des données
+      href: dsvm-tools-overview.md
+    - name: Frameworks d’apprentissage profond et d’intelligence artificielle
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Outils de science des données et de ML
+      href: dsvm-ml-data-science-tools.md
+    - name: Langues
+      href: dsvm-languages.md
+    - name: Outils de développement
+      href: dsvm-tools-development.md
+    - name: Code d’ingestion de données
+      href: dsvm-tools-ingestion.md
+    - name: Outils d’exploration et de visualisation de données
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Plateformes de données
+      href: dsvm-data-platforms.md
+    - name: Exemples et procédures pas à pas
+      href: dsvm-samples-and-walkthroughs.md
+- name: Ressources
+  items:
+    - name: Blog
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: Forum MSDN
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Dépassement de capacité de la pile
+      href: 'https://stackoverflow.com/search?q=dsvm'

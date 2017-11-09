@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 7fffe78bebd6799cad544c12c20eb1926975a68f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 4417308d7282391a60361845bc1e4cc69284fe63
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-search-documentation"></a>Documentation Recherche Azure
 
@@ -160,12 +159,12 @@ Découvrez comment ajouter des fonctionnalités de recherche à vos applications
                         <h3>REST</h3>
                         <p><a href="/rest/api/searchservice">Référence d’API REST</a></p>
                         <p><a href="/rest/api/searchmanagement">Référence de l'API REST (Management)</a></p>
+                        <p><a href="search-api-2016-09-01-preview.md">REST Service (version préliminaire)</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
 
 

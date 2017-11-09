@@ -3,7 +3,7 @@ title: "Utiliser des déclencheurs et des liaisons dans Azure Functions | Micros
 description: "Découvrez comment utiliser des déclencheurs et des liaisons dans Azure Functions pour connecter l’exécution de votre code aux événements en ligne et aux services cloud."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -15,15 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: donnam
+ms.author: glenga
+ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: fc3fc337a305434745e1e5e716ae7bf2096c2b33
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 Azure Functions vous permet d’écrire du code en réponse aux événements dans Azure et d’autres services, via des *déclencheurs* et *liaisons*. Cet article est une vue d’ensemble conceptuelle des déclencheurs et pour tous les langages de programmation pris en charge. Les fonctionnalités communes à toutes les liaisons sont décrites ici.
 
@@ -43,21 +41,21 @@ Le tableau suivant montre les déclencheurs et liaisons qui sont pris en charge 
 
 ### <a name="example-queue-trigger-and-table-output-binding"></a>Exemple : déclencheur de file d’attente et liaison de sortie de table
 
-Imaginons que vous souhaitiez écrire une nouvelle ligne dans Stockage Table Azure à chaque fois qu’un nouveau message s’affiche dans Stockage File d’attente Azure. Ce scénario peut être implémenté à l’aide d’un déclencheur File d’attente Azure et d’une liaison de sortie Table. 
+Imaginons que vous souhaitiez écrire une nouvelle ligne dans Stockage Table Azure à chaque fois qu’un nouveau message s’affiche dans Stockage File d’attente Azure. Ce scénario peut être implémenté à l’aide d’un déclencheur de file d’attente Azure et d’une liaison de sortie Stockage Table. 
 
-Un déclencheur de file d’attente nécessite les informations suivantes dans l’onglet **Intégrer** :
+Un déclencheur de stockage de file d’attente Azure nécessite les informations suivantes dans l’onglet **Intégrer** :
 
-* Le nom du paramètre d’application qui contient la chaîne de connexion de compte de stockage pour la file d’attente
+* Le nom du paramètre d’application qui contient la chaîne de connexion de compte Stockage Azure pour le stockage de file d’attente Azure
 * Le nom de la file d’attente
 * L’identificateur dans votre code pour lire le contenu du message de la file d’attente, tel que `order`.
 
 Pour écrire dans Stockage Table Azure, utilisez une liaison de sortie avec les informations suivantes :
 
-* Le nom du paramètre d’application qui contient la chaîne de connexion de compte de stockage pour la table
+* Le nom du paramètre d’application qui contient la chaîne de connexion de compte Stockage Azure pour le Stockage Table Azure
 * Le nom de la table
 * L’identificateur dans votre code pour créer des éléments de sortie ou la valeur de retour de la fonction.
 
-Les liaisons utilisent des paramètres d’application pour les chaînes de connexion afin d’appliquer la meilleure pratique qui consiste à ce que *function.json* ne contient aucun secret de service.
+Les liaisons utilisent des valeurs de chaînes de connexion de valeurs stockées dans les paramètres d’application pour appliquer la bonne pratique selon laquelle *function.json* ne contient pas de secrets de service, mais seulement les noms des paramètres d’application.
 
 Utilisez ensuite les identificateurs que vous avez fournis pour intégrer Stockage Azure dans votre code.
 
@@ -168,7 +166,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
     log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    return Task.FromResult(json);
 }
 ```
 
@@ -191,7 +189,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>Liaison de propriété Datatype
 
-Dans .NET, utilisez les types pour définir le type des données d’entrée. Par exemple, utilisez `string` pour lier au texte d’un déclencheur de file d’attente et un tableau d’octets pour lire sous forme binaire.
+Dans .NET, utilisez les types pour définir le type des données d’entrée. Par exemple, utilisez `string` pour établir une liaison au texte d’un déclencheur de file d’attente, un tableau d’octets à lire au format binaire et un type personnalisé pour désérialiser dans un objet OCT.
 
 Pour les langages dont le type est dynamique, tels que JavaScript, vous devez utiliser la propriété `dataType` dans la définition de la liaison. Par exemple, pour lire le contenu d’une requête HTTP dans un format binaire, utilisez le type `binary` :
 
@@ -213,7 +211,7 @@ Les paramètres de l’application sont également utiles lorsque vous souhaitez
 
 Les paramètres de l’application sont résolus à chaque fois qu’une valeur est placée entre des signes de pourcentage, comme `%MyAppSetting%`. Veuillez noter que la propriété `connection` des déclencheurs et liaisons est un cas spécial et résout automatiquement les valeurs en tant que paramètres de l’application. 
 
-L’exemple suivant est un déclencheur de file d’attente qui utilise un paramètre d’application `%input-queue-name%` pour définir la file d’attente sur laquelle effectuer le déclenchement.
+L’exemple suivant est un déclencheur de stockage de file d’attente Azure qui utilise un paramètre d’application `%input-queue-name%` pour définir la file d’attente sur laquelle effectuer le déclenchement.
 
 ```json
 {
@@ -233,7 +231,7 @@ L’exemple suivant est un déclencheur de file d’attente qui utilise un param
 
 En plus de la charge utile de données fournie par un déclencheur (par exemple, le message de file d’attente qui a déclenché une fonction), plusieurs déclencheurs fournissent des valeurs de métadonnées supplémentaires. Ces valeurs peuvent être utilisées comme paramètres d’entrée dans C# et F# ou comme propriétés sur l’objet `context.bindings` dans JavaScript. 
 
-Par exemple, un déclencheur de file d’attente prend en charge les propriétés suivantes :
+Par exemple, un déclencheur de file d’attente Stockage Azure prend en charge les propriétés suivantes :
 
 * QueueTrigger - déclenchant le contenu du message si une chaîne valide
 * DequeueCount
@@ -245,7 +243,7 @@ Par exemple, un déclencheur de file d’attente prend en charge les propriété
 
 Les détails des propriétés de métadonnées pour chaque déclencheur sont décrits dans la rubrique de référence correspondante. La documentation est également disponible dans l’onglet **Intégrer** du portail, dans la section **Documentation** située sous la zone de configuration de liaison.  
 
-Par exemple, étant donné que les déclencheurs d’objet blob connaissent des retards, vous pouvez utiliser un déclencheur de file d’attente pour exécuter votre fonction (voir [Déclencheur Stockage Blob](functions-bindings-storage-blob.md#storage-blob-trigger). Le message de file d’attente contiendra le nom de fichier du blob à déclencher. À l’aide de la propriété de métadonnées `queueTrigger`, vous pouvez spécifier ce comportement partout dans votre configuration, plutôt que dans votre code.
+Par exemple, étant donné que les déclencheurs d’objet blob agissent avec un peu de retard, vous pouvez utiliser un déclencheur de file d’attente pour exécuter votre fonction (voir [Déclencheur Stockage Blob](functions-bindings-storage-blob.md#storage-blob-trigger)). Le message de file d’attente contiendra le nom de fichier du blob à déclencher. À l’aide de la propriété de métadonnées `queueTrigger`, vous pouvez spécifier ce comportement partout dans votre configuration, plutôt que dans votre code.
 
 ```json
   "bindings": [
@@ -349,7 +347,7 @@ Par exemple, le *function.json* suivant utilise une propriété appelée `BlobNa
       "name": "info",
       "type": "httpTrigger",
       "direction": "in",
-      "webHookType": "genericJson",
+      "webHookType": "genericJson"
     },
     {
       "name": "blobContents",
@@ -422,9 +420,9 @@ Pour plus d’informations sur une liaison spécifique, consultez les articles s
 - [Concentrateur d’événements](functions-bindings-event-hubs.md)
 - [Service Bus](functions-bindings-service-bus.md)
 - [Azure Cosmos DB](functions-bindings-documentdb.md)
+- [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
 - [Notification Hubs](functions-bindings-notification-hubs.md)
 - [Mobile Apps](functions-bindings-mobile-apps.md)
 - [Fichier externe](functions-bindings-external-file.md)
-

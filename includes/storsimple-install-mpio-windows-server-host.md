@@ -8,7 +8,7 @@
 3. Dans l’Assistant **Ajouter des rôles et fonctionnalités** , procédez comme suit :
    
    * Sur la page **Avant de commencer**, cliquez sur **Suivant**.
-   * Sur la page **Sélectionner le type d’installation**, acceptez le paramètre par défaut de l’installation **Installation basée sur un rôle ou une fonctionnalité**. Cliquez sur **Next**.
+   * Sur la page **Sélectionner le type d’installation**, acceptez le paramètre par défaut de l’installation **Installation basée sur un rôle ou une fonctionnalité**. Cliquez sur **Suivant**.
      
        ![Assistant Ajouter des rôles et fonctionnalités 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
    * Sur la page **Sélectionner le serveur de destination**, choisissez **Sélectionner un serveur du pool de serveurs**. Votre serveur hôte doit être détecté automatiquement. Cliquez sur **Suivant**.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Déploiement de votre offre sur Azure Marketplace
 Quand vous avez finalisé votre offre (avec des scénarios clients testés, du contenu marketing, etc.) et êtes prêt à la lancer, cliquez sur **Push to Production** (Lancer la production) sous l’onglet **Publish** (Publier).  
@@ -69,7 +69,7 @@ Quand vous avez finalisé votre offre (avec des scénarios clients testés, du c
 
 * La bannière est facultative. L’éditeur peut choisir de ne pas télécharger de bannière. **Toutefois l’icône ne peut pas être supprimée du portail de publication une fois téléchargée. À ce moment, le partenaire doit suivre les instructions d’Azure Marketplace pour les icônes, sans quoi l’offre ne sera pas approuvée en production.**
 * Le nom d’affichage de l’éditeur, le titre de la référence et le résumé long de l’offre s’affichent en couleur de police blanche. Par conséquent, vous devez éviter de conserver toute couleur claire dans l’arrière-plan l’icône. Les arrière-plans noirs, blancs et transparents ne sont pas autorisés pour les icônes.
-* Le nom d’affichage de l’éditeur, le titre de la référence, le résumé long de l’offre et le bouton Créer sont incorporés programmatiquement à la bannière une fois l’offre répertoriée. Vous ne devez par conséquent pas saisir de texte lorsque vous concevez la bannière. Laissez simplement un espace vide sur la droite, car le texte (à savoir le nom d’affichage de l’éditeur, le titre de la référence et le résumé long de l’offre) sera inclus automatiquement de notre côté. L’espace vide pour le texte doit être de 415 x 100 sur la droite (décalé de 370px à partir de la gauche).
+* Le nom d’affichage de l’éditeur, le titre de la référence, le résumé long de l’offre et le bouton Créer sont incorporés programmatiquement à la bannière une fois l’offre répertoriée. Vous ne devez par conséquent pas saisir de texte lorsque vous concevez la bannière. Laissez un espace vide à droite, car nous incluons le texte (nom d’affichage de l’éditeur, titre de la référence SKU, résumé détaillé de l’offre) à cet emplacement par programmation. L’espace vide pour le texte doit être de 415 x 100 sur la droite (décalé de 370px à partir de la gauche).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Liste de contrôle de production supplémentaire pour les offres de machines virtuelles déjà répertoriées
 * Vérifiez s’il existe déjà une offre de votre entreprise portant le même nom. Si Oui, vous devez ajouter une nouvelle version de la référence à l’offre existante au lieu de créer une offre en double.
@@ -85,9 +85,3 @@ Une fois l'offre publiée, testez les scénarios de clients pour valider le fonc
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]:media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

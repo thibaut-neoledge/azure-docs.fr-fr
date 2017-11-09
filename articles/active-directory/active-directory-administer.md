@@ -15,12 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-azure-ad-directory"></a>Gérer votre répertoire Azure AD
 
@@ -59,12 +58,14 @@ Si vous n’êtes pas encore abonné à un service cloud Microsoft, cliquez sur 
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>Comment modifier le répertoire par défaut d’un abonnement
 
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Home/Index) avec un compte qui est l’administrateur du compte de l’abonnement pour transférer la propriété de l’abonnement.
+1. Connectez-vous au [Centre des comptes Azure](https://account.azure.com/Subscriptions) avec un compte qui est l’administrateur du compte de l’abonnement pour transférer la propriété de l’abonnement.
 2. Vérifiez que l’utilisateur dont vous voulez être le propriétaire de l’abonnement est dans le répertoire cible.
 3. Cliquez sur **Transférer la propriété de l’abonnement**.
 4. Spécifiez le destinataire. Le destinataire reçoit automatiquement un e-mail contenant un lien d’acceptation.
 5. Le destinataire clique sur le lien et suit les instructions, notamment pour la saisie des informations de paiement. Lorsque le destinataire a terminé, l’abonnement est transféré. 
 6. Le répertoire par défaut de l’abonnement est modifié pour être remplacé par le répertoire contenant l’utilisateur si le transfert de la propriété de l’abonnement a réussi.
+
+Pour en savoir plus, consultez [Transfert de la propriété de l’abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md).
 
 ### <a name="manage-the-default-directory-in-azure"></a>Gérer le répertoire par défaut dans Azure
 Lorsque vous vous inscrivez à Azure, un annuaire Azure AD par défaut est associé à votre abonnement. L’utilisation d’Azure AD n’engendre aucun coût et vos répertoires sont une ressource gratuite. Certains services Azure AD payants sont concédés sous licence distincte et fournissent des fonctionnalités supplémentaires telles que des logos à l’inscription et une réinitialisation de mot de passe en libre-service. Vous pouvez également créer un domaine personnalisé à l’aide d’un nom DNS que vous possédez à la place du domaine par défaut *. onmicrosoft.com.
@@ -121,4 +122,3 @@ Les conditions à remplir sont les suivantes :
 * [Questions relatives à Stack Overflow pour Azure](http://stackoverflow.com/questions/tagged/azure)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md)
-

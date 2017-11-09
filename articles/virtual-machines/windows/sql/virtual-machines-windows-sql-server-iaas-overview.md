@@ -1,11 +1,10 @@
 ---
-title: "Présentation de SQL Server sur les machines virtuelles Azure | Microsoft Docs"
-description: "Découvrez comment exécuter les éditions complètes de SQL Server sur les machines virtuelles Azure. Obtenez des liens directs vers toutes les images de machine virtuelle SQL Server et le contenu associé."
+title: "Présentation de SQL Server sur les machines virtuelles Azure | Microsoft Docs"
+description: "Découvrez comment exécuter les éditions complètes de SQL Server sur les machines virtuelles Microsoft Azure. Obtenez des liens directs vers toutes les images de machine virtuelle SQL Server et le contenu associé."
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,51 +12,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 10/02/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: b10c995fdd8e241d354c62537a0600b393795c1b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Présentation de SQL Server sur les machines virtuelles Azure
-Cette rubrique décrit les options d’exécution de SQL Server sur des machines virtuelles Azure et fournit à la fois [des liens vers des images de portail](#option-1-create-a-sql-vm-with-per-minute-licensing) et une vue d’ensemble des [tâches courantes](#manage-your-sql-vm).
+# <a name="overview-of-sql-server-on-azure-virtual-machines-windows"></a>Présentation de SQL Server sur les machines virtuelles Azure (Windows)
+
+> [!div class="op_single_selector"]
+> * [Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+> * [Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+
+Cette rubrique décrit les options d’exécution de SQL Server sur des machines virtuelles Azure et fournit à la fois [des liens vers des images de portail](#option-1-create-a-sql-vm-with-per-minute-licensing) et une vue d’ensemble des [tâches courantes](#manage-your-sql-vm).
 
 > [!NOTE]
-> Si vous connaissez déjà SQL Server et que vous souhaitez simplement savoir comment déployer une machine virtuelle SQL Server, consultez [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
-> 
-> 
+> Si vous connaissez déjà SQL Server et que vous souhaitez simplement savoir comment déployer une machine virtuelle SQL Server, consultez la section relative à [l’approvisionnement d’une machine virtuelle Microsoft SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md). Si vous souhaitez créer une machine virtuelle Linux avec SQL Server, voir [Approvisionner une machine virtuelle SQL Server Linux dans le portail Azure](../../linux/sql/provision-sql-server-linux-virtual-machine.md).
 
-## <a name="overview"></a>Vue d’ensemble
-Si vous êtes administrateur de base de données ou développeur, les machines virtuelles Azure vous offrent un moyen de déplacer vers le cloud vos applications et charges de travail SQL Server locales. La vidéo suivante fournit une présentation technique des machines virtuelles SQL Server Azure.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-La vidéo décrit les points suivants :
-
-| Time | Domaine |
-| --- | --- |
-| 00:21 |Que sont les machines virtuelles Azure ? |
-| 01:45 |Sécurité |
-| 02:50 |Connectivité |
-| 03:30 |Performances et fiabilité de stockage |
-| 05:20 |Tailles de machine virtuelle |
-| 05:54 |Haute disponibilité et SLA |
-| 07:30 |Prise en charge de la configuration |
-| 08:00 |Surveillance |
-| 08:32 |Démo : Création d’une machine virtuelle SQL Server 2016 |
-
-> [!NOTE]
-> Cette vidéo est consacrée à SQL Server 2016, mais Azure fournit des images de machine virtuelle pour plusieurs versions de SQL Server, notamment 2012, 2014 et 2016. 
-> 
-> 
+Si vous êtes administrateur de base de données ou développeur, les machines virtuelles Azure vous offrent un moyen de déplacer vers le cloud vos applications et charges de travail SQL Server locales.
 
 ## <a name="scenarios"></a>Scénarios
-Vous pouvez choisir d’héberger vos données dans Azure pour de nombreuses raisons. Si votre application est déplacée dans Azure, cela améliore également les performances de migration des données. Mais il existe d’autres avantages. Vous avez automatiquement accès à plusieurs centres de données pour assurer les récupérations d’urgence et votre présence mondiale. Les données sont également parfaitement sécurisés et fiables.
+Vous pouvez choisir d’héberger vos données dans Azure pour de nombreuses raisons. Si votre application est déplacée dans Azure, cela améliore également les performances de migration des données. Mais il existe d’autres avantages. Vous avez automatiquement accès à plusieurs centres de données pour assurer les récupérations d’urgence et votre présence mondiale. Les données sont également parfaitement sécurisées et fiables.
 
 L’exécution de SQL Server sur des machines virtuelles Azure vous permet de stocker des données relationnelles dans Azure. C’est un bon choix pour plusieurs scénarios. Par exemple, vous pouvez avoir intérêt à affecter à la machine virtuelle Azure une configuration aussi proche que possible de celle d’un ordinateur local SQL Server. Vous pouvez aussi souhaiter exécuter des applications et des services supplémentaires sur le même serveur de base de données. Deux ressources principales peuvent vous aider à réfléchir à d’autres scénarios et considérations :
 
@@ -77,11 +54,13 @@ Le tableau suivant récapitule les images les plus récentes liées à SQL Serve
 
 | Version | Système d’exploitation | Édition |
 | --- | --- | --- |
+| **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
 | **SQL Server 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
 
-Outre cette liste, d’autres combinaisons de versions de SQL Server et de systèmes d’exploitation sont disponibles. Recherchez d’autres images via une recherche Marketplace dans le portail Azure. 
+> [!NOTE]
+> Pour afficher les images de machines virtuelles Linux SQL Server disponibles, consultez la [présentation de SQL Server sur les machines virtuelles Azure (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
 ## <a id="BYOL"></a> Option 2 : Créer une machine virtuelle SQL avec une licence existante
 Vous pouvez également apporter votre propre licence (modèle BYOL). Dans ce scénario, vous payez uniquement pour la machine virtuelle sans frais supplémentaires pour la gestion de licences SQL Server. Pour utiliser votre propre licence, utilisez la matrice des versions, éditions et systèmes d’exploitation SQL Server ci-dessous. Dans le portail, le nom de ces images comporte le préfixe **{BYOL}**.
@@ -126,11 +105,10 @@ Les machines virtuelles Azure peuvent utiliser la fonctionnalité [Mise à jour 
 ### <a name="customer-experience-improvement-program-ceip"></a>Programme d’amélioration du produit (CEIP)
 Le Programme d’amélioration du produit est activé par défaut. Il transmet régulièrement des rapports à Microsoft afin de contribuer à améliorer SQL Server. Aucune tâche de gestion n’est requise dans le cadre de ce programme, sauf si vous souhaitez le désactiver après sa mise en service. Vous pouvez personnaliser ou désactiver le CEIP en vous connectant à la machine virtuelle avec le Bureau à distance. Exécutez ensuite l’utilitaire **Rapports d’erreurs et d’utilisation SQL Server** . Suivez les instructions pour désactiver la création de rapports. 
 
-Pour plus d’informations, consultez la section CEIP de la rubrique [Accepter les termes du contrat de licence](https://msdn.microsoft.com/library/ms143343.aspx). 
+Pour plus d’informations sur la collecte de données, consultez la [Déclaration de confidentialité de SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour toute question sur la tarification, consultez l’article [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Tarification des machines virtuelles SQL Server Azure), ainsi que la [page de tarification Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Sélectionnez votre version cible de SQL Server dans la liste **Système d’exploitation/logiciels**. Ensuite, affichez les prix pour différentes tailles de machines virtuelles.
 
 D’autres questions ? Tout d’abord, consultez le [Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-faq.md). Vous devez également ajouter vos questions ou commentaires au bas de l’une des rubriques relatives aux machines virtuelles SQL afin d’interagir avec Microsoft et la communauté.
-

@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
+ms.openlocfilehash: f72944fe819a79edbafb73fba635d73642f33e4f
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 65556049d33c84848f015a095acf9c1f69348c6d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Surveiller un cluster Kubernetes à l’aide d’Operations Management Suite
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 La surveillance de votre cluster Kubernetes et des conteneurs est cruciale, particulièrement lorsque vous gérez un cluster de production à grande échelle avec plusieurs applications. 
 
@@ -140,7 +140,7 @@ Dans le portail OMS, recherchez une vignette récapitulative **Containers** sur 
 
 De même, dans le portail Azure, accédez à **Log Analytics** et sélectionnez le nom de votre espace de travail. Pour voir la vignette récapitulative **Containers**, cliquez sur **Solutions** > **Containers**. Pour obtenir plus de détails, cliquez sur la vignette.
 
-Consultez la [documentation Azure Log Analytics](../../log-analytics/index.md) pour obtenir des instructions détaillées sur l’interrogation et l’analyse des données de surveillance.
+Consultez la [documentation Azure Log Analytics](../../log-analytics/index.yml) pour obtenir des instructions détaillées sur l’interrogation et l’analyse des données de surveillance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -156,4 +156,3 @@ Suivez ce lien pour consulter des exemples de scripts prédéfinis pour Containe
 
 > [!div class="nextstepaction"]
 > [Exemples de scripts Azure Container Service](cli-samples.md)
-

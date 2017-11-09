@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8dd90542440322e6d57406cd950fa0a13bd4fe1d
-ms.openlocfilehash: 1068b5bd5f2c86de0c82f5a96cb2718645c0a3d3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: 7ce0860272901f3b4e4cf3d63f7361d539f64741
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Contrats de partenariat pour la communication B2B avec Azure Logic Apps et Enterprise Integration Pack
 
@@ -78,4 +76,3 @@ Vous pouvez supprimer n’importe quel contrat en procédant comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer un contrat AS2](logic-apps-enterprise-integration-as2.md)
-

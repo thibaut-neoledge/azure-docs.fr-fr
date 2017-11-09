@@ -15,12 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 392ed1b7ac5f543b322024f4b771c73bf865e970
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
 Microsoft Azure propose une gamme croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
@@ -42,7 +41,7 @@ Managed Disks se charge de la création et de la gestion du compte de stockage A
 Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur Managed Disks, consultez [Vue d’ensemble de Managed Disks](../windows/managed-disks-overview.md).
 
 ## <a name="azure-virtual-machines--instances"></a>Machines virtuelles et instances Azure
-Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires.  Vous trouverez des distributions comme Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD et plus encore dans la Place de marché Azure. Nous travaillons activement avec différentes communautés Linux pour enrichir davantage la liste des [distributions Linux approuvées par Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires.  Vous trouverez des distributions comme Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD et plus encore dans la Place de marché Microsoft Azure. Nous travaillons activement avec différentes communautés Linux pour enrichir davantage la liste des [distributions Linux approuvées par Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Si votre distribution Linux préférée n’est pas présente dans la galerie, vous pouvez « apporter votre propre machine virtuelle Linux » en [créant et chargeant un disque dur virtuel dans Azure](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -60,7 +59,7 @@ Voici quelques conseils de base pour la sélection d’une taille de machine vir
 
 Remarque : les machines virtuelles des séries DS et GS peuvent utiliser un stockage Premium, qui offre un stockage SSD hautes performances à faible latence pour les charges de travail impliquant des E/S intensives. Le stockage Premium est disponible dans certaines régions. Pour plus d'informations, consultez les rubriques :
 
-* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](../../storage/common/storage-premium-storage.md)
+* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](../windows/premium-storage.md)
 
 ## <a name="automation"></a>Automatisation
 Pour obtenir une culture DevOps appropriée, toute l’infrastructure doit être du code.  Lorsque l’ensemble de l’infrastructure se trouve dans le code, elle est facile à recréer (serveurs Phoenix).  Azure fonctionne avec tous les principaux outils d’automatisation, comme Ansible, Chef, SaltStack et Puppet.  Azure propose également ses propres outils pour l’automatisation :
@@ -139,4 +138,3 @@ La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vo
 Vous avez maintenant une vue d’ensemble de Linux sur Azure.  L’étape suivante consiste à aller plus loin et créer quelques machines virtuelles.
 
 * [Explorez notre liste croissante d’exemples de scripts pour les tâches courantes via AzureCLI](cli-samples.md)
-

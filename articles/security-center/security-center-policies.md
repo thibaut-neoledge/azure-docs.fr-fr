@@ -12,44 +12,36 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 10/13/2017
 ms.author: yurid
+ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f4e3f74ce3f342eecf633cd748e2b7b21b2ccdd2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-azure-security-center"></a>Définir des stratégies de sécurité dans Azure Security Center
-Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité en vous guidant tout au long des étapes nécessaires à l’exécution de cette tâche.
+# <a name="set-security-policies-in-security-center"></a>Définir des stratégies de sécurité dans Security Center
+Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité en vous guidant tout au long des étapes nécessaires à l’exécution de cette tâche. 
 
->[!NOTE] 
->Depuis début juin 2017, Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour plus d’informations, consultez l’article [Migration de plateforme Azure Security Center](security-center-platform-migration.md). Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
->
 
-## <a name="what-are-security-policies"></a>Que sont les stratégies de sécurité ?
-Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement spécifique. Dans Security Center, vous devez définir des stratégies pour vos abonnements Azure en fonction des exigences de sécurité de votre société et du type d’applications ou du niveau de confidentialité des données de chaque abonnement.
+## <a name="how-security-policies-work"></a>Fonctionnement des stratégies de sécurité
+Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Vous pouvez modifier la stratégie dans Security Center et en surveiller la conformité. 
+
+> [!NOTE]
+> Vous pouvez maintenant étendre des stratégies Security Center à l’aide de la stratégie Azure, disponible en préversion limitée. Cliquez sur [ici](http://aka.ms/getpolicy) pour rejoindre la préversion ou consultez la documentation [ici](security-center-azure-policy.md).
 
 Par exemple, les ressources utilisées pour le développement ou le test peuvent avoir des exigences de sécurité différentes de celles utilisées pour les applications de production. De même, les applications qui utilisent des données réglementées, telles que des informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé. Les stratégies de sécurité activées dans Azure Security Center déterminent les recommandations de sécurité et la surveillance qui vous aident à identifier les vulnérabilités potentielles et à éliminer les menaces. Pour plus d’informations sur le choix de l’option adaptée à votre situation, consultez le [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) .
 
-## <a name="set-security-policies"></a>Définir des stratégies de sécurité
-Vous pouvez configurer des stratégies de sécurité pour chaque abonnement. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Connectez-vous au portail Azure et suivez les étapes ci-dessous pour configurer des stratégies de sécurité dans Security Center :
+## <a name="edit-security-policies"></a>Modifier des stratégies de sécurité
+Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos abonnements Azure dans Security Center. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire, de collaborateur ou d’administrateur de la sécurité pour l’abonnement concerné. Connectez-vous au portail Azure et suivez les étapes ci-dessous pour configurer des stratégies de sécurité dans Security Center : 
 
-1. Cliquez sur la mosaïque **Stratégie** dans le tableau de bord du Centre de sécurité.
-2. Sur le panneau Stratégie de sécurité qui s’ouvre, sélectionnez l’abonnement pour lequel vous souhaitez activer la stratégie de sécurité.
+1.  Dans le tableau de bord **Security Center**,sous **Général**, cliquez sur **Stratégie de sécurité**.
+2.  Sélectionnez l’abonnement sur lequel activer la stratégie de sécurité.
+3.  Dans la section **COMPOSANTS DE LA STRATÉGIE** , cliquez sur **stratégie de sécurité**.
+4.  Il s’agit de la stratégie par défaut affectée par Security Center. Vous pouvez activer ou désactiver les recommandations de sécurité disponibles.
+5.  Lorsque vous avez terminé, cliquez sur **Enregistrer**.
 
-    ![Définition de stratégie](./media/security-center-policies/security-center-policies-fig1-ga.png)
-3. Le panneau **Stratégie de sécurité** de l’abonnement sélectionné s’ouvre avec un ensemble d’options. Les options disponibles dans ce panneau sont :
-
-   * **Stratégie de prévention**: utilisez cette option pour configurer des stratégies par abonnement.  
-   * **Notification par e-mail**: utilisez cette option pour configurer une notification par e-mail qui est envoyée à la première occurrence quotidienne d’une alerte et pour les alertes de gravité élevée. Les préférences de courrier électronique peuvent être configurées uniquement pour les stratégies d’abonnement. Pour plus d’informations sur la configuration d’une notification par e-mail, consultez [Fournir les détails du contact de sécurité dans Azure Security Center](security-center-provide-security-contact-details.md) .
-   * **Niveau tarifaire**: utilisez cette option pour mettre à niveau l’option de niveau tarifaire. Pour plus d’informations sur les options de tarification, consultez [Tarification de Security Center](security-center-pricing.md) .
-4. Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte de journal automatique pour les ressources nouvelles et existantes à l’aide de Microsoft Monitoring Agent. Il s’agit du même agent que celui utilisé par Operations Management Suite et le service Log Analytics. Les données collectées à partir de cet agent sont stockées dans un espace de travail Log Analytics existant associé à votre abonnement Azure ou dans un nouvel espace de travail, en tenant compte de la zone géographique de la machine virtuelle.
-
-5. Dans le panneau **Stratégie de sécurité**, cliquez sur **Stratégie de prévention** pour afficher les options disponibles. Cliquez sur **Activé** pour activer les recommandations de sécurité qui sont pertinentes pour cet abonnement.
-
-    ![Sélection des stratégies de sécurité](./media/security-center-policies/security-center-policies-fig7.png)
+## <a name="available-security-policy-options"></a>Options de stratégie de sécurité disponibles
 
 Le tableau ci-dessous explique à quoi sert chaque option :
 
@@ -68,15 +60,9 @@ Le tableau ci-dessous explique à quoi sert chaque option :
 | Chiffrement du stockage |Cette fonctionnalité est actuellement disponible pour les objets blob et fichiers Azure. Après l’activation du chiffrement de service de stockage, seules les nouvelles données seront chiffrées et tous les fichiers existants dans ce compte de stockage resteront non chiffrés. |
 | Accès réseau JIT |Lorsque la fonctionnalité Juste à temps est activée, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant doit être verrouillé. Pour plus d’informations, consultez [Gérer l’accès Juste à temps à la machine virtuelle](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
-Après avoir configuré toutes les options, cliquez sur **OK** dans le panneau **Stratégie de sécurité** contenant les recommandations, puis cliquez sur **Enregistrer** dans le panneau **Stratégie de sécurité** contenant les paramètres initiaux.
 
-> [!NOTE]
-> Le niveau tarifaire est toujours applicable pour le niveau de groupe de ressources. Pour plus d’informations, consultez notre [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
->
->
-
-## <a name="see-also"></a>Voir aussi
-Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
+## <a name="next-step"></a>Étape suivante
+Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
@@ -84,4 +70,3 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 * [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md). découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
-

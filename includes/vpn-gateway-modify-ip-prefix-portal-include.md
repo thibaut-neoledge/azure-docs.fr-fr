@@ -9,7 +9,7 @@
 #### <a name="to-remove-address-prefixes"></a>Pour supprimer des préfixes d’adresses :
 
 1. Sur la ressource de la passerelle de réseau local, dans la section **Paramètres** , cliquez sur **Configuration**.
-2. Cliquez sur **’...’** sur la ligne qui contient le préfixe que vous souhaitez supprimer.
+2. Cliquez sur **'...'** sur la ligne contenant le préfixe à supprimer.
 3. Cliquez sur **Supprimer**.
 4. Cliquez sur **Save** pour enregistrer vos paramètres.
 

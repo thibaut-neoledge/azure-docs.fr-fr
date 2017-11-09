@@ -1,6 +1,8 @@
-# Vue d'ensemble
-## [Présentation de Recherche Azure](search-what-is-azure-search.md)
+# [Vue d'ensemble](search-what-is-azure-search.md)
+## [Présentation de Stockage Azure](search-what-is-azure-search.md)
+
 # Prise en main
+
 ## [Choisir une référence (SKU)](search-sku-tier.md)
 ## [Création d’un service](search-create-service-portal.md)
 ## [Création d'un index](search-what-is-an-index.md)
@@ -15,30 +17,33 @@
 ### [Portail Azure](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
+
 # Didacticiels
+
 ## [.NET](search-howto-dotnet-sdk.md)
-## [Version préliminaire des synonymes .NET](search-synonyms-tutorial-sdk.md)
+## [Synonymes .NET (préversion)](search-synonyms-tutorial-sdk.md)
 ## [Portail](search-get-started-portal.md)
+## [Recherche de données semi-structurées](search-semi-structured-data.md)
 ## [Node.JS](search-get-started-nodejs.md)
 ## [Java](search-get-started-java.md)
+
 # Procédures
+
 ## Planifier et concevoir
 ### [Limites du service](search-limits-quotas-capacity.md)
 ### [Évolutivité du service](search-capacity-planning.md)
 ### [Modèles de conception pour les architectures multi-locataires](search-modeling-multitenant-saas-applications.md)
-
 ## Développement
 ### [Versions d’API](search-api-versions.md)
-### [Mettre à niveau le kit de développement logiciel (SDK)](search-dotnet-sdk-migration.md)
+### [Mettre à niveau le kit SDK](search-dotnet-sdk-migration.md)
 ### [Mettre à niveau l’API REST](search-api-migration.md)
 ### [Modéliser les types de données complexes](search-howto-complex-data-types.md)
 ### [Gérer des mises à jour simultanées](search-howto-concurrency.md)
 ### [Exemples de code](https://azure.microsoft.com/resources/samples/?service=search)
-
 ## Gérer
 ### Administrer Recherche Azure
 #### [Portail Azure](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### [Azure PowerShell](search-manage-powershell.md)
 ### [Surveiller l’utilisation et les statistiques](search-monitor-usage.md)
 ### [Rechercher l’analyse du trafic](search-traffic-analytics.md)
 ### [Performances et optimisation](search-performance-optimization.md)
@@ -57,30 +62,35 @@
 ### Construction des requêtes
 #### [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Exemples de requête de syntaxe Lucene](search-query-lucene-examples.md)
-#### [Syntaxe d’expression de filtre](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+#### [Exemples de requête Lucene](search-query-lucene-examples.md)
 ### Analyseurs dans Recherche Azure
 #### [Vue d'ensemble](search-analyzers.md)
 #### [Analyseurs de langage](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### Filtres dans Recherche Azure
+#### [Vue d'ensemble](search-filters.md)
+#### [Filtres de facette](search-filters-facets.md)
+#### [Filtres de langage](search-filters-language.md)
+#### [Filtrage de sécurité](search-security-trimming-for-azure-search.md)
+#### [Référence de la syntaxe d’expression](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Résultats de pagination](search-pagination-page-layout.md)
 ### [Score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Navigation à facettes](search-faceted-navigation.md)
-### [Version préliminaire des synonymes](search-synonyms.md)
+### [Synonymes (préversion)](search-synonyms.md)
+### [moreLikeThis (préversion)](search-more-like-this.md)
 
-# Référence
+# Informations de référence
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (Management)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [.NET Management](/rest/api/searchmanagement)
-## [REST Service (version préliminaire)](search-api-2015-02-28-preview.md)
+## [REST Service (préversion)](search-api-2016-09-01-preview.md)
 
 # Ressources
 
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [FAQ - Forum Aux Questions](search-faq-frequently-asked-questions.md)
 ## [Tarification](https://azure.microsoft.com/pricing/details/search/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
@@ -97,7 +107,7 @@
 ### [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [blog : Données relationnelles de modèles](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [[blog : Facettes à plusieurs niveaux](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+### [blog : Facettes à plusieurs niveaux](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 
 
 

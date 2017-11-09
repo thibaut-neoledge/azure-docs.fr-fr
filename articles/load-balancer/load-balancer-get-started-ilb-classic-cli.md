@@ -1,9 +1,9 @@
 ---
 title: "Créer un équilibrage de charge interne à l’aide de la CLI Azure dans le modèle de déploiement classique | Microsoft Docs"
-description: "Découvrez comment créer un équilibreur de charge interne à l&quot;aide de l’interface de ligne de commande Azure (CLI) dans le modèle de déploiement classique"
+description: "Découvrez comment créer un équilibreur de charge interne à l'aide de l’interface de ligne de commande Azure (CLI) dans le modèle de déploiement classique"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Créer un équilibreur de charge interne (classique) à l’aide de l’interface de ligne de commande (CLI) Azure
 
 > [!div class="op_single_selector"]
@@ -38,11 +37,11 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Pour créer un jeu d’équilibrage de charge interne pour les machines virtuelles
 
-Pour créer un jeu d'équilibrage de charge interne et les serveurs qui y enverront leur trafic, vous devez procéder comme suit :
+Pour créer un jeu d’équilibrage de charge interne et les serveurs qui y envoient leur trafic, vous devez procéder comme suit :
 
-1. Créez une instance d’équilibrage de charge qui sera le point de terminaison du trafic entrant qui devra être équilibré entre les serveurs d’un jeu d’équilibrage de charge.
-2. Ajoutez des points de terminaison correspondants aux machines virtuelles qui recevront le trafic entrant.
-3. Configurez les serveurs qui enverront le trafic avec une charge équilibrée pour envoyer leur trafic à l’adresse IP virtuelle (VIP) de l’instance d’équilibrage de charge interne.
+1. Créez une instance d’équilibrage de charge interne comme point de terminaison du trafic entrant qui doit être équilibré entre les serveurs d’un jeu d’équilibrage de charge.
+2. Ajoutez les points de terminaison correspondants aux machines virtuelles qui reçoivent le trafic entrant.
+3. Configurez les serveurs qui envoient le trafic à l’adresse IP virtuelle (VIP) de l’instance d’équilibrage de charge interne.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Créer par étapes un équilibreur de charge interne à l’aide de l’interface de ligne de commande CLI
 
@@ -63,7 +62,7 @@ Ce guide indique comment créer un équilibreur de charge interne selon le scén
 
 Le scénario suppose que les machines virtuelles « DB1 » et « DB2 » figurent dans un service cloud appelé « mytestcloud ». Ces deux machines virtuelles utilisent un réseau virtuel appelé mon « testvnet » avec un sous-réseau « sous-réseau-1 ».
 
-Ce guide créera un jeu d'équilibrage de charge en utilisant le port 1433 comme port privé et 1433 comme port local.
+Ce guide crée un jeu d’équilibrage de charge en utilisant le port 1433 comme port privé et 1433 comme port local.
 
 Il s'agit d'un scénario courant dans lequel vous utilisez des machines virtuelles SQL sur le serveur principal avec un équilibreur de charge interne afin de garantir que les serveurs de base de données ne soient pas exposés directement à l'aide d'une adresse IP publique.
 
@@ -92,13 +91,13 @@ Voici un exemple de sortie :
 
 ### <a name="step-2"></a>Étape 2
 
-Vous configurez le jeu d'équilibrage de charge interne lorsque vous ajoutez le premier point de terminaison. Vous associerez le point de terminaison, la machine virtuelle et le port de sonde au jeu d'équilibrage de charge interne au cours de cette étape.
+Vous configurez le jeu d'équilibrage de charge interne lorsque vous ajoutez le premier point de terminaison. Vous pouvez associer le point de terminaison, la machine virtuelle et le port de sonde au jeu d’équilibrage de charge interne au cours de cette étape.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
 ```
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Vérifier la configuration de l’équilibreur de charge avec `azure vm show` *nom de la machine virtuelle*
 
@@ -180,4 +179,3 @@ Pour plus d'informations, consultez `azure vm endpoint --help` .
 [Configurer le mode de distribution d’équilibreur de charge à l’aide de l’affinité d’IP source](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-

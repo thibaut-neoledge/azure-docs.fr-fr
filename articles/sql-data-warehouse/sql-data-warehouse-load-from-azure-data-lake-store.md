@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/06/2017
+ms.date: 09/15/2017
 ms.author: cakarst;barbkess
+ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c58aec1ea9bc79b335a115007500d77f8e752850
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Chargement de données Azure Data Lake Store dans SQL Data Warehouse
 Ce document vous indique toutes les étapes nécessaires pour charger vos propres données d’Azure Data Lake Store (ADLS) dans SQL Data Warehouse à l’aide de PolyBase.
@@ -170,7 +169,7 @@ Au cours du chargement, si la valeur à rejeter est atteinte, le chargement éch
 Par exemple, si une colonne reçoit par erreur le schéma int alors que les données dans le fichier représentent une chaîne, aucune ligne ne sera chargée.
 
 Le paramètre Emplacement spécifie le répertoire de premier plan à partir duquel vous souhaitez lire les données.
-Dans ce cas, si l’emplacement /DimProduct/ contient des sous-répertoires, PolyBase importe toutes les données de ces sous-répertoires.
+Dans ce cas, si l’emplacement /DimProduct/ contient des sous-répertoires, PolyBase importe toutes les données de ces sous-répertoires. Azure Data Lake utilise le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès aux données. Cela signifie que le principal de service doit disposer des autorisations de lecture pour les répertoires définis dans le paramètre d’emplacement, ainsi que pour les enfants des fichiers et du répertoire final. Cela permet à PolyBase d’authentifier, de charger et de lire ces données. 
 
 ## <a name="load-the-data"></a>Chargement des données
 Pour charger des données depuis Azure Data Lake Store, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Le chargement avec CTAS utilise la table externe fortement typée que vous avez créée.
@@ -238,4 +237,3 @@ Le chargement des données est la première étape du développement d’une sol
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
-

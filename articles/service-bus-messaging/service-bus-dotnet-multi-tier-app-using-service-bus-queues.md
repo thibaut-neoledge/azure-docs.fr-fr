@@ -12,17 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.lasthandoff: 04/12/2017
-
-
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Application multiniveau .NET avec les files d’attente Azure Service Bus
-## <a name="introduction"></a>Introduction
+
 Le développement pour Microsoft Azure est simple grâce à Visual Studio et au Kit de développement logiciel (SDK) Azure gratuit pour .NET. Ce didacticiel vous guide lors de la création d’une application qui utilise plusieurs ressources Azure s’exécutant dans votre environnement local.
 
 Vous allez apprendre les opérations suivantes :
@@ -69,7 +68,7 @@ Avant de commencer à développer votre application Azure, procurez-vous les out
 5. Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement de l’application. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de facilement développer des applications Azure dans Visual Studio.
 
 ## <a name="create-a-namespace"></a>Créer un espace de noms
-L’étape suivante consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Le système génère automatiquement une clé SAP lors de la création d’un espace de noms. La combinaison de l’espace de noms et de la clé SAP fournit à Service Bus des informations d’identification permettant d’authentifier l’accès à une application.
+L’étape suivante consiste à créer un *espace de noms* et à obtenir une [clé de signature d’accès partagé (SAP)](service-bus-sas.md) pour ce dernier. Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Le système génère automatiquement une clé SAP lors de la création d’un espace de noms. La combinaison du nom de l’espace de noms et de la clé SAP fournit à Service Bus des informations d’identification permettant d’authentifier l’accès à une application.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -84,7 +83,7 @@ Ensuite, ajoutez le code permettant d’envoyer les éléments à une file d’a
 2. Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Cloud Service**. Nommez ce projet **MultiTierApp**. Cliquez ensuite sur **OK**.
    
    ![][9]
-3. Dans les rôles **.NET Framework 4.5**, double-cliquez sur **Rôle Web ASP.NET**.
+3. À partir du volet **Rôles**, double-cliquez sur **Rôle Web ASP.NET**.
    
    ![][10]
 4. Passez la souris sur **WebRole1** sous **Azure Cloud Service Solution**, cliquez sur l’icône en forme de crayon et renommez le rôle Web **FrontendWebRole**. Cliquez ensuite sur **OK**. (Entrez bien « Frontend » avec un « e » minuscule, et non « FrontEnd ».)
@@ -93,12 +92,12 @@ Ensuite, ajoutez le code permettant d’envoyer les éléments à une file d’a
 5. Dans la liste **Sélectionner un modèle** de la boîte de dialogue **Nouveau projet ASP.NET**, cliquez sur **MVC**.
    
    ![][12]
-6. Toujours dans la boîte de dialogue **Nouveau projet ASP.NET**, cliquez sur le bouton **Modifier l’authentification**. Dans la boîte de dialogue **Modifier l’authentification**, cliquez sur **Aucune authentification**, puis sur **OK**. Pour ce didacticiel, vous déployez une application qui n’a pas besoin de connexion de l’utilisateur.
+6. Toujours dans la boîte de dialogue **Nouveau projet ASP.NET**, cliquez sur le bouton **Modifier l’authentification**. Dans la boîte de dialogue **Modifier l’authentification**, vérifiez que l’option **Aucune authentification** est sélectionnée et cliquez sur **OK**. Pour ce didacticiel, vous déployez une application qui n’a pas besoin de connexion de l’utilisateur.
    
     ![][16]
 7. Dans la boîte de dialogue **Nouveau projet ASP.NET**, cliquez sur **OK** pour créer le projet.
 8. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Références** dans le projet **FrontendWebRole**, puis cliquez sur **Gérer les packages NuGet**.
-9. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Sélectionnez le package **WindowsAzure.ServiceBus**, cliquez sur **Installer**, puis acceptez les conditions d’utilisation.
+9. Cliquez sur l’onglet **Parcourir**, puis recherchez **WindowsAzure.ServiceBus**. Sélectionnez le package **WindowsAzure.ServiceBus**, cliquez sur **Installer**, puis acceptez les conditions d’utilisation.
    
    ![][13]
    
@@ -183,12 +182,12 @@ Dans cette section, vous créez les différentes pages affichées par votre appl
 5. Maintenant, créez l’affichage de la méthode `Submit()` créée auparavant. Cliquez avec le bouton droit dans la méthode `Submit()` (la surcharge de `Submit()` qui n’accepte aucun paramètre), puis choisissez **Ajouter une vue**.
    
    ![][14]
-6. La boîte de dialogue qui s’affiche permet de créer l’affichage. Dans la liste **Modèle**, choisissez **Créer**. Dans la liste **Classe de modèle**, cliquez sur la classe **OnlineOrder**.
+6. La boîte de dialogue qui s’affiche permet de créer l’affichage. Dans la liste **Modèle**, choisissez **Créer**. Dans la liste **Classe de modèle**, sélectionnez la classe **OnlineOrder**.
    
    ![][15]
-7. Cliquez sur **Ajouter**.
+7. Cliquez sur **Add**.
 8. À présent, modifiez le nom affiché de votre application. Dans **l’Explorateur de solutions**, double-cliquez sur le fichier **Views\Shared\\_Layout.cshtml** pour l’ouvrir dans l’éditeur de Visual Studio.
-9. Remplacez toutes les occurrences de **Mon application ASP.NET** par **LITWARE’S Products**.
+9. Remplacez toutes les occurrences de **Mon application ASP.NET** par **Northwind Traders Products**.
 10. Supprimez les liens **Home**, **About** et **Contact**. Supprimez le code en surbrillance :
     
     ![][28]
@@ -362,9 +361,9 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Service Bus, consultez les ressources suivantes :  
 
-* [Documentation Azure Service Bus][sbdocs]  
+* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Prise en main des files d’attente Service Bus][sbacomqhowto]
 * [Page du service Service Bus][sbacom]  
-* [Utilisation des files d’attente Service Bus][sbacomqhowto]  
 
 Pour en savoir plus sur les scénarios à plusieurs niveaux, voir :  
 
@@ -391,8 +390,6 @@ Pour en savoir plus sur les scénarios à plusieurs niveaux, voir :
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-

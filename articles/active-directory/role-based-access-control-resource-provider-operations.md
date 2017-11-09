@@ -12,13 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -169,31 +167,6 @@ Ce document répertorie les opérations disponibles pour chaque fournisseur de r
 |/service/reports/byTime/read|Obtenir le rapport agrégé par périodes|
 |/service/reports/byApi/read|Obtenir le rapport agrégé par API|
 |/service/reports/byProduct/read|Obtenez le rapport agrégé par produits.|
-
-## <a name="microsoftappservice"></a>Microsoft.AppService
-
-| Opération | Description |
-|---|---|
-|/appidentities/Read|Retourne la ressource (site web) inscrite avec la passerelle.|
-|/appidentities/Write|Crée une nouvelle identité d’application.|
-|/appidentities/Delete|Supprime une identité d’application existante.|
-|/deploymenttemplates/listMetadata/Action|Répertorie les métadonnées d’interface utilisateur associées au package d’application API.|
-|/deploymenttemplates/generate/Action|Retourne un modèle de déploiement pour approvisionner une ou des instances d’application API.|
-|/gateways/Read|Retourne l’instance de passerelle.|
-|/gateways/Write|Crée une nouvelle passerelle ou met à jour une existante.|
-|/gateways/Delete|Supprime une instance de passerelle existante.|
-|/gateways/listLoginUris/Action|Remplit le magasin de jetons et retourne les URI de connexion OAuth.|
-|/gateways/listKeys/Action|Retourne les secrets de passerelle.|
-|/gateways/tokens/Write|Crée un nouveau jeton Zumo avec le nom spécifié.|
-|/gateways/registrations/Read|Retourne la ressource (site web) inscrite avec la passerelle.|
-|/gateways/registrations/Write|Inscrit une ressource (site web) avec la passerelle.|
-|/gateways/registrations/Delete|Annule l’inscription d’une ressource (site web) de la passerelle.|
-|/apiapps/Read|Retourne l’instance d’application API.|
-|/apiapps/Write|Crée une nouvelle application API ou met à jour une existante.|
-|/apiapps/Delete|Supprime une instance d’application API existante.|
-|/apiapps/listStatus/Action|Retourne l’état d’application API.|
-|/apiapps/listKeys/Action|Retourne des secrets d’application API.|
-|/apiapps/apidefinitions/Read|Retourne une définition de l’API d’application API.|
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
@@ -2225,4 +2198,3 @@ Ce fournisseur n’est pas un fournisseur ARM complet et ne fournit aucune opér
 - Passez en revue les [rôles RBAC intégrés](role-based-access-built-in-roles.md).
 
 - Découvrez comment gérer les affectations d’accès [par utilisateur](role-based-access-control-manage-assignments.md) ou [par ressource](role-based-access-control-configure.md). 
-

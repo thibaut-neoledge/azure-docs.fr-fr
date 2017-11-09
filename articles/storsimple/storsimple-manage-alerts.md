@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: anbacker
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Manager pour afficher et gérer vos alertes StorSimple
 ## <a name="overview"></a>Vue d’ensemble
@@ -167,7 +166,7 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 ### <a name="locally-pinned-volume-alerts"></a>Alertes de volume épinglé localement
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
-| Échec de la création du volume local <*nom du volume*>. |Échec de la tâche de création du volume. <*Message d’erreur correspondant au code d’erreur*>. |Des problèmes de connectivité peuvent empêcher la réalisation de la création de l’espace. Les volumes épinglés localement sont configurés complètement, et le processus de création d’espace implique le dépassement des volumes hiérarchisés dans le cloud. En l’absence de problèmes de connexion, il se peut que vous ayez épuisé l’espace local sur l’appareil. Déterminez si l’espace existe sur l’appareil avant de retenter cette opération. |
+| Échec de la création du volume local <*nom du volume*>. |Échec de la tâche de création du volume. <*Message d’erreur correspondant au code d’erreur*&gt;. |Des problèmes de connectivité peuvent empêcher la réalisation de la création de l’espace. Les volumes épinglés localement sont configurés complètement, et le processus de création d’espace implique le dépassement des volumes hiérarchisés dans le cloud. En l’absence de problèmes de connexion, il se peut que vous ayez épuisé l’espace local sur l’appareil. Déterminez si l’espace existe sur l’appareil avant de retenter cette opération. |
 | Échec de l’expansion du volume local <*nom du volume*>. |Échec de la tâche de modification du volume. <*Message d’erreur correspondant au code d’erreur de l’échec*>. |Des problèmes de connectivité peuvent empêcher la réalisation de l’expansion du volume. Les volumes épinglés localement sont configurés complètement, et le processus d’extension de l’espace existant implique le dépassement des volumes hiérarchisés dans le cloud. En l’absence de problèmes de connexion, il se peut que vous ayez épuisé l’espace local sur l’appareil. Déterminez si l’espace existe sur l’appareil avant de retenter cette opération. |
 | Échec de la conversion du volume <*nom de volume*>. |Échec de la tâche de conversion du volume pour convertir le type de volume épinglé localement en volume hiérarchisé. |La conversion du volume de type épinglé localement en volume hiérarchisé n’a pas pu être effectuée. Assurez-vous qu’aucun problème de connectivité n’empêche l’exécution de l’opération. Pour la résolution des problèmes de connectivité, consultez la section [Dépannage avec l’applet de commande Test-HcsmConnection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Le volume d’origine épinglé localement a maintenant été marqué comme volume hiérarchisé, car certaines données du volume épinglé localement ont été dispersées dans le cloud pendant la conversion. Le volume hiérarchisé obtenu occupe toujours un espace local sur l’appareil qui ne peut pas être récupéré pour les volumes locaux futurs.<br>Résolvez les problèmes de connectivité, effacez l’alerte et convertissez ce volume à nouveau en type de volume épinglé localement pour vous assurer que toutes les données sont de nouveau disponibles localement. |
 | Échec de la conversion du volume <*nom de volume*>. |Échec de la tâche de conversion du volume pour convertir le type de volume hiérarchisé en volume épinglé localement. |La conversion du volume du type hiérarchisé en volume épinglé localement n’a pas pu être effectuée. Assurez-vous qu’aucun problème de connectivité n’empêche l’exécution de l’opération. Pour la résolution des problèmes de connectivité, consultez la section [Dépannage avec l’applet de commande Test-HcsmConnection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Le volume d’orgine à plusieurs niveaux désormais marqué comme volume local épinglé dans le cadre du processus de conversion continue à avoir des données résidant dans le cloud, alors que l’espace fortement approvisionné sur l’appareil pour ce volume ne peut plus être récupéré pour des volumes locaux futurs.<br>Résolvez les problèmes de connectivité, effacez l’alerte et convertissez ce volume à nouveau en type de volume hiérarchisé d’origine pour vous assurer que l’espace local configuré sur l’appareil peut être récupéré. |
@@ -203,5 +202,4 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [erreurs de StorSimple et la résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md).
-
 

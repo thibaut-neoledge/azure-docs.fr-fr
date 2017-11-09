@@ -1,6 +1,6 @@
 ---
 title: "Always Encrypted : SQL Database - Azure Key Vault | Microsoft Docs"
-description: "Cet article explique comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de données en utilisant l’Assistant Always Encrypted de SQL Server Management Studio. Il inclut également des instructions concernant le stockage de chaque clé de chiffrement dans Azure Key Vault."
+description: "Cet article explique comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de données en utilisant l’Assistant Always Encrypted de SQL Server Management Studio."
 keywords: "chiffrement des données, clé de chiffrement, chiffrement cloud"
 services: sql-database
 documentationcenter: 
@@ -10,18 +10,17 @@ editor: cgronlun
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Chiffrement intégral : Protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans Azure Key Vault
 
@@ -152,7 +151,7 @@ Dans la page **Introduction**, cliquez sur **Suivant** pour ouvrir la page **Sé
 
 Chiffrez les informations **SSN** et **BirthDate** pour chaque patient. La colonne SSN utilise un chiffrement déterministe qui prend en charge les recherches d’égalité, les jointures et les regroupements. La colonne BirthDate utilisera le chiffrement aléatoire, qui ne prend pas en charge ces opérations.
 
-Définissez le **Type de chiffrement** de la colonne SSN sur **Déterministe**, et celui de la colonne BirthDate sur **Aléatoire**. Cliquez sur **Next**.
+Définissez le **Type de chiffrement** de la colonne SSN sur **Déterministe**, et celui de la colonne BirthDate sur **Aléatoire**. Cliquez sur **Suivant**.
 
 ![Chiffrer les colonnes](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -163,7 +162,7 @@ Ce didacticiel montre comment stocker vos clés dans Azure Key Vault.
 
 1. Sélectionnez **Azure Key Vault**.
 2. Sélectionnez le coffre de clés de votre choix dans la liste déroulante.
-3. Cliquez sur **Next**.
+3. Cliquez sur **Suivant**.
 
 ![Configuration de la clé principale](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
@@ -641,5 +640,4 @@ Après avoir créé une base de données utilisant le chiffrement intégral, vou
 * [Chiffrement SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistant Chiffrement intégral](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog Chiffrement intégral](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
 

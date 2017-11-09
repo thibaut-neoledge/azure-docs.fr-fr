@@ -16,14 +16,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
+ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f4efac7b74620e68e727292e02a5a904b03d6e2f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-office-365-groups-expiration-preview"></a>Configurer l’expiration des groupes Office 365 (préversion)
 
 Vous pouvez désormais gérer le cycle de vie des groupes Office 365 en définissant l’expiration pour les groupes Office 365 que vous sélectionnez. Une fois cette expiration définie, les propriétaires de ces groupes sont invités à renouveler leurs groupes s’ils en ont toujours besoin. Les groupes Office 365 qui ne sont pas renouvelés seront supprimés. Les groupes Office 365 qui ont été supprimés peuvent être restaurés dans les 30 jours qui suivent par les propriétaires des groupes ou l’administrateur.  
@@ -81,4 +79,3 @@ Ces articles fournissent des informations supplémentaires sur les groupes Azure
 * [Gérer les membres d’un groupe](active-directory-groups-members-azure-portal.md)
 * [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
 * [Gérer les règles dynamiques pour les utilisateurs dans un groupe](active-directory-groups-dynamic-membership-azure-portal.md)
-

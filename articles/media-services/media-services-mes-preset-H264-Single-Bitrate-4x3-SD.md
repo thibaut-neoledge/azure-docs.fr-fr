@@ -1,6 +1,6 @@
 ---
 title: "Présélection Media Encoder Standard H264 - Vitesse de transmission unique - 4 x 3 SD - Azure | Microsoft Docs"
-description: "Cette rubrique présente une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission unique - 4 x 3 SD**."
+description: "La rubrique présente une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission unique - 4 x 3 SD**."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: da0670e4ad623902557eab53394cf2a98a8b45bf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 61fac597c6e9ee425cedd1df2d819acebb148280
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="h264-single-bitrate-4x3-sd"></a>H264 – Vitesse de transmission unique – 4 x 3 SD
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  
   
@@ -117,4 +115,3 @@ ms.lasthandoff: 01/27/2017
   ]  
 }  
 ```
-

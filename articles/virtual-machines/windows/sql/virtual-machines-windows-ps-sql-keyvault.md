@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/23/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7dd5261960d3f93f01e221c5f5d7a397bc77d590
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 32b9564fa5c9ca6864ade343fda309b2c3edf123
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurer Azure Key Vault Integration pour SQL Server sur des machines virtuelles Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -66,5 +64,4 @@ Lorsque vous avez terminé, cliquez sur le bouton **OK** au bas du panneau **Con
 > 
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
-
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7d472733e80ae03294ba1ac9e97d1afd3aa0fa91
-ms.openlocfilehash: c7d8eefe560a361690cc4daf6550b2a8c894f318
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ sur l’itinérance des paramètres et des données
 Cette rubrique répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
@@ -73,7 +72,7 @@ Dans les versions Windows 10 publiées à partir de novembre 2015 inclus, Enterp
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Les paramètres se synchronisent-ils pour les comptes Azure AD regroupant plusieurs clients ?
 Lorsque plusieurs comptes Azure AD regroupant différents clients Azure AD se trouvent sur le même appareil, vous devez mettre à jour le registre de l’appareil afin de communiquer avec le service Azure Rights Management pour chaque client Azure AD.  
 
-1. Recherchez le GUID de chaque client Azure AD. Ouvrez le portail Azure Classic et sélectionnez un client Azure AD. Le GUID du client se trouve dans l’URL affichée dans la barre d’adresse de votre navigateur. Par exemple :  `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. Recherchez le GUID de chaque client Azure AD. Ouvrez le portail Azure Classic et sélectionnez un client Azure AD. Le GUID du client se trouve dans l’URL affichée dans la barre d’adresse de votre navigateur. Par exemple : `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Dès que vous disposez du GUID, vous devez ajouter la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
    À partir de la clé **tenant ID GUID**, créez une nouvelle valeur de chaînes multiples (REG-MULTI-SZ) nommée **AllowedRMSServerUrls**. Pour ses données, spécifiez les URL de point de distribution de licence des autres clients Azure auxquels l’appareil accède.
 3. Vous trouverez les URL de point de distribution de licence en exécutant l’applet de commande **Get-AadrmConfiguration** . Si les valeurs des paramètres **LicensingIntranetDistributionPointUrl** et **LicensingExtranetDistributionPointUrl** sont différentes, spécifiez les deux valeurs. Si les valeurs sont les mêmes, ne spécifiez la valeur qu’une seule fois.
@@ -129,4 +128,3 @@ Pour obtenir la liste des problèmes connus, consultez la documentation indiqué
 * [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [Dépannage](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-

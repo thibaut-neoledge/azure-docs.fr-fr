@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
 ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Prise en main d’Azure Mobile Engagement pour les applications Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -170,9 +170,3 @@ Accédez au [Kit de développement logiciel (SDK) Android](mobile-engagement-and
 [9]: ./media/mobile-engagement-android-get-started/app-connection-info-page.png
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

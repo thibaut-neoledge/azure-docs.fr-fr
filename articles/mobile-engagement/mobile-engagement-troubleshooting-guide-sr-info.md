@@ -1,6 +1,6 @@
 ---
 title: "Guide de dépannage d’Azure Mobile Engagement - Informations de demande de service"
-description: "Informations de demande de service nécessaires à l&quot;équipe de support technique pour résoudre les problèmes d&quot;Azure Mobile Engagement"
+description: "Informations de demande de service nécessaires à l'équipe de support technique pour résoudre les problèmes d'Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 05abc6a620468aff9a26ed1d37562c8cd2b2acc8
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a4497046df74003a733d80f190e82b5e798d398e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-request-sr-information"></a>Informations de la demande de service (SR)
 Fournissez les informations suivantes lorsque vous ouvrez une demande de service Azure Mobile Engagement :
@@ -41,5 +40,4 @@ Fournissez les informations suivantes lorsque vous ouvrez une demande de service
 * Version du Kit de développement logiciel (SDK) et plateforme de votre application (Android SDK 2.4.1, iOS 1.16.2, etc.)
 * Emplacement de téléchargement de votre application de production (ou les fichiers APK/TGZ de votre application de développement)
 * Fichier « AndroidManifest.xml » et/ou tout extrait de code de votre application liée à Azure Mobile Engagement (pour le dépannage avancé)
-
 

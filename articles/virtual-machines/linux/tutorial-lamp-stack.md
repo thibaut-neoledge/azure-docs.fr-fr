@@ -15,19 +15,18 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: danlep
+ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9148ac9646e4e1cfeff8f20c096e390499437e78
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Installer un serveur web LAMP sur une machine virtuelle Azure
 Cet article vous guide à travers le déploiement d’un serveur web Apache, de celui de MySQL et de PHP (la pile LAMP) sur une machine virtuelle Ubuntu dans Azure. Si vous préférez le serveur web NGINX, consultez le didacticiel [Pile LEMP](tutorial-lemp-stack.md). Pour voir le serveur LAMP fonctionner, vous pouvez éventuellement installer et configurer un site WordPress. Ce didacticiel vous explique comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Ubuntu (la lettre « L » dans la pile LAMP)
-> * Ouvrir le port 80 pour le trafic web
+> * Ouvrez le port 80 pour le trafic web
 > * Installer Apache, MySQL et PHP
 > * Vérifier l’installation et la configuration
 > * Installer WordPress sur le serveur LAMP
@@ -76,7 +75,7 @@ Avec Apache installé et le port 80 ouvert sur votre machine virtuelle, le serv
 Vérifiez la version de MySQL avec la commande suivante (remarquez le paramètre `V` avec une majuscule) :
 
 ```bash
-msql -V
+mysql -V
 ```
 
 Nous vous recommandons d’exécuter le script suivant pour vous aider à sécuriser l’installation de MySQL :
@@ -97,7 +96,7 @@ Lorsque vous avez terminé, quittez l’invite de mysql en tapant `\q`.
 
 ### <a name="php"></a>PHP
 
-Vérifiez la version de PHP à l’aide de la commande suivante :
+Vérifiez la version de PHP avec la commande suivante :
 
 ```bash
 php -v

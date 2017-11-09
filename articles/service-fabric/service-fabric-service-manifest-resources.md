@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
+ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
 ## <a name="overview"></a>Vue d'ensemble
@@ -139,6 +138,9 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous d
 </ApplicationManifest>
 ```
 
+Pour les clusters Linux, le **MY** stocke par défaut dans le dossier **/var/lib/sfcerts**.
+
+
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Écraser des points de terminaison dans ServiceManifest.xml
 
 Dans ServiceManifest, ajoutez une section ResourceOverrides, qui sera la sœur de la section ConfigOverrides. Vous pouvez y spécifier le remplacement de la section Points de terminaison dans la section Ressources spécifiée dans le manifeste de service.
@@ -198,4 +200,3 @@ Si, dans ServiceManifest, vous avez spécifié :
 Et que la valeur Port1 et Protocol1 des paramètres d’application est Null ou vide. Le port est toujours déterminé par ServiceFabric. Et Protocol a la valeur tcp.
 
 Supposons que vous spécifiez une valeur incorrecte. Par exemple, pour Port, vous avez spécifié la valeur de chaîne « Foo » au lieu d’un entier.  La commande New-ServiceFabricApplication échouera avec une erreur : « The override parameter with name ’ServiceEndpoint1’ attribute ’Port1’ in section ’ResourceOverrides’ is invalid. The value specified is ’Foo’ and required is ’int’. » (Le paramètre de remplacement portant le nom « ServiceEndpoint1 » pour l’attribut « Port1 » dans la section « ResourceOverrides » n’est pas valide. La valeur spécifiée est « Foo » alors que le type « int » est requis.)
-

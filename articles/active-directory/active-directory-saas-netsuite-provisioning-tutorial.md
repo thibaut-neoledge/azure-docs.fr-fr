@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 277c393536615fc8bfe8af0bc6d487115f04776c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Netsuite pour l’approvisionnement automatique d’utilisateurs
 
@@ -68,7 +66,7 @@ L’objectif de cette section est d’expliquer comment activer l’approvisionn
 
     ![approvisionnement](./media/active-directory-saas-netsuite-provisioning-tutorial/provisioning.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
+5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
    
     a. Dans la zone de texte **Nom d'utilisateur Admin**, tapez le nom d’un compte Netsuite auquel le profil **System Administrator** (Administrateur système) est affecté dans Netsuite.com.
    

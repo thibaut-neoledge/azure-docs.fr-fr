@@ -1,5 +1,5 @@
 ---
-title: "Se connecter à Azure à partir de l&quot;interface de ligne de commande | Microsoft Docs"
+title: "Se connecter à Azure à partir de l'interface de ligne de commande | Microsoft Docs"
 description: "Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI) pour Mac, Linux et Windows"
 editor: tysonn
 manager: timlt
@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
-ms.lasthandoff: 03/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-in-to-azure-from-the-azure-cli"></a>Connectez-vous à Azure à partir de l’interface de ligne de commande (CLI) Azure
 La CLI Azure offre un ensemble de commandes multiplateforme open-source pour l’utilisation des ressources Azure. Cet article décrit les différentes méthodes permettant de fournir vos informations d’identification de compte Azure pour connecter l’interface de ligne de commande Azure à votre abonnement Azure :
@@ -166,4 +165,3 @@ Si les abonnements associés au compte sont authentifiés uniquement avec Active
 * Pour utiliser les commandes de l’interface de ligne de commande Azure, consultez les pages [Commandes de l’interface de ligne de commande Azure en mode Resource Manager](virtual-machines/azure-cli-arm-commands.md) et [Commandes de l’interface de ligne de commande Azure en mode Service Management](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli)(en anglais).
 * Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-

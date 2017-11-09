@@ -14,22 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 2a7ecec310f4e321417364eee854409b2f85e2d3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-an-integration-account"></a>Qu’est-ce qu'un compte d’intégration ?
 
 Un compte d’intégration permet aux applications Enterprise Integration de gérer des artefacts, y compris des schémas, des mappages, des certificats, des partenaires et des contrats. Toutes les applications d’intégration que vous créez utilisent un compte d’intégration pour accéder à ces schémas, mappages, certificats, et ainsi de suite.
 
 ## <a name="create-an-integration-account"></a>Création d’un compte d’intégration
 
-1.    Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). Dans le menu de gauche, cliquez sur **Plus de services**.
+1.  Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). Dans le menu de gauche, cliquez sur **Plus de services**.
 
     ![Sélectionnez « Plus de services »](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
@@ -131,5 +128,4 @@ Pour déplacer un compte d’intégration vers un autre abonnement ou groupe de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")  
-
 

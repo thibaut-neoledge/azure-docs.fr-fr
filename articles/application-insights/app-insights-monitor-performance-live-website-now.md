@@ -3,7 +3,7 @@ title: "Surveiller une application web ASP.NET active avec Azure Application Ins
 description: "Analysez les performances d'un site web sans le redéployer. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumenter des applications web lors de l’exécution avec Application Insights
 
@@ -29,7 +28,7 @@ Vous pouvez instrumenter une application web dynamique avec Azure Application In
 
 Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web .NET :
 
-* **En cours de création :** [ajoutez le Kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web.
+* **En cours de création :**[ajoutez le Kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web.
 * **En cours d’exécution :** instrumentez votre application web sur le serveur, comme décrit ci-dessous, sans régénérer ni redéployer le code.
 * **Les deux :** intégrez le Kit de développement logiciel (SDK) à votre code d’application web et appliquez également les extensions à l’exécution. Profitez des avantages des deux options.
 
@@ -275,4 +274,3 @@ Ajoutez des données de télémétrie :
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-javascript.md
-

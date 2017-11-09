@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analyser les statistiques d’utilisation avec les rapports HTTP avancés dans Microsoft Azure CDN
 ## <a name="overview"></a>Vue d'ensemble
@@ -203,10 +203,4 @@ Les informations suivantes figurent sous le graphique pour les 250 ressources l
 * [Statistiques en temps dans Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
 * [Analyser les performances de serveurs Edge](cdn-edge-performance.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

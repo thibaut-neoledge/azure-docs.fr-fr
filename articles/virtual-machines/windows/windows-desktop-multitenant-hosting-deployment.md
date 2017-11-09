@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 8/20/2017
 ms.author: xujing
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: e3209abd17c7ba3e39a67f834be69f113c27a021
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Guide pratique pour déployer Windows 10 sur Azure avec des droits d’hébergement multilocataire 
 Pour les clients avec Windows 10 Entreprise E3/E5 par utilisateur ou Windows Virtual Desktop Access par utilisateur (licences d’abonnement utilisateur ou licences d’abonnement utilisateur de composant additionnel), les droits d’hébergement multilocataire pour Windows 10 permettent de placer les licences Windows 10 sur le cloud et d’exécuter des machines virtuelles Windows 10 sur Azure sans acheter de licence supplémentaire. Pour plus d’informations, consultez [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Hébergement multilocataire pour Windows 10).
@@ -31,7 +30,7 @@ Pour les clients avec Windows 10 Entreprise E3/E5 par utilisateur ou Windows Vir
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Déploiement de l’image Windows 10 à partir de la Place de marché Azure 
 Pour les déploiements avec un modèle Azure Resource Manager, l’interface de ligne de commande et PowerShell, l’image Windows 10 répond aux nom d’éditeur, offre et référence (SKU) indiqués ci-après.
 
-| Système d’exploitation  |      PublisherName      |  Offer | Sku |
+| SE  |      PublisherName      |  Offer | Sku |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
@@ -111,6 +110,5 @@ LicenseType              :
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez plus en détail la [configuration de VDA pour Windows 10](https://docs.microsoft.com/en-us/windows/deployment/vda-subscription-activation).
 - Découvrez plus en détail [l’hébergement multilocataire pour Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
-
 
 

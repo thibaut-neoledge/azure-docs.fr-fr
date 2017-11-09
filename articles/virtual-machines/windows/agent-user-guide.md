@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 6cf561b269c4d873a894b47265e39a057cc415c3
 ms.openlocfilehash: 24ad2c2d2872f844e32d3fae559683c3d992bd00
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 
@@ -82,8 +82,3 @@ Lorsque vous vous connectez à une machine virtuelle Windows Azure, le gestionna
 ## <a name="upgrade-the-vm-agent"></a>Mettre à niveau l’agent de machine virtuelle
 
 L’agent de machine virtuelle Azure est automatiquement mis à niveau. Lorsque de nouvelles machines virtuelles sont déployées sur Azure, elles reçoivent le dernier agent de machine virtuelle. Les images de machine virtuelle personnalisées doivent être manuellement mises à jour pour inclure le nouvel agent de machine virtuelle.
-
-
-<!--HONumber=Dec16_HO1-->
-
-

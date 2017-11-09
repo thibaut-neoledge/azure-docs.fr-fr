@@ -6,11 +6,11 @@ Si vous recevez le message d’erreur suivant, le fournisseur de ressources Micr
 
 Pour enregistrer le fournisseur de ressources, effectuez les opérations suivantes dans le portail Azure :
 
-1.    Dans le volet de navigation à gauche, cliquez sur *Abonnements*
-2.    Sélectionnez l’abonnement identifié dans le message d’erreur
-3.    Cliquez sur *Fournisseurs de ressources*
-4.    Recherchez le fournisseur *Microsoft.insights*
-5.    Cliquez sur le lien *Enregistrer*
+1.  Dans le volet de navigation à gauche, cliquez sur *Abonnements*
+2.  Sélectionnez l’abonnement identifié dans le message d’erreur
+3.  Cliquez sur *Fournisseurs de ressources*
+4.  Recherchez le fournisseur *Microsoft.insights*
+5.  Cliquez sur le lien *Enregistrer*
 
 ![Enregistrez le fournisseur de ressources microsoft.insights](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
 

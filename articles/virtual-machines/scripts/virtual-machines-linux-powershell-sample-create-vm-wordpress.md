@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8b4bbc01c76e84961b1ed7e26e29022eb8f2a980
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 778a6d5cfc63f80aa66654d682fedb178cfd67a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-wordpress-vm-with-powershell"></a>Créer une machine virtuelle WordPress avec PowerShell
 
 Ce script crée une machine virtuelle et utilise l’extension du script personnalisé de machine virtuelle Azure pour installer WordPress. Une fois que vous avez exécuté le script, vous pouvez accéder au site de configuration de WordPress à l’adresse `http://<public IP of VM>/wordpress`. 
@@ -34,7 +32,7 @@ Ce script crée une machine virtuelle et utilise l’extension du script personn
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Création d’une machine virtuelle WordPress")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Create VM WordPress")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
@@ -68,4 +66,3 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts PowerShell de machine virtuelle dans la [documentation relative aux machines virtuelles Linux Azure](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

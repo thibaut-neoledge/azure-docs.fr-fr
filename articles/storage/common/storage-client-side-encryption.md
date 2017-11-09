@@ -3,7 +3,7 @@ title: "Chiffrement côté client avec .NET pour Microsoft Azure Storage | Micro
 description: "La bibliothèque cliente de stockage Azure pour .NET prend en charge le chiffrement côté client et l’intégration au coffre de clés Azure pour assurer une sécurité maximale à vos applications Azure Storage."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: becfccca-510a-479e-a798-2044becd9a64
@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: robinsh
+ms.date: 10/20/2017
+ms.author: tamram
+ms.openlocfilehash: fe8023729bd1294dedd2a4e4723a8be0976731d6
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 634da215e29ede4e90f7edbef43a3be853165349
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -147,10 +146,11 @@ Lors de la création d’un objet EncryptionPolicy, les utilisateurs peuvent fou
   * S’il est spécifié, le programme de résolution de clé est appelé pour obtenir la clé. Si le programme de résolution est spécifié, mais ne comporte pas de mappage pour l’identificateur de clé, une erreur est générée.
   * Si le programme de résolution n’est pas spécifié, mais qu’une clé est spécifiée, celle-ci est utilisée si son identificateur correspond à l’identificateur de clé nécessaire. Si l’identificateur ne correspond pas, une erreur est générée.
 
-Les [exemples de chiffrement](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) présentent un scénario de bout en bout plus détaillé pour les objets blob, les files d’attente et les tables, ainsi que pour l’intégration au coffre de clés.
+Les exemples de code dans cet article montrent comment définir une stratégie de chiffrement et comment utiliser des données chiffrées. Toutefois, ils n’expliquent pas comment utiliser Azure Key Vault. Les [exemples de chiffrement](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) sur GitHub présentent un scénario de bout en bout plus détaillé pour les objets blob, les files d’attente et les tables, ainsi que pour l’intégration à Key Vault.
 
 ### <a name="requireencryption-mode"></a>Mode RequireEncryption
 Les utilisateurs peuvent éventuellement activer un mode de fonctionnement dans lequel tous les chargements et téléchargements doivent être chiffrés. Dans ce mode, les tentatives de chargement de données sans une stratégie de chiffrement ou de téléchargement de données non chiffrées sur le service échouent sur le client. La propriété **RequireEncryption** de l’objet d’options de requête contrôle ce comportement. Si votre application chiffre tous les objets stockés dans Azure Storage, vous pouvez définir la propriété **RequireEncryption** sur les options de requête par défaut pour l’objet client de service. Par exemple, définissez **CloudBlobClient.DefaultRequestOptions.RequireEncryption** sur **true** pour imposer le chiffrement pour toutes les opérations d’objet blob effectuées par le biais de cet objet client.
+
 
 ### <a name="blob-service-encryption"></a>Chiffrement du service BLOB
 Créez un objet **BlobEncryptionPolicy** et définissez-le dans les options de requête (par API ou au niveau client à l’aide de **DefaultRequestOptions**). Tout le reste est géré par la bibliothèque cliente en interne.

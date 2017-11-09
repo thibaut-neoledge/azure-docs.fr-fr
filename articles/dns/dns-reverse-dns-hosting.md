@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 3e10b25d2f9b91c96af2958fef6dc6a4fdbff301
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="hosting-reverse-dns-lookup-zones-in-azure-dns"></a>Hébergement de zones de recherche inversées DNS dans Azure DNS
 
 Cet article explique comment héberger les zones de recherche inversées DNS pour vos plages d’adresses IP attribuées dans Azure DNS. En règle générale, votre fournisseur de services Internet attribue à votre organisation les plages d’adresses IP représentées par la zone de recherche inversée.
@@ -54,7 +52,7 @@ L’exemple suivant montre comment créer une zone DNS inversée de « Classe C
 
  ![Créer une zone DNS](./media/dns-reverse-dns-hosting/figure2.png)
 
-L’ « emplacement du groupe de ressources » définit l’emplacement du groupe de ressources et n’a aucun impact sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
+L’ « emplacement du Groupe de ressources » définit l’emplacement du groupe de ressources et n’a aucun impact sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
 
 Les exemples suivants montrent comment effectuer cette tâche à l’aide d’Azure PowerShell et Azure CLI :
 
@@ -119,7 +117,7 @@ Pour les zones de recherche directe, le processus de délégation de zone DNS es
 
 L’exemple suivant vous guide tout au long du processus de création d’un enregistrement PTR dans une zone DNS inversée dans Azure DNS. Pour découvrir d’autres types d’enregistrements et pour modifier les enregistrements existants, consultez [Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure](dns-operations-recordsets-portal.md).
 
-1.    En haut du panneau **Zone DNS**, sélectionnez **+ Jeu d’enregistrements** pour ouvrir le panneau **Ajouter un jeu d’enregistrements**.
+1.  En haut du panneau **Zone DNS**, sélectionnez **+ Jeu d’enregistrements** pour ouvrir le panneau **Ajouter un jeu d’enregistrements**.
 
  ![Zone DNS](./media/dns-reverse-dns-hosting/figure4.png)
 
@@ -269,4 +267,3 @@ Pour plus d’informations, consultez [Importer et exporter un fichier de zone D
 Pour plus d’informations sur le DNS inversé, consultez [Recherche DNS inversée sur Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Découvrez comment [gérer des enregistrements DNS inversés pour vos services Azure](dns-reverse-dns-for-azure-services.md).
-

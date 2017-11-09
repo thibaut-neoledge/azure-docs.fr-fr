@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/29/2017
 ms.author: joeyong;barbkess
+ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: dbdf1696cd169aa7e5e23f116027a1170347f4ea
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-data"></a>Migration de vos données
 Les données peuvent être déplacées à partir de différentes sources dans SQL Data Warehouse avec divers outils.  Les solutions ADF Copy, SSIS et bcp peuvent toutes être utilisées à cette fin. Toutefois, à mesure de l’augmentation du volume des données, vous avez tout intérêt à réfléchir à un moyen de diviser le processus de migration des données en étapes. Ce faisant, vous vous donnez les moyens d’optimiser chacune des phases en matière de performance et de résilience afin de garantir une migration sans heurts des données.
@@ -186,10 +185,10 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]:../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/data-factory-data-movement-activities.md 
-[ADF samples]: ../data-factory/data-factory-samples.md
-[ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
+[AZCopy]: ../storage/common/storage-use-azcopy.md
+[ADF Copy]: ../data-factory/v1/data-factory-data-movement-activities.md 
+[ADF samples]: ../data-factory/v1/data-factory-samples.md
+[ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
@@ -208,4 +207,3 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [preview version]: http://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
-

@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/26/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: fcd3b9647833d15d0fd7913f3be55f18f665d094
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) .NET Azure Cosmos DB : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -52,6 +51,10 @@ ms.lasthandoff: 08/12/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name11801180"></a><a name="1.18.0"/>1.18.0 
+
+* Ajout de plusieurs améliorations et correctifs de fiabilité.
 
 ### <a name="a-name11701170"></a><a name="1.17.0"/>1.17.0 
 
@@ -199,9 +202,9 @@ ms.lasthandoff: 08/12/2017
 * Mise en œuvre de l’opération Upsert, ajout des méthodes UpsertXXXAsync
 * Améliorations des performances pour toutes les requêtes
 * Prise en charge par le fournisseur LINQ des méthodes conditionnelles, de fusion et CompareTo pour les chaînes
-* **[Résolu]** Fournisseur LINQ --> Implémentation de la méthode Contains sur List pour générer le même SQL que sur IEnumerable et Array
+* **[Résolu]** Fournisseur LINQ --&gt; Implémentation de la méthode Contains sur List pour générer le même SQL que sur IEnumerable et Array
 * **[Résolu]** BackoffRetryUtility utilise de nouveau le même HttpRequestMessage au lieu d’en créer un nouveau à chaque tentative
-* **[Obsolète]** UriFactory.CreateCollection --> doit désormais utiliser UriFactory.CreateDocumentCollection
+* **[Obsolète]** UriFactory.CreateCollection --&gt; doit désormais utiliser UriFactory.CreateDocumentCollection
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 * **[Résolu]** Erreurs de localisation lors de l’utilisation d’autres langues que l’anglais, comme nl-NL, etc. 
@@ -215,7 +218,7 @@ ms.lasthandoff: 08/12/2017
   * **Mathématiques** - Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate
   * **Chaîne** - Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper
   * **Tableau** - Concat, Contains, Count
-  * **IN** 
+  * **IN**
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * Ajout de la prise en charge de la modification des stratégies d’indexation.
@@ -258,7 +261,8 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [1.17.0](#1.17.0) |10 août 2017 |--- |
+| [1.18.0](#1.18.0) |17 octobre 2017 |--- |
+| [1.17.0](#1.17.0) |10 août 2017 |--- |
 | [1.16.1](#1.16.1) |7 août 2017 |--- |
 | [1.16.0](#1.16.0) |2 août 2017 |--- |
 | [1.15.0](#1.15.0) |30 juin 2017 |--- |
@@ -303,5 +307,4 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

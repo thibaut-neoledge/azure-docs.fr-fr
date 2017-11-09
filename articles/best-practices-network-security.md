@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 243c1cd5ebf34f2d8a8fda234fa3875298390336
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-cloud-services-and-network-security"></a>Services de cloud computing et sécurité réseau Microsoft
 Les services cloud Microsoft offrent une grande évolutivité des services et de l’infrastructure, des capacités de niveau d'entreprise et de nombreuses options de connectivité hybride. Les clients peuvent choisir d’accéder à ces services avec Internet ou grâce à Azure ExpressRoute, qui fournit une connectivité réseau privée. La plateforme Microsoft Azure permet aux clients d’étendre leur infrastructure dans le cloud et de générer des architectures à plusieurs niveaux en toute transparence. Par ailleurs, des tiers peuvent activer des fonctionnalités améliorées en offrant des services de sécurité et des appliances virtuelles. Ce livre blanc fournit une vue d’ensemble des problèmes de sécurité et d’architecture dont les clients doivent tenir compte lorsqu’ils utilisent des services de cloud computing Microsoft auxquels ils accèdent avec ExpressRoute. Il décrit également la création de services plus sécurisés dans les réseaux virtuels Azure.
 
@@ -80,7 +77,7 @@ Avant que le trafic Internet puisse atteindre les réseaux virtuels Azure, il ex
 
 1.    **Protection DDoS**: la protection DDoS est une couche du réseau physique Azure qui protège la plateforme Azure elle-même contre les attaques Internet à grande échelle. Ces attaques utilisent plusieurs nœuds « robot » pour tenter de surcharger un service Internet. Azure comprend un maillage de protection DDoS robuste sur toutes les connexions entrantes, sortantes et inter-régions Azure. Cette couche de protection DDoS ne comporte aucun attribut configurable par l’utilisateur et n’est pas accessible au client. La couche de protection DDoS protège Azure en tant que plateforme contre les attaques à grande échelle, et surveille également le trafic sortant et inter-régions Azure. Le client peut configurer des couches de résilience supplémentaires à l’aide d'appliances virtuelles réseau pour une protection contre une attaque à plus petite échelle qui ne viole pas la protection au niveau de la plateforme. Un exemple de DDoS en action : si une adresse IP internet a subi une attaque DDoS à grande échelle, Azure détecte les sources des attaques et nettoie le trafic malveillant avant qu’il n'atteigne sa destination prévue. Dans la plupart des cas, le point de terminaison attaqué n’est pas affecté par l’attaque. Dans de rares cas où un point de terminaison est affecté, aucun trafic n’est affecté vers d’autres points de terminaison, seul le point de terminaison attaqué. Les autres clients et services ne sont donc pas impactés par cette attaque. Il est très important de noter qu'Azure DDoS recherche uniquement les attaques à grande échelle. Il est possible que votre service spécifique puisse être submergé avant que les seuils de niveau de protection de plateforme soient dépassés. Par exemple, un site web sur un serveur A0 IIS unique pourrait être mis en mode hors connexion par une attaque DDoS avant que la protection contre les DDoS au niveau de la plateforme Azure ne l'identifie comme une menace.
 
-2.    **Adresses IP publiques** : les adresse IP publique (activées par le biais de points de terminaison de service, d'adresses IP publiques, d'Application Gateway et d’autres fonctionnalités Azure qui présentent une adresse IP publique vers internet acheminée vers votre ressource) permettent à des services cloud ou à des groupes de ressources d'exposer des adresses IP Internet publiques et des ports. Le point de terminaison utilise la traduction d'adresses réseau (NAT) pour acheminer le trafic vers l'adresse et le port internes sur le réseau virtuel Azure. Il s’agit du principal chemin d’accès pour que le trafic externe passe dans le réseau virtuel. Les adresses IP publiques sont configurables de manière à déterminer quel trafic est transféré et comment et où il est traduit sur le réseau virtuel.
+2.  **Adresses IP publiques** : les adresse IP publique (activées par le biais de points de terminaison de service, d'adresses IP publiques, d'Application Gateway et d’autres fonctionnalités Azure qui présentent une adresse IP publique vers internet acheminée vers votre ressource) permettent à des services cloud ou à des groupes de ressources d'exposer des adresses IP Internet publiques et des ports. Le point de terminaison utilise la traduction d'adresses réseau (NAT) pour acheminer le trafic vers l'adresse et le port internes sur le réseau virtuel Azure. Il s’agit du principal chemin d’accès pour que le trafic externe passe dans le réseau virtuel. Les adresses IP publiques sont configurables de manière à déterminer quel trafic est transféré et comment et où il est traduit sur le réseau virtuel.
 
 Une fois que le trafic a atteint le réseau virtuel, de nombreuses fonctionnalités entrent en jeu. Les réseaux virtuels Azure constituent la base à laquelle les clients joignent leurs charges de travail et à laquelle s’applique la sécurité de base au niveau du réseau. Il s’agit d’un réseau privé (une superposition du réseau virtuel) dans Azure pour les clients dotés des caractéristiques et fonctionnalités suivantes :
 
@@ -531,9 +528,9 @@ L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut �
 [4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Architecture de sécurité Azure"
 [5]: ./media/best-practices-network-security/dmzazure.png "Une zone DMZ dans un réseau virtuel Azure"
 [6]: ./media/best-practices-network-security/dmzhybrid.png "Réseau hybride avec trois limites de sécurité"
-[7]: ./media/best-practices-network-security/example1design.png "Zone DMZ avec groupe de sécurité réseau (NSG)"
+[7]: ./media/best-practices-network-security/example1design.png "Réseau de périmètre entrant avec groupe de sécurité réseau"
 [8]: ./media/best-practices-network-security/example2design.png "Zone DMZ entrante avec NVA et NSG"
-[9]: ./media/best-practices-network-security/example3design.png "Zone DMZ bidirectionnelle avec NVA, NSG et UDR"
+[9]: ./media/best-practices-network-security/example3design.png "DMZ bidirectionnel avec NVA, NSG et UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Affichage logique des règles de pare-feu"
 [11]: ./media/best-practices-network-security/example3designoptions.png "Zone DMZ avec réseau hybride connecté à une NVA"
 [12]: ./media/best-practices-network-security/example4designs2s.png "Zone DMZ avec NVA connectée à l’aide d’un VPN de site à site"
@@ -553,4 +550,3 @@ L’ajout d’une connexion réseau d’homologation privée ExpressRoute peut �
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-

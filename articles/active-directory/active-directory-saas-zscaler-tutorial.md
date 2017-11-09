@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 73c81691b68ee820e1d905a17b4f2ab6b6ceb5fd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler"></a>Didacticiel : Intégration d’Azure AD à Zscaler
 
@@ -148,7 +146,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Cliquez sur **Configure SAML Single Sign-On Parameters**.
 
-11. Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters** (Configurer les paramètres d’authentification unique SAML), effectuez les étapes suivantes, puis cliquez sur **Done** (Terminé).
+11. Sur la page de dialogue **Configurer les paramètres d’authentification unique SAML**, procédez comme suit, puis cliquez sur **Terminé**
 
     ![Authentification unique](./media/active-directory-saas-zscaler-tutorial/ic800209.png "Authentification unique")
     
@@ -321,5 +319,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-zscaler-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zscaler-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zscaler-tutorial/tutorial_general_203.png
-
 

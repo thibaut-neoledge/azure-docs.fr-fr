@@ -4,8 +4,8 @@ description: "Répond à certaines questions que les administrateurs informatiqu
 services: active-directory
 keywords: "paramètres enterprise state roaming, cloud windows, forum aux questions sur enterprise state roaming"
 documentationcenter: 
-author: tanning
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
@@ -13,56 +13,58 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 10/03/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 5d6b0869d2cf0e90b7b81b2304d95e01d1937925
-ms.lasthandoff: 03/18/2017
-
-
+ms.reviewer: tanning
+ms.custom: it-pro
+ms.openlocfilehash: ed25e6b922321fd4d8852860ad8817dc318d89ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-#<a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
+# <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
 
 Cette rubrique fournit des informations sur la résolution et le diagnostic des problèmes liés Enterprise State Roaming, et fournit également une liste de problèmes connus.
 
 ## <a name="preliminary-steps-for-troubleshooting"></a>Étapes préliminaires pour la résolution des problèmes 
-Avant de commencer la résolution des problèmes, vérifiez que l’utilisateur et l’appareil ont été configurés correctement et que toutes les conditions requises pour Enterprise State Roaming sont remplies par l’appareil et l’utilisateur. 
+Avant de commencer à résoudre les problèmes, vérifiez que l’utilisateur et l’appareil ont été configurés correctement, et que toutes les exigences pour Enterprise State Roaming sont remplies par l’appareil et l’utilisateur. 
 
 1. Windows 10 avec les dernières mises à jour et une version minimale 1511 (build du système d’exploitation 10586 ou ultérieur) sont installés sur l’appareil. 
-2. L’appareil est joint à Azure AD, ou joint à un domaine et inscrit auprès d’Azure AD.
-3. Dans le portail Azure Active Directory, **Enterprise State Roaming** est activé pour le répertoire sous **Configurer** > **Appareils** > **Les utilisateurs peuvent synchroniser les paramètres et les données d’application de l’entreprise**. Tous les utilisateurs sont sélectionnés ou l’utilisateur est activé pour la synchronisation via l’option sélectionnée et inclus dans le groupe de sécurité.
-4. L’utilisateur dispose d’un abonnement Azure Active Directory Premium.  
-5. L’appareil a été redémarré et l’utilisateur a ouvert une session après l’activation d’Enterprise State Roaming.
+2. L’appareil est joint à Azure AD ou à Azure AD hybride. Pour plus d’informations, consultez [Comment placer un appareil sous le contrôle d’Azure AD](device-management-introduction.md).
+3. Vérifiez que **Enterprise State Roaming** est activé pour le locataire dans Azure AD, comme décrit dans [Pour activer Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-enable.md). Vous pouvez activer l’itinérance pour tous les utilisateurs, ou seulement pour un groupe sélectionné d’utilisateurs.
+4. Une licence Azure Active Directory Premium doit déjà être affectée à l’utilisateur.  
+25. L’appareil doit être redémarré et l’utilisateur doit se reconnecter pour accéder aux fonctionnalités Enterprise State Roaming.
 
 ## <a name="information-to-include-when-you-need-help"></a>Informations à inclure lorsque vous avez besoin d’aide
-Si vous ne pouvez pas résoudre le problème avec les conseils ci-dessous, vous pouvez contacter nos ingénieurs de support. Lorsque vous les contactez, il est recommandé de fournir les informations suivantes :
+Si vous ne pouvez pas résoudre le problème avec les conseils ci-dessous, vous pouvez contacter nos ingénieurs de support. Si vous les contactez, spécifiez les informations suivantes :
 
-- **Description générale de l’erreur** : l’utilisateur reçoit-il des messages d’erreur ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué. Quelles fonctionnalités sont activées pour la synchronisation et quels éléments l’utilisateur prévoit-il de synchroniser ? Plusieurs fonctionnalités ne synchronisent-elles pas ou une est-elle isolée par rapport à une autre ?
-- **Utilisateurs affectés** : la synchronisation fonctionne/échoue-t-elle pour un ou plusieurs utilisateurs ? Combien d’appareils sont concernés par utilisateur ? Tous les appareils ne synchronisent-ils pas ou certains d’entre eux synchronisent-ils et d’autres non ?
-- **Informations sur l’utilisateur** : quelle identité l’utilisateur utilise-il pour se connecter à l’appareil ? Comment l’utilisateur se connecte-t-il à l’appareil ? Fait-il partie d’un groupe de sécurité sélectionné autorisé à synchroniser ? 
-- **Informations sur l’appareil** : cet appareil est-il joint à Azure AD ou à un domaine ? Quelle build est installée sur l’appareil ? Quelles sont les dernières mises à jour ?
+* **Description générale de l’erreur** : l’utilisateur voit-il des messages d’erreur ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué. Quelles fonctionnalités sont activées pour la synchronisation et quels éléments l’utilisateur prévoit-il de synchroniser ? Plusieurs fonctionnalités ne synchronisent-elles pas ou une est-elle isolée par rapport à une autre ?
+* **Utilisateurs affectés** : la synchronisation fonctionne/échoue-t-elle pour un ou plusieurs utilisateurs ? Combien d’appareils sont concernés par utilisateur ? Tous les appareils ne synchronisent-ils pas ou certains d’entre eux synchronisent-ils et d’autres non ?
+* **Informations sur l’utilisateur** : quelle identité l’utilisateur utilise-il pour se connecter à l’appareil ? Comment l’utilisateur se connecte-t-il à l’appareil ? Fait-il partie d’un groupe de sécurité sélectionné autorisé à synchroniser ? 
+* **Informations sur l’appareil** : cet appareil est-il joint à Azure AD ou à un domaine ? Quelle build est installée sur l’appareil ? Quelles sont les dernières mises à jour ?
 - **Date/heure/fuseau horaire** : quelles étaient la date et l’heure auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
-- Ces informations nous aident à résoudre votre problème aussi rapidement que possible.
+
+Ces informations nous aident à résoudre votre problème aussi rapidement que possible.
 
 ## <a name="troubleshooting-and-diagnosing-issues"></a>Résolution et diagnostic des problèmes
 Cette section propose des suggestions de résolution et de diagnostic des problèmes liés à Enterprise State Roaming.
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Vérifier la synchronisation et la page de paramètres « Synchroniser vos paramètres » 
 
-1. Après avoir joint votre ordinateur Windows 10 à un domaine configuré pour autoriser Enterprise State Roaming, ouvrez une session avec votre compte professionnel. Accédez à **Paramètres** > **Comptes** > **Synchroniser vos paramètres** et vérifiez que la synchronisation et les paramètres sont activés, et que le haut de la page de paramètres indique que vous synchronisez avec votre compte professionnel. Vérifiez que le même compte est également utilisé comme compte de connexion dans **Paramètres** > **Comptes** > **Vos informations**. 
+1. Après avoir joint votre PC Windows 10 à un domaine configuré pour autoriser Enterprise State Roaming, connectez-vous avec votre compte professionnel. Accédez à **Paramètres** > **Comptes** > **Synchroniser vos paramètres** et vérifiez que la synchronisation et les paramètres sont activés, et que le haut de la page de paramètres indique que vous synchronisez avec votre compte professionnel. Vérifiez que le même compte est également utilisé comme compte de connexion dans **Paramètres** > **Comptes** > **Vos informations**. 
 2. Vérifiez que la synchronisation fonctionne sur plusieurs ordinateurs en apportant des modifications sur l’ordinateur d’origine, par exemple en déplaçant la barre des tâches vers la droite ou le haut de l’écran. Après cinq minutes, vérifiez que la modification est appliquée sur le deuxième ordinateur. 
- - Le verrouillage et le déverrouillage de l’écran (Win + L) permettent de déclencher une synchronisation.
- - Comme Enterprise State Roaming est lié au compte de l’utilisateur et non au compte de la machine, vous devez utiliser le même compte de connexion sur les deux ordinateurs pour synchroniser vos travaux.
+  * Le verrouillage et le déverrouillage de l’écran (Win + L) permettent de déclencher une synchronisation.
+  * Comme Enterprise State Roaming est lié au compte de l’utilisateur et non pas au compte de la machine, vous devez vous connecter avec le même compte de connexion sur les deux ordinateurs pour que la synchronisation fonctionne.
 
-**Problème potentiel** : l’activation/désactivation de la page de paramètres est grisée et au lieu de votre compte, le message « Certaines fonctionnalités de Windows ne sont disponibles que si vous utilisez un compte Microsoft ou un compte professionnel » s’affiche. Ce problème peut se produire sur les appareils configurés pour être joints au domaine et inscrits auprès d’Azure AD, mais l’appareil n’a pas été correctement authentifié auprès d’Azure AD. Une cause possible est que la stratégie d’appareil doit être appliquée, mais cette application s’exécute de manière asynchrone et peut être retardée de quelques heures. Pour vérifier ce problème, suivez les étapes de vérification de l’état de l’inscription d’appareils pour savoir si c’est le cas.
+**Problème potentiel** : si les contrôles de la page **Paramètres** ne sont pas disponibles , vous voyez le message « Certaines fonctionnalités de Windows ne sont disponibles que si vous utilisez un compte Microsoft ou un compte professionnel ». Ce problème peut se produire sur les appareils configurés pour être joints au domaine et inscrits auprès d’Azure AD, quand l’appareil n’a pas été authentifié correctement auprès d’Azure AD. Une cause possible est que la stratégie d’appareil doit être appliquée, mais cette application s’exécute de manière asynchrone et peut être retardée de quelques heures. 
 
 ### <a name="verify-the-device-registration-status"></a>Vérifier l’état de l’inscription d’appareils
 Enterprise State Roaming exige que l’appareil soit inscrit auprès d’Azure AD. Bien que non spécifique à Enterprise State Roaming, le respect des instructions ci-dessous peut vous aider à vérifier si le client de Windows 10 est inscrit, et à vérifier l’empreinte, l’URL des paramètres Azure AD, l’état NGC et d’autres informations encore.
 
-1.    Ouvrez l’invite de commandes non élevée. Pour ce faire, dans Windows, ouvrez le lanceur Exécuter (touche Win + R) et tapez « cmd ».
-2.    Une fois l’invite de commandes ouverte, tapez « *dsregcmd.exe /status* ».
-3.    Pour le résultat attendu, la valeur du champ **AzureAdJoined** doit être « YES », la valeur du champ **WamDefaultSet** doit être « YES » et la valeur du champ **WamDefaultGUID** doit être un GUID se terminant par « (AzureAd) ».
+1.  Ouvrez l’invite de commandes non élevée. Pour ce faire, dans Windows, ouvrez le lanceur Exécuter (touche Win + R) et tapez « cmd ».
+2.  Une fois l’invite de commandes ouverte, tapez « *dsregcmd.exe /status* ».
+3.  Pour le résultat attendu, la valeur du champ **AzureAdJoined** doit être « YES », la valeur du champ **WamDefaultSet** doit être « YES » et la valeur du champ **WamDefaultGUID** doit être un GUID se terminant par « (AzureAd) ».
 
 **Problème potentiel** : la valeur des champs **WamDefaultSet** et **AzureAdJoined** est « NO », l’appareil était joint au domaine et inscrit auprès d’Azure AD, et l’appareil n’est pas synchronisé. Si ce problème apparaît, il est possible que l’appareil attente l’application de la stratégie ou que l’authentification de l’appareil a échoué lors de la connexion à Azure AD. Il est possible que l’utilisateur doive patienter quelques heures avant que la stratégie ne soit appliquée. D’autres étapes de résolution des problèmes peuvent inclure une nouvelle tentative d’inscription automatique en se déconnectant et en se reconnectant, ou en lançant la tâche dans le Planificateur de tâches. Dans certains cas, l’exécution de «*dsregcmd.exe /leave*» dans une fenêtre d’invite de commandes avec élévation de privilèges, un redémarrage et une nouvelle tentative d’inscription peuvent résoudre ce problème.
 
@@ -157,7 +159,7 @@ Dans l’étape de nettoyage, nettoyez les fichiers suivants :
 
 ---
 
-### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID d’événement 6065:80070533 Cet utilisateur ne peut pas se connecter car ce compte est actuellement désactivé    
+### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID d’événement 6065:80070533 Cet utilisateur ne peut pas se connecter car ce compte est actuellement désactivé  
 Dans l’Observateur d’événements, dans les journaux SettingSync/Debug, cette erreur peut apparaître lorsque les informations d’identification de l’utilisateur ont expiré. Par ailleurs, cette erreur peut apparaître lorsque le locataire n’a pas automatiquement configuré AzureRMS. 
 
 **Action recommandée**  
@@ -165,8 +167,8 @@ Dans le premier cas, demandez à l’utilisateur de mettre à jour ses informati
 
 ---
 
-### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID d’événement 1098 : Erreur : Échec de l’opération de service Broker de jeton 0xCAA5001C    
-Dans l’Observateur d’événements, dans les journaux AAD/Operational, cette erreur peut apparaître avec l’événement 1104 : le jeton Get de l’appel du plug-in AAD Cloud AP a renvoyé une erreur : 0xC000005F. Ce problème se produit si des autorisations ou des attributs de propriété sont manquants.     
+### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID d’événement 1098 : Erreur : Échec de l’opération de service Broker de jeton 0xCAA5001C  
+Dans l’Observateur d’événements, dans les journaux AAD/Operational, cette erreur peut apparaître avec l’événement 1104 : le jeton Get de l’appel du plug-in AAD Cloud AP a renvoyé une erreur : 0xC000005F. Ce problème se produit si des autorisations ou des attributs de propriété sont manquants.  
 
 **Action recommandée**  
 Effectuez les étapes répertoriées dans [KB3196528](https://support.microsoft.com/kb/3196528).  
@@ -185,4 +187,3 @@ Effectuez les étapes répertoriées dans [KB3196528](https://support.microsoft.
 * [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-

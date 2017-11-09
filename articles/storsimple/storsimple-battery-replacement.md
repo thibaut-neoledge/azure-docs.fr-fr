@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Remplacer le module de batterie de secours sur votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -110,10 +110,4 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

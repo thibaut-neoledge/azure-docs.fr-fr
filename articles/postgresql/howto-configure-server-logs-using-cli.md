@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 920656aabe21191470f2611279977a763ac14c36
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 26f8e12c493904f722cad5191ee053feff20f7fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Configuration et accès aux journaux du serveur à l’aide de la ligne de commande Azure
 Vous pouvez télécharger les journaux d’erreurs du serveur PostgreSQL à l’aide de l’interface de ligne de commande Azure. Toutefois, l’accès aux journaux des transactions n’est pas pris en charge. 
@@ -50,4 +49,3 @@ az postgres server-logs download --name 20170414-mypgserver-20170401-postgresql.
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour en savoir plus sur les journaux de serveur, consultez la rubrique [Journaux de serveur dans la base de données Azure pour PostgreSQL](concepts-server-logs.md)
 - Pour plus d’informations sur les paramètres du serveur, consultez la rubrique [Personnalisation des paramètres de configuration de serveur à l’aide de l’interface de ligne de commande Azure](howto-configure-server-parameters-using-cli.md)
-

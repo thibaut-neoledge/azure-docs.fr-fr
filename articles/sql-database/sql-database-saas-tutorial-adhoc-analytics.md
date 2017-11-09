@@ -1,39 +1,37 @@
 ---
 title: "Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données SQL Azure | Microsoft Docs"
-description: "Exécutez des requêtes d’analyse ad hoc sur plusieurs bases de données SQL dans une application mutualisée SaaS Wingtip."
+description: "Exécutez des requêtes d’analyse ad hoc sur plusieurs bases de données SQL dans un exemple d’application multilocataire."
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c287fe5d6b333c749b0580b5253e7e46ac27232b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
-
+ms.openlocfilehash: 849f0570fb1550f6c3676fc070d0f862450ade9a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="run-ad-hoc-analytics-queries-across-all-wingtip-saas-tenants"></a>Exécuter des requêtes d’analyse ad hoc sur tous les SaaS Wingtip
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données SQL Azure
 
-Dans ce didacticiel, vous allez exécuter des requêtes distribuées sur l’ensemble des bases de données client pour permettre une analyse ad hoc. Les requêtes élastiques sont utilisées pour permettre des requêtes distribuées, ce qui nécessite le déploiement d’une base de données d’analyse supplémentaire (sur le serveur de catalogue). Ces requêtes peuvent extraire des analyses enfouies dans les données opérationnelles quotidiennes de l’application SaaS Wingtip.
+Dans ce didacticiel, vous allez exécuter des requêtes distribuées sur l’ensemble des bases de données multilocataires pour permettre une analyse ad hoc. Les requêtes élastiques sont utilisées pour permettre des requêtes distribuées, ce qui nécessite le déploiement d’une base de données d’analyse supplémentaire (sur le serveur de catalogue). Ces requêtes peuvent extraire des analyses enfouies dans les données opérationnelles quotidiennes de l’application SaaS Wingtip.
 
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 
-> * Explorer les vues globales de chaque base de données pour permettre des requêtes efficaces sur l’ensemble des clients
+> * Explorer les vues globales de chaque base de données pour permettre des requêtes efficaces sur l’ensemble des locataires
 > * Déployer une base de données d’analyse ad hoc
 > * Exécuter des requêtes distribuées sur toutes les bases de données client
 
@@ -48,11 +46,11 @@ Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont
 
 ## <a name="ad-hoc-analytics-pattern"></a>Modèle d’analyse ad hoc
 
-Une des grandes opportunités avec les applications SaaS est l’exploitation de la vaste quantité de données partagées stockées de manière centralisée dans le cloud. Utilisez ces données pour obtenir un aperçu du fonctionnement et de l’utilisation de votre application, de vos clients, de leurs utilisateurs, des préférences, des comportements, etc. Ces analyses peuvent guider le développement des fonctionnalités, les améliorations de convivialité et les autres investissements dans vos applications et services.
+Une des grandes opportunités avec les applications SaaS est l’exploitation de la vaste quantité de données partagées stockées de manière centralisée dans le cloud. Utilisez ces données pour obtenir des insights sur le fonctionnement et l’utilisation de votre application. Ces analyses peuvent guider le développement des fonctionnalités, les améliorations de convivialité et les autres investissements dans vos applications et services.
 
 L’accès à ces données dans une base de données mutualisée est facile, mais pas si simple lors d’une distribution à grande échelle sur des milliers de bases de données. Une approche consiste à utiliser une [requête élastique](sql-database-elastic-query-overview.md), permettant d’interroger un ensemble distribué de bases de données avec un schéma commun. Les requêtes élastiques utilisent une seule base de données *principale* dans laquelle sont définies des tables externes qui reflètent les tables ou les vues dans les bases de données distribuées (client). Les requêtes envoyées à cette base de données principale sont compilées pour produire un plan de requête distribué, avec des parties de la requête transmises aux bases de données client en fonction des besoins. Les requêtes élastiques utilisent la carte de partitions dans la base de données de catalogue pour fournir l’emplacement des bases de données client. La configuration et les requêtes sont simples grâce à l’utilisation de [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) standard, et les requêtes ad hoc sont compatibles avec des outils tels que Power BI et Excel.
 
-En distribuant les requêtes sur toutes les bases de données client, les requêtes élastiques permettent d’obtenir immédiatement des informations pour les transformer en données de production actives. Toutefois, étant donné qu’une requête élastique peut extraire des données provenant potentiellement de nombreuses bases de données, la latence de requête peut parfois être supérieure à celle observée pour des requêtes équivalentes soumises à une seule base de données mutualisée. Construisez soigneusement vos requêtes pour limiter le plus possible le nombre de résultats renvoyés. Une requête élastique est souvent plus adaptée lorsqu’il s’agit d’interroger de petites quantités de données en temps réel. En revanche, ce n’est pas le cas pour la construction de requêtes ou de rapports d’analyse fréquemment utilisés ou complexes. Si les requêtes ne sont pas assez efficaces, consultez le [plan d’exécution](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) pour voir quelle partie de la requête a été repoussée vers la base de données distante et le nombre de résultats renvoyés. Les requêtes nécessitant un traitement d’analyse complexe renvoient parfois de meilleurs résultats si les données client sont extraites dans une base de données dédiée ou un entrepôt de données optimisé pour les requêtes d’analyse. Ce modèle est expliqué dans la [didacticiel sur l’analyse des clients](sql-database-saas-tutorial-tenant-analytics.md). 
+En distribuant les requêtes sur toutes les bases de données client, les requêtes élastiques permettent d’obtenir immédiatement des informations pour les transformer en données de production actives. Toutefois, étant donné qu’une requête élastique peut extraire des données provenant potentiellement de nombreuses bases de données, la latence de requête peut parfois être supérieure à celle observée pour des requêtes équivalentes soumises à une seule base de données mutualisée. Concevez des requêtes qui permettent de réduire le nombre de données retournées. Une requête élastique est souvent plus adaptée lorsqu’il s’agit d’interroger de petites quantités de données en temps réel. En revanche, ce n’est pas le cas pour la construction de requêtes ou de rapports d’analyse fréquemment utilisés ou complexes. Si les requêtes ne sont pas assez efficaces, consultez le [plan d’exécution](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) pour voir quelle partie de la requête a été repoussée vers la base de données distante et le nombre de résultats renvoyés. Les requêtes nécessitant un traitement d’analyse complexe renvoient parfois de meilleurs résultats si les données client sont extraites dans une base de données dédiée ou un entrepôt de données optimisé pour les requêtes d’analyse. Ce modèle est expliqué dans la [didacticiel sur l’analyse des clients](sql-database-saas-tutorial-tenant-analytics.md). 
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
@@ -64,13 +62,13 @@ Pour exécuter des requêtes sur un jeu de données plus concret, créez des don
 
 1. Dans *PowerShell ISE*, ouvrez le script... \\Modules d’apprentissage\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* et définissez les valeurs suivantes :
    * **$DemoScenario** = 1, **Acheter des tickets pour des événements dans tous les lieux**.
-2. Appuyez sur **F5** pour exécuter le script et générer des ventes de tickets. Pendant l’exécution du script, poursuivez les étapes de ce didacticiel. Les données sur les tickets font l’objet d’une requête dans la section *Exécuter des requêtes distribuées ad hoc*. Attendez la fin du générateur de tickets s’il est toujours en cours d’exécution au moment de commencer cet exercice.
+2. Appuyez sur **F5** pour exécuter le script et générer des ventes de tickets. Pendant l’exécution du script, poursuivez les étapes de ce didacticiel. Les données de ticket font l’objet d’une requête dans la section *Exécuter des requêtes distribuées ad hoc*. Vous devez donc attendre que le générateur de tickets ait terminé.
 
 ## <a name="explore-the-global-views"></a>Explorer les vues globales
 
 L’application SaaS Wingtip est générée à l’aide d’un modèle client par base de données, de sorte que le schéma de base de données client est défini à partir d’une perspective de client unique. Les informations propres au client existent dans une table nommée *Venue*, qui comporte une seule ligne et qui apparaît sous forme de segment de mémoire sans clé primaire. Les autres tables du schéma n’ont pas besoin d’être liées à la table *Venue*, car lors d’une utilisation normale, il n’y a jamais de doute sur la question de savoir à quel client les données appartiennent.
 
-Toutefois, lorsque l’ensemble des bases de données sont interrogées, il est important que la requête élastique puisse traiter les données comme si elles faisaient partie d’une seule base de données logique partitionnée par le client. Pour ce faire, un ensemble de vues « globales » sont ajoutées à la base de données client : elles projettent alors un ID de client dans chacune des tables interrogées globalement. Par exemple, la vue *VenueEvents* ajoute un élément *VenueId* calculé dans les colonnes projetées à partir de la table *Events*. En définissant la table externe dans la base de données principale sur *VenueEvents* (au lieu de la table sous-jacente *Events*), la requête élastique est en mesure de transmettre les jointures basées sur *VenueId* afin qu’elles puissent être exécutées en parallèle sur chaque base de données distante (et non sur la base de données principale). Cela réduit considérablement la quantité de données renvoyées, ce qui augmente nettement les performances pour de nombreuses requêtes. Ces vues globales ont été créées au préalable dans toutes les bases de données client (et dans *basetenantdb*).
+Toutefois, lorsque l’ensemble des bases de données sont interrogées, il est important que la requête élastique puisse traiter les données comme si elles faisaient partie d’une seule base de données logique partitionnée par le client. Pour simuler ce modèle, un ensemble de vues globales est ajouté à la base de données locataire. Ces vues projettent alors un ID de locataire dans chacune des tables interrogées globalement. Par exemple, la vue *VenueEvents* ajoute un élément *VenueId* calculé dans les colonnes projetées à partir de la table *Events*. En définissant la table externe dans la base de données principale sur *VenueEvents* (au lieu de la table sous-jacente *Events*), la requête élastique est en mesure de transmettre les jointures basées sur *VenueId* afin qu’elles puissent être exécutées en parallèle sur chaque base de données distante (et non sur la base de données principale). Cela réduit considérablement la quantité de données renvoyées, ce qui augmente nettement les performances pour de nombreuses requêtes. Ces vues globales ont été créées au préalable dans toutes les bases de données client (et dans *basetenantdb*).
 
 1. Ouvrez SSMS et [connectez-vous au serveur tenants1-&lt;USER&gt;](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Développez **Bases de données**, cliquez avec le bouton droit sur **contosoconcerthall**, puis sélectionnez **Nouvelle requête**.
@@ -105,7 +103,7 @@ Script d’une autre vue *Venue* illustrant la méthode d’ajout de l’éléme
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Déployer la base de données utilisée pour les requêtes distribuées ad hoc
 
-Cet exercice permet de déployer la base de données *adhocanalytics*. Cette base de données principale contient le schéma utilisé pour interroger toutes les bases de données client. La base de données est déployée sur le serveur de catalogue existant, qui est le serveur utilisé pour toutes les bases de données liées à la gestion dans l’exemple d’application.
+Cet exercice permet de déployer la base de données *adhocanalytics*. Cette base de données principale contient le schéma utilisé pour interroger toutes les bases de données locataires. La base de données est déployée sur le serveur de catalogue existant, qui est le serveur utilisé pour toutes les bases de données liées à la gestion dans l’exemple d’application.
 
 1. Ouvrir... \\Modules d’apprentissage\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* dans *PowerShell ISE* et définissez les valeurs suivantes :
    * **$DemoScenario** = 2, **Déployer la base de données d’analyse ad hoc**.
@@ -118,7 +116,7 @@ Dans la section suivante, vous allez ajouter un schéma à la base de données, 
 
 Cet exercice ajoute le schéma (la source de données externe et les définitions de la table externe) à la base de données d’analyse ad hoc qui permet l’interrogation de toutes les bases de données client.
 
-1. Ouvrez SQL Server Management Studio et connectez-vous à la base de données d’analyse ad hoc créée à l’étape précédente. Le nom de la base de données sera adhocanalytics.
+1. Ouvrez SQL Server Management Studio et connectez-vous à la base de données d’analyse ad hoc créée à l’étape précédente. Le nom de la base de données est *adhocanalytics*.
 2. Ouvrez ...\Modules d’apprentissage\Operational Analytics\Adhoc Analytics\ *Initialize-AdhocAnalyticsDB.sql* dans SSMS.
 3. Passez en revue le script SQL et notez les points suivants :
 
@@ -194,4 +192,3 @@ Essayez maintenant le [Didacticiel sur l’analyse des clients](sql-database-saa
 
 * Autres [didacticiels reposant sur l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Requête élastique](sql-database-elastic-query-overview.md)
-

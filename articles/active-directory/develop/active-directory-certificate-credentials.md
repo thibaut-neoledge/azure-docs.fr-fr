@@ -15,15 +15,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="certificate-credentials-for-application-authentication"></a>Informations d’identification de certificat pour l’authentification d’application
 
 Azure Active Directory permet à une application d’utiliser ses propres informations d’identification pour l’authentification (par exemple, le flux d’octroi d’informations d’identification du client d’OAuth 2.0 ou le flux On-Behalf-Of).
@@ -105,4 +102,3 @@ Dans la page d’inscription d’application Azure de l’application cliente, o
 ```
 
 Enregistrez les modifications du manifeste de l’application, puis chargez-le dans Azure AD. La propriété keyCredentials peut avoir plusieurs valeurs. Vous pouvez donc télécharger plusieurs certificats pour une gestion plus élaborée des clés.
-

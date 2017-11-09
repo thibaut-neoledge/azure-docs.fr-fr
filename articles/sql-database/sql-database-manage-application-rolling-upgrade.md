@@ -12,16 +12,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 07/16/2016
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 4b59c8aa3dea3e8fba692ab66420295a09210d3b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: deb91d55e5b796f7b1b53a99866156fe492e0a24
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gestion des mises à niveau propagées d’applications cloud à l’aide d’une géoréplication active de SQL Database
 > [!NOTE]
@@ -139,6 +137,5 @@ Les deux méthodes de mise à niveau décrites dans cet article présentent cert
 * Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, voir [Restaurer une base de données à partir de sauvegardes automatisées](sql-database-recovery-using-backups.md).
 * Pour en savoir plus sur les options de récupération plus rapides, voir [Géoréplication active](sql-database-geo-replication-overview.md).
-
 
 

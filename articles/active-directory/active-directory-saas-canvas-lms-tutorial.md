@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 2212b7a81b66d1afd1aa78d1487b07b6d7b84129
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Didacticiel : Intégration d’Azure Active Directory à Canvas LMS
 
@@ -92,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Canvas, vou
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Canvas](#creating-a-canvas-test-user)** pour avoir dans Canvas un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -153,7 +151,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     d. Dans la zone de texte **Change Password Link** (Lien de modification de mot de passe), collez la valeur de l’**URL de modification de mot de passe** que vous avez copiée à partir du portail Azure. 
 
-    e. Dans la zone de texte **Certificate Fingerprint** (Empreinte du certificat), collez la valeur **Thumbprint** (Empreinte numérique) du certificat que vous avez copiée à partir du portail Azure.      
+    e. Dans la zone de texte **Empreinte du certificat**, collez la valeur du certificat **Empreinte** que vous avez copiée à partir du portail Azure.      
         
     f. Dans la liste **Login Attribute**, sélectionnez **NameID**.
 
@@ -289,5 +287,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_203.png
-
 

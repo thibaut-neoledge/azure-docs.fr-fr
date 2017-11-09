@@ -12,15 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 68820f9c018b1076bae8dc0195906d0f34590748
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 866fc729b3167863c2d423d0e6ac0d7640e3425e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde 
 
 Sondez le cœur de votre application web dynamique en production en utilisant les flux de métriques temps réel depuis [Application Insights](app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. En combinaison avec le [profileur](app-insights-profiler.md), le [débogueur d’instantané](app-insights-snapshot-debugger.md) et les [tests de performances](app-insights-monitor-web-app-availability.md#performance-tests), les flux de métriques temps réel constituent un outil de diagnostic puissant et non invasif pour votre site web dynamique.
@@ -161,4 +159,3 @@ Pas de données ? Si votre application se trouve dans un réseau protégé : l
 * [Utilisation de Diagnostic Search](app-insights-diagnostic-search.md)
 * [Profileur](app-insights-profiler.md)
 * [Débogueur de capture instantanée](app-insights-snapshot-debugger.md)
-

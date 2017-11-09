@@ -4,7 +4,7 @@ description: "Cet article décrit l’intégration de votre infrastructure VPN a
 services: active-directory
 keywords: "Azure MFA, intégration VPN, Azure Active Directory, extension de serveur NPS"
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,17 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
+ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 3dfcf25856ede50266336c2ebb057dd3f7b8897e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure d’authentification multifacteur (MFA) à l’aide de l’extension de serveur NPS (Network Policy Server) pour Azure
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -100,12 +98,12 @@ L’extension de serveur NPS requiert Windows Server 2008 R2 SP1 ou version ult�
 
 ### <a name="libraries"></a>Bibliothèques
 
-Les deux bibliothèques suivantes sont requises :
+Ces bibliothèques sont installées automatiquement avec l’extension.
 
-* [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-* _Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0_ ou version supérieure. Pour la version la plus récente et les instructions d’installation, consultez [Historique des mises en production de la version du module Microsoft Azure Active Directory PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx).
+-   [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-Ces bibliothèques ne sont pas packagées avec les fichiers de configuration d’extension NPS (version 0.9.1.2), en dépit de la documentation existante qui stipule le contraire. Au minimum, vous devez installer les packages redistribuables Visual C++ pour Visual Studio 2013. Le module Microsoft Azure Active Directory pour Windows PowerShell est installé, s’il n’est pas déjà présent, via un script de configuration que vous exécutez en tant que partie du processus de configuration. Il est inutile d’installer ce module en avance s’il n’est pas déjà installé.
+Le module Microsoft Azure Active Directory pour Windows PowerShell est installé, s’il n’est pas déjà présent, via un script de configuration que vous exécutez en tant que partie du processus de configuration. Il est inutile d’installer ce module en avance s’il n’est pas déjà installé.
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory synchronisé avec Active Directory local 
 
@@ -476,5 +474,4 @@ Pour plus d’informations, consultez [Intégrer votre infrastructure NPS exista
 [Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
 [Intégrer vos répertoires locaux à Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
-
 

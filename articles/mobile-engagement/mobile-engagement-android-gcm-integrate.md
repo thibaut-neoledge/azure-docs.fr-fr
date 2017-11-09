@@ -1,5 +1,5 @@
 ---
-title: "Intégration du SDK Android d&quot;Azure Mobile Engagement"
+title: "Intégration du SDK Android d'Azure Mobile Engagement"
 description: "Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-integrate-gcm-with-mobile-engagement"></a>comment intégrer GCM à Mobile Engagement
 > [!IMPORTANT]
@@ -82,9 +82,3 @@ Assurez-vous de disposer des autorisations suivantes dans votre `AndroidManifest
 Suivez [ce guide](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) pour accorder à Mobile Engagement l’accès à votre clé API GCM
 
 [le Kit de développement logiciel (SDK) Google Play]:https://developers.google.com/cloud-messaging/android/start
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

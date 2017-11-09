@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba15ebc176ada48943fb6afa5f9c723e3d906099
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 4518fc126c717cc79ca7950c0b1ddcd9f1d8c7d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-annotate-data-sources"></a>Annotation de sources de données
 ## <a name="introduction"></a>Introduction
@@ -69,4 +68,3 @@ L’inscription d’une source de données avec Data Catalog favorise la détect
 
 ## <a name="see-also"></a>Voir aussi
 * [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) décrivant la procédure pas à pas d’annotation des sources de données.
-

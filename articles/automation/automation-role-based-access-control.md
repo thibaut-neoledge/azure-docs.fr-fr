@@ -3,7 +3,7 @@ title: "Contrôle d’accès en fonction du rôle dans Azure Automation | Micro
 description: "Le contrôle d’accès en fonction du rôle (RBAC) permet de gérer les accès des ressources Azure. Cet article décrit la configuration de RBAC dans Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "rbac automation, contrôle d’accès en fonction du rôle, azure rbac"
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 09/30/2016
 ms.author: magoedte;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
-
-
+ms.openlocfilehash: 946d80d40ac0566db72c787f260f2d4faff01e6d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Contrôle d’accès en fonction du rôle dans Azure Automation
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
@@ -33,7 +33,7 @@ Dans Azure Automation, l’accès est octroyé en attribuant le rôle RBAC app
 | Propriétaire |Le rôle Propriétaire autorise l’accès à l’ensemble des ressources et actions d’un compte Automation, y compris l’accès aux autres utilisateurs, groupes et applications pour gérer le compte Automation. |
 | Collaborateur |Le rôle Collaborateur vous permet de gérer tous les éléments excepté la modification des autorisations d’accès des autres utilisateurs à un compte Automation. |
 | Lecteur |Le rôle Lecteur vous permet d’afficher toutes les ressources d’un compte Automation, mais vous ne pouvez pas y apporter de modifications. |
-| Opérateur Automation |Le rôle Opérateur Automation vous permet d’effectuer des tâches opérationnelles ; vous pouvez notamment démarrer, arrêter, suspendre, reprendre et planifier des tâches. Ce rôle est utile si vous souhaitez protéger vos ressources de compte Automation telles que les ressources d’informations d’identification et les Runbooks et empêcher leur affichage ou leur modification, tout en autorisant les membres de votre organisation à exécuter ces Runbooks. |
+| Opérateur Automation |Le rôle Opérateur Automation vous permet d’effectuer des tâches opérationnelles ; vous pouvez notamment démarrer, arrêter, suspendre, reprendre et planifier des tâches. Ce rôle est utile si vous souhaitez protéger vos ressources de compte Automation telles que les ressources d’informations d’identification et les Runbooks et empêcher leur affichage ou leur modification, tout en autorisant les membres de votre organisation à exécuter ces Runbooks. |
 | Administrateur de l'accès utilisateur |Le rôle Administrateur de l’accès utilisateur vous permet de gérer l’accès utilisateur aux comptes Azure Automation. |
 
 > [!NOTE]
@@ -41,7 +41,7 @@ Dans Azure Automation, l’accès est octroyé en attribuant le rôle RBAC app
 > 
 > 
 
-Dans cet article, nous allons vous guider dans la configuration de RBAC dans Azure Automation. Mais tout d’abord, examinons un peu plus attentivement les autorisations individuelles accordées aux rôles Collaborateur, Lecteur, Opérateur Automation et Administrateur de l’accès utilisateur afin d’avoir une bonne compréhension avant d’accorder à quiconque des droits d’accès au compte Automation.  Dans le cas contraire, les conséquences risquent d’être inattendues ou indésirables.     
+Dans cet article, nous vous guidons dans la configuration de RBAC dans Azure Automation. Mais tout d’abord, examinons un peu plus attentivement les autorisations individuelles accordées aux rôles Collaborateur, Lecteur, Opérateur Automation et Administrateur de l’accès utilisateur afin d’avoir une bonne compréhension avant d’accorder à quiconque des droits d’accès au compte Automation.  Dans le cas contraire, les conséquences risquent d’être inattendues ou indésirables.     
 
 ## <a name="contributor-role-permissions"></a>Autorisations du rôle Collaborateur
 Le tableau suivant présente les actions spécifiques qui peuvent être effectuées par le rôle Collaborateur dans Automation :
@@ -127,8 +127,8 @@ Le tableau suivant présente les actions spécifiques qui peuvent être effectu�
 | Webhook Automation |![État vert](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Configurer RBAC pour votre compte Automation à l’aide du portail Azure
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez votre compte Automation depuis le panneau Comptes Automation.  
-2. Cliquez sur le contrôle **Utilisateurs** . afin d’ouvrir le panneau **Utilisateurs**. Celui-ci vous permet d’ajouter de nouveaux utilisateurs, groupes et applications pour gérer votre compte Automation et d’afficher les rôles existants qui peuvent être configurés pour le compte Automation.  
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez votre compte Automation depuis la page Comptes Automation.  
+2. Cliquez sur le contrôle **Utilisateurs** . Vous ouvrez ainsi la page **Utilisateurs**. Celle-ci vous permet d’ajouter de nouveaux utilisateurs, groupes et applications pour gérer votre compte Automation et d’afficher les rôles existants qui peuvent être configurés pour le compte Automation.  
    
    ![Bouton Accéder](media/automation-role-based-access-control/automation-01-access-button.png)  
 
@@ -138,24 +138,24 @@ Le tableau suivant présente les actions spécifiques qui peuvent être effectu�
 > 
 
 ### <a name="add-a-new-user-and-assign-a-role"></a>Ajouter un nouvel utilisateur et affecter un rôle
-1. Dans le panneau Utilisateurs, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un accès** dans lequel vous pouvez ajouter un utilisateur, un groupe ou une application et lui affecter un rôle.  
+1. Dans la page Utilisateurs, cliquez sur **Ajouter** pour ouvrir la page **Ajouter un accès** dans laquelle vous pouvez ajouter un utilisateur, un groupe ou une application et lui affecter un rôle.  
    
    ![Ajouter un utilisateur](media/automation-role-based-access-control/automation-02-add-user.png)  
 2. Dans la liste des rôles disponibles, sélectionnez un rôle. Dans le cadre de notre exemple, nous choisirons le rôle **Lecteur** , mais vous pouvez choisir l’un des rôles intégrés disponibles pris en charge par un compte Automation ou un rôle personnalisé que vous avez défini.  
    
    ![Sélectionner un rôle](media/automation-role-based-access-control/automation-03-select-role.png)  
-3. Cliquez sur **Ajouter des utilisateurs** pour ouvrir le panneau **Ajouter des utilisateurs**. Si vous avez ajouté des utilisateurs, des groupes ou des applications pour gérer votre abonnement, ces utilisateurs sont répertoriés, et vous pouvez les sélectionner pour ajouter un accès. Si aucun utilisateur n’est répertorié ou si l’utilisateur que vous souhaitez ajouter n’est pas répertorié, cliquez sur **Inviter** pour ouvrir le panneau **Convier un invité**. Celui-ci vous permet d’inviter un utilisateur disposant d’une adresse de messagerie de compte Microsoft valide comme Outlook.com, OneDrive ou des identifiants Xbox Live. Une fois que vous avez entré l’adresse de messagerie de l’utilisateur, cliquez sur **Sélectionner** pour ajouter l’utilisateur, puis sur **OK**. 
+3. Cliquez sur **Ajouter des utilisateurs** pour ouvrir la page **Ajouter des utilisateurs**. Si vous avez ajouté des utilisateurs, des groupes ou des applications pour gérer votre abonnement, ces utilisateurs sont répertoriés, et vous pouvez les sélectionner pour ajouter un accès. Si aucun utilisateur n’est répertorié ou si l’utilisateur que vous souhaitez ajouter n’est pas répertorié, cliquez sur **Inviter** pour ouvrir la page **Convier un invité**. Celle-ci vous permet d’inviter un utilisateur disposant d’une adresse de messagerie de compte Microsoft valide comme Outlook.com, OneDrive ou des identifiants Xbox Live. Une fois que vous avez entré l’adresse de messagerie de l’utilisateur, cliquez sur **Sélectionner** pour ajouter l’utilisateur, puis sur **OK**. 
    
    ![Ajouter des utilisateurs](media/automation-role-based-access-control/automation-04-add-users.png)  
    
-   L’utilisateur doit maintenant apparaître dans le panneau **Utilisateurs** avec le rôle **Lecteur** qui lui a été affecté.  
+   L’utilisateur doit maintenant apparaître dans la page **Utilisateurs** avec le rôle **Lecteur** qui lui a été affecté.  
    
    ![Répertorier les utilisateurs](media/automation-role-based-access-control/automation-05-list-users.png)  
    
-   Vous pouvez également affecter un rôle à l’utilisateur à partir du panneau **Rôles** . 
-4. Dans le panneau Utilisateurs, cliquez sur **Rôles** pour ouvrir le panneau **Rôles**. Dans ce panneau, vous pouvez voir le nom du rôle, ainsi que le nombre d’utilisateurs et de groupes affectés à ce rôle.
+   Vous pouvez également affecter un rôle à l’utilisateur à partir de la page **Rôles** . 
+4. Dans la page Utilisateurs, cliquez sur **Rôles** pour ouvrir la page **Rôles**. Dans cette page, vous pouvez voir le nom du rôle, ainsi que le nombre d’utilisateurs et de groupes affectés à ce rôle.
    
-    ![Affecter un rôle à partir du panneau Utilisateurs](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+    ![Affecter un rôle à partir de la page Utilisateurs](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
    > Le contrôle d’accès en fonction du rôle ne peut être défini qu’au niveau du compte Automation et pas au niveau d’une ressource située au-dessous de ce compte.
@@ -169,8 +169,8 @@ Le tableau suivant présente les actions spécifiques qui peuvent être effectu�
 ### <a name="remove-a-user"></a>Supprimer un utilisateur
 Vous pouvez supprimer l’autorisation d’accès d’un utilisateur qui ne gère pas le compte Automation ou qui ne travaille plus pour votre organisation. Pour supprimer un utilisateur, procédez comme suit : 
 
-1. Dans le panneau **Utilisateurs** , sélectionnez l’affectation de rôle à supprimer.
-2. Cliquez sur le bouton **Supprimer** dans le panneau des détails de l’affectation.
+1. Dans la page **Utilisateurs**, sélectionnez l’affectation de rôle à supprimer.
+2. Cliquez sur le bouton **Supprimer** dans le volet des détails de l’affectation.
 3. Cliquez sur **Oui** pour confirmer la suppression. 
    
    ![Supprimer des utilisateurs](media/automation-role-based-access-control/automation-08-remove-users.png)  
@@ -201,7 +201,7 @@ Cet utilisateur ne peut pas non plus accéder aux Webhooks associés à un Runbo
 L’accès en fonction du rôle peut également être configuré pour un compte Automation à l’aide des [applets de commande Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)ci-dessous.
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) répertorie tous les rôles RBAC qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette commande avec la propriété **Name** pour dresser la liste de toutes les actions qui peuvent être effectuées par un rôle spécifique.  
-    **Exemple :**  
+    **Exemple :**  
     ![Obtenir la définition de rôle](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)  
 
 • [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) répertorie les affectations de rôle RBAC d’Azure AD dans l’étendue spécifiée. Sans paramètres, cette commande renvoie toutes les affectations de rôle effectuées dans l’abonnement. Utilisez le paramètre **ExpandPrincipalGroups** pour répertorier les affectations d’accès de l’utilisateur spécifié et des groupes dont il est membre.  
@@ -223,16 +223,10 @@ L’accès en fonction du rôle peut également être configuré pour un compte 
 
     Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 
-Dans les exemples indiqués ci-dessus, remplacez **l’ID de connexion**,** l’ID d’abonnement**, le **nom du groupe de ressources** et le **nom du compte Automation** par les détails de votre compte. Choisissez **oui** lorsque vous êtes invité à confirmer avant de supprimer une affectation de rôle d’utilisateur.   
+Dans les exemples indiqués ci-dessus, remplacez **l’ID de connexion**, **l’ID d’abonnement**, le **nom du groupe de ressources** et le **nom du compte Automation** par les détails de votre compte. Choisissez **oui** lorsque vous êtes invité à confirmer avant de supprimer une affectation de rôle d’utilisateur.   
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur les différentes façons de configurer RBAC pour Azure Automation, reportez-vous à l’article [Gestion du Contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 * Pour plus d’informations sur les différentes façons de démarrer un Runbook, consultez l’article [Démarrage d’un Runbook](automation-starting-a-runbook.md)
 * Pour en savoir plus sur les différents types de Runbook, consultez l’article [Types de Runbook Azure Automation](automation-runbook-types.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

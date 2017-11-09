@@ -11,16 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 09/21/2017
 ms.author: larryfr
+ms.openlocfilehash: 27a5d0e69ec9c47feab2b23d7c79fe2547edfc08
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6fc863010cc59e20e7d86ea9344489e574be75f2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Connecter HDInsight à votre réseau local
 
 Découvrez comment connecter HDInsight à votre réseau local à l’aide de réseaux virtuels Azure et d’une passerelle VPN. Ce document fournit des informations de planification concernant :
@@ -34,9 +32,6 @@ Découvrez comment connecter HDInsight à votre réseau local à l’aide de ré
 * les ports fournis par HDInsight sur le réseau virtuel.
 
 ## <a name="create-the-virtual-network-configuration"></a>Créer la configuration de réseau virtuel
-
-> [!IMPORTANT]
-> Si vous recherchez des instructions pas à pas pour connecter HDInsight à votre réseau local en utilisant un réseau virtuel Azure, consultez le document [Connecter HDInsight à votre réseau local](connect-on-premises-network.md).
 
 Pour découvrir comment créer un réseau virtuel Azure connecté à votre réseau local, consultez les documents suivants :
     
@@ -74,7 +69,10 @@ Dans le schéma suivant, les lignes vertes correspondent à des demandes de ress
 Pour créer une machine virtuelle Linux utilisant le logiciel DNS [Bind](https://www.isc.org/downloads/bind/), procédez comme suit :
 
 > [!NOTE]
-> Les étapes suivantes utilisent le [portail Azure](https://portal.azure.com) pour créer une machine virtuelle Azure. Pour d’autres manières de créer une machine virtuelle, consultez [Créer une machine virtuelle avec Azure CLI](../virtual-machines/linux/quick-create-cli.md) et [Créer une machine virtuelle avec Azure PowerShell](../virtual-machines/linux/quick-create-portal.md).
+> Les étapes suivantes utilisent le [portail Azure](https://portal.azure.com) pour créer une machine virtuelle Azure. Pour d’autres méthodes permettant de créer une machine virtuelle, consultez les documents suivants :
+>
+> * [Créer une machine virtuelle - Interface de ligne de commande Azure](../virtual-machines/linux/quick-create-cli.md)
+> * [Créer une machine virtuelle - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez __+__, __Compute__, puis __Ubuntu Server 16.04 LTS__.
 
@@ -299,7 +297,9 @@ Pour créer un cluster HDInsight, procédez de la manière décrite dans [Créer
 
 ## <a name="connecting-to-hdinsight"></a>Connexion à HDInsight
 
-L’essentiel de la documentation relative à HDInsight part du principe que vous avez accès au cluster via internet. Par exemple, vous pouvez vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Cette adresse utilise la passerelle publique qui n’est pas disponible si vous avez utilisé des groupes de sécurité réseau ou des routages définis par l’utilisateur pour restreindre l’accès à partir d’Internet.
+L’essentiel de la documentation relative à HDInsight part du principe que vous avez accès au cluster via internet. Par exemple, vous pouvez vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Cette adresse utilise la passerelle publique qui n’est pas disponible si vous avez utilisé des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour restreindre l’accès à partir d’Internet.
+
+Certains documents font également référence à `headnodehost` lors de la connexion au cluster à partir d’une session SSH. Cette adresse est uniquement disponible à partir des nœuds d’un cluster, et elle n’est pas utilisable sur les clients connectés au réseau virtuel.
 
 Pour vous connecter directement à HDInsight par le biais du réseau virtuel, procédez comme suit :
 
@@ -341,4 +341,3 @@ Pour vous connecter directement à HDInsight par le biais du réseau virtuel, pr
 * Pour plus d’informations sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 * Pour plus d’informations sur les routages par l’utilisateur, consultez [Routage définis par l’utilisateur et transfert IP](../virtual-network/virtual-networks-udr-overview.md).
-

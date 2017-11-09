@@ -1,6 +1,6 @@
 ---
 title: "Gérer les enregistrements DNS dans Azure DNS à l’aide d’Azure CLI 1.0 | Microsoft Docs"
-description: "Gestion des jeux d&quot;enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes CLI 1.0 destinées aux opérations sur les jeux d’enregistrements et les enregistrements."
+description: "Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes CLI 1.0 destinées aux opérations sur les jeux d’enregistrements et les enregistrements."
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-dns-records-in-azure-dns-using-the-azure-cli-10"></a>Gérer les enregistrements DNS dans Azure DNS à l’aide d’Azure CLI 1.0
 
 > [!div class="op_single_selector"]
@@ -297,4 +295,3 @@ Vous êtes invité à confirmer l’opération de suppression. Pour supprimer ce
 Apprenez-en davantage sur les [zones et enregistrements dans Azure DNS](dns-zones-records.md).
 <br>
 Découvrez comment [protéger vos zones et enregistrements](dns-protect-zones-recordsets.md) lors de l’utilisation d’Azure DNS.
-

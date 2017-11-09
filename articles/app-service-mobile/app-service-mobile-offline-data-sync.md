@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Synchronisation des données hors connexion dans Azure Mobile Apps
 ## <a name="what-is-offline-data-sync"></a>Qu’est-ce que la synchronisation des données hors connexion ?
@@ -102,4 +101,3 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 [Xamarin iOS : activer la synchronisation hors connexion]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android : activer la synchronisation hors connexion]: app-service-mobile-xamarin-android-get-started-offline-data.md
 [Plateforme Windows universelle : activer la synchronisation hors connexion]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
-

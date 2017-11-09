@@ -15,13 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 8a850f8b1cccda631786f89f2c88647604fba9ed
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Exécuter des charges de travail intrinsèquement parallèles avec Batch
 
@@ -48,7 +46,7 @@ Voici quelques exemples de charges de travail communément traitées à l’aide
 
 Batch peut également effectuer des calculs parallèles avec une opération de réduction à la fin, et des charges de travail HPC plus complexes telles que les applications [MPI (Interface de transfert de message)](batch-mpi.md) .
 
-Pour obtenir une comparaison entre Batch et d’autres solutions HPC utilisées dans Azure, consultez la page [Solutions Batch et HPC](batch-hpc-solutions.md).
+Pour obtenir une comparaison entre Batch et d’autres solutions HPC utilisées dans Azure, consultez [HPC, Batch, and Big Compute solutions using Azure VMs](../virtual-machines/linux/high-performance-computing.md) (Solutions HPC, Batch et Big Compute utilisant des machines virtuelles Azure).
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
@@ -88,4 +86,3 @@ Maintenant que vous disposez d’une vue d’ensemble du service Batch, le momen
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-

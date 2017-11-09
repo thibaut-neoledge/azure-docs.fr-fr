@@ -1,6 +1,6 @@
 ---
 title: "Désinstaller l’outil de tâche de base de données élastique"
-description: "Désinstaller l’outil de tâche de base de données élastique"
+description: "Découvrez comment désinstaller les composants de tâches de base de données élastique à l’aide du portail Azure de PowerShell."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -8,23 +8,21 @@ author: ddove
 editor: 
 ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
 ms.service: sql-database
-ms.workload: sql-database
+ms.workload: Inactive
 ms.custom: scale out apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: aa438680348748a771f9016ecdcc68372c6c5e86
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 5e665ee8cc9efacbd31111dc0458ad6096e457c0
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Désinstallation des composants de Tâches de bases de données élastiques.
-**Tâches de bases de données élastiques** peuvent être désinstallés à l'aide du portail ou de PowerShell.
+Les **Tâches de base de données élastique** peuvent être désinstallées à l’aide du portail Azure ou de PowerShell.
 
 ## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>Désinstallez les composants de Tâches de bases de données élastiques à l'aide du portail Azure
 1. Ouvrez le [portail Azure](https://portal.azure.com/).
@@ -63,6 +61,5 @@ Pour réinstaller les tâches de bases de données élastiques, consultez [Insta
 Pour plus d’informations concernant les tâches de bases de données élastiques, consultez la rubrique [Vue d’ensemble des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
-
 
 

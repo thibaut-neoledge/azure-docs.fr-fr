@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da3c16a433cf31272375a36bb4f84a210f803478
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 16da3cd543ccbb7fe346261f91d2e9a3ceaf3a8b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>Créer une stratégie de basculement Azure Cosmos DB pour une haute disponibilité à l’aide de PowerShell
 
 Cet exemple de script PowerShell crée une stratégie de basculement pour une haute disponibilité pour Azure Cosmos DB. 
@@ -32,7 +30,7 @@ Cet exemple de script PowerShell crée une stratégie de basculement pour une ha
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/modify-failover-priority/modify-failover-priority.ps1?highlight=36-39,42-47 "Créer un compte d’API Azure Cosmos DB DocumentDB")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/modify-failover-priority/modify-failover-priority.ps1?highlight=36-39,42-47 "Create an Azure Cosmos DB DocumentDB API account")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 

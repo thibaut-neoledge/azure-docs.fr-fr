@@ -1,7 +1,11 @@
-Maintenant que votre application est opérationnelle, vous souhaitez garantir la continuité de l’activité et surveiller l’accès des utilisateurs pour leur assurer une haute disponibilité. Vous pouvez utiliser le portail Azure pour vérifier la disponibilité, la latence, le débit et la cohérence de votre collection. 
+Le débit, le stockage, la disponibilité, la latence et la cohérence des ressources de votre compte sont surveillés dans le portail Azure. Voici quelques informations sur ces mesures. 
 
-Chaque graphique qui est associé aux [Contrats de niveau de service (SLA) d’Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/documentdb/) contient une ligne indiquant le quota requis pour respecter le SLA et votre utilisation réelle, ce qui vous offre une vision précise des performances de votre base de données. Des indicateurs de performance supplémentaires, tels que l’utilisation du stockage et le nombre de requêtes par minute, sont également inclus dans le portail.
+1. Cliquez sur **Métriques** dans le menu de navigation.
 
-* Dans le menu de gauche du Portail Azure, sous **Surveillance**, cliquez sur **Métriques**.
+   ![Métriques dans le portail Azure](./media/cosmos-db-tutorial-review-slas/metrics.png)
 
-   ![Application Todo avec des exemples de données](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+2. Cliquez sur chacun des onglets pour découvrir les métriques fournies par Azure Cosmos DB. 
+
+    Chaque graphique associé aux [Contrats de niveau de service (SLA) d’Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) contient une ligne indiquant si un ou plusieurs des SLA n’ont pas été respectés. Azure Cosmos DB rend transparente la surveillance de vos SLA avec cet ensemble de métriques. 
+
+   ![Suite de métriques d’Azure Cosmos DB](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)

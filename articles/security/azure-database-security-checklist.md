@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 5047635555a6b4592c0714677c2b942e50bad344
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
 Pour aider à améliorer la sécurité, les bases de données Azure incluent un nombre de contrôles de sécurité intégrés que vous pouvez utiliser pour limiter et contrôler l’accès.
@@ -65,5 +63,4 @@ Quelques étapes simples suffisent pour améliorer la protection d’une base de
 - Définir des [règles de pare-feu](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) pour votre serveur et/ou base de données.
 - Protéger vos données à l’aide du [chiffrement](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/sql-server-encryption).
 - Activer l’[audit Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing).
-
 

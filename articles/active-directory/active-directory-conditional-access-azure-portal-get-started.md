@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/31/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 52b65b24867906d0c574a323904d980e126bcbd2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: b9a95cea57f4d0a4a927679cd4802bb56420887a
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Bien démarrer avec l’accès conditionnel dans Azure Active Directory
 
@@ -160,5 +159,4 @@ L’authentification multifacteur ne doit être requise que si la tentative de c
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’accès conditionnel, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
 

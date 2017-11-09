@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f87f65788075c7f4067e77946e1bcbc8f3709317
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Procédures de mise à niveau du Kit de développement Windows Phone Silverlight
 Si vous avez déjà intégré une ancienne version de notre SDK à votre application, tenez compte des points suivants avant de procéder à la mise à niveau du SDK.
@@ -143,5 +142,4 @@ Exemples d'éléments Capptain couramment utilisés :
 * GetCapptainPageName se nomme maintenant GetEngagementPageName
 
 Notez que ce changement affecte également les méthodes substituées.
-
 

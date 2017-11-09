@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: jdial
+ms.openlocfilehash: 1f19da71731039e1a39c4440f925b1369886a993
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 84774d0f40e06a819ca6de6cf0be68e17ba474e4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Vérifier la connectivité avec Azure Network Watcher à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
@@ -66,4 +64,3 @@ Recherchez si certains types de trafic sont autorisés au sein ou en dehors de v
 
 [1]: ./media/network-watcher-connectivity-portal/figure1.png
 [2]: ./media/network-watcher-connectivity-portal/figure2.png
-

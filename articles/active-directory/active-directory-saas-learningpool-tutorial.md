@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 932f5f12c75299e532d3fa2c31f1805a7df30158
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Didacticiel : Intégration d’Azure Active Directory à Learningpool Act
 
@@ -112,9 +110,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez l’URL : `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
-    b. Dans la zone de texte **Identificateur**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant :
     | |
     |--|
     | `https://<subdomain>.Learningpool.com/shibboleth` |
@@ -131,7 +129,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_attribute.png) 
 
-6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image et procédez comme suit :
+6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
     | Nom de l'attribut | Valeur de l’attribut |
     | ------------------- | -------------------- |
@@ -261,5 +259,4 @@ Quand vous cliquez sur la vignette Learningpool Act dans le panneau d’accès, 
 [201]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_203.png
-
 

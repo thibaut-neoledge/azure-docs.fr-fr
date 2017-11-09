@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 297c85d2aa5609729e394dc527fb3a1ca5810ffa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Solution Application Insights Connector (préversion) dans Operations Management Suite (OMS)
 
 ![Symbole Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
@@ -266,4 +264,3 @@ Cette solution ne dispose pas d’un ensemble d’exemples de recherches dans le
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Utilisez [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées sur vos applications Application Insights.
-

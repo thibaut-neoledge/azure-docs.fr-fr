@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Tarification et facturation de Service Bus
 Service Bus est disponible en deux niveaux de service : Standard et [Premium](service-bus-premium-messaging.md). Vous pouvez choisir un niveau de service pour chaque espace de noms Service Bus que vous créez ; cette sélection s’applique à l’ensemble des entités créées dans cet espace de noms.
@@ -92,11 +91,10 @@ Par exemple :
 2. 10 000 appareils reçoivent des messages d'une file d'attente Service Bus via HTTP, en spécifiant un délai d'expiration différent de zéro. Si tous les appareils se connectent 12 heures par jour, les frais de connexion suivants s’appliquent (en plus des autres frais liés à Service Bus) : 10 000 connexions de réception HTTP * 12 heures par jour * 31 jours / 744 heures = 5 000 connexions réparties.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Des frais de connexion répartie s’appliquent-ils aux files d’attente et rubriques/abonnements ?
-Oui. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de HTTP, quel que soit le nombre de systèmes ou d’appareils d’envoi. La réception d'événements avec le protocole HTTP et à l'aide d'un délai d'expiration supérieur à zéro, parfois appelé « interrogation longue », génère des frais de connexion répartie. Les connexions AMQP génèrent des frais de connexion répartie peu importe si les connexions sont utilisées pour l'envoi ou pour la réception. Les 1 000 premières connexions réparties entre tous les espaces de noms standard d’un abonnement Azure sont incluses sans frais supplémentaires (hors frais de base). Étant donné que ces volumes couvrent de nombreux scénarios de messagerie de service à service, des frais de connexion répartie sont habituellement pertinents si vous prévoyez d'utiliser l'interrogation longue AMQP ou HTTP avec un grand nombre de clients. Par exemple, pour obtenir un flux d'événements plus efficace ou permettre une communication bidirectionnelle avec de nombreux appareils ou instances d'application.
+Oui. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de HTTP, quel que soit le nombre de systèmes ou de périphériques d’envoi. La réception d'événements avec le protocole HTTP et à l'aide d'un délai d'expiration supérieur à zéro, parfois appelé « interrogation longue », génère des frais de connexion répartie. Les connexions AMQP génèrent des frais de connexion répartie peu importe si les connexions sont utilisées pour l'envoi ou pour la réception. Les 1 000 premières connexions réparties entre tous les espaces de noms standard d’un abonnement Azure sont incluses sans frais supplémentaires (hors frais de base). Étant donné que ces volumes couvrent de nombreux scénarios de messagerie de service à service, des frais de connexion répartie sont habituellement pertinents si vous prévoyez d'utiliser l'interrogation longue AMQP ou HTTP avec un grand nombre de clients. Par exemple, pour obtenir un flux d'événements plus efficace ou permettre une communication bidirectionnelle avec de nombreux appareils ou instances d'application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la tarification Service Bus, consultez la [page Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 * Consultez le [FAQ sur Service Bus](service-bus-faq.md#pricing) pour quelques questions courantes sur la tarification et facturation de Service Bus.
 
 [Azure portal]: https://portal.azure.com
-

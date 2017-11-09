@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 10/13/2017
 ms.author: bwren
+ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Comprendre les alertes dans Log Analytics
 
@@ -77,15 +76,18 @@ Dans certains cas, vous pouvez créer une alerte en l’absence d’événement.
 
 Par exemple, pour être averti quand le processeur s’exécute à plus de 90 % de ses capacités, utilisez une requête comme la suivante et définissez le seuil de la règle d’alerte sur **Supérieur à 0**.
 
-    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
+
+    
 
 Pour être averti lorsque la moyenne d’exécution du processeur dépasse 90 % de ses capacités pendant dans une fenêtre de temps spécifique, utilisez une requête comme la suivante avec la [commande measure](log-analytics-search-reference.md#commands) et définissez le seuil de la règle d’alerte sur **Supérieur à 0**.
 
-    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
 
+    
 >[!NOTE]
-> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les requêtes ci-dessous : `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
-> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
+> Si votre espace de travail n’a pas encore été mis à niveau avec le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les suivantes : `Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
 ## <a name="metric-measurement-alert-rules"></a>Règles d’alerte Mesure métrique
@@ -108,7 +110,7 @@ Le seuil des règles d’alerte Mesure métrique est défini par une valeur d’
 #### <a name="example"></a>Exemple
 Prenons le scénario suivant : vous souhaitez créer une alerte si le taux d’utilisation du processeur d’un ordinateur dépasse 90 % à trois reprises en l’espace de 30 minutes.  Il conviendrait de créer une règle d’alerte paramétrée comme suit.  
 
-**Requête :** Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
+**Requête :** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 **Fenêtre de temps :** 30 minutes<br>
 **Fréquence des alertes :** 5 minutes<br>
 **Valeur d’agrégation :** supérieure à 90<br>
@@ -146,4 +148,3 @@ Il existe d’autres genres d’enregistrements d’alerte créés par la [solut
 * Approfondissez vos connaissances sur les [recherches dans les journaux](log-analytics-log-searches.md) pouvant générer des alertes.
 * Effectuez une procédure pas à pas pour [configurer un webhook](log-analytics-alerts-webhooks.md) avec une règle d’alerte.  
 * Apprenez à écrire des [runbooks dans Azure Automation](https://azure.microsoft.com/documentation/services/automation) pour corriger les problèmes identifiés par des alertes.
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
+ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7dbe54ffb4daa941c19b51ba263dd3d23b7a98b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Intégration de Service Map avec System Center Operations Manager
   > [!NOTE]
   > Cette fonctionnalité est en version préliminaire publique.
@@ -38,7 +36,7 @@ Avec cette intégration entre Service Map et System Center Operations Manager, v
 * Un principal de service disposant d’un accès à l’abonnement Azure associé à l’espace de travail Operations Management Suite. Pour plus d’informations, consultez l’article [Créer un principal du service](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Installation du pack d’administration de Service Map
-Vous activez l’intégration entre Operations Manager et Service Map en important le groupement de packs d’administration Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Le groupe contient les packs d’administration suivants :
+Vous activez l’intégration entre Operations Manager et Service Map en important le groupement de packs d’administration Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Vous pouvez télécharger l’offre groupée de packs d’administration à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Le groupe contient les packs d’administration suivants :
 * Microsoft Service Map - Vues de l’application
 * Microsoft System Center Service Map - Interne
 * Microsoft System Center Service Map - Valeurs de remplacement
@@ -134,4 +132,3 @@ Pour obtenir une documentation Azure officielle sur la création d’un principa
 
 ### <a name="feedback"></a>Commentaires
 Avez-vous des commentaires à nous transmettre à propos de Service Map ou de sa documentation ? Consultez notre [page Voix utilisateur](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map) qui vous permet de suggérer des fonctionnalités ou de voter pour les suggestions en cours.
-

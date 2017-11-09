@@ -11,12 +11,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 682feb4d889ecd881abe1a70d36e0a5a4df3d910
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: eddeb5cc13aac7ab33305adcd266465a5b143462
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>Créer un module Azure IoT Edge avec Java
 
@@ -128,7 +127,7 @@ L’entrée peut être des données issues du matériel (comme un détecteur de 
 
 La sortie est similaire à l’entrée, elle peut déclencher le comportement du matériel (comme le clignotement d’une LED), un message à d’autres modules ou toute autre chose (par exemple, une impression vers la console).
 
-Les modules communiquent entre eux à l’aide de la classe `com.microsoft.azure.gateway.messaging.Message`. Le **contenu** d’un `Message` est un tableau d’octets qui est capable de représenter n’importe quel type de données de votre choix. Les **propriétés** sont également disponibles dans le `Message` et sont simplement un mappage de chaîne à chaîne. Vous pouvez imaginer les **propriétés** comme étant les en-têtes d’une demande HTTP ou les métadonnées d’un fichier.
+Les modules communiquent entre eux à l’aide de la classe `com.microsoft.azure.gateway.messaging.Message`. Le **contenu** d’un `Message` est un tableau d’octets qui est capable de représenter n’importe quel type de données de votre choix. Les **propriétés** sont également disponibles dans le `Message` et sont simplement un mappage de chaîne à chaîne. Vous pouvez considérer les **Propriétés** comme étant les en-têtes d’une demande HTTPS ou les métadonnées d’un fichier.
 
 Pour développer un module Azure IoT Edge en Java, vous devez créer une classe de module qui hérite de `com.microsoft.azure.gateway.core.GatewayModule` et implémenter les méthodes abstraites `receive()` et `destroy()` requises. À ce stade, vous pouvez également choisir d’implémenter les méthodes `start()` ou `create()` facultatives. L’extrait de code suivant vous montre comment prendre en main la création d’un module Azure IoT Edge.
 
@@ -299,5 +298,4 @@ Si vous souhaitez arrêter l’application, appuyez sur la touche `<Enter>`.
 
 > [!IMPORTANT]
 > Il est déconseillé d’utiliser Ctrl + C pour arrêter l’application de passerelle IoT Edge. Cela peut entraîner l’arrêt anormal du processus.
-
 

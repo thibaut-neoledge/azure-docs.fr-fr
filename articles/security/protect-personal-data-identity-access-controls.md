@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
+ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 908bf4c34295168024afd11d24c7a3d2044ff518
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory et Multi-Factor Authentication : protéger les données personnelles avec des contrôles d’accès et d’identité
 
@@ -70,7 +69,7 @@ Pour commencer à utiliser PIM pour votre annuaire, procédez comme suit :
 
 1. Connectez-vous au portail Azure en tant qu’administrateur général de votre annuaire.
 
-2. Si votre organisation possède plusieurs annuaires, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du portail Azure. Sélectionnez l’annuaire où vous allez utiliser Azure AD Privileged Identity Management.
+2. Si votre organisation possède plusieurs répertoires, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du portail Azure. Sélectionnez le répertoire où vous allez utiliser Azure AD Privileged Identity Management.
 
 3. Sélectionnez **Autres services** et utilisez la zone de texte **Filtre** pour rechercher Azure AD Privileged Identity Management.
 
@@ -188,4 +187,3 @@ Pour plus d’informations sur la façon de configurer les paramètres Azure MFA
 - [Résolution des problèmes de contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
-

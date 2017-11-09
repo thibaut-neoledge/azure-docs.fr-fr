@@ -11,15 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: f19e5022d366bc686beed42bacf8a4d6d108887e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 2363e725d44facc5417c0baf3f80c8b55fdca470
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse de la rétention utilisateur des applications web avec Azure Application Insights
 
 La fonction de rétention [d’Azure Application Insights](app-insights-overview.md) vous aide à analyser le nombre d’utilisateurs qui reviennent vers votre application et la fréquence à laquelle ils exécutent des tâches particulières ou atteignent des objectifs. Par exemple, si vous exécutez un site de jeu, vous pouvez comparer le nombre d’utilisateurs qui reviennent sur le site après avoir perdu à un jeu avec le nombre d’utilisateurs qui reviennent après avoir gagné. Cette information peut vous aider à améliorer l’expérience de vos utilisateurs et votre stratégie commerciale.
@@ -72,6 +70,5 @@ Ou dans le code de serveur ASP.NET :
     - [Flux d’utilisateurs](app-insights-usage-flows.md)
     - [Classeurs](app-insights-usage-workbooks.md)
     - [Ajouter du contexte utilisateur](app-insights-usage-send-user-context.md)
-
 
 

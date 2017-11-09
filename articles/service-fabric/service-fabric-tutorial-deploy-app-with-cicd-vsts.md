@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: d0f67b1a63c36e878ed5f7c9aa1c45267e5b156c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 07e55117d92e2780ea0c2ec24af04832f3f704a7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Déployer une application avec intégration et déploiement continus sur un cluster Service Fabric
 Troisième d’une série, ce didacticiel explique comment configurer l’intégration et le déploiement continus d’une application Microsoft Azure Service Fabric à l’aide de Visual Studio Team Services.  Une application Service Fabric existante est requise. L’application créée dans le didacticiel [Générer une application .NET](service-fabric-tutorial-create-dotnet-app.md) est utilisée à titre d’exemple.
 
@@ -39,6 +37,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * [Déployer l’application sur un cluster distant](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Configurer l’intégration et le déploiement continus à l’aide de Visual Studio Team Services
+> * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel :
@@ -159,10 +158,9 @@ Dans ce didacticiel, vous avez appris à :
 > * Création d’une définition de version
 > * Déployer et mettre à niveau une application automatiquement
 
-Maintenant que vous avez déployé une application et configuré l’intégration continue, essayez ce qui suit :
-- [Mettre à niveau une application](service-fabric-application-upgrade.md)
-- [Tester une application](service-fabric-testability-overview.md) 
-- [Surveiller et diagnostiquer](service-fabric-diagnostics-overview.md)
+Passez au didacticiel suivant :
+> [!div class="nextstepaction"]
+> [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md) 
 
 
 <!-- Image References -->

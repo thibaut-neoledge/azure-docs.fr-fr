@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Sources de données Syslog dans Log Analytics
 Syslog est un protocole de journalisation d’événements commun à Linux.  Les applications envoient les messages qui peuvent être stockés sur l’ordinateur local ou remis à un collecteur Syslog.  Lorsque l’agent OMS pour Linux est installé, il configure le démon Syslog local pour qu’il transfère des messages à l’agent.  L’agent envoie ensuite le message à Log Analytics où un enregistrement correspondant est créé dans le référentiel OMS.  
@@ -200,16 +199,6 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 
 | Requête | Description |
 |:--- |:--- |
-| Type = Syslog |Tous les Syslog. |
-| Type=Syslog SeverityLevel=error |Tous les enregistrements Syslog avec le niveau de gravité Erreur. |
-| Type=Syslog &#124; measure count() by Computer |Nombre d’enregistrements Syslog par ordinateur. |
-| Type=Syslog &#124; measure count() by Facility |Nombre d’enregistrements Syslog par installation. |
-
->[!NOTE]
-> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les requêtes ci-dessous.
-
-> | Interroger | Description |
-|:--- |:--- |
 | syslog |Tous les Syslog. |
 | Syslog &#124; where SeverityLevel == "error" |Tous les enregistrements Syslog avec le niveau de gravité Erreur. |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |Nombre d’enregistrements Syslog par ordinateur. |
@@ -219,4 +208,3 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 * Découvrez les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.
 * Utilisez les [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les données des enregistrements syslog dans des champs individuels.
 * [Configurez les agents Linux](log-analytics-linux-agents.md) pour qu’ils collectent d’autres types de données.
-

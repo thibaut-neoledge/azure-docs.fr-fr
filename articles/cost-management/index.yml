@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Gestion des coûts Azure
+metadata:
+  title: "Documentation Gestion des coûts\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
+  description: 'Gestion des coûts Azure par Cloudyn est une solution de gestion des coûts multicloud qui vous permet d’utiliser Azure et d’autres ressources de cloud. Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à nos démarrages rapides et didacticiels.'
+  services: cost-management
+  author: czeumault
+  manager: carolz
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 'Gestion des coûts Azure par Cloudyn est une solution de gestion des coûts multicloud qui vous permet d’optimiser l’utilisation et la gestion d’Azure et d’autres ressources de cloud. Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à nos démarrages rapides et didacticiels.'
+sections:
+  - title: "Démarrages en 5\_minutes"
+    items:
+      - type: paragraph
+        text: Découvrez comment enregistrer vos informations de contrat ou d’abonnement Azure grâce à Gestion des coûts et comment visualiser vos données de coût.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Afficher les données de coût
+            href: quick-register-azure-sub
+  - title: Didacticiels pas à pas
+    items:
+      - type: paragraph
+        text: 'Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à Gestion des coûts.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-review-usage">Examiner l’utilisation et les coûts pour détecter les anomalies et mesurer l’efficacité</a>
+          - html: <a href="tutorial-user-access">Autoriser l’accès aux données Gestion des coûts</a>
+          - html: <a href="tutorial-forecast-spending">Prévoir les dépenses futures</a>

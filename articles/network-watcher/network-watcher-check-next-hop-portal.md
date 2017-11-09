@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 5434b7972346821985c459fc4620805adb88676b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 445ec8c7eeb8dd715d3778b44372d16666da7fb8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-the-portal"></a>Découvrez le type de tronçon suivant grâce à la fonction Tronçon suivant d’Azure Network Watcher dans le Portail Azure.
 
 > [!div class="op_single_selector"]
@@ -84,7 +82,6 @@ Découvrez comment programmer la révision des paramètres de votre groupe de s�
 
 [1]: ./media/network-watcher-check-next-hop-portal/figure1.png
 [2]: ./media/network-watcher-check-next-hop-portal/figure2.png
-
 
 
 

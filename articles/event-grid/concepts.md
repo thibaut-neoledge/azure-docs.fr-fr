@@ -6,23 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/18/2017
 ms.author: babanisa
+ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 83b9b2c7bb4134e1d9bdf857449bfb85884333d0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
 Voici les principaux concepts utilisés dans Azure Event Grid :
 
 ## <a name="events"></a>Événements
 
-Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système.  Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique.  Chaque événement comporte également des informations spécifiques qui se rapportent uniquement à l’événement en question. Par exemple, un événement concernant un nouveau fichier en cours de création dans le stockage Azure contient des informations détaillées sur le fichier, telles que la valeur lastTimeModified. Ou bien, un événement concernant une machine virtuelle en cours de redémarrage contient le nom de la machine virtuelle et le motif du redémarrage.
+Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système.  Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique.  Chaque événement comporte également des informations spécifiques qui se rapportent uniquement à l’événement en question. Par exemple, un événement concernant un nouveau fichier en cours de création dans le stockage Azure contient des informations détaillées sur le fichier, telles que la valeur lastTimeModified. Ou bien, un événement concernant une machine virtuelle en cours de redémarrage contient le nom de la machine virtuelle et le motif du redémarrage. Chaque événement est limité à 64 Ko de données.
 
 ## <a name="event-sourcespublishers"></a>Sources d’événement/éditeurs
 

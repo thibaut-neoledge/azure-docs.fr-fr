@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Didacticiel : Opérations de développement avec le portail Azure
 La plateforme Azure regorge de flux de travail DevOps flexibles. Dans ce didacticiel, vous apprendrez à exploiter les fonctionnalités du portail Azure pour développer, tester, déployer, dépanner, analyser et gérer les applications en cours d’exécution. Ce didacticiel se concentre sur les éléments suivants :
@@ -264,7 +263,7 @@ Ce didacticiel a présenté succinctement la puissance de la plateforme Azure, q
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Azure Resource Manager est important pour permettre les opérations de développement sur la plateforme Azure.  Pour en savoir plus, consultez la page [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-* Pour en savoir plus sur le déploiement d’Azure App Service, consultez la page [Déploiement de votre application dans Azure App Service](../app-service-web/web-sites-deploy.md)
+* Pour en savoir plus sur le déploiement d’Azure App Service, consultez la page [Déploiement de votre application dans Azure App Service](../app-service/app-service-deploy-local-git.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png
@@ -335,4 +334,3 @@ Ce didacticiel a présenté succinctement la puissance de la plateforme Azure, q
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-

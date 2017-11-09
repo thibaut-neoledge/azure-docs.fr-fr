@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
+ms.reviewer: alexwe
+ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 42a87adef740cc2c1d77c9f02eef8aaa5f207258
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapports dans Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être utilisés par vous et votre organisation. Ces rapports sont accessibles via le portail de gestion Multi-Factor Authentication. Voici la liste des rapports disponibles :
+
+Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être utilisés par vous et votre organisation. Ces rapports sont accessibles via le portail de gestion Multi-Factor Authentication. Le tableau ci-après répertorie les rapports disponibles :
 
 | Rapport | Description |
 |:--- |:--- |
@@ -34,6 +35,7 @@ Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être u
 | Mis en file d'attente. |Répertorie les rapports en file d'attente de traitement et leur état. Un lien pour télécharger ou afficher le rapport est fourni lorsque ce dernier est terminé. |
 
 ## <a name="view-reports"></a>Afficher des rapports
+
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2. Sélectionnez à gauche Active Directory.
 3. Suivez l’une de ces deux options, selon que vous utilisez ou non des fournisseurs d’authentification :
@@ -43,9 +45,17 @@ Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être u
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
+## <a name="powershell-reporting"></a>Génération de rapports Powershell
+
+Identifiez les utilisateurs qui se sont inscrits pour l’authentification multifacteur à l’aide du code Powershell qui suit.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+
+Identifiez les utilisateurs qui ne se sont pas inscrits pour l’authentification multifacteur à l’aide du code Powershell qui suit.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
 **Ressources supplémentaires**
 
 * [Pour les utilisateurs](end-user/multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
-

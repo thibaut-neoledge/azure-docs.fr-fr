@@ -11,12 +11,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 12e0702c31f36368fd95127abeede1a0d4ff2c87
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: e23c4aa7bb3eb4fab18d5a13cbad28e07c18d8f2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-nodejs"></a>Créer un module Azure IoT Edge avec Node.js
 
@@ -290,4 +289,3 @@ Si vous souhaitez arrêter l’application, appuyez sur la touche `<Enter>`.
 
 > [!IMPORTANT]
 > Il est déconseillé d’utiliser Ctrl + C pour arrêter l’application IoT Edge. Cela peut entraîner l’arrêt anormal du processus.
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7729890157900d0211b3a7ec05096ca315018875
-ms.openlocfilehash: 23d79fb83c1c4b103407c001dcafb8b1f3cfa5a7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: 4445a84a6c6425110e7d705019a28b5cc5447046
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-maps-for-xml-data-transform"></a>Ajouter des mappages de conversion des données XML
 
@@ -100,5 +98,4 @@ Pour télécharger un nouveau mappage remplaçant un mappage existant, procédez
 * [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  
 * [En savoir plus sur les contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")  
 * [En savoir plus sur les transformations](logic-apps-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise")  
-
 

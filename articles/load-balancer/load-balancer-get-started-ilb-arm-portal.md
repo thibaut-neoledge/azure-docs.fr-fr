@@ -3,7 +3,7 @@ title: "Créer un équilibrage de charge interne dans le portail Azure | Micros
 description: "Découvrez comment créer un équilibreur de charge interne dans Resource Manager à l’aide du portail Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
-
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Créer un équilibreur de charge interne dans le portail Azure
 
 > [!div class="op_single_selector"]
@@ -28,6 +28,9 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modèle](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -53,7 +56,7 @@ Pour créer un équilibreur de charge interne à partir du portail Azure, suivez
 7. Sous **Attribution d’adresses IP**, cliquez sur **Dynamique** ou **Statique**, selon que vous souhaitez une adresse IP statique ou non pour l’équilibreur de charge.
 
    > [!NOTE]
-   > Si vous choisissez d’utiliser une adresse IP statique, vous devez fournir une adresse pour l’équilibreur de charge.
+   > Si vous choisissez d’utiliser une adresse IP statique, vous devez fournir une adresse pour l’équilibreur de charge.
 
 8. Sous **Groupe de ressources**, spécifiez le nom d’un nouveau groupe de ressources pour l’équilibreur de charge ou cliquez sur **Sélectionner** et choisissez un groupe de ressources existant.
 9. Cliquez sur **Create**.
@@ -61,9 +64,9 @@ Pour créer un équilibreur de charge interne à partir du portail Azure, suivez
 ## <a name="configure-load-balancing-rules"></a>Configuration des règles d’équilibrage de la charge
 
 Après la création de l’équilibreur de charge, accédez à la ressource d’équilibreur de charge pour la configurer.
-Vous devez tout d’abord configurer un pool d’adresses de serveur principal, ainsi qu’une sonde avant de configurer une règle d’équilibrage de charge.
+Configurez un pool d’adresses principal, ainsi qu’une sonde avant de configurer une règle d’équilibrage de charge.
 
-### <a name="step-1-configure-a-back-end-pool"></a>Étape 1 : Configurer un pool principal
+### <a name="step-1-configure-a-backend-pool"></a>Étape 1 : Configurer un pool principal
 
 1. Dans le portail Azure, cliquez sur **Parcourir** > **Équilibreurs de charge**, puis cliquez sur l’équilibreur de charge créé précédemment.
 2. Dans le panneau **Paramètres**, cliquez sur **Pools principaux**.
@@ -92,7 +95,7 @@ Vous devez tout d’abord configurer un pool d’adresses de serveur principal, 
 5. Sous **Protocole**, sélectionnez **HTTP** (pour les sites web) ou **TCP** (pour les autres applications basées sur TCP).
 6. Sous **Port**, spécifiez le port auquel les clients se connectent dans l’équilibreur de charge.
 7. Sous **Port principal**, spécifiez le port à utiliser dans le pool principal (en règle générale, le port de l’équilibreur de charge et le port principal sont identiques).
-8. Sous **Pool principal**, sélectionnez le pool principal créé ci-dessus.
+8. Sous **Pool principal**, sélectionnez le pool principal créé précédemment.
 9. Sous **Persistance de session**, sélectionnez la façon dont vous souhaitez que les sessions soient conservées.
 10. Sous **Délai d’inactivité (minutes)**, spécifiez le délai d’inactivité.
 11. Sous **Adresse IP flottante (retour serveur direct)**, cliquez sur **Désactivé** ou **Activé**.
@@ -103,10 +106,4 @@ Vous devez tout d’abord configurer un pool d’adresses de serveur principal, 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

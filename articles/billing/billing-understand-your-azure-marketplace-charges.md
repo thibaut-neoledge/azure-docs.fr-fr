@@ -13,18 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 10/9/2017
 ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 3e74bdd1faf268f33fdbbcc428b4b32212508c39
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/03/2017
-
+ms.openlocfilehash: 64bfd8581141001aa6c11ca17ec1af681054f490
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Présentation de la facturation de vos frais de service externe Azure
-Les services externes étaient auparavant appelés Azure Marketplace. En règle générale, il s’agit de services publiés par des tiers et disponibles pour Azure, qui sont complètement intégrés à Azure. Par exemple, ClearDB et SendGrid sont des services externes que vous pouvez acheter dans Azure, mais ils ne sont pas publiés par Microsoft.
+Les services externes sont publiés par des éditeurs de logiciels tiers sur la Place de marché Microsoft Azure. Par exemple, ClearDB et SendGrid sont des services externes que vous pouvez acheter dans Azure, mais ils ne sont pas publiés par Microsoft.
 
 Lorsque vous configurez un nouveau service externe ou une ressource, un avertissement s’affiche :
 
@@ -39,7 +38,6 @@ Lorsque vous configurez un nouveau service externe ou une ressource, un avertiss
 - Les services externes sont facturés séparément. Ils sont traités comme des commandes individuelles au sein de votre abonnement Azure. La période de facturation pour chaque service est définie lorsque vous achetez le service. À ne pas confondre avec la période de facturation de l’abonnement sous lequel vous l’avez acheté. Vous recevez également des factures distinctes et votre carte de crédit est facturée séparément.
 - Chaque service externe possède un modèle de facturation différent. Certains services sont facturés selon un mode de paiement à l’utilisation, tandis que d’autres utilisent un modèle de paiement mensuel. Les services externes Azure nécessitent une carte de crédit. Vous ne pouvez pas acheter des services externes avec un paiement par facture.
 - Vous ne pouvez pas utiliser de crédits mensuels gratuits pour les services externes. Si vous utilisez un abonnement Azure incluant des [crédits gratuits](https://azure.microsoft.com/pricing/spending-limits/), ceux-ci ne peuvent pas s’appliquer aux factures de services externes. Utilisez une carte de crédit pour acheter des services externes.
-
 
 ## <a name="view-external-service-spending-and-history-in-the-azure-portal"></a>Afficher les dépenses et l’historique du service externe dans le portail Azure
 Vous pouvez afficher la liste des services externes dans chaque abonnement dans le [portail Azure](https://portal.azure.com/) : 
@@ -89,5 +87,4 @@ Si vous souhaitez annuler votre commande de service externe, supprimez la ressou
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-
 

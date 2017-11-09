@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 10/12/2017
 ms.author: billmath
+ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 72bd39bcf720cf5704274fcdfa0f2b8fc44a77bc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/14/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
 Cet article fournit des informations sur les problèmes courants liés à l’authentification directe Azure AD.
@@ -51,9 +49,9 @@ Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l
 |AADSTS80005|La validation a rencontré une WebException imprévisible|Erreur temporaire. relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
 |AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
 
-Commencez le dépannage des problèmes de connexion de l’utilisateur en examinant le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
+Si votre locataire dispose d’une licence Azure AD Premium, vous pouvez également consulter le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centre d’administration Azure Active Directory - rapport de connexions](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
@@ -129,6 +127,10 @@ La configuration prend un certain temps pour entrer en vigueur : ce délai dép
 
 Selon le type de problème rencontré, vous devez regarder à différents emplacements pour trouver les journaux des agents d’authentification directe.
 
+### <a name="azure-ad-connect-logs"></a>Journaux Azure AD Connect
+
+Pour vérifier les erreurs liées à l’installation, consultez les journaux Azure AD Connect à l’emplacement suivant : **%ProgramData%\AADConnect\trace-\*.log**.
+
 ### <a name="authentication-agent-event-logs"></a>Journaux des événements des agents d’authentification
 
 Pour les erreurs relatives à l’agent d’authentification, ouvrez l’application Observateur d’événements sur le serveur et cherchez dans **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
@@ -137,7 +139,7 @@ Pour une analytique détaillée, activez le journal de la session. N’exécutez
 
 ### <a name="detailed-trace-logs"></a>Journaux de suivi détaillés
 
-Pour résoudre les problèmes d’échec de connexion de l’utilisateur, recherchez les journaux de suivi dans **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Ces journaux incluent les raisons de l’échec de connexion utilisateur à l’aide de la fonctionnalité d’authentification directe. Le [tableau](#sign-in-failure-reasons-on-the-Azure-portal) précédent établit une correspondance entre ces erreurs et les raisons des échecs de connexion. Vous trouverez ci-dessous un exemple d’entrée de journal :
+Pour résoudre les problèmes d’échec de connexion de l’utilisateur, consultez les journaux de suivi situés à l’emplacement **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Ces journaux incluent les raisons de l’échec de connexion utilisateur à l’aide de la fonctionnalité d’authentification directe. Le [tableau](#sign-in-failure-reasons-on-the-Azure-portal) précédent établit une correspondance entre ces erreurs et les raisons des échecs de connexion. Vous trouverez ci-dessous un exemple d’entrée de journal :
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -171,4 +173,3 @@ Un autre moyen de surveiller les agents d’authentification consiste à effectu
 
 >[!IMPORTANT]
 >L’authentification directe assure la haute disponibilité à l’aide de plusieurs agents d’authentification, et _non_ de l’équilibrage de charge. Selon votre configuration, les agents d’authentification ne reçoivent _pas_ tous le _même_ nombre exact de demandes. Il est possible qu’un agent d’authentification spécifique ne reçoive aucun trafic du tout.
-

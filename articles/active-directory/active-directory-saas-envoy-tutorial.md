@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 49211b35ab3e28e0df914061e7fa623907935638
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Didacticiel : Intégration d’Azure Active Directory avec Envoy
 
@@ -116,7 +115,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 4. Dans la section **Certificat de signature SAML**, copiez la valeur **THUMBPRINT** du certificat.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-envoy-tutorial/tutorial_envoy_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-envoy-tutorial/tutorial_envoy_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -187,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-an-envoy-test-user"></a>Créer un utilisateur de test Envoy
 
@@ -250,5 +249,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_203.png
-
 

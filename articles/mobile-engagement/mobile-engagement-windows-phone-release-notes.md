@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Windows Phone Silverlight
 ##<a name="331-11032016"></a>3.3.1 (11/03/2016)
@@ -52,10 +52,4 @@ Partie du package NuGet *MicrosoftAzure.MobileEngagement***v3.2.0**
 * Version initiale d'Azure Mobile Engagement 
 * La configuration d'appId/sdkKey est remplacée par une configuration de chaîne de connexion.
 * Améliorations de sécurité.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

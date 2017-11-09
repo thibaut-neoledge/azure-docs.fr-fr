@@ -9,19 +9,17 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a7da42f4b84b77ad0a82004a56f7712c31567449
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.openlocfilehash: cb123107178f5e7c0207524c19331a6fa4658739
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Golang et le Portail Azure
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents, des paires clé/valeur et des bases de données de graphiques, tous profitant de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
 
-Ce démarrage rapide montre comment utiliser une application [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) existante écrite en [Golang](https://golang.org/) et comment la connecter à votre base de données Azure Cosmos DB, qui prend en charge les connexions clientes MongoDB.
+Ce démarrage rapide montre comment utiliser une application [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) existante écrite en [Golang](https://golang.org/) et comment la connecter à votre base de données Azure Cosmos DB, qui prend en charge les connexions clientes MongoDB.
 
 En d’autres termes, votre application Golang sait uniquement qu’elle se connecte à une base de données qui utilise des API MongoDB. L’application sait que les données sont stockées dans Azure Cosmos DB.
 
@@ -247,4 +245,3 @@ Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure 
 
 > [!div class="nextstepaction"]
 > [Importer des données dans Azure Cosmos DB pour l’API MongoDB](mongodb-migrate.md)
-

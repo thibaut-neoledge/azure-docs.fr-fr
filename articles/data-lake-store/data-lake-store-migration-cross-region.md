@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a0eecbb50b001325c91d1d721bf8de7244f04674
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: b04cca6e551a15a31bbebc4932ea05dd39e8e916
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Migration Data Lake Store entre les régions
 
@@ -29,7 +28,7 @@ La disponibilité d’Azure Data Lake Store s’étendant à davantage de régio
 
 * **Un abonnement Azure**. Pour plus d’informations, consultez [Créer votre compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Data Lake Store dans deux régions différentes**. Pour plus d’informations, consultez [Prise en main d’Azure Data Lake Store](data-lake-store-get-started-portal.md).
-* **Azure Data Factory**. Pour plus d’informations, consultez [Présentation d’Azure Data Factory](../data-factory/data-factory-introduction.md).
+* **Azure Data Factory**. Pour plus d’informations, consultez [Présentation d’Azure Data Factory](../data-factory/introduction.md).
 
 
 ## <a name="migration-considerations"></a>Considérations relatives à la migration
@@ -44,7 +43,7 @@ D’autres informations importantes à prendre en compte lorsque vous planifiez 
 
 * **Nom du compte Data Lake Store**. Le nouveau nom de compte dans la nouvelle région doit être globalement unique. Par exemple, le nom de votre ancien compte Data Lake Store dans la région États-Unis de l’Est 2 peut être contosoeastus2.azuredatalakestore.net. Vous pouvez nommer votre nouveau compte Data Lake Store dans la région Europe du Nord contosonortheu.azuredatalakestore.net.
 
-* **Outils**. Nous vous recommandons d’utiliser l’[activité de copie Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) pour copier les fichiers Data Lake Store. Data Factory prend en charge le déplacement de données avec une fiabilité optimale et de hautes performances. N’oubliez pas que Data Factory copie uniquement l’arborescence de dossiers et le contenu des fichiers. Vous devez appliquer manuellement les listes de contrôle d’accès que vous avez utilisées dans l’ancien compte vers le nouveau compte. Pour plus d’informations, y compris sur les objectifs de performance pour les scénarios optimistes, consultez le [Guide sur les performances et le réglage de l’activité de copie](../data-factory/data-factory-copy-activity-performance.md). Si vous souhaitez copier les données plus rapidement, vous devrez peut-être utiliser des unités de déplacement des données dans le cloud supplémentaires. D’autres outils, tels que AdlCopy, ne permettent pas de copier de données entre différentes régions.  
+* **Outils**. Nous vous recommandons d’utiliser l’[activité de copie Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) pour copier les fichiers Data Lake Store. Data Factory prend en charge le déplacement de données avec une fiabilité optimale et de hautes performances. N’oubliez pas que Data Factory copie uniquement l’arborescence de dossiers et le contenu des fichiers. Vous devez appliquer manuellement les listes de contrôle d’accès que vous avez utilisées dans l’ancien compte vers le nouveau compte. Pour plus d’informations, y compris sur les objectifs de performance pour les scénarios optimistes, consultez le [Guide sur les performances et le réglage de l’activité de copie](../data-factory/copy-activity-performance.md). Si vous souhaitez copier les données plus rapidement, vous devrez peut-être utiliser des unités de déplacement des données dans le cloud supplémentaires. D’autres outils, tels que AdlCopy, ne permettent pas de copier de données entre différentes régions.  
 
 * **Frais liés à la bande passante**. Des [frais liés à la bande passante](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) s’appliquent, car les données sont transférées en dehors d’une région Azure.
 
@@ -54,4 +53,3 @@ D’autres informations importantes à prendre en compte lorsque vous planifiez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Data Lake Store](data-lake-store-overview.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
+ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotection d’Azure vers un site local
 
@@ -29,10 +28,13 @@ ms.lasthandoff: 09/02/2017
 Cet article explique comment reprotéger des machines virtuelles Azure d’Azure vers un site local. Suivez les instructions de cet article lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure (comme décrit dans [Basculement via Microsoft Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Vous ne pouvez pas effectuer de restauration automatique après avoir [procédé à la migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé une machine virtuelle vers un autre groupe de ressources ou supprimé une machine virtuelle Azure.
+> Vous ne pouvez pas procéder à une restauration automatique après avoir [effectué une migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé une machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure. Si vous désactivez la protection de la machine virtuelle, vous ne pouvez pas effectuer de restauration automatique.
 
 
 Une fois la reprotection terminée et les machines virtuelles protégées en cours de réplication, vous pouvez lancer une restauration automatique sur les machines virtuelles afin de les installer sur le site local.
+
+> [!NOTE]
+> Vous ne pouvez procéder à la reprotection et à la restauration automatique que vers un hôte ESXi. Vous ne pouvez pas effectuer la restauration automatique de la machine virtuelle vers des hôtes Hyper-V, des stations de travail VMware ni toute autre plateforme de virtualisation.
 
 Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -40,7 +42,12 @@ Pour une vue d’ensemble, regardez la vidéo suivante sur la procédure de basc
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
+
+> [!IMPORTANT]
+> Pendant le basculement vers Azure, comme le site local risque de ne pas être accessible, le serveur de configuration peut être indisponible ou à l’arrêt. Le serveur de configuration local doit être en cours d’exécution et connecté au cours de la reprotection et de la restauration automatique.
+
+
 Lorsque vous vous préparez pour reprotéger les machines virtuelles, prenez ou envisagez les actions préalables suivantes :
 
 * Si un serveur vCenter gère les machines virtuelles vers lesquelles vous voulez effectuer une restauration automatique, vous devez vous assurer de disposer des [autorisations requises](site-recovery-vmware-to-azure-classic.md) pour la détection des machines virtuelles sur les serveurs vCenter.
@@ -70,7 +77,7 @@ Lorsque vous vous préparez pour reprotéger les machines virtuelles, prenez ou 
 * Vous devez ajouter un disque sur le serveur cible maître : un lecteur de rétention. Ajoutez un disque et formatez le lecteur.
 
 
-### <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+### <a name="frequently-asked-questions"></a>Forum Aux Questions
 
 #### <a name="why-do-i-need-a-s2s-vpn-or-an-expressroute-connection-to-replicate-data-back-to-the-on-premises-site"></a>Pourquoi ai-je besoin d’un VPN S2S ou d’une connexion ExpressRoute pour répliquer les données sur le site local ?
 Alors que la réplication à partir d’un site local vers Azure peut s’effectuer via Internet ou une connexion ExpressRoute avec une homologation publique, la reprotection et la restauration automatique nécessitent un VPN site-à-site (S2S) configuré pour répliquer les données. Spécifiez le réseau de sorte que les machines virtuelles basculées dans Azure puissent atteindre (avec une requête ping) le serveur de configuration local. Vous pouvez également déployer un serveur de processus dans le réseau Azure de la machine virtuelle basculée. Ce serveur de processus doit également être en mesure de communiquer avec le serveur de configuration local.
@@ -93,13 +100,15 @@ Toutefois, si vous disposez uniquement d’un VPN S2S, nous vous recommandons de
  ![Diagramme d’architecture pour VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 
-N’oubliez pas que la réplication s’effectue uniquement sur le VPN S2S ou via l’homologation privée de votre réseau ExpressRoute. Assurez-vous de disposer de suffisamment de bande passante sur ce réseau.
+N’oubliez pas que la réplication d’Azure vers un emplacement local peut s’effectuer uniquement sur le VPN S2S ou via l’homologation privée de votre réseau ExpressRoute. Assurez-vous de disposer de suffisamment de bande passante sur ce réseau.
 
 Pour plus d’informations sur l’installation d’un serveur de processus basé sur Azure, consultez [Gérer un serveur de processus en cours d’exécution dans Azure (Resource Manager)](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
 > [!TIP]
 > Nous vous recommandons d’utiliser un serveur de processus basé sur Azure lors de la restauration automatique. Les performances de réplication sont plus élevées si le serveur de processus est plus proche de la machine virtuelle de réplication (machine basculée dans Azure). Toutefois, dans votre preuve de concept ou lors de la démonstration, vous pouvez utiliser le serveur de processus local avec ExpressRoute avec l’homologation privée pour accélérer la preuve de concept.
 
+> [!NOTE]
+> La réplication d’un emplacement local vers Azure peut se produire uniquement via Internet ou ExpressRoute avec homologation publique. La réplication d’Azure vers un emplacement local peut se produire uniquement via le VPN S2S ou ExpressRoute avec homologation privée.
 
 
 #### <a name="what-ports-should-i-open-on-different-components-so-that-reprotection-can-work"></a>Quels ports dois-je ouvrir sur les différents composants pour que la reprotection fonctionne ?
@@ -248,7 +257,7 @@ Cela peut se produire pour deux raisons
 1. La machine virtuelle que vous reprotégez est un serveur Windows Server 2016. Actuellement, ce système d’exploitation n’est pas pris en charge pour la restauration automatique, mais le sera très bientôt.
 2. Une machine virtuelle de même nom existe déjà sur le serveur cible maître sur lequel vous effectuez la restauration automatique.
 
-Pour résoudre ce problème, vous pouvez sélectionner un autre serveur cible maître sur un hôte différent. La reprotection crée alors la machine sur l’autre hôte où les noms ne sont pas en conflit. Vous pouvez également déplacer via vMotion le serveur cible maître sur un autre hôte où le conflit de noms ne se produira pas.
+Pour résoudre ce problème, vous pouvez sélectionner un autre serveur cible maître sur un hôte différent. La reprotection crée alors la machine sur l’autre hôte où les noms ne sont pas en conflit. Vous pouvez également déplacer via vMotion le serveur cible maître sur un autre hôte où le conflit de noms ne se produira pas. Si la machine virtuelle existante est isolée, vous pouvez simplement la renommer pour que la nouvelle machine virtuelle puisse être créée sur le même hôte ESXi.
 
 ### <a name="error-code-78093"></a>Code d'erreur 78093
 
@@ -256,6 +265,9 @@ Pour résoudre ce problème, vous pouvez sélectionner un autre serveur cible ma
 
 Pour reprotéger une machine virtuelle basculée sur un emplacement local, la machine virtuelle Azure doit être en cours d’exécution. De cette façon, le service Mobilité s’inscrit auprès du serveur de configuration local et peut commencer la réplication en communiquant avec le serveur de processus. Si la machine ne se trouve pas sur le bon réseau ou n’est pas en cours d’exécution (état suspendu ou arrêté), le serveur de configuration ne peut pas contacter le service Mobilité sur la machine virtuelle pour commencer la reprotection. Vous pouvez redémarrer la machine virtuelle pour qu’elle puisse recommencer à communiquer localement. Redémarrer le travail de reprotection après le démarrage de la machine virtuelle Azure
 
+### <a name="error-code-8061"></a>Code d’erreur 8061
 
+*La banque de données n’est pas accessible à partir de l’hôte ESXi*.
 
+Consultez les sections relatives à la [configuration requise du serveur cible maître](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) et aux [banques de données prises en charge](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) pour procéder à la restauration automatique.
 

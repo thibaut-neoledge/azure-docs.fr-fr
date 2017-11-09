@@ -12,16 +12,14 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 2d77e95a4e99679686839959bf6330f1e29f870b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: bced4e04f541dde58410e25fe0c3aa5493a5e5fd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure donne à GEP une portée mondiale et une plus grande efficacité
 ![Logo GEP](./media/sql-database-implementation-gep/geplogo.png)
@@ -105,5 +103,4 @@ Depuis la migration des centres de données locaux vers Azure et la création in
 * Huzaifa Matawala, directeur associé-architecte, GEP
 * Sathyan Narasingh, responsable de l’ingénierie, GEP
 * Deepa Velukutty, architecte de base de données, GEP
-
 

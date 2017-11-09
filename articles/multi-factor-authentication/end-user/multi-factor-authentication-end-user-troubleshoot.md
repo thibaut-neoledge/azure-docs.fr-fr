@@ -16,12 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4af968ec596540be428898cc4928b0d4c37bf6ac
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 7455d98f2cb5ecc9c78a11b229e9a8f7b9fab603
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>Obtenir de l’aide pour la vérification en deux étapes
 Cet article répond aux questions les plus courantes sur la vérification en deux étapes.
@@ -30,7 +29,7 @@ Cet article répond aux questions les plus courantes sur la vérification en deu
 
 La vérification en deux étapes est une fonctionnalité de sécurité que votre organisation a choisie pour protéger vos comptes. Elle est plus sécurisée qu’un simple mot de passe, car elle s’appuie sur deux formes d’authentification : quelque chose que vous connaissez et quelque chose que vous avez sur vous. L’élément que vous connaissez est votre mot de passe. L’élément que vous avez sur vous est un téléphone ou un appareil que vous avez généralement avec vous. Avec la vérification en deux étapes, un pirate ne peut pas se connecter en votre nom, car même s’il récupère votre mot de passe d’une manière ou d’une autre, il n’a pas accès à votre téléphone.
 
-Microsoft propose la vérification en deux étapes, mais votre organisation a le choix d’utiliser cette fonctionnalité ou non. Vous ne pouvez pas désactiver cette fonctionnalité si votre service informatique l’exige, comme vous ne pouvez pas refuser l’utilisation d’un mot de passe pour protéger votre compte.
+Microsoft propose la vérification en deux étapes, mais votre organisation a le choix d’utiliser cette fonctionnalité ou non. Vous ne pouvez pas désactiver cette fonctionnalité si le support de votre entreprise l’exige, comme vous ne pouvez pas refuser l’utilisation d’un mot de passe pour protéger votre compte.
 
 Si la vérification en deux étapes est activée pour votre compte Microsoft personnel et si vous souhaitez modifier vos paramètres, consultez la page [À propos de la vérification en deux étapes](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
@@ -46,14 +45,14 @@ Vous laissez parfois votre téléphone à votre domicile, mais vous avez tout de
 3. Sélectionnez l’option de vérification que vous souhaitez utiliser.
 4. Poursuivez avec la vérification en deux étapes.
 
-Si le lien **Utiliser une autre option de vérification** n’apparaît pas, cela signifie que vous n’avez pas configuré d’autres méthodes lorsque vous vous êtes inscrit. Contactez votre service informatique pour obtenir de l’aide afin de vous connecter à votre compte. Une fois que vous êtes connecté, veillez à [gérer vos paramètres](multi-factor-authentication-end-user-manage-settings.md) de manière à ajouter d’autres méthodes de vérification pour la prochaine fois.
+Si le lien **Utiliser une autre option de vérification** n’apparaît pas, cela signifie que vous n’avez pas configuré d’autres méthodes lorsque vous vous êtes inscrit. Contactez le support de votre entreprise pour obtenir de l’aide afin de vous connecter à votre compte. Une fois que vous êtes connecté, veillez à [gérer vos paramètres](multi-factor-authentication-end-user-manage-settings.md) de manière à ajouter d’autres méthodes de vérification pour la prochaine fois.
 
-Si le lien **Utiliser une autre option de vérification** n’apparaît pas et si vous n’avez pas accès à d’autres méthodes de vérification, contactez votre service informatique pour obtenir de l’aide afin de vous connecter à votre compte.
+Si le lien **Utiliser une autre option de vérification** n’apparaît pas et si vous n’avez pas accès à d’autres méthodes de vérification, contactez le support de votre entreprise pour obtenir de l’aide afin de vous connecter à votre compte.
 
 ## <a name="i-lost-my-phone-or-got-a-new-number"></a>J’ai perdu mon téléphone ou j’ai un nouveau numéro de téléphone
-Il existe deux moyens d’accéder de nouveau à votre compte. Le premier consiste à se connecter avec votre autre numéro de téléphone d’authentification, si vous l’avez défini. Le second consiste à demander au service informatique d’effacer vos paramètres.
+Il existe deux moyens d’accéder de nouveau à votre compte. Le premier consiste à se connecter avec votre autre numéro de téléphone d’authentification, si vous l’avez défini. Le second consiste à demander au support de votre entreprise d’effacer vos paramètres.
 
-En cas de perte ou de vol de votre téléphone, nous vous recommandons également de demander à votre service informatique de réinitialiser vos mots de passe d’application et de désactiver les appareils mémorisés.
+En cas de perte ou de vol de votre téléphone, nous vous recommandons également de demander au support de votre entreprise de réinitialiser vos mots de passe d’application et de désactiver les appareils mémorisés.
 
 ### <a name="use-an-alternate-phone-number"></a>Utiliser un autre numéro de téléphone
 Si vous avez défini plusieurs options de vérification, notamment un numéro de téléphone secondaire ou une application d’authentification sur un autre appareil, vous pouvez utiliser l’une d’entre elles pour vous connecter.
@@ -69,7 +68,7 @@ Pour vous connecter à l’aide d’un autre numéro de téléphone, procédez c
 4. Une fois de retour dans votre compte, [gérez vos paramètres](multi-factor-authentication-end-user-manage-settings.md) pour modifier votre numéro de téléphone d’authentification.
 
 ### <a name="clear-your-settings"></a>Effacer vos paramètres
-Si vous n’avez pas configuré de numéro de téléphone secondaire pour l’authentification, vous devez contacter votre service informatique. Demandez-lui d’effacer vos paramètres : de cette façon, la prochaine fois que vous vous connecterez, vous serez invité à vous [réinscrire pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
+Si vous n’avez pas configuré de numéro de téléphone secondaire pour l’authentification, vous devez contacter le support de votre entreprise. Demandez-lui d’effacer vos paramètres : de cette façon, la prochaine fois que vous vous connecterez, vous serez invité à vous [réinscrire pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Je ne reçois pas le SMS ou l’appel sur mon téléphone
 Plusieurs raisons peuvent expliquer que vous ne receviez pas le SMS ou l’appel téléphonique malgré vos tentatives de connexion. S’il vous est déjà arrivé par le passé de recevoir des SMS ou des appels téléphoniques sur votre téléphone sans difficulté, il s’agit probablement d’un problème avec le fournisseur de téléphonie, et non avec votre compte. Assurez-vous de recevoir un signal de bonne qualité. Dans le cas d’un SMS, vérifiez que vous pouvez recevoir les SMS. Demandez à un ami de vous appeler ou de vous envoyer un SMS pour tester cette fonctionnalité.
@@ -83,17 +82,16 @@ Si vous avez attendu un SMS ou un appel pendant plusieurs minutes, le moyen le p
 
     Si vous avez reçu plusieurs codes de vérification, utilisez le plus récent.
 
-Si vous n’avez pas configuré d’autres méthodes, contactez votre service informatique et demandez-lui d’effacer vos paramètres. La prochaine fois que vous vous connecterez, vous devrez [reconfigurer l’authentification multifacteur](multi-factor-authentication-end-user-first-time.md).
+Si vous n’avez pas configuré d’autres méthodes, contactez le support de votre entreprise et demandez-lui d’effacer vos paramètres. La prochaine fois que vous vous connecterez, vous devrez [reconfigurer l’authentification multifacteur](multi-factor-authentication-end-user-first-time.md).
 
 Si vous subissez souvent des retards en raison d’un mauvais signal téléphonique, nous vous recommandons d’utiliser [l’application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) sur votre smartphone. L’application peut générer des codes de sécurité aléatoires qui vous permettent de vous connecter et qui ne nécessitent pas de signal téléphonique ou de connexion Internet.
 
 ## <a name="app-passwords-are-not-working"></a>Les mots de passe d’application ne fonctionnent pas
-Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe. Le mot de passe d’application généré remplace votre mot de passe normal, mais uniquement pour les applications de bureau plus anciennes qui ne prennent pas en charge la vérification en deux étapes. Si cela ne fonctionne toujours pas, essayez de vous connecter et de [créer un mot de passe d’application](multi-factor-authentication-end-user-app-passwords.md).  Si le problème persiste, contactez votre service informatique et demandez-lui de [supprimer vos mots de passe d’application existants](../multi-factor-authentication-manage-users-and-devices.md). Vous pourrez alors créer un autre mot de passe.
+Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe. Le mot de passe d’application généré remplace votre mot de passe normal, mais uniquement pour les applications de bureau plus anciennes qui ne prennent pas en charge la vérification en deux étapes. Si cela ne fonctionne toujours pas, essayez de vous connecter et de [créer un mot de passe d’application](multi-factor-authentication-end-user-app-passwords.md).  Si le problème persiste, contactez le support de votre entreprise et demandez-lui de [supprimer vos mots de passe d’application existants](../multi-factor-authentication-manage-users-and-devices.md). Vous pourrez alors créer un autre mot de passe.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Je n’ai pas trouvé de réponse à mon problème.
-Si malgré ces étapes de dépannage, vous rencontrez encore des problèmes, contactez votre service informatique. Ils doivent être en mesure de vous aider.
+Si malgré ces étapes de dépannage, vous rencontrez encore des problèmes, contactez le support de votre entreprise. Ils doivent être en mesure de vous aider.
 
 ## <a name="related-topics"></a>Rubriques connexes
 * [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md)  
 * [FAQ sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-

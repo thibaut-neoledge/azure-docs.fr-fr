@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 2a35efb04d7fe22abc6894c149caf090666ce016
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Didacticiel : Intégration d’Azure Active Directory à Teamphoria
 
@@ -158,7 +157,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     d. **ENTRY POINT** (Point d’entrée) : collez l**’URL du service d’authentification unique SAML** copiée précédemment à partir du portail Azure.
 
-    e. Définissez l’option sur **ON** , puis cliquez sur **SAVE** (Enregistrer).    
+    e. Définissez l’option sur **ON** , puis cliquez sur **SAVE** (Enregistrer).   
 
 <!--### Next steps
 
@@ -218,11 +217,11 @@ Pour se connecter à Teamphoria, les utilisateurs d’Azure AD doivent être app
 
 3. Cliquez sur l’option **MANUAL INVITE** (Inviter manuellement).
 
-    ![Inviter des personnes](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)    
+    ![Inviter des personnes](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)  
 
 4. Dans cette page, effectuez l’action suivante. 
     
-    ![Inviter des personnes](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)    
+    ![Inviter des personnes](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)  
 
     a. Dans la zone de texte **EMAIL ADDRESS** (Adresse e-mail), tapez l’**adresse de messagerie** de Britta Simon.
 
@@ -288,5 +287,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 [201]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_203.png
-
 

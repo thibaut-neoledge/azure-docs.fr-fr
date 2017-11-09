@@ -9,21 +9,19 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 10/17/2017
 ms.author: markscu
+ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Utiliser des modèles d’interface CLI Azure Batch et le transfert de fichiers (préversion)
 
 Vous pouvez utiliser l’interface Azure CLI pour exécuter des travaux Batch sans écrire de code.
 
-Les fichiers de modèle peuvent être créés et utilisés avec Azure CLI qui autorise la création de pools, travaux et tâches Batch. Les fichiers d’entrée des travaux peuvent être facilement chargés sur le compte de stockage associé au compte Batch et aux fichiers de sortie de travaux téléchargés.
+Créez et utilisez des modèles de fichier avec Azure CLI pour créer des pools, travaux et tâches Batch. Les fichiers d’entrée des travaux peuvent être facilement chargés sur le compte de stockage associé au compte Batch et aux fichiers de sortie de travaux téléchargés.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -52,10 +50,10 @@ Les fonctionnalités de transfert de fichiers et de modèle requièrent l’inst
 
 Pour obtenir des instructions sur l’installation de l’interface Azure CLI, consultez la page [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Une fois que l’interface Azure CLI est installée, l’extension Batch peut être installée en suivant les commandes de l’interface de ligne de commande suivantes :
+Une fois que l’interface Azure CLI est installée, la dernière version de l’extension Batch peut être installée en suivant les commandes de l’interface de ligne de commande suivantes :
 
 ```azurecli
-az component update --add batch-extensions --allow-third-party
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
 ```
 
 Pour plus d’informations sur l’extension Batch, consultez [Extensions Microsoft Azure Batch CLI pour Windows, Mac et Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
@@ -94,7 +92,7 @@ Outre les fonctionnalités de modèle standard des paramètres et variables, les
 
     -   Autorise éventuellement la copie du logiciel sur les nœuds du pool à l’aide de gestionnaires de packages. Le gestionnaire de package et l’ID du package sont spécifiés. Être en mesure de déclarer un ou plusieurs packages évite de devoir créer un script qui obtient les packages requis, d’installer le script et de l’exécuter sur chaque nœud du pool.
 
-Voici un exemple de modèle qui crée un pool de machines virtuelles Linux avec ffmpeg installé et qui nécessite seulement de spécifier une chaîne d’ID de pool et le nombre de machines virtuelles à fournir :
+Voici un exemple de modèle qui crée un pool de machines virtuelles Linux avec ffmpeg installé et qui nécessite seulement de spécifier une chaîne d’ID de pool et le nombre de machines virtuelles à fournir :
 
 ```json
 {
@@ -108,7 +106,7 @@ Voici un exemple de modèle qui crée un pool de machines virtuelles Linux avec 
         "poolId": {
             "type": "string",
             "metadata": {
-                "description": "The pool id "
+                "description": "The pool ID "
             }
         }
     },
@@ -265,4 +263,3 @@ Testez l’extension Batch pour l’interface de ligne de commande Azure et fait
 
 - Consultez l’article du blog au sujet des modèles de lot : [Exécution des travaux Azure Batch à l’aide de l’interface de ligne de commande Azure - aucun code requis](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Une documentation détaillée sur l’installation et l’utilisation, des exemples et du code source sont disponibles dans le [dépôt GitHub Azure](https://github.com/Azure/azure-batch-cli-extensions).
-

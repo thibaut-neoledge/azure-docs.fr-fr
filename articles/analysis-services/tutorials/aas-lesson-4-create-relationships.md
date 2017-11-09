@@ -4,7 +4,7 @@ description: "Explique comment créer des relations dans le projet du didacticie
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 8cff85337ac7f5d1c0e00f09128cbbd4fa79741e
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-4-create-relationships"></a>Leçon 4 : Créer des relations
 
@@ -34,7 +33,10 @@ Durée estimée pour suivre cette leçon : **10 minutes**
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 3 : Marquer en tant que Table de dates](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Vérifier les relations existantes et ajouter de nouvelles relations  
-Lorsque vous avez importé des données à l’aide de la fonctionnalité Obtenir des données, vous avez obtenu sept tables de la base de données AdventureWorksDW2014. En règle générale, lorsque vous importez des données à partir d’une source relationnelle, les relations existantes sont importées automatiquement avec les données. Toutefois, avant de poursuivre avec la création de votre modèle, vous devez vérifier que les relations entre les tables ont été créées correctement. Pour ce didacticiel, vous ajoutez trois nouvelles relations.  
+Lorsque vous avez importé des données à l’aide de la fonctionnalité Obtenir des données, vous avez obtenu sept tables de la base de données AdventureWorksDW2014. En règle générale, lorsque vous importez des données à partir d’une source relationnelle, les relations existantes sont importées automatiquement avec les données. Pour que Get Data crée automatiquement des relations dans le modèle de données, il doit y avoir des relations entre les tables à la source de données.
+
+Avant de poursuivre avec la création de votre modèle, vous devez vérifier que les relations entre les tables ont été créées correctement. Dans le cadre de ce didacticiel, vous ajoutez aussi trois nouvelles relations.  
+
   
 #### <a name="to-review-existing-relationships"></a>Pour vérifier les relations existantes  
   
@@ -44,7 +46,10 @@ Lorsque vous avez importé des données à l’aide de la fonctionnalité Obteni
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Incluez autant de tables que possible en utilisant les contrôles de la minicarte situés dans le coin inférieur droit du Concepteur de modèles. Vous pouvez également cliquer et faire glisser les tables à différents emplacements, de manière à les rapprocher ou à les placer dans un ordre particulier. Le déplacement des tables n’affecte pas les relations qui existent déjà entre elles. Pour visualiser toutes les colonnes d’une table spécifique, cliquez sur un bord de la table et faites-le glisser pour développer ou réduire la taille de la table.  
+    > [!NOTE]
+    > Si vous ne voyez aucune relation entre les tables, cela veut probablement dire qu’il n’y a aucune relation entre elles à la source des données.
+
+    Incluez autant de tables que possible en utilisant les contrôles de la minicarte situés dans le coin inférieur droit du Concepteur de modèles. Vous pouvez également cliquer et faire glisser les tables à différents emplacements, de manière à les rapprocher ou à les placer dans un ordre particulier. Le déplacement des tables n’affecte pas les relations entre elles. Pour visualiser toutes les colonnes d’une table spécifique, cliquez sur un bord de la table et faites-le glisser pour développer ou réduire la taille de la table.  
   
 2.  Cliquez sur la ligne pleine située entre la table **DimCustomer** et la table **DimGeography**. La ligne pleine entre ces deux tables indique que cette relation est active, autrement dit, qu’elle est utilisée par défaut lors du calcul des formules DAX.  
   
@@ -63,7 +68,7 @@ Lorsque vous avez importé des données à l’aide de la fonctionnalité Obteni
     |Oui|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Oui|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Si l’une des relations est manquante, vérifiez que votre modèle comprend les tables suivantes : DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory et FactInternetSales. Si vous importez des tables provenant de la même connexion de source de données à des moments différents, les relations entre ces tables ne sont pas créées et doivent être créées manuellement.  
+    Si l’une des relations est manquante, vérifiez que votre modèle comprend les tables suivantes : DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory et FactInternetSales. Si vous importez des tables provenant de la même connexion de source de données à des moments différents, les relations entre ces tables ne sont pas créées et doivent être créées manuellement. Si aucune relation n’apparaît, cela veut dire qu’il n’y en a aucune à la source de données. Vous pouvez les créer manuellement dans le modèle de données.
 
 ### <a name="take-a-closer-look"></a>Examen approfondi
 Dans la vue de diagramme, notez la présence d’une flèche, d’un astérisque et d’un nombre sur les lignes, qui indiquent la relation entre les tables.
@@ -102,4 +107,3 @@ Dans certains cas, vous devrez peut-être créer des relations supplémentaires 
   
   
   
-

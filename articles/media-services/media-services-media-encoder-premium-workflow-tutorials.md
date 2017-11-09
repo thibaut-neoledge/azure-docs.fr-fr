@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 565497bd5a35e3c4d69d29512307cf3ca2364bdd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Didacticiels de workflows avancés Media Encoder Premium
 ## <a name="overview"></a>Vue d'ensemble
@@ -370,7 +369,7 @@ En vérifiant maintenant les propriétés à la racine du workflow, nous pouvons
 
 Chaque fois que vous souhaitez accéder à ces propriétés à partir du code ou d’une expression, vous pouvez procéder de la manière suivante :
 
-* à partir du code en ligne d’un composant, directement sous la racine : node.getPropertyAsString('../ video1bitrate', null)
+* à partir du code en ligne d’un composant, directement sous la racine : node.getPropertyAsString('.. / video1bitrate', null)
 * dans une expression : ${ROOT_video1bitrate}
 
 Complétons le groupe « Streaming Bitrates » en y publiant également le débit binaire de notre piste audio. Dans les propriétés de l’encodeur AAC, recherchez le paramètre de débit binaire et sélectionnez Publier dans la liste déroulante en regard de celui-ci. Publiez la propriété à la racine du graphique en lui attribuant le nom « audio1bitrate » et le nom d’affichage « Audio 1 Bitrate » au sein de notre groupe personnalisé « Streaming Bitrates ».
@@ -939,4 +938,3 @@ Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpag
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

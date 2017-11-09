@@ -15,12 +15,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
+ms.openlocfilehash: 029fb8ddad84b297d99509a0a9ad35d9548e5c00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 07ad266ad87028996c4a7b3e4365c11b019f8529
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Inscription à Azure en tant qu’organisation
 Jusqu’à récemment, vous pouviez uniquement créer un abonnement Microsoft Azure à l’aide d’un compte Microsoft (Windows Live ID). Azure prend désormais en charge l'utilisation des deux méthodes suivantes pour la création d'un compte :
@@ -37,5 +36,4 @@ Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](h
 * [Blog Microsoft Azure](https://azure.microsoft.com/blog/)
 * [Présentation d’Azure AD](active-directory-whatis.md)
 * [Utiliser votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md)
-
 

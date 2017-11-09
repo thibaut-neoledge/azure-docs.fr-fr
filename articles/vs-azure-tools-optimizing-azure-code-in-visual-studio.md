@@ -3,8 +3,8 @@ title: Optimisation de votre code Azure dans Visual Studio | Microsoft Docs
 description: "Découvrez comment les outils d'optimisation du code Azure dans Visual Studio peuvent rendre votre code plus robuste et plus performant."
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
 ms.service: multiple
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: a07496a2d5eb52dd3c4092105e45b70b6e9f69cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
-
+ms.author: cawa
+ms.openlocfilehash: a606c8e7d8b730b67bd8481656e099900eb39fbc
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="optimizing-your-azure-code"></a>Optimisation de votre code Azure
 Quand vous programmez des applications qui utilisent Microsoft Azure, nous vous recommandons de suivre certaines pratiques de codage pour éviter des problèmes relatifs à l’évolutivité, au comportement et à la performance dans un environnement cloud. Microsoft fournit un outil Azure Code Analysis, qui reconnaît et identifie plusieurs des problèmes couramment rencontrés et qui vous aide à les résoudre. Vous pouvez télécharger l'outil dans Visual Studio via NuGet.
@@ -466,5 +465,4 @@ public class BlogsController : Controller
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’optimisation et le dépannage des applications Azure, consultez la rubrique [Dépanner une application web dans Azure App Service à l’aide de Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
-
+Pour plus d’informations sur l’optimisation et le dépannage des applications Azure, consultez la rubrique [Dépanner une application web dans Azure App Service à l’aide de Visual Studio](app-service/web-sites-dotnet-troubleshoot-visual-studio.md).

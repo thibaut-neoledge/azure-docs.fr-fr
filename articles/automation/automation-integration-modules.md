@@ -1,9 +1,9 @@
---- 
+---
 title: "Créer un module d’intégration Azure Automation | Microsoft Docs"
 description: "Ce didacticiel vous guide tout au long des procédures de création et de test de modules d’intégration Azure Automation. Il est complété par un exemple d’utilisation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: ea2ad80f348c80856c525218aad45a8fcf47bcb8
-ms.openlocfilehash: aeb06276a52e5472667ae0a741fb3007a91910fe
-
+ms.openlocfilehash: 061a9856ef4a9bc4f569b812a061fad98b044f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-automation-integration-modules"></a>Modules d’intégration Azure Automation
 PowerShell est la technologie fondamentale derrière Azure Automation. Étant donné qu’Azure Automation est basé sur PowerShell, les modules PowerShell sont essentiels pour l’extensibilité d’Azure Automation. Dans cet article, nous vous guiderons tout au long de l’utilisation détaillée des modules PowerShell dans Azure Automation, appelés « modules d’intégration », et vous présenterons les meilleures pratiques pour la création de vos propres modules PowerShell afin de garantir que ceux-ci fonctionnent en tant que modules d’intégration au sein d’Azure Automation. 
 
@@ -211,10 +211,4 @@ Même si les modules d’intégration sont généralement des modules PowerShell
 
 * Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
 * Pour en savoir plus sur la création de modules PowerShell, consultez [Writing a Windows PowerShell Module (Écriture d’un module Windows PowerShell)](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Vue d’ensemble du DNS inversé et prise en charge dans Azure
 
 Cet article donne une vue d’ensemble du fonctionnement du DNS inversé et des scénarios DNS inversés pris en charge dans Azure.
@@ -115,5 +113,4 @@ Pour plus d’informations sur le DNS inversé, consultez [Recherche DNS invers�
 Découvrez comment [héberger la zone de recherche inversée pour la plage d’adresses IP fournie par votre fournisseur de services Internet dans Azure DNS](dns-reverse-dns-for-azure-services.md).
 <br>
 Découvrez comment [gérer des enregistrements DNS inversés pour vos services Azure](dns-reverse-dns-for-azure-services.md).
-
 

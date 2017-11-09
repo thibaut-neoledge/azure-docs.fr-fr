@@ -12,28 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
-
+ms.openlocfilehash: 31f5a11cda1827a0a50fd2be0b7260daedf26e24
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 dans Microsoft Azure Service Bus : opérations basées sur les requêtes-réponses
 
 Cette rubrique définit la liste des opérations basées sur les requêtes-réponses de Microsoft Azure Service Bus. Ces informations sont basées sur la première ébauche d’AMQP Management Version 1.0.  
   
-Pour un guide détaillé sur le protocole AMQP 1.0 au niveau des câbles qui explique comment Service Bus implémente et s’appuie sur la spécification technique AMQP OASIS, consultez le [Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs](service-bus-amqp-protocol-guide.md).  
+Pour obtenir un guide détaillé sur le protocole AMQP 1.0 au niveau des câbles qui explique comment Service Bus implémente la spécification technique AMQP OASIS et s’appuie sur celle-ci, consultez le [Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs][Guide du protocole AMQP 1.0].  
   
 ## <a name="concepts"></a>Concepts  
   
 ### <a name="entity-description"></a>Description d’entité  
 
-Une description d’entité fait référence à un objet Service Bus [classe QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [classe TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription), ou [Classe SubscriptionDescription](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription).  
+Une description d’entité fait référence à un objet Service Bus [classe QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [classe TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) ou [classe SubscriptionDescription](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription).  
   
 ### <a name="brokered-message"></a>Message réparti  
 
@@ -620,10 +617,10 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 
 Pour en savoir plus sur AMQP et Service Bus, consultez les liens suivants :
 
-* [Vue d’ensemble d’AMQP de Service Bus]
-* [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
+* [Vue d’ensemble du protocole AMQP de Service Bus]
+* [Guide du protocole AMQP 1.0]
 * [AMQP dans Service Bus pour Windows Server]
 
-[Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
-[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
+[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.asp

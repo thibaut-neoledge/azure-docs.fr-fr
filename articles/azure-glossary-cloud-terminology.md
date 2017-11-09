@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
+ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : un dictionnaire de la terminologie des technologies cloud sur la plateforme Azure
 
@@ -37,7 +36,7 @@ Consultez les pages [Sign up for an Azure subscription with your Office 365 acco
 Autre nom pour [application App Service](#app-service-app).
 
 ## <a name="app-service-app"></a>application App Service
-Ressources de calcul fournies par [Azure App Service](app-service/app-service-value-prop-what-is.md) pour l’hébergement d’un [site ou d’une application web](app-service-web/app-service-web-overview.md), d’une [API web](app-service-api/app-service-api-apps-why-best-platform.md) ou d’un [serveur back-end d’applications mobiles](app-service-mobile/app-service-mobile-value-prop.md). Les applications App Service sont également appelées *App Services*, *applications web*, *applications API* ou *applications mobiles*.
+Ressources de calcul fournies par [Azure App Service](app-service/app-service-web-overview.md) pour l’hébergement d’un site ou d’une application web, d’une API web ou d’un [serveur back-end d’applications mobiles](app-service-mobile/app-service-mobile-value-prop.md). Les applications App Service sont également appelées *App Services*, *applications web*, *applications API* ou *applications mobiles*.
 
 ## <a name="availability-set"></a>groupe à haute disponibilité
 Une collection de machines virtuelles gérées ensemble pour permettre la redondance et la fiabilité des applications. L’utilisation d’un groupe à haute disponibilité assure qu’au moins une des machines virtuelles sera disponible pendant un événement de maintenance planifié ou non.  
@@ -159,5 +158,4 @@ Autre nom pour [application App Service](#app-service-app).
 * [Centre de ressources du cloud](https://azure.microsoft.com/resources/)  
 * [Azure pour vos applications métier](https://azure.microsoft.com/overview/business-apps-on-azure/)
 * [Azure dans votre centre de données](https://azure.microsoft.com/overview/business-apps-on-azure/)
-
 

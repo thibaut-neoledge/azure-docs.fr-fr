@@ -4,7 +4,7 @@ description: "Explique comment créer des partitions dans le projet du didactici
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: df74d9cbdcf4916c24955e491767589e72389155
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 99f7fcbd3a2d3b6f6fe48c7fb2703d35d3b3a8fd
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-10-create-partitions"></a>Leçon 10 : Créer des partitions
 
@@ -119,4 +118,3 @@ Dans le Gestionnaire de partition, notez que la colonne **Dernier traitement** d
   
  ## <a name="whats-next"></a>Et ensuite ?
 Accédez à la leçon suivante : [Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md). 
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
+ms.openlocfilehash: ef1b5860ba0a406022bbd11afb366d14bee2c57d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: fa962b3f0547b1afcf1c85abb0f28205f26ef96d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Didacticiel : Intégration d’Azure Active Directory avec Litmos
 
@@ -205,7 +204,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
 
-    c. Activez la case à cocher **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
     d. Cliquez sur **Create**.
   
@@ -252,11 +251,11 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Lien « Utilisateurs et groupes »][202]
 
 4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-    ![Volet Ajouter une affectation][203]
+    ![Volet Ajouter une attribution][203]
 
 5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
@@ -295,5 +294,4 @@ Lorsque vous cliquez sur la vignette Litmos dans le volet d’accès, vous devez
 [201]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_203.png
-
 

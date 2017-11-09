@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
+ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: bb3129f70f5eeed99d5889226aa6727f675b6217
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante (Classic)
 
@@ -71,11 +70,11 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 Si vous avez déjà un VPN de site à site avec une passerelle de routage dynamique, bravo ! Vous pouvez [Exporter les paramètres de configuration de réseau virtuel](#export). Sinon, procédez ainsi :
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Si vous avez déjà un réseau virtuel de site à site, mais que sa passerelle de routage est statique :
-1. Modifiez le type de passerelle en routage dynamique. Un VPN multisite requiert une passerelle de routage dynamique (ou basée sur un itinéraire). Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle. Pour obtenir des instructions, consultez la page [Modification du type de routage VPN de votre passerelle](vpn-gateway-configure-vpn-gateway-mp.md).  
-2. Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Configuration d’une passerelle VPN dans le portail Azure Classic](vpn-gateway-configure-vpn-gateway-mp.md). Tout d’abord, changez le type de votre passerelle en dynamique.
+1. Modifiez le type de passerelle en routage dynamique. Un VPN multisite requiert une passerelle de routage dynamique (ou basée sur un itinéraire). Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle.
+2. Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Spécifier la référence et le type de VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Veillez à spécifier « Dynamique » comme type de routage.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Si vous n’avez pas de réseau virtuel de site à site :
-1. Créez votre réseau virtuel de site à site en suivant la procédure décrite dans [Création d’un réseau virtuel avec une connexion VPN de site à site dans le portail Azure Classic](vpn-gateway-site-to-site-create.md).  
+1. Créez votre réseau virtuel de site à site en suivant la procédure décrite dans [Créer un réseau virtuel avec une connexion VPN de site à site](vpn-gateway-site-to-site-create.md).  
 2. Configurez une passerelle de routage dynamique en suivant la procédure décrite dans [Configuration d’une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
 
 ## <a name="export"></a>2. Exporter le fichier de configuration réseau
@@ -158,7 +157,7 @@ Pour ajouter des références de site supplémentaires (créer une configuration
 ```
 
 ## <a name="5-import-the-network-configuration-file"></a>5. Importer le fichier de configuration réseau
-Importez le fichier de configuration réseau. Lorsque vous importez ce fichier avec les modifications, les nouveaux tunnels sont ajoutés. Les tunnels utilisent la passerelle dynamique que vous avez créée précédemment. Vous pouvez utiliser la version Classic du portail ou PowerShell pour importer le fichier.
+Importez le fichier de configuration réseau. Lorsque vous importez ce fichier avec les modifications, les nouveaux tunnels sont ajoutés. Les tunnels utilisent la passerelle dynamique que vous avez créée précédemment. Vous pouvez utiliser PowerShell pour importer le fichier.
 
 ## <a name="6-download-keys"></a>6. Télécharger les clés
 Une fois les tunnels ajoutés, utilisez la cmdlet PowerShell Get-AzureVNetGatewayKey pour obtenir les clés prépartagées IPsec/IKE de chaque tunnel.
@@ -210,4 +209,3 @@ L’exemple renvoie :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
-

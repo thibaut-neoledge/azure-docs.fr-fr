@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/22/2017
+ms.date: 3/23/2017
 ms.author: elbutter
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
-ms.lasthandoff: 04/12/2017
-
-
+ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ ms.lasthandoff: 04/12/2017
 
 L’architecture de SQL Data Warehouse sépare le stockage du calcul, ce qui permet de les mettre à l’échelle indépendamment l’un de l’autre. En conséquence, le calcul peut être mis à l’échelle pour répondre aux exigences de performance, indépendamment du volume de données. Une conséquence naturelle de cette architecture est la séparation de la [facturation][billed] du calcul et du stockage. 
 
-Cette présentation décrit le fonctionnement de la mise à l’échelle avec SQL Data Warehouse. Elle explique également comment utiliser les fonctionnalités de mise en pause, de reprise et de mise à l’échelle de SQL Data Warehouse. Consultez la page sur les [Data Warehouse Units (DWU)][data warehouse units (DWUs)] pour en apprendre davantage sur les DWU et leurs performances. 
+Cette présentation décrit le fonctionnement de la mise à l’échelle avec SQL Data Warehouse. Elle explique également comment utiliser les fonctionnalités de mise en pause, de reprise et de mise à l’échelle de SQL Data Warehouse. 
 
 ## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Fonctionnement des opérations de gestion du calcul dans SQL Data Warehouse
 L’architecture de SQL Data Warehouse consiste en un nœud de contrôle, des nœuds de calcul et la couche de stockage, le tout réparti sur 60 distributions. 
@@ -87,10 +86,10 @@ Nous vous conseillons de vérifier l’état de la base de données en différen
 
 ## <a name="scale-compute"></a>Mise à l’échelle des ressources de calcul
 
-Les performances dans SQL Data Warehouse se mesurent en [Data Warehouse Units (DWU)][data warehouse units (DWUs)] qui sont une unité abstraite de ressources de calcul (processeur, mémoire et bande passante d’E/S). Un utilisateur qui souhaite augmenter les performances de son système peut y parvenir de plusieurs façons, par exemple via le portail, T-SQL et les API REST. 
+Les performances dans SQL Data Warehouse se mesurent en [data warehouse units (DWU)][data warehouse units (DWU)] qui sont une unité abstraite de ressources de calcul (processeur, mémoire et bande passante d’E/S). Un utilisateur qui souhaite augmenter les performances de son système peut y parvenir de plusieurs façons, par exemple via le portail, T-SQL et les API REST. 
 
 ### <a name="how-do-i-scale-compute"></a>Comment mettre à l’échelle les ressources de calcul ?
-La puissance de calcul est gérée pour vous par SQL Data Warehouse en modifiant le paramètre DWU. Les performances augmentent [de manière linéaire][linearly] à mesure que vous ajoutez des DWU pour certaines opérations.  Nous proposons des offres DWU qui vous garantissent une évolution notable de vos performances lorsque vous effectuez une montée ou une descente en puissance de votre système. 
+La puissance de calcul est gérée pour vous par SQL Data Warehouse en modifiant le paramètre DWU. Les performances augmentent de manière linéaire à mesure que vous ajoutez des DWU pour certaines opérations.  Nous proposons des offres DWU qui vous garantissent une évolution notable de vos performances lorsque vous effectuez une montée ou une descente en puissance de votre système. 
 
 Pour ajuster les unités DWU, vous pouvez utiliser l’une des différentes méthodes suivantes.
 
@@ -182,9 +181,7 @@ Consultez les articles suivants pour mieux comprendre certains concepts supplém
 <!--Image reference-->
 
 <!--Article references-->
-[data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
-[billed]: https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/
-[linearly]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
+[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
 [Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
@@ -220,4 +217,3 @@ Consultez les articles suivants pour mieux comprendre certains concepts supplém
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
-

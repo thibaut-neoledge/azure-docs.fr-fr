@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9abec188a5677942fd9eb9192c4067d2851a1969
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: c8f98536048a85ebb3f061d840457130579196d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application"></a>Comment configurer une application du proxy d’application
 
 Cet article vous aide à comprendre comment configurer une application de proxy d’application dans Azure AD afin de rendre vos applications locales accessibles au cloud.
@@ -75,4 +73,3 @@ Le message d’erreur s’affiche en haut à droite lorsque vous tentez de charg
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Publier des applications avec le Proxy d’application Azure AD](application-proxy-publish-azure-portal.md)
-

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1b257b5a021a682990fb615d7c9aae4fc9160dd4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: b2078e5f1bb1bafdf8b53ec8c8ead014773cc9f0
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Créer des clusters Hadoop à l’aide de l’API REST Azure
 
@@ -230,7 +229,7 @@ Suivez la procédure décrite dans la [prise en main d’Azure CLI 2.0](https://
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
 > [!NOTE]
-> Ces étapes sont une version abrégée de la section *Créer un principal du service avec un mot de passe - Azure CLI* dans le document [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) . Les étapes suivantes créent un principal de service qui est utilisé pour s’authentifier sur l’API REST Azure.
+> Ces étapes sont une version abrégée de la section *Créer un principal du service avec un mot de passe - Azure CLI* dans le document [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) . Les étapes suivantes créent un principal de service qui est utilisé pour s’authentifier sur l’API REST Azure.
 
 1. À partir d’une ligne de commande, utilisez la commande suivante pour répertorier vos abonnements Azure.
 
@@ -376,4 +375,3 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Développement de topologies Java pour Storm sur HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
-

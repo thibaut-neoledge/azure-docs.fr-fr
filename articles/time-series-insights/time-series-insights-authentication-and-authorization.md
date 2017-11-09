@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/24/2017
 ms.author: dmden
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 3b7d0811b718d4702786572b953fb27a9521d390
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -111,4 +110,3 @@ Utilisez l’ID et la clé de l’application dans votre application. Pour un ex
 
 * [API de requête](/rest/api/time-series-insights/time-series-insights-reference-queryapi) pour la référence d’API de requête complète
 * [Créer un principal du service dans le portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-

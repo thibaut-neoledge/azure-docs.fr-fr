@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: df82afab2c38431e134146143524edc080ee38f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite
 Ce document vous aide à utiliser l’option d’informations sur les menaces disponible dans la solution de sécurité et d’audit d’OMS afin de surveiller et de répondre aux alertes de sécurité.
@@ -34,7 +32,7 @@ Dans un environnement d’entreprise où les utilisateurs ont un accès étendu 
 
 Grâce à l’option **Informations sur les menaces** disponible dans la solution de sécurité et d’audit d’OMS, les administrateurs informatiques peuvent détecter les menaces de sécurité pour l’environnement, par exemple, identifier si un ordinateur fait partie d’un [botnet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection). Un ordinateur peut devenir un nœud d’un botnet si un pirate installe de manière illicite un programme malveillant qui connecte secrètement cet ordinateur à la commande et au contrôle. Cette option peut également identifier les menaces potentielles provenant de canaux de communication obscurs, tel que le [Darknet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection_honeypots_darkents). 
 
-Pour générer ces informations sur les menaces, la solution de sécurité et d’audit d’OMS utilise des données provenant de nombreuses sources au sein de Microsoft. La solution de sécurité et d’audit d’OMS utilisera ces données afin d’identifier les menaces potentielles pour votre environnement.
+Pour générer ces renseignements sur les menaces, la solution OMS Security and Audit utilise des données provenant de nombreuses sources au sein de Microsoft. La solution de sécurité et d’audit d’OMS utilisera ces données afin d’identifier les menaces potentielles pour votre environnement.
 
 Le panneau Informations sur les menaces est composé de trois options principales :
 
@@ -43,7 +41,7 @@ Le panneau Informations sur les menaces est composé de trois options principale
 * Threat intelligence map (Carte d’informations sur les menaces)
 
 > [!NOTE]
-> pour avoir une vue d’ensemble de toutes ces options, consultez [Getting started with Operations Management Suite Security and Audit Solution](oms-security-getting-started.md)(Prise en main de la solution de sécurité et d’audit d’Operations Management Suite).
+> Pour obtenir une vue d’ensemble de toutes ces options, consultez l’article [Prise en main de la solution de sécurité et d’audit d’Operations Management Suite](oms-security-getting-started.md).
 > 
 > 
 
@@ -56,7 +54,7 @@ Le processus de [réponse aux incidents de sécurité](https://technet.microsoft
 * Identifier les systèmes qui ont été compromis
 * Identifier les fichiers consultés et déterminer leur sensibilité
 
-Les **Informations sur les menaces** de la solution de sécurité et d’audit d’OMS vous aideront à effectuer ces tâches. Pour accéder à l’option **Informations sur les menaces** , suivez les étapes ci-dessous :
+La fonctionnalité **Threat Intelligence** de la solution OMS Security and Audit vous aidera à effectuer ces tâches. Pour accéder à ces options **Threat Intelligence**, procédez comme suit :
 
 1. Dans le tableau de bord principal de **Microsoft Operations Management Suite**, cliquez sur la vignette **Sécurité et audit**.
    
@@ -88,7 +86,7 @@ La carte d’**informations sur les menaces** vous indique les endroits du monde
 ### <a name="responding-to-distinct-malicious-ip-accessed"></a>Réagir en cas d’accès à des adresses IP malveillantes distinctes
 Dans certains scénarios, vous pouvez remarquer qu’un ordinateur surveillé a accédé à une adresse IP potentiellement malveillante :
 
-![carte d’informations sur les menaces](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+![carte d’informations sur les menaces](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.PNG)
 
 Cette alerte, et d’autres de la même catégorie, sont générées par le biais de la solution de sécurité d’OMS en tirant profit des [informations sur les menaces fournies par Microsoft](https://youtu.be/O4WtxgUrDc8). Les informations sur les menaces sont collectées par Microsoft ou achetées auprès des principaux fournisseurs d’informations de ce type. Ces données sont fréquemment mises à jour et adaptées à l’évolution rapide des menaces. Du fait de leur nature, elles doivent être associées à d’autres sources d’informations de sécurité lors de [l’examen](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) d’une alerte de sécurité. 
 
@@ -104,5 +102,4 @@ Dans ce document, vous avez appris à utiliser l’option **Informations sur les
 * [Présentation - Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Getting started with Operations Management Suite Security and Audit Solution](oms-security-getting-started.md)
 * [Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-monitoring-resources.md)
-
 

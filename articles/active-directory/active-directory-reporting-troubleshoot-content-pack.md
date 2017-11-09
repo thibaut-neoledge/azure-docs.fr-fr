@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: a47810d89fb3db839d1d59942ee90610afaeb6a8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 4c4c3eb1d7b363f93ad1e69bb93b755d56493f5e
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Résolution des problèmes liés aux erreurs du pack de contenu des journaux d’activité Azure Active Directory 
 
 
@@ -68,6 +66,5 @@ Cette rubrique traite des causes possibles de ces erreurs et explique comment le
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour installer le pack de contenu Power BI pour Azure Active Directory Preview, cliquez [ici](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
-
 
 

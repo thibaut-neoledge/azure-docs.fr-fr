@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
-ms.openlocfilehash: 655d2ea7193551caa4b32efcf75a1dbf204f4954
-
-
+ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Didacticiel : intégration d’Azure Active Directory à Halosys
 
@@ -124,7 +124,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par les utilisateurs pour se connecter à votre application Halosys au format suivant : `https://<company-name>.Halosys.com/client-api/api`.
 
-    Dans la zone de texte **URL d’identificateur**, tapez l’URL au format suivant : `https://<company-name>.Halosys.com`.    
+    Dans la zone de texte **URL d’identificateur**, tapez l’URL au format suivant : `https://<company-name>.Halosys.com`.   
          
 4. Sur la page **Configurer l’authentification unique sur Halosys**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur :
 
@@ -168,13 +168,13 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :  ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
 
-    c. Cliquez sur **Next**.
+    c. Cliquez sur **Suivant**.
 
 6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
 
@@ -186,7 +186,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
 
-    e. Cliquez sur **Next**.
+    e. Cliquez sur **Suivant**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
@@ -264,9 +264,3 @@ Lorsque vous cliquez sur la vignette Halosys dans le volet d’accès, vous deve
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

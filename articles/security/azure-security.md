@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: TomSh
+ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b0749847af81521e0ffe6b5f1e115fff558df5cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d'ensemble
 Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services est de tirer parti de sa large gamme de fonctionnalités et outils de sécurité. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée. Microsoft Azure assure la confidentialité, l’intégrité et la disponibilité des données client, tout en permettant la gestion transparente des responsabilités.
@@ -111,7 +109,7 @@ En outre, Azure Security Center aide aux opérations de sécurité en vous fourn
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité des applications et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="web-application-vulnerability-scanning"></a>Analyse de la vulnérabilité des applications web
-L’une des méthodes les plus simples pour démarrer les tests de vulnérabilité de votre [application App Service](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is) consiste à utiliser [l’intégration à Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) pour effectuer l’analyse des vulnérabilités dans votre application en un clic. Vous pouvez afficher les résultats des tests dans un rapport facile à comprendre et découvrir comment résoudre chaque problème de vulnérabilité grâce à des instructions pas à pas.
+L’une des méthodes les plus simples pour démarrer les tests de vulnérabilité de votre [application App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview) consiste à utiliser [l’intégration à Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) pour effectuer l’analyse des vulnérabilités dans votre application en un clic. Vous pouvez afficher les résultats des tests dans un rapport facile à comprendre et découvrir comment résoudre chaque problème de vulnérabilité grâce à des instructions pas à pas.
 
 ### <a name="penetration-testing"></a>Test de pénétration
 Si vous préférez effectuer vos propres tests d’intrusion ou utiliser une autre suite logicielle d’analyse ou un autre fournisseur, vous devez suivre le [processus d’approbation de test d’intrusion Azure](https://security-forms.azure.com/penetration-testing/terms) et obtenir une approbation préalable pour effectuer les tests d’intrusion de votre choix.
@@ -123,10 +121,10 @@ Le pare-feu d’applications web (WAF) [d’Azure Application Gateway](https://a
 [L’authentification/autorisation App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) est une fonctionnalité qui permet à votre application de connecter les utilisateurs. Vous n’êtes ainsi donc pas obligé de modifier le code sur le serveur principal. Elle propose un moyen simple de protéger votre application et fonctionne avec des données par utilisateur.
 
 ### <a name="layered-security-architecture"></a>Architecture de sécurité multiniveau
-Dans la mesure où les [environnements App Service](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-intro) fournissent un environnement d’exécution isolé déployé dans un [réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), les développeurs peuvent créer une architecture de sécurité multiniveau offrant différents niveaux d’accès réseau pour chaque couche Application. Un souhait commun est de masquer les API principales de l’accès Internet général, et d’autoriser uniquement les API à être appelées par les applications web en amont. Les [groupes de sécurité réseau (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) peuvent être utilisés sur des sous-réseaux d’un réseau virtuel Azure contenant des environnements App Service pour restreindre l’accès public aux applications API.
+Dans la mesure où les [environnements App Service](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) fournissent un environnement d’exécution isolé déployé dans un [réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), les développeurs peuvent créer une architecture de sécurité multiniveau offrant différents niveaux d’accès réseau pour chaque couche Application. Un souhait commun est de masquer les API principales de l’accès Internet général, et d’autoriser uniquement les API à être appelées par les applications web en amont. Les [groupes de sécurité réseau (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) peuvent être utilisés sur des sous-réseaux d’un réseau virtuel Azure contenant des environnements App Service pour restreindre l’accès public aux applications API.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Diagnostics de serveur web et diagnostics d’application
-Les applications web App Service fournissent des fonctionnalités de diagnostic pour les informations de journalisation provenant du serveur Web et de l'application web. Ces informations sont réparties, en toute logique, en [diagnostics de serveur web](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log) et en [diagnostics d’application](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Le serveur web inclut deux avancées majeures dans le diagnostic des problèmes et leur résolution sur les sites et dans les applications.
+Les applications web App Service fournissent des fonctionnalités de diagnostic pour les informations de journalisation provenant du serveur Web et de l'application web. Ces informations sont réparties, en toute logique, en [diagnostics de serveur web](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) et en [diagnostics d’application](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Le serveur web inclut deux avancées majeures dans le diagnostic des problèmes et leur résolution sur les sites et dans les applications.
 
 Pour la première nouvelle fonctionnalité, il s’agit des informations d’état en temps réel sur les pools d’applications, les processus Worker, les sites, les domaines d’application et les demandes en cours d’exécution. Quant à la seconde nouvelle fonctionnalité, il s’agit des événements de suivi détaillés qui effectuent le suivi d’une demande dans le processus complet des demandes/réponses.
 
@@ -142,7 +140,7 @@ Vous pouvez activer ou désactiver les types de journaux suivants :
 -   Journalisation du serveur web : informations sur les transactions HTTP à l’aide du format de fichier journal étendu W3C. Ce rapport se révèle utile pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
 
 #### <a name="application-diagnostics"></a>diagnostics d’application
-La fonctionnalité [Diagnostic d’application](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log) vous permet de capturer des informations générées par une application web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Dans Diagnostic d’application, il existe deux types d’événement principaux, ceux qui sont liés aux performances de l’application et ceux qui sont liés à ses erreurs et échecs. Les échecs et les erreurs peuvent être répartis en problèmes de connectivité, sécurité et défaillance. Les problèmes de défaillance sont généralement associés à un problème lié au code d’application.
+La fonctionnalité [Diagnostic d’application](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) vous permet de capturer des informations générées par une application web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Dans Diagnostic d’application, il existe deux types d’événement principaux, ceux qui sont liés aux performances de l’application et ceux qui sont liés à ses erreurs et échecs. Les échecs et les erreurs peuvent être répartis en problèmes de connectivité, sécurité et défaillance. Les problèmes de défaillance sont généralement associés à un problème lié au code d’application.
 
 Dans Diagnostic d’application, vous pouvez afficher les événements regroupés comme suit :
 
@@ -398,4 +396,3 @@ Anticipez, détectez et traitez les menaces avec une visibilité et un contrôle
 - [Surveillance de l’intégrité de la sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 
 Fonctionnalités de surveillance d’Azure Security Center destinées à contrôler la conformité aux stratégies.
-

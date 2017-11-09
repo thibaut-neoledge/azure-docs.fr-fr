@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3c5a6ec70e1041d43b549c8e5a5416a9a65728bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
@@ -33,7 +31,7 @@ L’exécution d’une application existante dans un conteneur Linux sur un clus
 * Un ordinateur de développement exécutant :
   * [Outils et SDK Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE pour Linux](https://docs.docker.com/engine/installation/#prior-releases). 
-  * [Interface de ligne de commande Service Fabric](service-fabric-cli.md)
+  * [Interface de ligne de commande de Service Fabric](service-fabric-cli.md)
 
 * Un registre dans Azure Container Registry. [Créez un registre de conteneurs](../container-registry/container-registry-get-started-portal.md) dans votre abonnement Azure. 
 
@@ -164,34 +162,46 @@ Le Kit de développement logiciel (SDK) Service Fabric pour Linux comprend un g�
 
 Pour créer une application de conteneur Service Fabric, ouvrez une fenêtre de terminal et exécutez `yo azuresfcontainer`.  
 
-Nommez votre application (par exemple, « mycontainer »). 
+Nommez votre application (par exemple, « mycontainer » et le service d’application (par exemple, « myservice »).
 
-Fournissez l’URL de l’image conteneur dans un registre de conteneurs (par exemple, « »). 
+En guise de nom d’image, fournissez l’URL de l’image de conteneurs dans un registre de conteneur (ex : « myregistry.azurecr.io/samples/helloworldapp »). 
 
-Cette image possède un point d’entrée de charge de travail défini, vous devrez alors spécifier des commandes d’entrée explicitement (les commandes s’exécutent dans le conteneur et garderont le conteneur en exécution après le démarrage). 
+Cette image possède un point d’entrée de charge de travail défini, vous n’avez donc pas à spécifier des commandes d’entrée explicitement (les commandes s’exécutent dans le conteneur et garderont le conteneur en exécution après le démarrage). 
 
 Spécifiez un nombre d’instances de « 1 ».
 
 ![Générateur Yeoman Service Fabric pour les conteneurs][sf-yeoman]
 
 ## <a name="configure-port-mapping-and-container-repository-authentication"></a>Configurer l’authentification de référentiel de conteneur et le mappage de port
-Votre service en conteneur a besoin d’un point de terminaison pour la communication.  Ajoutez maintenant le protocole, le port et le type à un `Endpoint` dans le fichier ServiceManifest.xml. Dans cet article, le service en conteneur écoute le port 4000 : 
+Votre service en conteneur a besoin d’un point de terminaison pour la communication.  Ajoutez ensuite le protocole, le port et le type à un `Endpoint` dans le fichier ServiceManifest.xml sous la balise « Ressources ». Dans cet article, le service en conteneur écoute le port 4000 : 
 
 ```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-```
+
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ ```
+ 
 Fournir `UriScheme` enregistre automatiquement le point de terminaison du conteneur avec le service Service Fabric Naming pour la découverte. Un exemple de fichier ServiceManifest.xml complet est fourni à la fin de cet article. 
 
-Configurez le mappage port/hôte du conteneur en spécifiant une stratégie `PortBinding` dans `ContainerHostPolicies` dans le fichier ApplicationManifest.xml.  Dans cet article, `ContainerPort` est 80 (le conteneur expose le port 80, tel que spécifié dans le fichier Dockerfile) et `EndpointRef` est « myserviceTypeEndpoint » (le point de terminaison défini dans le manifeste de service).  Les demandes entrantes pour le service sur le port 4000 sont mappées au port 80 dans le conteneur.  Si votre conteneur doit s’authentifier auprès d’un référentiel privé, ajoutez `RepositoryCredentials`.  Pour cet article, ajoutez le nom de compte et le mot de passe du registre de conteneurs myregistry.azurecr.io. 
+Configurez le mappage port/hôte du conteneur en spécifiant une stratégie `PortBinding` dans `ContainerHostPolicies` dans le fichier ApplicationManifest.xml.  Dans cet article, `ContainerPort` correspond à 80 (le conteneur expose le port 80, tel que spécifié dans le fichier Dockerfile) et `EndpointRef` correspond à « myserviceTypeEndpoint » (le point de terminaison défini dans le manifeste de service).  Les demandes entrantes pour le service sur le port 4000 sont mappées au port 80 dans le conteneur.  Si votre conteneur doit s’authentifier auprès d’un référentiel privé, ajoutez `RepositoryCredentials`.  Pour cet article, ajoutez le nom de compte et le mot de passe du registre de conteneurs myregistry.azurecr.io. Assurez-vous que la stratégie est ajoutée sous la balise « ServiceManifestImport » correspondant au package de service approprié.
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
-```
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+   </ServiceManifestImport>
+``` 
 
 ## <a name="build-and-package-the-service-fabric-application"></a>Créer et placer l’application Service Fabric dans un package
 Les modèles Yeoman Service Fabric incluent un script de build pour [Gradle](https://gradle.org/), que vous pouvez utiliser pour générer l’application à partir du terminal. Pour générer et placer l’application dans un package, exécutez ce qui suit :
@@ -278,7 +288,7 @@ Voici les manifestes d’application et de service complets utilisés dans cet a
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -300,7 +310,7 @@ Voici les manifestes d’application et de service complets utilisés dans cet a
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
@@ -379,4 +389,3 @@ Vous pouvez les spécifier les images qui ne doivent pas être supprimées à l�
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
-

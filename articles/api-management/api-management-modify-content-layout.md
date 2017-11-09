@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-translationtype: Human Translation
-ms.sourcegitcommit: ecae1da20551d8372331124b07c4aca2e15f55bb
 ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.lasthandoff: 02/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modifier le contenu et la disposition des pages dans le portail des développeurs dans Gestion des API Azure
 Il existe trois manières principales pour personnaliser le portail des développeurs dans Gestion des API Azure :
@@ -28,7 +27,7 @@ Il existe trois manières principales pour personnaliser le portail des dévelop
 * [Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs][customize-styles]
 * [Modifier les modèles utilisés pour les pages générées par le portail][portal-templates] (par exemple, documents API, produits, authentification des utilisateurs, etc.)
 
-## <a name="page-structure"> </a>Structure des pages du portail des développeurs
+## <a name="page-structure"></a>Structure des pages du portail des développeurs
 
 Le portail des développeurs s’appuie sur un système de gestion de contenu. La disposition de chaque page s’appuie sur un ensemble d’éléments de petite page appelés widgets :
 
@@ -40,7 +39,7 @@ Tous les widgets sont modifiables.
 
 Dans la modification de page standard, un utilisateur ne modifie en général que le widget Contenu qui contient un contenu différent pour chaque page.
 
-## <a name="modify-layout-widget"> </a>Modification du contenu d’un widget de mise en page
+## <a name="modify-layout-widget"></a>Modification du contenu d’un widget de mise en page
 
 Le contenu du portail des développeurs se modifie grâce au portail des éditeurs, accessible via le portail Azure. Pour y accéder, cliquez sur **Portail des éditeurs** à partir de la barre d’outils de services de votre instance de gestion des API.
 
@@ -58,7 +57,7 @@ Vous devriez à présent pouvoir voir le nouvel en-tête sur chaque page du port
 > 
 > 
 
-## <a name="edit-page-contents"> </a>Modification du contenu d’une page
+## <a name="edit-page-contents"></a>Modification du contenu d’une page
 
 Pour afficher la liste de toutes les pages de contenu existantes, cliquez sur **Contenu** dans le menu **Portail des développeurs** du portail des éditeurs.
 
@@ -70,7 +69,7 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 > 
 > 
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs][customize-styles]
 * [Modifier les modèles utilisés pour les pages générées par le portail][portal-templates] (par exemple, documents API, produits, authentification des utilisateurs, etc.)
 
@@ -87,4 +86,3 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 [api-management-management-console]: ./media/api-management-modify-content-layout/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-modify-content-layout/api-management-widgets-header.png
 [api-management-customization-manage-content]: ./media/api-management-modify-content-layout/api-management-customization-manage-content.png
-

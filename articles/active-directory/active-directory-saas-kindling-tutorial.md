@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 131c2c3f46c60193d512b1779e917c8322732fbc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Didacticiel : Intégration d'Azure Active Directory avec Kindling
 
@@ -114,7 +112,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.kindlingapp.com`
 
-    b.  Dans la zone de texte **Identificateur**, tapez une URL au format suivant :  `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
+    b.  Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
 
     > [!NOTE] 
     > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Kindling](mailto:support@kindlingapp.com).
@@ -230,5 +228,4 @@ Lorsque vous cliquez sur la mosaïque Kindling dans le volet d'accès, vous ête
 [201]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_203.png
-
 

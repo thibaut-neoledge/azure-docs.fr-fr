@@ -16,14 +16,15 @@ ms.workload: na
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: 9dd137de99864fbac2c73400a88956f6afa324db
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 703b516c8fd443d2bb751530a8f62496b020cb5d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Utilisez Helm pour déployer des conteneurs sur un cluster Kubernetes 
+# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Utilisez Helm pour déployer des conteneurs sur un cluster Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 [Helm](https://github.com/kubernetes/helm/) est un outil d’empaquetage open source qui vous aide à installer et à gérer le cycle de vie d’applications Kubernetes. À l’instar de gestionnaires de package Linux tels que Apt-get et Yum, Helm sert à gérer les graphiques Kubernetes, qui sont des packages de ressources Kubernetes préconfigurés. Cet article montre comment utiliser Helm sur un cluster Kubernetes déployé dans Azure Container Service.
 
@@ -154,5 +155,4 @@ Vous pouvez à présent utiliser des commandes SQL standard pour créer des base
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur la gestion des graphiques Kubernetes, consultez la [documentation de Helm](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
-
 

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
+ms.openlocfilehash: a91fab90a94b655b93c8ae9064ea4836b80d7678
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: f4180601e720351a8b0e95ccffe7712028cfba08
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Didacticiel : Intégration d’Azure Active Directory à ServiceNow
 Dans ce didacticiel, vous allez apprendre à intégrer ServiceNow et ServiceNow Express à Azure Active Directory (Azure AD).
@@ -518,4 +517,3 @@ Lorsque vous cliquez sur la vignette ServiceNow dans le volet d’accès, vous d
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_205.png
-

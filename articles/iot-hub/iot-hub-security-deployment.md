@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 518b20b36fafa5fb8ca7a67f0a67880c76f2d8d1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 47a3a2973c2b2c7c104d6c404573801375723182
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -29,4 +28,3 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 * [Simulation d’un appareil avec Azure IoT Edge][lnk-iotedge]
 
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

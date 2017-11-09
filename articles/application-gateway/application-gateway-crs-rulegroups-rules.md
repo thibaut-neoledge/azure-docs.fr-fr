@@ -3,7 +3,7 @@ title: "Règles et groupes de règles CRS de pare-feu d’applications web Azure
 description: "Cette page fournit des informations sur les règles et groupes CRS de pare-feu d’applications web."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
@@ -14,15 +14,13 @@ ms.tgt_pltfrm: na
 ms.custom: 
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 9f4445b7ceb5b39c7907b1ca4c7bf0ad52ba8212
-ms.lasthandoff: 03/30/2017
-
-
+ms.author: davidmu
+ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Liste des règles et groupes de règles CRS de pare-feu d’applications web proposées
 
 Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cette protection s’effectue via des règles définies basées sur les ensembles de règles de base OWASP 2.2.9 ou 3.0. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées.

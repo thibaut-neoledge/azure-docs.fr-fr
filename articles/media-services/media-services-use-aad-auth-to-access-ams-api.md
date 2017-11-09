@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: bdeae5d1440cf8930a9cbc1ddea38ea7754ff7f6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accéder à l’API Azure Media Services avec l’authentification Azure AD
  
@@ -154,5 +153,4 @@ Les articles suivants sont des vues d’ensemble des concepts d’authentificati
 
 * Utilisez le portail Azure pour [accéder à l’authentification Azure AD en vue d’utiliser l’API Azure Media Services](media-services-portal-get-started-with-aad.md).
 * Utilisez l’authentification Azure AD pour [accéder à l’API Azure Media Services avec .NET](media-services-dotnet-get-started-with-aad.md).
-
 

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
+ms.openlocfilehash: c7b4d0e7d7d95f2e3f8c5a97b78c60c52cc862a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5ff4d86082c03dcd7098743a984a97aa70232d1d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Utilisation du stockage d’objets blob à partir de Xamarin
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -245,10 +244,9 @@ Une fois que vous exécutez votre application, elle crée le conteneur `mycontai
 Dans ce didacticiel, vous avez appris à créer une application multiplateforme dans Xamarin qui utilise le stockage Azure, en traitant en particulier un scénario dans le stockage Blob. Toutefois, vous pouvez en faire beaucoup plus, non seulement avec le stockage Blob, mais également avec le stockage Table, le stockage Fichier et le stockage File d’attente. Pour en savoir plus, voir les articles suivants :
 
 * [Prise en main d’Azure Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md)
+* [Présentation d’Azure Files](../files/storage-files-introduction.md)
+* [Développer pour Azure Files avec .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Prise en main d’Azure Table Storage à l’aide de .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Prise en main du stockage de files d’attente Azure à l’aide de .NET](../queues/storage-dotnet-how-to-use-queues.md)
-* [Prise en main d’Azure File Storage sur Windows](../files/storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-

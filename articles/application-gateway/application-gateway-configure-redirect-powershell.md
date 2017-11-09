@@ -3,7 +3,7 @@ title: "Configurer la redirection pour Azure Application Gateway - PowerShell 
 description: "Cette page présente des scénarios pour configurer la redirection pour Application Gateway en utilisant PowerShell."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,15 +12,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 84a25e572a27df2fe46e07c4ab0a4aab5969d68e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>Configurer la redirection sur Application Gateway avec PowerShell
 
 La passerelle d’application prend en charge la possibilité de rediriger le trafic en fonction d’une configuration définie. Pour en savoir plus sur la redirection, voir [Application Gateway redirect overview (Vue d’ensemble de la redirection d’Application Gateway)](application-gateway-redirect-overview.md). Cet article contient des exemples de redirections de protocole HTTP en protocole HTTPS, des redirections de chemin d’accès, multisites ainsi que des redirections vers des sites externes.

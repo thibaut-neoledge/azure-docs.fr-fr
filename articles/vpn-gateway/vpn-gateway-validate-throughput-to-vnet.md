@@ -10,17 +10,16 @@ tags: azure-resource-manager,azure-service-management
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
+ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2e0347854b5d30c955a50a01d6f7ba08e24f94b6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
 
@@ -40,7 +39,7 @@ La connexion à la passerelle VPN implique les composants suivants :
 - Appareils VPN sur site (afficher la liste des [appareils VPN validés)](vpn-gateway-about-vpn-devices.md#devicetable).
 - Internet public
 - Passerelle VPN Azure
-- Machine virtuelle Azure
+- Microsoft Azure
 
 Le diagramme suivant illustre la connectivité logique d’un réseau local vers un réseau virtuel Azure par VPN.
 
@@ -140,4 +139,3 @@ Pour plus d’informations ou d'aide, consultez les liens suivants :
 
 - [Optimiser le débit du réseau des machines virtuelles Azure](../virtual-network/virtual-network-optimize-network-bandwidth.md)
 - [Support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-

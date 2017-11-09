@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a853b4dbd1952ba4ea8ee68ea3ca98f588bb71a2
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mapping-an-existing-web-service-to-odata-through-csdl"></a>Mappage d’un service web existant à OData via des le langage CSDL
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ Le **flux de données** est dans le sens opposé :
 
 Pour obtenir des informations générales sur Atom, Atom Pub et le protocole OData sur lequel reposent les extensions Azure Marketplace, consultez le site suivant : [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
-Extrait du site ci-dessus :       *« L’objectif du protocole Open Data (ci-après dénommé OData) est de fournir un protocole basé sur REST pour les opérations de style CRUD (Create, Read, Update et Delete, c’est-à-dire créer, lire, mettre à jour et supprimer) sur les ressources exposées en tant que services de données. Un « service de données » est un point de terminaison où des données sont exposées à partir d’une ou de plusieurs « collections », chacune comportant zéro « entrées » ou plus, qui consistent en des paires nom-valeur typées. OData est publié par Microsoft sous les normes OASIS (Organization for the Advancement of Structured Information Standards) afin que toute personne qui le souhaite puisse générer des serveurs, des clients ou des outils sans droits d’auteur ou restrictions. »*
+Extrait du site ci-dessus : *« L’objectif du protocole Open Data (ci-après dénommé OData) est de fournir un protocole basé sur REST pour les opérations de style CRUD (Create, Read, Update et Delete, c’est-à-dire créer, lire, mettre à jour et supprimer) sur les ressources exposées en tant que services de données. Un « service de données » est un point de terminaison où des données sont exposées à partir d’une ou de plusieurs « collections », chacune comportant zéro « entrées » ou plus, qui consistent en des paires nom-valeur typées. OData est publié par Microsoft sous les normes OASIS (Organization for the Advancement of Structured Information Standards) afin que toute personne qui le souhaite puisse générer des serveurs, des clients ou des outils sans droits d’auteur ou restrictions. »*
 
 ### <a name="three-critical-pieces-that-have-to-be-defined-by-the-csdl-are"></a>Les trois éléments critiques qui doivent être définis par le langage CSDL sont les suivants :
 * Le **point de terminaison** du service fournisseur : adresse web (URI) du service
@@ -140,8 +140,7 @@ Voici un exemple d’élément CSDL : (Copiez et collez l’exemple CSDL ci-des
 * MyCompany dans le PPUI est associé au **nom d’affichage de l’éditeur** dans l’interface utilisateur [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure)
 * Votre API est associée à un service web ou de données (un plan dans le PPUI)
 
-**Hiérarchie :**
- une entreprise (fournisseur de contenu) possède une ou plusieurs offres qui comprennent des plans, c’est-à-dire des services, qui sont associés à une API.
+**Hiérarchie :** une entreprise (fournisseur de contenu) possède une ou plusieurs offres qui comprennent des plans, c’est-à-dire des services, qui sont associés à une API.
 
 ### <a name="webservice-csdl-example"></a>Exemple de service web CSDL
 L’exemple suivant établit une connexion à un service qui expose un point de terminaison d’application web (comme une application C#).
@@ -317,10 +316,4 @@ L’exemple suivant établit une connexion à un service qui expose une table ou
 * Si vous souhaitez découvrir et comprendre les nœuds spécifiques et leurs paramètres, lisez l’article [Nœuds de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) pour obtenir des définitions et des explications, des exemples, ainsi qu’un contexte de cas d’utilisation.
 * Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code et pour comprendre la syntaxe et le contexte du code.
 * Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -10,15 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 10/18/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: ba3f9f74fd7ba658b4e082775e471ed65a386fed
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 5c642bb814a279756e8391f12fdc86b6ec0b4a8f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Utilisation du pack de contenu Power BI Azure Active Directory
 
@@ -149,5 +148,4 @@ Consultez notre [guide de résolution des problèmes](active-directory-reporting
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir une vue d’ensemble des rapports, voir [Création de rapports Azure Active Directory](active-directory-reporting-azure-portal.md).
-
+Pour obtenir une vue d’ensemble des rapports, consultez [Création de rapports Azure Active Directory](active-directory-reporting-azure-portal.md).

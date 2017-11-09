@@ -4,7 +4,7 @@ description: "Découvrez comment vous connecter à un serveur Azure Analysis Ser
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b17251f8e88dc02ddf792da41121fe2730bc50e8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 5f3ad1c4df2c21a8d52a8a3c4d7d311af32720a9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connect-with-power-bi"></a>Se connecter avec Power BI
 
@@ -59,5 +58,4 @@ Une fois que vous avez créé un serveur dans Azure avant d’y déployer un mod
 ## <a name="see-also"></a>Voir aussi
 [Connect to an Azure Analysis Services server](analysis-services-connect.md)  (Se connecter à un serveur Azure Analysis Services)  
 [Fournisseurs de données pour la connexion à Azure Analysis Services](analysis-services-data-providers.md)
-
 

@@ -1,0 +1,190 @@
+- name: Documentation Azure Machine Learning (version préliminaire)
+  href: index.yml
+- name: Vue d'ensemble
+  expanded: true
+  items:
+    - name: "Qu'est-ce que Azure Machine Learning\_?"
+      href: overview-what-is-azure-ml.md
+    - name: Présentation de la gestion de modèles
+      href: model-management-overview.md
+- name: Démarrages rapides
+  items:
+    - name: Installer et créer
+      href: quickstart-installation.md
+- name: Didacticiels
+  items:
+    - name: 1 - Préparer les données
+      href: tutorial-classifying-iris-part-1.md
+    - name: 2 - Générer un modèle
+      href: tutorial-classifying-iris-part-2.md
+    - name: 3 - Déployer un modèle
+      href: tutorial-classifying-iris-part-3.md
+    - name: 4 - Préparer des données avancées
+      href: tutorial-bikeshare-dataprep.md
+- name: Concepts
+  items:
+    - name: Concepts clés
+      href: overview-general-concepts.md
+- name: Procédures
+  items:
+    - name: Utiliser Workbench
+      items:
+        - name: Travailler avec des environnements IDE Python
+          href: how-to-configure-your-IDE.md
+        - name: Utiliser des blocs-notes Jupyter
+          href: how-to-use-jupyter-notebooks.md
+        - name: Intégrer avec des référentiels Git
+          href: using-git-ml-project.md
+        - name: Projets de structure avec TDSP
+          href: how-to-use-tdsp-in-azure-ml.md
+        - name: Itinérance et collaboration
+          href: roaming-and-collaboration.md
+    - name: Utiliser Visual Studio Code Tools pour IA
+      href: quickstart-visual-studio-tools.md
+    - name: Configurer un environnement de calcul
+      items:
+        - name: Configurer l’expérimentation
+          href: experimentation-service-configuration.md
+        - name: Créer un cluster Spark DSVM et HDI
+          href: how-to-create-dsvm-hdi.md
+        - name: Effectuer l'apprentissage avec des GPU
+          href: how-to-use-gpu.md
+    - name: Acquérir et comprendre les données
+      items:
+        - name: Ajouter une source de données
+          href: data-source-wizard.md
+        - name: Guide de préparation des données
+          href: data-prep-getting-started.md
+        - name: Préparation avancée des données
+          href: data-prep-user-guide.md
+        - name: Transformations de la préparation des données
+          href: data-prep-appendix3-supported-transforms.md
+          items:
+            - name: Combiner des colonnes par exemple
+              href: data-prep-combine-columns-by-example.md
+            - name: Dériver des colonnes par exemple
+              href: data-prep-derive-column-by-example.md
+            - name: Fractionner des colonnes par exemple
+              href: data-prep-split-column-by-example.md
+            - name: Développer JSON
+              href: data-prep-expand-json.md
+    - name: Développer des modèles
+      items:
+        - name: Classer des diaphragmes à l’aide de CLI
+          href: tutorial-iris-azure-cli.md
+        - name: Suivre l’historique d’exécution et les mesures de modèle
+          href: how-to-use-run-history-model-metrics.md
+        - name: Trouver l’historique d’exécution avec précision
+          href: how-to-find-best-accuracy-cli.md
+        - name: Lire et écrire des données
+          href: how-to-read-write-files.md
+        - name: Utiliser la bibliothèque MMLSpark
+          href: how-to-use-mmlspark.md
+    - name: Rendre les modèles opérationnels
+      items:
+        - name: Configurer la gestion des modèles
+          href: deployment-setup-configuration.md
+        - name: Mise à l’échelle des clusters et des services
+          href: how-to-scale-clusters.md
+        - name: Déployer un service web
+          href: model-management-service-deploy.md
+        - name: Utiliser un service web
+          href: model-management-consumption.md
+        - name: Collecter les données de modèle
+          href: how-to-use-model-data-collection.md
+        - name: Guide de résolution des problèmes liés au déploiement
+          href: how-to-deploy-troubleshooting-guide.md
+    - name: Exemples réels
+      items:
+        - name: Analyse de collection de document
+          href: scenario-document-collection-analysis.md
+        - name: Correspondance entre questions et réponses
+          href: scenario-qna-matching.md
+        - name: Maintenance prédictive
+          href: scenario-predictive-maintenance.md
+        - name: Classification d’images aériennes
+          href: scenario-aerial-image-classification.md
+        - name: Prévision de charges de travail de serveur sur des téraoctets de données
+          href: scenario-big-data.md
+        - name: Prévision de séries chronologiques sur la demande d’énergie
+          href: scenario-time-series-forecasting.md
+        - name: Réglage distribué d’hyperparamètres
+          href: scenario-distributed-tuning-of-hyperparameters.md
+        - name: Prédiction de la désinscription des clients
+          href: scenario-churn-prediction.md
+        - name: Analyse des sentiments grâce à l’apprentissage approfondi
+          href: scenario-sentiment-analysis-deep-learning.md
+        - name: Reconnaissance d’entité biomédicale - projet TDSP
+          href: scenario-tdsp-biomedical-recognition.md
+        - name: Classer les revenus des États-Unis - projet TDSP
+          href: scenario-tdsp-classifying-us-incomes.md
+- name: Référence
+  items:
+    - name: Préparation des données
+      items:
+        - name: Extensions Python pour la préparation des données
+          href: data-prep-python-extensibility-overview.md
+        - name: Sources de données prises en charge
+          href: data-prep-appendix2-supported-data-sources.md
+        - name: Inspecteurs pris en charge
+          href: data-prep-appendix4-supported-inspectors.md
+        - name: Destinations de données prises en charge
+          href: data-prep-appendix5-supported-destinations.md
+        - name: Combinaisons d’environnements d’exécution et de données prises en charge
+          href: data-prep-supported-runtime-data-environments.md
+        - name: Exemple d’expressions de filtre dans Python
+          href: data-prep-appendix6-sample-filter-expressions-python.md
+        - name: Exemple de transformations de flux de données personnalisées dans Python
+          href: data-prep-appendix7-sample-transform-data-flow-python.md
+        - name: Exemple de connexions de source dans Python
+          href: data-prep-appendix8-sample-source-connections-python.md
+        - name: Exemple de connexions de destination dans Python
+          href: data-prep-appendix9-sample-destination-connections-python.md
+        - name: Exemple de transformations de colonne dans Python
+          href: data-prep-appendix10-sample-custom-column-transforms-python.md
+        - name: API d’exécution de préparation des données
+          href: data-prep-python-execution-api.md
+    - name: Expérimentation
+      items:
+        - name: Configuration du service d’expérimentation
+          href: experimentation-service-configuration-reference.md
+        - name: API de jouurnalisation
+          href: reference-logging-api.md
+    - name: Gestion des modèles
+      items:
+        - name: API de gestion des modèles
+          href: model-management-api-reference.md
+        - name: CLI de gestion des modèles
+          href: model-management-cli-reference.md
+        - name: API de collection de données de modèle
+          href: model-data-collection-api-reference.md
+    - name: Notes de publication
+      items:
+        - name: Sprint 0 - Octobre 2017
+          href: release-notes-sprint-0.md
+- name: Ressources
+  items:
+    - name: Forum Aux Questions
+      href: frequently-asked-questions.md
+    - name: Problèmes connus et dépannage
+      href: known-issues-and-troubleshooting-guide.md
+    - name: Documentation sur le processus TDSP (Team Data Science Process)
+      href: ../team-data-science-process/overview.md
+    - name: Documentation sur la machine virtuelle Science des données
+      href: ../data-science-virtual-machine/overview.md
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
+    - name: Dépassement de capacité de la pile
+      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Vidéos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
+    - name: Forum de commentaires
+      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+    - name: Disponibilité des régions
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Options de support
+      href: 'https://azure.microsoft.com/support/options/'

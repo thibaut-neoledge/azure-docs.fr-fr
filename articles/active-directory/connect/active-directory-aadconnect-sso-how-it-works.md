@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
+ms.openlocfilehash: 38b107513e72635fd034bb86d0d866bcb0fcb8e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: f0bcbdb03fbb70ff91ac3a56974a88eb1b26c245
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : immersion technique
 
 Cet article vous fournit des détails techniques sur le fonctionnement de la fonctionnalité d’authentification unique (SSO) transparente d’Azure Active Directory.
-
->[!IMPORTANT]
->La fonctionnalité Authentification unique transparente est en préversion.
 
 ## <a name="how-does-seamless-sso-work"></a>Fonctionnement de l’authentification unique transparente (SSO)
 
@@ -38,15 +33,15 @@ Cette section se compose de deux parties :
 ### <a name="how-does-set-up-work"></a>Comment la configuration s’opère-t-elle ?
 
 L’authentification unique transparente s’active via Azure AD Connect comme indiqué [ici](active-directory-aadconnect-sso-quick-start.md). Voici ce qu’il se passe pendant l’activation de la fonctionnalité :
-- Un compte d’ordinateur nommé `AZUREADSSOACCT` (c’est-à-dire Azure AD) est créé dans votre instance Active Directory (AD) locale.
+- Un compte d’ordinateur nommé `AZUREADSSOACC` (c’est-à-dire Azure AD) est créé dans votre instance Active Directory (AD) locale.
 - La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD.
 - Par ailleurs, deux noms de principal du service (SPN) Kerberos sont créés pour représenter les deux URL utilisées pendant la connexion à Azure AD.
 
 >[!NOTE]
-> Le compte d’ordinateur et les SPN Kerberos sont créés dans chaque forêt AD que vous synchronisez avec Azure AD (via Azure AD Connect) et pour les utilisateurs qui doivent bénéficier de l’authentification unique transparente. Déplacez le compte d’ordinateur `AZUREADSSOACCT` vers une unité d’organisation (UO) où d’autres comptes d’ordinateurs sont stockés. Vous serez ainsi assuré qu’il sera géré de la même façon et qu’il ne sera pas supprimé.
+> Le compte d’ordinateur et les SPN Kerberos sont créés dans chaque forêt AD que vous synchronisez avec Azure AD (via Azure AD Connect) et pour les utilisateurs qui doivent bénéficier de l’authentification unique transparente. Déplacez le compte d’ordinateur `AZUREADSSOACC` vers une unité d’organisation (UO) où d’autres comptes d’ordinateurs sont stockés. Vous serez ainsi assuré qu’il sera géré de la même façon et qu’il ne sera pas supprimé.
 
 >[!IMPORTANT]
->Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) du `AZUREADSSOACCT` compte d’ordinateur au moins tous les 30 jours.
+>Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) du `AZUREADSSOACC` compte d’ordinateur au moins tous les 30 jours.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>Comment s’opère une connexion avec l’authentification unique transparente ?
 
@@ -60,7 +55,7 @@ Une fois la configuration terminée, l’authentification unique transparente fo
 
 3. L’utilisateur tape son nom d’utilisateur dans la page de connexion Azure AD.
 4. En utilisant JavaScript en arrière-plan, Azure AD demande au client, via une réponse 401 Non autorisé, de fournir un ticket Kerberos.
-5. À son tour, le navigateur demande un ticket à Active Directory pour le compte d’ordinateur `AZUREADSSOACCT` (qui représente Azure AD).
+5. À son tour, le navigateur demande un ticket à Active Directory pour le compte d’ordinateur `AZUREADSSOACC` (qui représente Azure AD).
 6. Active Directory localise le compte d’ordinateur et retourne un ticket Kerberos au navigateur chiffré avec le secret du compte d’ordinateur.
 7. Le navigateur transmet le ticket Kerberos qu’il a acquis auprès d’Active Directory à Azure AD (à l’une des [URL Azure AD précédemment ajoutées aux paramètres Zone intranet du navigateur](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
 8. Azure AD déchiffre le ticket Kerberos, qui comprend l’identité de l’utilisateur connecté à l’appareil d’entreprise, en utilisant la clé partagée précédemment.
@@ -79,4 +74,3 @@ L’authentification unique transparente est opportuniste, ce qui signifie que s
 - [**Questions fréquentes (FAQ)**](active-directory-aadconnect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
-

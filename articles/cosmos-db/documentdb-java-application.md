@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
+ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: ddfb10a9688842e4a23b72b4362d75b20d320262
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Création d’une application web Java avec Azure Cosmos DB et l’API DocumentDB
 > [!div class="op_single_selector"]
@@ -54,7 +53,7 @@ Avant de commencer ce didacticiel de développement d’applications, vous devez
 
 * [Kit de développement logiciel Java (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-* [Un site web Azure avec un environnement d’exécution Java (Tomcat ou Jetty, par exemple) activé.](../app-service-web/web-sites-java-get-started.md)
+* [Un site web Azure avec un environnement d’exécution Java (Tomcat ou Jetty, par exemple) activé.](../app-service/app-service-web-get-started-java.md)
 
 Si vous installez ces outils pour la première fois, coreservlets.com fournit un guide pas à pas du processus d'installation dans la section Démarrage rapide de son article [Didacticiel : installation de TomCat7 et son utilisation avec Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) .
 
@@ -106,7 +105,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
      
    * Ou ajoutez la dépendance XML pour Group Id et Artifact Id directement au fichier pom.xml par le biais d’un éditeur de texte :
      
-        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
+        <dependency><groupId>com.microsoft.azure</groupId><artifactId>azure-documentdb</artifactId><version>1.9.1</version></dependency>
 6. Cliquez sur **OK** ; Maven installe le Kit de développement logiciel (SDK) Java DocumentDB.
 7. Enregistrez le fichier pom.xml.
 
@@ -725,7 +724,7 @@ Les Sites Web Azure permettent de déployer facilement des applications Java en 
    * Dans la boîte de dialogue de projet web, entrez azure-documentdb-java-sample.
    * Dans la boîte de dialogue Destination, choisissez un emplacement d'enregistrement du fichier WAR.
    * Cliquez sur **Terminer**.
-3. Maintenant que vous disposez d’un fichier WAR, vous pouvez le charger tout simplement dans votre répertoire **webapps** sur les Sites Web Azure. Vous trouverez des instructions sur le chargement du fichier sur la page [Ajouter une application Java à Azure App Service Web Apps](../app-service-web/web-sites-java-add-app.md).
+3. Maintenant que vous disposez d’un fichier WAR, vous pouvez le charger tout simplement dans votre répertoire **webapps** sur les Sites Web Azure. Vous trouverez des instructions sur le chargement du fichier sur la page [Ajouter une application Java à Azure App Service Web Apps](../app-service/web-sites-java-add-app.md).
    
     Une fois le fichier WAR téléchargé sur le répertoire webapps, l'environnement d'exécution détecte que vous l'avez ajouté et le télécharge automatiquement.
 4. Pour afficher votre produit fini, accédez à http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ et commencez à ajouter vos tâches.
@@ -757,4 +756,3 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 22. Pour déployer votre projet sur un site web Azure, consultez l'[Étape 6. Déployez votre application sur les Sites Web Azure](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png
-

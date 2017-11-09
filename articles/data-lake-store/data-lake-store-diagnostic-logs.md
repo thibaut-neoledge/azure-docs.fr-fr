@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accès aux journaux de diagnostic d’Azure Data Lake Store
 Découvrez comment activer la journalisation des diagnostics pour votre compte Data Lake Store et comment afficher les journaux collectés pour votre compte.
@@ -183,5 +182,4 @@ Azure Data Lake Store fournit un exemple de traitement et d’analyse des donné
 ## <a name="see-also"></a>Voir aussi
 * [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
-
 

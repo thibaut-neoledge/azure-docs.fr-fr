@@ -11,16 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 10/11/2017
 ms.author: bwren
+ms.openlocfilehash: 28b2402cefa38ef3bfca68f2ff70e56b649c72f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Utilisation d’expressions régulières pour filtrer les recherches dans les journaux Log Analytics
+
+>[!NOTE]
+> Cet article détaille les expressions régulières à l’aide du langage de requête hérité dans Log Analytics.  Si vous avez mis a niveau votre espace de travail avec le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), consultez [Expressions régulières dans la documentation du langage](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax).
+
 
 Les [recherches dans les journaux](log-analytics-log-searches.md) vous permettent d’extraire des informations du référentiel Log Analytics.  Les [expressions de filtre](log-analytics-search-reference.md#filter-expressions) vous donnent la possibilité de filtrer les résultats de la recherche en fonction de critères spécifiques.  Le mot clé **RegEx** vous permet de spécifier une expression régulière pour ce filtre.  
 
@@ -99,4 +102,3 @@ Cette section décrit la méthode vous permettant de convertir des caractères s
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Familiarisez-vous avec les [recherches dans les journaux](log-analytics-log-searches.md) pour visualiser et analyser les données dans le référentiel Log Analytics.
-

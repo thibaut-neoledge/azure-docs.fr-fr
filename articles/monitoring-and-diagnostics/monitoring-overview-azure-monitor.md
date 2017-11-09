@@ -12,33 +12,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 09/23/2017
 ms.author: robb
+ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 619a004b9aff99be68988e1f7be3ccad400a8a0e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-azure-monitor"></a>Vue d’ensemble d’Azure Monitor
 Cet article fournit une vue d’ensemble du service Azure Monitor dans Microsoft Azure. Vous y trouverez ce qu’Azure Monitor fait et des pointeurs vers des informations supplémentaires sur l’utilisation d’Azure Monitor.  Si vous préférez une présentation vidéo, consultez les liens Étapes suivants en bas de cet article. 
-
-## <a name="why-monitor-your-application-or-system"></a>Pourquoi surveiller votre application ou système
-Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances de l’application ou sa facilité de gestion, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
-
 
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure Monitor et autres produits de surveillance de Microsoft
 Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux pour la plupart des services Microsoft Azure. Les services Azure qui ne placent pas encore leurs données dans Azure Monitor le feront prochainement.
 
 Microsoft libre des produits et services supplémentaires qui fournissent de nouvelles fonctionnalités de surveillance pour les développeurs, DevOps ou opérateurs informatiques qui ont également des installations locales. Pour une vue d’ensemble et mieux comprendre comment ces différents produits et services fonctionnent ensemble, consultez [Surveillance dans Microsoft Azure](monitoring-overview.md).
 
-## <a name="monitoring-sources---compute"></a>Sources d’analyse - Calcul
+## <a name="portal-overview-page"></a>Page de présentation du portail
+
+Azure Monitor dispose d’une page d’accueil qui permet aux utilisateurs de : 
+- Comprendre les fonctionnalités de surveillance proposées par Azure.
+- Découvrir, configurer et intégrer la plateforme et les fonctionnalités de surveillance premium d’Azure.
+
+Étant donné que le service Azure Monitor est en cours de publication, la page de présentation d’accueil est en préversion. 
+
+La page constitue le point de départ pour la navigation et l’intégration. Elle présente les problèmes importants relatifs à différents services et permet à l’utilisateur d’y accéder en contexte.
+ 
+![Modèle pour l’analyse et le diagnostic pour les ressources non liées au calcul](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
+
+Lorsque vous ouvrez la page, vous pouvez choisir parmi les abonnements auxquels vous avez un accès en lecture. Pour un abonnement sélectionné, vous pouvez voir :
+
+- **Alertes déclenchées et sources d’alerte** : ce tableau affiche un résumé des nombres, les sources d’alerte et le nombre de fois où des alertes ont été déclenchées pendant la durée sélectionnée. Cela s’applique aux alertes sur les métriques et aux alertes du journal d’activité.
+- **Erreurs du journal d’activité** : si l’une de vos ressources Azure journalise des événements avec une gravité de niveau erreur, vous pouvez afficher un nombre de niveau supérieur et cliquer sur la page du journal d’activité pour examiner chaque événement.
+- **Azure Service Health** : vous pouvez afficher le nombre des problèmes relatifs au service Azure Service Health, les événements de maintenance planifiée et des conseils sur le contrôle de l’intégrité. Azure Service Health fournit des informations personnalisées lorsque des problèmes touchant l’infrastructure Azure ont une incidence sur vos services.  Pour plus d’informations, consultez [Azure Service Health](../service-health/service-health-overview.md).  
+- **Application Insights** : consultez les indicateurs de performance clés pour chaque ressource AppInsights dans l’abonnement actuel. Les indicateurs de performance clés sont optimisés pour la surveillance d’application côté serveur pour les applications web ASP.NET, Java, de nœud et les types d’applications généraux. Les indicateurs de performance clés incluent les métriques du taux de demandes, de la durée de réponse, du taux d’échec et du pourcentage de disponibilité. 
+
+Si vous n’avez pas effectué l’intégration avec Log Analytics ou Application Insights, ou si vous n’avez configuré aucune alerte Azure dans l’abonnement actuel, la page fournit des liens pour vous permettre de commencer votre processus d’intégration.
+
+
+
+## <a name="azure-monitor-sources---compute-subset"></a>Sources Azure Monitor - Sous-ensemble de calcul
 
 ![Modèle pour l’analyse et le diagnostic pour les ressources non liées au calcul](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
-Les services de calcul comprennent 
+Les services de calcul comprennent ici 
 - Services cloud 
 - Machines virtuelles 
 - Jeux de mise à l’échelle de machine virtuelle 
@@ -64,7 +81,7 @@ Les ressources de calcul précédemment répertoriées ont une machine virtuelle
 ### <a name="activity-log"></a>Journal d’activité
 Vous pouvez rechercher le journal d’activité (précédemment appelé journal opérationnel ou d’audit) pour obtenir des informations sur vos ressources telles qu’elles sont analysées par l’infrastructure Azure. Ce journal contient des informations telles que les dates et heures de création ou de destruction de ressources.  Pour plus d’informations, voir [Présentation du journal d’activité](monitoring-overview-activity-logs.md). 
 
-## <a name="monitoring-sources---everything-else"></a>Surveillance des sources - Tout le reste
+## <a name="azure-monitor-sources---everything-else"></a>Sources Azure Monitor - Tout le reste
 
 ![Modèle pour l’analyse et le diagnostic pour les ressources liées au calcul](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-non-compute_v6.png)
 
@@ -79,10 +96,10 @@ Le routage 1:1 entre votre ressource et un hôte ou une machine virtuelle invit�
 Le journal d’activité est identique à celui des ressources de calcul.  
 
 ## <a name="uses-for-monitoring-data"></a>Utilisations de l’analyse de données
-Une fois que vous collectez vos données, vous pouvez effectuer les opérations suivantes dessus avec Azure Monitor
+Une fois que vous collectez vos données, vous pouvez effectuer les opérations suivantes avec Azure Monitor.
 
 ### <a name="route"></a>Routage
-Vous pouvez diffuser des données d’analyse à d’autres emplacements en temps réel.
+Vous pouvez diffuser les données de surveillance à d’autres emplacements. 
 
 Voici quelques exemples :
 
@@ -142,10 +159,10 @@ En général, vous pouvez manipuler le suivi, le routage et la récupération de
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur
 - Une vidéo de procédure pas à pas uniquement pour Azure Monitor est disponible à l’adresse  
-[Prise en main d’Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Une vidéo supplémentaire décrivant un scénario dans lequel vous pouvez utiliser Azure Monitor est disponible sur [Découvrir Microsoft Azure Monitoring et Diagnostic](https://channel9.msdn.com/events/Ignite/2016/BRK2234) et [Azure Monitor dans une vidéo de l’Ignite 2016](https://myignite.microsoft.com/videos/4977)
+[Prise en main d’Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 
+- Une vidéo décrivant un scénario dans lequel vous pouvez utiliser Azure Monitor est disponible sur [Découvrir Microsoft Azure Monitoring et Diagnostic](https://channel9.msdn.com/events/Ignite/2016/BRK2234) et [Azure Monitor dans une vidéo Ignite 2016](https://myignite.microsoft.com/videos/4977).
 - Parcourir l’interface Azure Monitor dans [Prise en main d’Azure Monitor](monitoring-get-started.md)
 - Configurez les [Extensions Azure Diagnostics](../azure-diagnostics.md) si vous tentez de diagnostiquer des problèmes dans votre service cloud, machine virtuelle, jeux de mise à l’échelle de machine virtuelle ou application Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) si vous essayez de diagnostiquer des problèmes dans votre application web App Service.
 - [Résolution des problèmes du stockage Azure](../storage/common/storage-e2e-troubleshooting.md) lorsque vous utilisez le stockage d’objets blob, de tables ou de files d’attente
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) et [Operations Management Suite](https://www.microsoft.com/oms/)
-

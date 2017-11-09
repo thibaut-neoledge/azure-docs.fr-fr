@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
+ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 43025adeaf954fedfbcee32e636fb30935f2126b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 Vivre dans une société massivement interconnectée signifie qu’à un moment donné, vous intégrerez forcément un **réseau social**. Nous utilisons les réseaux sociaux pour rester en contact avec nos amis, nos collègues, notre famille ou parfois pour partager notre passion avec des personnes ayant des intérêts communs.
@@ -106,7 +105,7 @@ La création de flux consiste simplement à créer des documents qui peuvent con
 
 Nous pourrions avoir un flux « récent » avec les publications classées par date de création, un flux « populaire » regroupant les publications ayant obtenu le plus grand nombre de J’aime dans les dernières 24 heures, nous pourrions même implémenter un flux personnalisé pour chaque utilisateur basé sur la logique, comme ses abonnés et ses centres d’intérêt, et cela sera toujours considéré comme une liste de publications. Le plus compliqué est de créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que nous avons obtenu l’une de ces listes, nous émettons une requête unique à Cosmos DB avec l’[opérateur IN](documentdb-sql-query.md#WhereClause) pour obtenir des pages de publications simultanément.
 
-Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service-web/web-sites-create-web-jobs.md). Lorsqu’une publication est créée, le traitement en arrière-plan peut être déclenché à l’aide de [files d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) de [Stockage Azure](https://azure.microsoft.com/services/storage/) et de tâches webjobs déclenchées avec le [Kit de développement logiciel (SDK) Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md), implémentant la propagation ultérieure dans les flux basée sur notre propre logique personnalisée. 
+Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service/web-sites-create-web-jobs.md). Lorsqu’une publication est créée, le traitement en arrière-plan peut être déclenché à l’aide de [files d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) de [Stockage Azure](https://azure.microsoft.com/services/storage/) et de tâches webjobs déclenchées avec le [Kit de développement logiciel (SDK) Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implémentant la propagation ultérieure dans les flux basée sur notre propre logique personnalisée. 
 
 Les points et les J’aime attribués à une publication peuvent être traités de manière différée à l’aide de cette même technique pour créer un environnement cohérent.
 
@@ -240,7 +239,7 @@ Mais vous constatez rapidement que leur expérience avec votre plate-forme n’e
 
 Cosmos DB vous permet de [répliquer vos données globalement](../cosmos-db/tutorial-global-distribution-documentdb.md) et de manière transparente en quelques clics, mais aussi de choisir automatiquement parmi les régions disponibles à partir de votre [code client](../cosmos-db/tutorial-global-distribution-documentdb.md). Cela signifie également que vous pouvez avoir [plusieurs régions de basculement](regional-failover.md). 
 
-Lorsque vous répliquez vos données globalement, vous devez vous assurer que vos clients peuvent en tirer parti. Si vous utilisez un serveur web frontal ou accédez aux API à partir de clients mobiles, vous pouvez déployer [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) et cloner votre Azure App Service sur toutes les régions de votre choix en utilisant une [configuration des performances](../app-service-web/web-sites-traffic-manager.md) pour prendre en charge votre couverture étendue globale. Quand vos clients accèdent à votre serveur frontal ou API, ils sont redirigés vers l’instance App Service la plus proche qui, à son tour, se connecte au réplica Cosmos DB local.
+Lorsque vous répliquez vos données globalement, vous devez vous assurer que vos clients peuvent en tirer parti. Si vous utilisez un front-end web ou accédez aux API à partir de clients mobiles, vous pouvez déployer [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) et cloner votre Azure App Service dans toutes les régions de votre choix en utilisant une configuration des performances pour prendre en charge votre couverture étendue globale. Quand vos clients accèdent à votre serveur frontal ou API, ils sont redirigés vers l’instance App Service la plus proche qui, à son tour, se connecte au réplica Cosmos DB local.
 
 ![Ajout d’une couverture globale à votre plate-forme sociale](./media/social-media-apps/social-media-apps-global-replicate.png)
 

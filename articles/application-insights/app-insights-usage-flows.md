@@ -12,20 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: cfreeman
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: d17ed3dff08f00a1d6a2108608e42b29f95fbd84
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analyser les modèles de navigation utilisateur avec User Flows dans Azure Application Insights
 
 ![Outil User Flows d’Application Insights](./media/app-insights-usage-flows/flows.png)
 
 L’outil User Flows permet de visualiser la façon dont vos utilisateurs naviguent entre les pages et les fonctionnalités de votre site. Il est idéal pour répondre à certaines questions que vous vous posez, par exemple :
-* Qu’est-ce qui pousse les utilisateurs à quitter une page sur votre site ?
+* Qu’est-ce qui pousse les utilisateurs à quitter une page de votre site ?
 * Sur quel contenu d’une page de votre site les utilisateurs cliquent-ils ?
 * Sur quelles pages de votre site les utilisateurs finissent le plus souvent par partir ?
 * Votre site comporte-t-il des pages où les utilisateurs répètent continuellement la même action ?
@@ -86,7 +84,7 @@ Recherchez une page consultée ou un événement personnalisé répété(e) par 
 
 ![User Flows avec étapes déconnectées](./media/app-insights-usage-flows/flows-disconnected.png)
 
-Si des étapes (colonnes) dans une visualisation User Flows sont déconnectées, cela signifie qu’aucun des parcours suivis par les utilisateurs entre les étapes n’a été suffisamment fréquent pour pouvoir être affiché. Pour afficher les événements moins fréquents sur la visualisation de manière à faire apparaître les étapes comme connectées, ajustez le curseur « Detail level » (Niveau de détail) dans le menu Edit (Édition).
+Si des étapes (colonnes) dans une visualisation User Flows sont déconnectées, cela signifie qu’aucun des parcours suivis par les utilisateurs entre les étapes n’a été suffisamment fréquent pour être affiché. Pour afficher les événements moins fréquents sur la visualisation de manière à faire apparaître les étapes comme connectées, ajustez le curseur « Detail level » (Niveau de détail) dans le menu Edit (Édition).
 
 ### <a name="does-the-initial-event-represent-the-first-time-the-event-appears-in-a-session-or-any-time-it-appears-in-a-session"></a>L’événement initial représente-t-il la première occurrence de l’événement dans une session ou bien n’importe quel moment où l’événement se produit au cours d’une session ?
 

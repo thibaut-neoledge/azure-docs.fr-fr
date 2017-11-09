@@ -1,5 +1,5 @@
 ---
-title: "Comment remplir les champs spécifiques d’une application personnalisée | Microsoft Docs"
+title: "Guide pratique pour remplir les champs spécifiques d’une application personnalisée | Microsoft Docs"
 description: "Conseils sur la manière de remplir des champs spécifiques lorsque vous inscrivez une application personnalisée auprès d’Azure AD"
 services: active-directory
 documentationcenter: 
@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9a57185938ebe9af0ca1395e75545473f45b9889
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 04fd35f238e4dd05486f85b0b16c2ab0c5ae9f30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Comment remplir les champs spécifiques d’une application personnalisée
+# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Guide pratique pour remplir les champs spécifiques d’une application personnalisée
 
 Cet article décrit brièvement tous les champs disponibles dans le formulaire d’inscription d’application du [portail Azure](https://portal.azure.com).
 
@@ -29,7 +27,7 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 
 -   Pour inscrire une nouvelle application, accédez au [portail Azure](https://portal.azure.com).
 
--   Dans le volet de navigation gauche, cliquez sur **Azure Active Directory**.
+-   Dans le volet de navigation gauche, cliquez sur **Azure Active Directory.**
 
 -   Choisissez **Inscriptions des applications**, puis cliquez sur **Ajouter**.
 
@@ -42,16 +40,16 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 |------------------|------------------------------------------------------------------------------------------|
 | Nom             | Le nom de l’application. Il doit être composé de quatre caractères minimum.                |
 | Type d’application | **Application/API web** : une application qui représente une application web, une API web, ou les deux. 
-| |**Natif** : une application qui peut être installée sur l’appareil ou l’ordinateur d’un utilisateur.           |
+| |**Natif** : une application qui peut être installée sur l'appareil ou l'ordinateur d'un utilisateur           |
 | URL de connexion      | L’URL à laquelle les utilisateurs peuvent se connecter pour utiliser votre application.                                  |
 
-Après avoir rempli les champs ci-dessus, l’application est inscrite dans le portail Azure et vous êtes redirigé vers la page de l’application. Le bouton **Paramètres** du volet de l’application ouvre la page Paramètres, qui comporte des champs supplémentaires vous permettant de personnaliser votre application. Le tableau ci-dessous décrit tous les champs de la page Paramètres. Notez que vous voyez uniquement un sous-ensemble de ces champs, selon si vous avez créez une application web ou une application native.
+Après avoir rempli les champs ci-dessus, l’application est inscrite dans le portail Azure et vous êtes redirigé vers la page de l’application. Le bouton **Paramètres** du volet de l’application ouvre la page Paramètres, qui comporte des champs supplémentaires vous permettant de personnaliser votre application. Le tableau ci-dessous décrit tous les champs de la page Paramètres. Notez que vous voyez uniquement un sous-ensemble de ces champs, selon que vous avez créez une application web ou une application native.
 
 | Champ           | Description                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID de l'application  | Lorsque vous inscrivez une application, Azure AD attribue un ID d’application à votre application. Cet ID d’application peut être utilisé pour identifier de façon unique votre application dans les demandes d’authentification à Azure AD, ainsi que pour accéder à des ressources telles que l’API Graph.                                                          |
 | URI ID d’application      | Cette valeur doit être un URI unique, généralement au format **https://&lt;nom\_locataire&gt;/&lt;nom\_application&gt;.** Cet élément est utilisé dans le flux d’octroi d’autorisation en tant qu’identificateur unique pour spécifier la ressource pour laquelle le jeton doit être émis. Il devient également la revendication « aud » dans le jeton d’accès émis. |
-| Charger un nouveau logo | Ce champ vous permet de charger un logo pour votre application. Le logo doit être au format .bmp, .jpg ou .png, et la taille du fichier doit être inférieure à 100 Ko. Les dimensions de l’image doivent être de 215 x 215 pixels et les dimensions de l’image centrale de 94 x 94 pixels.                                                       |
+| Charger un nouveau logo | Ce champ vous permet de charger un logo pour votre application. Le logo doit être au format .bmp, .jpg ou .png, et la taille du fichier doit être inférieure à 100 ko. Les dimensions de l’image doivent être de 215 x 215 pixels et les dimensions de l’image centrale de 94 x 94 pixels.                                                       |
 | URL de la page d’accueil   | Il s’agit de l’URL de connexion spécifiée lors de l’inscription de l’application.                                                                                                                                                                                                                                              |
 | URL de déconnexion      | Il s’agit de l’URL de déconnexion unique. Azure AD envoie une demande de déconnexion à cette URL lorsque l’utilisateur efface sa session avec Azure AD à l’aide d’une autre application inscrite.                                                                                                                                       |
 | Mutualisé  | Ce paramètre spécifie si l’application peut être utilisée par plusieurs locataires. En règle générale, cela signifie que des organisations externes peuvent utiliser votre application en l’inscrivant dans leur locataire et en accordant l’accès aux données de leur organisation.                                                                   |
@@ -61,4 +59,3 @@ Après avoir rempli les champs ci-dessus, l’application est inscrite dans le p
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
-

@@ -1,74 +1,137 @@
 ---
-title: "Créez un registre de Docker privé dans le portail Azure | Microsoft Docs"
-description: "Prise en main de la création et de la gestion de registres de conteneurs Docker privés avec le portail Azure"
+title: "Démarrage rapide - Créer un registre Docker privé dans Azure avec le portail Azure"
+description: "Apprenez rapidement à créer un registre de conteneurs Docker privé avec le portail Azure."
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: dlepow
+author: mmacy
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
-ms.author: stevelas
-ms.custom: H1Hack27Feb2017
+ms.date: 10/31/2017
+ms.author: marsma
+ms.custom: 
+ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7fbbb56d775ee96c9a44363a4e41d4fc3c630582
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
+# <a name="create-a-container-registry-using-the-azure-portal"></a>Créer un registre de conteneur à l’aide du portail Azure
 
-# <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Créez un registre de conteneur Docker privé à l’aide du portail Azure
-Utilisez le portail Azure pour créer un registre de conteneur et gérer ses paramètres. Vous pouvez également créer et gérer des registres de conteneurs à l’aide des [commandes d’Azure CLI 2.0](container-registry-get-started-azure-cli.md), [d’Azure PowerShell](container-registry-get-started-powershell.md) ou par programme avec [l’API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
+Un registre Azure Container Registry est un registre Docker privé dans Azure, dans lequel vous pouvez stocker et gérer vos images conteneurs Docker privées. Dans ce guide de démarrage rapide, vous allez créer un registre de conteneurs à partir du portail Azure.
 
-Pour plus d’informations, notamment sur les concepts, voir la [page de présentation](container-registry-intro.md).
+Pour suivre cette procédure de démarrage rapide, Docker doit être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+
+## <a name="log-in-to-azure"></a>Connexion à Azure
+
+Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **+ Nouveau**.
-2. Recherchez **Azure Container Registry** dans le marketplace.
-3. Sélectionnez **Azure Container Registry**, avec l’éditeur **Microsoft**.
-    ![Service Container Registry dans Azure Marketplace](./media/container-registry-get-started-portal/container-registry-marketplace.png)
-4. Cliquez sur **Create**. Le panneau **Azure Container Registry** s’affiche.
 
-    ![Paramètres de Container Registry](./media/container-registry-get-started-portal/container-registry-settings.png)
-5. Dans le panneau **Azure Container Registry**, entrez les informations suivantes. Une fois ces opérations effectuées, cliquez sur **Créer**.
+Sélectionnez **Nouveau** > **Conteneurs** > **Azure Container Registry**.
 
-    a. **Nom du registre** : Un nom de domaine global unique et de niveau supérieur pour votre registre spécifique. Dans cet exemple, le nom de registre est *myRegistry01*, mais vous pouvez le remplacer par un nom unique de votre choix. Le nom ne peut contenir que des lettres et des chiffres.
+![Création d’un registre de conteneur dans le portail Azure][qs-portal-01]
 
-    b. **Groupe de ressources** : sélectionnez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups) existant ou tapez le nom d’un nouveau groupe.
+Entrez les valeurs **Nom du registre** et **Groupe de ressources**. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Créez un groupe de ressources nommé `myResourceGroup`, et pour **Référence SKU**, sélectionnez « De base ». Sélectionnez **Créer** pour déployer l’instance ACR.
 
-    c. **Emplacement** : sélectionnez un emplacement de centre de données Azure où le service est [disponible](https://azure.microsoft.com/regions/services/), tel que **Sud du centre des États-Unis**.
+![Création d’un registre de conteneur dans le portail Azure][qs-portal-03]
 
-    d. **Utilisateur Administrateur** : si vous le souhaitez, vous pouvez autoriser l’accès au registre à un utilisateur Administrateur. Vous pouvez modifier ce paramètre une fois le registre créé.
+Dans le cadre de ce guide de démarrage rapide, nous allons créer un registre *De base*. Azure Container Registry est disponible dans plusieurs références SKU, qui sont brièvement décrites dans le tableau suivant. Pour plus d’informations sur chaque référence, consultez [Références SKU de registres de conteneurs](container-registry-skus.md).
 
-      > [!IMPORTANT]
-      > En plus de fournir l’accès via un compte d’utilisateur Admin, les registres de conteneur prennent en charge l’authentification supportée par les principaux du service Azure Active Directory. Pour plus d’informations et pour connaître les éléments à prendre en considération, consultez la section relative à [l’authentification auprès d’un conteneur](container-registry-authentication.md).
-      >
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-    e. **Compte de stockage** : utilisez le paramètre par défaut pour créer un [compte de stockage](../storage/common/storage-introduction.md), ou sélectionnez un compte de stockage existant dans le même emplacement. Pour l’instant, l’offre Stockage Premium n’est pas prise en charge.
+Lorsque le message **Déploiement réussi** s’affiche, sélectionnez le registre de conteneurs dans le portail, puis sélectionnez **Clés d’accès**.
 
-## <a name="manage-registry-settings"></a>Gérer les paramètres du registre
-Après avoir créé le registre, recherchez ses paramètres en commençant par le panneau des **Registres de conteneur** dans le portail. Par exemple, vous aurez peut-être besoin des paramètres pour vous connecter à votre registre, ou vous souhaiterez peut-être activer ou désactiver l’utilisateur Admin.
+![Création d’un registre de conteneur dans le portail Azure][qs-portal-05]
 
-1. Dans le panneau **Registres de conteneur**, cliquez sur le nom de votre registre.
+Sous **Utilisateur administrateur**, sélectionnez **Activer**. Notez les valeurs suivantes :
 
-    ![Panneau Container Registry](./media/container-registry-get-started-portal/container-registry-blade.png)
-2. Pour gérer les paramètres d’accès, cliquez sur **Clé d’accès**.
+* Serveur de connexion
+* Nom d’utilisateur
+* password
 
-    ![Accès à Container Registry](./media/container-registry-get-started-portal/container-registry-access.png)
-3. Notez les points suivants :
+Vous utilisez ces valeurs dans les étapes suivantes lorsque vous travaillez avec votre registre dans l’interface de ligne de commande Docker.
 
-   * **Serveur de connexion** : le nom complet à utiliser pour se connecter au registre. Dans cet exemple, il s’agit de `myregistry01.azurecr.io`.
-   * **Utilisateur Admin** : bascule pour activer ou désactiver le compte d’utilisateur Admin du registre.
-   * **Nom d’utilisateur** et **Mot de passe** : informations d’identification du compte d’utilisateur Admin (si activé) que vous pouvez utiliser pour vous connecter au registre. Vous pouvez éventuellement régénérer les mots de passe. Deux mots de passe sont créés pour que vous puissiez maintenir des connexions vers le Registre à l’aide d’un mot de passe, tandis que vous régénérez l’autre mot de passe. Si vous préférez une authentification avec un principal de service, consultez [S’authentifier avec un registre de conteneurs Docker](container-registry-authentication.md).
+![Création d’un registre de conteneur dans le portail Azure][qs-portal-06]
+
+## <a name="log-in-to-acr"></a>Se connecter à l’ACR
+
+Avant d’extraire et de transmettre des images conteneur, vous devez vous connecter à l’instance ACR. Pour ce faire, utilisez la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/). Remplacez le *nom d’utilisateur*, le *mot de passe* et le *serveur de connexion* par les valeurs notées à l’étape précédente.
+
+```bash
+docker login --username <username> --password <password> <login server>
+```
+
+Une fois l’opération terminée, la commande renvoie `Login Succeeded`. Vous pouvez également voir un avertissement de sécurité vous recommandant l’utilisation du paramètre `--password-stdin`. Même si son utilisation n’est pas le sujet de cet article, nous vous recommandons de suivre cette meilleure pratique. Consultez la référence de commande de [connexion docker](https://docs.docker.com/engine/reference/commandline/login/) pour plus d’informations.
+
+## <a name="push-image-to-acr"></a>Envoyer une image dans l’ACR
+
+Pour envoyer une image dans votre registre Azure Container Registry, vous devez tout d’abord disposer d’une image. Si nécessaire, exécutez la commande suivante pour extraire une image existante du hub Docker.
+
+```bash
+docker pull microsoft/aci-helloworld
+```
+
+Avant d’envoyer l’image dans votre registre, vous devez l’étiqueter avec le nom du serveur de connexion à l’ACR. Étiquetez l’image en utilisant la commande [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Remplacez la valeur du *serveur de connexion* par le nom du serveur de connexion enregistré précédemment.
+
+```
+docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+```
+
+Enfin, utilisez la commande [docker push](https://docs.docker.com/engine/reference/commandline/push/) pour envoyer l’image à l’instance ACR. Remplacez la valeur du *serveur de connexion* par le nom du serveur de connexion de votre instance ACR.
+
+```
+docker push <login server>/aci-helloworld:v1
+```
+
+La sortie d’une commande `docker push` réussie ressemble à :
+
+```
+The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
+7c701b1aeecd: Pushed
+c4332f071aa2: Pushed
+0607e25cc175: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+```
+
+## <a name="list-container-images"></a>Répertorier les images conteneur
+
+Pour répertorier les images de votre instance ACR, accédez à votre registre dans le portail, sélectionnez **Référentiels**, puis sélectionnez le référentiel que vous avez créé avec `docker push`.
+
+Dans cet exemple, nous sélectionnons le référentiel **aci-helloworld** et nous pouvons voir l’image étiquetée `v1` sous **BALISES**.
+
+![Création d’un registre de conteneur dans le portail Azure][qs-portal-09]
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources **myResourceGroup**. Cela supprimera le groupe de ressources, l’instance ACR et toutes les images conteneurs.
+
+![Création d’un registre de conteneur dans le portail Azure][qs-portal-08]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Effectuer un push de votre première image à l’aide de l’interface CLI Docker](container-registry-get-started-docker-cli.md)
 
+Dans ce guide de démarrage rapide, vous avez créé un registre Azure Container Registry avec Azure CLI. Si vous souhaitez utiliser Azure Container Registry avec des instances Azure Container Instances, passez au didacticiel Azure Container Instances.
+
+> [!div class="nextstepaction"]
+> [Didacticiels Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- IMAGES -->
+[qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
+[qs-portal-02]: ./media/container-registry-get-started-portal/qs-portal-02.png
+[qs-portal-03]: ./media/container-registry-get-started-portal/qs-portal-03.png
+[qs-portal-04]: ./media/container-registry-get-started-portal/qs-portal-04.png
+[qs-portal-05]: ./media/container-registry-get-started-portal/qs-portal-05.png
+[qs-portal-06]: ./media/container-registry-get-started-portal/qs-portal-06.png
+[qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
+[qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
+[qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png

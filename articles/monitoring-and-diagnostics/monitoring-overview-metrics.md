@@ -12,16 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 86e025f9211a1d7ed07e831b7ce4c21be351513b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Cet article décrit ce que sont les mesures dans Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
 
@@ -43,6 +41,7 @@ Les mesures présentent les caractéristiques suivantes :
 * Toutes les mesures ont **une fréquence d’une minute**. Vous recevez une valeur de mesure chaque minute à partir de votre ressource, pour une visibilité en quasi temps réel de l’intégrité de votre ressource.
 * Les mesures sont **disponibles immédiatement**. Vous n’avez pas besoin de vous abonner à ou de configurer des diagnostics supplémentaires.
 * Vous pouvez accéder à **30 jours d’historique** pour chaque mesure. Vous pouvez consulter rapidement les tendances récentes et mensuelles de performances ou d’intégrité de vos ressources.
+* Certaines métriques peuvent avoir des paires d’attributs nom-valeur appelées **dimensions**. Elles vous permettent de segmenter encore davantage et d’explorer une métrique d’une manière plus explicite.
 
 Vous pouvez également :
 
@@ -85,14 +84,16 @@ Voici un bref aperçu de la création d’un graphique de mesures à l’aide du
 >
 >
 
+Azure Monitor offre également une nouvelle expérience de graphes de métriques, disponible en préversion. Cette expérience permet aux utilisateurs de superposer sur un même graphique des métriques provenant de plusieurs ressources. Les utilisateurs peuvent également tracer, segmenter et filtrer des métriques multidimensionnelles à l’aide de cette nouvelle expérience de graphes de métriques. Pour en savoir plus, [cliquez ici](https://aka.ms/azuremonitor/new-metrics-charts)
+
 ## <a name="access-metrics-via-the-rest-api"></a>Accès aux mesures via l’API REST
 Les mesures Azure sont accessibles via les API Azure Monitor. Il existe deux API qui vous aident à découvrir et accéder aux mesures :
 
-* Utilisez [l’API REST de définitions de mesures Azure Monitor](https://msdn.microsoft.com/library/mt743621.aspx) pour accéder à la liste des mesures disponibles pour un service.
-* Utilisez [l’API REST Azure Monitor Metrics](https://msdn.microsoft.com/library/mt743622.aspx) pour accéder aux données de mesure elles-mêmes.
+* Utilisez [l’API REST de définitions de mesures Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) pour accéder à la liste des mesures et dimensions disponibles pour un service.
+* Utilisez [l’API REST Azure Monitor Metrics](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) pour segmenter, filtrer et accéder aux données de mesure elles-mêmes.
 
 > [!NOTE]
-> Cet article décrit les mesures via la [nouvelle API pour les mesures](https://msdn.microsoft.com/library/dn931930.aspx) pour les ressources Azure. La version de l’API pour les nouvelles définitions de mesures est 2016-03-01 et la version pour les mesures est 2016-09-01. Les définitions de mesures et les mesures sont accessibles avec la version 2014-04-01 de l’API.
+> Cet article décrit les mesures via la [nouvelle API pour les mesures](https://docs.microsoft.com/en-us/rest/api/monitor/) pour les ressources Azure. La version de l’API pour les nouvelles définitions de mesures est 2017-05-01-preview. Les définitions de mesures et les mesures sont accessibles avec la version 2014-04-01 de l’API.
 >
 >
 
@@ -109,9 +110,14 @@ Vous pouvez configurer cela au moyen de modèles Resource Manager, de [PowerShel
 Pour recevoir des notifications ou prendre des actions automatisées sur les données de mesure, vous pouvez configurer des règles d’alerte ou des paramètres de mise à l’échelle automatique.
 
 ### <a name="configure-alert-rules"></a>Configuration des règles d'alerte
-Vous pouvez configurer des règles d’alerte sur les mesures. Ces règles d’alerte peuvent vérifier si une mesure a atteint un certain seuil. Vous pouvez ensuite recevoir une notification par e-mail ou déclencher un webhook qui peut être utilisé pour exécuter un script personnalisé. Vous pouvez également utiliser le webhook pour configurer les intégrations de produits tiers.
+Vous pouvez configurer des règles d’alerte sur les mesures. Ces règles d’alerte peuvent vérifier si une mesure a atteint un certain seuil. Azure Monitor propose deux fonctions d’alerte sur les mesures.
+
+Alertes de métriques : vous pouvez ensuite recevoir une notification par e-mail ou déclencher un webhook qui peut être utilisé pour exécuter un script personnalisé. Vous pouvez également utiliser le webhook pour configurer les intégrations de produits tiers.
 
  ![Mesures et règles d’alerte dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
+
+Alertes quasiment en temps réel (préversion) : ces alertes analysent plusieurs métriques et seuils pour une ressource et vous préviennent via un [groupe d’actions](/monitoring-action-groups.md). En savoir plus sur les [alertes de métriques quasiment en temps réel ici](https://aka.ms/azuremonitor/near-real-time-alerts).
+
 
 ### <a name="autoscale-your-azure-resources"></a>Mise à l’échelle automatique de vos ressources Azure
 Certaines ressources Azure prennent en l’augmentation ou la diminution de la taille de plusieurs instances pour gérer vos charges de travail. La mise à l’échelle automatique s’applique à App Services (applications web), aux groupes de machines virtuelles identiques et aux services cloud classiques d’Azure. Vous pouvez configurer les règles de mise à l’échelle automatique pour augmenter la taille des instances lorsqu’une certaine mesure affectant votre charge de travail dépasse un seuil spécifié. Pour plus d'informations, consultez la rubrique [Présentation de la mise à l’échelle automatique](monitoring-overview-autoscale.md).
@@ -119,23 +125,6 @@ Certaines ressources Azure prennent en l’augmentation ou la diminution de la t
  ![Mesures et règles de mise à l’échelle automatique dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## <a name="learn-about-supported-services-and-metrics"></a>Découvrez les services et mesures pris en charge
-Azure Monitor est une nouvelle infrastructure de mesures. Il prend en charge les services Azure suivants dans le portail Azure et la nouvelle version de l’API Azure Monitor :
-
-* Machines virtuelles (basées sur Azure Resource Manager)
-* jeux de mise à l’échelle de machine virtuelle
-* Batch
-* Espace de noms Event Hubs
-* Espace de noms Service Bus (référence SKU premium uniquement)
-* SQL Database (version 12)
-* Pool élastique SQL
-* Sites web
-* Batteries de serveurs web
-* Logic Apps
-* IoT Hubs
-* Cache Redis
-* Réseau : Passerelles d’application
-* Search
-
 Vous pouvez voir une liste détaillée de tous les services pris en charge et leurs mesures dans [Mesures d’Azure Monitor - Mesures prises en charge par type de ressource](monitoring-supported-metrics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -144,4 +133,3 @@ Consultez les liens dans cet article. De plus, consultez :
 * [Mesures courantes pour la mise à l’échelle automatique](insights-autoscale-common-metrics.md)
 * [Guide de création de règles d’alertes](insights-alerts-portal.md)
 * [Analyser les journaux du stockage Azure avec Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-

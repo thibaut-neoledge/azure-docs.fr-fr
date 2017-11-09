@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Gestion des travaux de sauvegarde Azure communs et déclenchement des alertes dans le portail classique
 > [!div class="op_single_selector"]
@@ -249,4 +248,3 @@ Les alertes basées sur des événements sont soumises aux limitations suivantes
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Restauration de machines virtuelles Azure](backup-azure-restore-vms.md)
-

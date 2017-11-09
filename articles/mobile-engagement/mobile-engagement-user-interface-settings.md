@@ -1,5 +1,5 @@
 ---
-title: "Interface utilisateur d&quot;Azure Mobile Engagement : Paramètres"
+title: "Interface utilisateur d'Azure Mobile Engagement : Paramètres"
 description: "Découvrez comment gérer les paramètres globaux de votre application grâce à Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Comment gérer les paramètres globaux de votre application
 Les options de menu **Paramètres** disponibles pour une application dépendent de la plateforme de l’application et des autorisations qui vous ont été accordées pour cette application. Les paramètres suivants sont inclus : Détails, Projets, Native Push, Push Speed, Balise (Information sur l’application) et Pression commerciale. L’option de menu Balise (Informations sur l’application) peut être gérée par votre application (à l’aide du Kit de développement logiciel (SDK)) ou par votre backend (à l’aide de l’API d’appareil). 
@@ -189,5 +188,4 @@ Vous pouvez afficher la vitesse de transmission actuelle de votre application et
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

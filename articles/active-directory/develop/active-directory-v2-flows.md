@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 9d59e7f0e8f326c40be86e199d7712f6c565cc13
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Types d’application pour le point de terminaison Azure Active Directory v2.0
 Le point de terminaison Azure Active Directory (Azure AD) v2.0 prend en charge l’authentification pour de multiples architectures d’application modernes, toutes basées sur des protocoles industriels standard [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Cet article décrit les types d’application que vous pouvez générer à l’aide d’Azure AD v2.0, quelle que soit votre plateforme ou langage par défaut. Les informations contenues dans cet article sont conçues pour vous aider à comprendre les scénarios de haut niveau avant de [commencer à travailler avec le code](active-directory-appmodel-v2-overview.md#getting-started).
@@ -123,4 +121,3 @@ Dans ce flux, l’application interagit directement avec le point de terminaison
 ![Flux d’authentification d’applications démons](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 Pour créer une application démon, consultez la documentation sur les informations d’identification des clients dans la section [Mise en route](active-directory-appmodel-v2-overview.md#getting-started) ou consultez [cet exemple d’application .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-

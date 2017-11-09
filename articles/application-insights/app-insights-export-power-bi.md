@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 [Power BI](http://www.powerbi.com/) est une suite d’outils d’analyse métiers permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](app-insights-overview.md).
@@ -119,5 +118,4 @@ Si votre application envoie beaucoup de données, la fonctionnalité d’échant
 ## <a name="next-steps"></a>Étapes suivantes
 * [Power BI - En savoir plus](http://www.powerbi.com/learning/)
 * [Didacticiel Analytics](app-insights-analytics-tour.md)
-
 

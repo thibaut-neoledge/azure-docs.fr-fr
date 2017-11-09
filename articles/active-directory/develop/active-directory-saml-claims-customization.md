@@ -1,6 +1,6 @@
 ---
-title: "Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory | Microsoft Docs"
-description: "Découvrez la personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory."
+title: "Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory | Microsoft Docs"
+description: "Découvrez la personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -15,15 +15,14 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
+ms.openlocfilehash: a1a33705648a982631315439f99425bab59ad1d1
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 6d232759630fcc567788a8326b566b659f89d17a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory
-Aujourd’hui, Azure Active Directory prend en charge des milliers d’applications pré-intégrées dans la galerie d’applications Azure AD, notamment plus de 360 applications qui gèrent l’authentification unique à l’aide du protocole SAML 2.0. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire d’Azure AD en utilisant SAML, Azure AD envoie un jeton à l’application (via HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées « revendications ».
+# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory
+Actuellement, Azure Active Directory prend en charge l’authentification unique avec la plupart des applications d’entreprise, y compris les deux applications pré-intégrées dans la galerie d’applications Azure AD, ainsi que les applications personnalisées. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire d’Azure AD en utilisant le protocole SAML 2.0, Azure AD envoie un jeton à l’application (via HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées « revendications ».
 
 En jargon d’identité, une « revendication » concerne ce qu’un fournisseur d’identité déclare sur un utilisateur dans le jeton qu’il émet sur cet utilisateur. Dans un [jeton SAML](http://en.wikipedia.org/wiki/SAML_2.0), ces données sont généralement contenues dans l’instruction d’attribut SAML. L’ID unique de l’utilisateur est généralement présent dans le SAML Subject, également appelé « identificateur de nom ».
 
@@ -128,7 +127,7 @@ Il existe certaines revendications restreintes dans SAML. Si vous ajoutez ces re
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](../active-directory-apps-index.md)
-* [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](../active-directory-saas-custom-apps.md)
+* [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md)
 
 <!--Image references-->

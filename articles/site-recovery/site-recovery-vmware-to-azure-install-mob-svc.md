@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/30/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/30/2017
 ---
-
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Installation du service Mobilité (VMware ou serveur physique vers Azure)
 Le service de mobilité Azure Site Recovery capture les écritures de données sur un ordinateur, puis les transfère au serveur de traitement. Déployez le service Mobilité sur chaque ordinateur (machine virtuelle VMware ou serveur physique) que vous souhaitez répliquer vers Azure. Vous pouvez déployer le service Mobilité pour les serveurs que vous souhaitez protéger à l’aide des méthodes suivantes :
 
@@ -30,7 +28,7 @@ Le service de mobilité Azure Site Recovery capture les écritures de données s
 * [Installation du Service Mobilité à l’aide d’Azure Automation et de la Configuration de l’état souhaité (Automation DSC)](site-recovery-automate-mobility-service-install.md)
 * [Installation du service Mobilité manuellement à l’aide de l’interface utilisateur graphique](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
 * [Installation manuelle du service Mobilité à l’aide d’une ligne de commande](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt)
-* [Installation du service Mobilité à l’aide de l’installation de transmission (push) à partir d’Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
+* [Installation du service Mobilité à l’aide de l’installation de transmission de type push à partir de Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 
 >[!IMPORTANT]
@@ -52,19 +50,22 @@ Effectuez ces étapes préalables avant d’installer manuellement le service Mo
 
 | Nom du modèle de fichier de programme d’installation| Système d’exploitation |
 |---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bits) </br> Windows Server 2012 (64 bits) </br> Windows Server 2012 R2 (64 bits) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8 (64 bits uniquement) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8 (64 bits uniquement) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2 (64 bits uniquement) </br> CentOS 7.0, 7.1, 7.2 (64 bits uniquement)</br> CentOs 7.3 (migration uniquement) |
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bits) </br> Windows Server 2012 (64 bits) </br> Windows Server 2012 R2 (64 bits) </br> Windows Server 2016 (64 bits) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64 bits uniquement) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64 bits uniquement) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (64 bits uniquement) </br> CentOS 7.0, 7.1, 7.2, 7.3 (64 bits uniquement) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64 bits uniquement)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (64 bits uniquement)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement)|
 |Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (64 bits uniquement)|
+|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Serveur Ubuntu Linux 16.04 LTS (64 bits uniquement)|
+|Microsoft-ASR_UA\*DEBIAN7 64\*release.tar.gz | Debian 7 (64 bits uniquement)|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (64 bits uniquement)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Installer le service Mobilité manuellement à l’aide de l’interface utilisateur
 
 >[!IMPORTANT]
-> Si vous utilisez un **Serveur de configuration** pour répliquer les **machines virtuelles Azure IaaS** d’un abonnement/d’une région Azure sur un(e) autre, il vous faudra **utiliser la méthode d’installation en ligne de commande**.
+> Si vous utilisez un **Serveur de configuration** pour répliquer les **machines virtuelles Azure IaaS** entre abonnements/régions Azure, vous devez **utiliser la méthode d’installation en ligne de commande**.
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
@@ -78,7 +79,7 @@ Effectuez ces étapes préalables avant d’installer manuellement le service Mo
 
 
 ## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Installation du service Mobilité à l’aide de l’installation de transmission (push) à partir d’Azure Site Recovery
-Pour effectuer une installation Push du service Mobilité à l’aide de Site Recovery, tous les ordinateurs cibles doivent répondre aux conditions préalables suivantes.
+Pour effectuer une installation Push du service Mobilité à l’aide de Site Recovery, tous les ordinateurs cibles doivent répondre aux conditions préalables suivantes :
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -86,7 +87,25 @@ Pour effectuer une installation Push du service Mobilité à l’aide de Site Re
 
 
 > [!NOTE]
-Une fois le service Mobilité installé, dans le portail Azure, sélectionnez le bouton **Répliquer** pour commencer à protéger ces machines virtuelles.
+Une fois le service Mobilité installé, dans le portail Azure, sélectionnez le bouton **+Répliquer** pour commencer à protéger ces machines virtuelles.
+
+## <a name="update-mobility-service"></a>Mettre à jour le service Mobilité.
+
+> [!WARNING]
+> Vérifiez que le serveur de configuration, les serveurs de traitement de montée en puissance parallèle et les serveurs cibles maîtres qui font partie de votre déploiement sont mis à jour avant que vous ne mettiez à jour le service Mobilité sur les serveurs protégés. Pour en savoir plus, consultez les sections [Mise à jour d’un serveur de configuration](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) et [Mise à niveau d’un serveur de traitement de montée en puissance parallèle](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server).
+
+1. Sur le portail Azure, accédez à <Your Vault> -> vue Éléments répliqués.
+2. Si le **serveur de configuration** a déjà été mis à jour vers la dernière version, une notification doit s’afficher et indiquer *Une nouvelle mise à jour de l’agent de réplication Site Recovery est disponible. Cliquez pour installer*.
+
+     ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
+3. Cliquez sur la notification pour ouvrir la page de sélection des machines virtuelles.
+4. Sélectionnez les machines virtuelles sur lesquelles vous souhaitez mettre à niveau le service Mobilité, puis cliquez sur le bouton OK.
+
+     ![ReplicatedItemsVMList](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
+5. Ce faisant, vous démarrez le travail Mettre à jour le service Mobilité pour chacune des machines virtuelles sélectionnées.
+
+> [!NOTE]
+> [En savoir plus](site-recovery-vmware-to-azure-manage-configuration-server.md) sur la mise à jour du mot de passe pour le compte utilisé pour installer le Service mobilité.
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Désinstallation d’un service Mobilité sur un ordinateur Windows Server
 Utilisez une des méthodes suivantes pour désinstaller le service Mobilité sur un ordinateur Windows Server.
@@ -111,4 +130,3 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 ```
 uninstall.sh -Y
 ```
-

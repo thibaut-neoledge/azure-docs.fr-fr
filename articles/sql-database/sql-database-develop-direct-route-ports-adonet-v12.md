@@ -1,6 +1,6 @@
 ---
 title: "Ports au-delà de 1433 pour SQL Database | Microsoft Docs"
-description: "Parfois, les connexions clientes entre ADO.NET et Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants."
+description: "Les connexions clientes entre ADO.NET et Azure SQL Database peuvent ignorer le proxy et interagir directement avec la base de données en utilisant des ports autres que 1433."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -9,19 +9,17 @@ editor:
 ms.assetid: 3f17106a-92fd-4aa4-b6a9-1daa29421f64
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: drivers
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: d47ee8c794d1e231507dae6bb4aa88bf19ce6418
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
-
+ms.openlocfilehash: ea184cce4217e6c81c02740f0d6ccf79cc1c1c4a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
 Cette rubrique décrit le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure. 
@@ -70,5 +68,4 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
 * [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
-
 

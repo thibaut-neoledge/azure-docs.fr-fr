@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4e2de9c4d1c0f92970911e132fffaacbd01d9ad0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Définir des infrastructures de confiance avec l’infrastructure d’expérience d’identité Azure AD B2C
 
 Les stratégies personnalisées Azure Active Directory B2C (Azure AD B2C) qui utilisent l’infrastructure d’expérience d’identité fournissent un service centralisé à votre organisation. Ce service permet de réduire la complexité de la fédération des identités au sein d’une large communauté d’intérêts. La complexité est réduite à une seule relation d’approbation et à un seul échange de métadonnées.
@@ -130,4 +128,3 @@ L’interopérabilité est un autre défi important. D’autres fournisseurs/vé
 Les parcours utilisateur incluent les profils et les métadonnées des protocoles qui sont utilisés pour analyser l’interopérabilité réseau entre la partie de confiance et les autres participants. Il existe également des règles de runtime opérationnelles qui seront appliquées aux messages de demande/réponse des échanges d’informations d’identité afin de garantir la conformité avec les stratégies publiées dans le cadre de la spécification d’infrastructure de confiance. L’idée de parcours utilisateur est fondamentale pour la personnalisation de l’expérience utilisateur. Elle apporte également un éclairage sur la façon dont le système fonctionne au niveau du protocole.
 
 Sur cette base, les portails et applications par partie de confiance peuvent, selon leur contexte, appeler des stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité en passant le nom d’une stratégie spécifique afin d’obtenir le comportement et l’échange d’informations attendus sans risque ni complication.
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Sauvegarder et récupérer une base de données de la base de données Oracle Database 12c sur une machine virtuelle Linux Azure
 
 Vous pouvez utiliser Azure CLI pour créer et gérer des ressources Azure à partir d’une invite de commandes, ou utiliser des scripts. Dans cet article, nous utilisons des scripts Azure CLI pour déployer une base de données Oracle Database 12c à partir d’une image de la galerie de la Place de marché Microsoft Azure.
@@ -568,7 +566,6 @@ az group delete --name myResourceGroup
 [Didacticiel : créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 
 [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)
-
 
 
 

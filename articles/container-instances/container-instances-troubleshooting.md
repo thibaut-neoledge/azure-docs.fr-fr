@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: ff6da0ce95d0405714602c3872da34a2bff344d3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Résoudre les problèmes de déploiement liés à Azure Container Instances
 
 Cet article explique comment résoudre les problèmes de déploiement de conteneurs sur Azure Container Instances. Il décrit également les problèmes courants que vous risquez de rencontrer.
@@ -226,4 +224,3 @@ Cette erreur indique qu’en raison d’une charge importante dans la région da
 * Spécifier des paramètres de processeur et de mémoire inférieurs pour le conteneur
 * Déployer sur une autre région Azure
 * Déployer plus tard
-

@@ -13,17 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 1acd4119ebf9c9fd364d0eddd970c362756309ee
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: e0d41d1933531c2c633613bcbc1bbcbf075d6a69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-<a id="how-to-choose-which-application-type-to-use-when-adding-an-application" class="xliff"></a>
-
-# Comment choisir le type d’application à utiliser lors de l’ajout d’une application
+# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Comment choisir le type d’application à utiliser lors de l’ajout d’une application
 
 Cet article vous aide à comprendre les quatre principaux types d’applications que vous pouvez intégrer à Azure AD :
 
@@ -31,9 +27,7 @@ Cet article vous aide à comprendre les quatre principaux types d’applications
 * Pourquoi choisir telle ou telle application
 * Comment configurer les principales propriétés de cette application, par exemple la façon dont les utilisateurs sont **configurés** ou la technologie d’**authentification unique** à utiliser.
 
-<a id="supported-application-types-in-azure-ad" class="xliff"></a>
-
-## Types d’applications pris en charge dans Azure AD
+## <a name="supported-application-types-in-azure-ad"></a>Types d’applications pris en charge dans Azure AD
 
 Azure AD prend en charge quatre types d’applications principaux que vous pouvez ajouter à l’aide de la fonction **Ajouter** qui se trouve sous **Applications d’entreprise**. Vous avez notamment vu les points suivants :
 
@@ -45,9 +39,7 @@ Azure AD prend en charge quatre types d’applications principaux que vous pouve
 
 -   **Applications hors galerie** : créez vos propres applications ! Tous les liens web et toutes les applications disposant d’un champ de nom d’utilisateur et de mot de passe prennent en charge les protocoles SAML ou OpenID Connect, ou prennent en charge SCIM pour l’intégration à l’authentification unique avec Azure AD.
 
-<a id="features-and-capabilities-supported-by-all-the-above-application-types" class="xliff"></a>
-
-## Fonctions et capacités prises en charge par tous les types d’applications ci-dessus
+## <a name="features-and-capabilities-supported-by-all-the-above-application-types"></a>Fonctions et capacités prises en charge par tous les types d’applications ci-dessus
 
 Les fonctionnalités suivantes sont prises en charge par les quatre types d’applications ci-dessus dans Azure AD :
 
@@ -67,25 +59,21 @@ Les fonctionnalités suivantes sont prises en charge par les quatre types d’ap
 
 -   **Affichage des autorisations** : visualisez les [autorisations OAuth2](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent) auxquelles une application a accès dans votre répertoire, à partir d’un emplacement unique.
 
-<a id="single-sign-on-and-provisioning-modes-supported-by-specific-application-types" class="xliff"></a>
+## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Authentification unique et modes d’approvisionnement pris en charge par des types d’applications spécifiques
 
-## Authentification unique et modes d’approvisionnement pris en charge par des types d’applications spécifiques
-
-Le tableau ci-dessous décrit les différentes authentifications uniques et modes d’approvisionnement pris en charge par chacun des types d’applications ci-dessus. Vous pouvez utiliser ce tableau pour mieux comprendre quelle application vous devez ajouter pour répondre à un objectif précis.
+Le tableau ci-dessous décrit les différents modes d’authentification unique et d’approvisionnement pris en charge par chacun des types d’applications ci-dessus. Vous pouvez utiliser ce tableau pour mieux comprendre quelle application vous devez ajouter pour répondre à un objectif précis.
 
   ![Tableau des types d’applications](./media/application-tables/table1.png)
 
-<a id="how-to-choose-a-single-sign-on-mode" class="xliff"></a>
-
-## Comment choisir un mode d’authentification unique
+## <a name="how-to-choose-a-single-sign-on-mode"></a>Comment choisir un mode d’authentification unique
 
 Les modes d’**authentification unique** pris en charge pour les applications Azure AD sont répertoriés ci-dessous.
 
 -   **Authentification unique Azure AD désactivée** : choisissez le **mode d’authentification unique** Authentification unique Azure AD désactivée si vous n’êtes pas encore prêt à intégrer cette application à l’authentification unique avec Azure AD, ou si vous êtes uniquement en train de la tester.
 
--   **Authentification liée** : choisissez le **mode d’authentification unique** [Authentification liée](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si vous disposez d’une application qui est déjà connectée à une solution d’authentification unique, ou si vous voulez simplement publier un lien simple dans le [panneau d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) de vos utilisateurs ou dans le [lanceur d’applications Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
+-   **Authentification liée** : choisissez le **mode d’authentification unique**[Authentification liée](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si vous disposez d’une application qui est déjà connectée à une solution d’authentification unique, ou si vous voulez publier un lien simple dans le [panneau d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) de vos utilisateurs ou dans le [lanceur d’applications Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
 
--   **Authentification par mot de passe** : choisissez le **mode d’authentification unique** [Authentification par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si votre application affiche un champ de nom d’utilisateur et de mot de passe HTML et que vous souhaitez stocker ce nom d’utilisateur et ce mot de passe en toute sécurité pour vous reconnecter ultérieurement à l’application.
+-   **Authentification par mot de passe** : choisissez le **mode d’authentification unique**[Authentification par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si votre application affiche un champ de nom d’utilisateur et de mot de passe HTML et que vous souhaitez stocker ce nom d’utilisateur et ce mot de passe en toute sécurité pour vous reconnecter ultérieurement à l’application.
 
 -   **SAML-based Sign-on** (Authentification SAML) : choisissez le mode d’authentification unique [SAML-based Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) (Authentification SAML) si votre application prend en charge les protocoles SAML ou OpenID Connect, ou si vous souhaitez être en mesure de mapper les utilisateurs à des rôles d’application spécifiques en fonction de règles que vous définissez dans vos demandes SAML *.
 
@@ -108,9 +96,7 @@ Les modes d’**authentification unique** pris en charge pour les applications A
    >
    >
 
-<a id="single-sign-on-modes-for-custom-developed-applications" class="xliff"></a>
-
-## Modes d’authentification unique pour les applications personnalisées
+## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modes d’authentification unique pour les applications personnalisées
 
 Les applications que vous avez développées de manière personnalisée par le biais de la fonction d’[application personnalisée](#_Custom-Developed_Applications) prennent également en charge des modes d’authentification unique supplémentaires non répertoriés ci-dessus. Vous avez notamment vu les points suivants :
 
@@ -124,21 +110,19 @@ Les applications que vous avez développées de manière personnalisée par le b
 
 Consultez le [guide du développeur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) pour en savoir plus sur la création d’une application personnalisée qui prend en charge ces modes d’authentification unique.
 
-<a id="how-to-set-an-applications-single-sign-on-mode" class="xliff"></a>
-
-## Comment définir le mode d’authentification unique d’une application
+## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Comment définir le mode d’authentification unique d’une application
 
 Pour définir le mode d’**authentification unique** d’une application, procédez comme suit :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**.
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Plus de services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher une liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
   * Si l’application que vous recherchez n’apparaît pas, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications**.
 
@@ -146,13 +130,11 @@ Pour définir le mode d’**authentification unique** d’une application, proc�
 
 7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-<a id="how-to-choose-a-provisioning-mode" class="xliff"></a>
-
-## Comment choisir un mode d’approvisionnement
+## <a name="how-to-choose-a-provisioning-mode"></a>Comment choisir un mode d’approvisionnement
 
 -   **Approvisionnement manuel** : choisissez le mode d’approvisionnement [Manuel](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) si vous avez des comptes existants, ou si vous souhaitez gérer les comptes pour cette application hors d’Azure AD.
 
--   **Approvisionnement automatique** : choisissez le **mode d’approvisionnement** [automatique](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si vous souhaitez activer l’approvisionnement automatique basé sur les API et/ou l’annulation d’approvisionnement des comptes utilisateur pour cette application. 
+-   **Approvisionnement automatique** : choisissez le **mode d’approvisionnement**[automatique](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si vous souhaitez activer l’approvisionnement automatique basé sur les API et/ou l’annulation d’approvisionnement des comptes utilisateur pour cette application. 
 
    >[!NOTE]
    >Cette option est disponible uniquement pour les applications de la catégorie **Applications à la une** de la [galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery).
@@ -166,9 +148,7 @@ Pour définir le mode d’**authentification unique** d’une application, proc�
    >
    >
 
-<a id="how-to-set-an-applications-provisioning-mode" class="xliff"></a>
-
-## Comment définir le mode d’approvisionnement d’une application
+## <a name="how-to-set-an-applications-provisioning-mode"></a>Comment définir le mode d’approvisionnement d’une application
 
 Pour définir le mode d’**approvisionnement** d’une application, procédez comme suit :
 
@@ -176,13 +156,13 @@ Pour définir le mode d’**authentification unique** d’une application, proc�
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**.
 
-2.  Ouvrez l’**extension Azure Active Directory** en cliquant sur **Plus de services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher une liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
   * Si l’application que vous recherchez n’apparaît pas, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications**.
 
@@ -190,8 +170,5 @@ Pour définir le mode d’**authentification unique** d’une application, proc�
 
 7.  Une fois l’application chargée, cliquez sur **Approvisionnement** dans le menu de navigation de gauche de l’application.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
-

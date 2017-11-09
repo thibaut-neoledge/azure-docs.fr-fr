@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cdb1436d33fed61210724d55ffbf06f653f24f7c
-
-
+ms.openlocfilehash: 8efc0053458e338ac1afe98d9ce970c1d5cbfa81
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>Internet des objets (IoT) : meilleures pratiques en matière de sécurité
 La sécurisation de l’infrastructure de l’Internet des objets (IoT) est un aspect critique pour toutes les personnes travaillant avec les solutions IoT. En raison du nombre d’appareils concernés et de leur nature distribuée, l’impact d’un événement de sécurité pouvant compromettre des millions d’appareils IoT n’est pas trivial et peut avoir des conséquences importantes.
@@ -63,10 +63,4 @@ Si vous êtes opérateur de solutions IoT, suivez les meilleures pratiques ci-de
 * **Audit fréquent**: il est essentiel d’auditer l’infrastructure IoT vis-à-vis des problèmes de sécurité pour traiter les incidents de sécurité.
 * **Protéger physiquement l’infrastructure IoT**: les attaques de sécurité les plus menaçantes envers l’infrastructure IoT sont lancées par le biais d’un accès physique aux appareils.
 * **Protéger les informations d’identification cloud**: les informations d’identification cloud utilisées pour configurer et exploiter un déploiement IoT offrent peut-être le moyen le plus simple d’accéder à un système IoT et de le compromettre. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

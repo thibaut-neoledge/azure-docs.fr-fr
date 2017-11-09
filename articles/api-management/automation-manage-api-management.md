@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e0e91cf3652b71af49242206057854500f78b2e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: cc08f006fabf07db0f89578144f7269e3bc7a510
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Gestion des API Azure avec Azure Automation
 Ce guide vous présente le service Azure Automation et décrit comment l’utiliser pour simplifier la gestion des API Azure.
@@ -42,5 +41,4 @@ Voici quelques exemples de gestion d’API avec Automation :
 Maintenant que vous connaissez les bases d’Azure Automation et que vous savez l’utiliser pour la gestion des API Azure, cliquez sur les liens ci-dessous pour en savoir plus.
 
 * Consultez le [Didacticiel de prise en main](../automation/automation-first-runbook-graphical.md)d’Azure Automation.
-
 

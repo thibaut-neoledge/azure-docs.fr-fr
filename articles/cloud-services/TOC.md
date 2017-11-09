@@ -34,13 +34,13 @@
 #### [Utiliser une tâche pour installer .NET sur un rôle de service cloud](cloud-services-dotnet-install-dotnet.md)
 
 ### Configurer le Bureau à distance
-#### [Portail](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Portail Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Portail classique](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Déployer
 ### Créer et déployer un service cloud dans le portail
-#### [Portail](cloud-services-how-to-create-deploy-portal.md)
+#### [Portail Azure](cloud-services-how-to-create-deploy-portal.md)
 #### [Portail classique](cloud-services-how-to-create-deploy.md)
 ### [Créer un conteneur de service cloud vide dans PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### Configuration d’un nom de domaine personnalisé
@@ -51,16 +51,15 @@
 
 ## Gérer le service
 ### Tâches de gestion courantes
-#### [Portail](cloud-services-how-to-manage-portal.md)
+#### [Portail Azure](cloud-services-how-to-manage-portal.md)
 #### [Portail classique](cloud-services-how-to-manage.md)
 ### Configurer le service cloud
-#### [Portail](cloud-services-how-to-configure-portal.md)
+#### [Portail Azure](cloud-services-how-to-configure-portal.md)
 #### [Portail classique](cloud-services-how-to-configure.md)
 ### [Gérer un service cloud à l’aide d’Azure Automation](automation-manage-cloud-services.md)
 ### Configurer la mise à l’échelle automatique
-#### [Portail](cloud-services-how-to-scale-portal.md)
+#### [Portail Azure](cloud-services-how-to-scale-portal.md)
 #### [Portail classique](cloud-services-how-to-scale.md)
-#### [PowerShell](cloud-services-how-to-scale-powershell.md)
 ### [Gérer les ressources Azure avec Python](cloud-services-python-how-to-use-service-management.md)
 
 ### [Correctifs du SE invité](cloud-services-guestos-msrc-releases.md)
@@ -81,7 +80,7 @@
 ### [Tester les performances](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Tester avec le profileur Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Activation des diagnostics
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Utiliser des compteurs de performances dans les diagnostics Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -109,9 +108,15 @@
 
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
-## [REST](https://msdn.microsoft.com/library/azure/ee460812)
+## [Schéma XML .csdef](schema-csdef-file.md)
+### [Schéma LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)
+### [Schéma WebRole](schema-csdef-webrole.md)
+### [Schéma WorkerRole](schema-csdef-workerrole.md)
+### [Schéma NetworkTrafficRules](schema-csdef-networktrafficrules.md)
+## [Schéma XML .cscfg](schema-cscfg-file.md)
+### [Schéma Role](schema-cscfg-role.md)
+### [Schéma NetworkConfiguration](schema-cscfg-networkconfiguration.md)
+## [REST](/rest/api/compute/cloudservices/)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=compute)

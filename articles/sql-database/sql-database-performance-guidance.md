@@ -1,6 +1,6 @@
 ---
 title: "Directives pour l’optimisation des performances Azure SQL Database | Microsoft Docs"
-description: "Cet article vous aide à déterminer le niveau de service adapté à votre application. Il vous présente également des moyens de paramétrer votre application pour tirer le meilleur parti de votre instance Azure SQL Database."
+description: "Découvrez l’utilisation des recommandations pour améliorer le niveau de performance des requêtes Azure SQL Database."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -12,16 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 02/09/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Optimisation des performances dans Azure SQL Database
 
@@ -32,7 +30,7 @@ Si aucune recommandation n’est applicable et si vous avez toujours des problè
 2. Paramétrez votre application et appliquez quelques meilleures pratiques susceptibles d’améliorer les performances. 
 3. Paramétrez la base de données en modifiant les index et les requêtes afin d’utiliser plus efficacement les données.
 
-Ce sont des méthodes manuelles, car vous devez déterminer quels [niveaux de service](sql-database-service-tiers.md) vous devrez choisir ou vous seront indispensables pour réécrire le code de l’application ou de la base de données et déployer les modifications.
+Ce sont des méthodes manuelles, car vous devez déterminer quels [niveaux de service](sql-database-service-tiers.md) vous devez choisir ou vous sont indispensables pour réécrire le code de l’application ou de la base de données et déployer les changements.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Augmentation du niveau de performance de votre base de données
 
@@ -282,5 +280,4 @@ Certaines applications de base de données contiennent des charges de travail à
 * Pour plus d’informations sur les niveaux de service, consultez la section [Options et performances de la base de données SQL](sql-database-service-tiers.md)
 * Pour de plus amples informations sur les pools élastiques, consultez la page [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
 * Pour plus d’informations sur les performances et les pools élastiques, consultez la page [Quand envisager d’utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
-
 

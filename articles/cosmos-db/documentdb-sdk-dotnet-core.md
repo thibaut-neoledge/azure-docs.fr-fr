@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/26/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7ce4d771e9c655687f72f4b46c7405cf64aeb74
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) .NET Core Azure Cosmos DB : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -58,6 +57,14 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 > [!NOTE] 
 > Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB n’est pas encore compatible avec les applications de plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* Ajout de plusieurs améliorations et correctifs de fiabilité.
+
+### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1 
+
+* Changements internes liées à la prise en charge de [Microsoft.Azure.Graphs](https://docs.microsoft.com/en-us/azure/cosmos-db/graph-sdk-dotnet)
+
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
 * Ajout de la prise en charge du paramètre PartitionKeyRangeId en tant qu’option FeedOption pour la définition de l’étendue des résultats des requêtes sur une valeur de plage de clés de partition spécifique. 
@@ -90,7 +97,7 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
 * Résolution du problème qui ignorait la valeur PartitionKey fournie dans FeedOptions pour les requêtes d’agrégation.
-* Résolution du problème de gestion transparente des partitions pendant l’exécution d’une requête Order By (Trier par) entre partitions intermédiaires.
+* Résolution du problème de gestion transparente des partitions pendant l’exécution d’une requête Order By (Trier par) entre partitions intermédiaire.
 
 ### <a name="a-name121121"></a><a name="1.2.1"/>1.2.1
 
@@ -137,7 +144,9 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [1.5.0](#1.5.0) |10 août 2017 |--- | 
+| [1.6.0](#1.6.0) |17 octobre 2017 |--- |
+| [1.5.1](#1.5.1) |2 octobre 2017 |--- |
+| [1.5.0](#1.5.0) |10 août 2017 |--- | 
 | [1.4.1](#1.4.1) |7 août 2017 |--- |
 | [1.4.0](#1.4.0) |2 août 2017 |--- |
 | [1.3.2](#1.3.2) |12 juin 2017 |--- |
@@ -154,5 +163,4 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

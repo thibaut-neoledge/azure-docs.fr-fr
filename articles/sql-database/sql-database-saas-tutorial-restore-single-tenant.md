@@ -1,30 +1,28 @@
 ---
-title: "Restaurer une base de données Azure SQL Database dans une application mutualisée | Documents Microsoft"
+title: "Restaurer une base de données SQL Azure dans une application SaaS multilocataire | Microsoft Docs"
 description: "Découvrez comment restaurer une base de données SQL à client unique après la suppression accidentelle des données"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: a6ad292b9e63c6aaabed09e7569a86a41192ae97
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Restaurer une base de données SQL de clients SaaS Wingtip
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restaurer la base de données SQL Azure d’un locataire unique dans une application SaaS multilocataire
 
 Par sa conception, l’application SaaS Wingtip utilise un modèle de base de données par client, où chaque client possède sa propre base de données. L’un des avantages de ce modèle est la facilité avec laquelle il est possible de restaurer les données d’un client unique de manière isolée, sans affecter les autres clients.
 
@@ -104,7 +102,7 @@ Cet exercice restaure la base de données Contoso Concert Hall à un point dans 
 
 1. Terminez la section [simuler une suppression accidentelle de données par l’utilisateur](#simulate-a-tenant-accidentally-deleting-data).
 1. Ouvrez …\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_ dans *PowerShell ISE*.
-1. **$DemoScenario** = **2**. Donnez-lui la valeur **2** *Restore tenant in parallel*.
+1. **$DemoScenario** = **2**. Donnez-lui la valeur **2***Restore tenant in parallel*.
 1. Appuyez sur **F5** pour exécuter le script.
 
 Le script restaure la base de données client (dans une base de données parallèle) à un point dans le temps, avant la suppression de l’événement dans la section précédente. Il crée une deuxième base de données, supprime toutes les métadonnées de catalogue existantes dans cette base de données, puis ajoute la base de données au catalogue sous l’entrée *ContosoConcertHall\_old*.
@@ -118,7 +116,7 @@ Notez que le fait d’exposer le client restauré en tant que client supplément
 En réalité, mieux vaudrait probablement conserver cette base de données restaurée pendant une période définie uniquement. Vous pouvez supprimer l’entrée de client restauré une fois que vous avez terminé. Pour cela, appelez le script *Remove-RestoredTenant.ps1*.
 
 1. Définissez **$DemoScenario** sur **4** pour sélectionner le scénario *remove restored tenant*.
-1. **Appuyez** **sur** **F5** pour exécuter le script.
+1. **Appuyez****sur****F5** pour exécuter le script.
 1. L’entrée *ContosoConcertHall\_old* est maintenant supprimée du catalogue. Poursuivez et fermez la page des événements pour ce client dans votre navigateur.
 
 
@@ -151,4 +149,3 @@ Dans ce didacticiel, vous avez appris à :
 * Autres [didacticiels reposant sur l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL](sql-database-business-continuity.md)
 * [En savoir plus sur les sauvegardes SQL Database](sql-database-automated-backups.md)
-

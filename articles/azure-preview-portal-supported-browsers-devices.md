@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 2d3046381892978e3aea12752f526d7cdf8184f5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: f8718e240eaefb47b18b6098be083e335ccbc89d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Navigateurs et périphériques pris en charge pour le portail Azure
 Le [portail Azure](https://portal.azure.com) s’exécute sur tous les ordinateurs de bureau, tablettes et navigateurs modernes.
@@ -37,5 +36,4 @@ Nous vous recommandons d’utiliser le navigateur le plus récent compatible ave
 * Safari (dernière version, Mac uniquement)
 * Chrome (version la plus récente)
 * Firefox (version la plus récente)
-
 

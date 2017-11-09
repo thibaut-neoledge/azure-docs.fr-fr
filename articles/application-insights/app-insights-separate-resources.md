@@ -3,7 +3,7 @@ title: "Séparation des télémétries de développement, de test et de publicat
 description: "Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 0ee19b46a0e882571f6193471be69fa097d98936
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/22/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 8d95958bce0597bfb16ef1c6b99b72ce9134e66f
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Séparation des télémétries de développement, de test et de production
 
@@ -161,4 +160,3 @@ Si vous utilisez Visual Studio Team Services, vous pouvez [obtenir un marqueur d
 
 * [Ressources partagées pour plusieurs rôles](app-insights-monitor-multi-role-apps.md)
 * [Créer un initialiseur de télémétrie pour distinguer des variantes A|B](app-insights-api-filtering-sampling.md#add-properties)
-

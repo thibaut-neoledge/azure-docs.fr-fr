@@ -6,11 +6,11 @@
 
 # Procédure
 ## Integrate
-### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Services Cloud](cdn-cloud-service-with-cdn.md)
 ### [Stockage](cdn-create-a-storage-account-with-cdn.md)
 ### [Partage de ressources cross-origin](cdn-cors.md)
-### [Mapper un domaine personnalisé à CDN](cdn-map-content-to-custom-domain.md)
+### [Ajouter un domaine personnalisé à votre point de terminaison CDN](cdn-map-content-to-custom-domain.md)
 ### [Activer le protocole HTTPS pour un domaine personnalisé](cdn-custom-ssl.md)
 ## Optimiser le contenu
 ### [Vue d’ensemble de l’optimisation](cdn-optimization-overview.md)
@@ -19,9 +19,9 @@
 ####[Accélération de site dynamique](cdn-dynamic-site-acceleration.md)
  
 ## Gérer
-### [Gérer avec PowerShell](cdn-manage-powershell.md)
+### [Gérer avec Azure PowerShell](cdn-manage-powershell.md)
 ### Configurer la durée de vie
-#### [Web Apps/Services Cloud, ASP.NET ou contenu IIS](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Web Apps/Cloud Services, ASP.NET ou contenu IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Contenu de service BLOB de stockage](cdn-manage-expiration-of-blob-content.md)
 ### [Restreindre l’accès par pays](cdn-restrict-access-by-country.md)
 ### [Compression des fichiers pour améliorer les performances](cdn-improve-performance.md)
@@ -37,11 +37,14 @@
 ### [Assistance HTTP/2](cdn-http2.md)
 
 ## Analyser
-### [Analyser les modes d’utilisation](cdn-analyze-usage-patterns.md)
-### [Générer des rapports HTTP avancés](cdn-advanced-http-reports.md)
-### [Afficher les statistiques en temps réel](cdn-real-time-stats.md)
-### [Analyser les performances de nœuds Edge](cdn-edge-performance.md)
-### [Exporter les indicateurs de performance avec les journaux de diagnostic](cdn-log-analysis.md)
+### [Analyse des modèles d’utilisation CDN Azure](cdn-log-analysis.md)
+#### [Rapports principaux de Verizon](cdn-analyze-usage-patterns.md)
+#### [Rapports personnalisés de Verizon](cdn-verizon-custom-reports.md)
+#### [Journaux de diagnostics Azure](cdn-azure-diagnostic-logs.md)
+### Outils d’analyse pour Azure CDN de Verizon
+#### [Générer des rapports HTTP avancés](cdn-advanced-http-reports.md)
+#### [Afficher les statistiques en temps réel](cdn-real-time-stats.md)
+#### [Analyser les performances de nœuds Edge](cdn-edge-performance.md)
 
 ## Développement
 ### [.NET](cdn-app-dev-net.md)
@@ -53,7 +56,7 @@
 
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 09/21/2017
 ms.author: larryfr
+ms.openlocfilehash: 17059c5861962a56ed2011a8f8874fc23673ed68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 00f2ecbf0d8542741bd78dcfe2692e6627b1f3cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -34,6 +33,9 @@ Découvrez comment utiliser HDInsight avec un [réseau virtuel Azure](../virtual
 
 > [!WARNING]
 > Les informations contenues dans ce document nécessitent une compréhension de la gestion de réseau TCP/IP. Si vous n’êtes pas familiarisé avec la gestion de réseau TCP/IP, vous devez travailler en partenariat avec une personne connaissant le sujet avant d’apporter des modifications aux réseaux de production.
+
+> [!IMPORTANT]
+> Si vous recherchez des instructions pas à pas pour connecter HDInsight à votre réseau local en utilisant un réseau virtuel Azure, consultez le document [Connecter HDInsight à votre réseau local](connect-on-premises-network.md).
 
 ## <a name="planning"></a>Planification
 
@@ -669,7 +671,8 @@ Après avoir suivi ces étapes, vous pouvez vous connecter aux ressources du ré
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour un exemple de bout en bout de configuration de HDInsight pour se connecter à un réseau local, voir [Connecter HDInsight à un réseau local](./connect-on-premises-network.md).
-
+* Pour configurer des clusters Hbase dans des réseaux virtuels Azure, consultez [Créer des clusters HBase sur HDInsight dans Réseau virtuel Azure](./hdinsight-hbase-provision-vnet.md).
+* Pour configurer la géoréplication HBase, consultez [Configurer la réplication de cluster HBase dans les réseaux virtuels Azure](./hdinsight-hbase-replication.md).
 * Pour plus d’informations sur les réseaux virtuels Azure, voir [Vue d'ensemble de Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
 
 * Pour plus d’informations sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).

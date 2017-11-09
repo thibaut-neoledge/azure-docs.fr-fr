@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 820b73a5dbf9bb108e189313cf6ee2b924ab04c7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Visualisation et dépannage de travaux Stream Analytics
 Dans Stream Analytics, comme dans d’autres technologies de cloud, la résolution des problèmes implique parfois d’étudier la raison pour laquelle une tâche ne produit pas la sortie attendue (ou même aucune sortie). Dans cet esprit, Stream Analytics permet de visualiser une tâche de streaming. Il est également utile en tant qu’outil de modélisation pour aider les personnes ayant besoin de documenter tout leur travail.
@@ -46,5 +45,4 @@ Lorsque l’utilisateur souhaite consulter les étapes intermédiaires de sa req
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

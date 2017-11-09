@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Bonnes pratiques liées à StorSimple Virtual Array
 ## <a name="overview"></a>Vue d'ensemble
@@ -285,5 +284,4 @@ Il peut être nécessaire de déployer plusieurs baies virtuelles pour prendre e
 
 ## <a name="see-also"></a>Voir aussi
 Découvrez la [gestion de votre baie virtuelle StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) par le biais du service StorSimple Manager.
-
 

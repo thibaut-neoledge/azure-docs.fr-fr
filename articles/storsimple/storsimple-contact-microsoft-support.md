@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli;anbacker
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b0e763769564eaa191c78df05c008150c9a363f
 ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="contact-microsoft-support-for-your-storsimple"></a>Contactez le support technique Microsoft pour votre système StorSimple
 Si vous rencontrez des problèmes avec votre solution Microsoft Azure StorSimple, vous pouvez créer une demande de service pour le support technique. Lors d’une session en ligne avec votre ingénieur de support, vous devrez également démarrer une session de support sur votre appareil StorSimple. Cet article vous guide tout au long des procédures suivantes :
@@ -50,7 +49,7 @@ Procédez comme suit pour créer une demande de support.
    2. Sélectionnez un **Abonnement** dans la liste déroulante.
    3. Dans la liste déroulante **Service**, sélectionnez **StorSimple**. 
    4. Sélectionnez un **Plan de support** dans la liste déroulante. Vous avez besoin d'un plan de support payant pour bénéficier du support technique.
-4. Cliquez sur **Next**. La boîte de dialogue **Problème** s'affiche.
+4. Cliquez sur **Suivant**. La boîte de dialogue **Problème** s'affiche.
    
     ![Volet Nouvelle demande de support](./media/storsimple-contact-microsoft-support/Ibiza5a.png) 
 5. Dans la boîte de dialogue **Problème** , procédez comme suit :
@@ -62,7 +61,7 @@ Procédez comme suit pour créer une demande de support.
    5. Dans la zone **Date** , indiquez la date, l’heure et le fuseau horaire correspondant à la dernière occurrence de votre problème.
    6. Sous **Téléchargement du fichier**, cliquez sur l'icône du dossier pour accéder à votre package de support.
    7. Cochez la case **Partager les informations de diagnostic** .
-6. Cliquez sur **Next**. La boîte de dialogue **Coordonnées** s'affiche.
+6. Cliquez sur **Suivant**. La boîte de dialogue **Coordonnées** s'affiche.
    
     ![Volet Nouvelle demande de support](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
 7. Entrez vos informations de contact et sélectionnez une méthode de contact (téléphone ou courrier électronique). 
@@ -93,5 +92,4 @@ Procédez comme suit pour démarrer une session de support :
 > Vous pouvez désactiver l’accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 > 
 > 
-
 

@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/31/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54e6bf0953135855d4dda2bc83c8dc06212c6eb5
-ms.openlocfilehash: 6b3f6889c747e72ee1c592b1b0dfb1d03d700ad3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/03/2017
-
+ms.openlocfilehash: 98468e430902ae0ad02ff7b4db6350bf70e3cb27
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guide de prise en main de l’intégration d’Azure Active Directory avec les applications
 ## <a name="overview"></a>Vue d'ensemble
@@ -93,5 +92,4 @@ Si vous souhaitez ajouter votre application personnalisée à la galerie d’app
 
 ## <a name="see-also"></a>Voir aussi
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
 

@@ -12,16 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
+ms.openlocfilehash: f0cefab15a115719ea9c378546a7e6004bd06187
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="event-analysis-and-visualization-with-oms"></a>Analyse et visualisation d’événements avec OMS
 
 OMS (Operations Management Suite) est une collection de services de gestion liés à la surveillance et au diagnostic d’applications et de services hébergés dans le cloud. Pour obtenir une présentation plus détaillée d’OMS et de ce qu’il propose, lisez [Qu’est-ce qu’OMS ?](../operations-management-suite/operations-management-suite-overview.md)
@@ -32,11 +30,10 @@ Log Analytics collecte des données à partir de ressources gérées, notamment 
 
 Quand OMS est configuré, vous avez accès à un *espace de travail OMS* spécifique, à partir duquel les données peuvent être interrogées ou visualisées dans des tableaux de bord.
 
-Après réception des données par Log Analytics, OMS dispose de plusieurs *solutions de gestion* qui sont des solutions prépackagées permettant de surveiller les données entrantes, personnalisées pour plusieurs scénarios. Ces solutions incluent une solution *Service Fabric Analytics* et une solution *Conteneurs*, qui sont les deux solutions les plus appropriées pour les diagnostics et le suivi lors de l’utilisation des clusters Service Fabric. Il en existe aussi plusieurs autres qu’il est conseillé d’explorer. OMS permet également de créer des solutions personnalisées. Vous trouverez plus d’informations à ce sujet [ici](../operations-management-suite/operations-management-suite-solutions.md). Chaque solution que vous choisissez d’utiliser pour un cluster est configurée dans le même espace de travail OMS, avec Log Analytics. Les espaces de travail autorisent les tableaux de bord personnalisés et la visualisation de données, ainsi que les modifications des données que vous voulez collecter, traiter et analyser.
+Après réception des données par Log Analytics, OMS dispose de plusieurs *solutions de gestion* qui sont des solutions prépackagées permettant de surveiller les données entrantes, personnalisées pour plusieurs scénarios. Ces solutions incluent une solution *Service Fabric Analytics* et une solution *Conteneurs*, qui sont les deux solutions les plus appropriées pour les diagnostics et le suivi lors de l’utilisation des clusters Service Fabric. Il en existe aussi plusieurs autres qu’il est conseillé d’explorer. OMS permet également de créer des solutions personnalisées. Vous trouverez plus d’informations à ce sujet [ici](../operations-management-suite/operations-management-suite-solutions.md). Chaque solution que vous choisissez d’utiliser pour un cluster peut être configurée dans le même espace de travail OMS, avec Log Analytics. Les espaces de travail autorisent les tableaux de bord personnalisés et la visualisation de données, ainsi que les modifications des données que vous voulez collecter, traiter et analyser.
 
-## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>Configuration d’un espace de travail OMS avec la solution Service Fabric
-
-Il est recommandé d’inclure la solution Service Fabric dans votre espace de travail OMS, car elle fournit un tableau de bord utile qui montre les différents canaux de journaux entrants du niveau plateforme et application, ainsi que la possibilité d’interroger des journaux Service Fabric spécifiques. Voici à quoi ressemble une solution Service Fabric relativement simple, avec une seule application déployée sur le cluster :
+## <a name="setting-up-an-oms-workspace-with-the-service-fabric-analytics-solution"></a>Configuration d’un espace de travail OMS avec la solution Service Fabric Analytics
+Il est recommandé d’inclure la solution Service Fabric dans votre espace de travail OMS, car elle fournit un tableau de bord qui montre les différents canaux de journaux entrants du niveau plateforme et application, ainsi que la possibilité d’interroger des journaux Service Fabric spécifiques. Voici à quoi ressemble une solution Service Fabric relativement simple, avec une seule application déployée sur le cluster :
 
 ![Solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -44,7 +41,7 @@ Il existe deux façons d’approvisionner et de configurer un espace de travail 
 
 ### <a name="deploying-oms-using-a-resource-management-template"></a>Déploiement d’OMS à l’aide du modèle Resource Management
 
-Cette opération est effectuée pendant l’étape de création de clusters : lors du déploiement d’un cluster à l’aide d’un modèle Resource Manager, le modèle peut également créer un nouvel espace de travail OMS, lui ajouter la solution Service Fabric et le configurer pour lire des données provenant des tables de stockage appropriées.
+Lors du déploiement d’un cluster à l’aide d’un modèle Resource Manager, le modèle peut également créer un espace de travail OMS, lui ajouter la solution Service Fabric et le configurer pour lire des données provenant des tables de stockage appropriées.
 
 >[!NOTE]
 >Pour que cela fonctionne, l’option Diagnostics doit être activée pour que les tables de stockage Azure existent afin qu’OMS/Log Analytics puissent y lire des informations.
@@ -53,11 +50,33 @@ Vous trouverez [ici](https://azure.microsoft.com/resources/templates/service-fab
 
 ### <a name="deploying-oms-using-through-azure-marketplace"></a>Déploiement d’OMS à l’aide de la Place de marché Azure
 
-Si vous préférez ajouter un espace de travail OMS après avoir déployé un cluster, accédez à la Place de marché Azure et recherchez *« Service Fabric Analytics »*. Une seule ressource doit s’afficher dans la catégorie « Surveillance + gestion », comme ci-dessous :
+Si vous préférez ajouter un espace de travail OMS après avoir déployé un cluster, accédez à la Place de marché Azure et recherchez *« Service Fabric Analytics »*.
 
 ![SF Analytics OMS dans la Place de marché](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-Si vous cliquez sur **Créer**, vous devez spécifier un espace de travail OMS. Cliquez sur **Sélectionner un espace de travail**, puis sur **Créer un espace de travail**. Renseignez les entrées obligatoires. Ici, la seule exigence est que l’abonnement pour le cluster Service Fabric et celui pour l’espace de travail OMS soient identiques. Une fois vos entrées validées, votre espace de travail OMS est déployé en quelques minutes. Pendant que le déploiement se termine, la création du panneau de solution Service Fabric reste toujours ouverte. Vérifiez que le même espace de travail s’affiche sous *Espace de travail OMS*, puis appuyez sur **Créer** en bas pour ajouter la solution Service Fabric à l’espace de travail.
+* Cliquez sur **Créer**
+* Dans la fenêtre de création Service Fabric Analytics, cliquez sur **Sélectionner un espace de travail** pour le champ *Espace de travail OMS*, puis sur **Créer un espace de travail**. Renseignez les entrées obligatoires. Ici, la seule exigence est que l’abonnement pour le cluster Service Fabric et celui pour l’espace de travail OMS soient identiques. Une fois vos entrées validées, le déploiement de votre espace de travail OMS commence. Ce processus doit prendre quelques minutes seulement.
+* Une fois le déploiement terminé, cliquez une nouvelle fois sur **Créer** au bas de la fenêtre de création Service Fabric Analytics. Vérifiez que le nouvel espace de travail s’affiche sous *Espace de travail OMS*. Cette opération ajoute la solution à l’espace de travail que vous venez de créer.
+
+
+Bien que cette opération ajoute la solution à l’espace de travail, l’espace de travail doit néanmoins être connecté aux données de diagnostic provenant de votre cluster. Accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Vous devez voir s’afficher *ServiceFabric(\<nomEspacedetravailOMS\>)*.
+
+* Cliquez sur la solution pour accéder à sa page de présentation d’où vous pouvez modifier les paramètres de la solution et les paramètres de l’espace de travail ainsi qu’accéder au portail OMS.
+* Dans le menu de navigation gauche, cliquez sur **Journaux de comptes de stockage**, sous *Sources de données de l’espace de travail*.
+
+    ![Solution Service Fabric Analytics dans le portail](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-portal.png)
+
+* Dans la page *Journaux de compte de stockage*, cliquez sur **Ajouter** en haut pour ajouter les journaux de votre cluster à l’espace de travail.
+* Cliquez dans **Compte de stockage** pour ajouter le compte approprié créé dans votre cluster. Si vous avez utilisé le nom par défaut, le compte de stockage est nommé *sfdg\<nomGroupeRessources\>*. Vous pouvez également le confirmer en examinant le modèle Azure Resource Manager utilisé pour déployer votre cluster, en vérifiant la valeur utilisée pour `applicationDiagnosticsStorageAccountName`. Vous devrez peut-être également faire défiler vers le bas et cliquer sur **Charger plus** si le nom du compte n’est pas affiché. Cliquez sur le nom de compte de stockage approprié quand il s’affiche pour le sélectionner.
+* Ensuite, vous devrez spécifier le *Type de données*, qui doit être **Événements de Service Fabric**.
+* La *Source* doit avoir automatiquement pour valeur *WADServiceFabric\*EventTable*.
+* Cliquez sur **OK** pour connecter votre espace de travail aux journaux de votre cluster.
+
+    ![Ajouter des journaux de compte de stockage à OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+
+* Le compte doit maintenant apparaître dans le cadre des *journaux de compte de stockage* dans les sources de données de votre espace de travail.
+
+Vous avez ainsi maintenant ajouté la solution Service Fabric Analytics dans un espace de travail OMS Log Analytics qui est à présent correctement connecté à la plateforme de votre cluster et la table du journal des applications. Vous pouvez ajouter des sources supplémentaires à l’espace de travail de la même façon.
 
 ## <a name="using-the-oms-agent"></a>Utilisation de l’agent OMS
 
@@ -68,11 +87,11 @@ Le processus permettant d’effectuer cette opération est relativement simple 
 Les avantages de cette approche sont les suivants :
 
 * Données enrichies du côté des compteurs de performances et des indicateurs de performance.
-* Données faciles à configurer collectées à partir du cluster et modifiables sans avoir à redéployer vos applications ou le cluster, car les modifications apportées aux paramètres de l’agent peuvent être effectuées à partir de l’espace de travail OMS et réinitialiseront juste l’agent automatiquement. Pour configurer l’agent OMS afin de récupérer des compteurs de performance spécifiques, accédez à la **Page d’accueil de l’espace de travail > Paramètres > Données > Compteurs de performances Windows**, puis sélectionnez les données que vous voulez collecter.
+* Métriques faciles à configurer collectées à partir du cluster et sans avoir à mettre à jour la configuration de votre cluster. Les modifications apportées aux paramètres de l’agent peuvent être effectuées à partir du portail OMS et l’agent redémarre automatiquement pour correspondre à la configuration requise. Pour configurer l’agent OMS afin de récupérer des compteurs de performance spécifiques, accédez à la **Page d’accueil de l’espace de travail > Paramètres > Données > Compteurs de performances Windows**, puis sélectionnez les données que vous voulez collecter.
 * Les données s’affichent plus rapidement que si elles devaient être stockées avant d’être récupérées par OMS/Log Analytics.
-* La surveillance des conteneurs est beaucoup plus facile, car elle peut sélectionner les journaux Docker (stdout, stderror) et les statistiques (indicateurs de performance au niveau des conteneurs et des nœuds).
+* La surveillance des conteneurs est beaucoup plus facile, car elle peut sélectionner les journaux Docker (stdout, stderr) et les statistiques (métriques de performance au niveau des conteneurs et des nœuds)
 
-La principale considération ici est qu’étant donné qu’il s’agit d’un agent, il sera déployé sur votre cluster avec toutes vos applications. Par conséquent, l’impact sur les performances de vos applications sur le cluster est minimal.
+La principale considération ici est que, comme l’agent sera déployé sur votre cluster avec toutes vos applications, les performances de vos applications sur le cluster peuvent être affectées.
 
 ## <a name="monitoring-containers"></a>Surveillance des conteneurs
 
@@ -92,7 +111,7 @@ Cet article décrit les étapes requises pour configurer la surveillance de cont
 
 Pour configurer la solution Conteneurs dans votre espace de travail, vérifiez que l’agent OMS est déployé sur les nœuds de votre cluster en suivant les étapes mentionnées ci-dessus. Une fois le cluster prêt, déployez un conteneur dessus. N’oubliez pas que la première fois qu’une image de conteneur est déployée sur un cluster, plusieurs minutes peuvent être nécessaires pour télécharger l’image en fonction de sa taille.
 
-Dans la Place de marché Azure, recherchez *Conteneurs*, puis créez une ressource Conteneurs (sous la catégorie Surveillance + gestion).
+Sur la Place de marché Azure, recherchez *Solution de monitorage des conteneurs* et créez le résultat **Solution de monitorage des conteneurs** qui devrait s’afficher, sous la catégorie Monitorage + gestion.
 
 ![Ajout de la solution Conteneurs](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 

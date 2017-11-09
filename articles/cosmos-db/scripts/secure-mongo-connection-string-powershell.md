@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5dd4ab4b70cf7f33e2adf2f74bf95a3828ba8b20
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: e44e35cc7d11db48cd82e470ce8226b3c8cc220a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>Obtenir une chaîne de connexion Azure Cosmos DB pour les applications MongoDB à l’aide de PowerShell
 
 Cet exemple obtient une chaîne de connexion Azure Cosmos DB pour les applications MongoDB à l’aide de PowerShell. 
@@ -32,7 +30,7 @@ Cet exemple obtient une chaîne de connexion Azure Cosmos DB pour les applicatio
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-mongodb-connection-string/get-mongodb-connection-string.ps1?highlight=37-41 "Obtenir la chaîne de connexion MongoDB à partir d’un compte Azure Cosmos DB")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-mongodb-connection-string/get-mongodb-connection-string.ps1?highlight=37-41 "Get the MongoDB connection string from an Azure Cosmos DB account")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e86e4dcc39f9d34dc04afbdccb017d89969f548f
-ms.openlocfilehash: fade348a599c41a7f099e7bbd8b45a3b4ccbf910
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/11/2017
-
-
+ms.openlocfilehash: 5a89e9ba4376d0c4f49feb3783692e28a28902a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-azure-marketplace-payout-reports"></a>Présentation de vos rapports de paiement Azure Marketplace
 ## <a name="access-and-view-your-payout-reports"></a>Accéder à vos rapports de paiements et les consulter
@@ -109,4 +107,3 @@ Pour les autres requêtes de support, soumettez une demande d’assistance sur <
 [7]: ./media/marketplace-publishing-report-payout/financialdefinitions.png
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
-

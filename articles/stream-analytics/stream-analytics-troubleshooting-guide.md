@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: dcff312e4a282b15e76ea32aadb1981a496a2446
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Guide de dépannage pour Azure Stream Analytics
 
 Résoudre les problèmes liés à Azure Stream Analytics peut à première vue sembler relativement complexe. Suite à une longue collaboration avec les utilisateurs, nous avons créé ce guide pour vous aider à rationaliser le processus de dépannage et à y voir plus clair concernant vos entrées, vos sorties, vos requêtes et vos fonctions.
@@ -99,4 +97,3 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

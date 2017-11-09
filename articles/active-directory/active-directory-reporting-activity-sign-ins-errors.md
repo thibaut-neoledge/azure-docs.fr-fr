@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: 3b8653b3bddd8bf2ee01c2e68da763e803711633
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory
 
@@ -62,13 +61,14 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 | 50001| Le principal du service nommé X est introuvable dans le locataire nommé Y. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire. Il se peut également que le principal de la ressource soit introuvable dans le répertoire ou non valide.|
 | 50008| L’assertion SAML est manquante ou configurée de façon incorrecte dans le jeton.|
 | 50011| L’adresse de réponse est manquante, configurée de façon incorrecte ou bien elle ne correspond pas aux adresses de réponse configurées pour l’application.|
+| 50012| Un utilisateur a signalé une fraude lors de l’authentification multifacteur.|
 | 50053| Le compte est verrouillé, car l’utilisateur a essayé de se connecter un trop grand nombre de fois avec un ID d’utilisateur ou un mot de passe incorrects.|
 | 50054| Un ancien mot de passe est utilisé pour l’authentification.|
 | 50055| Mot de passe non valide, mot de passe arrivé à expiration entré.|
 | 50057| Le compte d’utilisateur est désactivé.|
 | 50058| Aucune information sur l’identité de l’utilisateur ne se trouve dans les informations d’identification indiquées ; l’utilisateur est introuvable dans le locataire ; une demande de connexion en mode silencieux a été envoyée, mais aucun utilisateur n’est connecté ou encore le service n’a pas pu authentifier l’utilisateur.|
-| 50074| Une authentification forte (second facteur) est requise.|
-| 50079| L’utilisateur doit s’inscrire pour l’authentification du second facteur.|
+| 50074| L’utilisateur n’a pas réussi la vérification de l’authentification multifacteur.|
+| 50079| L’utilisateur doit s’inscrire pour l’authentification du second facteur.|
 | 50126| Nom d’utilisateur ou mot de passe non valides, ou nom d’utilisateur ou mot de passe locaux non valides.|
 | 50131| Utilisation dans différentes erreurs d’accès conditionnel. Par exemple, état d’appareil Windows incorrect, demande bloquée en raison d’une activité suspecte, d’une stratégie d’accès et de décisions de stratégie de sécurité.|
 | 50133| La session n’est pas valide en raison de l’expiration ou de la modification récente du mot de passe.|
@@ -76,13 +76,14 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 | 65 001| L’application X n’est pas autorisée à accéder à l’application Y, ou l’autorisation a été révoquée. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation à l’administrateur du locataire pour agir au nom de l’application Y pour la ressource Z.|
 | 65005| La liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a retourné une demande incorrecte ou la ressource est introuvable.|
 | 70001| L’application nommée X est introuvable dans le locataire nommé Y. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre demande d’authentification au locataire incorrect.|
-| 80001| Agents d’authentification non disponibles.|
+| 80001| L’Agent d’authentification ne peut pas se connecter à Active Directory.|
 | 80002| La demande de validation du mot de passe de l’Agent d’authentification est arrivée à expiration.|
 | 80003| Réponse non valide reçue par l’Agent d’authentification.|
 | 80004| Nom d’utilisateur principal (UPN) incorrect utilisé dans la demande de connexion.|
 | 80005| Agent d’authentification : une erreur s’est produite.|
-| 80007| L’Agent d’authentification n’a pas pu se connecter à Active Directory.|
-| 80010| L’Agent d’authentification n’a pas pu déchiffrer le mot de passe.|
+| 80007| L’Agent d’authentification ne peut pas valider le mot de passe.|
+| 80010| L’Agent d’authentification ne peut pas déchiffrer le mot de passe.|
+| 80011| L’Agent d’authentification n’a pas pu récupérer la clé de déchiffrement.|
 | 81001| Le ticket Kerberos de l’utilisateur est trop volumineux.|
 | 81002| Impossible de valider le ticket Kerberos de l’utilisateur.|
 | 81003| Impossible de valider le ticket Kerberos de l’utilisateur.|
@@ -98,8 +99,8 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 
 
 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus, voir [Rapports d’activité des connexions dans le portail Azure Active Directory](active-directory-reporting-activity-sign-ins.md).
-
 

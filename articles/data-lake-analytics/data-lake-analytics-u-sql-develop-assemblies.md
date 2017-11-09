@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/30/2016
 ms.author: jejiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-u-sql-assemblies-for-azure-data-lake-analytics-jobs"></a>Développer des assemblys U-SQL pour des travaux Azure Data Lake Analytics
 Apprenez à convertir des fichiers code-behind and assemblys pour les utiliser et les réutiliser dans des travaux Data Lake Analytics. 

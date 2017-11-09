@@ -1,6 +1,6 @@
 ---
-title: "Exécution de l&quot;outil de planification de la capacité Hyper-V pour Site Recovery | Microsoft Docs"
-description: "Cet article décrit comment exécuter l&quot;outil de planification de la capacité Hyper-V pour Azure Site Recovery."
+title: "Outil de planification de la capacité Hyper-V pour Azure Site Recovery | Microsoft Docs"
+description: "Cet article décrit comment exécuter l'outil de planification de la capacité Hyper-V pour Azure Site Recovery."
 services: site-recovery
 documentationcenter: na
 author: rayne-wiselman
@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
-ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: db790f9dc56605b5b752e7ab797903e32b2fc675
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="run-the-hyper-v-capacity-planner-tool-for-site-recovery"></a>Exécution de l'outil de planification de la capacité Hyper-V pour Site Recovery
+# <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Outil de planification de la capacité Hyper-V pour Site Recovery
 
 Dans le cadre de votre déploiement Azure Site Recovery, vous devez déterminer les conditions requises de la réplication et vos besoins en bande passante. L’outil de planification de la capacité Hyper-V pour Site Recovery vous y aide pour la réplication des machines virtuelles Hyper-V.
 
@@ -135,4 +133,3 @@ Une fois que vous avez terminé la planification de la capacité, vous pouvez co
 * [Répliquer des machines virtuelles Hyper-V dans des clouds VMM vers Azure.](site-recovery-vmm-to-azure.md)
 * [Répliquer des machines virtuelles Hyper-V (sans VMM) dans Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Répliquer des machines virtuelles Hyper-V entre des sites VMM](site-recovery-vmm-to-vmm.md)
-

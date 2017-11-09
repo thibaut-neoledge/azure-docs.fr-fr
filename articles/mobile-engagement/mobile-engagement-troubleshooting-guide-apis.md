@@ -1,5 +1,5 @@
 ---
-title: "Guide de résolution des problèmes d&quot;Azure Mobile Engagement : les API"
+title: "Guide de résolution des problèmes d'Azure Mobile Engagement : les API"
 description: "Guides de dépannage pour Azure Mobile Engagement : les API"
 services: mobile-engagement
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>Guide de résolution des problèmes pour les problèmes d'API
 Les problèmes suivants sont des problèmes que vous pouvez rencontrer lorsque des administrateurs interagissent avec Azure Mobile Engagement via les API.
@@ -119,10 +119,4 @@ Les problèmes suivants sont des problèmes que vous pouvez rencontrer lorsque d
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

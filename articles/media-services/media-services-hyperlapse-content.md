@@ -1,6 +1,6 @@
 ---
 title: "Fichiers multimédias Hyperlapse avec Azure Media Hyperlapse | Microsoft Docs"
-description: "Azure Media Hyperlapse crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d&quot;un contenu de caméra à la première personne (first-person camera) ou d&quot;action. Cette rubrique explique comment utiliser Media Indexer."
+description: "Azure Media Hyperlapse crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d'un contenu de caméra à la première personne (first-person camera) ou d'action. Cette rubrique explique comment utiliser Media Indexer."
 services: media-services
 documentationcenter: 
 author: asolanki
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
 ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.lasthandoff: 03/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Fichiers multimédia hyperlapse avec Azure Media Hyperlapse
 Azure Media Hyperlapse est un processeur multimédia (MP) qui crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d'un contenu de caméra à la première personne (first-person camera) ou d'action.  L'équivalent cloud du [bureau Microsoft Research Hyperlapse Pro et Hyperlapse Mobile pour les applications téléphoniques](http://aka.ms/hyperlapse), Microsoft Hyperlapse pour Azure Media Services, utilise la mise à l'échelle massive de traitement de supports multimédia Azure Media Services pour une évolutivité horizontale et une mise en parallèle du traitement en bloc d'Hyperlapse.
@@ -36,7 +35,7 @@ Pour connaître les dernières mises à jour d'Azure Media Hyperlapse, consultez
 ## <a name="hyperlapse-an-asset"></a>Hyperlapse d'un élément multimédia
 Vous devez tout d'abord charger votre fichier d'entrée souhaité dans Azure Media Services.  Pour en savoir plus sur les concepts relatifs au chargement et à la gestion de contenu, lisez l' [article sur la gestion de contenu](media-services-portal-vod-get-started.md).
 
-### <a name="a-idconfigurationaconfiguration-preset-for-hyperlapse"></a><a id="configuration"></a>Configuration de la présélection pour Hyperlapse
+### <a id="configuration"></a>Configuration de la présélection pour Hyperlapse
 Une fois votre contenu dans votre compte Media Services, vous devez construire la présélection de votre configuration.  Le tableau suivant décrit les champs spécifiés par l'utilisateur :
 
 | Champ | Description |
@@ -75,7 +74,7 @@ Voici un exemple de fichier de configuration conforme au format XML et JSON :
         }
     }
 
-### <a name="a-idsamplecodea-microsoft-hyperlapse-with-the-ams-net-sdk"></a><a id="sample_code"></a> Microsoft Hyperlapse avec le kit de développement logiciel .NET
+### <a id="sample_code"></a> Microsoft Hyperlapse avec le kit de développement logiciel .NET
 La méthode suivante charge un fichier multimédia en tant qu'élément multimédia et crée une tâche avec le processeur multimédia Azure Media Hyperlapse.
 
 > [!NOTE]
@@ -199,7 +198,7 @@ La méthode suivante charge un fichier multimédia en tant qu'élément multimé
         return processor;
     }
 
-### <a name="a-idfiletypesasupported-file-types"></a><a id="file_types"></a>Types de fichiers pris en charge
+### <a id="file_types"></a>Types de fichiers pris en charge
 * MP4 
 * MOV
 * WMV
@@ -214,5 +213,4 @@ La méthode suivante charge un fichier multimédia en tant qu'élément multimé
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

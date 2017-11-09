@@ -1,9 +1,9 @@
 ---
-title: "Stocker des données non structurées à l’aide d’Azure Functions et de Cosmos DB"
+title: "Stocker des données non structurées à l’aide d’Azure Cosmos DB et d’Azure Functions | Microsoft Docs"
 description: "Stocker des données non structurées à l’aide d’Azure Functions et de Cosmos DB"
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -14,17 +14,16 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Stocker des données non structurées à l’aide d’Azure Functions et de Cosmos DB
+# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Stocker des données non structurées à l’aide d’Azure Cosmos DB et d’Azure Functions
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) est un excellent moyen de stocker des données JSON et non structurées. Combiné à Azure Functions, Cosmos DB rend le stockage de données simple et rapide avec beaucoup moins de code que pour stocker des données dans une base de données relationnelle.
 
@@ -54,10 +53,10 @@ Pour suivre ce didacticiel :
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nom du paramètre de document** | taskDocument | Nom qui fait référence à l’objet Cosmos DB dans le code. |
     | **Nom de la base de données** | taskDatabase | Nom de la base de données pour l’enregistrement des documents. |
-    | **Nom de la collection** | TaskCollection | Nom de la collection de bases de données Cosmos DB. |
+    | **Nom de la collection** | TaskCollection | Nom de la collection de bases de données. |
     | **Si la valeur est true, crée la collection et la base de données Cosmos DB** | Activé | La collection n’existe pas, vous devez la créer. |
 
-4. Sélectionnez **Nouveau** en regard du libellé **Connexion au compte Cosmos DB** et sélectionnez **+ Créer**. 
+4. Sélectionnez **Nouveau** en regard de **Connexion de document Azure Cosmos DB**, puis sélectionnez **+ Créer**. 
 
 5. Utilisez les paramètres **Nouveau compte** comme spécifié dans le tableau : 
 
@@ -65,13 +64,13 @@ Pour suivre ce didacticiel :
 
     | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Identifiant** | Nom de base de données | ID unique de la base de données Cosmos  |
+    | **Identifiant** | Nom de base de données | ID unique de la base de données Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | Sélectionnez l’API de base de données du document.  |
     | **Abonnement** | Abonnement Azure | Abonnement Azure  |
     | **Groupe de ressources** | myResourceGroup |  Utilisez le groupe de ressources existant qui contient votre application de fonction. |
     | **Emplacement**  | WestEurope | Sélectionnez un emplacement près de votre application de fonction ou d’autres applications qui utilisent les documents stockés.  |
 
-6. Cliquez sur **OK** pour créer la base de données. La création de la base de données peut prendre quelques minutes. Une fois la base de données créée, la chaîne de connexion de base de données est stockée en tant que paramètre d’application de fonction. Le nom de ce paramètre d’application est inséré dans **Connexion au compte Cosmos DB**. 
+6. Cliquez sur **OK** pour créer la base de données. La création de la base de données peut prendre quelques minutes. Une fois la base de données créée, la chaîne de connexion de base de données est stockée en tant que paramètre d’application de fonction. Le nom de ce paramètre d’application est inséré dans **Connexion au compte Azure Cosmos DB**. 
  
 8. Une fois la chaîne de connexion définie, sélectionnez **Enregistrer** pour créer la liaison.
 
@@ -129,11 +128,13 @@ Cet exemple de code lit les chaînes de requête HTTP et les assigne aux champs 
 
     ![Rechercher le service Azure Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Sélectionnez la base de données que vous avez créée, puis sélectionnez **Explorateur de données**. Développez les nœuds **Collections**, sélectionnez le nouveau document et confirmez que le document contient des valeurs de votre chaîne de requête, ainsi que des métadonnées supplémentaires. 
+2. Sélectionnez votre compte Azure Cosmos DB, puis sélectionnez **Explorateur de données**. 
+
+3. Développez les nœuds **Collections**, sélectionnez le nouveau document et confirmez que le document contient des valeurs de votre chaîne de requête, ainsi que des métadonnées supplémentaires. 
 
     ![Vérifiez l’entrée Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-Vous êtes parvenu à ajouter une liaison à votre déclencheur HTTP qui stocke des données non structurées dans une base de données Cosmos DB.
+Vous êtes parvenu à ajouter une liaison à votre déclencheur HTTP qui stocke des données non structurées dans une base de données Azure Cosmos DB.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
@@ -142,4 +143,3 @@ Vous êtes parvenu à ajouter une liaison à votre déclencheur HTTP qui stocke 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
 Pour en savoir plus sur la liaison vers une base de données Cosmos DB, consultez la page [Liaisons Cosmos DB Azure Functions](functions-bindings-documentdb.md).
-

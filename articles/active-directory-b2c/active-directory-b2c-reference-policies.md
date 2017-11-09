@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: sama
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: daad3af089afdf76b930053728bb11a5cf4c2a92
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: stratégies intégrées
 
@@ -105,5 +104,4 @@ La stratégie de connexion est recommandée si vous n’avez pas besoin de local
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md)
 * [Désactiver la vérification par courrier électronique lors de l’inscription du consommateur](active-directory-b2c-reference-disable-ev.md)
-
 

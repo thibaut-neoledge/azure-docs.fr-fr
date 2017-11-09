@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: mikkelhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: eaf1daf8d9f973fe82ba9e82c60a2a82f2681786
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 671cc9b0f7b7b37fcf5b052f7e34bc98e66b2838
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>Gestion des paramètres d’application pour plusieurs environnements
 Vous pouvez créer des clusters Service Fabric comportant n’importe quel nombre d’ordinateurs compris entre un et plusieurs milliers. Bien que les fichiers binaires d’application puissent s’exécuter sans modification dans ce large éventail d’environnements, vous souhaiterez certainement configurer l’application différemment, selon le nombre d’ordinateurs sur lesquels vous la déployez.
@@ -227,4 +226,3 @@ Pour en savoir plus sur certains des principaux concepts abordés dans cette rub
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
-

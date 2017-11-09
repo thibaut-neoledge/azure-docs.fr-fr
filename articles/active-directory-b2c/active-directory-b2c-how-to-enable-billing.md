@@ -12,13 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Liaison d’un abonnement Azure à un client Azure B2C pour payer les frais d’utilisation
 
@@ -77,4 +75,3 @@ Lorsque vous cliquez sur la ressource Client B2C, vous pouvez :
 Une fois ces étapes effectuées pour chacun de vos clients B2C, votre abonnement Azure est facturé conformément aux détails de votre contrat Azure Direct ou Enterprise.
 - Consulter l’utilisation et la facturation dans l’abonnement Azure sélectionné
 - Consulter les rapports détaillés d’utilisation quotidienne à l’aide de [l’API Usage Reporting](active-directory-b2c-reference-usage-reporting-api.md)
-

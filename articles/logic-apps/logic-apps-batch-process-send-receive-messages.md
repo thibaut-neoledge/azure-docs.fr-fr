@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
+ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 480ffce5dbe7c25181bb0ba5639de884e98ff4e6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/14/2017
 ---
-
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Envoyer, recevoir et traiter par lots des messages dans les applications logiques
 
 Pour traiter des groupes de messages, vous pouvez envoyer des éléments de données, ou des messages, vers un *lot*, puis traiter ce lot. Cette méthode est utile lorsque vous souhaitez regrouper les éléments de données d’une certaine manière et les traiter ensemble. 
@@ -62,13 +60,22 @@ Les applications logiques expéditrices doivent savoir où envoyer les élément
 3. Fournissez un nom pour le lot, puis spécifiez des critères pour son déclenchement, par exemple :
 
    * **Nom du lot** : nom utilisé pour identifier le lot (« TestBatch » dans cet exemple).
+   * **Critères de déclenchement** : critères de déclenchement du lot, liés au nombre de messages, à la planification ou aux deux.
+   
+     ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+
    * **Nombre de messages** : nombre de messages devant être contenus dans un lot avant le déclenchement du traitement (« 5 » dans cet exemple).
 
-   ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
+     ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
 
-4. Ajoutez une autre action qui envoie un e-mail lorsque le lot est déclenché. Chaque fois que le lot atteint cinq éléments, l’application logique envoie un e-mail.
+   * **Planification** : planification de lancement du traitement du lot, « toutes les cinq minutes » dans cet exemple.
 
-   1. Sous le déclencheur Lot, choisissez **+ Nouvelle étape** > **Ajouter une action**.
+     ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+
+
+4. Ajoutez une autre action qui envoie un e-mail lorsque le lot est déclenché. Chaque fois que le lot atteint cinq éléments ou dépasse cinq minutes, l’application logique envoie un e-mail.
+
+   1. Sous le déclencheur de lot, sélectionnez **+ Nouvelle étape** > **Ajouter une action**.
 
    2. Dans la zone de recherche, entrez « e-mail » comme filtre.
    Sélectionnez un connecteur de messagerie en fonction de votre fournisseur de messagerie.
@@ -108,6 +115,10 @@ Les applications logiques expéditrices doivent savoir où envoyer les élément
 7.  Maintenant que vous avez créé l’application logique réceptrice de lots, enregistrez-la.
 
     ![Enregistrer votre application logique](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > Une partition a une limite de 5 000 messages ou 80 Mo. Si l’une des conditions est remplie, le lot peut être libéré, même si la condition définie par l’utilisateur n’est pas remplie.
+
 
 <a name="batch-sender"></a>
 
@@ -194,4 +205,3 @@ Votre application logique BatchSender s’exécute chaque minute, génère un no
 * [Créer des définitions d’application logique à l’aide de JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Créer une application sans serveur dans Visual Studio avec Azure Logic Apps et Azure Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Gestion des exceptions et journalisation des erreurs pour les applications logiques](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-

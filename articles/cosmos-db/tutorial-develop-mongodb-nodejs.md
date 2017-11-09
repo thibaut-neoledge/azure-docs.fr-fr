@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: c6d31816b5919afb2cc67bc42321422183ab30df
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB 
 
@@ -58,4 +57,3 @@ Vous pouvez maintenant passer à la partie suivante du didacticiel afin de crée
 
 > [!div class="nextstepaction"]
 > [Créer une application Node.js Express avec Angular CLI](tutorial-develop-mongodb-nodejs-part2.md)
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivi des modifications apportées aux logiciels dans votre environnement grâce à la solution de suivi des modifications
 
@@ -109,7 +108,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 Le tableau suivant indique la fréquence de collecte de données selon les types de modification.
 
-| **type de modification** | **frequency** | **L’agent** **envoie-t-il** **les différences lorsqu’il en détecte ?** |
+| **type de modification** | **frequency** | **L’agent****envoie-t-il****les différences lorsqu’il en détecte ?** |
 | --- | --- | --- |
 | Registre Windows | 50 minutes | Non |
 | Fichier Windows | 30 minutes | Oui. Une capture instantanée est envoyée si aucune modification n’est relevée dans les 24 heures. |
@@ -184,4 +183,3 @@ Vous pouvez afficher les modifications apportées à votre infrastructure, puis 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [recherches de journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.
-

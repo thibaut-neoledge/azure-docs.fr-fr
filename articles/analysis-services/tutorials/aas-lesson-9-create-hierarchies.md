@@ -4,7 +4,7 @@ description:
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d628dc621335acf231342a6d9186079de16e85f4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 28e4e24f5706e88ede25060d5459617befd4aea9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-9-create-hierarchies"></a>Leçon 9 : Créer des hiérarchies
 
@@ -85,4 +84,3 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 [Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md). 
   
   
-

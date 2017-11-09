@@ -1,6 +1,6 @@
 ---
-title: View public IP address consumption in Azure Stack | Microsoft Docs
-description: Administrators can view the consumption of public IP addresses in a region
+title: "Afficher la consommation d’adresses IP publiques dans Azure Stack | Microsoft Docs"
+description: "Les administrateurs peuvent afficher la consommation d’adresses IP publiques dans une région"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -12,54 +12,56 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/18/2017
+ms.date: 9/25/2017
 ms.author: scottnap
+ms.openlocfilehash: 7651565eebf6272f307a4ce4790ca19b41bfa826
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 6b7da3c1b4e9bcaa302d4c763eb73d0dd1832124
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-public-ip-address-consumption-in-azure-stack"></a>View public IP address consumption in Azure Stack
-As a cloud administrator, you can view the number of public IP addresses that have been allocated to tenants, the number of public IP addresses that are still available for allocation, and the percentage of public IP addresses that have been allocated in that location.
+# <a name="view-public-ip-address-consumption-in-azure-stack"></a>Afficher la consommation d’adresses IP publiques dans Azure Stack
 
-The **Public IP pools usage** tile shows the total number of public IP addresses that have been consumed across all public IP address pools on the fabric, whether they have been used for tenant IaaS VM instances, fabric infrastructure services, or public IP address resources that were explicitly created by tenants.
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-The purpose of this tile is to give Azure Stack administrators a sense of the overall number of public IP addresses that have been consumed in this location. This helps administrators determine whether they are running low on this resource.
+Si vous êtes un administrateur cloud, vous pouvez afficher le nombre d’adresses IP publiques qui ont été allouées aux locataires, le nombre d’adresses IP publiques qui sont encore disponibles pour l’allocation et le pourcentage d’adresses IP publiques qui ont été allouées à cet emplacement.
 
-On the **Resource providers**, **Network** blade, the **Public IP addresses** menu item under **Tenant Resources** lists only those public IP addresses that have been *explicitly created by tenants*. As such, the number of **Used** public IP addresses on the **Public IP pools usage** tile is always different from (larger than) the number on the **Public IP Addresses** tile under **Tenant Resources**.
+La vignette **Utilisation des pools d’adresses IP publiques** affiche le nombre total d’adresses IP publiques qui ont été consommées dans tous les pools d’adresses IP publiques de la structure fabric, si elles ont été utilisées pour des instances de machine virtuelle IaaS du locataire, des services d’infrastructure fabric ou des ressources d’adresse IP publique créées explicitement par les locataires.
 
-## <a name="view-the-public-ip-address-usage-information"></a>View the public IP address usage information
-To view the total number of public IP addresses that have been consumed in the region:
+L’objectif de cette vignette est de donner aux administrateurs Azure Stack une idée du nombre total d’adresses IP publiques qui ont été consommées dans cet emplacement. Cela leur permet de déterminer si cette ressource est insuffisante.
 
-1. In the Azure Stack administrator portal, click **More services**, under **Administrative Resources**, click **Resource providers**.
-2. From the list of **Resource Providers**, select **Network**.
-3. The **Network** blade displays the **Public IP pools usage** tile in the **Overview** section.
+Dans le panneau **Fournisseurs de ressources**, **Réseau**, l’élément de menu **Adresses IP publiques** sous **Ressources de locataire** répertorie uniquement les adresses IP publiques qui ont été *explicitement créées par les locataires*. Par conséquent, le nombre d’adresses IP publiques **Utilisées** dans la vignette **Utilisation des pools d’adresses IP publiques** est toujours différent (supérieur) par rapport au nombre de la vignette **Adresses IP publiques** sous **Ressources de locataire**.
 
-![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+## <a name="view-the-public-ip-address-usage-information"></a>Afficher les informations d’utilisation d’adresses IP publiques
+Pour afficher le nombre total d’adresses IP publiques qui ont été consommées dans la région :
 
-Keep in mind that the **Used** number represents the number of public IP addresses from all public IP address pools in that location that are assigned. The **Free** number represents the number of public IP addresses from all public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in all public IP address pools in that location.
+1. Dans le portail d’administration Azure Stack, cliquez sur **Autres services**, sous **Ressources administratives**, cliquez sur **Fournisseurs de ressources**.
+2. Dans la liste des **Fournisseurs de ressources**, sélectionnez **Réseau**.
+3. Le panneau **Réseau** affiche la vignette **Utilisation des pools d’adresses IP publiques** dans la section **Vue d’ensemble**.
 
-## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>View the public IP addresses that were created by tenant subscriptions
-To see a list of public IP addresses that were explicitly created by tenant subscriptions in a specific region, click **Public IP addresses** under **Tenant Resources**.
+![Panneau Fournisseur de ressources réseau](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
-![Tenant public IP addresses](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+N’oubliez pas que le nombre sous **Utilisées** représente le nombre d’adresses IP publiques de tous les pools d’adresses IP publiques de cet emplacement qui sont affectées. Le nombre sous **Libres** représente le nombre d’adresses IP publiques de tous les pools d’adresses IP publiques qui n’ont pas été affectées et sont encore disponibles. Le nombre sous **% utilisé** représente le nombre d’adresses utilisées ou affectées en pourcentage du nombre total d’adresses IP publiques dans tous les pools d’adresses IP publiques de cet emplacement.
 
-You might notice that some public IP addresses that have been dynamically allocated appear in the list but do not have an address associated with them yet. This is because the address resource has been created in the Network Resource Provider, but not in the Network Controller yet.
+## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Afficher les adresses IP publiques créées par des abonnements de locataire
+Pour afficher la liste des adresses IP publiques créées explicitement par des abonnements de locataire dans une région spécifique, cliquez sur **Adresses IP publiques** sous **Ressources de locataire**.
 
-The Network Controller does not assign an address to this resource until it is actually bound to an interface, a network interface card (NIC), a load balancer, or a virtual network gateway. When the public IP address is bound to an interface, the Network Controller allocates an IP address to it, and it appears in the **Address** field.
+![Adresses IP publiques de locataire](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
-## <a name="view-the-public-ip-address-information-summary-table"></a>View the public IP address information summary table
-There are a number of different cases in which public IP addresses are assigned that determine whether the address appears in one list or another.
+Notez que certaines adresses IP publiques qui ont été allouées dynamiquement apparaissent dans la liste, mais n’ont pas encore d’adresse associée. C’est parce que la ressource d’adresse a été créée dans le Fournisseur de ressources réseau, mais pas encore dans le contrôleur de réseau.
 
-| **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
+Le contrôleur de réseau n’affecte pas d’adresse à cette ressource tant qu’elle n’est pas réellement liée à une interface, une carte d’interface réseau, un équilibreur de charge ou une passerelle de réseau virtuel. Quand l’adresse IP publique est liée à une interface, le contrôleur de réseau lui alloue une adresse IP qui apparaît alors dans le champ **Adresse**.
+
+## <a name="view-the-public-ip-address-information-summary-table"></a>Afficher le tableau récapitulatif des informations d’adresses IP publiques
+Quand une adresse IP publique est affectée, elle apparaît dans une liste ou dans l’autre selon les cas.
+
+| **Cas d’affectation d’adresses IP publiques** | **Apparaît dans le récapitulatif d’utilisation** | **Apparaît dans la liste d’adresses IP publiques du locataire** |
 | --- | --- | --- |
-| Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) |No |Yes |
-| Dynamic public IP address assigned to an NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a tenant NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a fabric infrastructure service endpoint. |Yes |No |
-| Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. |Yes |No |
+| Adresse IP publique dynamique non encore affectée à une carte réseau ou un équilibreur de charge (temporaire) |Non |Oui |
+| Adresse IP publique dynamique affectée à une carte réseau ou un équilibreur de charge. |Oui |Oui |
+| Adresse IP publique statique affectée à une carte réseau ou un équilibreur de charge du locataire. |Oui |Oui |
+| Adresse IP publique statique affectée à un point de terminaison de service d’infrastructure fabric. |Oui |Non |
+| Adresse IP publique implicitement créée pour des instances de machine virtuelle IaaS et utilisée pour les règles NAT de trafic sortant sur le réseau virtuel. Ces adresses IP sont créées en arrière-plan chaque fois qu’un locataire crée une instance de machine virtuelle pour que les machines virtuelles puissent envoyer des informations sur Internet. |Oui |Non |
 
-## <a name="next-steps"></a>Next steps
-[Manage Storage Accounts in Azure Stack](azure-stack-manage-storage-accounts.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Gérer les comptes de stockage dans Azure Stack](azure-stack-manage-storage-accounts.md)

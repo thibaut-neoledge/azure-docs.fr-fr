@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Chiffrement des données dans Azure Data Lake Store
 
 Le chiffrement dans Azure Data Lake Store vous permet de protéger vos données, de mettre en œuvre des stratégies de sécurité d’entreprise et de répondre aux exigences de conformité réglementaire. Cet article fournit une vue d’ensemble de la conception et présente certains aspects techniques de la mise en œuvre.
@@ -52,8 +50,8 @@ Data Lake Store propose deux modes de gestion des clés de chiffrement principal
 
 Les deux modes de gestion de la clé de chiffrement principale sont les suivants :
 
-*    Clés gérées par le service
-*    Clés gérées par le client
+*   Clés gérées par le service
+*   Clés gérées par le client
 
 Dans ces deux modes, la clé de chiffrement principale est sécurisée en la stockant dans Azure Key Vault. Key Vault est un service hautement sécurisé entièrement géré sur Azure qui peut être utilisé pour protéger les clés cryptographiques. Pour plus d’informations, consultez [Key Vault](https://azure.microsoft.com/services/key-vault).
 
@@ -74,8 +72,8 @@ Hormis la différence entre l’utilisateur qui gère la MEK et l’instance Key
 
 Il est important de se rappeler ce qui suit lors du choix du mode des clés de chiffrement principales :
 
-*    Vous pouvez choisir d’utiliser des clés gérées par le client ou des clés gérées par le service au moment de la configuration d’un compte Data Lake Store.
-*    Une fois qu’un compte Data Lake Store a été configuré, le mode ne peut pas être modifié.
+*   Vous pouvez choisir d’utiliser des clés gérées par le client ou des clés gérées par le service au moment de la configuration d’un compte Data Lake Store.
+*   Une fois qu’un compte Data Lake Store a été configuré, le mode ne peut pas être modifié.
 
 ### <a name="encryption-and-decryption-of-data"></a>Chiffrement et déchiffrement des données
 
@@ -92,20 +90,20 @@ Le schéma suivant illustre ces concepts :
 ![Clés dans le chiffrement des données](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudo-algorithme lorsqu’un fichier doit être déchiffré :
-1.    Vérifiez si la DEK du compte Data Lake Store est mise en cache et prête à être utilisée.
-    - Si ce n’est pas le cas, lisez alors la DEK chiffrée à partir d’un stockage permanent et envoyez-la vers Key Vault pour être déchiffrée. Mettez la clé DEK déchiffrée en cache dans la mémoire. Elle est maintenant prête à utiliser.
-2.    Pour chaque bloc de données du fichier :
+1.  Vérifiez si la DEK du compte Data Lake Store est mise en cache et prête à être utilisée.
+    - Si ce n’est pas le cas, lisez alors la DEK chiffrée à partir d’un stockage permanent et envoyez-la vers Key Vault pour être déchiffrée. Mettez la DEK déchiffrée en mémoire cache. Elle est maintenant prête à utiliser.
+2.  Pour chaque bloc de données du fichier :
     - Lire le bloc de données chiffré sur un stockage permanent.
     - Générer la BEK à partir de la DEK et du bloc de données chiffré.
     - Utiliser la BEK pour déchiffrer des données.
 
 
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudo-algorithme lorsqu’un bloc de données doit être chiffré :
-1.    Vérifiez si la DEK du compte Data Lake Store est mise en cache et prête à être utilisée.
+1.  Vérifiez si la DEK du compte Data Lake Store est mise en cache et prête à être utilisée.
     - Si ce n’est pas le cas, lisez alors la DEK chiffrée à partir d’un stockage permanent et envoyez-la vers Key Vault pour être déchiffrée. Mettez la DEK déchiffrée en mémoire cache. Elle est maintenant prête à utiliser.
-2.    Générez une BEK unique pour le bloc de données à partir de la DEK.
-3.    Chiffrez le bloc de données avec la BEK à l’aide du chiffrement AES-256.
-4.    Stockez le bloc de données chiffré sur un stockage permanent.
+2.  Générez une BEK unique pour le bloc de données à partir de la DEK.
+3.  Chiffrez le bloc de données avec la BEK à l’aide du chiffrement AES-256.
+4.  Stockez le bloc de données chiffré sur un stockage permanent.
 
 > [!NOTE] 
 > Pour des raisons de performances, la DEK est temporairement mise en mémoire cache, puis est immédiatement effacée. Sur un support permanent, elle est toujours stockée chiffrée par la MEK.
@@ -127,17 +125,16 @@ Notez que si vous utilisez les options par défaut pour le chiffrement, vos donn
 
     ![Capture d’écran de Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.    Sélectionnez la clé associée à votre compte Data Lake Store et créez une nouvelle version de cette clé. Notez que pour le moment Data Lake Store prend uniquement en charge la rotation des clés vers une nouvelle version d’une clé. Il ne prend en charge la rotation vers une autre clé.
+3.  Sélectionnez la clé associée à votre compte Data Lake Store et créez une nouvelle version de cette clé. Notez que pour le moment Data Lake Store prend uniquement en charge la rotation des clés vers une nouvelle version d’une clé. Il ne prend en charge la rotation vers une autre clé.
 
    ![Capture d’écran de la fenêtre Clés, avec Nouvelle version en surbrillance](./media/data-lake-store-encryption/keynewversion.png)
 
-4.    Accédez au compte de stockage Data Lake Store et sélectionnez **Chiffrement**.
+4.  Accédez au compte de stockage Data Lake Store et sélectionnez **Chiffrement**.
 
     ![Capture d’écran de la fenêtre du compte de stockage Data Lake Store, avec Chiffrement en surbrillance](./media/data-lake-store-encryption/select-encryption.png)
 
-5.    Un message vous informe qu’une nouvelle version de clé de la clé est disponible. Cliquez sur **Rotation de clé** pour mettre à jour la clé vers la nouvelle version.
+5.  Un message vous informe qu’une nouvelle version de clé de la clé est disponible. Cliquez sur **Rotation de clé** pour mettre à jour la clé vers la nouvelle version.
 
     ![Capture d’écran de la fenêtre Data Lake Store avec le message et Rotation de clé en surbrillance](./media/data-lake-store-encryption/rotatekey.png)
 
 Cette opération doit prendre moins de deux minutes et aucune interruption de service due à la rotation des clés n’est attendue. Une fois l’opération terminée, la nouvelle version de la clé est utilisée.
-

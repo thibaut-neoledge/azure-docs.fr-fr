@@ -10,14 +10,12 @@ ms.date: 05/17/2017
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
 ms.openlocfilehash: e4f231c1f9b903d6cc7f2b062b30d2a072be8493
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Travailler dans l’écosystème Hadoop sur HDInsight à partir d’un ordinateur Windows
 
 Découvrez plus d’informations sur les options de développement et de gestion sur le PC Windows pour travailler dans l’écosystème Hadoop sur HDInsight. 
@@ -87,7 +85,7 @@ Si vous rencontrez une situation où vous devez utiliser un outil ou une technol
 
 * **Bash (bêta) sur Windows 10** fournit un sous-système Linux sur Windows. Bash vous permet d’exécuter directement des utilitaires Linux sans avoir à gérer une installation Linux dédiée. [Installer et exécuter la version bêta de Bash sur Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Docker pour Windows** fournit un accès à de nombreux outils basés sur Linux et peut être exécuté directement à partir de Windows. Par exemple, vous pouvez utiliser Docker pour exécuter le client Beeline pour Hive directement depuis Windows. Vous pouvez également utiliser Docker pour exécuter un notebook Jupyter local et vous connecter à distance à Spark sur HDInsight. [Bien démarrer avec Docker pour Windows](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](http://mobaxterm.mobatek.net/)**  vous permet de parcourir graphiquement le système de fichiers du cluster via une connexion SSH.
+* **[MobaXTerm](http://mobaxterm.mobatek.net/)** vous permet de parcourir graphiquement le système de fichiers du cluster via une connexion SSH.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous êtes novice dans l’utilisation de clusters Linux, consultez les articles suivants :

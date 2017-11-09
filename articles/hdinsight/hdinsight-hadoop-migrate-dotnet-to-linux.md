@@ -14,14 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: df931d0f76498506cfc946501e4d385d0dfead80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6ad188fb752474ff5c7d8a3fb9d609eefe8c7a9a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migration de solutions .NET pour HDInsight sous Windows vers HDInsight sous Linux
 
@@ -55,7 +54,7 @@ L’[Analyseur de portabilité .NET](https://marketplace.visualstudio.com/items?
     ![Boîte de dialogue des résultats de l’analyseur de portabilité](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]
-> L’analyseur ne peut pas détecter tous les problèmes liés à votre solution. Par exemple, un chemin de fichier de `c:\temp\file.txt` est considéré comme OK, car Mono s’exécute sous Windows et le chemin d’accès est valide dans ce contexte. Toutefois, le chemin d’accès n’est pas valide sur une plateforme Linux.
+> L’analyseur ne peut pas détecter tous les problèmes liés à votre solution. Par exemple, le chemin d’accès `c:\temp\file.txt` est considéré comme correct si Mono fonctionne sous Windows. Il n’est pas valide sur une plateforme Linux.
 
 ## <a name="manual-portability-analysis"></a>Analyse de portabilité manuelle
 
@@ -77,6 +76,6 @@ Pour plus d’informations sur l’accès aux journaux, consultez les documents 
 
 * [Utilisation de C# avec MapReduce dans HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Utilisation des fonctions définies par l’utilisateur C# avec Hive et Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Utilisation des fonctions C# définies par l’utilisateur avec Hive et Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [Développement de topologies C# pour Storm sur HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)

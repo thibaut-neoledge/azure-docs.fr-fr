@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2d0794781946195fc6fbab413299012e6949a4bc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: d33babd331570624ca6a0fc967c79dbc467a1b40
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="active-directory-conditional-access-device-policies-for-office-365-services"></a>Stratégies d’accès conditionnel d’Active Directory basées sur les appareils pour les services Office 365
 
@@ -47,4 +46,3 @@ Quand des utilisateurs locaux sont sur le point d’être authentifiés, les ser
 ## <a name="next-steps"></a>Étapes suivantes
 
 *   Pour obtenir des réponses aux questions courantes, consultez [FAQ sur l’accès conditionnel d’Azure Active Directory](active-directory-conditional-faqs.md).
-

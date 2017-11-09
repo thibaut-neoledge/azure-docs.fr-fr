@@ -3,7 +3,7 @@ title: "Héberger plusieurs sites sur la passerelle Azure Application Gateway | 
 description: "Cette page fournit des instructions pour configurer une passerelle Application Gateway Azure pour l’hébergement de plusieurs applications web sur la même passerelle avec le portail Azure."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
@@ -13,14 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 84bd62ae17b7f7ba4cd815ef1f9880679607ebce
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
-
-
+ms.author: davidmu
+ms.openlocfilehash: 28a7fcb3e08a9c4b6a27e9fbc8d3ebae309adc62
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>Configurer une passerelle Application Gateway existante pour l’hébergement de plusieurs applications web
 
@@ -142,4 +140,3 @@ Découvrez comment protéger vos sites web grâce au [Pare-feu d’applications 
 [9]: ./media/application-gateway-create-multisite-portal/figure9.png
 [10]: ./media/application-gateway-create-multisite-portal/figure10.png
 [multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
-

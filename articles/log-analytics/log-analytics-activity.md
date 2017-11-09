@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-azure-activity-logs"></a>Consulter des journaux d’activité Azure
 
 ![Symbole des journaux d’activité Azure](./media/log-analytics-activity/activity-log-analytics.png)
@@ -95,8 +92,8 @@ Les données de journal d’activité apparaissent uniquement *après* avoir con
 | --- | --- |
 | Entrées de journal d’activité Azure | Affiche un graphique à barres du plus grand nombre d’enregistrements d’entrée de journal d’activité Azure pour la période sélectionnée et affiche la liste des 10 premiers appelants d’activité. Cliquez sur le graphique à barres pour exécuter une recherche dans les journaux de <code>Type=AzureActivity</code>. Cliquez sur un élément appelant pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet élément. |
 | Journaux d’activité par état | Affiche un graphique en anneau de l’état des journaux d’activité Azure pour la période sélectionnée. Affiche également la liste des dix premiers enregistrements d’état. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Cliquez sur un élément d’état pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet enregistrement d’état. |
-| Journaux d’activité par ressource | Affiche le nombre total de ressources avec les journaux d’activité et répertorie les dix premières ressources avec le nombre d’enregistrements pour chaque ressource. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureActivity &#124; measure count() by Resource</code>, qui renvoie toutes les ressources Azure disponibles pour la solution. Cliquez sur une ressource pour exécuter une recherche dans les journaux qui renvoie tous les enregistrements d’activité pour cette ressource. |
-| Journaux d’activité par fournisseur de ressources | Affiche le nombre total de fournisseurs de ressources qui génèrent des journaux d’activité et répertorie les dix premiers. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, qui renvoie tous les fournisseurs de ressources Azure. Cliquez sur un fournisseur de ressources pour exécuter une recherche dans les journaux qui renvoie tous les enregistrements d’activité pour ce fournisseur. |
+| Journaux d’activité par ressource | Affiche le nombre total de ressources avec les journaux d’activité et répertorie les dix premières ressources avec le nombre d’enregistrements pour chaque ressource. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureActivity &#124; measure count() by Resource</code>, qui affiche toutes les ressources Azure disponibles pour la solution. Cliquez sur une ressource pour exécuter une recherche dans les journaux qui renvoie tous les enregistrements d’activité pour cette ressource. |
+| Journaux d’activité par fournisseur de ressources | Affiche le nombre total de fournisseurs de ressources qui génèrent des journaux d’activité et répertorie les dix premiers. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, qui affiche tous les fournisseurs de ressources Azure. Cliquez sur un fournisseur de ressources pour exécuter une recherche dans les journaux qui renvoie tous les enregistrements d’activité pour ce fournisseur. |
 
 ![Tableau de bord Journaux d’activité Azure](./media/log-analytics-activity/activity-log-dash.png)
 
@@ -104,4 +101,3 @@ Les données de journal d’activité apparaissent uniquement *après* avoir con
 
 - Créez une [alerte](log-analytics-alerts-creating.md) lorsqu’une activité spécifique se produit.
 - Utilisez la fonction [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées provenant de vos journaux d’activité.
-

@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Synonymes dans Azure Search (version préliminaire)
 
@@ -166,4 +165,3 @@ Les extensions de synonymes ne s’appliquent pas aux termes de recherche géné
 - Si vous avez un index existant dans un environnement de déploiement (non production), faites des essais avec un petit dictionnaire pour voir comment l’ajout de synonymes modifie l’expérience de recherche, notamment son impact sur les profils de score, la mise en surbrillance des correspondances et les suggestions.
 
 - [Activez l’analyse du trafic des recherches](search-traffic-analytics.md) et utilisez le rapport Power BI prédéfini pour connaître les termes les plus utilisés, et ceux qui ne renvoient aucun document. Grâce à ces informations, modifiez le dictionnaire afin d’inclure les synonymes pour les requêtes non productives qui devraient être associées à des documents dans l’index.
-

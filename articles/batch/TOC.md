@@ -20,6 +20,7 @@
 ### [Tâches de nœud simultanées](batch-parallel-node-tasks.md)
 ### [Nombre des tâches par état](batch-get-task-counts.md)
 ### [Créer un pool avec une image personnalisée](batch-custom-images.md)
+### [Créer un pool dans un réseau virtuel](batch-virtual-network.md)
 ### [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 ### [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md)
 ### [Nœuds de calcul Linux](batch-linux-nodes.md)
@@ -42,11 +43,11 @@
 #### [Exécuter un travail et des tâches](./scripts/batch-cli-sample-run-job.md)
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [PowerShell](/powershell/module/azurerm.batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [Interface de ligne de commande Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Node.JS](/nodejs/api/overview/azure/batch)
 ## [Kit de développement logiciel (SDK) Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
 ## [Journaux de diagnostic de Batch](batch-diagnostics.md)
@@ -62,9 +63,10 @@
 ## [Variables d’environnement de nœud de calcul Azure Batch](batch-compute-node-environment-variables.md)
 
 # Rubriques connexes
+## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Lot chantier](https://github.com/Azure/batch-shipyard)
-## [Traitement des données avec Batch et Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Solutions Batch, HPC et Big Compute dans Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Traitement des données avec Batch et Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Solutions Batch et HPC dans le cloud Azure](batch-hpc-solutions.md)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)

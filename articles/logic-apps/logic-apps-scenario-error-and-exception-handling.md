@@ -16,13 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
 
@@ -43,7 +41,7 @@ Le projet comportait deux exigences principales :
 * La possibilité de visualiser les erreurs susceptibles de se produire dans le flux de travail.
 
 > [!TIP]
-> Pour une vidéo détaillée sur ce projet, consultez [Groupe d’utilisateurs d’intégration](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
+> Pour une vidéo générale sur ce projet, consultez la page [Groupe d’utilisateurs d’intégration](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Groupe d’utilisateurs d’intégration").
 
 ## <a name="how-we-solved-the-problem"></a>Comment nous avons résolu le problème
 
@@ -493,4 +491,3 @@ Le code source de l’application API de gestion des exceptions Logic Apps est d
 * [Afficher d’autres exemples et scénarios d’applications logiques](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [En savoir plus sur la gestion des applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Créer un modèle de déploiement automatisé d’applications logiques](../logic-apps/logic-apps-create-deploy-template.md)
-

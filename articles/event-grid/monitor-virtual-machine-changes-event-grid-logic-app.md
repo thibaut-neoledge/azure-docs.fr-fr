@@ -11,17 +11,15 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
+ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/21/2017
 ---
-
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
 
-Vous pouvez démarrer un [flux de travail d’application logique](../logic-apps/logic-apps-what-are-logic-apps.md) automatisé lorsque des événements spécifiques se produisent dans des ressources Azure ou tierces. Ces ressources peuvent publier ces événements dans une [grille d’événements Azure](../event-grid/overview.md). À son tour, la grille d’événements envoie ces événements aux abonnés qui possèdent des files d’attente, webhooks ou [concentrateurs d’événements](../event-hubs/event-hubs-what-is-event-hubs.md) comme points de terminaison. En tant qu’abonné, votre application logique peut attendre ces événements dans la grille d’événements avant d’exécuter des flux de travail automatisés pour effectuer les tâches, sans qu’il soit nécessaire d’écrire du code.
+Vous pouvez démarrer un [flux de travail d’application logique](../logic-apps/logic-apps-what-are-logic-apps.md) automatisé lorsque des événements spécifiques se produisent dans des ressources Azure ou tierces. Ces ressources peuvent publier ces événements dans une [grille d’événements Azure](../event-grid/overview.md). À son tour, la grille d’événements envoie ces événements aux abonnés qui possèdent des files d’attente, webhooks ou [hubs d’événements](../event-hubs/event-hubs-what-is-event-hubs.md) comme points de terminaison. En tant qu’abonné, votre application logique peut attendre ces événements dans la grille d’événements avant d’exécuter des flux de travail automatisés pour effectuer les tâches, sans qu’il soit nécessaire d’écrire du code.
 
 Par exemple, voici certains événements que les éditeurs peuvent envoyer aux abonnés via le service Azure Event Grid :
 
@@ -227,29 +225,26 @@ Ajoutez maintenant une [ *action* ](../logic-apps/logic-apps-what-are-logic-apps
 
 Félicitations, vous avez créé et exécuté une application logique qui surveille les événements liés aux ressources grâce à une grille d’événements et vous envoie un e-mail lorsque ces événements se produisent. Vous avez également appris comment créer facilement des flux de travaux qui automatisent les processus et intégrer des systèmes et des services cloud.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-
-Ce didacticiel utilise des ressources et effectue des actions qui peuvent entraîner des frais sur votre abonnement Azure. Par conséquent, lorsque vous aurez terminé de suivre ce didacticiel et d’effectuer les tests, veillez à désactiver ou à supprimer les ressources pour lesquelles vous ne souhaitez pas être facturé.
-
-Vous pouvez empêcher l’exécution de votre application logique et envoyer un e-mail sans supprimer l’application. Dans le menu de votre application logique, **Vue d’ensemble**. Dans la barre d’outils, choisissez **Désactiver**.
-
-![Désactiver votre application logique](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
-
-## <a name="faq"></a>Forum Aux Questions
-
-**Q** : quelles autres tâches de surveillance de machine virtuelle puis-je effectuer avec des grilles d’événements et des applications logiques ? </br>
-**R** : vous pouvez surveiller d’autres modifications de configuration, par exemple :
+Vous pouvez surveiller les autres modifications de configuration avec des grilles d’événements et des applications logiques. Par exemple :
 
 * Une machine virtuelle se voit attribuer des droits de contrôle d’accès en fonction du rôle (RBAC).
 * Des modifications sont apportées à un groupe de sécurité réseau (NSG) sur une carte d’interface réseau (NIC).
 * Des disques d’une machine virtuelle ont été ajoutés ou supprimés.
 * Une adresse IP publique est affectée à la carte d’interface réseau (NIC) d’une machine virtuelle.
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Ce didacticiel utilise des ressources et effectue des actions qui peuvent entraîner des frais sur votre abonnement Azure. Par conséquent, lorsque vous aurez terminé de suivre ce didacticiel et d’effectuer les tests, veillez à désactiver ou à supprimer les ressources pour lesquelles vous ne souhaitez pas être facturé.
+
+* Pour arrêter l’exécution de votre application logique sans supprimer votre travail, désactivez votre application. Dans le menu de votre application logique, **Vue d’ensemble**. Dans la barre d’outils, choisissez **Désactiver**.
+
+  ![Désactiver votre application logique](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+
+  > [!TIP]
+  > Si vous ne voyez pas le menu de l’application logique, essayez de revenir au tableau de bord Azure et de rouvrir votre application logique.
+
+* Pour supprimer définitivement votre application logique, choisissez **Vue d’ensemble** dans le menu de l’application logique. Dans la barre d’outils, choisissez **Supprimer**. Confirmez que vous souhaitez supprimer votre application logique, puis choisissez **Supprimer**.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble d’Event Grid](../event-grid/overview.md)
-* [Concepts d’Event Grid](../event-grid/concepts.md)
-* [Démarrage rapide : Créer et acheminer des événements personnalisés avec Event Grid](../event-grid/custom-event-quickstart.md)
-* [Schéma d’événement Event Grid](../event-grid/event-schema.md)
-* [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)
-* [Créer des workflows d’application logique avec des modèles prédéfinis](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Créer et acheminer des événements personnalisés avec Event Grid](../event-grid/custom-event-quickstart.md)

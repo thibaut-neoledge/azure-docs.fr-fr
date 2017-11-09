@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce4bc214d4428393d8130831d628c324ad3485e8
-
-
+ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Envoi de notifications push sécurisées avec Azure Notification Hubs
 > [!div class="op_single_selector"]
@@ -135,10 +135,4 @@ Pour exécuter l'application, procédez comme suit :
 2. Dans Eclipse, exécutez l'application sur un appareil Android physique ou dans l'émulateur.
 3. Dans l'interface utilisateur de l'application Android, entrez un nom d'utilisateur et un mot de passe. La valeur peut être une chaîne quelconque, mais elle doit être identique pour les deux.
 4. Dans l'interface utilisateur de l'application Android, cliquez sur **Log in**. Cliquez ensuite sur **Send push**.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

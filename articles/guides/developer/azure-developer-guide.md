@@ -12,16 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/18/2017
 ms.author: glenga
+ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
-
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
 ## <a name="what-is-azure"></a>Qu’est-ce qu’Azure ?
@@ -55,15 +53,9 @@ Azure propose des services qui prennent en charge vos besoins d’hébergement e
 
 Si vous voulez bénéficier du moyen le plus rapide pour publier vos projets web, optez pour Azure App Service. App Service facilite l’extension de vos applications web pour prendre en charge vos clients mobiles et publier des API REST aisément consommées. Cette plateforme offre une authentification à l’aide des réseaux sociaux, une mise à l’échelle automatique basée sur le trafic, des tests en production et des déploiements continus et basés sur des conteneurs.
 
-Lorsque vous créez une application dans App Service, vous sélectionnez l’un des types suivants :
+Vous pouvez créer des applications web, des back-ends d’applications mobiles et des applications API.
 
-- [Web Apps](../../app-service-web/app-service-web-overview.md) : vous permet d’héberger des sites web et des applications web qui sont écrits en langage .NET, Java, PHP, Node.js ou Python.
-
-- [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md) : étend les applications web pour prendre en charge l’accès à partir des appareils mobiles. Ce type offre une authentification avec les réseaux sociaux et Azure Active Directory (Azure AD), fournit le stockage principal et s’intègre à [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md) pour les notifications Push.
-
-- [API Apps](../../app-service-api/app-service-api-apps-why-best-platform.md) : vous permet d’exposer de façon plus sécurisée vos API dans le cloud avec les métadonnées Swagger, afin que les clients puissent les consommer facilement.
-
-Comme ces trois types d’application partagent le runtime App Service, vous pouvez héberger un site web, prendre en charge les clients mobiles et exposer vos API dans Azure, tout cela depuis un même projet ou une même solution. Pour en savoir plus sur App Service, consultez [Fonctionnement d’App Service](../../app-service/app-service-how-works-readme.md).
+Comme ces trois types d’application partagent le runtime App Service, vous pouvez héberger un site web, prendre en charge les clients mobiles et exposer vos API dans Azure, tout cela depuis un même projet ou une même solution. Pour plus d’informations sur App Service, consultez l’article [Vue d’ensemble de Web Apps](../../app-service/app-service-web-overview.md).
 
 App Service a été conçu en tenant compte de DevOps. Il prend en charge divers outils de déploiement d’intégration continue et de publication, notamment les webhooks GitHub, Jenkins, Visual Studio Team Services, TeamCity, etc.
 
@@ -71,7 +63,7 @@ Vous pouvez migrer vos applications existantes vers App Service en utilisant l�
 
 >**Quand l’utiliser** : utilisez App Service quand vous migrez des applications web existantes vers Azure et quand vous avez besoin d’une plateforme d’hébergement entièrement gérée pour vos applications web. Vous pouvez également utiliser App Service lorsque vous avez besoin de prendre en charge les clients mobiles ou d’exposer des API REST avec votre application.
 
->**Démarrer** : App Service permet de créer et de déployer facilement votre première [application web](../../app-service-web/web-sites-dotnet-get-started.md), [application mobile](../../app-service-mobile/app-service-mobile-ios-get-started.md) ou [application API](../../app-service-api/app-service-api-dotnet-get-started.md).
+>**Démarrer** : App Service permet de créer et de déployer facilement votre première [application web](../../app-service/app-service-web-get-started-dotnet.md), [application mobile](../../app-service-mobile/app-service-mobile-ios-get-started.md) ou [application API](../../app-service/app-service-web-tutorial-rest-api.md).
 
 >**Essayez-le** : App Service vous permet de configurer une application de courte durée dans le but d’essayer la plateforme sans avoir à vous inscrire pour obtenir un compte Azure. Essayez la plateforme et [créez votre application Azure App Service](https://tryappservice.azure.com/).
 
@@ -113,11 +105,10 @@ En plus de l’hébergement d’applications, Azure fournit des offres de servic
 
 La plupart des applications doivent stocker des données. Par conséquent, quelle que soit la manière dont vous décidez d’héberger votre application dans Azure, prenez en considération un ou plusieurs des services de données et de stockage suivants.
 
--   **Azure SQL Database** : version basée sur Azure du moteur Microsoft SQL Server pour le stockage des données tabulaires relationnelles dans le cloud. SQL Database offre des performances prévisibles et une scalabilité sans interruption de service. Il assure aussi la continuité des activités et la protection des données.
+-   **Azure Cosmos DB** : service de base de données multi-modèles et distribuée mondialement qui vous permet de faire évoluer à votre guise le débit et le stockage sur n’importe quel nombre de régions géographiques avec un contrat SLA complet. 
+    >**Quand l’utiliser** : quand votre application a besoin de document, d’une table ou de bases de données de graphique, y compris des bases de données MongoDB, avec plusieurs modèles de cohérence bien définis. 
 
-    >**Quand l’utiliser** : lorsque votre application nécessite un stockage de données avec intégrité référentielle, une prise en charge transactionnelle et une prise en charge des requêtes TSQL.
-
-    >**Démarrer** : [créez une base de données SQL en quelques minutes à l’aide du portail Azure](../../sql-database/sql-database-get-started.md).
+    >**Démarrer** : [créez une application web Azure Cosmos DB](../../cosmos-db/create-documentdb-dotnet.md). Si vous êtes développeur MongoDB, consultez la rubrique sur la [création d’une application web MongoDB avec Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Stockage Azure** : offre un stockage durable, hautement disponible pour les objets blob, les files d’attente, les fichiers et d’autres types de données non relationnelles. Le service Stockage fournit la base de stockage utilisée pour les machines virtuelles.
 
@@ -125,12 +116,14 @@ La plupart des applications doivent stocker des données. Par conséquent, quell
 
     >**Démarrer** : choisissez parmi les types de stockage suivants : [objets blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tables](../../cosmos-db/table-storage-how-to-use-dotnet.md), [files d’attente](../../storage/queues/storage-dotnet-how-to-use-queues.md) et [fichiers](../../storage/files/storage-dotnet-how-to-use-files.md).
 
--   **Azure DocumentDB** : service de base de données NoSQL scalable et entièrement managé, qui permet l’exécution de requêtes SQL sur les données d’objet. Vous pouvez accéder à DocumentDB en utilisant des pilotes MongoDB existants.
-    >**Quand l’utiliser** : lorsque votre application doit être en mesure d’exécuter des requêtes SQL sur des documents JSON, ou si vous utilisez MongoDB.
+-   **Azure SQL Database** : version basée sur Azure du moteur Microsoft SQL Server pour le stockage des données tabulaires relationnelles dans le cloud. SQL Database offre des performances prévisibles et une scalabilité sans interruption de service. Il assure aussi la continuité des activités et la protection des données.
 
-    >**Démarrer** : [générez une application console C# DocumentDB](../../documentdb/documentdb-get-started.md). Si vous êtes développeur MongoDB, consultez [Prise en charge du protocole DocumentDB pour MongoDB](../../documentdb/documentdb-protocol-mongodb.md).
+    >**Quand l’utiliser** : lorsque votre application nécessite un stockage de données avec intégrité référentielle, une prise en charge transactionnelle et une prise en charge des requêtes TSQL.
 
-Vous pouvez utiliser [Azure Data Factory](../../data-factory/data-factory-introduction.md) pour déplacer des données locales existantes vers Azure. Si vous n’êtes pas prêt à déplacer des données vers le cloud, les [connexions hybrides](../../biztalk-services/integration-hybrid-connection-overview.md) dans BizTalk Services vous permettent de connecter votre application hébergée par App Service aux ressources locales. Vous pouvez également vous connecter aux services de données et de stockage Azure à partir de vos applications locales.
+    >**Démarrer** : [créez une base de données SQL en quelques minutes à l’aide du portail Azure](../../sql-database/sql-database-get-started.md).
+
+
+Vous pouvez utiliser [Azure Data Factory](../../data-factory/introduction.md) pour déplacer des données locales existantes vers Azure. Si vous n’êtes pas prêt à déplacer des données vers le cloud, les [connexions hybrides](../../biztalk-services/integration-hybrid-connection-overview.md) dans BizTalk Services vous permettent de connecter votre application hébergée par App Service aux ressources locales. Vous pouvez également vous connecter aux services de données et de stockage Azure à partir de vos applications locales.
 
 #### <a name="docker-support"></a>Prise en charge de Docker
 
@@ -196,7 +189,7 @@ Qu’il s’agisse de mettre en service des machines virtuelles ou de publier vo
 
 >**Essayez-le** : [essayez plusieurs intégrations DevOps](https://azure.microsoft.com/try/devops/).
 
->**Démarrer** : pour voir les options DevOps d’une application App Service, consultez [Déploiement continu vers Azure App Service](../../app-service-web/app-service-continuous-deployment.md).
+>**Démarrer** : pour voir les options DevOps d’une application App Service, consultez [Déploiement continu vers Azure App Service](../../app-service/app-service-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Régions Azure
@@ -333,4 +326,3 @@ Bien qu’il soit difficile d’estimer les coûts à l’avance, Azure intègre
 Une fois que vous avez déployé votre application ou votre solution sur Azure, vous pouvez créer des alertes qui vous envoient un e-mail lorsque vous vous approchez des limites de dépenses définies dans ces alertes.
 
 >**Démarrer** : pour en savoir plus, consultez [Configurer des alertes de facturation pour vos abonnements Microsoft Azure](../../billing-set-up-alerts.md).
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 72b4efc6b3bb58e63a399ab26c42984f070d9307
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Didacticiel : Intégration d’Active Directory à Zscaler Beta
 
@@ -45,7 +44,7 @@ Pour configurer l’intégration d’Azure AD à Zscaler Beta, vous avez besoin 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -88,7 +87,7 @@ Dans Zscaler Beta, assignez la valeur de **nom d’utilisateur** dans Azure AD c
 Pour configurer et tester l’authentification unique Azure AD avec Zscaler Beta, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configuration des paramètres de proxy](#configuring-proxy-settings)** pour configurer les paramètres de proxy dans Internet Explorer.
+2. **[Configuration des paramètres de proxy](#configuring-proxy-settings)** pour configurer les paramètres de proxy dans Internet Explorer
 3. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Création d’un utilisateur de test Zscaler Beta](#creating-a-zscaler-beta-test-user)** pour avoir un équivalent de Britta Simon dans Zscaler Beta qui est lié à la représentation de l’utilisateur Azure AD.
 5. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
@@ -151,7 +150,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Authentification unique](./media/active-directory-saas-zscaler-beta-tutorial/ic800209.png "Authentification unique")
     
-    a. Collez **l’URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure dans la zone de texte **URL of the SAML Portal to which users are sent for authentication**.
+    a. Collez **l’URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure dans la zone de texte **URL of the SAML Portal to which users are sent for authentication** (URL du portail SAML vers lequel les utilisateurs sont redirigés afin de s’authentifier).
     
     b. Dans la zone de texte **Attribute containing Login Name**, tapez **NameID**.
     
@@ -163,7 +162,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Administration](./media/active-directory-saas-zscaler-beta-tutorial/ic800210.png "Administration")
     
-    a. Cliquez sur **Save**.
+    a. Cliquez sur **Enregistrer**.
 
     b. Cliquez sur **Activate Now**.
 
@@ -257,7 +256,7 @@ Pour pouvoir se connecter à Zscaler Beta, les utilisateurs d’Azure AD doiven
         
     ![Ajouter un utilisateur](./media/active-directory-saas-zscaler-beta-tutorial/ic781038.png "Ajouter un utilisateur")
    
-    a. Renseignez les zones de texte **UserID**, **User Display Name**, **Password** et **Confirm Password**, puis sélectionnez **Groups**, ainsi que l’attribut **Department** d’un compte Azure AD valide que vous souhaitez approvisionner.
+    a. Renseignez les zones de texte **UserID** (ID d’utilisateur), **User Display Name** (Nom d’affichage de l’utilisateur), **Password** (Mot de passe) et **Confirm Password** (Confirmer le mot de passe), puis sélectionnez **Groups** (Groupes), ainsi que l’attribut **Department** (Département) d’un compte Azure AD valide que vous souhaitez approvisionner.
 
     b. Cliquez sur **Enregistrer**.
 
@@ -319,5 +318,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-zscaler-beta-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zscaler-beta-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zscaler-beta-tutorial/tutorial_general_203.png
-
 

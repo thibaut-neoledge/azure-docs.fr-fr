@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
+ms.openlocfilehash: c888760ab311e8ac08b1e625bb837f91047db645
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: c559c80781da3631a783d96539622c4c89fe7e17
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -63,4 +62,3 @@ L’API Microsoft Graph nécessite l’étendue `user.read` pour lire le profil 
 Si une API principale ne nécessite pas d’étendue (non recommandé), vous pouvez utiliser le `clientId` en tant qu’étendue dans les appels `acquireTokenSilent` et/ou `acquireTokenRedirect`.
 
 <!--end-collapse-->
-

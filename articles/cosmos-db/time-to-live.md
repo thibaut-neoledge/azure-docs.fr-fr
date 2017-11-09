@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
+ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: c407152f54a6e7eb25a580491bd27ad291410d86
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Faire expirer des données dans des collections Cosmos DB automatiquement avec la durée de vie
 Les applications peuvent générer et stocker de grandes quantités de données. Certaines de ces données, telles que les données d’événement générées par la machine, les journaux et les informations de session utilisateur, sont utiles uniquement pendant une certaine période. Une fois les données trop nombreuses par rapport aux besoins de l’application, vous pouvez les vider et réduire les besoins de stockage d’une application.
@@ -42,7 +41,7 @@ La fonction TTL est contrôlée par les propriétés TTL à deux niveaux : au ni
    * La propriété s’applique uniquement si le paramètre DefaultTTL est présent pour la collection parente.
    * Elle remplace la valeur DefaultTTL de la collection parente.
 
-Dès que le document a expiré (`ttl` + `_ts` >= heure actuelle du serveur), le document est marqué comme « expiré ». Aucune opération n’est autorisée sur ces documents une fois ce délai écoulé, et les documents sont exclus des résultats de toutes les requêtes effectuées. Les documents sont physiquement supprimés du système et sont supprimés en arrière-plan de façon opportuniste ultérieurement. Ceci ne consomme aucune [unité de requête](request-units.md) du budget de la collection.
+Dès que le document a expiré (`ttl` + `_ts` <= heure actuelle du serveur), le document est marqué comme « expiré ». Aucune opération n’est autorisée sur ces documents une fois ce délai écoulé, et les documents sont exclus des résultats de toutes les requêtes effectuées. Les documents sont physiquement supprimés du système et sont supprimés en arrière-plan de façon opportuniste ultérieurement. Ceci ne consomme aucune [unité de requête](request-units.md) du budget de la collection.
 
 La logique ci-dessus peut être représentée dans le tableau suivant :
 
@@ -174,5 +173,4 @@ Oui. La collection doit avoir une [stratégie d’indexation](indexing-policies.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Azure Cosmos DB, consultez la page de [*documentation*](https://azure.microsoft.com/documentation/services/cosmos-db/) du service.
-
 

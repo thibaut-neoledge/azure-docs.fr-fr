@@ -16,15 +16,12 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 4add5028d50972316902cecd8c399781c012cb77
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporter les certificats de l’émulateur Azure Cosmos DB pour une utilisation avec Java, Python et Node.js
 
 [**Téléchargement de l'émulateur**](https://aka.ms/cosmosdb-emulator)
@@ -105,8 +102,7 @@ Dans ce didacticiel, vous avez effectué les tâches suivantes :
 > * Exportation du certificat SSL
 > * Apprentissage de l’utilisation du certificat dans Java, Python et Node.js
 
-Vous pouvez maintenant passer à la section Concepts pour plus d’informations sur Cosmos DB.
+Vous pouvez maintenant passer au didacticiel Créer un déclencheur HTTP Azure Functions avec une liaison d’entrée Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Diffusion mondiale](distribute-data-globally.md) 
-
+> [Créer une fonction Azure Function avec une entrée Azure Cosmos DB](tutorial-functions-http-trigger.md) 

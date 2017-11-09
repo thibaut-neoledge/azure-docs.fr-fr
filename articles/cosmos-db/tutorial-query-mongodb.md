@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB : Comment effectuer des interrogations à l’aide de l’API DocumentDB ? | Microsoft Docs"
-description: "Apprenez à interroger à l’aide de l’API DocumentDB pour Azure Cosmos DB"
+title: "Azure Cosmos DB : Comment interroger à l’aide de l’API MongoDB ? | Microsoft Docs"
+description: "Apprenez à interroger au moyen de l’API MongoDB pour Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: c783af682a78f2001930773ffcfd086efe9b5daa
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB : Comment interroger avec l’API pour MongoDB ?
 
 [L’API pour MongoDB](mongodb-introduction.md) d’Azure Cosmos DB prend en charge les [requêtes shell MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
@@ -155,8 +152,7 @@ La requête suivante renvoie toutes les familles qui sont enregistrées.
 **Requête**
     
     db.families.find( { "isRegistered" : true })
-**Résultats**
-    Aucun document n’est renvoyé. 
+**Résultats** Aucun document n’est renvoyé. 
 
 ## <a id="examplequery4"></a>Exemple de requête 4
 
@@ -316,5 +312,4 @@ Vous pouvez maintenant poursuivre avec le didacticiel suivant montrant comment d
 
 > [!div class="nextstepaction"]
 > [Distribuer vos données globalement](tutorial-global-distribution-documentdb.md)
-
 

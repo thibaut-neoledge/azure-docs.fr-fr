@@ -1,9 +1,9 @@
 ---
 title: "Sécuriser les services principaux à l’aide d’une authentification de certificat client dans Gestion des API Azure | Microsoft Docs"
-description: "Découvrez comment sécuriser des services principaux à l&quot;aide d&quot;une authentification par certificat client dans la Gestion des API Azure"
+description: "Découvrez comment sécuriser des services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 2ebe71c96fd9076a48f689041634dbd23d3d8414
-
+ms.openlocfilehash: 196a91c21afb8c1596c9766f6a2a5d373b828f60
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
 La Gestion des API permet de sécuriser l'accès au service principal d'une API en utilisant des certificats client. Ce guide explique comment gérer les certificats dans le portail des éditeurs de l’API et comment configurer une API pour utiliser un certificat et accéder à son service principal.
 
 Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST de gestion des API, consultez [Entité de certificat API REST de gestion des API Azure][Azure API Management REST API Certificate entity].
 
-## <a name="prerequisites"> </a>Configuration requise
+## <a name="prerequisites"></a>Configuration requise
 Ce guide explique comment configurer votre instance de service de gestion des API afin d'utiliser l'authentification par certificat pour accéder au service principal d'une API. Avant de suivre la procédure présentée dans cette rubrique, vous devez configurer votre service principal pour l’authentification avec certificat client ([pour configurer l’authentification avec certificat dans Sites Web Azure, consultez cet article ][to configure certificate authentication in Azure WebSites refer to this article]) et avoir accès au certificat et au mot de passe associés afin de les charger dans le portail de publication de la gestion des API.
 
-## <a name="step1"> </a>Chargement d’un certificat client
+## <a name="step1"></a>Chargement d’un certificat client
 Pour commencer, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
 
 ![Portail des éditeurs d’API][api-management-management-console]
@@ -66,7 +67,7 @@ Lorsque le certificat est chargé, il s'affiche dans l'onglet **Certificats clie
 > 
 > 
 
-## <a name="step1a"> </a>Suppression d’un certificat client
+## <a name="step1a"></a>Suppression d’un certificat client
 Pour supprimer un certificat, cliquez sur **Supprimer** à côté du certificat en question.
 
 ![Suppression d'un certificat][api-management-certificate-delete]
@@ -79,7 +80,7 @@ Si le certificat est en cours d'utilisation par une API, un écran d'avertisseme
 
 ![Confirmation de suppression][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configuration d'une API afin d'utiliser un certificat pour l'authentification de passerelle
+## <a name="step2"></a>Configuration d'une API afin d'utiliser un certificat pour l'authentification de passerelle
 Cliquez sur **API** dans le menu **Gestion des API** de gauche, cliquez sur le nom de l’API désirée, puis cliquez sur l’onglet **Sécurité**.
 
 ![Sécurité API][api-management-api-security]
@@ -105,6 +106,15 @@ Cliquez sur **Enregistrer** pour enregistrer la modification de configuration de
 > 
 
 ![Stratégie de certificat][api-management-certificate-policy]
+
+## <a name="self-signed-certificates"></a>Certificats auto-signés
+
+Si vous utilisez des certificats auto-signés, vous devrez désactiver la validation de chaîne de certificats afin que Gestion des API puisse communiquer avec le système principal. Dans le cas contraire, un code d’erreur 500 est généré. Pour configurer ce paramètre, vous pouvez utiliser les applets de commande PowerShell [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (pour un nouveau serveur principal) ou [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (pour un serveur principal existant) et configurez le paramètre `-SkipCertificateChainValidation` sur `True`.
+
+```
+$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur les autres méthodes de sécurisation de votre service principal, telles que l’authentification HTTP de base ou partagée, regardez la vidéo suivante
@@ -141,7 +151,7 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -150,11 +160,5 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7c93a02f7a290aab3d451da72dabd431f9d40b0c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell
 
@@ -161,7 +159,7 @@ Les étapes qui suivent expliquent comment créer un exemple de machine virtuell
     ```
 
     >[!NOTE]
-    >Bien que toutes les configurations soient attribuées à une carte réseau dans cet article, vous pouvez attribuer plusieurs configurations IP à chaque carte réseau connectée à la machine virtuelle. Pour découvrir comment créer une machine virtuelle avec plusieurs cartes réseau, voir [Créer une machine virtuelle avec plusieurs cartes d’interface réseau](virtual-network-deploy-multinic-arm-ps.md).
+    >Bien que toutes les configurations soient attribuées à une carte réseau dans cet article, vous pouvez attribuer plusieurs configurations IP à chaque carte réseau connectée à la machine virtuelle. Pour découvrir comment créer une machine virtuelle avec plusieurs cartes réseau, voir [Créer une machine virtuelle avec plusieurs cartes d’interface réseau](../virtual-machines/windows/multiple-nics.md).
 
 9. Créez la machine virtuelle en entrant les commandes suivantes :
 
@@ -268,7 +266,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau 
         -AllocationMethod Static
         ```
 
-         Pour créer une nouvelle configuration IP avec une adresse IP privée statique et la ressource d’adresse IP publique *myPublicIp3*, saisissez la commande suivante :
+        Pour créer une nouvelle configuration IP avec une adresse IP privée statique et la ressource d’adresse IP publique *myPublicIp3*, saisissez la commande suivante :
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -289,7 +287,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau 
 
         Vous voyez une sortie similaire à ce qui suit :
 
-        ```        
+        ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
         
         IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
@@ -330,4 +328,3 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau 
 8. Ajoutez l’adresse IP privée au système d’exploitation de la machine virtuelle en suivant les étapes pour votre système d’exploitation dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article. N’ajoutez pas l’adresse IP publique au système d’exploitation.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

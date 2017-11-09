@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
+ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9e6331df4a8a07c3f2524891caf77bbaab3bff0b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 ##  <a name="introduction"></a>Introduction
 ### <a name="overview"></a>Vue d'ensemble
@@ -58,7 +56,7 @@ La location Azure (abonnement Azure) fait référence à une relation « client
 
 Les utilisateurs, groupes et applications de ce répertoire peuvent gérer les ressources de l’abonnement Azure. Vous pouvez affecter ces droits d’accès à l’aide du portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure. Un client Azure AD est logiquement isolé à l’aide de limites de sécurité afin qu’aucun client ne puisse accéder aux autres clients, ni leur nuire intentionnellement ou accidentellement. Azure AD s’exécute sur les serveurs de « systèmes nus » isolés sur un segment réseau séparé, où le filtrage de paquets au niveau de l’hôte et le pare-feu Windows bloquent le trafic et les connexions indésirables.
 
-- L’accès aux données dans Azure AD requiert l’authentification des utilisateurs via un [service d’émission de jeton de sécurité (STS)](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization). Les informations sur l’existence de l’utilisateur, l’état activé et le rôle sont utilisées par le système d’autorisation pour déterminer si l’accès demandé au client cible est autorisé pour cet utilisateur dans cette session.
+- L’accès aux données dans Azure AD requiert l’authentification des utilisateurs via un service d’émission de jeton de sécurité (STS). Les informations sur l’existence de l’utilisateur, l’état activé et le rôle sont utilisées par le système d’autorisation pour déterminer si l’accès demandé au client cible est autorisé pour cet utilisateur dans cette session.
 
 ![Location Azure](./media/azure-isolation/azure-isolation-fig1.png)
 
@@ -348,5 +346,4 @@ Microsoft Azure propose divers services informatiques cloud qui incluent une lar
 - [Isolation du stockage](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure sépare le calcul basé sur les machines virtuelles du client du stockage. Cette séparation permet de mettre à l’échelle le calcul et le stockage de façon indépendante et ainsi de faciliter l’isolation et la mutualisation. Par conséquent, le stockage Azure s’exécute sur un matériel distinct sans connectivité réseau au calcul Azure, sauf sous forme logique. Toutes les demandes s’exécutent sur HTTP ou HTTPS en fonction du choix du client.
-
 

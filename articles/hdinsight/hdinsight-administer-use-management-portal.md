@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
+ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f69fa4f838b22ccbb25186c08cac9744bb31c6d1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Hadoop Windows dans HDInsight à l'aide du portail Azure
 
@@ -211,7 +210,7 @@ Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l�
 
 Il existe de nombreuses façons de programmer le processus :
 
-* Utilisateur d’Azure Data Factory. Voir [Service lié Azure HDInsight](../data-factory/data-factory-compute-linked-services.md) et [Transformation et analyse en utilisant Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) pour les services liés HDInsight à la demande et auto-définis.
+* Utilisateur d’Azure Data Factory. Voir [Service lié Azure HDInsight](../data-factory/compute-linked-services.md) et [Transformation et analyse en utilisant Azure Data Factory](../data-factory/transform-data.md) pour les services liés HDInsight à la demande et auto-définis.
 * Utilisation d’Azure PowerShell  Voir [Analyse des données sur les retards de vol](hdinsight-analyze-flight-delay-data.md).
 * Utiliser l’interface de ligne de commande Microsoft Azure Voir [Gestion des clusters HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md).
 * Utilisation du kit de développement logiciel .NET. Voir [Envoyer des tâches Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
@@ -378,4 +377,3 @@ Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Ligne de commande Hadoop"
-

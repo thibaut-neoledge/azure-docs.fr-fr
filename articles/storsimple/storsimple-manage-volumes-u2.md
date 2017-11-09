@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/28/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a61c57cd74a0df8363648dd8df40e433b0e6489d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes-update-2"></a>Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
@@ -166,7 +164,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
       > 
       > 
 
-![Vidéo disponible](./media/storsimple-manage-volumes-u2/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-manage-volumes-u2/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo expliquant comment développer un volume, cliquez [ici](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
@@ -274,5 +272,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
 

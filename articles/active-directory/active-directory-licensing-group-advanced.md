@@ -16,14 +16,12 @@ ms.workload: identity
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
 Utilisez les informations et exemples suivants pour approfondir vos connaissances sur la gestion des licences par groupe Azure Active Directory (Azure AD).
@@ -200,6 +198,16 @@ Cet exemple de sortie indique le début du traitement, les modifications utilisa
 >[!TIP]
 > Cliquer sur des éléments liés à une *Modification de la licence d’un utilisateur* a pour effet d’afficher les détails des changements de licence appliqués à chaque utilisateur.
 
+## <a name="deleting-a-group-with-an-assigned-license"></a>Suppression d’un groupe avec une licence attribuée
+
+Il n’est pas possible de supprimer un groupe disposant d’une licence active assignée. Un administrateur peut supprimer un groupe sans réaliser que cela entraînera des retraits de licences à des utilisateurs - Pour cette raison, nous demandons que les licences soient supprimées du groupe avant de pouvoir le supprimer.
+
+Lorsque vous tentez de supprimer un groupe dans le portail Azure, vous pouvez voir une notification d’erreur comme suit : ![Capture d’écran d’un échec de suppression du groupe](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+Accédez à l’onglet **Licences** du groupe et vérifiez si des licences sont attribuées. Si c’est le cas, supprimez ces licences et essayez de nouveau de supprimer le groupe.
+
+Vous pouvez obtenir des erreurs similaires en tentant de supprimer le groupe avec PowerShell ou API Graph. Si vous utilisez un groupe synchronisé localement, Azure AD Connect peut également signaler des erreurs s’il n’arrive pas à supprimer le groupe dans Azure AD. Dans ce cas, veillez à vérifier s’il existe des licences attribuées au groupe et retirez-les d’abord.
+
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 
 Si vous utilisez la gestion des licences par groupe, il est conseillé de vous familiariser avec la liste suivante des limitations et problèmes connus.
@@ -213,6 +221,8 @@ Si vous utilisez la gestion des licences par groupe, il est conseillé de vous f
 - Quand un utilisateur est supprimé d’un groupe et perd la licence, les plans de services de cette licence (par exemple, SharePoint Online) sont définis sur un état **Suspendu**. Les plans de service ne sont pas définis sur un état final « désactivé ». Cette précaution permet d’éviter une suppression accidentelle de données utilisateur si un administrateur commet une erreur dans la gestion de l’appartenance au groupe.
 
 - Lorsque des licences sont attribuées ou modifiées pour un groupe de grande taille (par exemple, 100 000 utilisateurs), cela peut affecter les performances. Plus précisément, le volume de modifications générées par Azure AD Automation peut affecter les performances de synchronisation de votre annuaire entre Azure AD et les systèmes locaux.
+
+- Dans certaines situations où la charge est élevée, le traitement des licences peut être différé et les modifications apportées, telles que l’ajout/la suppression d’un groupe de licences ou l’ajout/la suppression d’utilisateurs dans un groupe, peuvent mettre longtemps à être traitées. Si vous constatez que le traitement de vos modifications prend plus de 24 heures, [ouvrez un ticket de support](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) pour nous permettre de faire des recherches. Nous allons améliorer les caractéristiques de performance de cette fonctionnalité avant qu’elle n’entre en *disponibilité générale*.
 
 - L’automatisation de la gestion des licences ne réagit pas automatiquement à tous les types de modifications dans l’environnement. Par exemple, il se peut que vous manquiez de licences et que certains utilisateurs se retrouvent dans un état d’erreur. Pour libérer le nombre de sièges disponibles, vous pouvez supprimer des licences affectées directement d’autres utilisateurs. Le système ne réagit toutefois pas automatiquement à cette modification et ne corrige pas les utilisateurs dans cet état d’erreur.
 
@@ -228,4 +238,3 @@ Pour plus d’informations sur d’autres scénarios de gestion des licences par
 * [Affectation de licences à un groupe dans Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Migration des utilisateurs individuels sous licence vers une licence basée sur le groupe dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
-

@@ -1,6 +1,6 @@
 ---
 title: "Créer des hôtes Docker dans Azure avec Docker Machine | Microsoft Docs"
-description: "Décrit l&quot;utilisation de Docker Machine pour créer des hôtes Docker dans Azure."
+description: "Décrit l'utilisation de Docker Machine pour créer des hôtes Docker dans Azure."
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Créer des hôtes Docker dans Azure avec Docker Machine
 L’exécution de conteneurs [Docker](https://www.docker.com/) nécessite une machine virtuelle hôte exécutant le démon Docker.
@@ -122,5 +120,4 @@ Avec docker-machine, vous pouvez facilement approvisionner des hôtes Docker dan
 Pour l’hébergement de production de conteneurs, consultez le [Service de conteneur Azure](http://aka.ms/AzureContainerService)
 
 Pour développer des applications .NET Core avec Visual Studio, consultez [Outils Docker pour Visual Studio](http://aka.ms/DockerToolsForVS)
-
 

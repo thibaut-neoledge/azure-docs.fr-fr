@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 61576d3a915d209e7355e04432e586dcf66e7c5a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Didacticiel : Intégration d’Azure Active Directory à Symantec Web Security Service (WSS)
 
@@ -146,7 +145,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-symantec-tutorial/create_aaduser_02.png)
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-symantec-tutorial/create_aaduser_02.png)
 
 3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
@@ -189,7 +188,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Lien « Utilisateurs et groupes »][202]
 
 4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
@@ -225,5 +224,4 @@ Une fois que vous avez configuré votre navigateur web pour le trafic de proxy W
 [201]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_203.png
-
 

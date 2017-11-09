@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: a57edd30975ec0e943fd84b2c66137d328a89b8b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: a26c40351c6b982fd90acb4bf06220ef3f79f399
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurer les stratégies d’accès conditionnel basé sur les appareils dans Azure Active Directory
 
@@ -33,7 +32,7 @@ Cette rubrique fournit des informations sur la configuration des stratégies d�
 
 L’accès conditionnel basé sur les appareils fait le lien entre l’**accès conditionnel Azure AD** et la **gestion des appareils Azure AD**. Si l’un de ces aspects vous est inconnu, consultez d’abord les rubriques suivantes :
 
-- **[Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md)**  - Cette rubrique fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
+- **[Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md)** - Cette rubrique fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
 
 - **[Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)** - Cette rubrique vous donne une vue d’ensemble des différentes options à votre disposition pour connecter des appareils avec Azure AD. 
 
@@ -57,7 +56,9 @@ Dans une stratégie d’accès conditionnel basé sur les appareils, vous pouvez
 Les appareils peuvent être marqués comme conformes dans le répertoire par :
 
 - Intune 
-- Un système de gestion de périphériques mobile tiers qui s’intègre avec Azure AD  
+- Un système géré par un appareil mobile tiers qui gère les appareils Windows 10 via l’intégration d’Azure AD 
+ 
+  
 
 Seuls les périphériques connectés à Azure AD peuvent être marqués comme conformes. Pour connecter un appareil à Azure Active Directory, vous disposez des options suivantes : 
 
@@ -75,5 +76,4 @@ Si vous avez une empreinte Active Directory (AD) locale, vous pouvez envisager d
 ## <a name="next-steps"></a>Étapes suivantes
 
 Avant de configurer une stratégie d’accès conditionnel basé sur les appareils dans votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md).
-
 

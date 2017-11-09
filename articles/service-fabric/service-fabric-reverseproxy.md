@@ -14,30 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
+ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
-Le proxy inverse intégré à Azure Service Fabric traite les microservices dans le cluster Service Fabric qui expose des points de terminaison HTTP.
+Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
 
 ## <a name="microservices-communication-model"></a>Modèle de communication des microservices
-Dans Service Fabric, les microservices s’exécutent généralement sur un sous-ensemble de machines virtuelles au sein du cluster et peuvent passer d’une machine virtuelle à l’autre, pour des raisons diverses. Ainsi, les points de terminaison associés aux microservices peuvent changer de manière dynamique. Pour les communications avec le microservice, le modèle généralement adopté est la boucle de résolution suivante :
+Dans Service Fabric, les microservices s’exécutent sur un sous-ensemble de nœuds au sein du cluster et peuvent migrer entre les nœuds, pour des raisons diverses. Ainsi, les points de terminaison associés aux microservices peuvent changer de manière dynamique. Pour découvrir d’autres services dans le cluster et communiquer avec ces derniers, un microservice doit passer par les étapes suivantes :
 
-1. Résolvez initialement l’emplacement du service avec le service de nommage.
+1. Résoudre l’emplacement du service avec le service de nommage
 2. Connectez-vous au service.
-3. Déterminez la cause des échecs de connexion et résolvez à nouveau l’emplacement du service, le cas échéant.
+3. Encapsuler les étapes précédentes dans une boucle qui implémente la résolution de service, puis réessayer des stratégies à appliquer en cas d’échec de la connexion
 
-Ce processus implique généralement l’encapsulage des bibliothèques de communications côté client dans une boucle de nouvelle tentative, qui implémente les règles de nouvelle tentative et de résolution de service.
 Pour plus d’informations, consultez la page [Se connecter et communiquer avec les services](service-fabric-connect-and-communicate-with-services.md).
 
 ### <a name="communicating-by-using-the-reverse-proxy"></a>Communiquer avec le proxy inverse
-Le proxy inverse de Service Fabric s’exécute sur tous les nœuds du cluster. Il exécute l’ensemble du processus de résolution de service pour un client, puis transmet la requête du client. Par conséquent, les clients en cours d’exécution sur le cluster peuvent utiliser n’importe quelle bibliothèque de communications HTTP côté client pour interagir avec le service cible, par le biais du proxy inverse exécuté en local sur le même nœud.
+Le proxy inverse est un service qui s’exécute sur chaque nœud et qui gère la résolution des points de terminaison, les nouvelles tentatives automatiques et autres échecs de connexion pour le compte des services clients. Le proxy inverse peut être configuré pour appliquer différentes stratégies à mesure qu’il gère les demandes émanant des services clients. Utiliser un proxy inverse permet au service client de recourir à toutes les bibliothèques de communication HTTP côté client et ne nécessite aucune résolution spéciale ou logique de nouvelle tentative dans le service. 
+
+Le proxy inverse expose un ou plusieurs points de terminaison sur le nœud local que les services clients peuvent utiliser pour envoyer des demandes à d’autres services.
 
 ![Communications internes][1]
+
+> **Plateformes prises en charge**
+>
+> Le proxy inverse dans Service Fabric prend en charge les plateformes suivantes :
+> * *Cluster Windows* : Windows versions 8 et ultérieures ou Windows Server versions 2012 et ultérieures
+> * *Cluster Linux* : le proxy inverse n’est pas disponible pour les clusters Linux.
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Atteindre les microservices de l’extérieur du cluster
 Le modèle de communication externe par défaut des microservices est un modèle d’adhésion, avec lequel aucun service n’est accessible directement à partir des clients externes. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), qui représente une limite réseau située entre les microservices et les clients externes, effectue la traduction des adresses réseau et transfère les requêtes externes vers des points de terminaison IP:port internes. Pour que le point de terminaison d’un microservice soit accessible aux clients externes, vous devez tout d’abord configurer l’équilibreur de charge de sorte qu’il transfère le trafic vers chaque port utilisé par le service au sein du cluster. En outre, la plupart des microservices, en particulier les microservices avec état, ne résident pas sur tous les nœuds du cluster. Les microservices peuvent se déplacer entre les nœuds lors d’un basculement. Dans ce cas, l’équilibreur de charge ne peut pas déterminer efficacement l’emplacement du nœud cible des réplicas auxquels il doit transférer le trafic.
@@ -315,4 +321,3 @@ Tout d’abord, vous récupérez le modèle du cluster que vous souhaitez déplo
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
-

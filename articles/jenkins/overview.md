@@ -11,14 +11,12 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
+ms.openlocfilehash: daa202ddf0dc934c491ead3951ddc4fdc3dd819c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 6a4c32d73050795a70a86f745840536bb3fc2a49
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-and-jenkins"></a>Azure et Jenkins
 
 [Jenkins](https://jenkins.io/) est un serveur Automation open source connu utilisé pour configurer l’intégration et la livraison continues pour vos projets de logiciels. Vous pouvez héberger votre déploiement Jenkins sur Azure ou étendre votre configuration Jenkins existante à l’aide des ressources Azure. Des plug-ins Jenkins sont également disponibles pour simplifier l’intégration/la livraison continues de vos applications vers Azure.
@@ -46,11 +44,10 @@ Une fois configuré avec un [principal du service Azure](/azure/azure-resource-m
 
 ## <a name="deploy-your-code-into-azure-services"></a>Déployer votre code dans les services Azure
 
-Utilisez les plug-ins Jenkins pour déployer vos applications sur Azure dans le cadre de vos pipelines d’intégration/de livraison continues Jenkins. Le déploiement dans [Azure App Service](/azure/app-service-web/) et [Azure Container Service](/azure/container-service/kubernetes/) vous permet d’organiser, de tester et de mettre en production des mises à jour de vos applications sans gestion de l’infrastructure sous-jacente.
+Utilisez les plug-ins Jenkins pour déployer vos applications sur Azure dans le cadre de vos pipelines d’intégration/de livraison continues Jenkins. Le déploiement dans [Azure App Service](/azure/app-service/) et [Azure Container Service](/azure/container-service/kubernetes/) vous permet d’organiser, de tester et de mettre en production des mises à jour de vos applications sans gestion de l’infrastructure sous-jacente.
 
  Des plug-ins sont disponibles pour être déployés sur les services et environnements suivants :
 
-- [Azure Web App sur Linux](/azure/app-service-web/app-service-linux-intro). Consultez le [didacticiel](java-deploy-webapp-tutorial.md) pour commencer.
-- [Azure Web App](/azure/app-service-web/app-service-web-overview). Consultez les [procédures](deploy-Jenkins-app-service-plugin.md) pour commencer.
-
+- [Azure Web App sur Linux](/azure/app-service/containers/app-service-linux-intro). Consultez le [didacticiel](java-deploy-webapp-tutorial.md) pour commencer.
+- [Azure Web App](/azure/app-service/app-service-web-overview). Consultez les [procédures](deploy-Jenkins-app-service-plugin.md) pour commencer.
 

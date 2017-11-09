@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d&quot;Azure Active Directory avec Datahug | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory avec Datahug | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Datahug."
 services: active-directory
 documentationCenter: na
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
 ms.openlocfilehash: ec431dd5ccfa53e4b975e46da247704dd1e15c2c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Didacticiel : Intégration d’Azure Active Directory avec Datahug
 
@@ -67,7 +65,7 @@ Pour configurer l’intégration de Datahug dans Azure AD, vous devez ajouter D
 
     ![Applications][2]
     
-3. Pour ajouter la nouvelle application, cliquez sur le bouton **New application** (Nouvelle application) en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Applications][3]
 
@@ -148,7 +146,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 9. Pour configurer l’authentification unique côté **Datahug**, vous devez envoyer le **XML de métadonnées**, **l’ID d’entité SAML** et **l’URL du service d’authentification unique SAML** téléchargés à [l’équipe de support Datahug](http://datahug.com/about/contact-us/). Ils effectuent les réglages nécessaires sur l’application pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Single Sign-On** (Authentification unique) et accédez à la documentation incorporée via la section **Configuration** en bas. Vus pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -158,7 +156,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **Portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-datahug-tutorial/create_aaduser_01.png) 
 
@@ -204,7 +202,7 @@ Pour Datahug, l’approvisionnement est une tâche manuelle.
     ![Ajouter un employé](./media/active-directory-saas-datahug-tutorial/3.png)
 
     > [!NOTE] 
-    > Vous pouvez envoyer un courrier d’inscription à l’utilisateur en sélectionnant **Send welcome email** (Envoyer un e-mail de bienvenue).    
+    > Vous pouvez envoyer un courrier d’inscription à l’utilisateur en sélectionnant **Send welcome email** (Envoyer un e-mail de bienvenue).  
     > Si vous créez un compte pour l’équipe commerciale, n’envoyez pas l’e-mail de bienvenue.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
@@ -262,5 +260,4 @@ Lorsque vous cliquez sur la vignette Datahug dans le volet d’accès, vous ête
 [201]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_203.png
-
 

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 9ca33057f6030fdcc233f6053fdc392d62f8f9f4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Répliquer des machines virtuelles Azure entre des régions avec Azure Site Recovery
 
 >[!NOTE]
@@ -148,4 +145,3 @@ Après avoir testé le déploiement :
 
 - [Apprenez-en davantage](site-recovery-failover.md) sur les différents types de basculement et leur mode exécution.
 - En savoir plus sur l’[utilisation des plans de récupération](site-recovery-create-recovery-plans.md) afin de réduire l’objectif de délai de récupération (RTO).
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
 Ce document contient les notes de publication du Kit de développement logiciel (SDK) Azure pour .NET version 2.5.1. 
@@ -63,5 +62,4 @@ Les nouvelles fonctionnalités et mises à jour intégrées dans le Kit de déve
 * Les projets d'application API ne peuvent pas être utilisés conjointement avec des projets de service cloud.
 * Les modèles de projet d'application API sont disponibles uniquement en C#.
 * L'utilisation de l'application API via le menu contextuel « Ajouter Azure API App Client » est prise en charge uniquement en C#.
-
 

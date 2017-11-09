@@ -10,18 +10,16 @@ ms.topic: article
 ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
-ms.custom: Jenkins
+ms.custom: Jenkins, devcenter
+ms.openlocfilehash: 3a2635ac968d843226f05dc51cf4a5f078235c11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 22288cd1468b410df77b27721ccda32c3d033e47
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurer l’intégration et le déploiement continus d’Azure App Service avec Jenkins
 
-Ce didacticiel permet de configurer l’intégration et le déploiement continus (CI/CD) d’un exemple d’application web Java développée avec le framework [Spring Boot](http://projects.spring.io/spring-boot/) dans [Azure App Service Web App sur Linux](/azure/app-service-web/app-service-linux-intro) à l’aide de Jenkins.
+Ce didacticiel permet de configurer l’intégration et le déploiement continus (CI/CD) d’un exemple d’application web Java développée avec le framework [Spring Boot](http://projects.spring.io/spring-boot/) dans [Azure App Service Web App sur Linux](/azure/app-service/containers/app-service-linux-intro) à l’aide de Jenkins.
 
 Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
@@ -83,7 +81,7 @@ Configurez Jenkins pour recevoir les [webhooks GitHub](https://developer.github.
 
 ## <a name="configure-azure-app-service"></a>Configurer Azure App Service 
 
-1. À partir d’Azure CLI ou de [Cloud Shell](/azure/cloud-shell/overview), créez une application [Web App sur Linux](/azure/app-service-web/app-service-linux-intro). Dans ce didacticiel, l’application web s’appelle `myJavaApp`, mais vous devez utiliser un nom distinctif pour votre propre application.
+1. À partir d’Azure CLI ou de [Cloud Shell](/azure/cloud-shell/overview), créez une application [Web App sur Linux](/azure/app-service/containers/app-service-linux-intro). Dans ce didacticiel, l’application web s’appelle `myJavaApp`, mais vous devez utiliser un nom distinctif pour votre propre application.
    
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus
@@ -187,4 +185,3 @@ Configurez Jenkins pour recevoir les [webhooks GitHub](https://developer.github.
 - [Utiliser des machines virtuelles Azure comme agents de build](/azure/jenkins/jenkins-azure-vm-agents)
 - [Gérer les ressources dans les travaux et les pipelines avec Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
  
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
+ms.openlocfilehash: 26378ff9f16af9724db08cc4013654557f1c838b
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 6ddb1915c8073a7b64ba03ff6b90e701ad337c3e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Commandes PowerShell courantes pour les réseaux virtuels Azure
 
@@ -75,6 +74,5 @@ Certaines variables peuvent être utiles si vous utilisez plusieurs des commande
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez l’interface réseau que vous avez créée en même temps que [la machine virtuelle](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Découvrez comment [créer une machine virtuelle avec plusieurs interfaces réseau](../../virtual-network/virtual-networks-multiple-nics.md).
-
+* Découvrez comment [créer une machine virtuelle avec plusieurs interfaces réseau](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md).
 

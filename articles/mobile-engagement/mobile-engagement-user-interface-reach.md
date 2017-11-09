@@ -1,5 +1,5 @@
 ---
-title: Interface utilisateur d&quot;Azure Mobile Engagement - Reach
+title: Interface utilisateur d'Azure Mobile Engagement - Reach
 description: "Découvrez comment atteindre les utilisateurs de votre application avec des notifications Push grâce à Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0f09a4118c3cfbd014e1c53fd22da06eb7ede260
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Comment atteindre les utilisateurs de votre application avec des notifications Push
 Cet article décrit l’onglet **REACH** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement** . Pour plus d'informations, consultez [Create an Azure Mobile Engagement account](mobile-engagement-create.md).
@@ -175,5 +174,4 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

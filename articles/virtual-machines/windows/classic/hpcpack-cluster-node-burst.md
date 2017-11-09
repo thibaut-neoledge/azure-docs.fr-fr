@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Ajouter des nœuds d’extension sur demande à un cluster HPC Pack dans Azure
 Si vous avez configuré un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) dans Azure, vous aurez peut-être besoin d’une solution permettant de mettre rapidement à l’échelle sa capacité en l’augmentant ou en la réduisant, sans avoir à conserver un ensemble de machines virtuelles de nœud de calcul préconfiguré. Cet article vous montre comment ajouter des nœuds « d’extension » à la demande (instances de rôle de travail en cours d’exécution dans un service cloud) en tant que ressources de calcul à un nœud principal dans Azure. 
@@ -82,4 +81,3 @@ Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, cons
 
 <!--Image references-->
 [burst]: ./media/hpcpack-cluster-node-burst/burst.png
-

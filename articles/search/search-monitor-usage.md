@@ -1,6 +1,6 @@
 ---
 title: "Surveillance de l’utilisation et des statistiques dans un service Recherche Azure | Microsoft Docs"
-description: "Suivez la consommation de ressource et la taille de l&quot;index pour Azure Search, un service de recherche cloud hébergé sur Microsoft Azure."
+description: "Suivez la consommation de ressource et la taille de l'index pour Azure Search, un service de recherche cloud hébergé sur Microsoft Azure."
 services: search
 documentationcenter: 
 author: bernitorres
@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 05/01/2017
 ms.author: betorres
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 16cb5a1e16a59200f0e731622398efcf24c3f777
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-an-azure-search-service"></a>Surveillance d’un service Azure Search
 
@@ -158,4 +156,3 @@ En savoir plus sur la création de rapports exceptionnels. Pour plus d’informa
 [2]: ./media/search-monitor-usage/AzureSearch-Monitor1.PNG
 [3]: ./media/search-monitor-usage/AzureSearch-Enable-Monitoring.PNG
 [4]: ./media/search-monitor-usage/AzureSearch-PowerBI-Dashboard.png
-

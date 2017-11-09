@@ -1,6 +1,6 @@
 ---
 title: "Corriger les vulnérabilités du système d’exploitation dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter la recommandation de l’Azure Security Center **Corriger les vulnérabilités du système d&quot;exploitation**."
+description: "Ce document vous montre comment implémenter la recommandation Azure Security Center **Remediate OS vulnerabilities** (Corriger les vulnérabilités du système d’exploitation)."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e6b251d5b97c57b3b6f79d14e53fbed5ca37ecb0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Corriger les vulnérabilités du système d’exploitation dans Azure Security Center
-Azure Security Center analyse quotidiennement le système d’exploitation de votre machine virtuelle afin d’identifier les configurations susceptibles de rendre la machine virtuelle plus vulnérable aux attaques, et recommande des changements de configuration visant à résoudre ces problèmes. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation de votre machine virtuelle ne correspond pas aux règles de configuration recommandées.
+Azure Security Center analyse quotidiennement le système d’exploitation de vos machines virtuelles et ordinateurs et recherche les configurations qui pourraient les rendre plus vulnérables aux attaques. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration recommandées et d’apporter des modifications à la configuration pour supprimer ces vulnérabilités.
 
 > [!NOTE]
 > Consultez la [liste des règles de configuration recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour plus d’informations sur les configurations surveillées.
@@ -31,46 +29,67 @@ Azure Security Center analyse quotidiennement le système d’exploitation de vo
 >
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
+La correction des vulnérabilités du système d’exploitation est présentée sous forme de recommandations dans Security Center. Cette recommandation s’affichera dans **Recommandations** et dans **Calcul**.
 
-> [!NOTE]
-> Ce document présente le service à l’aide d’un exemple de déploiement.  Ce document n’est pas un guide pas à pas.
->
->
+Dans cet exemple, nous allons examiner la recommandation **Corriger les vulnérabilités du système d’exploitation (par Microsoft)** dans **Calcul**.
+1. Dans le menu principal de Security Center, sélectionnez **Calcul**.
 
-1. Dans le panneau **Recommandations**, sélectionnez **Corriger les vulnérabilités du système d’exploitation**.
-   ![Corriger des vulnérabilités du système d’exploitation][1]
+   ![Corriger les vulnérabilités du système d’exploitation][1]
 
-    Le panneau **Corriger des vulnérabilités du système d’exploitation** s’ouvre et répertorie vos machines virtuelles dont les configurations de système d’exploitation ne correspondent pas aux règles de configuration recommandées.  Pour chaque machine virtuelle, le panneau identifie les éléments suivants :
+2. Dans **Calcul**, sélectionnez **Corriger les vulnérabilités du système d’exploitation (par Microsoft)**. Le tableau de bord **Incompatibilité des vulnérabilités du système d’exploitation (par Microsoft)**s’ouvre.
 
-   * **RÈGLES AYANT ÉCHOUÉ** : nombre de règles non respectées par la configuration du système d’exploitation de la machine virtuelle.
-   * **HEURE DE LA DERNIÈRE ANALYSE** : date et heure de la dernière analyse de la configuration du système d’exploitation de la machine virtuelle par Security Center.
-   * **ÉTAT** : état actuel de la vulnérabilité :
+   ![Corriger les vulnérabilités du système d’exploitation][2]
 
-     * Ouverte : la recommandation n’a pas encore été corrigée
-     * En cours : la vulnérabilité est en cours de résolution, aucune action de votre part n’est nécessaire
-     * Résolue : l’application a déjà été corrigée (une fois le problème résolu, la ligne est grisée)
-   * **GRAVITÉ** : toutes les vulnérabilités sont définies à un niveau de gravité faible, ce qui signifie qu’une vulnérabilité doit être traitée, mais qu’elle ne nécessite pas une attention immédiate.
+  La partie supérieure du tableau de bord indique :
 
-2. Sélectionnez une machine virtuelle. Un panneau de cette machine virtuelle s’ouvre et affiche les règles qui ont échoué.
-   ![Règles de configuration ayant échoué][2]
+  - Le nombre total de règles par niveau de gravité que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
+  - Le nombre total de règles par type que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
+  - Le nombre total de règles que vos configurations de système d’exploitation Windows et Linux ne respectent pas.
 
-3. Sélectionnez une règle. Dans cet exemple, nous allons sélectionner **Le mot de passe doit respecter des exigences de complexité**. La règle ayant échoué ainsi que son impact s’affichent alors dans un nouveau panneau. Passez en revue les informations du panneau et déterminez comment les configurations de système d’exploitation sont appliquées.
-  ![Description de la règle ayant échoué][3]
+  La partie inférieure du tableau de bord répertorie toutes les règles non respectées par vos ordinateurs et machines virtuelles, ainsi que le niveau de gravité de la mise à jour manquante. Cette liste comprend les éléments suivants :
 
-  Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques pour les règles de configuration. Ce panneau contient les informations suivantes :
+  - **CCEID** : identificateur unique CCE pour la règle. Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques pour les règles de configuration.
+  - **NOM** : nom de la règle non respectée.
+  - **TYPE DE RÈGLE** : clé de Registre, stratégie de sécurité OU stratégie d’audit.
+  - **NO. DE MACHINES VIRTUELLES ET D’ORDINATEURS** : nombre total de machines virtuelles et d’ordinateurs ne respectant pas cette règle.
+  - **GRAVITÉ DE LA RÈGLE** : valeur de gravité CCE (critique, important ou avertissement).
+  - **ÉTAT**: état actuel de la recommandation :
+
+    - **Ouverte**: la recommandation n’a pas encore été prise en compte.
+    - **En cours** : la recommandation est actuellement appliquée à ces ressources ; aucune action de votre part n’est nécessaire.
+    - **Résolue** : la recommandation a déjà été achevée. (Une fois problème résolu, l’entrée est grisée).
+
+3. Sélectionnez une règle non respectée dans la liste pour afficher les détails.
+
+   ![Règles de configuration ayant échoué][3]
+
+  Ce panneau contient les informations suivantes :
 
   - NOM : nom de règle
-  - GRAVITÉ : valeur de gravité CCE (critique, important ou avertissement)
   - CCIED : identificateur unique CCE pour la règle
-  - DESCRIPTION : description de la règle
+  - Version du système d’exploitation : version du système d’exploitation de la machine virtuelle ou de l’ordinateur.
+  - GRAVITÉ DE LA RÈGLE : valeur de gravité CCE (critique, important ou avertissement).
+  - DESCRIPTION COMPLÈTE : description de la règle.
   - VULNÉRABILITÉ : explication de la vulnérabilité ou du risque si la règle n’est pas appliquée
-  - IMPACT : impact sur l’activité lorsque la règle est appliquée
+  - IMPACT POTENTIEL : impact sur l’activité lorsque la règle est appliquée.
+  - CONTRE-MESURE : étapes correctives.
   - VALEUR ATTENDUE : valeur attendue lorsque Security Center analyse la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle
-  - OPÉRATION DE LA RÈGLE : opération de règle utilisée par Security Center lors de l’analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle
   - VALEUR RÉELLE : valeur retournée après analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle
-  - RÉSULTAT DE L’ÉVALUATION : résultat de l’analyse : réussite ou échec
+  - OPÉRATION DE LA RÈGLE : opération de règle utilisée par Security Center lors de l’analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle
 
-## <a name="see-also"></a>Voir aussi
+4. Sélectionnez l’icône **Recherche** dans le ruban supérieur. Recherche ouvre la liste des espaces de travail ayant des machines virtuelles et des ordinateurs avec la vulnérabilité de système d’exploitation sélectionnée. Ce panneau de sélection d’espaces de travail s’affiche uniquement si la règle sélectionnée s’applique à plusieurs machines virtuelles connectées à différents espaces de travail.
+
+  ![Espaces de travail répertoriés][4]
+
+5. Sélectionnez un espace de travail. Une requête de recherche Log Analytics filtrée sur l’espace de travail avec la vulnérabilité de système d’exploitation s’ouvre.
+
+  ![Espace de travail avec vulnérabilité de système d’exploitation][5]
+
+6. Sélectionnez un ordinateur dans la liste pour plus d’informations. Un autre résultat de recherche s’ouvre avec les informations filtrées uniquement pour cet ordinateur.
+
+  ![Filtré sur cet ordinateur][6]
+
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré comment implémenter la recommandation de Security Center « Corriger les vulnérabilités du système d’exploitation ». Vous pouvez consulter l’ensemble des règles de configuration [ici](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques pour les règles de configuration. Visitez le site [CCE](https://nvd.nist.gov/cce/index.cfm) pour plus d’informations.
 
 Pour plus d’informations sur Security Center, consultez les ressources suivantes :
@@ -85,7 +104,9 @@ Pour plus d’informations sur Security Center, consultez les ressources suivant
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png
-[2]:./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
+[1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png
+[2]:./media/security-center-remediate-os-vulnerabilities/os-vulnerabilities.png
 [3]: ./media/security-center-remediate-os-vulnerabilities/vulnerability-details.png
-
+[4]: ./media/security-center-remediate-os-vulnerabilities/search.png
+[5]: ./media/security-center-remediate-os-vulnerabilities/log-search.png
+[6]: ./media/security-center-remediate-os-vulnerabilities/search-results.png

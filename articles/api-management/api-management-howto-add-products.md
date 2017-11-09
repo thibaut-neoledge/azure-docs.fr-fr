@@ -1,9 +1,9 @@
 ---
-title: "Création et publication d&quot;un produit dans Gestion des API Azure"
+title: "Création et publication d'un produit dans Gestion des API Azure"
 description: "Apprenez à créer et à publier des produits dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 31de55cb-9384-490b-a2f2-6dfcf83da764
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 1568bbba999018e26493654e0286a6b8d93f3ae7
-
-
+ms.openlocfilehash: 2cf905967f26de97613ff7d5fc495c9223e11390
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Création et publication d'un produit dans Gestion des API Azure
 Dans Gestion des API Azure, un produit contient une ou plusieurs API, ainsi qu’un quota et des conditions d’utilisation. Une fois le produit publié, les développeurs peuvent s'y abonner et commencer à utiliser ses API. Cette rubrique constitue un guide pour créer un produit, ajouter une API et le publier pour les développeurs.
 
-## <a name="create-product"> </a>Création d’un produit
+## <a name="create-product"></a>Création d’un produit
 Les opérations sont ajoutées et configurées dans une API sur le portail des éditeurs. Pour accéder au portail des éditeurs, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API.
 
 ![Portail des éditeurs][api-management-management-console]
@@ -62,7 +62,7 @@ Une fois que toutes les nouvelles options du produit sont configurées, cliquez 
 
 Pour configurer un produit, cliquez sur son nom dans l'onglet **Produits** .
 
-## <a name="add-apis"> </a>Ajout d’API à un produit
+## <a name="add-apis"></a>Ajout d’API à un produit
 La page **Produits** contient quatre liens de configuration : **Résumé**, **Paramètres**, **Visibilité** et **Abonnés**. L’onglet **Résumé** est celui dans lequel vous pouvez ajouter des API et publier un produit, ou en annuler la publication.
 
 ![Résumé][api-management-new-product-summary]
@@ -73,7 +73,7 @@ Avant de publier votre produit, vous devez ajouter une ou plusieurs API. Pour ce
 
 Sélectionnez les API voulues, puis cliquez sur **Enregistrer**.
 
-## <a name="add-description"> </a>Ajout d’informations descriptives à un produit
+## <a name="add-description"></a>Ajout d’informations descriptives à un produit
 L’onglet **Paramètres** vous permet d’ajouter des informations détaillées sur le produit, comme son objectif, les API auxquelles il permet l’accès, ainsi que d’autres informations utiles. Le contenu est destiné aux développeurs qui appelleront l'API. Il peut être sous forme de texte brut ou au format HTML.
 
 ![Product settings][api-management-product-settings]
@@ -86,12 +86,12 @@ Pour autoriser les comptes de développeur à s’abonner plusieurs fois au prod
 
 Vous pouvez si vous le souhaitez remplir le champ **Conditions d'utilisation** qui décrit les conditions d'utilisation que les abonnés doivent accepter pour pouvoir utiliser le produit.
 
-## <a name="publish-product"> </a>Publication d’un produit
+## <a name="publish-product"></a>Publication d’un produit
 Avant de pouvoir appeler les API dans un produit, ce produit doit être publié. Dans l’onglet **Résumé** du produit, cliquez sur **Publier**, puis sur **Oui, publier** pour confirmer. Pour rendre privé un produit préalablement publié, cliquez sur **Annuler la publication**.
 
 ![Publish product][api-management-publish-product]
 
-## <a name="make-visible"> </a>Rendre un produit visible pour les développeurs
+## <a name="make-visible"></a>Rendre un produit visible pour les développeurs
 L'onglet **Visibilité** vous permet de choisir quels rôles sont en mesure de voir le produit sur le portail des développeurs et de s'abonner à ce produit.
 
 ![Product visibility][api-management-product-visiblity]
@@ -102,12 +102,12 @@ Pour activer ou désactiver la visibilité d'un produit pour les développeurs d
 > 
 > 
 
-## <a name="view-subscribers"> </a>Affichage des abonnés à un produit
+## <a name="view-subscribers"></a>Affichage des abonnés à un produit
 L’onglet **Abonnés** présente la liste des développeurs qui se sont abonnés au produit. Les détails et les paramètres de chaque développeur peuvent être consultés en cliquant sur le nom du développeur. Dans cet exemple, aucun développeur ne s'est encore abonné au produit.
 
 ![Développeurs][api-management-developer-list]
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois les API souhaitées ajoutées et le produit publié, les développeurs peuvent s'abonner au produit et commencer à appeler les API. Pour suivre le didacticiel présentant comment configurer ces éléments, ainsi que certains paramètres de produit avancés, consultez la page [Création et configuration de paramètres de produit avancés dans Gestion des API Azure][How create and configure advanced product settings in Azure API Management].
 
 Pour plus d’informations sur l’utilisation des produits, consultez la vidéo suivante.
@@ -151,9 +151,3 @@ Pour plus d’informations sur l’utilisation des produits, consultez la vidéo
 [Next steps]: #next-steps
 [How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
 [How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

@@ -5,8 +5,8 @@
 
 # Prise en main
 ## [Créez votre première application logique](logic-apps-create-a-logic-app.md)
-## [Modèles d’applications logiques](logic-apps-use-logic-app-templates.md)
-## [Créer des applications logiques à partir de modèles](logic-apps-arm-provision.md)
+## [Créer des applications logiques à partir de modèles](logic-apps-create-logic-apps-from-templates.md)
+## [Créer des applications logiques à l’aide de modèles Resource Manager](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Déplacer des applications MABS vers des applications logiques](logic-apps-move-from-mabs.md)
 
 # Procédure
@@ -19,8 +19,20 @@
 ### [Messages du processus de traitement par lot](logic-apps-batch-process-send-receive-messages.md)
 ### [Créer des définitions d’application logique](logic-apps-author-definitions.md)
 ### [Appeler, déclencher ou imbriquer des applications logiques](logic-apps-http-endpoint.md)
-### [Créer des API personnalisées pour les applications logiques](logic-apps-create-api-app.md)
-### [Appeler des API personnalisées pour les applications logiques](logic-apps-custom-hosted-api.md)
+### Développer des connecteurs personnalisés
+#### [Vue d’ensemble des connecteurs personnalisés](custom-connector-overview.md)
+#### [Créer des connecteurs à partir d’API web](custom-connector-build-web-api-app-tutorial.md)
+#### [Sécuriser des connecteurs avec Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [Décrire des API avec Postman](custom-connector-api-postman-collection.md)
+#### [Étendre OpenAPI pour les connecteurs personnalisés](custom-connector-openapi-extensions.md)
+#### [Créer et inscrire un connecteur OpenAPI](logic-apps-custom-connector-register.md)
+#### [Créer et inscrire un connecteur SOAP](logic-apps-soap-connector-create-register.md)
+#### [Certifier votre connecteur](custom-connector-submit-certification.md)
+#### [FAQ pour les connecteurs personnalisés](custom-connector-faq.md)
+### Développer des API personnalisées
+#### [Créer des API personnalisées pour les applications logiques](logic-apps-create-api-app.md)
+#### [Appels sécurisés à des API personnalisées](logic-apps-custom-api-authentication.md)
+#### [Déployer et appeler des API personnalisées](logic-apps-custom-api-host-deploy-call.md)
 ### [Gérer les erreurs et exceptions](logic-apps-exception-handling.md)
 ### [Gérer les types de contenu](logic-apps-content-type.md)
 ### [Sécuriser vos applications logiques](logic-apps-securing-a-logic-app.md)
@@ -32,6 +44,7 @@
 ### [Partenaires](logic-apps-enterprise-integration-partners.md)
 ### [Accords](logic-apps-enterprise-integration-agreements.md)
 ### [Traitement B2B](logic-apps-enterprise-integration-b2b.md)
+### [Envoyer des messages EDI en tant que traitement par lots](logic-apps-scenario-edi-send-batch-messages.md)
 ### [Traitement XML](logic-apps-enterprise-integration-xml.md)
 ### [Traitement des fichiers plats](logic-apps-enterprise-integration-flatfile.md)
 ### [Valider Xml](logic-apps-enterprise-integration-xml-validation.md)
@@ -73,12 +86,11 @@
 #### [Schéma de suivi X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Schéma de suivi personnalisé](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Exemples, scénarios et procédures pas à pas
-### [Vue d'ensemble](logic-apps-examples-and-scenarios.md)
+## [Exemples, scénarios et procédures pas à pas](logic-apps-examples-and-scenarios.md)
 ### [Créer un tableau de bord des réseaux sociaux sans serveur](logic-apps-scenario-social-serverless.md)
 ### [Appeler des applications logiques avec Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Ajouter la gestion des erreurs et des exceptions](logic-apps-scenario-error-and-exception-handling.md)
-### [Traitement B2B](logic-apps-enterprise-integration-b2b.md)
+### [Traitement B2B](logic-apps-enterprise-integration-b2b.md) 
 
 ## Tarification et facturation
 ### [Tarification](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -98,7 +110,7 @@
 ## [Langage de définition de flux de travail](logic-apps-workflow-definition-language.md)
 ## [Actions et déclencheurs de flux de travail](logic-apps-workflow-actions-triggers.md)
 ## [API REST](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Connecteurs : rubriques approfondies
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Stockage Blob Azure](../connectors/connectors-create-api-azureblobstorage.md)

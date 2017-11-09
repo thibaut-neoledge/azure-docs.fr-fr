@@ -13,14 +13,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
+ms.openlocfilehash: e9352ac1a346537d6214590be6dbc9db7ca0f461
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: eac0e95a46731b9d396ea0590e629d61ca6a7d70
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2017
 ---
-
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Passer un objet JSON dans un runbook Azure Automation
 
 Il peut être utile stocker les données à passer dans un runbook dans un fichier JSON.
@@ -97,7 +95,7 @@ Lancer les commandes PowerShell suivantes :
    ```powershell
    $JsonParams = @{"json"=$json}
    ```
-1. Créer une table de hachage pour les paramètres pour `Start-AzureRmAutomstionRunbook` :
+1. Créer une table de hachage pour les paramètres pour `Start-AzureRmAutomationRunbook` :
    ```powershell
    $RBParams = @{
         AutomationAccountName = 'AATest'
@@ -118,6 +116,5 @@ Le runbook utilise les valeurs du fichier JSON pour démarrer une machine virtue
 
 * Pour en savoir plus sur la modification des runbooks PowerShell et de workflow PowerShell avec un éditeur de texte, consultez [Modifier des runbooks textuels dans Azure Automation](automation-edit-textual-runbook.md) 
 * Pour savoir comment créer et importer des runbooks, consultez [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md)
-
 
 

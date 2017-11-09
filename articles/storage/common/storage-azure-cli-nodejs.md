@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
+ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 837cf0f2b8db011b38de795339560574027030f8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Utilisation de l’interface de ligne de commande Azure 1.0 avec Azure Storage
 
@@ -84,11 +83,11 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
 5. Sur ce dernier, ouvrez l’éditeur de texte de votre choix (vim, par exemple). Saisissez le script ci-dessus dans cet éditeur.
 6. Maintenant, vous devez mettre à jour les variables du script en fonction de vos paramètres de configuration.
 
-   * **<nom_compte_stockage>** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
-   * **<clé_compte_stockage>** : clé d’accès associée à votre compte de stockage.
-   * **<nom_conteneur>** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
-   * **<image_à_télécharger>** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « ~/images/HelloWorld.png ».
-   * **<dossier_destination>** : entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés à partir d’Azure Storage, par exemple « ~/downloadImages ».
+   * **&lt;nom_compte_stockage&gt;** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
+   * **&lt;clé_compte_stockage&gt;** : clé d’accès associée à votre compte de stockage.
+   * **&lt;nom_conteneur&gt;** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
+   * **&lt;image_à_télécharger&gt;** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « ~/images/HelloWorld.png ».
+   * **&lt;dossier_destination&gt;** : entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés à partir d’Azure Storage, par exemple « ~/downloadImages ».
 7. Une fois que vous avez mis à jour les variables nécessaires dans vim, appuyez sur les combinaisons de touches `ESC`, `:`, `wq!` pour enregistrer le script.
 8. Pour exécuter ce script, saisissez simplement le nom de fichier correspondant dans la console de l’interpréteur de commandes. Une fois ce script exécuté, vous devez disposer d’un répertoire de destination local incluant le fichier image téléchargé. La capture d’écran suivante présente un exemple de cette opération :
 
@@ -183,7 +182,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Créer et gérer des partages de fichiers
-Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure File Storage, consultez [Prise en main du stockage de fichiers Azure sur Windows](../storage-dotnet-how-to-use-files.md) ou [Utilisation du stockage de fichiers Azure avec Linux](../storage-how-to-use-files-linux.md).
+Azure Files propose un stockage partagé pour les applications utilisant le protocole SMB standard. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure Files, voir [Présentation d’Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Créer un partage de fichiers
 Un partage de fichiers Azure est un partage de fichiers SMB dans Microsoft Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
@@ -242,4 +241,3 @@ Vous pouvez trouver la référence des commandes de la CLI Azure 1.0 pour trava
 * [Commandes de la CLI Azure en mode Azure Service Management (ASM)](../../cli-install-nodejs.md)
 
 Vous pouvez également essayer [Azure CLI 2.0](../storage-azure-cli.md), une interface Azure CLI nouvelle génération écrite en Python à utiliser pour le modèle de déploiement Resource Manager.
-

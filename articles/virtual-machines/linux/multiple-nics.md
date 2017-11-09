@@ -4,7 +4,7 @@ description: "Découvrez comment créer une machine virtuelle Linux dotée de pl
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
@@ -12,17 +12,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
+ms.openlocfilehash: 0c41388623b82421bd09f31fbc4b3769de758e4c
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: ff3e3121102eedaa1f439e517570d0a97cf07c22
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau
-Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article décrit comment créer une machine virtuelle avec plusieurs cartes réseau attachées et comment ajouter ou supprimer des cartes réseau à partir d’une machine virtuelle existante. Pour plus d’informations, notamment sur la création de plusieurs cartes réseau dans vos propres scripts Bash, consultez la page consacrée au [déploiement de machines virtuelles avec plusieurs cartes d’interface réseau](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
+Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article décrit comment créer une machine virtuelle avec plusieurs cartes réseau attachées et comment ajouter ou supprimer des cartes réseau à partir d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
 
 Cet article explique comment créer une machine virtuelle avec plusieurs cartes réseau à l’aide d’Azure CLI 2.0. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](multiple-nics-nodejs.md).
 
@@ -102,7 +101,7 @@ az vm create \
 ```
 
 ## <a name="add-a-nic-to-a-vm"></a>Ajout d’une carte réseau à une machine virtuelle existante
-Les étapes précédentes ont permis de créer une machine virtuelle avec plusieurs cartes réseau. Vous pouvez également ajouter des cartes réseau à une machine virtuelle existante avec Azure CLI 2.0. 
+Les étapes précédentes ont permis de créer une machine virtuelle avec plusieurs cartes réseau. Vous pouvez également ajouter des cartes réseau à une machine virtuelle existante avec Azure CLI 2.0. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence. Si nécessaire, vous pouvez [redimensionner une machine virtuelle](change-vm-size.md).
 
 Créez une autre carte réseau avec [az network nic create](/cli/azure/network/nic#create). L’exemple suivant crée une carte réseau nommée *myNic3* connectée au sous-réseau principal et au groupe de sécurité réseau créés lors des étapes précédentes :
 
@@ -149,7 +148,7 @@ Supprimez la carte réseau avec [az vm nic remove](/cli/azure/vm/nic#remove). L�
 ```azurecli
 az vm nic remove \
     --resource-group myResourceGroup \
-    --vm-name myVM 
+    --vm-name myVM \
     --nics myNic3
 ```
 
@@ -180,25 +179,20 @@ Vous pouvez également utiliser `copyIndex()` pour ajouter ensuite un numéro à
 
 Vous pouvez consulter un exemple complet de la [création de plusieurs cartes réseau à l’aide de modèles Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurer plusieurs cartes réseau dans un système d’exploitation invité
+Lorsque vous ajoutez plusieurs cartes réseau à une VM Linux, vous devez créer des règles de routage. Ces règles permettent à la machine virtuelle d’envoyer et de recevoir le trafic qui appartient à une carte réseau spécifique. Sinon, le trafic appartenant à *eth1*, par exemple, ne peut pas être traité correctement par l’itinéraire défini par défaut.
 
-Lorsque vous créez plusieurs cartes réseau pour une machine virtuelle disposant d’un système d’exploitation invité Linux, vous devez créer des règles de routage supplémentaires permettant d’envoyer et de recevoir le trafic associé à une seule carte réseau. Sinon, le trafic associé à eth1 ne pourra pas être traité correctement à cause de l’itinéraire défini par défaut.  
-
-
-### <a name="solution"></a>Solution
-
-Tout d’abord, ajoutez les deux tables de routage au fichier /etc/iproute2/rt_tables
+Pour corriger ce problème de routage, ajoutez d’abord deux tables de routage */etc/iproute2/rt_tables* comme suit :
 
 ```bash
 echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Pour que le changement devienne persistant et soit appliqué lors de l’activation de la pile réseau, vous devez modifier les fichiers */etc/sysconfig/network-scipts/ifcfg-eth0* et */etc/sysconfig/network-scipts/ifcfg-eth1*.
-Remplacez la ligne *« NM_CONTROLLED=yes »* par la ligne *« NM_CONTROLLED=no »*.
-Sans cette étape, les règles et le routage que nous allons ajouter seront sans effet.
+Pour que le changement devienne persistant et soit appliqué lors de l’activation de la pile réseau, modifiez */etc/sysconfig/network-scipts/ifcfg-eth0* et */etc/sysconfig/network-scipts/ifcfg-eth1*. Remplacez la ligne *« NM_CONTROLLED=yes »* par la ligne *« NM_CONTROLLED=no »*. Sans cette étape, le routage et les règles supplémentaires ne sont pas automatiquement appliquées.
  
-La prochaine étape consiste à étendre les tables de routage. Pour rendre les étapes plus visibles, supposons que la configuration suivante soit en place :
+Étendez ensuite les tables de routage. Supposons que nous ayons la configuration suivante en place :
 
 *Routage*
 
@@ -209,7 +203,7 @@ default via 10.0.1.1 dev eth0 proto static metric 100
 168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
 169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
 ```
-    
+
 *Interfaces*
 
 ```bash
@@ -217,38 +211,45 @@ lo: inet 127.0.0.1/8 scope host lo
 eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
 eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
 ```
-    
-    
-Avec les informations ci-dessus, il est possible de créer les fichiers suivants comme des fichiers racines.
 
-*   /etc/sysconfig/network-scripts/rule-eth0
-*   /etc/sysconfig/network-scripts/route-eth0
-*   /etc/sysconfig/network-scripts/rule-eth1
-*   /etc/sysconfig/network-scripts/route-eth1
+Vous créez ensuite les fichiers suivants et ajoutez les règles et les itinéraires appropriés dans chaque :
 
-Le contenu de chaque fichier est le suivant :
+- */etc/sysconfig/network-scripts/rule-eth0*
+
+    ```bash
+    from 10.0.1.4/32 table eth0-rt
+    to 10.0.1.4/32 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth0*
+
+    ```bash
+    10.0.1.0/24 dev eth0 table eth0-rt
+    default via 10.0.1.1 dev eth0 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/rule-eth1*
+
+    ```bash
+    from 10.0.1.5/32 table eth1-rt
+    to 10.0.1.5/32 table eth1-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth1*
+
+    ```bash
+    10.0.1.0/24 dev eth1 table eth1-rt
+    default via 10.0.1.1 dev eth1 table eth1-rt
+    ```
+
+Pour appliquer les modifications, redémarrez le service *réseau* comme suit :
+
 ```bash
-cat /etc/sysconfig/network-scripts/rule-eth0
-from 10.0.1.4/32 table eth0-rt
-to 10.0.1.4/32 table eth0-rt
-
-cat /etc/sysconfig/network-scripts/route-eth0
-10.0.1.0/24 dev eth0 table eth0-rt
-default via 10.0.1.1 dev eth0 table eth0-rt
-
-cat /etc/sysconfig/network-scripts/rule-eth1
-from 10.0.1.5/32 table eth1-rt
-to 10.0.1.5/32 table eth1-rt
-
-cat /etc/sysconfig/network-scripts/route-eth1
-10.0.1.0/24 dev eth1 table eth1-rt
-default via 10.0.1.1 dev eth1 table eth1-rt
+systemctl restart network
 ```
 
-Une fois les fichiers créés et remplis, vous devez redémarrer le service réseau `systemctl restart network`
+Les règles de routage sont désormais correctement en place et vous pouvez vous connecter avec chaque interface selon les besoins.
 
-Vous pouvez désormais vous connecter à eth0 et eth1 à partir d’un réseau externe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vérifiez les [tailles des machines virtuelles Linux](sizes.md) si vous créez une machine virtuelle avec plusieurs cartes réseau. Faites attention au nombre maximal de cartes réseau pris en charge par chaque taille de machine virtuelle. 
-

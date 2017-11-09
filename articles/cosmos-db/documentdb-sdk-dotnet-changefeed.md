@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 10/31/2017
 ms.author: maquaran
+ms.openlocfilehash: 8c5a081105d37b8f1c78e90d9ccb8d945099b621
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 239b590a1e3a83fe0205dd8169697db745d7f75e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET DocumentDB : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -32,21 +31,20 @@ ms.lasthandoff: 08/29/2017
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
 
-<table>
-
-<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)</td></tr>
-
-<tr><td>**Documentation de l’API**</td><td>[Documentation de référence de l’API de la bibliothèque du processeur de flux de modification](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)</td></tr>
-
-<tr><td>**Prise en main**</td><td>[Prise en main du kit SDK .NET du processeur de flux de modification DocumentDB](change-feed.md)</td></tr>
-
-<tr><td>**Infrastructure actuellement prise en charge**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+|   |   |
+|---|---|
+|**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**Documentation de l’API**|[Documentation de référence de l’API de la bibliothèque du processeur de flux de modification](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**Prise en main**|[Prise en main du kit SDK .NET du processeur de flux de modification DocumentDB](change-feed.md)|
+|**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* Ajout de la prise en charge de .NET Standard 2.0. Le package prend désormais en charge les monikers d’infrastructure `netstandard2.0` et `net451`.
+* Compatible avec les versions 1.17.0 et supérieures du [Kit de développement logiciel (SDK) Document DB .NET](documentdb-sdk-dotnet.md).
+* Compatible avec les versions 1.5.1 et supérieures du [Kit de développement logiciel (SDK) Document DB .NET Core](documentdb-sdk-dotnet-core.md).
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * Résout un problème relatif au calcul de l’estimation du travail restant lorsque le flux de modification était vide ou qu’aucun travail n’était en attente.
@@ -71,6 +69,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.2.0](#1.2.0) |31 octobre 2017 |--- |
 | [1.1.1](#1.1.1) |29 août 2017 |--- |
 | [1.1.0](#1.1.0) |13 août 2017 |--- |
 | [1.0.0](#1.0.0) |7 juillet 2017 |--- |
@@ -81,5 +80,4 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 10/30/2017
 ms.author: rajanaki
+ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 30ccdc62e68ff86d693b9eb3477c65e4e6a1fe3f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication de machines virtuelles locales vers Azure
 
 
-Cet article résume les composants et les configurations pris en charge pour Azure Site Recovery lors de la réplication et de la récupération vers Azure. Pour plus d’informations sur les conditions requises pour Azure Site Recovery, consultez les [prérequis](site-recovery-prereq.md).
+Cet article résume les composants et les configurations pris en charge pour Azure Site Recovery lors de la réplication et de la récupération vers Azure. Pour plus d’informations sur les conditions requises pour Azure Site Recovery, consultez la [configuration requise](site-recovery-prereq.md).
+
+> [!NOTE]
+> Veillez à effectuer la mise à jour vers la dernière version de l’agent et du fournisseur Site Recovery pour assurer la compatibilité avec les mises à jour dans la matrice de prise en charge.
 
 
 ## <a name="support-for-deployment-options"></a>Prise en charge des options de déploiement
@@ -47,7 +49,7 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 
   >[!Note]
   > Un cloud System Center Virtual Machine Manager 2016 qui combine des hôtes Windows Server 2016 et 2012 R2 n’est pas actuellement pris en charge.
-
+  > Les configurations qui incluent la mise à niveau d’un SCVMM 2012 R2 existant vers la version 2016 ne sont pas prises en charge pour le moment.
 ### <a name="host-servers"></a>Serveurs hôtes
 
 **Déploiement** | **Support**
@@ -66,8 +68,11 @@ Le tableau ci-dessous récapitule la prise en charge des systèmes d’exploitat
 
  **Serveur VMware/physique** | **Hyper-V (avec ou sans VMM)** |
 --- | --- |
-Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/>*Windows Server 2016* n’est actuellement pas pris en charge sur les machines virtuelles VMware et les serveurs physiques. <br/><br/> Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.3 <br/><br/>CentOS : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.3 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.3 <br/><br/>CentOS : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.3 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
+>[!NOTE]
+>
+> \* Windows Server 2016 Nano Server n’est pas pris en charge.
 
 >[!IMPORTANT]
 >(Applicable aux serveurs physiques / VMware avec réplication vers Azure)
@@ -83,8 +88,10 @@ Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec
 14.04 LTS | 9.9 | 3.13.0-24-generic à 3.13.0-117-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic à 3.13.0-121-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic à 3.13.0-128-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-91-generic, |
+14.04 LTS | 9.12 | 3.13.0-24-generic à 3.13.0-132-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-96-generic |
 LTS 16.04 | 9.10 | 4.4.0-21-generic à 4.4.0-81-generic,<br/>4.8.0-34-generic à 4.8.0-56-generic,<br/>4.10.0-14-generic à 4.10.0-24-generic |
 LTS 16.04 | 9.11 | 4.4.0-21-generic à 4.4.0-91-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-32-generic |
+LTS 16.04 | 9.12 | 4.4.0-21-generic à 4.4.0-96-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-35-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Systèmes de fichiers pris en charge et configurations de stockage invité sous Linux (serveurs physiques / VMware)
 
@@ -93,7 +100,7 @@ Les systèmes de fichiers et le logiciel de configuration de stockage suivants s
 * Gestionnaire de volume : LVM2
 * Logiciel multichemin : Device Mapper
 
-Les dispositifs de stockage Paravirtualized (exportés par les pilotes paravirtualized) ne sont pas pris en charge.<br/>
+Les périphériques de stockage Paravirtualized (exportés par les pilotes paravirtualized) ne sont pas pris en charge.<br/>
 Les unités de bloc d’entrée et de sortie en file d’attente ne sont pas prises en charge.<br/>
 Les serveurs physiques avec le contrôleur de stockage HP CCISS ne sont pas pris en charge.<br/>
 
@@ -166,7 +173,8 @@ NFS | Non | N/A
 SMB 3.0 | Non | Non
 RDM | Oui<br/><br/> N/A pour les serveurs physiques | N/A
 Disque > 1 To | Oui<br/><br/>Jusqu’à 4095 Go | Oui<br/><br/>Jusqu’à 4095 Go
-Disque avec une taille de secteur de 4K | Oui | Oui, les machines virtuelles de génération 1 sont prises en charge<br/><br/>Les machines virtuelles de génération 2 ne sont pas prises en charge.
+Disque avec une taille de secteur logique de 4 K et physique de 4 K | Oui | Non prise en charge pour les machines virtuelles de génération 1<br/><br/>Les machines virtuelles de génération 2 ne sont pas prises en charge.
+Disque avec une taille de secteur logique de 4 K et physique de 512 octets | Oui |  Oui
 Volume avec disque à bandes > 1 To<br/><br/> Gestion des volumes logiques | Oui | Oui
 Espaces de stockage | Non | Oui
 Ajout/suppression de disque à chaud | Non | Non
@@ -225,10 +233,10 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 **Nom** | **Description** | **Version la plus récente** | **Détails**
 --- | --- | --- | --- | ---
-**Fournisseur Azure Site Recovery** | Coordonne les communications entre les serveurs locaux et Azure <br/><br/> Installé sur les serveurs VMM locaux ou sur des serveurs Hyper-V s’il n’existe aucun serveur VMM | 5.1.19 ([disponible sur le portail](http://aka.ms/downloaddra)) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
-**Installation unifiée d’Azure Site Recovery (VMware vers Azure)** | Coordonne les communications entre les serveurs VMware locaux et Azure  <br/><br/> Installé sur des serveurs VMware locaux | 9.3.4246.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
-**Service de mobilité** | Coordonne la réplication entre les serveurs VMware/serveurs physiques et Azure/site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer  | N/A (disponible sur le portail) | N/A
-**Agent Microsoft Azure Recovery Services (MARS)** | Coordonne la réplication entre les machines virtuelles Hyper-V et Azure<br/><br/> Installé sur des serveurs Hyper-V locaux (avec ou sans serveur VMM) | Dernier agent ([disponible sur le portail](http://aka.ms/latestmarsagent)) |
+**Fournisseur Azure Site Recovery** | Coordonne les communications entre les serveurs locaux et Azure <br/><br/> Installé sur les serveurs VMM locaux ou sur des serveurs Hyper-V s’il n’existe aucun serveur VMM | 5.1.2700.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://aka.ms/latest_asr_updates)
+**Installation unifiée d’Azure Site Recovery (VMware vers Azure)** | Coordonne les communications entre les serveurs VMware locaux et Azure  <br/><br/> Installé sur des serveurs VMware locaux | 9.12.4653.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://aka.ms/latest_asr_updates)
+**Service de mobilité** | Coordonne la réplication entre les serveurs VMware/serveurs physiques et Azure/site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer  | 9.12.4653.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://aka.ms/latest_asr_updates)
+**Agent Microsoft Azure Recovery Services (MARS)** | Coordonne la réplication entre les machines virtuelles Hyper-V et Azure<br/><br/> Installé sur des serveurs Hyper-V locaux (avec ou sans serveur VMM) | Dernier agent (disponible sur le portail) |
 
 
 
@@ -237,4 +245,3 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Vérifiez les composants requis](site-recovery-prereq.md)
-

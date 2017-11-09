@@ -15,17 +15,15 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
+ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Chargement de données dans SQL Data Warehouse avec Data Factory
 
-Vous pouvez utiliser Azure Data Factory pour charger des données dans Azure SQL Data Warehouse à partir d’un des [magasins de données sources pris en charge](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). Par exemple, vous pouvez charger des données dans un entrepôt de données SQL à partir d’une base de données SQL Azure ou d’une base de données Oracle à l’aide de Data Factory. Le didacticiel de cet article vous montre comment charger des données dans un entrepôt de données SQL à partir d’une base de données SQL Server locale.
+Vous pouvez utiliser Azure Data Factory pour charger des données dans Azure SQL Data Warehouse à partir d’un des [magasins de données sources pris en charge](../data-factory/copy-activity-overview.md). Par exemple, vous pouvez charger des données dans un entrepôt de données SQL à partir d’une base de données SQL Azure ou d’une base de données Oracle à l’aide de Data Factory. Le didacticiel de cet article vous montre comment charger des données dans un entrepôt de données SQL à partir d’une base de données SQL Server locale.
 
 **Durée estimée** : ce didacticiel dure environ 10 à 15 minutes une fois les conditions préalables remplies.
 
@@ -72,7 +70,7 @@ Maintenant, il convient d’indiquer la base de données SQL Server locale à pa
     > [!NOTE]
     > Si le magasin de données source est sur site ou dans une machine virtuelle Azure IaaS, une passerelle de gestion des données est requise. Une passerelle a une relation 1-1 avec une fabrique de données. Elle ne peut pas être utilisée à partir d’une autre fabrique de données, mais elle peut être utilisée par plusieurs tâches de chargement de données au sein de la même fabrique de données. Une passerelle peut être utilisée pour se connecter à différents magasins de données lors de l’exécution de tâches de chargement de données.
     >
-    > Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](../data-factory/data-factory-data-management-gateway.md).
+    > Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](../data-factory/v1/data-factory-data-management-gateway.md).
 
 3. Une boîte de dialogue **Créer une passerelle** s’affiche. Dans le champ Nom, entrez **GatewayForDWLoading**, puis cliquez sur **Créer**.
 
@@ -154,9 +152,9 @@ Pour migrer votre base de données vers SQL Data Warehouse, consultez [Vue d’e
 
 Pour en savoir plus sur Azure Data Factory et ses capacités de déplacement de données, consultez les articles suivants :
 
-- [Présentation du service Azure Data Factory](../data-factory/data-factory-introduction.md)
-- [Déplacer des données à l’aide de l’activité de copie](../data-factory/data-factory-data-movement-activities.md)
-- [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+- [Présentation du service Azure Data Factory](../data-factory/introduction.md)
+- [Déplacer des données à l’aide de l’activité de copie](../data-factory/copy-activity-overview.md)
+- [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](../data-factory/connector-azure-sql-data-warehouse.md)
 
 Pour explorer vos données dans SQL Data Warehouse, consultez les articles suivants :
 
@@ -165,4 +163,3 @@ Pour explorer vos données dans SQL Data Warehouse, consultez les articles suiva
 
 <!-- Azure references -->
 [portail Azure]: https://portal.azure.com
-

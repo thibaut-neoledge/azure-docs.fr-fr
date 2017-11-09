@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery deployment planner
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -272,7 +271,7 @@ Le rapport Microsoft Excel généré contient les informations suivantes :
 * [Input](site-recovery-deployment-planner.md#input)
 * [Recommandations](site-recovery-deployment-planner.md#recommendations-with-desired-rpo-as-input)
 * [Recommandations : entrée de bande passante](site-recovery-deployment-planner.md#recommendations-with-available-bandwidth-as-input)
-* [VM<->Storage Placement](site-recovery-deployment-planner.md#vm-storage-placement)
+* [VM&lt;-&gt;Storage Placement](site-recovery-deployment-planner.md#vm-storage-placement)
 * [Compatible VMs](site-recovery-deployment-planner.md#compatible-vms)
 * [Incompatible VMs](site-recovery-deployment-planner.md#incompatible-vms)
 
@@ -612,4 +611,3 @@ La préversion publique d’Azure Site Recovery Deployment Planner 1.0 rencontr
 * L’outil fonctionne uniquement pour les scénarios VMware vers Azure, mais pas pour les déploiements Hyper-V vers Azure. Pour ces scénarios Hyper-V vers Azure, utilisez [l’outil de planification de la capacité Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * L’opération GetThroughput n’est pas prise en charge dans les régions Microsoft Azure US Government et Chine.
 * L’outil ne peut pas profiler de machines virtuelles si le serveur vCenter possède au moins deux machines virtuelles ayant le même nom ou la même adresse IP sur plusieurs hôtes ESXi. Dans cette version, l’outil ignore le profilage des noms ou adresses IP des machines virtuelles en double dans le fichier VMListFile. La solution de contournement consiste à profiler des machines virtuelles à l’aide d’un hôte ESXi au lieu du serveur vCenter. Vous devez exécuter une instance par hôte ESXi.
-

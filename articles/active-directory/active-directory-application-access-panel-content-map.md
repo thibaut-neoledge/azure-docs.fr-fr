@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 97d3485030b0f9f2a6036cdae14e3c37ca89fd6e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: d78f9c59c069664fa77bdf9a16a48bb3745b1224
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-using-the-application-access-panel-website-or-mobile-application"></a>Problèmes lors de l’utilisation du site web ou de l’application mobile du volet d’accès aux applications
 
 
@@ -40,4 +38,3 @@ ms.lasthandoff: 04/17/2017
   Les documents suivants peuvent vous aider à résoudre certains des problèmes les plus courants de cette catégorie.
   * [Je ne sais pas comment utiliser l’accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [J’ai rencontré un problème lors de l’utilisation de l’accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
 ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routage asymétrique avec chemins d’accès réseau multiples
 Cet article explique comment le trafic réseau entrant et sortant peut emprunter différentes voies lorsque plusieurs chemins d’accès sont disponibles entre la source et la destination réseau.
@@ -73,5 +71,4 @@ Les problèmes de routage asymétrique peuvent également être résolus à l’
 
 ## <a name="asymmetric-routing-detection"></a>Détection du routage asymétrique
 La détermination d’itinéraire constitue le meilleur moyen de vous assurer que le trafic réseau circule par le chemin attendu. Si vous souhaitez que le trafic entre votre serveur SMTP local et Microsoft passe par Internet, déterminez son itinéraire attendu à partir du serveur SMTP vers Office 365. Le résultat valide le passage du trafic sortant de votre réseau par Internet et non par ExpressRoute.
-
 

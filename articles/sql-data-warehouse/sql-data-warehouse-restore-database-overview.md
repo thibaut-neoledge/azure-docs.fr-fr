@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-restore"></a>Restauration SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -107,4 +106,3 @@ Pour effectuer une restauration d’entrepôt de données, utilisez l’une des 
 
 
 <!--Other Web references-->
-

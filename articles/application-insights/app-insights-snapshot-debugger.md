@@ -3,7 +3,7 @@ title: "Débogueur de captures instantanées Azure Application Insights pour les
 description: "Des captures instantanées de débogage sont collectées automatiquement lorsque des exceptions sont levées dans des applications .NET de production"
 services: application-insights
 documentationcenter: 
-author: qubitron
+author: pharring
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,19 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée (préversion) dans [Azure Application Insights](app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](app-insights-asp-net-exceptions.md) dans le portail Application Insights.
 
-Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les captures instantanées à l’aide de Visual Studio 2017 Enterprise en [téléchargeant l’extension du Débogueur de capture instantanée pour Visual Studio](https://aka.ms/snapshotdebugger).
+Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les captures instantanées à l’aide de Visual Studio 2017 Enterprise en [téléchargeant l’extension du Débogueur de capture instantanée pour Visual Studio](https://aka.ms/snapshotdebugger). Dans Visual Studio, vous pouvez également [définir des points de capture instantanée pour prendre des captures instantanées de manière interactive](https://aka.ms/snappoint) sans attendre la levée d’une exception.
 
 La collecte de captures instantanées est disponible pour :
 * les applications .NET framework et ASP.NET exécutant .NET Framework 4.5 ou version ultérieure ;
@@ -68,43 +67,61 @@ La collecte de captures instantanées est disponible pour :
 
 1. Si vous ne l’avez pas encore fait, [Activez Application Insights dans votre application web ASP.NET Core](app-insights-asp-net-core.md).
 
+> [!NOTE]
+> Être sûr que votre application fait référence à la version 2.1.1 ou plus récente, du package Microsoft.ApplicationInsights.AspNetCore.
+
 2. Incluez le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application.
 
-3. Modifiez la méthode `ConfigureServices` dans la classe `Startup` votre application pour ajouter le processeur de télémétrie du collecteur de captures instantanées. Le code que vous devez ajouter dépend de la version référencée du package NuGet de Microsoft.ApplicationInsights.ASPNETCore.
+3. Modifiez la classe `Startup` de votre application pour ajouter et configurer le processeur de télémétrie du collecteur de captures instantanées.
 
-   Pour Microsoft.ApplicationInsights.AspNetCore 2.1.0, ajoutez :
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
-   ...
-   class Startup
-   {
-       // This method is called by the runtime. Use it to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
-           // TODO: Add any other services your application needs here.
-       }
-   }
-   ```
-
-   Pour Microsoft.ApplicationInsights.AspNetCore 2.1.1, ajoutez :
-   ```C#
-   using Microsoft.ApplicationInsights.SnapshotCollector;
+   using Microsoft.Extensions.Options;
    ...
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
        {
-           public ITelemetryProcessor Create(ITelemetryProcessor next) =>
-               new SnapshotCollectorTelemetryProcessor(next);
+           private readonly IServiceProvider _serviceProvider;
+
+           public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
+               _serviceProvider = serviceProvider;
+
+           public ITelemetryProcessor Create(ITelemetryProcessor next)
+           {
+               var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
+               return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
+           }
        }
 
-       // This method is called by the runtime. Use it to add services to the container.
+       public Startup(IConfiguration configuration) => Configuration = configuration;
+
+       public IConfiguration Configuration { get; }
+
+       // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
-            services.AddSingleton<ITelemetryProcessorFactory>(new SnapshotCollectorTelemetryProcessorFactory());
-           // TODO: Add any other services your application needs here.
+           // Configure SnapshotCollector from application settings
+           services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
+
+           // Add SnapshotCollector telemetry processor.
+           services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
+
+           // TODO: Add other services your application needs here.
        }
+   }
+   ```
+
+4. Configurez le collecteur de captures instantanées en ajoutant une section SnapshotCollectorConfiguration au fichier appsettings.json. Par exemple :
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "IsEnabledInDeveloperMode": true
+     }
    }
    ```
 
@@ -272,7 +289,6 @@ Si vous ne voyez toujours pas d’exception avec cet ID d’instantané, cela si
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Définir des points de capture instantanée dans votre code](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/) afin obtenir des captures instantanées sans attendre la levée d’une exception.
+* [Définir des points de capture instantanée dans votre code](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) afin obtenir des captures instantanées sans attendre la levée d’une exception.
 * [Diagnostiquer des exceptions dans vos applications web](app-insights-asp-net-exceptions.md) explique comment rendre visible à Application Insights un plus grand nombre d’exceptions. 
 * [Détection intelligente](app-insights-proactive-diagnostics.md) permet de détecter automatiquement les anomalies relatives aux performances.
-

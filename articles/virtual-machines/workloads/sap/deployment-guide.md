@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
+ms.openlocfilehash: 4c06b1c8265a12af6764124e3c753e9456a2be20
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: a5f49933a626faa19e56aad33714efb1d8741746
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Déploiement de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -251,7 +250,7 @@ ms.lasthandoff: 08/03/2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -290,13 +289,13 @@ ms.lasthandoff: 08/03/2017
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
-[virtual-network-deploy-multinic-arm-cli]:../../../virtual-network/virtual-network-deploy-multinic-arm-cli.md
-[virtual-network-deploy-multinic-arm-ps]:../../../virtual-network/virtual-network-deploy-multinic-arm-ps.md
+[virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
+[virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-networks-multiple-nics.md
+[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
@@ -606,8 +605,8 @@ Dans le portail Azure, entrez les paramètres suivants pour le modèle :
       * [Stockage Microsoft Azure][dbms-guide-2.3] dans [Déploiement SGBD de machines virtuelles Azure pour SAP NetWeaver][dbms-guide]
       * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure][storage-premium-storage-preview-portal]
       * [Présentation du stockage Microsoft Azure][storage-introduction]
-  * **URI du disque dur virtuel de l’image utilisateur** (modèle d’image de disque non managé uniquement) : URI du disque dur virtuel de l’image privée du système d’exploitation, par exemple https://&lt;nom du compte>.blob.core.windows.net/vhds/userimage.vhd.
-  * **Compte de stockage de l’image utilisateur** (modèle d’image de disque non managé uniquement) : nom du compte de stockage où est stockée l’image privée du système d’exploitation, par exemple &lt;nom du compte> dans https://&lt;nom du compte>.blob.core.windows.net/vhds/userimage.vhd.
+  * **URI du disque dur virtuel de l’image utilisateur** (modèle d’image de disque non managé uniquement) : URI du disque dur virtuel de l’image privée du système d’exploitation, par exemple https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/userimage.vhd.
+  * **Compte de stockage de l’image utilisateur** (modèle d’image de disque non managé uniquement) : nom du compte de stockage où est stockée l’image privée du système d’exploitation, par exemple &lt;nom du compte&gt; dans https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/userimage.vhd.
   * **ID d’image utilisateur** (modèle d’image de disque managé uniquement) : ID de l’image de disque managé que vous voulez utiliser.
   * **Nom d’utilisateur administrateur** et **mot de passe administrateur** : nom d’utilisateur et mot de passe.
 
@@ -693,7 +692,7 @@ Dans le portail Azure, entrez les paramètres suivants pour le modèle :
       * [Stockage Microsoft Azure][dbms-guide-2.3] dans [Déploiement SGBD de machines virtuelles Azure pour SAP NetWeaver][dbms-guide]
       * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure][storage-premium-storage-preview-portal]
       * [Présentation du stockage Microsoft Azure][storage-introduction]
-  * **URI du disque dur virtuel du disque du système d’exploitation** (modèle de disque non managé uniquement) : URI du disque privé du système d’exploitation, par exemple https://&lt;nom du compte>.blob.core.windows.net/vhds/osdisk.vhd.
+  * **URI du disque dur virtuel du disque du système d’exploitation** (modèle de disque non managé uniquement) : URI du disque privé du système d’exploitation, par exemple https://&lt;nom du compte&gt;.blob.core.windows.net/vhds/osdisk.vhd.
   * **ID du disque managé du disque du système d’exploitation** (modèle de disque managé uniquement) : ID du disque managé du disque du système d’exploitation, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **Sous-réseau nouveau ou existant** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **Existant**.
   * **ID du sous-réseau** : identifiant du sous-réseau auquel les machines virtuelles seront connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel Azure ExpressRoute à utiliser pour connecter la machine virtuelle à votre réseau local. L'ID ressemble généralement à ceci :
@@ -950,8 +949,8 @@ Le résultat se présente ainsi :
 ```
 2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
 2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
-…
-…
+???
+???
 ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Vérifications et résolution des problèmes pour la configuration de l’analyse de bout en bout
@@ -1132,4 +1131,3 @@ Les indicateurs de performance sur Azure sont collectés par un démon, qui obti
 Pour obtenir une liste complète et à jour des problèmes connus, consultez la note SAP [1999351], qui contient des informations de dépannage supplémentaires pour l’analyse Azure améliorée pour SAP.
 
 Si le recours à la note SAP [1999351] ne résout pas le problème, réexécutez le script de configuration `Set-AzureRmVMAEMExtension` comme décrit dans [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5]. Vous devrez peut-être attendre une heure, car il est possible que les compteurs d’analyse ou de diagnostics de stockage ne soient pas créés immédiatement après avoir été activés. Si le problème persiste, ouvrez un message de support client SAP sur le composant BC-OP-NT-AZR pour Windows ou BC-OP-LNX-AZR pour une machine virtuelle Linux.
-

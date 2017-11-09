@@ -1,11 +1,11 @@
 ---
-title: "Créez un registre de conteneur Docker privé dans Azure CLI | Microsoft Docs"
-description: "Prise en main de la création et de la gestion de registres de conteneurs Docker privés avec Azure CLI 2.0"
+title: "Démarrage rapide - Créer un registre Docker privé dans Azure avec l’interface de ligne de commande Azure"
+description: "Apprenez rapidement à créer un registre de conteneurs Docker privé avec l’interface de ligne de commande Azure."
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
@@ -14,137 +14,150 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 10/16/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Créez un registre de conteneur Docker privé à l’aide d’Azure CLI 2.0
-Utilisez les commandes [d’Azure CLI 2.0](https://github.com/Azure/azure-cli) pour créer un registre de conteneur et gérer ses paramètres à partir de votre ordinateur Linux, Mac ou Windows. Vous pouvez également créer et gérer des registres de conteneur à l’aide du [portail Azure](container-registry-get-started-portal.md) ou par programme avec [l’API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
+# <a name="create-a-container-registry-using-the-azure-cli"></a>Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure
 
+Azure Container Registry est un service de registre de conteneurs Docker géré utilisé pour stocker des images de conteneurs Docker privés. Ce guide décrit en détail la création d’une instance Azure Container Registry à l’aide de l’interface de ligne de commande Azure.
 
-* Pour plus d’informations, notamment sur les concepts, voir la [page de présentation](container-registry-intro.md)
-* Pour obtenir de l’aide concernant les commandes CLI de Container Registry (commandes `az acr`), transmettez le paramètre `-h` à toutes les commandes.
+Ce guide de démarrage rapide nécessite que vous exécutiez l’interface de ligne de commande Azure version 2.0.20 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
 
+Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-## <a name="prerequisites"></a>Composants requis
-* **Azure CLI 2.0** : pour installer et découvrir la CLI 2.0, consultez les [instructions d’installation](/cli/azure/install-azure-cli). Connectez-vous à votre abonnement Azure en exécutant `az login`. Pour plus d’informations, consultez [Prise en main CLI 2.0](/cli/azure/get-started-with-azure-cli).
-* **Groupe de ressources** : créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups) avant de créer un registre de conteneur, ou utilisez un groupe de ressources existant. Assurez-vous que le groupe de ressources est dans un emplacement où le service Container Registry est [disponible](https://azure.microsoft.com/regions/services/). Pour créer un groupe de ressources à l’aide de la CLI 2.0, consultez la [référence de l’interface CLI 2.0](/cli/azure/group).
-* **Compte de stockage** (facultatif) : créez un [compte de stockage](../storage/common/storage-introduction.md) Azure standard pour prendre en charge le registre de conteneur dans le même emplacement. Si vous ne spécifiez pas de compte de stockage lors de la création d’un registre avec `az acr create`, la commande en crée un pour vous. Pour créer un compte de stockage à l’aide de la CLI 2.0, consultez la [référence de l’interface CLI 2.0](/cli/azure/storage/account). Pour l’instant, l’offre Stockage Premium n’est pas prise en charge.
-* **Principal de service** (facultatif) : lorsque vous créez un registre avec la CLI, par défaut son accès n’est pas configuré. Selon vos besoins, vous pouvez affecter un principal de service Azure Active Directory existant à un registre (ou en créer et en affecter un nouveau), ou activer le compte d’utilisateur Admin du registre. Consultez les sections disponibles plus loin dans cet article. Pour plus d’informations sur l’accès au registre, consultez la section relative à [l’authentification auprès d’un conteneur](container-registry-authentication.md).
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-## <a name="create-a-container-registry"></a>Créer un registre de conteneur
-Exécutez la commande `az acr create` pour créer un registre de conteneur.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-> [!TIP]
-> Lorsque vous créez un registre, spécifiez un nom de domaine global unique de niveau supérieur, contenant uniquement des chiffres et des lettres. Dans cet exemple, le nom de registre est `myRegistry1`, mais vous pouvez le remplacer par un nom unique de votre choix.
->
->
+L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
-La commande ci-après utilise les paramètres minimaux pour créer le registre de conteneurs `myRegistry1` dans le groupe de ressources `myResourceGroup`, et en utilisant la référence SKU *De base* :
-
-```azurecli
-az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
-* `--storage-account-name` est facultatif. S’il n’est pas spécifié, un compte de stockage est créé avec un nom comprenant le nom de Registre et un horodatage dans le groupe de ressources spécifié.
+## <a name="create-a-container-registry"></a>Créer un registre de conteneur
+
+Dans le cadre de ce guide de démarrage rapide, nous allons créer un registre *De base*. Azure Container Registry est disponible dans plusieurs références SKU, qui sont brièvement décrites dans le tableau suivant. Pour plus d’informations sur chaque référence, consultez [Références SKU de registres de conteneurs](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+
+Créez une instance ACR à l’aide de la commande [az acr create](/cli/azure/acr#create).
+
+Le nom du registre **doit être unique**. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry007*. Mettez à jour le nom de façon à utiliser une valeur unique.
+
+```azurecli
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
+```
 
 Une fois le registre créé, la sortie ressemble à ce qui suit :
 
-```azurecli
+```json
 {
   "adminUserEnabled": false,
-  "creationDate": "2017-06-06T18:36:29.124842+00:00",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
-/registries/myRegistry1",
-  "location": "southcentralus",
-  "loginServer": "myregistry1.azurecr.io",
-  "name": "myRegistry1",
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "myContainerRegistry007.azurecr.io",
+  "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
     "tier": "Basic"
   },
   "storageAccount": {
-    "name": "myregistry123456789"
+    "name": "mycontainerregistr223140"
   },
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
-
 ```
 
+Dans le reste de ce guide de démarrage rapide, nous utilisons `<acrname>` comme espace réservé pour le nom de registre de conteneurs.
 
-Notez les poins suivants :
+## <a name="log-in-to-acr"></a>Se connecter à l’ACR
 
-* `id` : identificateur du registre dans votre abonnement, dont vous avez besoin si vous souhaitez affecter un principal de service.
-* `loginServer` : le nom complet à utiliser pour [se connecter au registre](container-registry-authentication.md). Dans cet exemple, le nom est `myregistry1.exp.azurecr.io` (en minuscules).
-
-## <a name="assign-a-service-principal"></a>Affecter un principal de service
-Utilisez les commandes CLI 2.0 pour affecter un principal de service Azure Active Directory à un registre. Le principal du service dans ces exemples est affecté au rôle de propriétaire, mais vous pouvez attribuer [d’autres rôles](../active-directory/role-based-access-control-configure.md) si vous le souhaitez.
-
-### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Créer un principal de service et attribuer l’accès au registre
-Dans la commande suivante, un nouveau principal de service dispose de l’accès du rôle de propriétaire dans l’identificateur de registre transmis avec le paramètre `--scopes`. Spécifiez un mot de passe fort avec le paramètre `--password`.
+Avant d’extraire et de transmettre des images conteneur, vous devez vous connecter à l’instance ACR. Pour ce faire, utilisez la commande [az acr login](/cli/azure/acr#login).
 
 ```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
+az acr login --name <acrname>
 ```
 
+Après son exécution, la commande retourne le message « Connexion réussie ».
 
+## <a name="push-image-to-acr"></a>Envoyer une image dans l’ACR
 
-### <a name="assign-an-existing-service-principal"></a>Affecter un principal de service existant
-Si vous avez déjà un principal de service et que vous souhaitez lui attribuer l’accès du rôle de propriétaire au registre, exécutez une commande similaire à l’exemple suivant. Vous transmettez l’ID d’application du principal de service à l’aide du paramètre `--assignee` :
+Pour envoyer une image dans un registre Azure Container Registry, vous devez tout d’abord disposer d’une image. Si nécessaire, exécutez la commande suivante pour extraire une image créée préalablement du hub Docker.
 
-```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
+L’image doit être étiquetée avec le nom du serveur de connexion ACR. Exécutez la commande suivante pour retourner le nom du serveur de connexion de l’instance ACR.
 
-
-## <a name="manage-admin-credentials"></a>Gérer les informations d’identification de l’administrateur
-Un compte d’administrateur est automatiquement créé pour chaque registre de conteneur et est désactivé par défaut. Les exemples suivants montrent des commandes CLI `az acr` permettant de gérer les informations d’identification d’administrateur pour votre registre de conteneur.
-
-### <a name="obtain-admin-user-credentials"></a>Obtenir les informations d’identification de l’utilisateur Admin
 ```azurecli
-az acr credential show -n myRegistry1
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>Activer l’utilisateur Admin pour un registre existant
-```azurecli
-az acr update -n myRegistry1 --admin-enabled true
+Étiquetez l’image en utilisant la commande [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Remplacez *<acrLoginServer>* par le nom du serveur de connexion de votre instance ACR.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>Désactiver l’utilisateur Admin pour un registre existant
-```azurecli
-az acr update -n myRegistry1 --admin-enabled false
+Enfin, utilisez la commande [docker push](https://docs.docker.com/engine/reference/commandline/push/) pour envoyer l’image à l’instance ACR. Remplacez *<acrLoginServer>* par le nom du serveur de connexion de votre instance ACR.
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
-## <a name="list-images-and-tags"></a>Répertorier les images et les balises
-Utilisez les commandes CLI `az acr` pour interroger les images et les balises dans un référentiel.
+## <a name="list-container-images"></a>Répertorier les images conteneur
 
-> [!NOTE]
-> Actuellement, Container Registry ne prend pas en charge la commande `docker search` permettant d’effectuer une requête sur les images et les balises.
-
-
-### <a name="list-repositories"></a>Répertorier les référentiels
-L’exemple suivant répertorie les référentiels dans un registre, au format JSON (JavaScript Object Notation) :
+L’exemple suivant répertorie les référentiels d’un registre :
 
 ```azurecli
-az acr repository list -n myRegistry1 -o json
+az acr repository list -n <acrname> -o table
 ```
 
-### <a name="list-tags"></a>Répertorier les balises
-L’exemple suivant répertorie les balises sur le référentiel **exemples/nginx**, au format JSON :
+Output:
+
+```bash
+Result
+----------------
+aci-helloworld
+```
+
+L’exemple suivant répertorie les étiquettes sur le référentiel **aci-helloworld**.
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+```
+
+Output:
+
+```bash
+Result
+--------
+v1
+```
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, l’instance ACR et toutes les images conteneurs.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Effectuer un push de votre première image à l’aide de l’interface CLI Docker](container-registry-get-started-docker-cli.md)
 
+Dans ce guide de démarrage rapide, vous avez créé un registre Azure Container Registry avec Azure CLI. Si vous souhaitez utiliser Azure Container Registry avec des instances Azure Container Instances, passez au didacticiel Azure Container Instances.
+
+> [!div class="nextstepaction"]
+> [Didacticiel Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)

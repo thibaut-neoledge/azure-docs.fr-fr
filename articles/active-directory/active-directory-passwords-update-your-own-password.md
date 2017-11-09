@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6ee3d1319e7727b1134472a1b62a3de7a3571997
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>J’ai oublié mon mot de passe Azure AD
 
@@ -52,7 +51,7 @@ Suivez les étapes ci-dessous pour accéder à la réinitialisation de mot de pa
    > Si vous avez besoin de déverrouiller votre compte, à ce stade choisissez l’option « Je connais mon mot de passe, mais je ne peux toujours pas me connecter ».
    >
 
-3. Selon la façon dont votre personnel informatique a configuré la fonction SSPR, vous verrez apparaître une ou plusieurs des options ci-après. Vous ou votre personnel informatique avez déjà rempli certaines de ces informations avant d’utiliser l’article [S’inscrire à la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md).
+3. Selon la façon dont votre personnel informatique a configuré la fonction SSPR, vous verrez apparaître une ou plusieurs des méthodes d'authentification ci-après. Vous ou votre personnel informatique avez déjà rempli certaines de ces informations avant d’utiliser l’article [S’inscrire à la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md).
 
    * **Envoyer un e-mail sur mon adresse de messagerie de secours**
    * **Envoyer un SMS sur mon téléphone portable**
@@ -117,4 +116,3 @@ Utilisez cette méthode si vous accédez généralement à vos applications à p
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Vérifier vos données d’authentification"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Modifier votre mot de passe"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Votre mot de passe a été réinitialisé"
-

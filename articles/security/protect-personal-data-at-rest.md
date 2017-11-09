@@ -1,7 +1,25 @@
-Titre : Azure Protéger les données personnelles au repos avec un chiffrement | Microsoft Docs description : Cet article fait partie d’une série visant à vous aider à utiliser Azure pour protéger des données personnelles services : sécurité centre de documentation : N/A auteur : Barclayn responsable : MBaldwin éditeur : TomSh
-
-ms.assetid: ms.service: security ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
-
+---
+title: "Protéger les données personnelles au repos dans Azure avec le chiffrement | Microsoft Docs"
+description: "Cet article fait partie d’une série ayant pour but de vous aider à utiliser Azure pour protéger des données personnelles."
+services: security
+documentationcenter: na
+author: Barclayn
+manager: MBaldwin
+editor: TomSh
+ms.assetid: 
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/31/2017
+ms.author: barclayn
+ms.custom: 
+ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>technologies de chiffrement Azure : Protéger les données personnelles au repos avec un chiffrement
 

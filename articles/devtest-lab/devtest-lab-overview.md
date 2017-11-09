@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
 ms.openlocfilehash: 62e2d214d6d685c7f27c8c45cae161eb25ed1cbd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-azure-devtest-labs"></a>À propos d’Azure DevTest Labs
 ## <a name="overview"></a>Vue d’ensemble
@@ -51,5 +49,4 @@ Tirez parti des plug-ins prêts à l’emploi ou de notre API pour approvisionne
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Concepts de DevTest Labs](devtest-lab-concepts.md)
-
 

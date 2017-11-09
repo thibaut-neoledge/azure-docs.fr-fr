@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Basculement et récupération d’urgence pour votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -141,7 +141,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
    
     b. Accédez à la page **Conteneurs de volumes** . Tous les conteneurs de volume, ainsi que les volumes de l’ancien appareil, doivent désormais être répertoriés.
 
-![Vidéo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vidéo disponible**
+![Vidéo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png)**Vidéo disponible**
 
 Pour visionner une vidéo expliquant comment restaurer un appareil physique basculé vers un appareil virtuel dans le cloud, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
@@ -178,10 +178,4 @@ S’il existe des appareils StorSimple inscrits juste avant un incident, ces pé
 ## <a name="next-steps"></a>Étapes suivantes
 * Après avoir effectué un basculement, vous devrez peut-être [désactiver ou supprimer votre appareil StorSimple](storsimple-deactivate-and-delete-device.md).
 * Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

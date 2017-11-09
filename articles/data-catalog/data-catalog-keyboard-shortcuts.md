@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/17/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
-ms.openlocfilehash: 809b010fbbc0b5c1cbc2d5d5474374a4467defb4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: d498eac2d0dfe7d271bdb5e47159faa113545ab4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Raccourcis clavier pour Azure Data Catalog
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Raccourcis clavier pour l’outil de référencement de données Data Catalog
@@ -86,5 +85,4 @@ ms.lasthandoff: 01/24/2017
 | Activer/désactiver le menu de correspondances de recherche |ALT + S |
 | Activer/désactiver le menu **Ouvrir dans** |ALT + O |
 | Explorer le conteneur, si la ressource est un conteneur |ALT + L |
-
 

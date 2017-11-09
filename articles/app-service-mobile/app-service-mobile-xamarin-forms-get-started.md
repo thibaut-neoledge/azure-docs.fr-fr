@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-xamarinforms-app"></a>Créer une application Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -173,7 +172,7 @@ Dans cette section, vous exécutez le projet WinApp Xamarin pour les appareils W
 * [Ajout de l’authentification à votre application](app-service-mobile-xamarin-forms-get-started-users.md)  
   Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* [Ajouter des notifications Push à votre application Android](app-service-mobile-xamarin-forms-get-started-push.md)  
+* [Ajouter des notifications Push à votre application](app-service-mobile-xamarin-forms-get-started-push.md)  
   Découvrez comment ajouter la prise en charge des notifications Push à votre application et configurer le back end Mobile Apps pour utiliser Azure Notification Hubs afin d’envoyer les notifications Push.
 
 * [Activer la synchronisation hors connexion pour votre application](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
@@ -201,4 +200,3 @@ Dans cette section, vous exécutez le projet WinApp Xamarin pour les appareils W
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portail Azure]: https://portal.azure.com/
-

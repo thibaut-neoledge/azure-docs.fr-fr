@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/20/2017
 ms.author: saurse;nkolli;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. La sauvegarde Azure compresse les sauvegardes initiales. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure.  
@@ -94,7 +93,7 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
 ### <a name="prepare-a-sata-drive-and-create-an-azure-import-job-by-using-the-azure-disk-preparation-tool"></a>Préparer un disque SATA et créer un travail d’importation Azure à l’aide de l’outil de préparation des disques Azure
 L’outil de préparation des disques Azure est disponible dans le répertoire d’installation de l’agent Recovery Services (mise à jour d’août 2016 et ultérieure) via le chemin d’accès suivant.
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+   *\Microsoft**Azure**Recovery**Services* *Agent\Utils\*
 
 1. Accédez au répertoire et copiez le répertoire **AzureOfflineBackupDiskPrep** sur un ordinateur de copie sur lequel les disques à préparer ont été montés. Vérifiez les éléments suivants concernant l’ordinateur de copie :
 
@@ -210,4 +209,3 @@ Une fois les données de sauvegarde initiale disponibles dans votre compte de st
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour toute question au sujet du flux de travail Azure Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage/common/storage-import-export-service.md).
 * Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) de la sauvegarde Azure pour toute question concernant le flux de travail.
-

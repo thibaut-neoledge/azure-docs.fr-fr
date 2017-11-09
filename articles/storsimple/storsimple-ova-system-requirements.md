@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 10/10/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
 ## <a name="overview"></a>Vue d’ensemble
@@ -41,7 +41,7 @@ La configuration logicielle requise inclut les informations sur les navigateurs 
 | **Hyperviseur** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 et versions ultérieures |
-| VMware ESXi |5.5 et versions ultérieures |
+| VMware ESXi |5.5 et 6.0 |
 
 ### <a name="virtual-device-requirements"></a>Configuration requise de l'appareil virtuel
 | **Composant** | **Prérequis** |
@@ -119,7 +119,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 | Modèle d’URL | Composant/Fonctionnalité |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |Service StorSimple Device Manager<br>Service de contrôle d’accès<br>Azure Service Bus |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Service StorSimple Device Manager<br>Service de contrôle d’accès<br>Azure Service Bus<br>Service d’authentification|
 | `http://*.backup.windowsazure.com` |Enregistrement de l’appareil |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Révocation de certificat |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Comptes de stockage Azure et surveillance |
@@ -130,5 +130,4 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 ## <a name="next-step"></a>Étape suivante
 * [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-
 

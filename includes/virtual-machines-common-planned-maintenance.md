@@ -8,6 +8,8 @@ Cette page décrit comment Microsoft Azure exécute les deux types de maintenanc
 
 Les applications qui s’exécutent sur une machine virtuelle peuvent recueillir des informations sur les mises à jour à venir à l’aide du Service de métadonnées Azure pour [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) ou [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
+Pour obtenir des guides pratiques sur la gestion de la maintenance planifiée, consultez « Gestion des notifications de maintenance planifiée » pour [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+
 ## <a name="in-place-vm-migration"></a>Migration sur place d’une machine virtuelle
 
 Lorsque les mises à jour ne nécessitent pas un redémarrage complet, une migration dynamique sur place est utilisée. Lors de la mise à jour, la machine virtuelle est mise en pause pendant environ trente secondes, conservant la mémoire RAM, tandis que l’environnement d’hébergement applique les correctifs et mises à jour nécessaires. La machine virtuelle est redémarrée et l’horloge de la machine virtuelle est automatiquement synchronisée.

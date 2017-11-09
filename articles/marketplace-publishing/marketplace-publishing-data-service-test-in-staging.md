@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: daf2017bfbab4250e3f1481f592e0e858c77f121
-
-
+ms.openlocfilehash: 56a8aad7484fed18b74200ffa7acf22363625a15
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testing-your-data-service-offer-in-staging"></a>Tester votre offre de service de données dans l'emplacement intermédiaire
 > [!IMPORTANT]
@@ -63,7 +63,7 @@ L'écran suivant montre que la publication a lieu en affichant l'icône « En co
 Une fois le passage vers l’environnement intermédiaire effectué, l'icône « En cours » s’immobilise et passe à l’état « Intermédiaire ».  Vous êtes maintenant prêt à tester votre offre.  
 
 ## <a name="step-2-test-your-staged-offer-in-datamarket"></a>Étape 2. Tester votre offre intermédiaire dans DataMarket
-Cliquez sur le lien après le texte **« See Your service offer at... »**  pour afficher l'écran que verra l'abonné lorsque votre offre est mise en production et visible dans DataMarket.
+Cliquez sur le lien après le texte **« See Your service offer at... »** pour afficher l'écran que verra l'abonné lorsque votre offre est mise en production et visible dans DataMarket.
 
   ![dessin](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
 
@@ -96,10 +96,4 @@ Si vous êtes satisfait et prêt à publier votre offre, consultez la documentat
 
 ## <a name="see-also"></a>Voir aussi
 * [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "Décrit comment corriger les hiérarchies déséquilibrées dans l
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 10/16/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 36acf2b20a4c3acab8050eb9c5489c8ee53e4d4e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Leçon supplémentaire – Hiérarchies déséquilibrées
 
@@ -78,22 +77,22 @@ Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacti
 
     **Level2** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,2)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],2,1)) 
     ```
 
     **Level3** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,3)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],3,1)) 
     ```
 
     **Level4** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,4)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],4,1)) 
     ```
 
     **Level5** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,5)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1)) 
     ```
 
 6.  Dans la table **DimEmployee**, créez une [hiérarchie](../tutorials/aas-lesson-9-create-hierarchies.md) nommée **Organization**. Ajoutez les colonnes suivantes, dans l’ordre : **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.

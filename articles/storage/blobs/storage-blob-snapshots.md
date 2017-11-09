@@ -3,7 +3,7 @@ title: "Création d’un instantané en lecture seule d’un objet blob dans le 
 description: "Apprenez à créer un instantané d’un objet blob pour sauvegarder ses données à un moment donné. Découvrez comment les instantanés sont facturés et comment les utiliser pour réduire les frais de capacité."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: marsma
+ms.author: tamram
+ms.openlocfilehash: 7e891018ab110e7506601cd5b9b0460bf61711b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b1d87cd66457b08bba594bfc7de1e9e4e2dff1e6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-blob-snapshot"></a>Création d’un instantané d’objet blob
 

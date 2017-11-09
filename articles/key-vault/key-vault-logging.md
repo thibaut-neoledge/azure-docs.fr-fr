@@ -3,7 +3,7 @@ title: "Journalisation d’Azure Key Vault | Microsoft Docs"
 description: "Utilisez ce didacticiel pour vous aider à vous familiariser avec la journalisation du coffre de clés."
 services: key-vault
 documentationcenter: 
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
-ms.author: cabailey
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
+ms.date: 10/16/2017
+ms.author: barclayn
+ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -275,4 +274,3 @@ Pour les références de programmation, consultez le [guide du développeur de c
 Pour obtenir la liste des applets de commande Azure PowerShell 1.0 pour Azure Key Vault, consultez l’article [Azure Key Vault Cmdlets (Applets de commande Azure Key Vault)](/powershell/module/azurerm.keyvault/#key_vault).
 
 Pour accéder à un didacticiel sur la rotation des clés et les journaux d’audit avec Azure Key Vault, consultez l’article [Configuration du coffre de clés avec une rotation des clés et un audit de bout en bout](key-vault-key-rotation-log-monitoring.md).
-

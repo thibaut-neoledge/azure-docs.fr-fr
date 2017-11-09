@@ -4,7 +4,7 @@ description: "Découvrir comment se connecter à un serveur Azure Analysis Servi
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 ms.assetid: 
 ms.service: analysis-services
@@ -12,17 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/01/2017
+ms.date: 11/01/2017
 ms.author: owend
 ms.custom: mvc
+ms.openlocfilehash: 2db167fd746b53e234aac3dbe2e5b76b56737e24
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 43700de27ca643bd699159b86fe80c2e45e4acc7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>Créer un serveur Azure Analysis Services à l’aide de PowerShell
 
 Ce démarrage rapide décrit comment utiliser PowerShell à partir d’une ligne de commande pour créer un serveur Azure Analysis Services dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) de votre abonnement Azure.

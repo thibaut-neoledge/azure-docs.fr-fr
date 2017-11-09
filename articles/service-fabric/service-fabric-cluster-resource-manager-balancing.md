@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Équilibrage de votre cluster Service Fabric
 Service Fabric Cluster Resource Manager permet de modifier la charge dynamique, de réagir aux ajouts ou aux suppressions de nœuds ou de services. Il corrige également automatiquement les violations de contrainte et rééquilibre de façon proactive le cluster. Mais à quelle fréquence ces actions sont-elles effectuées, et quel en est l’élément déclencheur ?
@@ -194,7 +193,7 @@ Occasionnellement pourtant, un service qui n’était pas déséquilibré lui-m�
 Vous voyez certainement où je veux en venir : il s’agit d’une chaîne ! Nous n’avons pas vraiment quatre services indépendants, mais plutôt trois services qui sont liés et un qui est indépendant.
 
 <center>
-Équilibrage de plusieurs services en même temps![][Image4]
+![Équilibrage de plusieurs services en même temps][Image4]
 </center>
 
 En raison de cette chaîne, il est donc possible qu’un déséquilibre dans les mesures 1 à 4 provoque le déplacement de réplicas ou d’instances appartenant aux services 1 à 3. Nous savons également qu’un déséquilibre de la mesure Metric1, Metric2 ou Metric3 ne peut pas provoquer de déplacements pour le service Service4. Cela n’aurait aucun intérêt, puisque le déplacement de réplicas ou d’instances appartenant au service Service4 n’a pas la moindre incidence sur l’équilibre de la mesure Metric1, Metric2 ou Metric3.
@@ -202,7 +201,7 @@ En raison de cette chaîne, il est donc possible qu’un déséquilibre dans les
 Cluster Resource Manager identifie automatiquement les services associés. Ajouter, supprimer ou modifier les mesures des services peut avoir un impact sur leurs relations. Par exemple, entre deux équilibrages, la mesure Metric2 peut avoir été mise à jour pour être supprimée de la configuration du service Service2. La chaîne entre Service1 et Service2 est alors rompue. Au lieu de deux groupes de services liés, vous en avez à présent trois :
 
 <center>
-Équilibrage de plusieurs services en même temps![][Image5]
+![Équilibrage de plusieurs services en même temps][Image5]
 </center>
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -215,4 +214,3 @@ Cluster Resource Manager identifie automatiquement les services associés. Ajout
 [Image3]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
 [Image4]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
-

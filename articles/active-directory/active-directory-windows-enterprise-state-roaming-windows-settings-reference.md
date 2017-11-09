@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
 Voici une liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10. 
@@ -89,8 +88,8 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Appareils**: imprimantes partagées auxquelles vous êtes connectées |X |X |Autres |
 | **Navigateur Edge**: liste de lecture |sync |sync |Interne |
 | **Navigateur Edge**: favoris |sync |sync |Interne |
-| **Navigateur Edge** : sites les plus consultés <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Navigateur Edge** : URL entrées <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : sites les plus consultés <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Navigateur Edge** : URL entrées <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Navigateur Edge** : paramètres de la barre des favoris <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Navigateur Edge** : afficher le bouton Accueil <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Navigateur Edge** : bloquer les fenêtres publicitaires <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
@@ -180,4 +179,3 @@ Version minimale du système d’exploitation prise en charge : Windows Creators
 * [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Dépannage](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-

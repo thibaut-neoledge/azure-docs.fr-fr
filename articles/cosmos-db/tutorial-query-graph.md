@@ -15,17 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: denlee
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 630aeba6a881c814a6afb030ad2c064055fc452f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: ee420983104f199edf57966bf22aa4d8451b4782
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB : Comment interroger avec l’API Graph (version préliminaire) ?
 
-L’[API Graph](graph-introduction.md) (version préliminaire) d’Azure Cosmos DB prend en charge les requêtes [GREMLINE](https://docs.mongodb.com/manual/tutorial/query-documents/). Cet article fournit des exemples de documents et de requêtes pour vous aider à démarrer. L’article relatif à la [prise en charge de Gremlin](gremlin-support.md) comporte des informations de référence détaillées sur Gremlin.
+L’[API Graph](graph-introduction.md) (version préliminaire) d’Azure Cosmos DB prend en charge les requêtes [GREMLINE](https://github.com/tinkerpop/gremlin/wiki). Cet article fournit des exemples de documents et de requêtes pour vous aider à démarrer. L’article relatif à la [prise en charge de Gremlin](gremlin-support.md) comporte des informations de référence détaillées sur Gremlin.
 
 Cet article décrit les tâches suivantes : 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Didacticiel : Intégration d’Azure Active Directory avec FileCloud
 
@@ -184,7 +183,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
 
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
     d. Cliquez sur **Create**.
  
@@ -249,5 +248,4 @@ Lorsque vous cliquez sur la vignette FileCloud dans le volet d’accès, vous de
 [201]: ./media/active-directory-saas-filecloud-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-filecloud-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-filecloud-tutorial/tutorial_general_203.png
-
 

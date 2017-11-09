@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
-ms.lasthandoff: 03/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="verify-traffic-manager-settings"></a>Vérifier les paramètres Traffic Manager
 
 Pour tester vos paramètres Traffic Manager, vous devez disposer de plusieurs clients, à différents emplacements, d’où vous pouvez exécuter vos tests. Ensuite, mettez les points de terminaison de votre profil Traffic Manager hors service, l’un après l’autre.
@@ -75,4 +74,3 @@ Sinon, différents services de recherche et d’obtention de DNS sont disponible
 * [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md)
 * [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 * [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
-

@@ -1,9 +1,9 @@
---- 
+---
 title: "Prise en main d’Azure Automation | Microsoft Docs"
 description: "Cet article fournit une vue d’ensemble du service Azure Automation en examinant les détails de conception et d’implémentation dans l’optique d’intégrer l’offre à partir de la plateforme Place de marché Microsoft Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Prise en main d'Azure Automation
 
 Ce guide de prise en main présente les concepts fondamentaux relatifs au déploiement d’Azure Automation. Si vous débutez avec Automation dans Azure ou que vous avez déjà utilisé des logiciels de workflow d’automatisation tels que System Center Orchestrator, ce guide vous explique comment préparer et intégrer Automation.  Ensuite, vous serez en mesure de commencer à développer des runbooks pour prendre en charge vos besoins d’automatisation de processus. 
@@ -61,6 +59,7 @@ Lorsque vous configurez un ordinateur pour qu’il exécute les travaux de runbo
 
 * Windows Server 2012 ou version ultérieure
 * Windows PowerShell 4.0 ou version ultérieure.  Nous vous recommandons d’installer Windows PowerShell 5.0 sur l’ordinateur pour renforcer la fiabilité. Vous pouvez la télécharger la nouvelle version à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=50395).
+* .NET Framework 4.6.2 ou version ultérieure
 * Deux cœurs minimum
 * De 4 Go de RAM minimum
 
@@ -162,7 +161,7 @@ La méthode recommandée pour intégrer Automation est de sélectionner l’offr
 
 2. Cliquez sur **Nouveau**.<br><br> ![Sélection de l’option Nouveau dans le portail Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Recherchez **Automation**, puis dans les résultats de recherche, sélectionnez **Automation & Control***.<br><br> ![Recherche et sélection d’Automation & Control dans la Place de marché](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+3. Recherchez **Automation**, puis dans les résultats de recherche, sélectionnez **Automation & Control***.<br><br> ![Recherche et sélection d’Automation &amp; Control dans la Place de marché](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
 4. Après avoir lu la description de l’offre, cliquez sur **Créer**.  
 
@@ -191,6 +190,5 @@ Une fois l’offre intégrée, vous pouvez commencer à créer des runbooks, à 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez confirmer que votre nouveau compte Automation s’authentifie auprès de ressources Azure en consultant [Test Azure Automation Run As account authentication](automation-verify-runas-authentication.md) (Test d’authentification du compte d’identification Azure Automation).
 * Avant de procéder à la création de runbooks, commencez par examiner les [types de runbooks Automation](automation-runbook-types.md) pris en charge et les considérations associées.
-
 
 

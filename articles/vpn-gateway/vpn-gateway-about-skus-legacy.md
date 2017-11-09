@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 10/31/2017
 ms.author: cherylmc
+ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 3b2126b1ecd1613950bbf311ae08fafd4af0d51f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)
 
@@ -40,7 +39,12 @@ Cet article contient des informations sur les anciennes références SKU de pas
 
 ## <a name="resize"></a>Redimensionner une passerelle (modifier la référence SKU d’une passerelle)
 
-Vous pouvez redimensionner la référence SKU d’une passerelle au sein de la même famille de références SKU. Par exemple, si vous avez une référence SKU standard, vous pouvez redimensionner selon une référence SKU HighPerformance. Vous ne pouvez pas redimensionner vos passerelles VPN entre d’anciennes références SKU est de nouvelles familles de références SKU. Par exemple, vous ne pouvez pas aller d’une référence SKU standard à une référence SKU VpnGw2. 
+Vous pouvez redimensionner la référence SKU d’une passerelle au sein de la même famille de références SKU. Par exemple, si vous avez une référence SKU standard, vous pouvez redimensionner selon une référence SKU HighPerformance. Vous ne pouvez pas redimensionner vos passerelles VPN entre d’anciennes références SKU est de nouvelles familles de références SKU. Par exemple, vous ne pouvez pas aller d’une référence SKU standard à une référence SKU VpnGw2.
+
+>[!IMPORTANT]
+>Le redimensionnement d’une passerelle implique un temps d’arrêt de 20 à 30 minutes pour celle-ci pendant l’opération.
+>
+>
 
 Pour redimensionner une référence SKU de passerelle pour le modèle de déploiement classique, utilisez la commande suivante :
 

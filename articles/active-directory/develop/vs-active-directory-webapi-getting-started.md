@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 333db54fe01aad42cfcd050995b64f3725b31ae9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: a756316054dd3bb63f3b0a9f59621bb1345bc693
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>Prendre en main Azure Active Directory et les services connectés de Visual Studio (projets WebApi)
 > [!div class="op_single_selector"]
@@ -34,5 +33,4 @@ Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-
 

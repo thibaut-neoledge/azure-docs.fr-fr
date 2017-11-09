@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b7ad7b91c6b836f26b45959ef65a99666a4bf69a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Didacticiel : Processus de facturation EDIFACT à l’aide des Services BizTalk Azure
 
@@ -227,7 +226,7 @@ Le projet BizTalk Services **InvoiceProcessingBridge**qui transforme le message 
 Dans cette rubrique, nous allons étudier comment tester la solution à l’aide de l’application **Client de didacticiel** fournie dans le cadre de l’exemple.  
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour lancer le **Client du didacticiel**.
-2. Suite à l’opération qui a créé les files d’attente Service Bus, les valeurs d’écran sont en principe pré-renseignées . Cliquez sur **Next**.
+2. Suite à l’opération qui a créé les files d’attente Service Bus, les valeurs d’écran sont en principe pré-renseignées . Cliquez sur **Suivant**.
 3. Dans la fenêtre suivante, fournissez les informations d’identification ACS correspondant à l’abonnement BizTalk Services et les points de terminaison où les ponts EAI et EDI (réception) sont déployés.
    
    Vous avez copié le point de terminaison du pont IAE à l’étape précédente. Pour le point de terminaison de pont de réception EDI dans le portail BizTalk Services, accédez à l’accord > Paramètres de réception > Transport > Point de terminaison.
@@ -253,10 +252,10 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 
 1. Dans le portail BizTalk Services, cliquez sur l’accord que vous avez créé précédemment. Cliquez sur Paramètres d’envoi > Traitement par lot > Ajouter un lot.
 2. Comme nom de lot, saisissez **InvoiceBatch**, fournissez une description, puis cliquez sur **Suivant**.
-3. Spécifiez des critères de lancement de lots qui définissent les messages devant être regroupés dans lots. Dans cette solution, nous allons regrouper les messages par lot. Alors, sélectionnez l’option Utilisation de définitions avancées, et saisissez **1 = 1**. Il s’agit d’une condition qui conservera toujours la valeur true, et par conséquent, tous les messages seront traités par lot. Cliquez sur **Next**.
+3. Spécifiez des critères de lancement de lots qui définissent les messages devant être regroupés dans lots. Dans cette solution, nous allons regrouper les messages par lot. Alors, sélectionnez l’option Utilisation de définitions avancées, et saisissez **1 = 1**. Il s’agit d’une condition qui conservera toujours la valeur true, et par conséquent, tous les messages seront traités par lot. Cliquez sur **Suivant**.
    
    ![][17]  
-4. Spécifiez un critère de lancement par lot. Dans la zone de liste déroulante, sélectionnez **MessageCountBased** et attribuez à **Nombre** la valeur **3**. Cela signifie qu’un lot de trois messages sera envoyé à Northwind. Cliquez sur **Next**.
+4. Spécifiez un critère de lancement par lot. Dans la zone de liste déroulante, sélectionnez **MessageCountBased** et attribuez à **Nombre** la valeur **3**. Cela signifie qu’un lot de trois messages sera envoyé à Northwind. Cliquez sur **Suivant**.
    
    ![][18]  
 5. Consultez le résumé, puis cliquez sur **Enregistrer**. Cliquez sur **Déployer** pour redéployer l’accord.
@@ -281,5 +280,4 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 [16]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-16.PNG  
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG  
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
-
 

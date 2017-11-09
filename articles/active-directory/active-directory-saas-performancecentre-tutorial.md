@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: e86adaf4bd9b4752f2aece8207a8a423ec5590a6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Didacticiel : Intégration d’Azure Active Directory à PerformanceCentre
 
@@ -274,5 +272,4 @@ Lorsque vous cliquez sur la vignette PerformanceCentre dans le volet d’accès,
 [203]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_general_203.png
 [400]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_11.png
 [401]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_12.png
-
 

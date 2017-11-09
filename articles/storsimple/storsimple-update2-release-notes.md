@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/24/2016
+ms.date: 09/25/2017
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ddd34019dbef06d324437dee1430488cb2c9a639
-
-
+ms.openlocfilehash: d03e45b839e3630e7f5df4b3144b823955920088
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notes de publication de StorSimple série 8000 Update 2
 ## <a name="overview"></a>Vue d’ensemble
@@ -87,7 +87,7 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | 12 |Migration |Une fois la migration terminée, l’appareil de série 5000/7000 ne doit pas accéder aux conteneurs de données migrées. |Nous vous recommandons de supprimer les conteneurs de données migrées une fois que la migration est terminée et validée. |Oui |Non |
 | 13. |Clonage et récupération d’urgence |Un appareil StorSimple exécutant Update 1 ne peut pas cloner un appareil exécutant une version logicielle antérieure, ni exécuter de récupération d'urgence sur ce dernier. |Pour être en mesure d’effectuer ces opérations, vous devrez mettre à jour l’appareil cible vers Update 1. |Oui |Oui |
 | 14 |Migration |La sauvegarde de la configuration pour la migration peut être mise en échec sur un appareil de série 5000-7000 lorsqu’aucun volume n’est associé à certains groupes de volumes. |Supprimez l’ensemble des groupes de volumes vides ne présentant aucun volume associé, puis réessayez la sauvegarde de configuration. |Oui |Non |
-| 15 |Applets de commande Azure PowerShell et volumes épinglés localement |Vous ne pouvez pas créer un volume épinglé localement via les applets de commande Azure PowerShell. (Tous les volumes que vous créez via Azure PowerShell sont hiérarchisés.) |Utilisez toujours le service StorSimple Manager pour configurer les volumes épinglés localement. |Oui |Non |
+| 15 |Applets de commande Azure PowerShell et volumes épinglés localement |Vous ne pouvez pas créer un volume épinglé localement via les applets de commande Azure PowerShell. (Tous les volumes que vous créez via Azure PowerShell sont hiérarchisés.) En outre, n’utilisez pas les applets de commande Azure PowerShell pour modifier les propriétés d’un volume épinglé localement, dans la mesure où cela aurait pour effet indésirable de modifier le type de volume en volume à plusieurs niveaux. |Utilisez toujours le service StorSimple Manager pour configurer ou modifier les volumes épinglés localement. |Oui |Non |
 | 16 |Espace disponible pour les volumes épinglés localement |Si vous supprimez un volume épinglé localement, l'espace disponible pour les nouveaux volumes ne sera peut-être pas mis à jour immédiatement. Le service StorSimple Manager met à jour l'espace local disponible environ toutes les heures. |Patientez une heure avant d'essayer de créer le nouveau volume. |Oui |Non |
 | 17 |Volumes épinglés localement |Votre travail de restauration expose la sauvegarde d'instantanés temporaires dans le catalogue de sauvegarde, mais uniquement pour la durée du travail de restauration. En outre, il expose un groupe de disques virtuels avec le préfixe **tmpCollection** sur la page **Stratégies de sauvegarde**, mais uniquement pour la durée du travail de restauration. |Ce comportement peut se produire si votre travail de restauration possède des volumes épinglés localement ou une combinaison de volumes épinglés localement et de volumes hiérarchisés. Si le travail de restauration comporte uniquement des volumes hiérarchisés, cette situation ne se produira pas. Aucune intervention de l’utilisateur n’est nécessaire. |Oui |Non |
 | 18 |Volumes épinglés localement |Si vous annulez un travail de restauration et qu’un basculement de contrôleur se produit immédiatement après, le travail de restauration indique **Échec** et non pas **Annulé**. Si un travail de restauration échoue et qu’un basculement de contrôleur se produit immédiatement après, le travail de restauration indique **Annulé** et non pas **Échec**. |Ce comportement peut se produire si votre travail de restauration possède des volumes épinglés localement ou une combinaison de volumes épinglés localement et de volumes hiérarchisés. Si le travail de restauration comporte uniquement des volumes hiérarchisés, cette situation ne se produira pas. Aucune intervention de l’utilisateur n’est nécessaire. |Oui |Non |
@@ -106,10 +106,4 @@ Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. De nouv
 
 ## <a name="next-step"></a>Étape suivante
 Découvrez comment [installer Update 2](storsimple-install-update-2.md) sur votre appareil StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

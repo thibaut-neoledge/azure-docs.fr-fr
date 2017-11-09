@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
 ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
-ms.lasthandoff: 03/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Kit de développement logiciel (SDK) Operations Management Suite (OMS)
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) est une solution de gestion informatique basée sur le cloud de Microsoft qui permet de gérer et de protéger votre infrastructure locale et dans le cloud.  Cet article répertorie la documentation et d’autres ressources disponibles pour l’accès aux services OMS en dehors des portails OMS et Azure.  Celles-ci incluent l’API REST pour l’accès à partir de différentes interfaces de programmation et les moteurs de script tels que PowerShell. 
@@ -58,5 +57,4 @@ ms.lasthandoff: 03/03/2017
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les différentes options d’[intégration avec les services OMS](operations-management-suite-integration.md).
 * Créer une [solution personnalisée dans OMS](operations-management-suite-solutions-creating.md).
-
 

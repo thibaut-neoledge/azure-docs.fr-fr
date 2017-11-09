@@ -1,6 +1,6 @@
 ---
 title: "Créer votre première application Service Fabric en C# | Microsoft Docs"
-description: "Introduction à la création d&quot;une application Microsoft Azure Service Fabric avec des services avec et sans état."
+description: "Introduction à la création d'une application Microsoft Azure Service Fabric avec des services avec et sans état."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 813021d6239ae3cf79bb84b78f77e39c9e0783f6
-ms.lasthandoff: 03/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Prise en main de Reliable Services
 > [!div class="op_single_selector"]
@@ -228,5 +227,4 @@ Une fois que les services commencent à s’exécuter, vous pouvez afficher les 
 [Mise à niveau de l’application](service-fabric-application-upgrade.md)
 
 [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
 

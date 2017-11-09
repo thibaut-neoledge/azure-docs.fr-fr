@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: f6ed02cc67be4090402a115c30819ff6cff99c99
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Didacticiel : Intégration d’Azure Active Directory à Hosted Graphite
 
@@ -112,9 +110,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :  `https://www.hostedgraphite.com/metadata/<user id>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :  `https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. Dans la section **Domaine et URL Hosted Graphite**, si vous voulez configurer l’application en **Mode initié par SP**, procédez comme suit :
    
@@ -265,5 +263,4 @@ Quand vous cliquez sur la vignette Hosted Graphite dans le volet d’accès, vou
 [201]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_203.png
-
 

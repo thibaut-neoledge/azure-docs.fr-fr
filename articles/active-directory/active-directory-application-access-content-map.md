@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 7cd25954c83abe3eb1d3d1b6ad076cd46ff9099e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 32d1c26a31f78bb58e9e1d5c47d9810c2ae881cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-managing-application-access-and-permissions"></a>Problèmes lors de la gestion de l’accès à l’application et des autorisations
 
 
@@ -37,4 +35,3 @@ ms.lasthandoff: 04/17/2017
   Les documents suivants peuvent vous aider à résoudre certains des problèmes les plus courants de cette catégorie.
   * [Je ne sais pas comment un utilisateur a été affecté à une application](https://docs.microsoft.com/azure/active-directory/application-access-unexpected-user-assignment/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Je remarque une application inattendue dans la liste des applications et je souhaite en savoir plus à ce sujet](https://docs.microsoft.com/azure/active-directory/application-access-unexpected-application/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

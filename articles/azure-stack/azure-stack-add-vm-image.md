@@ -1,6 +1,6 @@
 ---
-title: Adding a VM image to Azure Stack | Microsoft Docs
-description: Add your organization's custom Windows or Linux VM image for tenants to use
+title: "Ajouter une image de machine virtuelle à Azure Stack | Microsoft Docs"
+description: "Ajouter une image de machine virtuelle Windows ou Linux personnalisée de votre organisation à utiliser par les locataires."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,115 +12,128 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: sngun
+ms.openlocfilehash: 520e4dfaadf1d476447a600ef2b3d092b6955a89
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: e726ef05632c7983a45fae191bb0a2ad18fc2553
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Make a custom virtual machine image available in Azure Stack
+# <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Mettre une image de machine virtuelle personnalisée à la disposition des utilisateurs dans Azure Stack
 
-Azure Stack enables operators to make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the Azure Marketplace UI with the creation of a Marketplace item. 
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-## <a name="add-a-vm-image-to-marketplace-with-powershell"></a>Add a VM image to marketplace with PowerShell
+Dans Azure Stack, les opérateurs peuvent mettre des images de machine virtuelle personnalisées à la disposition de leurs utilisateurs. Ces images peuvent être référencées par des modèles Azure Resource Manager ou vous pouvez les ajouter à l’interface utilisateur de la Place de marché Azure en tant qu’élément sur la Place de marché. 
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
+## <a name="add-a-vm-image-to-marketplace-by-using-powershell"></a>Ajouter une image de machine virtuelle sur la Place de marché à l’aide de PowerShell
 
-* [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
+Effectuez les étapes prérequises suivantes à partir du [kit de développement](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) :
 
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+1. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).  
 
-* Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
+2. Téléchargez les [outils nécessaires pour utiliser Azure Stack](azure-stack-powershell-download.md).  
+
+3. Préparez une image de disque dur virtuel du système d’exploitation Windows ou Linux au format VHD (n’utilisez pas le format VHDX).
    
-   * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-generalized-managed.md) contains image preparation instructions in the **Prepare the VHD for upload** section.
-   * For Linux images, follow the steps to prepare the image or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md).  
+   * Pour obtenir des instructions sur la préparation des images Windows, consultez [Télécharger une image de machine virtuelle Windows dans Azure pour les déploiements Resource Manager](../virtual-machines/windows/upload-generalized-managed.md).
+   * Pour les images Linux, consultez [Déployer des machines virtuelles Linux sur Azure Stack](azure-stack-linux.md). Effectuez les étapes pour préparer l’image ou bien utilisez une image Linux Azure Stack existante comme décrit dans l’article.  
 
-Now run the following steps to add the image to the Azure Stack marketplace:
+Pour ajouter l’image sur la Place de marché Azure Stack, effectuez les étapes suivantes :
 
-1. Import the Connect and ComputeAdmin modules:
+1. Importez les modules Connect et ComputeAdmin :
    
    ```powershell
    Set-ExecutionPolicy RemoteSigned
 
-   # import the Connect and ComputeAdmin modules
+   # Import the Connect and ComputeAdmin modules.
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenant name): 
+2. Connectez-vous à votre environnement Azure Stack. Exécutez l’un des scripts suivants, en fonction du déploiement de votre environnement Azure Stack (à l’aide de Azure Active Directory ou bien avec Active Directory Federation Services). (Remplacez le `tenantName` de Azure AD, le point de terminaison `GraphAudience`, et les valeurs `ArmEndpoint` pour refléter la configuration de votre environnement.)
 
-   a. **Azure Active Directory**, use the following cmdlet:
+    * **Azure Active Directory**. Utilisez l’applet de commande suivante :
 
-   ```PowerShell
-   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-     -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+      ```PowerShell
+      # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+      $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-   Set-AzureRmEnvironment `
-    -Name "AzureStackAdmin" `
-    -GraphAudience "https://graph.windows.net/"
+      # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+      $GraphAudience = "<GraphAuidence endpoint for your environment>"
+      
+      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+      Add-AzureRMEnvironment `
+        -Name "AzureStackAdmin" `
+        -ArmEndpoint $ArmEndpoint
 
-   $TenantID = Get-AzsDirectoryTenantId `
-     -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-     -EnvironmentName AzureStackAdmin
+      Set-AzureRmEnvironment `
+        -Name "AzureStackAdmin" `
+        -GraphAudience $GraphAudience
 
-   Login-AzureRmAccount `
-     -EnvironmentName "AzureStackAdmin" `
-     -TenantId $TenantID 
-   ```
+      $TenantID = Get-AzsDirectoryTenantId `
+        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+        -EnvironmentName AzureStackAdmin
 
-   b. **Active Directory Federation Services**, use the following cmdlet:
+      Login-AzureRmAccount `
+        -EnvironmentName "AzureStackAdmin" `
+        -TenantId $TenantID 
+      ```
+
+   * **Active Directory Federation Services**. Utilisez l’applet de commande suivante :
     
-   ```PowerShell
-   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-     -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+        ```PowerShell
+        # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+        $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-   Set-AzureRmEnvironment `
-     -Name "AzureStackAdmin" `
-     -GraphAudience "https://graph.local.azurestack.external/" `
-     -EnableAdfsAuthentication:$true
+        # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+        $GraphAudience = "<GraphAuidence endpoint for your environment>"
 
-   $TenantID = Get-AzsDirectoryTenantId `
-     -ADFS 
-     -EnvironmentName AzureStackAdmin 
+        # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+        Add-AzureRMEnvironment `
+          -Name "AzureStackAdmin" `
+          -ArmEndpoint $ArmEndpoint
 
-   Login-AzureRmAccount `
-     -EnvironmentName "AzureStackAdmin" `
-     -TenantId $TenantID 
-   ```
+        Set-AzureRmEnvironment `
+          -Name "AzureStackAdmin" `
+          -GraphAudience $GraphAudience `
+          -EnableAdfsAuthentication:$true
+
+        $TenantID = Get-AzsDirectoryTenantId `
+          -ADFS 
+          -EnvironmentName AzureStackAdmin 
+
+        Login-AzureRmAccount `
+          -EnvironmentName "AzureStackAdmin" `
+          -TenantId $TenantID 
+        ```
     
-3. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
+3. Ajoutez l’image de machine virtuelle en appelant l’applet de commande `Add-AzsVMImage`. Dans l’applet de commande `Add-AzsVMImage`, spécifiez `osType` comme Windows ou Linux. Indiquez l’éditeur (« publisher »), l’offre (« offer »), la référence SKU (« sku ») et la version pour l’image de machine virtuelle. Pour plus d’informations sur les paramètres autorisés, consultez la section [Paramètres](#parameters). Les paramètres sont utilisés par les modèles Azure Resource Manager pour référencer l’image de machine virtuelle. L’exemple suivant appelle le script :
      
-     ```powershell
-     Add-AzsVMImage `
-       -publisher "Canonical" `
-       -offer "UbuntuServer" `
-       -sku "14.04.3-LTS" `
-       -version "1.0.0" `
-       -osType Linux `
-       -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
-     ```
+  ```powershell
+  Add-AzsVMImage `
+    -publisher "Canonical" `
+    -offer "UbuntuServer" `
+    -sku "14.04.3-LTS" `
+    -version "1.0.0" `
+    -osType Linux `
+    -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
+  ```
 
-The command does the following:
+La commande exécute les actions suivantes :
 
-* Authenticates to the Azure Stack environment
-* Uploads the local VHD to a newly created temporary storage account
-* Adds the VM image to the VM image repository and
-* Creates a Marketplace item
+* Elle effectue l’authentification auprès de l’environnement Azure Stack.
+* Elle charge le disque VHD local dans un nouveau compte de stockage temporaire.
+* Elle ajoute l’image de machine virtuelle dans le référentiel d’images de machine virtuelle.
+* Elle crée un élément de Place de marché.
 
-To verify that the command ran successfully, go to Marketplace in the portal, and then verify that the VM image is available in the **Virtual Machines** category.
+Pour vérifier que la commande s’est exécutée correctement, accédez à la Place de Marché dans le portail. Vérifiez que l’image de machine virtuelle est disponible dans le catégorie **Machines virtuelles**.
 
-![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG) 
+![Image de machine virtuelle correctement ajoutée](./media/azure-stack-add-vm-image/image5.PNG) 
 
-## <a name="remove-a-vm-image-with-powershell"></a>Remove a VM image with PowerShell
+## <a name="remove-a-vm-image-by-using-powershell"></a>Supprimer une image de machine virtuelle à l’aide de PowerShell
 
-When you no longer need the virtual machine image that you have uploaded earlier, you can delete it from the marketplace by using the following cmdlet:
+Si vous n’avez plus besoin de l’image de machine virtuelle que vous avez chargée, vous pouvez la supprimer sur la Place de marché à l’aide de l’applet de commande suivante :
 
 ```powershell
 Remove-AzsVMImage `
@@ -130,55 +143,55 @@ Remove-AzsVMImage `
   -version "1.0.0" `
 ```
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>parameters
 
-| Parameter | Description |
+| Paramètre | Description |
 | --- | --- |
-| **publisher** |The publisher name segment of the VM image that users use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field. |
-| **offer** |The offer name segment of the VM Image that users use when deploying the VM image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
-| **sku** |The SKU name segment of the VM Image that users use when deploying the VM image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
-| **version** |The version of the VM Image that users use when deploying the VM image. This version is in the format *\#.\#.\#*. An example is ‘1.0.0’. Do not include a space or other special characters in this field. |
-| **osType** |The osType of the image must be either ‘Windows’ or ‘Linux’. |
-| **osDiskLocalPath** |The local path to the OS disk VHD that you are uploading as a VM image to Azure Stack. |
-| **dataDiskLocalPaths** |An optional array of the local paths for data disks that can be uploaded as part of the VM image. |
-| **CreateGalleryItem** |A Boolean flag that determines whether to create an item in Marketplace. By default, it is set to true. |
-| **title** |The display name of Marketplace item. By default, it is set to the Publisher-Offer-Sku of the VM image. |
-| **description** |The description of the Marketplace item. |
-| **location** |The location to which the VM image should be published. By default, this value is set to local.|
-| **osDiskBlobURI** |Optionally, this script also accepts a Blob storage URI for osDisk. |
-| **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
+| **publisher** |Segment du nom de l’éditeur de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. **Microsoft** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ. |
+| **offer** |Segment du nom de l’offre de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. **WindowsServer** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ. |
+| **sku** |Segment du nom de référence SKU de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. **Datacenter2016** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ. |
+| **version** |Version de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. La version suit le format *\#.\#.\#*, **1.0.0** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ. |
+| **osType** |Type d’exploitation de l’image, qui doit être **Windows** ou **Linux**. |
+| **osDiskLocalPath** |Chemin d’accès local au disque VHD de système d’exploitation que vous chargez comme image de machine virtuelle dans Azure Stack. |
+| **dataDiskLocalPaths** |Tableau facultatif des chemins d’accès locaux des disques de données qui peuvent être chargés comme partie de l’image de machine virtuelle. |
+| **CreateGalleryItem** |Indicateur booléen qui détermine s’il faut créer un élément sur la Place de marché. Par défaut, il est défini sur **true**. |
+| **title** |Nom d’affichage de l’élément de la Place de marché. Par défaut, il se compose de la valeur `Publisher-Offer-Sku` de l’image de machine virtuelle. |
+| **description** |Description de l’élément de la Place de marché. |
+| **location** |Emplacement de publication de l’image de machine virtuelle. Par défaut, cette valeur est définie sur **local**.|
+| **osDiskBlobURI** |(Facultatif) Ce script accepte également un URI de stockage Blob pour `osDisk`. |
+| **dataDiskBlobURIs** |(Facultatif) Ce script accepte également un tableau d’URI de stockage Blob pour l’ajout de disques de données à l’image. |
 
-## <a name="add-a-vm-image-through-the-portal"></a>Add a VM image through the portal
+## <a name="add-a-vm-image-through-the-portal"></a>Ajouter une image de machine virtuelle par le biais du portail
 
 > [!NOTE]
-> This method requires creating the Marketplace item separately.
+> Avec cette méthode, vous devez créer l’élément de la Place de marché séparément.
 
-One requirement of images is that they can be referenced by a Blob storage URI. Prepare a Windows or Linux operating system image in VHD format (not VHDX), and then upload the image to a storage account in Azure or Azure Stack. If your image is already uploaded to the Blob storage in Azure or Azure Stack, you can skip step1.
+Les images doivent être en mesure d’être référencées par un URI de stockage Blob. Préparez une image de système d’exploitation Windows ou Linux au format VHD (pas VHDX), puis chargez cette image dans un compte de stockage Azure ou Azure Stack. Si votre image est déjà chargée dans le stockage Blob dans Azure ou Azure Stack, ignorez l’étape 1.
 
-1. [Upload a Windows VM image to Azure for Resource Manager deployments](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) or for a Linux image, follow the instructions described in the [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md) article. You should understand the following considerations before you upload the image:
+1. [Chargez une image de machine virtuelle Windows dans Azure pour les déploiements Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) ou, pour une image Linux, suivez les instructions fournies dans [Déployer des machines virtuelles Linux dans Azure Stack](azure-stack-linux.md). Avant de télécharger l’image, il est important de tenir compte des facteurs suivants :
 
-   * It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the image to the Azure Stack image repository. 
+   * Il est préférable de charger une image dans le stockage Blob Azure Stack plutôt que dans le stockage Blob Azure, car la publication d’une image dans le référentiel d’images Azure Stack est plus rapide. 
    
-   * When uploading the [Windows VM image](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), make sure to substitute the **Login to Azure** step with the [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md)  step.  
+   * Quand vous chargez [l’image de machine virtuelle Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), pensez à substituer l’étape **Se connecter à Azure** par l’étape [Configurer l’environnement PowerShell de l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md).  
 
-   * Make a note of the Blob storage URI where you upload the image, which is in the following format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
+   * Prenez note de l’URI de stockage Blob dans lequel vous chargez l’image. L’URI de stockage Blob est au format suivant : *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
 
-   * To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
+   * Pour rendre le stockage Blob accessible de manière anonyme, accédez au conteneur d’objets blob du compte de stockage dans lequel l’image de machine virtuelle VHD a été chargée. Sélectionnez **Blob** puis choisissez **Stratégie d’accès**. Si vous le souhaitez, vous pouvez à la place générer une signature d’accès partagé pour le conteneur et l’inclure dans l’URI de l’objet blob.
 
-   ![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
+   ![Accéder aux objets blob du compte de stockage](./media/azure-stack-add-vm-image/image1.png)
 
-   ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
+   ![Définir un accès public pour les objets blob](./media/azure-stack-add-vm-image/image2.png)
 
-2. Sign in to Azure Stack as operator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
+2. Connectez-vous au Azure Stack en tant qu’opérateur. Dans le menu, sélectionnez sur **Autres services** > **Fournisseurs de ressources**. Ensuite, sélectionnez **Compute** > **Images de machine virtuelle** > **Ajouter**.
 
-3. On the **Add a VM Image** blade, enter the publisher, offer, SKU, and version of the virtual machine image. These name segments refer to the VM image in Resource Manager templates. Make sure to select the **osType** correctly. For **OD Disk Blob URI**, enter the Blob URI where the image was uploaded and click **Create** to begin creating the VM Image.
+3. Dans le panneau **Ajouter une image de machine virtuelle**, saisissez l’éditeur, l’offre, la référence SKU et la version de l’image de machine virtuelle. Ces segments de nom référencent l’image de machine virtuelle dans les modèles Resource Manager. Sélectionnez la valeur **type de système d’exploitation** approprié. Pour **URI de l’objet blob OD Disk**, saisissez l’URI de l’objet Blob où l’image a été téléchargée. Cliquez ensuite sur **Créer** pour commencer la création d’une image de machine virtuelle.
    
-   ![Begin to create the image](./media/azure-stack-add-vm-image/image4.png)
+   ![Démarrer la création de l’image](./media/azure-stack-add-vm-image/image4.png)
 
-   When the image is successfully created, the VM image status changes to ‘Succeeded’.
+   Une fois que l’image de machine virtuelle a été créée, son état passe à **Réussi**.
 
-4. To make the virtual machine image more readily available for user consumption in the UI, it is best to [create a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
+4. Pour rendre une image de machine virtuelle plus rapidement disponible dans l’interface utilisateur, c’est une bonne idée de [créer un élément de Place de marché](azure-stack-create-and-publish-marketplace-item.md).
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Étapes suivantes
 
-[Provision a virtual machine](azure-stack-provision-vm.md)
+[Approvisionner une machine virtuelle](azure-stack-provision-vm.md)

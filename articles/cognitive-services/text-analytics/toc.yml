@@ -4,6 +4,8 @@
   items:
     - name: À propos d’Analyse de texte
       href: overview.md
+    - name: Langues prises en charge
+      href: text-analytics-supported-languages.md
 - name: Démarrages rapides
   items:
     - name: 'C#'
@@ -22,6 +24,8 @@
   items:
     - name: Analyse de texte avec Power BI
       href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Analyse de texte dans Power Apps
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
 - name: Procédures
   items:
     - name: Inscription

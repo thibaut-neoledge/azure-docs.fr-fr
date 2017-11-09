@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 46a86bf99c1afd09ae3921a205d27532246171c9
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 4d9d6165deb4bd0c65f1841aa7c457363a1f2865
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-sdk-integration-issues"></a>Guide de dépannage pour les problèmes d’intégration du Kit de développement logiciel (SDK)
 Les éléments suivants sont des problèmes potentiels liés à la façon dont Azure Mobile Engagement s’intègre dans votre application.
@@ -135,5 +134,4 @@ Les éléments suivants sont des problèmes potentiels liés à la façon dont A
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

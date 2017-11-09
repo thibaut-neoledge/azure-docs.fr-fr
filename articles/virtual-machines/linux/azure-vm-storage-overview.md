@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
+ms.openlocfilehash: 934580f6fcfdbff6e61626ed685459478559717d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Stockage des machines virtuelles Azure et Linux
 Le service Stockage Azure est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et la scalabilité pour répondre aux besoins des clients.  Le Stockage Azure permet aux développeurs de créer des applications à grande échelle pour prendre en charge de nouveaux scénarios, et fournit également une base de stockage pour les Machines Virtuelles Azure.
@@ -92,7 +91,7 @@ Caractéristiques du Stockage Premium :
 * Disques de stockage Premium : le Stockage Premium Azure prend en charge les disques de machines virtuelles pouvant être attachés à des machines virtuelles Azure des séries DS, DSv2 ou GS.
 * Objet blob de pages Premium : le Stockage Premium prend en charge les objets blob de pages Azure, utilisés pour stocker les disques persistants des Machines Virtuelles Azure.
 * Stockage Premium localement redondant : un compte de Stockage Premium prend uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication et conserve trois copies des données dans une même région.
-* [Stockage Premium](../../storage/common/storage-premium-storage.md)
+* [Stockage Premium](../windows/premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>Machines virtuelles non prises en charge par le Stockage Premium
 Le Stockage Premium prend en charge les machines virtuelles Azure des séries DS, DSv2, GS et Fs. Vous pouvez utiliser des disques de Stockage Standard et Premium avec les machines virtuelles prises en charge par le Stockage Premium. Mais vous ne pouvez pas utiliser des disques de stockage Premium avec des séries de machines virtuelles non compatibles avec le Stockage Premium.
@@ -212,4 +211,3 @@ Pour plus d’informations sur l’utilisation du disque temporaire par Azure, v
 
 ## <a name="storage-limits"></a>Limites de stockage
 * [Limites de service de stockage](../../azure-subscription-service-limits.md#storage-limits)
-

@@ -3,7 +3,7 @@ title: "Utilisation d’Azure CLI 2.0 avec le stockage Azure | Microsoft Docs"
 description: "Découvrez comment utiliser Azure CLI 2.0 avec le stockage Azure pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Azure. Azure CLI 2.0 est un outil multiplateforme écrit en Python."
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: marsma
+ms.author: tamram
+ms.openlocfilehash: 69c1d41a4c2dbddd20c0e603ef335f3030a484d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8dfa91de25eadb93186d994095f0a0107fe1a9d0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Utilisation d’Azure CLI 2.0 avec le stockage Azure
 
@@ -317,7 +316,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Créer et gérer des partages de fichiers
-Le Stockage Fichier Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure File Storage, consultez [Prise en main du stockage de fichiers Azure sur Windows](../storage-dotnet-how-to-use-files.md) ou [Utilisation du stockage de fichiers Azure avec Linux](../storage-how-to-use-files-linux.md).
+Le service Azure Files propose un stockage partagé pour les applications utilisant le protocole SMB. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure Files, voir [Présentation d’Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Créer un partage de fichiers
 Un partage de fichiers Azure est un partage de fichiers SMB dans Microsoft Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
@@ -373,10 +372,146 @@ az storage file copy start \
 --destination-share share2 --destination-path dir2/file.txt     
 ```
 
+## <a name="create-share-snapshot"></a>Créer un instantané de partage
+Vous pouvez créer un instantané de partage à l’aide de la commande `az storage share snapshot` :
+
+```cli
+az storage share snapshot -n <share name>
+```
+
+Exemple de sortie
+```json
+{
+  "metadata": {},
+  "name": "<share name>",
+  "properties": {
+    "etag": "\"0x8D50B7F9A8D7F30\"",
+    "lastModified": "2017-10-04T23:28:22+00:00",
+    "quota": null
+  },
+  "snapshot": "2017-10-04T23:28:35.0000000Z"
+}
+```
+
+### <a name="list-share-napshots"></a>Lister les instantanés de partage
+
+Vous pouvez lister les instantanés d’un partage spécifique à l’aide de la commande `az storage share list --include-snapshots`.
+
+```cli
+az storage share list --include-snapshots
+```
+
+**Exemple de sortie**
+```json
+[
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:44:13.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:45:18.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": null
+  }
+]
+```
+
+### <a name="browse-share-snapshots"></a>Parcourir les instantanés de partage
+Vous pouvez également accéder à un instantané de partage spécifique pour afficher son contenu à l’aide de la commande `az storage file list`. Vous devez spécifier le nom de partage `--share-name <snare name>` et l’horodatage `--snapshot '2017-10-04T19:45:18.0000000Z'`.
+
+```azurecli-interactive
+az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
+```
+
+**Exemple de sortie**
+```
+Name            Content Length    Type    Last Modified
+--------------  ----------------  ------  ---------------
+HelloWorldDir/                    dir
+IMG_0966.JPG    533568            file
+IMG_1105.JPG    717711            file
+IMG_1341.JPG    608459            file
+IMG_1405.JPG    652156            file
+IMG_1611.JPG    442671            file
+IMG_1634.JPG    1495999           file
+IMG_1635.JPG    974058            file
+
+```
+### <a name="restore-from-share-snapshots"></a>Effectuer une restauration à partir d’instantanés de partage
+
+Vous pouvez restaurer un fichier en le copiant ou téléchargeant à partir d’un instantané de partage à l’aide de la commande `az storage file download`.
+
+```azurecli-interactive
+az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
+```
+**Exemple de sortie**
+```
+{
+  "content": null,
+  "metadata": {},
+  "name": "IMG_0966.JPG",
+  "properties": {
+    "contentLength": 533568,
+    "contentRange": "bytes 0-533567/533568",
+    "contentSettings": {
+      "cacheControl": null,
+      "contentDisposition": null,
+      "contentEncoding": null,
+      "contentLanguage": null,
+      "contentType": "application/octet-stream"
+    },
+    "copy": {
+      "completionTime": null,
+      "id": null,
+      "progress": null,
+      "source": null,
+      "status": null,
+      "statusDescription": null
+    },
+    "etag": "\"0x8D50B5F49F7ACDF\"",
+    "lastModified": "2017-10-04T19:37:03+00:00",
+    "serverEncrypted": true
+  }
+}
+```
+## <a name="delete-share-snapshot"></a>Supprimer un instantané de partage
+Vous pouvez supprimer un instantané de partage à l’aide de la commande `az storage share delete` en définissant le paramètre `--snapshot` sur l’horodatage de l’instantané de partage :
+
+```cli
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+```
+
+Exemple de sortie
+```json
+{
+  "deleted": true
+}
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 Voici quelques ressources supplémentaires pour en savoir plus sur l’utilisation d’Azure CLI 2.0.
 
 * [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Référence des commandes Azure CLI 2.0](/cli/azure)
 * [Azure CLI 2.0 sur GitHub](https://github.com/Azure/azure-cli)
-

@@ -3,7 +3,7 @@ title: Utilisation de la recherche dans Azure Application Insights | Microsoft D
 description: "Recherchez et filtrez la télémétrie brute envoyée par votre application web."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: aeb27a02ed624106afec5dbd98faacf5f400f89e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 Recherche (Search) est la fonctionnalité [d’Application Insights](app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
@@ -184,4 +183,3 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 * [Envoi des journaux et de la télémétrie personnalisée à Application Insights](app-insights-asp-net-trace-logs.md)
 * [Configuration des tests de disponibilité et de réactivité](app-insights-monitor-web-app-availability.md)
 * [Dépannage](app-insights-troubleshoot-faq.md)
-

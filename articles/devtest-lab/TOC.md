@@ -14,8 +14,9 @@
 # Procédures
 ## Utiliser des machines virtuelles dans un laboratoire
 ### [Créer des machines virtuelles](devtest-lab-add-vm.md)
-### [Créer des machines virtuelles exigibles](devtest-lab-add-claimable-vm.md)
+### [Créer et gérer des machines virtuelles revendicables](devtest-lab-add-claimable-vm.md)
 ### [Créer et gérer des machines virtuelles avec l’interface Azure CLI](devtest-lab-vmcli.md)
+### [Redémarrer une machine virtuelle](devtest-lab-restart-vm.md)
 
 ## Utiliser des environnements dans un laboratoire
 ### [Créer un environnement](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,7 @@
 ### [Définir des stratégies et des planifications](devtest-lab-set-lab-policy.md)
 ### [Configurer la gestion des coûts](devtest-lab-configure-cost-management.md)
 ### [Configurer des images Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Activer une image sous licence](devtest-lab-enable-licensed-images.md)
 ### [Ajouter des balises à un laboratoire](devtest-lab-add-tag.md)
 
 ## [Sélectionner une image ou une formule personnalisées](devtest-lab-comparing-vm-base-image-types.md)

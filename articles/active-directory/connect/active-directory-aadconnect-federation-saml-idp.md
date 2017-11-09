@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utiliser un fournisseur d’identité (IdP) SAML 2.0 pour l’authentification unique
 
 Cette rubrique contient des informations sur l’utilisation d’un profil SP-Lite compatible SAML 2.0 basé sur un fournisseur d’identité en tant que Service STS (Security Token Service) / fournisseur d’identité préféré. Cela est utile lorsque vous avez déjà un répertoire d’utilisateurs et un Store de mots de passe local accessibles à l’aide de SAML 2.0. Ce répertoire d’utilisateurs existant peut être utilisé pour l’authentification à Office 365 et d’autres ressources sécurisées par AD Azure. Le profil SP-Lite SAML 2.0 est basé sur la norme d’identité fédérée Security Assertion Markup Language (SAML) largement utilisée pour fournir une structure d’échange d’authentification et d’attribut.
@@ -271,4 +269,3 @@ Pour vérifier que l’authentification unique a été correctement configurée,
 - [Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect](active-directory-aadconnect-federation-management.md)
 - [Liste de compatibilité de fédération Azure AD](active-directory-aadconnect-federation-compatibility.md)
 - [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-

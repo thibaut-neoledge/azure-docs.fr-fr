@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 10f33898fb86bd2449994a153d99cb59dc6078d6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportement des alertes SMS dans les groupes d’actions
 ## <a name="overview"></a>Vue d'ensemble ##
@@ -75,4 +74,3 @@ Une réponse est envoyée à l’utilisateur avec un lien vers cet article.
 Obtenez une [Vue d’ensemble des alertes de journal d’activité](monitoring-overview-alerts.md) et découvrez comment recevoir des alertes  
 En savoir plus sur la [restriction des SMS](monitoring-alerts-rate-limiting.md)  
 En savoir plus sur les [groupes de ressources](monitoring-action-groups.md)
-

@@ -1,6 +1,6 @@
 ---
 title: "Affichage des données SAML renvoyées par ACS (Java)"
-description: "Découvrez comment afficher SAML renvoyé par le service de contrôle d&quot;accès dans les applications Java hébergées sur Azure."
+description: "Découvrez comment afficher SAML renvoyé par le service de contrôle d'accès dans les applications Java hébergées sur Azure."
 services: active-directory
 documentationcenter: java
 author: rmcmurray
@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06d30b8222cd0590809b2fd5a1241394056c6338
-ms.openlocfilehash: ac91a1c753611f4002a930dadeaeba2fcd53a324
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Affichage des données SAML (Security Assertion Markup Language) renvoyées par Azure Access Control Service
 Ce guide explique comment afficher les données SAML (Security Assertion Markup Language) sous-jacentes renvoyées à votre application par Azure Access Control Service (ACS). Ce guide s’appuie sur la rubrique [Authentification des utilisateurs web auprès d’Azure Access Control Service à l’aide d’Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) en fournissant le code nécessaire à l’affichage des données SAML. L'application terminée sera semblable à ce qui suit.
@@ -197,4 +195,3 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios pl
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
-

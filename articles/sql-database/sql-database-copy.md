@@ -1,6 +1,6 @@
 ---
 title: "Copie d’une base de données SQL Azure | Documents Microsoft"
-description: "Création d'une copie d'une base de données SQL Azure"
+description: "Créez une copie cohérente au niveau transactionnel d’une base de données Azure SQL Database existante sur le même serveur ou sur un autre serveur."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -12,16 +12,14 @@ ms.custom: load & move data
 ms.devlang: NA
 ms.date: 06/15/2017
 ms.author: carlrab
-ms.workload: data-management
+ms.workload: On Demand
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 67c42b8df2f1d12ceecd127ab24d359a6de8ef43
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: 7999c52a81165a9f8efb2f1302d04c9cb851faca
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="copy-an-azure-sql-database"></a>Copie d'une base de données SQL Azure
 
@@ -111,4 +109,3 @@ Pour en savoir plus sur la gestion des utilisateurs et des connexions lors de la
 
 * Pour plus d’informations sur les connexions, consultez [Gérer les connexions](sql-database-manage-logins.md) et [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
 * Pour exporter une base de données, consultez [Exporter la base de données vers un fichier BACPAC](sql-database-export.md).
-

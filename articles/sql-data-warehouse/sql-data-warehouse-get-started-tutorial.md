@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
+ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Prise en main de SQL Data Warehouse
 
@@ -62,7 +61,7 @@ SQL Data Warehouse est un type spécial de base de données conçu pour le tra
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Nouveau** > **Bases de données** > **SQL Data Warehouse**.
 
-    ![Nouveau panneau](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![Choisir DW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![Nouveau panneau](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)![Choisir DW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Renseignez les détails relatifs au déploiement.
 
@@ -142,7 +141,6 @@ Comme vous êtes actuellement connecté en tant qu’administrateur du serveur, 
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. En interrogeant la *base de données SQL Data Warehouse*, créez un utilisateur de base de données en fonction de la connexion que vous avez créée pour accéder à la base de données et y effectuer des opérations.
@@ -670,4 +668,3 @@ Si vous avez terminé votre exploration, n’oubliez pas d’interrompre votre i
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
 [SQL Server Management Studio]: https://msdn.microsoft.com/en-us/library/mt238290.aspx
-

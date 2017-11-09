@@ -3,7 +3,7 @@ title: "Guide de dépannage : Application Insights pour .NET"
 description: "Vous ne voyez pas de données dans Azure Application Insights ? Essayez ici."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/15/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 843ffdf6c39cbdf00bfde969eaf93701db6ed536
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Guide de dépannage : Application Insights pour .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Certaines de mes données télémétriques manquent
@@ -159,11 +158,9 @@ Voir [télémétrie des dépendances](app-insights-asp-net-dependencies.md) et [
 ## <a name="no-performance-data"></a>Aucune donnée de performances
 Les données de performances (UC, taux d’E/S, etc.) sont disponibles pour les [services web Java](app-insights-java-collectd.md), les [applications de bureau Windows](app-insights-windows-desktop.md), les [services et applications web IIS si vous installez le moniteur d’état (Status monitor)](app-insights-monitor-performance-live-website-now.md) et [Azure Cloud Services](app-insights-azure.md). Ces données figurent sous Paramètres, Serveurs.
 
-Ces données ne sont pas disponibles pour les sites web Azure.
-
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Aucune donnée (serveur) n’apparaît depuis que j’ai publié l’application sur mon serveur
 * Vérifiez que vous avez réellement copié toutes les DLL Microsoft ApplicationInsights sur le serveur, avec Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
-* Dans votre pare-feu, vous devrez peut-être [ouvrir certains ports TCP](app-insights-ip-addresses.md#data-access-api).
+* Dans votre pare-feu, vous devrez peut-être [ouvrir certains ports TCP](app-insights-ip-addresses.md).
 * Si vous devez utiliser un proxy pour l'envoi depuis votre réseau d'entreprise, définissez le paramètre [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) dans le fichier Web.config.
 * Windows Server 2008 : assurez-vous que vous avez installé les mises à jour suivantes : [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523) et [KB2600217](https://support.microsoft.com/kb/2600217).
 
@@ -184,5 +181,4 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiq
 
 ## <a name="still-not-working"></a>Ne fonctionne toujours pas...
 * [Forum Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
 

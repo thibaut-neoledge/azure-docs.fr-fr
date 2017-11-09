@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a2cbb6ca9197c7af0d1d30e87d58b0314507a531
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: ccebc722386a19014674d7a59757a3685bd50793
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test de bande passante/débit (NTTTCP)
 
 Lorsque vous testez les performances du débit réseau dans Azure, il est préférable d’utiliser un outil qui cible le réseau pour le test et réduit l’utilisation d’autres ressources qui peuvent affecter les performances. NTTTCP est recommandé.
@@ -164,4 +162,3 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ## <a name="next-steps"></a>Étapes suivantes
 * En fonction des résultats, vous pourriez être en mesure [d’optimiser le de débit réseau](virtual-network-optimize-network-bandwidth.md) pour votre scénario.
 * Découvrez-en davantage avec la [FAQ sur les réseaux virtuels Azure](virtual-networks-faq.md)
-

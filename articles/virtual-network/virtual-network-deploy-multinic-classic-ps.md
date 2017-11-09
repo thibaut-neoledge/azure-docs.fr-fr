@@ -4,7 +4,7 @@ description: "Apprenez à créer une machine virtuelle (Classic) avec plusieurs 
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 6e2bb0e228aa28c79969cba07352061abbb47951
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 37f1f5bbd5f39290121414a4c5532abdb2b6f9ae
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Créer une machine virtuelle (classique) avec plusieurs cartes réseau à l’aide de PowerShell
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 03/22/2017
 Vous pouvez créer des machines virtuelles (VM) dans Azure et joindre plusieurs cartes d’interface réseau (NIC) à chacune d’elles. Plusieurs cartes réseau permettent la séparation des types de trafic entre les cartes réseau. Par exemple, une carte réseau peut communiquer avec Internet, tandis qu’une autre communique uniquement avec des ressources internes non connectées à Internet. La possibilité de séparer le trafic réseau entre plusieurs cartes réseau est requise pour de nombreuses appliances virtuelles réseau, telles que Application Delivery Network et les solutions d’optimisation WAN.
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment effectuer ces étapes à l’aide du [modèle de déploiement Resource Manager](virtual-network-deploy-multinic-arm-ps.md).
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment effectuer ces étapes à l’aide du [modèle de déploiement Resource Manager](../virtual-machines/windows/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -154,7 +153,7 @@ Vous devez utiliser une boucle pour créer le nombre de machines virtuelles que 
     -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
     -VM $vmConfig
     ```
-
+    
 6. Pour chaque machine virtuelle, créez deux disques de données.
 
     ```powershell
@@ -182,7 +181,7 @@ Vous devez utiliser une boucle pour créer le nombre de machines virtuelles que 
     ```
 
 ### <a name="step-4---run-the-script"></a>Étape 4 : exécution du script
-Maintenant que vous avez téléchargé et modifié le script selon vos besoins, exécutez le script pour créer les machines virtuelles de base de données principales avec plusieurs cartes réseau.
+Maintenant que vous avez téléchargé et modifié le script selon vos besoins, exécutez ce script pour créer les machines virtuelles de base de données principales avec plusieurs cartes réseau.
 
 1. Enregistrez votre script et exécutez-le à partir de l’invite de commandes **PowerShell** ou **PowerShell ISE**. Vous verrez la sortie initiale, comme illustré ci-dessous.
 
@@ -192,8 +191,11 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
         New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         
         WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. Complétez les informations nécessaires dans l'invite d'informations d'identification et cliquez sur **OK**. Vous obtenez le résultat ci-dessous.
+2. Complétez les informations nécessaires dans l'invite d'informations d'identification et cliquez sur **OK**. Voici les résultats renvoyés.
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Étape 5 : configuration du routage au sein du système d’exploitation de la machine virtuelle
+
+Le serveur DHCP Azure affecte une passerelle par défaut à la première (principale) interface réseau associée à la machine virtuelle. Azure n’affecte pas de passerelle par défaut aux interfaces réseau additionnelles (secondaires) associées à la machine virtuelle. Par conséquent, vous ne pouvez pas communiquer avec les ressources hors du sous-réseau dans lequel se trouve, par défaut, une interface réseau secondaire. Toutefois, les interfaces réseau secondaires peuvent communiquer avec des ressources hors de leur sous-réseau. Pour configurer le routage des interfaces réseau secondaires, consultez [Routage au sein du système d’exploitation d’une machine virtuelle avec plusieurs interfaces réseau](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).

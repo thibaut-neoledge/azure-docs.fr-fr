@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
 ## <a name="how-to-deploy-azure-ad-pass-through-authentication"></a>Comment déployer l’authentification directe Azure AD ?
@@ -29,7 +27,7 @@ ms.lasthandoff: 08/24/2017
 L’authentification directe Azure Active Directory (Azure AD) permet à vos utilisateurs de se connecter aux applications locales et aux applications cloud à l’aide des mêmes mots de passe. Elle connecte les utilisateurs en validant leurs mots de passe directement par rapport à votre annuaire Active Directory local.
 
 >[!IMPORTANT]
->L’authentification directe Azure AD est actuellement en préversion. Si vous utilisiez jusqu’à maintenant cette fonctionnalité dans la préversion, vous devez mettre à niveau la préversion des agents d’authentification en suivant [ces instructions](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+>Si vous utilisiez jusqu’à maintenant cette fonctionnalité dans la préversion, vous devez mettre à niveau la préversion des agents d’authentification en suivant [ces instructions](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
 
 Procédez comme suit pour déployer l’authentification directe :
 
@@ -45,7 +43,11 @@ Vérifiez que les prérequis suivants sont remplis :
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
 1. Identifiez un serveur Windows Server 2012 R2 ou ultérieur sur lequel exécuter Azure AD Connect. Ajoutez ce serveur à la même forêt Active Directory que celle des utilisateurs dont les mots de passe doivent être validés.
-2. Installez la [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) sur le serveur identifié à l’étape précédente. Si Azure AD Connect est déjà en cours d’exécution, vérifiez que la version est 1.1.557.0 ou ultérieure.
+2. Installez la [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) sur le serveur identifié à l’étape précédente. Si vous exécutez déjà Azure AD Connect, vérifiez que la version est 1.1.644.0 ou ultérieure.
+
+    >[!NOTE]
+    >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la **synchronisation de hachage de mot de passe**. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) pour en savoir plus.
+
 3. Identifiez un autre serveur Windows Server 2012 R2 ou ultérieur sur lequel exécuter l’agent d’authentification autonome. La version de l’agent d’authentification doit être 1.5.193.0 ou ultérieure. Ce serveur est nécessaire pour garantir une haute disponibilité des demandes de connexion. Ajoutez ce serveur à la même forêt Active Directory que celle des utilisateurs dont les mots de passe doivent être validés.
 4. S’il existe un pare-feu entre vos serveurs et Azure AD, vous devez configurer les éléments suivants :
    - Assurez-vous que les agents d’authentification peuvent effectuer des requêtes **sortantes** vers Azure AD sur les ports suivants :
@@ -89,7 +91,7 @@ Si vous installez Azure AD Connect pour la première fois, choisissez le [chemin
 
 ![Azure AD Connect - Connexion de l’utilisateur](./media/active-directory-aadconnect-sso/sso3.png)
 
-Si vous avez déjà installé Azure AD Connect (à l’aide du chemin [d’installation rapide](active-directory-aadconnect-get-started-express.md) ou [d’installation personnalisée](active-directory-aadconnect-get-started-custom.md)), sélectionnez **Modifier la connexion utilisateur** sur Azure AD Connect, puis cliquez sur **Suivant**. Ensuite, sélectionnez **Authentification directe** comme mode d’authentification. Si l’opération réussit, un agent d’authentification directe est installé sur le même serveur qu’Azure AD Connect et la fonctionnalité est activée sur votre locataire.
+Si vous avez déjà installé Azure AD Connect (à l’aide du chemin [d’installation rapide](active-directory-aadconnect-get-started-express.md) ou [d’installation personnalisée](active-directory-aadconnect-get-started-custom.md)), sélectionnez la tâche **Modifier la connexion utilisateur** dans Azure AD Connect, puis cliquez sur **Suivant**. Ensuite, sélectionnez **Authentification directe** comme mode d’authentification. Si l’opération réussit, un agent d’authentification directe est installé sur le même serveur qu’Azure AD Connect et la fonctionnalité est activée sur votre locataire.
 
 ![Azure AD Connect - Changer la connexion utilisateur](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -130,10 +132,11 @@ Si vous envisagez de déployer l’authentification directe dans un environnemen
 >Vous pouvez également télécharger l’agent d’authentification [ici](https://aka.ms/getauthagent). Veillez à consulter et à accepter les [conditions de service](https://aka.ms/authagenteula) de l’agent d’authentification _avant_ de l’installer.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : cette fonctionnalité est actuellement en préversion. Découvrez les scénarios pris en charge et ceux qui ne le sont pas.
-- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
+- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
+- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Forum aux questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
+- [**Immersion dans la sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
 - [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.
-

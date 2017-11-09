@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Services de domaine Azure AD : nous contacter
 ## <a name="contact-the-product-team"></a>Contacter l’équipe produit
@@ -36,4 +35,3 @@ Veillez à inclure les éléments suivants, pour nous permettre d’examiner le 
 Nous apprécions vos commentaires sur les Services de domaine Azure AD via le **[canal User Voice Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
 Veillez à ajouter les termes **« AADDS »**avant votre question ou commentaire, afin de nous permettre d’y accéder.
-

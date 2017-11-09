@@ -1,6 +1,6 @@
 ---
-title: "Comment utiliser l&quot;API Engagement sur Windows Phone Silverlight"
-description: "Comment utiliser l&quot;API Engagement sur Windows Phone Silverlight"
+title: "Comment utiliser l'API Engagement sur Windows Phone Silverlight"
+description: "Comment utiliser l'API Engagement sur Windows Phone Silverlight"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f8ed91048ecfb1e7d19bb000216618b4e0c4b381
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ec8b6c13ea052c8063dfde4321cdd286ab6cb817
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-phone-silverlight"></a>Comment utiliser l'API Engagement sur Windows Phone Silverlight
 Ce document vient compléter celui intitulé [Comment intégrer Mobile Engagement à votre application Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
@@ -337,4 +336,3 @@ Ces journaux ne sont pas activés par défaut. Pour personnaliser ce résultat, 
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
-

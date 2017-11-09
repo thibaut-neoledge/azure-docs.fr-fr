@@ -13,25 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d24031955f57794d6796ea37d8d1b0984f066286
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
-
+ms.openlocfilehash: 2e38fcb30ea7632339a3ba8815a536872cfcc69e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
-<a id="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application" class="xliff"></a>
-
-# Comment configurer l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
+# <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Comment configurer l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
 
 *L’approvisionnement de comptes d’utilisateur* consiste à créer, mettre à jour et/ou désactiver des enregistrements de compte d’utilisateur dans le magasin local de profils utilisateur d’une application. La plupart des applications cloud et SaaS stockent le rôle et les autorisations des utilisateurs dans leur propre magasin local de profils utilisateur. La présence de ces enregistrements d’utilisateur dans leur magasin local est *requise* pour l’authentification unique et l’accès aux opérations.
 
 Dans le Portail Azure, l’onglet **Approvisionnement** du volet de navigation de gauche affiche les modes d’approvisionnement pris en charge pour l’application d’entreprise concernée. Deux valeurs sont possibles :
 
-<a id="configuring-an-application-for-manual-provisioning" class="xliff"></a>
-
-## Configuration d’une application pour l’approvisionnement manuel
+## <a name="configuring-an-application-for-manual-provisioning"></a>Configuration d’une application pour l’approvisionnement manuel
 
 *Manuel* : dans le cadre d’un approvisionnement manuel, les comptes d’utilisateur doivent être créés manuellement à l’aide des méthodes fournies par cette application. Cela peut impliquer une connexion à un portail d’administration pour cette application et l’ajout d’utilisateurs à l’aide d’une interface utilisateur web. Il peut également s’agir d’une feuille de calcul comportant les détails des comptes d’utilisateur, qui doit être chargée à l’aide d’un mécanisme fourni par l’application. Consultez la documentation fournie par l’application ou contactez le développeur de l’application pour déterminer les mécanismes disponibles.
 
@@ -39,9 +33,7 @@ Si le mode manuel est le seul proposé par une application donnée, cela signifi
 
 Si vous avez besoin d’assistance en matière d’approvisionnement automatique pour une application donnée, vous pouvez effectuer une demande à l’adresse <http://aka.ms/aadapprequest>.
 
-<a id="configuring-an-application-for-automatic-provisioning" class="xliff"></a>
-
-## Configuration d’une application pour l’approvisionnement automatique
+## <a name="configuring-an-application-for-automatic-provisioning"></a>Configuration d’une application pour l’approvisionnement automatique
 
 *Automatique* : dans le cadre d’un approvisionnement automatique, un connecteur d’approvisionnement Azure AD a été développé pour cette application. Pour plus d’informations sur le service d’approvisionnement Azure AD et sur son fonctionnement, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
@@ -58,9 +50,6 @@ Vous trouverez les didacticiels spécifiques aux applications à la page [Liste 
 
 Lors de la configuration de l’approvisionnement, il est important de vérifier et configurer les mappages d’attributs et les workflows qui définissent les propriétés de l’utilisateur (ou du groupe) passant d’Azure AD à l’application. Cela inclut la définition d’une « propriété correspondante », qui sera utilisée pour identifier de façon unique et mettre en correspondance des utilisateurs/groupes entre les deux systèmes. Pour plus d’informations sur ce processus important.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Personnalisation des mappages d’attributs d’approvisionnement d’utilisateurs pour les applications SaaS dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
-
 

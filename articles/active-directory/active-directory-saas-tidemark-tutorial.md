@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: 170dc58363b12ec671c2fab8c80c7720d3dbf352
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Didacticiel : Intégration d’Azure Active Directory à Tidemark
 
@@ -45,7 +44,7 @@ Pour configurer l’intégration d’Azure AD à Tidemark, vous avez besoin des
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -111,13 +110,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : 
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : 
     | |
     |--|
     | `https://<subdomain>.tidemark.com/login` |
     | `https://<subdomain>.tidemark.net/login` |
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : 
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : 
     | |
     |--|
     | `https://<subdomain>.tidemark.com/saml` |
@@ -235,5 +234,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_203.png
-
 

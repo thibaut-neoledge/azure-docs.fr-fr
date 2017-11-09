@@ -10,17 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/03/2017
+ms.date: 10/02/2017
 ms.topic: get-started-article
 ms.author: tomfitz
+ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Créer et déployer votre premier modèle Azure Resource Manager
 Cette rubrique vous guide tout au long des étapes de création de votre premier modèle Azure Resource Manager. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, voir [Présentation d’Azure Resource Manager](resource-group-overview.md). Si vous disposez de ressources existantes et que vous souhaitez créer un modèle pour ces ressources, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 
@@ -97,58 +95,21 @@ Vous êtes prêt à déployer ce modèle. Vous utilisez soit PowerShell, soit Az
 
 Une fois le déploiement terminé, votre compte de stockage existe dans le groupe de ressources.
 
-## <a name="deploy-template-from-cloud-shell"></a>Déployer le modèle à partir de Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Vous pouvez utiliser [Cloud Shell](../cloud-shell/overview.md) pour exécuter les commandes Azure CLI pour le déploiement de votre modèle. Toutefois, vous devez d’abord charger votre modèle dans le partage de fichiers de votre Cloud Shell. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md) pour obtenir plus d’informations sur sa configuration.
+Pour Azure CLI, exécutez les commandes suivantes :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).   
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+```
 
-2. Sélectionnez votre groupe de ressources Cloud Shell. Le modèle de nom est `cloud-shell-storage-<region>`.
+PowerShell est actuellement disponible dans Cloud Shell en version préliminaire. Pour PowerShell, exécutez les commandes suivantes :
 
-   ![Sélection du groupe de ressources](./media/resource-manager-create-first-template/select-cs-resource-group.png)
-
-3. Sélectionnez le compte de stockage de votre Cloud Shell.
-
-   ![Sélectionner le compte de stockage](./media/resource-manager-create-first-template/select-storage.png)
-
-4. Sélectionnez **Fichiers**.
-
-   ![Sélectionner des fichiers](./media/resource-manager-create-first-template/select-files.png)
-
-5. Sélectionnez le partage de fichiers pour Cloud Shell. Le modèle de nom est `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Sélectionner le partage de fichiers](./media/resource-manager-create-first-template/select-file-share.png)
-
-6. Sélectionnez **Ajouter un répertoire**.
-
-   ![Ajouter un répertoire](./media/resource-manager-create-first-template/select-add-directory.png)
-
-7. Nommez-le **modèles** puis sélectionnez **Ok**.
-
-   ![Nommer le répertoire](./media/resource-manager-create-first-template/name-templates.png)
-
-8. Sélectionnez votre nouveau répertoire.
-
-   ![Sélectionner le répertoire](./media/resource-manager-create-first-template/select-templates.png)
-
-9. Sélectionnez **Télécharger**.
-
-   ![Sélectionner Télécharger](./media/resource-manager-create-first-template/select-upload.png)
-
-10. Recherchez et chargez votre modèle.
-
-   ![Charger le fichier](./media/resource-manager-create-first-template/upload-files.png)
-
-11. Ouvrez l’invite de commandes.
-
-   ![Ouvrir Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
-
-12. Entrez les commandes suivantes dans Cloud Shell :
-
-   ```azurecli
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
+```
 
 Une fois le déploiement terminé, votre compte de stockage existe dans le groupe de ressources.
 
@@ -445,4 +406,3 @@ az group delete --name examplegroup
 * Pour plus d’informations sur la structure du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour en savoir plus sur les propriétés d’un compte de stockage, consultez la [référence sur le modèle des comptes de stockage](/azure/templates/microsoft.storage/storageaccounts).
 * Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
-

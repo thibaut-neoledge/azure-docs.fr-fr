@@ -14,20 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
-Cet article fournit des instructions pour améliorer les performances et la fiabilité de vos applications de fonction. 
+Cet article fournit des instructions pour améliorer les performances et la fiabilité de vos applications de fonction [sans serveur](https://azure.microsoft.com/overview/serverless-computing/). 
 
 
 ## <a name="avoid-long-running-functions"></a>Évitez les fonctions dont l’exécution prend beaucoup de longtemps
@@ -99,5 +97,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 Étant donné qu’Azure Functions utilise Azure App Service, vous devez également connaître les directives d’App Service.
 * [Modèles et pratiques d’optimisations des performances HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-
 

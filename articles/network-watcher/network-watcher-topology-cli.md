@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 5be8e103f9a1f32117a4ed3be73bff021db1186d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 654c23e567d81bff1cb0c3091ba3d8f96f0a3eda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-network-watcher-topology-with-azure-cli"></a>Afficher la topologie Azure Network Watcher par le biais de l’interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
@@ -116,4 +114,3 @@ Les résultats renvoyés affichent une propriété nommée « Resources », qu
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les règles de sécurité appliquées à vos ressources réseau, consultez la page [Security group view overview (Vue d’ensemble de la vue Groupe de sécurité)](network-watcher-security-group-view-overview.md)
-

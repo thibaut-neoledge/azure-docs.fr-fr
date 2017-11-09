@@ -1,6 +1,6 @@
 ---
-title: "Comment utiliser l&quot;API Engagement sur Windows Universal"
-description: "Comment utiliser l&quot;API Engagement sur Windows Universal"
+title: "Comment utiliser l'API Engagement sur Windows Universal"
+description: "Comment utiliser l'API Engagement sur Windows Universal"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a643b01057386722aa73df6fa3937c923c378ef
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 75fc134a5535e6113331470cf61df9c06eb8e2ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-universal"></a>Comment utiliser l'API Engagement sur Windows Universal
 Ce document est un complément du document [Comment intégrer Engagement sur Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): il explique en détail comment utiliser l'API Engagement pour créer des rapports sur les statistiques de vos applications.
@@ -321,5 +320,4 @@ Ces journaux ne sont pas activés par défaut. Pour personnaliser ce résultat, 
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
-
 

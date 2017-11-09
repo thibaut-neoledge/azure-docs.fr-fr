@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement - Guide de dépannage
 ## <a name="introduction"></a>Introduction
@@ -77,7 +76,7 @@ Vous trouverez d’autres instructions de dépannage spécifiques de plateforme 
    
    * Assurez-vous que les certificats sont valides et non expirés pour les Notifications Push iOS. 
    * Vérifiez que vous configurez correctement un certificat de *Production* dans votre application Mobile Engagement. 
-   * Assurez-vous d’effectuer le test sur un *périphérique physique réel.*  Le simulateur iOS ne peut pas traiter les messages push.
+   * Assurez-vous d’effectuer le test sur un *périphérique physique réel.* Le simulateur iOS ne peut pas traiter les messages push.
    * Vérifiez que l’identificateur d’offres groupées est correctement configuré dans l’application mobile. Suivez les instructions disponibles [ici](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
    * Lors du test, utilisez la distribution « Ad Hoc » dans votre profil d’approvisionnement mobile. Vous ne pourrez pas recevoir de notification si votre application est compilée à l’aide de « Debug »
 2. **Android**
@@ -115,5 +114,4 @@ Si vous ne parvenez pas à résoudre le problème vous-même, vous pouvez :
    * ID de périphérique
    * Version du kit de développement logiciel Mobile Engagement (par exemple, le kit de développement logiciel Android v2.1.0)
    * Détails de l’erreur avec message d’erreur exact et scénario
-
 

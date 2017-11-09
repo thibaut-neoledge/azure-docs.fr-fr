@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-input-validation--mitigations"></a>Infrastructure de sécurité : validation des entrées | Mesures de correction 
 | Produit/Service | Article |
 | --------------- | ------- |
@@ -686,4 +684,3 @@ Dans l’exemple de code précédent, la valeur d’entrée ne peut pas être su
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
 | **Étapes** | <p>La validation des données et des entrées représente une ligne de défense importante de la protection de votre application WCF. Vous devez valider tous les paramètres exposés dans les opérations de service WCF pour protéger le service des attaques menées par un client malveillant. Inversement, vous devez aussi valider toutes les valeurs de retour reçues par le client pour protéger le client contre les attaques menées par un service malveillant</p><p>WCF fournit différents points d’extension qui vous permettent de personnaliser le comportement d’exécution WCF en créant des extensions personnalisées. Les inspecteurs de messages et les inspecteurs de paramètres sont deux mécanismes d’extension facilitant le contrôle des données échangées entre un client et un service. Vous devez utiliser les inspecteurs de paramètres pour la validation des entrées, et les inspecteurs de messages uniquement lorsque vous devez inspecter l’intégralité des messages entrant et sortant d’un service.</p><p>Pour procéder à la validation des entrées, créez une classe .NET et implémentez un inspecteur de paramètres personnalisé afin de valider les paramètres sur les opérations dans votre service. Implémentez ensuite un comportement de point de terminaison personnalisé afin d’activer la validation sur le client et le service. Enfin, implémentez un élément de configuration personnalisé sur la classe afin d’exposer le comportement de point de terminaison personnalisé étendu dans le fichier de configuration du service ou le client</p>|
-

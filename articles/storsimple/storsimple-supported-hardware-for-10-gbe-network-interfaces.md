@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 85911fcc66dcedff0d43bd986bce4500a1a2f00b
-
-
+ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -57,7 +57,7 @@ Cette section contient la liste des appareils qui ont été déployés sur site 
 | Version de système d’exploitation du commutateur |JunOS 12.3R9.4 |
 | Modèle de panneau |Ports intégrés (PIC 0) |
 | Marque du transmetteur |Juniper |
-| Modèle de transmetteur |Numéro de référence 740-021308  <br></br>  Numéro de référence 740-030658 |
+| Modèle de transmetteur |Numéro de référence 740-021308  <br></br> Numéro de référence 740-030658 |
 | Version du microprogramme du transmetteur |Rev 01 Version 0.0 (indiqué) |
 | Modèle de câble |Cavalier duplex LC/LC 50/125µ, OM3, LSZH |
 | Modèle StorSimple |8600 |
@@ -122,10 +122,4 @@ Le tableau suivant répertorie les commutateurs pris en charge par Mellanox. Ils
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur les composants matériels StorSimple et leur état](storsimple-monitor-hardware-status.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

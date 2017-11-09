@@ -12,16 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
+ms.author: danha; mbullwin
+ms.openlocfilehash: 50161c71443a3cc0192ab2db771bb258058e233c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 28d32d1e2d82519fc7b2ad4edca8435c3759594f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Utilisation d’Analytics dans Application Insights
-[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
+[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
 
 * **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
@@ -111,7 +110,7 @@ Si vous pensez que vous ne voyez pas tous les résultats escomptés, il existe d
   * [top 100 by timestamp](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
   * [take 100](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
   * [summarize ](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
-  * [where timestamp > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
+  * [where timestamp &gt; ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
 
 (Vous voulez plus de 10 000 lignes ? Utilisez plutôt l'[exportation continue](app-insights-export-telemetry.md). Analytics est conçu pour l'analyse plutôt que pour la récupération de données brutes.)
 
@@ -135,7 +134,7 @@ Sur un graphique temporel, s’il existe un pic ou une chute brutal dans vos don
 ![Diagnostic analytique](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Épingler au tableau de bord
-Vous pouvez épingler un diagramme ou une table à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. (Vous devrez peut-être [mettre à niveau le plan de tarification de votre application](app-insights-pricing.md) pour activer cette fonctionnalité.) 
+Vous pouvez épingler un diagramme ou une table à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. 
 
 ![Cliquez sur l’épingle](./media/app-insights-analytics-using/pin-01.png)
 
@@ -238,5 +237,4 @@ Si vous utilisez [LogStash](https://www.elastic.co/guide/en/logstash/current/get
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
 

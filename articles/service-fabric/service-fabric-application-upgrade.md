@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
-ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/13/2017
-
+ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Mise à niveau des applications Service Fabric
 Une application Azure Service Fabric est une collection de services. Pendant une mise à niveau, Service Fabric compare le nouveau [manifeste d'application](service-fabric-application-model.md#describe-an-application) à la version précédente et détermine les services qui, dans l'application, nécessitent des mises à jour. Service Fabric compare les numéros des versions dans les manifestes de service avec les numéros des versions dans la version précédente. Si un service n'a pas changé, ce service n'est pas mis à niveau.
@@ -32,6 +31,8 @@ De ce fait, les deux versions doivent être mutuellement compatibles. Si ce n'es
 Les domaines de mise à jour sont spécifiés dans le manifeste de cluster quand vous configurez le cluster. Les domaines de mise à jour ne reçoivent pas les mises à jour dans un ordre particulier. Un domaine de mise à jour est une unité logique de déploiement pour une application. Grâce aux domaines de mise à jour, les services demeurent hautement disponibles pendant une mise à niveau.
 
 Une mise à niveau non propagée est possible si elle est appliquée à tous les nœuds du cluster, ce qui est le cas quand l'application n'a qu'un seul domaine de mise à jour. Cette approche n’est pas recommandée, car le service est arrêté et indisponible au moment de la mise à niveau. En outre, Azure ne fournit aucune garantie quand un cluster est configuré avec un seul domaine de mise à jour.
+
+Une fois la mise à niveau terminée, tous les services et les réplicas (instances) restent dans la même version ; en d’autres termes, si la mise à niveau réussit, ils sont mis à jour vers la nouvelle version, alors que si la mise à niveau échoue et est restaurée, ils sont restaurés vers l’ancienne version.
 
 ## <a name="health-checks-during-upgrades"></a>Vérifications d'intégrité pendant les mises à niveau
 Pour une mise à niveau, vous devez définir des stratégies d'intégrité (ou utiliser éventuellement des valeurs par défaut). Une mise à niveau est considérée comme ayant réussi quand tous les domaines de mise à jour sont mis à niveau dans les délais spécifiés et que tous les domaines de mise à jour sont considérés comme intègres.  Un domaine de mise à jour intègre signifie que le domaine de mise à jour a réussi toutes les vérifications d'intégrité spécifiées dans la stratégie de contrôle d'intégrité. Par exemple, une stratégie d'intégrité peut imposer que tous les services dans une instance d'application doivent être *intègres*, car l'intégrité est définie par Service Fabric.
@@ -50,7 +51,7 @@ Il est possible de mettre à niveau les services par défaut dans l’applicatio
 
 1. Les services par défaut du nouveau [manifeste de l’application](service-fabric-application-model.md#describe-an-application) qui n’existent pas dans le cluster sont créés.
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) doit avoir la valeur true pour activer les règles suivantes. Cette fonctionnalité est prise en charge à partir de la version 5.5.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) doit avoir la valeur true pour activer les règles suivantes. Cette fonctionnalité est prise en charge à partir de la version 5.5.
 
 2. Les services par défaut présents à la fois dans le [manifeste de l’application](service-fabric-application-model.md#describe-an-application) précédent et dans la nouvelle version sont mis à jour. Les descriptions de service dans la nouvelle version remplaceraient celles qui se trouvent déjà dans le cluster. La mise à niveau de l’application serait restaurée automatiquement en cas d’échec de mise à jour des services par défaut.
 3. Les services par défaut présents dans le [manifeste de l’application](service-fabric-application-model.md#describe-an-application) précédent et non dans la nouvelle version sont supprimés. **Notez qu’il n’est pas possible de rétablir les services par défaut supprimés.**
@@ -76,4 +77,3 @@ Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de
 Résolvez les problèmes courants de mise à niveau de l’application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d7333f9752a9e03c1087a4bc588284b418d8926
-ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/14/2017
-
+ms.openlocfilehash: d9f53148787729d29a0a89cce1b8b2b83ba228f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Intégration d’Azure AD avec une application Apache Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -76,7 +75,7 @@ Chaque plateforme cible présente une configuration requise différente :
   * Installez le [Kit de développement Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou ultérieur. Assurez-vous que la variable d’environnement `JAVA_HOME` est correctement définie en fonction du chemin d’installation du JDK (par exemple, C:\Program Files\Java\jdk1.7.0_75).
   * Installez le [Kit de développement logiciel (SDK) Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) et ajoutez l’emplacement `<android-sdk-location>\tools` (par exemple, C:\tools\Android\android-sdk\tools) pour votre variable d’environnement `PATH`.
   * Ouvrez Android SDK Manager (par exemple, via le terminal : `android`) et installez :
-    * *Android 5.0.1 (API 21)* 
+    * *Android 5.0.1 (API 21)*
     * *Android SDK Build Tools* version 19.1.0 ou ultérieure
     * *Android Support Repository* (modules complémentaires)
 
@@ -88,7 +87,7 @@ Cette étape est facultative. Ce didacticiel fournit des valeurs préconfigurée
 Azure AD émet uniquement des jetons pour les applications connues. Avant de pouvoir utiliser Azure AD à partir de votre application, vous devez créer une entrée pour elle dans votre client. Pour inscrire une nouvelle application dans votre client :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, choisissez le locataire Azure AD auprès duquel vous voulez inscrire votre application.
+2. Dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, choisissez le locataire Azure AD auprès duquel vous voulez inscrire votre application.
 3. Dans le volet gauche, cliquez sur **Plus de services**, puis sélectionnez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
 5. Suivez les invites à l’écran et créez une **application cliente native**. (Bien que les applications Cordova soient basées sur le langage HTML, nous créons ici une application cliente native. L’option **Application cliente native** doit être sélectionnée, sinon l’application ne fonctionnera pas.)
@@ -292,4 +291,3 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est d
 Vous pouvez maintenant passer à des scénarios plus avancés (et plus intéressants). Par exemple : [Sécurisation d’une API web Node.js avec Azure AD](active-directory-devquickstarts-webapi-nodejs.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

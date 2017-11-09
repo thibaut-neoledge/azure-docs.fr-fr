@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Envoi de courriers électroniques à l'aide de SendGrid depuis Java
 Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en Java. Les scénarios traités incluent la **construction** et **l'envoi de courriers électroniques**, **l'ajout de pièces jointes**, **l'utilisation de filtres**, et la **mise à jour de propriétés**. Pour plus d'informations sur SendGrid et l'envoi de courriers électroniques, consultez la section [Étapes suivantes](#next-steps) .
@@ -158,7 +158,7 @@ SendGrid offre des fonctionnalités de messagerie électronique supplémentaires
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Mise à jour des propriétés d'un message électronique
-Vous pouvez remplacer certaines propriétés d’e-mail en utilisant **set*Property*** ou en ajouter en utilisant **add*Property***.
+Vous pouvez remplacer certaines propriétés d’e-mail en utilisant **set*Property*** *ou en ajouter en utilisant*add*Property***.
 
 Par exemple, pour indiquer des adresses **ReplyTo** , utilisez le code suivant :
 
@@ -194,9 +194,3 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
 [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

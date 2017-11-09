@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte
+ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Sources de données de performance Windows et Linux dans Log Analytics
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Log Analytics peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
@@ -209,23 +208,6 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 
 | Interroger | Description |
 |:--- |:--- |
-| Type=Perf |Toutes les données de performances |
-| Type=Perf Computer="MonOrdinateur" |Toutes les données de performances d’un ordinateur particulier |
-| Type=Perf CounterName="Taille de file d’attente du disque actuelle" |Toutes les données de performances d’un compteur particulier |
-| Type=Perf (ObjectName=Processor) CounterName="% du temps processeur" InstanceName=_Total &#124; measure Avg(Average) as AVGCPU by Computer |Utilisation moyenne du processeur entre tous les ordinateurs |
-| Type=Perf (CounterName="% de temps processeur") &#124; measure max(Max) by Computer |Utilisation maximale du processeur entre tous les ordinateurs |
-| Type=Perf ObjectName=LogicalDisk CounterName="Taille de file d’attente du disque actuelle" Computer="NomMonOrdinateur" &#124; measure Avg(Average) by InstanceName |Longueur actuelle moyenne de file d’attente du disque pour toutes les instances d’un ordinateur donné |
-| Type=Perf CounterName="Transferts disque/s" &#124; measure percentile95(Average) by Computer |95e centile de transferts disque/s entre tous les ordinateurs |
-| Type=Perf CounterName="% du temps processeur" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |Moyenne horaire d’utilisation du processeur sur tous les ordinateurs |
-| Type=Perf Computer="Monordinateur" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |70e centile horaire de chaque compteur de pourcentage pour un ordinateur particulier |
-| Type=Perf CounterName="% du temps processeur" InstanceName="_Total"  (Computer="MonOrdinateur") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Moyenne horaire, minimum, maximum et 75e centile d’utilisation du processeur pour un ordinateur spécifique |
-| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | Toutes les données de performances de l’objet de performance de base de données pour la base de données MASTER à partir de l’instance de SQL Server nommée INST2.  
-
->[!NOTE]
-> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les requêtes ci-dessous.
-
-> | Interroger | Description |
-|:--- |:--- |
 | Perf |Toutes les données de performances |
 | Perf &#124; où l’ordinateur == « MyComputer » |Toutes les données de performances d’un ordinateur particulier |
 | Perf &#124; où CounterName == « longueur de la file d’attente de disque actuelle » |Toutes les données de performances d’un compteur particulier |
@@ -250,4 +232,3 @@ Pour agréger des données de performances dans une recherche de journal, voir [
 * [Collectez des compteurs de performances à partir d’applications Linux](log-analytics-data-sources-linux-applications.md), y compris Apache HTTP Server et MySQL.
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.  
 * Exporter les données collectées vers [Power BI](log-analytics-powerbi.md) à des fins d’analyse et de visualisation.
-

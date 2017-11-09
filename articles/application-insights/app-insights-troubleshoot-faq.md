@@ -3,7 +3,7 @@ title: Forum aux questions sur Azure Application Insights | Microsoft Docs
 description: "Questions fréquentes sur Application Insights."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8a6a8027b93d0d5b353c41c103d2c9ad5faa70c1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : questions fréquentes
 
@@ -105,7 +104,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 * Requêtes HTTP
 * [Dépendances](app-insights-asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure Cosmos DB, table, stockage d’objets blob et file d’attente. 
 * [Exceptions](app-insights-asp-net-exceptions.md) et arborescences des appels de procédure.
-* [Compteurs de performances](app-insights-performance-counters.md) : si vous utilisez [Status Monitor](app-insights-monitor-performance-live-website-now.md), la surveillance Azure (app-insights-azure-web-apps.md) ou le [writer collectd d’Application Insights](app-insights-java-collectd.md).
+* [Compteurs de performances](app-insights-performance-counters.md) : si vous utilisez [Status Monitor](app-insights-monitor-performance-live-website-now.md), la [surveillance Azure](app-insights-azure-web-apps.md) ou le [writer collectd d’Application Insights](app-insights-java-collectd.md).
 * [Événements et mesures personnalisés](app-insights-api-custom-events-metrics.md) que vous codez.
 * [Journaux de suivi](app-insights-asp-net-trace-logs.md) si vous configurez le collecteur approprié.
 
@@ -187,7 +186,7 @@ Utilisez une ressource unique pour tous les composants ou rôles dans un systèm
 * Le SDK JavaScript définit un cookie utilisateur sur le client web pour identifier les utilisateurs récurrents, ainsi qu’un cookie de session pour regrouper des activités.
 * S’il n’existe aucun script côté client, vous pouvez [définir des cookies sur le serveur](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Si un utilisateur réel utilise votre site dans différents navigateurs, ou s’il utilise une navigation privée ou encore des ordinateurs différents, il sera comptabilisé plusieurs fois.
-* Pour identifier un utilisateur connecté sur différents ordinateurs et navigateurs, ajoutez un appel à [setAuthenticatedUserContect()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* Pour identifier un utilisateur connecté sur différents ordinateurs et navigateurs, ajoutez un appel à [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Comment savoir si j'ai activé tout ce qu'il faut pour utiliser Application Insights ?
 | Ce qui suit doit s'afficher | Comment y accéder | Utilité |
@@ -281,4 +280,3 @@ Nos [tests web](app-insights-monitor-web-app-availability.md) s’exécutent sur
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
-

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 634e68bdb937eba68b27b824dc62fe2677e24ffe
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Didacticiel : Intégration d’Azure Active Directory à AppDynamics
 
@@ -205,7 +203,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à AppDynamics, vous de
 
 3. Dans la section **Créer un utilisateur** , procédez comme suit :
    
-    ![Créer un utilisateur](./media/active-directory-saas-appdynamics-tutorial/ic790230.png "Créer un utilisateur")
+    ![Create User](./media/active-directory-saas-appdynamics-tutorial/ic790230.png "Create User")
    
     a. Tapez le **nom d’utilisateur**, le **nom**, **l’adresse e-mail**, le **nouveau mot de passe** et la **confirmation du nouveau mot de passe** d’un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
 
@@ -270,5 +268,4 @@ Quand vous cliquez sur la vignette AppDynamics dans le volet d’accès, vous de
 [201]: ./media/active-directory-saas-appdynamics-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-appdynamics-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-appdynamics-tutorial/tutorial_general_203.png
-
 

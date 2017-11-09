@@ -3,7 +3,7 @@ title: "Équilibrage de charge sur plusieurs configurations IP dans Azure | Micr
 description: "Équilibrage de charge sur des configurations IP principales et secondaires."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
@@ -12,120 +12,187 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: cf1e68c7b37b2506de007bdf24eea63a27187a33
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2017
 ---
-
-# <a name="load-balancing-on-multiple-ip-configurations-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
+# <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 
 > [!div class="op_single_selector"]
 > * [Portail](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](load-balancer-multiple-ip-cli.md)
 
-Cet article décrit comment utiliser Azure Load Balancer avec plusieurs adresses IP sur une carte réseau secondaire. Dans ce scénario, deux machines virtuelles exécute Windows, chacune avec une carte réseau principale et une carte réseau secondaire. Chacune des cartes réseau secondaires dispose de deux configurations IP. Chaque machine virtuelle héberge les deux sites web contoso.com et fabrikam.com. Chaque site web est lié à l’une des configurations IP sur la carte réseau secondaire. Nous utilisons Azure Load Balancer pour exposer deux adresses IP frontales, une par site web, afin de distribuer le trafic à la configuration IP correspondante pour le site web. Ce scénario utilise le même numéro de port sur les deux serveurs frontaux, ainsi que les deux adresses IP de pool principal.
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-![Image du scénario LB](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
+Dans cet article, nous allons vous montrer comment utiliser Azure Load Balancer avec plusieurs adresses IP sur un contrôleur d’interface réseau (carte réseau) secondaire. Le diagramme suivant illustre notre scénario :
 
-##<a name="prerequisites"></a>Composants requis
-Cet exemple suppose que vous disposiez d’un groupe de ressources nommé *contosofabrikam* avec la configuration suivante :
- -  Il comprend un réseau virtuel intitulé *myVNet*, deux machines virtuelles appelées *VM1* et *VM2* respectivement dans le même groupe à haute disponibilité nommé *myAvailset*. 
- - Chaque machine virtuelle possède une carte réseau principale et une carte réseau secondaire. Les cartes réseau principales s’appellent *VM1NIC1* et *VM2NIC1*, tandis que les cartes réseau secondaires ont pour nom *VM1NIC2* et *VM2NIC2*. Pour plus d’informations sur la création de machines virtuelles avec plusieurs cartes réseau, consultez [Créer une machine virtuelle avec plusieurs cartes réseau à l’aide de PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
+![Scénario d’équilibreur de charge](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Étapes pour équilibrer la charge sur plusieurs configurations IP
+Dans ce scénario, nous utilisons la configuration suivante :
 
-Pour mener à bien le scénario décrit dans cet article, procédez comme suit :
+- Deux machines virtuelles qui exécutent Windows.
+- Chaque machine virtuelle possède une carte réseau principale et une carte réseau secondaire.
+- Chacune des cartes réseau secondaires dispose de deux configurations IP.
+- Chaque machine virtuelle héberge deux sites web : contoso.com et fabrikam.com.
+- Chaque site web est lié à une configuration IP sur la carte réseau secondaire.
+- Azure Load Balancer est utilisé pour exposer deux adresses IP frontales, une pour chaque site web. Les adresses frontales sont utilisées pour répartir le trafic sur la configuration IP respective de chaque site web.
+- Le même numéro de port est utilisé pour les adresses IP frontales et pour celles du pool principal.
 
-### <a name="step-1-configure-the-secondary-nics-for-each-vm"></a>ÉTAPE 1 : Configurer les cartes réseau secondaires pour chaque machine virtuelle
+## <a name="prerequisites"></a>Composants requis
 
-Pour chaque machine virtuelle dans votre réseau virtuel, ajoutez la configuration IP définie pour la carte réseau secondaire comme suit :  
+Notre exemple de scénario suppose que vous disposez d’un groupe de ressources nommé **contosofabrikam** configuré de la manière suivante :
 
-1. Dans un navigateur, accédez au portail Azure (http://portal.azure.com) et connectez-vous avec votre compte Azure.
-2. Dans l’angle supérieur gauche de l’écran, cliquez sur l’icône des groupes de ressources, puis sur celui contenant les machines virtuelles (par exemple, *contosofabrikam*). Le panneau **Groupes de ressources** qui répertorie toutes les ressources et les interfaces réseau des machines virtuelles s’affiche.
-3. À la carte réseau secondaire de chaque machine virtuelle, ajoutez une configuration IP comme suit :
-    1. Sélectionnez l’interface réseau à laquelle vous souhaitez ajouter la configuration IP.
-    2. Dans le panneau affichant la carte réseau que vous avez sélectionnée, cliquez sur **Configurations IP**. Cliquez ensuite sur le bouton **Ajouter** en haut du panneau qui s’affiche.
-    3. Dans le panneau **Add IP configurations (Ajouter des configurations IP)**, ajoutez une seconde configuration IP à la carte réseau comme suit : 
-        1. Tapez le nom de votre configuration IP secondaire (par exemple, pour VM1 et VM2, nommez les configurations IP *VM1NIC2-ipconfig2* et *VM2NIC2-ipconfig2* respectivement).
-        2. Dans **Private IP address (Adresse IP privée)**, pour **Allocation**, sélectionnez **Statique**.
-        3. Cliquez sur **OK**.
-        4. Lorsque la seconde configuration IP de la carte réseau secondaire est terminée, elle s’affiche dans le panneau **Configurations IP** de la carte réseau donnée.
+- Le groupe de ressources inclut un réseau virtuel nommé **myVNet**.
+- Le réseau **myVNet** comprend deux machines virtuelles nommées **VM1** et **VM2**.
+- VM1 et VM2 se trouvent dans le même groupe à haute disponibilité nommé **myAvailset**. 
+- VM1 et VM2 disposent chacune d’une carte réseau principale nommée **VM1NIC1** et **VM2NIC1**, respectivement. 
+- VM1 et VM2 disposent chacune d’une carte réseau secondaire nommée **VM1NIC2** et **VM2NIC2**, respectivement.
 
-### <a name="step-2-create-a-load-balancer"></a>ÉTAPE 2 : Créer un équilibrage de charge
+Pour plus d’informations sur la création de machines virtuelles avec plusieurs cartes réseau, consultez [Créer une machine virtuelle avec plusieurs cartes réseau à l’aide de PowerShell](../virtual-machines/windows/multiple-nics.md).
 
-Créez un équilibrage de charge comme suit :
+## <a name="perform-load-balancing-on-multiple-ip-configurations"></a>Effectuer un équilibrage de charge sur plusieurs configurations IP
 
-1. Dans un navigateur, accédez au portail Azure (http://portal.azure.com) et connectez-vous avec votre compte Azure.
-2. Dans l’angle supérieur gauche de l’écran, cliquez sur **Nouveau** > **Réseau** > **Load Balancer (Équilibrage de charge)**. Ensuite, cliquez sur **Créer**.
-3. Dans le panneau **Créer un équilibreur de charge** , tapez le nom de votre équilibreur de charge. Ici, il s’appelle *myLoadBalancer*.
-4. Sous Public IP Address (Adresse IP publique), créez une adresse IP publique appelée **myPublicIP1**.
-5. Sous Groupe de ressources, sélectionnez le groupe de ressources de vos machines virtuelles (par exemple, *contosofabrikam*). Ensuite, sélectionnez l’emplacement approprié, puis cliquez sur **OK**. L’équilibreur de charge commencera ensuite le déploiement, qui prendra plusieurs minutes pour se terminer avec succès.
-6. Une fois déployé, l’équilibrage de charge s’affiche comme une ressource dans votre groupe de ressources.
+Suivez les étapes ci-dessous pour accomplir le scénario décrit dans cet article.
 
-### <a name="step-3-configure-the-frontend-ip-pool"></a>ÉTAPE 3 : Configurer le pool IP frontal
+### <a name="step-1-configure-the-secondary-nics"></a>Étape 1 : Configurer les cartes réseau secondaires
 
-Configurez votre pool IP frontal pour chaque site Web (Contoso et Fabrikam) comme suit :
+Pour chaque machine virtuelle dans votre réseau virtuel, ajoutez la configuration IP définie pour la carte réseau secondaire :  
 
-1. Dans le portail, cliquez sur **Plus de services**, puis saisissez **Adresse IP publique** dans la zone de filtre et cliquez sur **Public IP Addresses (Adresses IP publiques)**. Cliquez sur **Ajouter** en haut du panneau qui s’affiche.
-2. Configurez deux adresses IP publiques (*PublicIP1* et *PublicIP2*) pour les deux sites Web (contoso et fabrikam) comme suit :
-    1. Tapez le nom de votre adresse IP frontale.
-    2. Dans **Groupe de ressources**, sélectionnez le groupe de ressources des machines virtuelles (par exemple, *contosofabrikam*).
+1. Accédez au portail Azure à l’adresse http://portal.azure.com. Connectez-vous à votre compte Azure.
+
+2. Dans le coin supérieur gauche de l’écran, sélectionnez l’icône **Groupe de ressources**. Sélectionnez le groupe de ressources dans lequel se trouvent vos machines virtuelles (par exemple, **contosofabrikam**). Le volet **Groupes de ressources** affiche toutes les ressources et les cartes réseau pour les machines virtuelles.
+
+3. Ajoutez la configuration IP à la carte réseau secondaire de chaque machine virtuelle :
+
+    1. Sélectionnez la carte réseau secondaire que vous souhaitez configurer.
+    
+    2. Sélectionnez **Configurations IP**. Dans le volet suivant, en haut, sélectionnez **Ajouter**.
+
+    3. Dans **Add IP configurations (Ajouter des configurations IP)**, ajoutez une seconde configuration IP à la carte réseau : 
+
+        1. Entrez un nom pour la configuration IP secondaire. (Par exemple, pour VM1 et VM2, nommez la configuration IP **VM1NIC2-ipconfig2** et **VM2NIC2-ipconfig2**, respectivement.)
+
+        2. Dans **Adresse IP privée**, pour **Allocation**, sélectionnez **Statique**.
+
+        3. Sélectionnez **OK**.
+
+Lorsque la seconde configuration IP de la carte réseau secondaire est terminée, elle s’affiche dans les paramètres **Configurations IP** de la carte réseau donnée.
+
+### <a name="step-2-create-the-load-balancer"></a>Étape 2 : Créer l’équilibreur de charge
+
+Créez votre équilibreur de charge pour la configuration :
+
+1. Accédez au portail Azure à l’adresse http://portal.azure.com. Connectez-vous à votre compte Azure.
+
+2. Dans le coin supérieur gauche de l’écran, cliquez sur **Nouveau** > **Mise en réseau** > **Équilibreur de charge**. Ensuite, sélectionnez **Créer**.
+
+3. Dans **Créer un équilibreur de charge**, tapez le nom de votre équilibreur de charge. Dans ce scénario, nous utilisons le nom **mylb**.
+
+4. Dans **Adresse IP publique**, créez une adresse IP publique nommée **PublicIP1**.
+
+5. Dans **Groupe de ressources**, sélectionnez le groupe de ressources de vos machines virtuelles (par exemple, **contosofabrikam**). Sélectionnez l’emplacement de déploiement de votre équilibreur de charge, puis sélectionnez **OK**.
+
+Le déploiement de l’équilibreur de charge commence. Cette opération peut prendre plusieurs minutes. Une fois déployé, l’équilibreur de charge s’affiche en tant que ressource dans votre groupe de ressources.
+
+### <a name="step-3-configure-the-front-end-ip-pool"></a>Étape 3 : Configurer le pool d’adresses IP frontal
+
+Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adresses IP frontal de votre équilibreur de charge :
+
+1. Dans le portail, cliquez sur **Plus de services**. Dans la zone de filtre, tapez **adresse IP publique**, puis sélectionnez **Adresses IP publiques**. Dans le volet suivant, en haut, sélectionnez **Ajouter**.
+
+2. Configurez deux adresses IP publiques (**PublicIP1** et **PublicIP2**) pour les deux sites web (contoso et fabrikam) :
+
+    1. Entrez le nom de votre adresse IP frontale.
+
+    2. Dans **Groupe de ressources**, sélectionnez le groupe de ressources de vos machines virtuelles (par exemple, **contosofabrikam**).
+
     3. Dans **Emplacement**, sélectionnez le même emplacement que les machines virtuelles.
-    4. Cliquez sur **OK**.
-    5. Une fois les deux adresses IP publiques créées, elles s’affichent dans le panneau **Public IP Addresses (Adresses IP publiques)**.
-3. Dans le portail, cliquez sur **Plus de services**, saisissez **Équilibrage de charge** dans la zone de filtre, puis cliquez sur **Load Balancer (Équilibrage de charge)**.  
-4. Sélectionnez l’équilibrage de charge (*mylb*) auquel vous souhaitez ajouter le pool IP frontal.
-5. Sous **Paramètres**, sélectionnez **Frontend Pools (Pools frontaux)**. Cliquez ensuite sur le bouton **Ajouter** en haut du panneau qui s’affiche.
-6. Tapez le nom de votre adresse IP frontale (*farbikamfe* ou **contosofe*).
-7. Cliquez sur **Adresse IP**, puis dans le panneau **Public IP Address (Adresse IP publique)**, sélectionnez les adresses IP de votre serveur frontal (*PublicIP1* ou *PublicIP2*).
-8. Répétez les étapes 3 à 7 de cette section pour créer la deuxième adresse IP frontale.
-9. Lorsque la configuration du pool IP frontal est terminée, les deux adresses IP frontales s’affichent dans le panneau **Frontend IP Pool (Pool IP frontal)** de votre équilibrage de charge. 
+
+    4. Sélectionnez **OK**.
+
+    Une fois les deux adresses IP publiques créées, elles s’affichent dans **Adresses IP publiques**.
+
+3. <a name="step3-3"></a>Dans le portail, cliquez sur **Plus de services**. Dans la zone de filtre, tapez **équilibreur de charge**, puis sélectionnez **Équilibreur de charge**. 
+
+4. Sélectionnez l’équilibreur de charge (**mylb**) auquel vous souhaitez ajouter le pool d’adresses IP frontal.
+
+5. Sous **Paramètres**, sélectionnez **Frontend Pools (Pools frontaux)**. Dans le volet suivant, en haut, sélectionnez **Ajouter**.
+
+6. Entrez le nom de votre adresse IP frontale (par exemple, **contosofe** ou **fabrikamfe**).
+
+7. <a name="step3-7"></a>Sélectionnez **Adresse IP**. Dans **Choisir une adresse IP publique**, sélectionnez les adresses IP de votre serveur frontal (**PublicIP1** ou **PublicIP2**).
+
+8. Créez la deuxième adresse IP frontale en répétant les <a href="#step3-3">étapes 3</a> à <a href="#step3-7">7</a> de cette section.
+
+Une fois le pool frontal configuré, les adresses IP s’affichent dans les paramètres **Pool frontal** de votre équilibreur de charge. 
     
-### <a name="step-4-configure-the-backend-pool"></a>ÉTAPE 4 : Configurer le pool principal   
-Configurez les pools d’adresses principaux de votre équilibrage de charge pour chaque site Web (Contoso et Fabrikam) comme suit :
+### <a name="step-4-configure-the-back-end-pool"></a>Étape 4 : Configurer le pool principal
+
+Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adresses IP principal de votre équilibreur de charge :
         
-1. Dans le portail, cliquez sur **Plus de services**, saisissez équilibrage de charge dans la zone de filtre, puis cliquez sur **Load Balancer (Équilibrage de charge)**.  
-2. Sélectionnez l’équilibrage de charge (*mylb*) auquel vous souhaitez ajouter les pools principaux.
-3. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)**. Tapez le nom de votre pool principal (par exemple, *contosopool* ou *fabrikampool*). Cliquez ensuite sur le bouton **Ajouter** en haut du panneau qui s’affiche. 
+1. Dans le portail, cliquez sur **Plus de services**. Dans la zone de filtre, tapez **équilibreur de charge**, puis sélectionnez **Équilibreur de charge**.
+
+2. Sélectionnez l’équilibreur de charge (**mylb**) auquel vous souhaitez ajouter le pool principal.
+
+3. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)**. Entrez le nom de votre pool principal (par exemple, **contosopool** ou **fabrikampool**). Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
+
 4. Dans **Associated to (Associé à)**, sélectionnez **Availability set (Groupe à haute disponibilité)**.
+
 5. Dans **Availability set (Groupe à haute disponibilité)**, sélectionnez **myAvailset**.
-6. Ajoutez les configurations IP réseau cibles pour les deux machines virtuelles comme suit (voir la figure 2) :  
-    1. Dans **Target Virtual machine (Machine virtuelle cible)**, sélectionnez la machine virtuelle que vous souhaitez ajouter au pool principal (par exemple, VM1 ou VM2).
-    2. Dans **Network IP configuration (Configuration IP du réseau)**, sélectionnez la configuration IP des cartes réseau secondaires de cette machine virtuelle (par exemple, VM1NIC2-ipconfig2 ou VM2NIC2-ipconfig2).
-    ![Image du scénario LB](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
-            
-        **Figure 2** : Configuration de l’équilibrage de charge avec les pools principaux  
-7. Cliquez sur **OK**.
-8. Lorsque la configuration du pool principal est terminée, les deux pools d’adresses principales s’affichent dans le panneau **Backend Pool (Pool principal)** de votre équilibrage de charge.
 
-### <a name="step-5-configure-a-health-probe-for-your-load-balancer"></a>ÉTAPE 5 : Configuration d’une sonde d’intégrité pour votre équilibrage de charge
-Configurez une sonde d’intégrité pour votre équilibrage de charge comme suit :
-    1. Dans le portail, cliquez sur Plus de services, saisissez équilibrage de charge dans la zone de filtre, puis cliquez sur **Load Balancer (Équilibrage de charge)**.  
-    2. Sélectionnez l’équilibrage de charge auquel vous souhaitez ajouter les pools principaux.
-    3. Sous **Paramètres**, sélectionnez **Health Probe (Sonde d’intégrité)**. Cliquez ensuite sur le bouton **Ajouter** en haut du panneau qui s’affiche.
-    4. Tapez le nom de la sonde d’intégrité (par exemple, HTTP), puis cliquez sur **OK**.
+6. Ajoutez les configurations IP réseau cibles pour les deux machines virtuelles : 
 
-### <a name="step-6-configure-load-balancing-rules"></a>ÉTAPE 6 : Configurer les règles d’équilibrage de charge
-Configurez les règles d’équilibrage de charge (*HTTPc* et *HTTPf*) pour chaque site Web comme suit :
+    ![Configuration des pools principaux de l’équilibreur de charge](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
     
-1. Sous **Paramètres**, sélectionnez **Health Probe (Sonde d’intégrité)**. Cliquez ensuite sur le bouton **Ajouter** en haut du panneau qui s’affiche.
-2. Dans **Nom**, tapez le nom de la règle d’équilibrage de charge (par exemple, *HTTPc* pour Contoso ou *HTTPf* pour Fabrikam)
-3. Dans Frontend IP Address (Adresse IP frontale), sélectionnez l’adresse IP frontale (par exemple, *Contosofe* ou *Fabrikamfe*)
-4. Dans **Port** et **Backend port (Port principal)**, conservez la valeur par défaut (**80**).
-5. Dans **Adresse IP flottante (retour serveur direct)**, cliquez sur **Activé**.
-6. Cliquez sur **OK**.
-7. Répétez les étapes 1 à 6 de cette section pour créer la deuxième règle d’équilibrage de charge.
-8. Lorsqu’elles sont configurées, les deux règles (*HTTPc* et *HTTPf*) s’affichent dans le panneau **Load balancing rules (Règles d’équilibrage de charge)** de votre équilibrage de charge.
+    1. Dans **Machine virtuelle cible**, sélectionnez la machine virtuelle que vous souhaitez ajouter au pool principal (par exemple, **VM1** ou **VM2**).
 
-### <a name="step-7-configure-dns-records"></a>ÉTAPE 7 : Configurer les enregistrements DNS
-Enfin, vous devez configurer les enregistrements de ressource DNS pour qu’ils pointent vers l’adresse IP frontale de l’équilibrage de charge. Vous pouvez héberger vos domaines dans Azure DNS. Pour plus d’informations sur l’utilisation d’Azure DNS avec un équilibrage de charge, voir [Utiliser Azure DNS avec d’autres services Azure](../dns/dns-for-azure-services.md).
+    2. Dans **Configuration IP réseau**, sélectionnez la configuration IP de la carte réseau secondaire de la machine virtuelle que vous avez sélectionnée lors de l’étape précédente (par exemple, **VM1NIC2-ipconfig2** ou **VM2NIC2-ipconfig2**).
+
+7. Sélectionnez **OK**.
+
+Une fois le pool principal configuré, les adresses s’affichent dans les paramètres **Pool principal** de votre équilibreur de charge.
+
+### <a name="step-5-configure-the-health-probe"></a>Étape 5 : Configurer la sonde d’intégrité
+
+Configurez une sonde d’intégrité pour votre équilibreur de charge :
+
+1. Dans le portail, cliquez sur **Plus de services**. Dans la zone de filtre, tapez **équilibreur de charge**, puis sélectionnez **Équilibreur de charge**.
+
+2. Sélectionnez l’équilibreur de charge (**mylb**) auquel vous souhaitez ajouter la sonde d’intégrité.
+
+3. Sous **Paramètres**, sélectionnez **Health Probe (Sonde d’intégrité)**. Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
+
+4. Entrez le nom de la sonde d’intégrité (par exemple, **HTTP**). Sélectionnez **OK**.
+
+### <a name="step-6-configure-load-balancing-rules"></a>Étape 6 : Configurer les règles d’équilibrage de charge
+
+Pour chaque site web (contoso.com et fabrikam.com), configurez les règles d’équilibrage de charge :
+    
+1. <a name="step6-1"></a>Dans **Paramètres**, sélectionnez **Sonde d’intégrité**. Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
+
+2. Dans **Nom**, entrez le nom de la règle d’équilibrage de charge (par exemple, **HTTPc** pour contoso.com ou **HTTPf** pour fabrikam.com).
+
+3. Dans **Adresse IP du serveur frontal**, sélectionnez l’adresse IP frontale que vous avez précédemment créée (par exemple, **contosofe** ou **fabrikamfe**).
+
+4. Dans **Port** et **Backend port (Port principal)**, conservez la valeur par défaut (**80**).
+
+5. Dans **IP flottante (retour direct du serveur)**, cliquez sur **Activée**.
+
+6. <a name="step6-6"></a>Sélectionnez **OK**.
+
+7. Créez la deuxième règle d’équilibrage de charge en répétant les <a href="#step6-1">étapes 1</a> à <a href="#step6-6">6</a> de cette section.
+
+Une fois les règles configurées, elles s’affichent dans les paramètres **Règles d’équilibrage de charge** de votre équilibreur de charge.
+
+### <a name="step-7-configure-dns-records"></a>Étape 7 : Configurer les enregistrements DNS
+
+La dernière étape consiste à configurer vos enregistrements de ressource DNS pour qu’ils pointent sur les adresses IP frontales respectives de votre équilibreur de charge. Vous pouvez héberger vos domaines dans Azure DNS. Pour plus d’informations sur l’utilisation d’Azure DNS avec un équilibrage de charge, voir [Utiliser Azure DNS avec d’autres services Azure](../dns/dns-for-azure-services.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour en savoir plus sur la combinaison de services d’équilibrage de charge dans Azure, consultez [Utilisation des services d’équilibrage de charge dans Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux dans Azure, consultez [Analyse des journaux de l’équilibreur de charge Azure](../load-balancer/load-balancer-monitor-log.md).
-
+- Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux, consultez [Log Analytics pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

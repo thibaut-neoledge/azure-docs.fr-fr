@@ -13,15 +13,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
+ms.workload: Active
 ms.date: 04/14/2017
 ms.author: carlrab
+ms.openlocfilehash: 4ab447cd2ad71a787e4d6bb6052299cec52d73d0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: da3399b9c6642435dc7b40ed1c843217c984d15e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Unités de transaction de base de données (DTU) et des unités de transaction de base de données élastique (eDTU)
 Cet article explique les unités de transaction de base de données (DTU) et les unités de transaction de base de données élastique (eDTU) et ce qu’il se passe lorsque vous avez atteint le nombre maximal de DTU et d’eDTU.  
@@ -65,4 +64,3 @@ Les niveaux de performances sont étalonnés et régis pour fournir les ressourc
 * Consultez [Niveau de service](sql-database-service-tiers.md) pour plus d’informations sur les DTU et eDTU pour les bases de données uniques et LES pools élastiques, ainsi que des limites sur les ressources de processeur, mémoire, E/S de données, et E/S de journaux de transactions.
 * Pour comprendre votre consommation de DTU, consultez [Query Performance Insight pour base de données SQL](sql-database-query-performance.md) .
 * Pour comprendre la méthodologie sous-jacente à la charge de travail d’évaluation OLTP utilisée pour déterminer la fusion DTU, consultez [Vue d’ensemble du test d’évaluation de la base de données SQL](sql-database-benchmark-overview.md) .
-

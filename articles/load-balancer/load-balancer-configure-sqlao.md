@@ -1,9 +1,9 @@
 ---
-title: "Configuration de l&quot;équilibrage de charge pour SQL Always On | Microsoft Docs"
-description: "Configuration de l’équilibreur de charge de manière à ce qu’il fonctionne avec SQL Always On et procédure d’exploitation de Powershell pour créer l’équilibreur de charge pour l’implémentation de SQL"
+title: "Configuration de l'équilibrage de charge pour SQL Always On | Microsoft Docs"
+description: "Configuration de l'équilibrage de charge pour fonctionner avec SQL Alway On et procédure d’exploitation de Powershell pour créer l'équilibrage de charge pour l'implémentation de SQL"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: d7bc3790-47d3-4e95-887c-c533011e4afd
 ms.service: load-balancer
@@ -11,15 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
-
+ms.openlocfilehash: 3ebbf1c4009d89b1f18b2ff8ff5dd243c456dff8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-load-balancer-for-sql-always-on"></a>Configuration de l'équilibrage de charge pour SQL Always On
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Les groupes de disponibilité Always On de SQL Server peuvent maintenant être exécutés avec l’équilibrage de charge interne (ILB). Le groupe de disponibilité constitue la solution phare de SQL Server pour une haute disponibilité et la récupération d’urgence. L’écouteur du groupe de disponibilité permet aux applications clientes de se connecter en toute transparence au réplica principal, quel que soit le nombre de réplicas dans la configuration.
 
@@ -65,9 +67,3 @@ Pour plus d’informations sur SQL AlwaysOn, voir [Configurer un équilibrage de
 [Configuration d’un mode de distribution d’équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

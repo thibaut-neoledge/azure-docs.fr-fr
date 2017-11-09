@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
+ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 55ec52dd0d94a0347cc67a8785b89611da955111
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Surveiller les passerelles VPN à l’aide de la résolution des problèmes Network Watcher
 
 Pour fournir des services fiables aux clients, il est essentiel d’obtenir des informations détaillées sur les performances de votre réseau. Il est donc essentiel de détecter rapidement les conditions d’indisponibilité du réseau et d’effectuer des actions correctives pour atténuer ces conditions. Azure Automation vous permet d’implémenter et d’exécuter une tâche dans un environnement de programmation via des runbooks. L’utilisation d’Azure Automation crée un environnement parfait pour l’exécution d’une surveillance réseau proactive et continue et d’alertes.
@@ -201,4 +199,3 @@ Maintenant que vous comprenez comment intégrer la résolution des problèmes Ne
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-

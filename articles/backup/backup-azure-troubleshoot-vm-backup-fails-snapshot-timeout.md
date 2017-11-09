@@ -1,6 +1,6 @@
 ---
 title: "Résolution des échecs de sauvegarde Azure : état de l’agent invité non disponible | Microsoft Docs"
-description: "Symptômes, causes et résolution des échecs de sauvegarde Azure liés à l’erreur : Impossible de communiquer avec l’agent de machine virtuelle"
+description: "Symptômes, causes et résolution des échecs de sauvegarde Azure liés à l’agent, à l’extension et aux disques"
 services: backup
 documentationcenter: 
 author: genlin
@@ -12,17 +12,15 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/17/2017
+ms.topic: troubleshooting
+ms.date: 09/08/2017
 ms.author: genli;markgal;
+ms.openlocfilehash: f3195fa83479986a3e605abce618c78bcdb64dac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Résoudre les problèmes de sauvegarde Microsoft Azure : problèmes liés à un agent et/ou une extension
 
 Cet article indique les étapes à appliquer pour résoudre les échecs de sauvegarde liés à des problèmes de communication avec l’agent et l’extension de machine virtuelle.
@@ -68,6 +66,13 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 4 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Cause 5 : [L’extension de sauvegarde ne peut être mise à jour ou chargée](#the-backup-extension-fails-to-update-or-load)
 
+## <a name="the-specified-disk-configuration-is-not-supported"></a>La configuration de disque spécifiée n’est pas prise en charge
+
+Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque [supérieures à 1 023 Go](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- Si vous disposez de disques supérieurs à 1 To, [attachez de nouveaux disques](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) inférieurs à 1 To. <br>
+- Copiez ensuite les données du disque de plus de 1 To dans le ou les disques plus petits. <br>
+- Vérifiez que toutes les données ont bien été copiées et retirez les disques supérieures à 1 To.
+- Lancez la sauvegarde.
 
 ## <a name="causes-and-solutions"></a>Causes et solutions
 
@@ -173,5 +178,4 @@ Pour désinstaller l’extension, procédez comme suit :
 6. Cliquer sur **Désinstaller**.
 
 Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
-
 

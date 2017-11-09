@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-query-action"></a>Prise en main de l’action de requête
 L’action de requête vous permet d’utiliser des lots et des tableaux pour obtenir des flux de travail afin d’effectuer les tâches suivantes :
@@ -49,6 +48,8 @@ Voici comment vous pouvez l’ajouter dans une application logique :
    
     L’action génère un nouveau tableau qui contient uniquement les résultats respectant les exigences du filtre.
 6. Cliquez dans le coin supérieur gauche de la barre d’outils pour enregistrer, et votre application logique est à la fois enregistrée et publiée (activation).
+
+\* Si vous appelez un point de terminaison HTTP et recevez une réponse JSON, utilisez l’action _Analyse JSON_ pour analyser la réponse JSON. Sans cette étape, l’action _Filtrer le tableau_ ne verra que le corps et ne sera pas capable de comprendre la structure de la charge utile JSON.
 
 ## <a name="query-action"></a>Action de requête
 Voici les détails de l’action que ce connecteur prend en charge. Le connecteur n’a qu’une seule action possible.
@@ -80,5 +81,4 @@ Vous trouverez ci-dessous les détails de sortie correspondant à la requête HT
 
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
-
 

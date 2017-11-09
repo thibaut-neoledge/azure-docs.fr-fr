@@ -12,24 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 7f9b886259c065627055f62a3636ab65434ca57b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 4c87ebbcd79576553ad95b99cbdca8ad33a4452e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Analyse développeur : langages, plateformes et intégrations
 Ces éléments sont des implémentations [Application Insights](app-insights-overview.md) dont nous avons entendu parler, y compris par des tiers.
 
-## <a name="languages---officially-supported-by-application-insights-team"></a>Langages : officiellement prises en charge par l’équipe Application Insights
+## <a name="languages---officially-supported-by-application-insights-team"></a>Langages : officiellement pris en charge par l’équipe Application Insights
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Pages web JavaScript](app-insights-javascript.md)
+* [Node.JS](app-insights-nodejs.md)
 
-## <a name="languages---community-supported"></a>Langages : pris en charge par la communauté
-* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
+## <a name="languages---community-supported"></a>Langages : pris en charge par la communauté
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -40,20 +39,20 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET : pour les applications déjà actives](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (Mobile Center, HockeyApp)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * [Services cloud Azure](app-insights-cloudservices.md)&#151;incluant les rôles web et de travail
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (Mobile Center, HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE : pour les applications déjà actives](app-insights-java-live.md)
-* [Application Mac OS X](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
+* [Application Mac OS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [Application Windows universelle](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (HockeyApp)
+* [Application Windows universelle](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (Mobile Center, HockeyApp)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Application Windows Phone 8 et 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
 * [Application Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
@@ -84,4 +83,3 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 
 ## <a name="projects"></a> Génération de votre propre kit de développement logiciel (SDK)
 S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre langage ou plateforme, peut-être souhaitez-vous créer un ? Examinons le code des kits de développement logiciel (SDK) existants répertoriés dans le [projet Kit de développement logiciel (SDK) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home).
-

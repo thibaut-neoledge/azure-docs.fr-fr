@@ -12,19 +12,18 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/30/2017
+ms.topic: troubleshooting
+ms.date: 10/19/2017
 ms.author: genli
+ms.openlocfilehash: 178d7fbc17464f7c9a4bc891453d0999e4ba62c3
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: db5966c920eb29742b2ee0fbd9386319eaaf1c77
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services
 
-Vous pouvez modifier l’administrateur Azure qui gère votre abonnement Azure ou les services Azure utilisés dans votre abonnement. Pour afficher les informations de facturation Azure et gérer les abonnements, vous devez vous connecter au [Centre des comptes](https://account.windowsazure.com/Home/Index) en tant qu’administrateur de compte. 
+Vous pouvez modifier l’administrateur Azure qui gère votre abonnement Azure ou les services Azure utilisés dans votre abonnement. Pour afficher les informations de facturation Azure et gérer les abonnements, vous devez vous connecter au Centre des comptes en tant qu’administrateur de compte. 
 
 <a name="add-an-admin-for-a-subscription"></a>
 
@@ -39,12 +38,12 @@ Pour ajouter un utilisateur en tant qu’administrateur d’un abonnement dans l
 
     ![Capture d’écran montrant le rôle Propriétaire sélectionné](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-### <a name="add-or-change-co-administrator"></a>Ajouter ou modifier un coadministrateur
+## <a name="add-or-change-co-administrator"></a>Ajouter ou modifier un coadministrateur
 
 Seul un propriétaire peut être ajouté en tant que coadministrateur. Les autres utilisateurs dont les rôles sont Contributeur et Lecteur ne peuvent pas être ajoutés en tant que coadministrateurs.
 
 1. Si vous ne l’avez pas déjà fait, ajoutez un utilisateur en tant que propriétaire en suivant les instructions ci-dessus.
-1. **Cliquez avec le bouton droit** sur l’utilisateur Propriétaire que vous venez d’ajouter, puis sélectionnez **Ajouter comme coadministrateur**. 
+2. **Cliquez avec le bouton droit** sur l’utilisateur Propriétaire que vous venez d’ajouter, puis sélectionnez **Ajouter comme coadministrateur**. Si vous ne voyez pas l’option **Ajouter comme coadministrateur**, actualisez la page ou essayez avec un autre navigateur Internet. 
 
      ![Capture d’écran d’ajout d’un coadministrateur](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
@@ -67,7 +66,7 @@ Seul l’administrateur de compte peut modifier l’administrateur de services f
 1. Sur le côté droit, sélectionnez **Modifier les détails de l’abonnement**.
 
     ![Capture d’écran montrant le bouton Modifier l’abonnement dans le Centre des comptes](./media/billing-add-change-azure-subscription-administrator/editsub.png)
-1. Dans la zone **ADMINISTRATEUR DE SERVICES** , entrez l’adresse e-mail du nouvel administrateur de services fédérés.
+1. Dans la zone **ADMINISTRATEUR DE SERVICES** , entrez l’adresse de messagerie du nouvel administrateur de services fédérés.
 
     ![Capture d’écran montrant la zone de modification de l’adresse e-mail de l’administrateur de services fédérés](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
@@ -101,7 +100,7 @@ Pour modifier l’administrateur de compte d’un abonnement, consultez [Transf�
 
 | Rôle administratif | Limite | Description |
 | --- | --- | --- |
-| Administrateur de compte |1 par compte Azure |Il s’agit de la personne qui a souscrit ou acheté des abonnements Azure et qui est autorisée à accéder au [Centre des comptes](https://account.windowsazure.com/Home/Index) et à effectuer diverses tâches de gestion. Ces tâches incluent la possibilité de créer et d’annuler des abonnements, de modifier la facturation d’un abonnement et de modifier l’administrateur de services fédérés. |
+| Administrateur de compte |1 par compte Azure |Il s’agit de la personne qui a souscrit ou acheté des abonnements Azure et qui est autorisée à accéder au [Centre des comptes](https://account.azure.com/Subscriptions) et à effectuer diverses tâches de gestion. Ces tâches incluent la possibilité de créer et d’annuler des abonnements, de modifier la facturation d’un abonnement et de modifier l’administrateur de services fédérés. |
 | Administrateur de services fédérés |1 par abonnement Azure |Ce rôle est autorisé à gérer les services sur le [portail Azure](https://portal.azure.com). Par défaut, pour un nouvel abonnement, l’administrateur de compte est également l’administrateur de services fédérés. |
 | Coadministrateur (CA) dans le [portail Azure Classic](https://manage.windowsazure.com) |200 par abonnement |Ce rôle possède les mêmes privilèges d’accès que l’administrateur de services fédérés, à ceci près qu’il ne peut pas modifier la manière dont les abonnements sont associés aux répertoires Azure. |
 
@@ -116,4 +115,3 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure Active Directory perme
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-

@@ -91,8 +91,3 @@ La connexion d’applications a toujours fait partie de l’assemblage de soluti
 [topics-subs]: ./media/hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
 [Event Hubs overview]: https://msdn.microsoft.com/library/azure/dn836025.aspx
-
-
-<!--HONumber=Jan17_HO3-->
-
-

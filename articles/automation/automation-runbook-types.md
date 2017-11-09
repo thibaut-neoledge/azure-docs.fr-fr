@@ -3,7 +3,7 @@ title: "Types de Runbook Azure Automation | Microsoft Docs"
 description: "Décrit les différents types de Runbooks que vous pouvez utiliser dans Azure Automation et les considérations à prendre en compte pour déterminer le type à utiliser. "
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
@@ -14,16 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e859aef473b433fbf4efb639962f3a3ce0a23d7b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
-
+ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Types de Runbooks Azure Automation
-Azure Automation prend en charge quatre types de Runbook qui sont brièvement décrits dans le tableau ci-dessous.  Les sections suivantes fournissent de plus amples informations sur chaque type, notamment des considérations sur l'utilisation de chacun de ces types.
+Azure Automation prend en charge plusieurs types de Runbook qui sont brièvement décrits dans le tableau ci-dessous.  Les sections suivantes fournissent de plus amples informations sur chaque type, notamment des considérations sur l'utilisation de chacun de ces types.
 
 | Type | Description |
 |:--- |:--- |
@@ -31,6 +29,8 @@ Azure Automation prend en charge quatre types de Runbook qui sont brièvement d
 | [Graphique workflow PowerShell](#graphical-runbooks) |Basé sur le workflow Windows PowerShell et créé et modifié entièrement dans l'éditeur graphique du portail Azure. |
 | [PowerShell](#powershell-runbooks) |Runbook texte basé sur le script Windows PowerShell. |
 | [Workflow PowerShell](#powershell-workflow-runbooks) |Runbook texte basé sur le workflow Windows PowerShell. |
+| [Python](#python-runbooks) |Runbook de texte basé sur Python. |
+| [Bash](#bash-runbooks) |Runbook de texte basé sur Bash. |
 
 ## <a name="graphical-runbooks"></a>Runbooks graphiques
 [Graphique](automation-runbook-types.md#graphical-runbooks) and Graphique PowerShell Workflow runbooks are created and edited with the graphical editor in the Azure portal.  Vous pouvez les exporter vers un fichier puis les importer dans un autre compte Automatisation, mais vous ne pouvez pas les créer ni les modifier avec un autre outil.  Les Runbooks graphiques génèrent un code PowerShell, mais vous ne pouvez pas directement afficher ou modifier ce code. Les Runbooks graphiques ne peuvent pas être convertis en [formats texte](automation-runbook-types.md), et un Runbook texte ne peut pas être converti au format graphique. Les Runbooks graphiques peut être converti en Runbooks de workflow PowerShell pendant l’importation et vice-versa.
@@ -84,6 +84,21 @@ Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workf
 * Un Runbook prend plus de temps à démarrer que les Runbooks PowerShell car il doit être compilé avant l'exécution.
 * Les Runbooks PowerShell peuvent uniquement être inclus en tant que Runbooks enfants à l'aide de l'applet de commande Start-AzureAutomationRunbook qui crée une tâche.
 
+## <a name="python-runbooks"></a>Runbooks Python
+Compilation de runbooks Python sous Python 2.  Vous pouvez modifier directement le code du runbook à l’aide de l’éditeur de texte dans le portail Azure, ou utiliser n’importe quel éditeur de texte en mode hors connexion et [importer le runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) dans Azure Automation.
+
+### <a name="advantages"></a>Avantages
+* Utilisez la bibliothèque standard robuste de Python.
+
+### <a name="limitations"></a>Limites
+* Doit être familiarisé avec les scripts Python.
+* Seul Python 2 est pris en charge pour le moment, ce qui signifie que les fonctions spécifiques à Python 3 échouent.
+
+### <a name="known-issues"></a>Problèmes connus
+Voici les problèmes connus actuels rencontrés avec les Runbooks Python.
+
+* Pour pouvoir utiliser des bibliothèques de tiers, le runbook doit être exécuté sur un [runbook Worker hybride Windows](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) ou un [runbook Worker hybride Linux](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) avec les bibliothèques déjà installées sur l’ordinateur avant le démarrage du runbook.
+
 ## <a name="considerations"></a>Considérations
 Vous devez prendre en compte les considérations supplémentaires suivantes pour déterminer le type à utiliser pour un Runbook donné.
 
@@ -94,5 +109,4 @@ Vous devez prendre en compte les considérations supplémentaires suivantes pour
 * Pour en savoir plus sur la création de Runbooks graphiques, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 * Pour comprendre les différences entre PowerShell et les workflows PowerShell pour les Runbooks, consultez [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md)
 * Pour en savoir plus sur la création ou l’importation d’un Runbook, consultez [Création ou importation d’un Runbook](automation-creating-importing-runbook.md)
-
 

@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 05/10/2017
+ms.date: 10/16/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 7698e03c0dc8d1c6d1e926f45e903a909bfd0c93
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/24/2017
-
+ms.openlocfilehash: f2687369b8e247f00e9de5f3f79d8e44be5b8300
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemples Azure PowerShell pour Azure Cosmos DB
 
-Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerShell pour Azure Cosmos DB.
+Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerShell pour Azure Cosmos DB. À ce stade, vous pouvez uniquement gérer la couche compte Azure Cosmos DB par le biais de PowerShell ; les autres ressources telles que les bases de données et les collections ne peuvent pas être gérés par le biais de PowerShell.
 
 | |  |
 |---|---|

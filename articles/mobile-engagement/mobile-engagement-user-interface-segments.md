@@ -1,6 +1,6 @@
 ---
-title: Interface utilisateur d&quot;Azure Mobile Engagement - Segments
-description: "Découvrez comment créer et gérer des segments d&quot;utilisateurs afin d&quot;identifier des modèles d&quot;utilisation grâce à Azure Mobile Engagement"
+title: Interface utilisateur d'Azure Mobile Engagement - Segments
+description: "Découvrez comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation grâce à Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b4f1df6f46b7b8349fcea649ebcdf34fc363491d
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation
 Cet article décrit l’onglet **SEGMENTS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles.
@@ -206,5 +205,4 @@ Dans cet exemple, 47,7 % des utilisateurs finaux répondent au critère. Il doi
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

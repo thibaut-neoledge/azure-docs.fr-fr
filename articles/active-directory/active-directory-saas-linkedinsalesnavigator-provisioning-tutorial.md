@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 86357949c8e6927f78ca5bb8b7e20a6b88c37ef3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Didacticiel : Configuration de LinkedIn Sales Navigator pour approvisionner automatiquement des utilisateurs
 
 
@@ -48,9 +46,9 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-sales-navigator"></a>Conseils importants pour l’affectation d’utilisateurs à LinkedIn Sales Navigator
 
-*    Il est recommandé d’affecter un seul utilisateur Azure AD à LinkedIn Sales Navigator pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+*   Il est recommandé d’affecter un seul utilisateur Azure AD à LinkedIn Sales Navigator pour tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-*    Quand vous affectez un utilisateur à LinkedIn Sales Navigator, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’affectation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
+*   Quand vous affectez un utilisateur à LinkedIn Sales Navigator, vous devez sélectionner le rôle **Utilisateur** dans la boîte de dialogue d’affectation. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Configuration de l’approvisionnement des utilisateurs sur LinkedIn Sales Navigator
@@ -93,9 +91,9 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 8) Si vous avez déjà configuré LinkedIn Sales Navigator pour l’authentification unique, recherchez votre instance de LinkedIn Sales Navigator à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter**, puis recherchez **LinkedIn Sales Navigator** dans la galerie d’applications. Sélectionnez LinkedIn Sales Navigator dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
 
-9)    Sélectionnez votre instance de LinkedIn Sales Navigator, puis sélectionnez l’onglet **Approvisionnement**.
+9)  Sélectionnez votre instance de LinkedIn Sales Navigator, puis sélectionnez l’onglet **Approvisionnement**.
 
-10)    Définissez le **Mode d’approvisionnement** sur **Automatique**.
+10) Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
 ![Approvisionnement LinkedIn Sales Navigator](./media/active-directory-saas-linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
@@ -126,4 +124,3 @@ Cette commande démarre la synchronisation initiale des utilisateurs et/ou group
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-

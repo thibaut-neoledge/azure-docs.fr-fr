@@ -1,6 +1,6 @@
 ---
-title: "Exemple de configuration - Appareil Cisco ASA se connectant à des passerelles VPN Azure | Microsoft Docs"
-description: "Cet article fournit un exemple de configuration d’appareil Cisco ASA se connectant à des passerelles VPN Azure."
+title: "Exemple de configuration pour la connexion de périphériques Cisco ASA à des passerelles VPN Azure | Microsoft Docs"
+description: "Cet article fournit un exemple de configuration pour la connexion de périphériques Cisco ASA à des passerelles VPN Azure."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,52 +15,54 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
+ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 10466b8928e2cd687f7961a2956b6d60823b82be
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemple de configuration : appareil Cisco ASA (IKEv2/sans BGP)
-Cet article fournit des exemples de configuration d’appareil Cisco ASA se connectant à des passerelles VPN Azure.
+Cet article fournit des exemples de configurations pour la connexion de périphériques Cisco ASA (Adaptive Security Appliance) à des passerelles VPN Azure. L’exemple s’applique à des périphériques Cisco ASA qui exécutent IKEv2 sans protocole de passerelle frontière (BGP). 
 
 ## <a name="device-at-a-glance"></a>Aperçu de l’appareil
 
 |                        |                                   |
 | ---                    | ---                               |
 | Fournisseur de l’appareil          | Cisco                             |
-| Modèle de l'appareil           | ASA (Adaptive Security Appliance) |
-| Version cible         | 8.4+                              |
+| Modèle de l'appareil           | ASA                               |
+| Version cible         | 8.4 et versions ultérieures                     |
 | Modèle testé           | ASA 5505                          |
 | Version testée         | 9.2                               |
-| Version IKE            | **IKEv2**                         |
-| BGP                    | **Non**                            |
-| Type de passerelle VPN Azure | Passerelle VPN **basée sur le routage**       |
+| Version IKE            | IKEv2                             |
+| BGP                    | Non                                |
+| Type de passerelle VPN Azure | Passerelle VPN basée sur le routage           |
 |                        |                                   |
 
 > [!NOTE]
-> 1. La configuration ci-dessous connecte un appareil Cisco ASA à une passerelle VPN Azure **basée sur le routage** à l’aide d’une stratégie IPsec/IKE personnalisée avec l’option « UserPolicyBasedTrafficSelectors », comme décrit dans [cet article](vpn-gateway-connect-multiple-policybased-rm-ps.md).
-> 2. Les appareils ASA doivent utiliser la version **IKEv2** avec les configurations basées sur des listes d’accès, pas celles basées sur une interface virtuelle de tunnel (VTI).
-> 3. Veuillez consulter les spécifications de votre fournisseur de périphérique VPN pour vous assurer que la stratégie est prise en charge sur vos périphériques VPN locaux.
+> L’exemple de configuration connecte un périphérique Cisco ASA à une passerelle VPN **basée sur le routage** Azure. Cette connexion utilise une stratégie IPsec/IKE personnalisée avec l’option **UsePolicyBasedTrafficSelectors**, comme décrit dans [cet article](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+>
+> L’exemple exige que les périphériques ASA utilisent la stratégie **IKEv2** avec des configurations basées sur une liste d’accès, et non sur une interface virtuelle de tunnel (VTI). Consultez les spécifications du fournisseur de votre périphérique VPN pour vérifier que la stratégie IKEv2 est prise en charge sur vos périphériques VPN locaux.
+
 
 ## <a name="vpn-device-requirements"></a>Configuration requise du périphérique VPN
-Les passerelles VPN Azure utilisent des suites de protocoles IPsec/IKE standard pour établir des tunnels VPN site à site (S2S). Reportez-vous à la page [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md) pour connaître les paramètres détaillés du protocole IPsec/IKE et les algorithmes de chiffrement par défaut des passerelles VPN Azure. Vous pouvez éventuellement spécifier la combinaison exacte d’algorithmes de chiffrement et les forces de clé souhaitée d’une connexion spécifique, comme décrit dans la rubrique [À propos des exigences de chiffrement](vpn-gateway-about-compliance-crypto.md). Si vous sélectionnez une combinaison spécifique d’algorithmes de chiffrement et de forces de clé, assurez-vous que vous utilisez les spécifications correspondantes sur vos périphériques VPN.
+Les passerelles VPN Azure utilisent des suites de protocoles IPsec/IKE standard pour établir des tunnels VPN de site à site (S2S). Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md) pour connaître les paramètres détaillés du protocole IPsec/IKE et les algorithmes de chiffrement par défaut des passerelles VPN Azure.
+
+> [!NOTE]
+> Vous pouvez éventuellement spécifier une combinaison exacte d’algorithmes de chiffrement et de forces de clé souhaitée d’une connexion spécifique, comme décrit dans la rubrique [À propos des exigences de chiffrement](vpn-gateway-about-compliance-crypto.md). Si vous spécifiez une combinaison exacte d’algorithmes et de forces de clé, veillez à utiliser les spécifications correspondantes sur vos périphériques VPN.
 
 ## <a name="single-vpn-tunnel"></a>Tunnel VPN unique
-Cette topologie présente un tunnel VPN S2S unique entre une passerelle VPN Azure et votre périphérique VPN local. Vous pouvez éventuellement configurer le protocole BGP sur le tunnel VPN.
+Cette configuration présente un tunnel VPN S2S unique entre une passerelle VPN Azure et un périphérique VPN local. Vous pouvez éventuellement configurer le protocole [BGP sur le tunnel VPN](#bgp).
 
-![tunnel unique](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
+![Tunnel VPN S2S unique](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
-Reportez-vous à la section [Tunnel VPN unique](vpn-gateway-3rdparty-device-config-overview.md#singletunnel) afin de connaître les instructions étape par étape pour créer les configurations Azure.
+Pour connaître les instructions pas à pas permettant de créer les configurations Azure, consultez [Configuration de tunnel VPN unique](vpn-gateway-3rdparty-device-config-overview.md#singletunnel).
 
-### <a name="network-and-vpn-gateway-information"></a>Informations sur le réseau et la passerelle VPN
+### <a name="virtual-network-and-vpn-gateway-information"></a>Informations sur le réseau virtuel et la passerelle VPN
 Cette section répertorie les paramètres de cet exemple.
 
 | **Paramètre**                | **Valeur**                    |
 | ---                          | ---                          |
-| Préfixes d’adresse du réseau virtuel        | 10.11.0.0/16<br>10.12.0.0/16 |
+| Préfixes d’adresse de réseau virtuel        | 10.11.0.0/16<br>10.12.0.0/16 |
 | IP de la passerelle VPN Azure         | Azure_Gateway_Public_IP      |
 | Préfixes d’adresse locale | 10.51.0.0/16<br>10.52.0.0/16 |
 | IP du périphérique VPN local    | OnPrem_Device_Public_IP     |
@@ -70,63 +72,64 @@ Cette section répertorie les paramètres de cet exemple.
 | * IP d’homologue BGP local     | 10.52.255.254                |
 |                              |                              |
 
-* (*) Paramètres facultatifs pour BGP uniquement.
+\* Paramètre facultatif pour BGP uniquement.
 
-### <a name="ipsecike-policy--parameters"></a>Stratégie et paramètres IPsec/IKE
-
-Le tableau ci-dessous répertorie les algorithmes et paramètres IPsec/IKE utilisés dans l’exemple. Consultez les spécifications de votre périphérique VPN pour vous assurer que tous les algorithmes répertoriés ci-dessus sont pris en charge par vos modèles de périphérique VPN et les versions du microprogramme.
+### <a name="ipsecike-policy-and-parameters"></a>Stratégie et paramètres IPsec/IKE
+Le tableau suivant répertorie les algorithmes et paramètres IPsec/IKE utilisés dans l’exemple. Consultez les spécifications de votre périphérique VPN pour vérifier les algorithmes pris en charge pour vos modèles de périphérique VPN et vos versions de microprogramme.
 
 | **IPsec/IKEv2**  | **Valeur**                            |
 | ---              | ---                                  |
 | Chiffrement IKEv2 | AES256                               |
 | Intégrité IKEv2  | SHA384                               |
 | Groupe DH         | DHGroup24                            |
-| Chiffrement IPsec | AES256                               |
-| Intégrité IPsec  | SHA1                                 |
+| * Chiffrement IPsec | AES256                               |
+| * Intégrité IPsec  | SHA1                                 |
 | Groupe PFS        | PFS24                                |
-| Durée de vie de l’AS en mode rapide   | 7200 seconds                         |
+| Durée de vie de l’AS en mode rapide   | 7 200 secondes                         |
 | Sélecteur de trafic | UsePolicyBasedTrafficSelectors $True |
 | Clé prépartagée   | PreSharedKey                         |
 |                  |                                      |
 
-- (*) Sur certains appareils, l’intégrité IPsec doit être « null » si GCM-AES est utilisé comme algorithme de chiffrement IPsec.
+\* Sur certains périphériques, l’intégrité IPsec doit être une valeur Null quand l’algorithme de chiffrement IPsec est AES-GCM.
 
-### <a name="device-notes"></a>Remarques sur l’appareil
+### <a name="asa-device-support"></a>Prise en charge des périphériques ASA
 
->[!NOTE]
->
-> 1. La prise en charge du protocole IKEv2 fonctionne avec les versions 8.4 et ultérieures d’ASA.
-> 2. La prise en charge des groupes Diffie-Hellman et PFS supérieurs (au-delà du groupe 5) nécessitent la version 9.x d’ASA.
-> 3. La prise en charge du chiffrement IPsec avec AES-GCM et de l’intégrité IPsec avec SHA-256, SHA-384, SHA-512 nécessite ASA 9.x sur le matériel ASA récent ; les modèles ASA 5505, 5510, 5520, 5540, 5550, 5580 ne sont **pas** pris en charge. (Consultez les spécifications du fournisseur pour confirmer ce point.)
->
+* La prise en charge d’IKEv2 exige ASA versions 8.4 et ultérieures.
+
+* La prise en charge des groupes Diffie-Hellman et PFS au-delà du groupe 5 nécessitent la version 9.x d’ASA.
+
+* La prise en charge du chiffrement IPsec avec AES-GCM et l’intégrité IPsec avec SHA-256, SHA-384 ou SHA-512 exigent la version 9.x d’ASA. Cette exigence de prise en charge s’applique aux derniers périphériques ASA.
+
+    > [!NOTE]
+    > Les modèles de périphérique ASA 5505, 5510, 5520, 5540, 5550 et 5580 ne sont pas pris en charge. Consultez les spécifications de votre périphérique VPN pour vérifier les algorithmes pris en charge pour vos modèles de périphérique VPN et vos versions de microprogramme.
 
 
-### <a name="sample-device-configurations"></a>Exemples de configurations de périphérique
-Le script ci-dessous fournit un exemple de configuration basé sur la topologie et les paramètres répertoriés ci-dessus. La configuration du tunnel VPN S2S comprend les éléments suivants :
+### <a name="sample-device-configuration"></a>Exemple de configuration de périphérique
+Le script fournit un exemple qui se base sur la configuration et les paramètres décrits dans les sections précédentes. La configuration du tunnel VPN S2S comprend les éléments suivants :
 
 1. Interfaces et itinéraires
 2. Listes d’accès
-3. Stratégie et paramètres IKE (Phase 1 ou Mode principal)
-4. Stratégie et paramètres IPsec (Phase 2 ou Mode rapide)
-5. Autres paramètres (clamping du MSS TCP, etc.)
+3. Stratégie et paramètres IKE (phase 1 ou mode principal)
+4. Stratégie et paramètres IPsec (phase 2 ou mode rapide)
+5. Autres paramètres, tels que clamping du MSS TCP
 
->[!IMPORTANT] 
->Veillez à bien effectuer la configuration des éléments supplémentaires ci-dessous et à remplacer les espaces réservés par les valeurs réelles :
-> 
-> - Configuration d’interfaces internes et externes
-> - Itinéraires pour vos réseaux internes/privés et externes/publics
-> - Veiller à ce que tous les noms et les numéros de stratégie soient uniques sur l’appareil
-> - Vérifier que les algorithmes de chiffrement sont pris en charge sur votre appareil
-> - Remplacer les espaces réservés suivants avec les valeurs réelles
->   - Nom de l’interface externe : « outside »
->   - Azure_Gateway_Public_IP
->   - OnPrem_Device_Public_IP
->   - Pre_Shared_Key IKE
->   - Noms du réseau virtuel et de la passerelle de réseau local (VNetName, LNGName)
->   - Préfixes d’adresse du réseau virtuel et du réseau local
->   - Masques de réseau appropriés
+> [!IMPORTANT]
+> Effectuez les étapes suivantes avant d’utiliser l’exemple de script. Remplacez les valeurs d’espace réservé dans le script par les paramètres de périphérique adaptés à votre configuration.
 
-#### <a name="sample-configuration"></a>Exemple de configuration
+* Spécifiez la configuration des interfaces internes et externes.
+* Identifiez les itinéraires de vos réseaux internes/privés et externes/publics.
+* Veillez à ce que tous les noms et les numéros de stratégie soient uniques sur le périphérique.
+* Vérifiez que les algorithmes de chiffrement sont pris en charge sur votre périphérique.
+* Remplacez les **valeurs d’espace réservé** suivantes par les valeurs réelles de votre configuration :
+  - Nom de l’interface externe : **outside**
+  - **Azure_Gateway_Public_IP**
+  - **OnPrem_Device_Public_IP**
+  - IKE : **Pre_Shared_Key**
+  - Noms du réseau virtuel et de la passerelle réseau locale : **VNetName** et **LNGName**
+  - **Préfixes** d’adresse du réseau virtuel et du réseau local
+  - **Masques de réseau** appropriés
+
+#### <a name="sample-script"></a>Exemple de script
 
 ```
 ! Sample ASA configuration for connecting to Azure VPN gateway
@@ -281,19 +284,31 @@ sysopt connection tcpmss 1350
 
 ## <a name="simple-debugging-commands"></a>Commandes de débogage simples
 
-Voici quelques commandes ASA de débogage :
+À des fins de débogage, utilisez les commandes ASA suivantes :
 
-1. Afficher les associations de sécurité IPsec et IKE
-    - « show crypto ipsec sa »
-    - « show crypto ikev2 sa »
-2. Passer en mode de débogage - ce qui peut provoquer beaucoup de bruit au niveau de la console
-    - « debug crypto ikev2 platform <level> »
-    - « debug crypto ikev2 protocol <level> »
-3. Répertorier les configurations actuelles
-    - « show run » - Affiche les configurations actuelles sur l’appareil ; vous pouvez utiliser les diverses sous-commandes pour répertorier des parties spécifiques de la configuration. Par exemple, « show run crypto », « show run access-list », « show run tunnel-group », etc.
+* Affichez l’association de sécurité IPsec ou IKE :
+    ```
+    show crypto ipsec sa
+    show crypto ikev2 sa
+    ```
 
+* Passez en mode de débogage :
+    ```
+    debug crypto ikev2 platform <level>
+    debug crypto ikev2 protocol <level>
+    ```
+    Les commandes `debug` peuvent générer une sortie importante sur la console.
+
+* Affichez les configurations actuelles sur le périphérique :
+    ```
+    show run
+    ```
+    Utilisez des sous-commandes `show` pour répertorier des parties spécifiques de la configuration du périphérique, par exemple :
+    ```
+    show run crypto
+    show run access-list
+    show run tunnel-group
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour connaître les étapes de configuration des connexions en mode actif-actif entre des réseaux locaux ou entre deux réseaux virtuels, consultez la page [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](vpn-gateway-activeactive-rm-powershell.md) (Configuration des passerelles VPN actif-actif pour des connexions entre des réseaux locaux et entre deux réseaux virtuels).
-
-
+Pour configurer des connexions entre différents locaux et entre deux réseaux virtuels en mode actif/actif, consultez [Configurer des passerelles VPN en mode actif/actif](vpn-gateway-activeactive-rm-powershell.md).

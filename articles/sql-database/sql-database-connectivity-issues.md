@@ -10,19 +10,17 @@ editor:
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: daleche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
-
+ms.openlocfilehash: 0d2d187ca55ca6e7723139423b4b28783f256704
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Diagnostiquer, résoudre et empêcher les erreurs de connexion SQL et les erreurs temporaires de Base de données SQL
 Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Base de données SQL Azure. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
@@ -338,19 +336,19 @@ Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de 
 
 *Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :*
 
-* **RetryPolicy** 
+* **RetryPolicy**
   
-  * **ExecuteAction** 
-* **ExponentialBackoff** 
-* **SqlDatabaseTransientErrorDetectionStrategy** 
-* **ReliableSqlConnection** 
+  * **ExecuteAction**
+* **ExponentialBackoff**
+* **SqlDatabaseTransientErrorDetectionStrategy**
+* **ReliableSqlConnection**
   
-  * **ExecuteCommand** 
+  * **ExecuteCommand**
 
 Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
 
-* **AlwaysTransientErrorDetectionStrategy** 
-* **NeverTransientErrorDetectionStrategy** 
+* **AlwaysTransientErrorDetectionStrategy**
+* **NeverTransientErrorDetectionStrategy**
 
 Voici des liens vers des informations sur EntLib60 :
 
@@ -448,5 +446,4 @@ public bool IsTransient(Exception ex)
 * Pour résoudre les autres problèmes de connexion courants à Azure SQL Database, consultez [Résolution des problèmes de connexion à Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 * [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche consistant à ajouter des comportements de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
-
 

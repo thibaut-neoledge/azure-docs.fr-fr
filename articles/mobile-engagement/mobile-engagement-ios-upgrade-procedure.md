@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c4b5b8bc05365ddc63b0d7a6a3c63eaee31af957
 ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-procedures"></a>Procédures de mise à niveau
 Si vous avez déjà intégré une version antérieure d'Engagement dans votre application, vous devez prendre en compte les points suivants lors de la mise à niveau du Kit de développement logiciel.
@@ -89,7 +89,7 @@ par :
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>Résoudre les conflits de délégué UNUserNotificationCenter
+### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>Résoudre les conflits de délégués UNUserNotificationCenter
 
 *Si, ni votre application ni l’une des bibliothèques tierces n’implémente un `UNUserNotificationCenterDelegate`, vous pouvez ignorer cette partie.*
 
@@ -214,10 +214,4 @@ Exemples :
 * La classe `CapptainTableViewController` est renommée `EngagementTableViewController`.
 * La classe `CapptainUtils` est renommée `EngagementUtils`.
 * La classe `CapptainViewController` est renommée `EngagementViewController`.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

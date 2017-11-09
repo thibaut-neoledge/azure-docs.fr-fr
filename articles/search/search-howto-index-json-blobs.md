@@ -12,15 +12,14 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.date: 09/07/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
 Cet article explique comment configurer l’indexeur d’objets blob Azure Search pour extraire le contenu structuré à partir d’objets blob contenant JSON.
 
@@ -48,7 +47,7 @@ Vous pouvez également, lorsque vos objets blob contiennent un **tableau d’obj
 Vous pouvez remplir l’index Recherche Azure avec trois documents distincts, chacun avec des champs « id » et « text ».
 
 > [!IMPORTANT]
-> Pour l’instant, la fonctionnalité d’analyse de tableau JSON n’existe qu’en préversion. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
+> Pour l’instant, la fonctionnalité d’analyse de tableau JSON n’existe qu’en préversion. Elle est uniquement disponible dans l’API REST en utilisant la version **2016-09-01-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
 >
 >
 
@@ -171,4 +170,3 @@ Utilisez cette configuration pour indexer le tableau contenu dans la propriété
 
 ## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Azure Search
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

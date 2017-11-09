@@ -14,18 +14,18 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 6b00f43fb57a8098a57d204bd2b8d44e646700ec
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 3e1f7617bf2fc52ee4c15598f51a46276f4dc57d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Azure Container Registry (ACR) est un registre privé Azure pour les images de conteneur Docker. Ce didacticiel (le deuxième d’une série de sept) vous aide à déployer une instance Azure Container Registry et à envoyer une image conteneur à ce dernier. Les étapes terminées sont les suivantes :
 
@@ -34,11 +34,11 @@ Azure Container Registry (ACR) est un registre privé Azure pour les images de c
 > * Marquage d’une image conteneur pour ACR
 > * Chargement de l’image dans ACR
 
-Dans les didacticiels suivants, cette instance ACR est intégrée à un cluster Azure Container Service Kubernetes, pour l’exécution des images de conteneur en toute sécurité. 
+Dans les didacticiels suivants, cette instance ACR est intégrée à un cluster Azure Container Service Kubernetes. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans le [didacticiel précédent](./container-service-tutorial-kubernetes-prepare-app.md), une image conteneur a été créée pour une application Azure Vote. Dans ce didacticiel, cette image est envoyée à Azure Container Registry. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md). Sinon, les étapes présentées en détail ici fonctionnent avec n’importe quelle image de conteneur.
+Dans le [didacticiel précédent](./container-service-tutorial-kubernetes-prepare-app.md), une image conteneur a été créée pour une application Azure Vote. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md).
 
 Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
@@ -46,7 +46,7 @@ Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultér
 
 Lorsque vous déployez un registre de conteneurs Azure, il vous faut tout d’abord un groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *westeurope*.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Dans cet exemple, un groupe de ressources nommé `myResourceGroup` est créé dans la région `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -58,11 +58,11 @@ Créez un registre de conteneurs Azure à l’aide de la commande [az acr create
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Dans le reste de ce didacticiel, nous utilisons « acrname ». Ce nom correspond au registre de conteneurs que vous avez choisi.
+Dans le reste de ce didacticiel, nous utilisons `<acrname>` comme espace réservé pour le nom de registre de conteneurs.
 
 ## <a name="container-registry-login"></a>Connexion au registre de conteneurs
 
-Vous devez vous connecter à votre instance ACR avant de lui envoyer des images. Utilisez la commande [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) pour terminer l’opération. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
+Utilisez la commande [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) pour vous connecter à l’instance ACR. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
 
 ```azurecli
 az acr login --name <acrName>
@@ -71,8 +71,6 @@ az acr login --name <acrName>
 Après son exécution, la commande retourne le message « Connexion réussie ».
 
 ## <a name="tag-container-images"></a>Marquer les images de conteneur
-
-Chaque image conteneur doit être marquée avec le nom de serveur de connexion du registre. Cette balise est utilisée pour l’acheminement lors de l’envoi des images de conteneur dans un registre d’images.
 
 Pour afficher la liste des images actuelles, utilisez la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/).
 
@@ -89,13 +87,15 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
+Chaque image conteneur doit être marquée avec le nom de serveur de connexion du registre. Cette balise est utilisée pour l’acheminement lors de l’envoi des images de conteneur dans un registre d’images.
+
 Pour obtenir le nom de loginServer, exécutez la commande suivante.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer --output table
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Maintenant, marquez l’image *azure-vote-front* avec le loginServer du Registre de conteneurs. En outre, ajoutez `:redis-v1` à la fin du nom de l’image. Cette balise indique la version de l’image.
+Maintenant, marquez l’image `azure-vote-front` avec le loginServer du registre de conteneurs. En outre, ajoutez `:redis-v1` à la fin du nom de l’image. Cette balise indique la version de l’image.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
@@ -119,7 +119,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Envoyer des images au registre
 
-Envoyez l’image *azure-vote-front* au registre. 
+Envoyez l’image `azure-vote-front` vers votre registre. 
 
 À l’aide de l’exemple suivant, remplacez le nom d’ACR loginServer par le loginServer à partir de votre environnement.
 

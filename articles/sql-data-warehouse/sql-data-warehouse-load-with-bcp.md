@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/30/2017
-
-
-
+ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-bcp"></a>Chargement des données avec BCP
 > [!div class="op_single_selector"]
@@ -51,7 +48,7 @@ Ce didacticiel vous explique comment :
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Configuration requise
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 * Base de données SQL Data Warehouse
@@ -188,7 +185,7 @@ Pour vérifier que les données ont été exportées, ouvrez le nouveau fichier.
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [Chargement de données dans SQL Data Warehouse][Load data into SQL Data Warehouse].
+Pour accéder à une vue d’ensemble du chargement, consultez [Charger des données dans SQL Data Warehouse][Load data into SQL Data Warehouse].
 Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
@@ -206,4 +203,3 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-

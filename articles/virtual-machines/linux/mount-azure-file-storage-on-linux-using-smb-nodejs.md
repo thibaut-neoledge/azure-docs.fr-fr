@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/07/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 4951860630f0aad107d0846d52ebe4423ee0b91c
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>Montage du Stockage Fichier Azure sur les machines virtuelles Linux à l’aide de SMB avec Azure CLI 1.0
 
 Cet article explique comment monter le Stockage Fichier Azure sur une machine virtuelle Linux en utilisant le protocole SMB (Server Message Block). Le Stockage Fichier propose des partages de fichiers dans le cloud qui s’appuient sur le protocole SMB standard. Les conditions requises sont :
@@ -134,4 +132,3 @@ Dans cette procédure pas à pas détaillée, nous créons la configuration requ
 - [Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Ajouter un disque à une machine virtuelle Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande (CLI) Azure](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

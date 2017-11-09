@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 957b152fdd40d08a867e788b0cb9f7d57ed481e4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configuring-jive-for-user-provisioning"></a>Didacticiel : Configuration de Jive pour l’approvisionnement des utilisateurs
 
@@ -69,7 +67,7 @@ Dans le cadre de cette procédure, vous devez fournir un jeton de sécurité à 
 
     ![approvisionnement](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
+5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
    
     a. Dans la zone de texte **Nom d’utilisateur admin Jive**, tapez le nom d’un compte Jive auquel le profil **System Administrator** est attribué dans Jive.com.
    

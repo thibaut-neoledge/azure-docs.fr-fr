@@ -3,7 +3,7 @@ title: "Guide de sécurité Azure Storage | Microsoft Docs"
 description: "Présente en détail les nombreuses méthodes de sécurisation d’Azure Storage, notamment (liste non exhaustive) RBAC, Storage Service Encryption, le chiffrement côté client, SMB 3.0 et Azure Disk Encryption."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: 592a8716dd15b25b14fed145c11e5f5714cdd41c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e71d9baf36ea7acb8dc8fa1daf9ddde3a2856f85
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 ## <a name="overview"></a>Vue d'ensemble
@@ -157,11 +156,14 @@ Remarque : Il est recommandé d’utiliser uniquement l’une des clés dans tou
   Cet article montre comment utiliser Active Directory pour contrôler l’accès à vos clés de stockage Azure dans Azure Key Vault. Il montre également comment utiliser un travail Azure Automation pour régénérer les clés toutes les heures.
 
 ## <a name="data-plane-security"></a>Sécurité du plan de données
-La sécurité du plan de données fait référence aux méthodes permettant de sécuriser les objets de données stockés dans Azure Storage : les objets blob, files d’attente, tables et fichiers. Nous avons étudié des méthodes pour chiffrer les données et la sécurité pendant le transit des données, mais comment faire pour autoriser l’accès aux objets ?
+La sécurité du plan de données fait référence aux méthodes permettant de sécuriser les objets de données stockés dans Azure Storage : les objets blob, files d’attente, tables et fichiers. Nous avons vu des méthodes qui permettent de chiffrer les données et la sécurité pendant le transit des données, mais comment faire pour contrôler l’accès aux objets ?
 
-Il existe essentiellement deux méthodes pour contrôler l’accès aux objets de données eux-mêmes. La première consiste à contrôler l’accès aux clés de compte de stockage, et la seconde à utiliser des signatures d’accès partagé pour accorder l’accès à des objets de données spécifiques pour une durée déterminée.
+Deux méthodes permettent d’autoriser l’accès aux objets de données eux-mêmes. Il s’agit de contrôler l’accès aux clés de compte de stockage et d’utiliser des signatures d’accès partagé pour accorder l’accès à des objets de données spécifiques pour une durée déterminée.
 
-Une exception à noter est que vous pouvez autoriser un accès public à vos objets blob en définissant le niveau d’accès pour le conteneur qui contient les objets blob en conséquence. Si vous définissez l’accès pour un conteneur sur Objet blob ou Conteneur, vous autorisez l’accès en lecture public pour les objets blob de ce conteneur. Cela signifie que toute personne avec une URL pointant vers un objet blob dans ce conteneur peut l’ouvrir dans un navigateur sans utiliser de signature d’accès partagé ni disposer de clé de compte de stockage.
+Par ailleurs, pour le stockage Blob, vous pouvez autoriser un accès public à vos objets blob en définissant de manière appropriée le niveau d’accès du conteneur qui contient les objets blob. Si vous définissez l’accès pour un conteneur sur Objet blob ou Conteneur, vous autorisez l’accès en lecture public pour les objets blob de ce conteneur. Cela signifie que toute personne avec une URL pointant vers un objet blob dans ce conteneur peut l’ouvrir dans un navigateur sans utiliser de signature d’accès partagé ni disposer de clé de compte de stockage.
+
+En plus de limiter l’accès par le biais de l’autorisation, vous pouvez également utiliser [Pare-feu et réseaux virtuels](storage-network-security.md) pour limiter l’accès au compte de stockage en fonction des règles de réseau.  Cette approche vous permet de refuser l’accès au trafic Internet public et d’accorder l’accès uniquement à certains réseaux virtuels Azure ou certaines plages d’adresses IP Internet publiques.
+
 
 ### <a name="storage-account-keys"></a>Clés de compte de stockage
 Les clés de compte de stockage sont des chaînes de 512 bits créées par Azure qui, combinées avec le nom de compte, permettent d’accéder aux objets de données stockés dans le compte de stockage.
@@ -243,15 +245,7 @@ Pour plus d’informations sur l’utilisation des signatures d’accès partag�
   * [Signatures d’accès partagé, partie 2 : création et utilisation d’une signature d’accès partagé avec le service BLOB](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Cet article contient une description du modèle SAP, des exemples de signatures d’accès partagé et des recommandations pour une utilisation optimale de ces signatures. La révocation de l’autorisation accordée est également abordée.
-* Limitation de l’accès par adresse IP (listes ACL IP)
 
-  * [Qu’est-ce qu’une liste de contrôle d’accès de point de terminaison (ACL) ?](../../virtual-network/virtual-networks-acl.md)
-  * [Construction d’un service SAP](https://msdn.microsoft.com/library/azure/dn140255.aspx)
-
-    Il s’agit de l’article de référence pour les signatures d’accès partagé de niveau service ; il inclut un exemple de création de liste ACL IP.
-  * [Construction d’un compte SAP](https://msdn.microsoft.com/library/azure/mt584140.aspx)
-
-    Il s’agit de l’article de référence pour les signatures d’accès partagé de niveau compte ; il inclut un exemple de création de liste ACL IP.
 * Authentification
 
   * [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
@@ -268,22 +262,21 @@ Pour disposer d’un canal de communication sécurisé, vous devez toujours util
 Vous pouvez appliquer l’utilisation du protocole HTTPS lorsque vous appelez les API REST pour accéder aux objets dans les comptes de stockage en activant l’option [Transfert sécurisé requis](../storage-require-secure-transfer.md) pour le compte de stockage. Les connexions utilisant le protocole HTTP seront refusées une fois cette option activée.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Utilisation du chiffrement pendant le transit avec des partages de fichiers Azure
-Le stockage de fichiers Azure prend en charge le protocole HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et est disponible dans Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles l’accès entre les régions et même l’accès sur le bureau.
+Azure Files prend en charge HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et est disponible dans Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles l’accès entre les régions et même l’accès sur le bureau.
 
 Notez que les partages de fichiers Azure peuvent être utilisés avec Unix, mais comme le client SMB de Linux ne prend pas encore en charge le chiffrement, l’accès est autorisé uniquement dans une région Azure. La prise en charge du chiffrement pour Linux est prévue par les développeurs Linux responsables de la fonctionnalité SMB. Quand ce chiffrement sera pris en charge, vous pourrez accéder à un partage de fichiers Azure sur Linux de la même manière que sur Windows.
 
 Vous pouvez appliquer l’utilisation du chiffrement avec le service Azure Files en activant l’option [Transfert sécurisé requis](../storage-require-secure-transfer.md) pour le compte de stockage. Si vous utilisez les API REST, le protocole HTTPS est requis. Pour SMB, seules les connexions SMB qui prennent en charge le chiffrement seront établies avec succès.
 
 #### <a name="resources"></a>Ressources
-* [Utilisation de Stockage Fichier Azure avec Linux](../storage-how-to-use-files-linux.md)
+* [Présentation d’Azure Files](../files/storage-files-introduction.md)
+* [Bien démarrer avec Azure Files sur Windows](../files/storage-how-to-use-files-windows.md)
+
+  Cet article offre une vue d’ensemble des partages de fichiers Azure et décrit comment les monter et les utiliser sur Windows.
+
+* [Comment utiliser Azure Files avec Linux](../files/storage-how-to-use-files-linux.md)
 
   Cet article montre comment monter un partage de fichiers Azure sur un système Linux et comment charger/télécharger des fichiers.
-* [Prise en main d’Azure File Storage sur Windows](../storage-dotnet-how-to-use-files.md)
-
-  Cet article présente une vue d’ensemble des partages de fichiers Azure. Il explique aussi comment monter et utiliser ces partages avec PowerShell et .NET.
-* [Dans Stockage Fichier Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-
-  Cet article annonce la disponibilité générale du stockage de fichiers Azure et fournit des informations techniques sur le chiffrement SMB 3.0.
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Utilisation du chiffrement côté client pour sécuriser les données envoyées dans le stockage
 Le chiffrement côté client est une autre méthode possible pour garantir la sécurité de vos données pendant leur transfert entre une application cliente et Azure Storage. Les données sont chiffrées avant d’être transférées vers Azure Storage. Quand vous récupérez les données d’Azure Storage, les données sont déchiffrées seulement après leur réception côté client. Même si les données sont chiffrées quand elles sont en transit sur le réseau, nous vous recommandons d’utiliser également le protocole HTTPS. En effet, HTTPS inclut des vérifications de l’intégrité des données qui contribuent à réduire les erreurs réseau ayant un impact sur l’intégrité des données.
@@ -350,7 +343,7 @@ La solution ne prend pas en charge les scénarios, fonctionnalités et technolog
 * Désactivation du chiffrement sur un lecteur de système d’exploitation pour les machines virtuelles IaaS Linux
 * Machines virtuelles IaaS créées à l’aide de la méthode classique de création de machines virtuelles
 * Intégration à votre service de gestion de clés local
-* Le stockage de fichiers Azure (système de partage de fichiers), NFS (Network File System), les volumes dynamiques et les machines virtuelles Windows configurées avec des systèmes RAID logiciels
+* Azure Files (système de partage de fichiers), NFS (Network File System), volumes dynamiques et machines virtuelles Windows configurées avec des systèmes RAID logiciels
 
 
 > [!NOTE]
@@ -524,7 +517,7 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 
    **Ressources**
 
-* [Why We’re Not Recommending “FIPS Mode” Anymore (Pourquoi nous ne recommandons plus le « mode FIPS »)](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
+* [Why We’re Not Recommending “FIPS Mode” Anymore (Pourquoi nous ne recommandons plus le « mode FIPS »)](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   Cet article de blog donne une vue d’ensemble des normes FIPS et explique pourquoi le mode FIPS n’est plus activé par défaut.
 * [FIPS 140 Validation (Validation de la norme FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
@@ -533,4 +526,3 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 * [Effets des paramètres de sécurité « Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature » dans Windows XP et les versions ultérieures de Windows](https://support.microsoft.com/kb/811833)
 
   Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.
-

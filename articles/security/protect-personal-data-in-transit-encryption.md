@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
+ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 92c37c267afa27854f66b870f69b47195e388152
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>technologies de chiffrement Azure : Protéger les données personnelles en transit avec un chiffrement
 
@@ -194,5 +193,4 @@ La compagnie peut atteindre son objectif de protection des données personnelles
 
 - [FAQ sur la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
-- [Acheter et configurer un certificat SSL pour votre service Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-purchase-ssl-web-site)
-
+- [Acheter et configurer un certificat SSL pour votre service Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)

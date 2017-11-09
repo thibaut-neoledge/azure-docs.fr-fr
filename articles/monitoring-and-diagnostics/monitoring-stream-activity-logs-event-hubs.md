@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
-ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/10/2016
-
+ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs
 Le [**journal d’activité Azure**](monitoring-overview-activity-logs.md) peut être diffusé en quasi-temps réel sur n’importe quelle application à l’aide de l’option « Export » intégrée au portail, ou en activant l’identifiant de règle Service Bus dans un profil de journal via les applets de commande PowerShell Azure ou l’interface de ligne de commande Azure.
@@ -80,5 +79,4 @@ L’identifiant de règle Service Bus est une chaîne au format : `{service bus 
 * [Archiver le journal d’activité dans un compte de stockage](monitoring-archive-activity-log.md)
 * [Lire la présentation du journal d’activité Azure](monitoring-overview-activity-logs.md)
 * [Définir une alerte basée sur un événement de journal d’activité](insights-auditlog-to-webhook-email.md)
-
 

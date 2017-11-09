@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 31fed307a32e629d00aab7cc9d5167ee16d83936
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-etime"></a>Didacticiel : Intégration d’Azure AD à ADP eTime
 
@@ -112,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :  `https://<servername>.adp.com`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<servername>.adp.com`
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<servername>.adp.com/affwebservices/public/saml2assertionconsumer` 
  
@@ -129,7 +127,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_attribute.png)
 
-6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme dans l’image, puis effectuez les étapes suivantes :
+6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
     | Nom de l'attribut | Valeur de l’attribut |
     | ------------------- | -------------------- |    
@@ -253,5 +251,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_203.png
-
 

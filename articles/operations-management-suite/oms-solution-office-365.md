@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
+ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: dcc44986acbb76eafc3cfacb79acf237802de021
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="office-365-solution-in-operations-management-suite-oms"></a>Solutions Office 365 dans Operations Management Suite (OMS)
 
@@ -281,15 +280,15 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 | Requête | Description |
 | --- | --- |
-|Nombre de toutes les opérations sur votre abonnement Office 365 |`Type = OfficeActivity | measure count() by Operation` |
-|Utilisation des sites SharePoint|' Type = OfficeActivity OfficeWorkload = sharepoint | measure count() as Count by SiteUrl | sort Count asc`|
-|Opérations d’accès de fichier par type d’utilisateur|`Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed | measure count() by UserType`|
-|Recherche avec un mot clé spécifique|`Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"`|
-|Analyser des actions externes sur Exchange|`Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true`|
+|Nombre de toutes les opérations sur votre abonnement Office 365 |Type = OfficeActivity &#124; measure count() by Operation |
+|Utilisation des sites SharePoint|Type=OfficeActivity OfficeWorkload=sharepoint &#124; measure count() as Count by SiteUrl &#124; sort Count asc|
+|Opérations d’accès de fichier par type d’utilisateur|Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed &#124; measure count() by UserType|
+|Recherche avec un mot clé spécifique|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
+|Analyser des actions externes sur Exchange|Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true|
 
 
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 Si votre solution Office 365 ne collecte pas les données comme prévu, vérifiez son état dans le portail OMS sur **Paramètres** -> **Sources connectées** -> **Office 365**. La table suivante décrit chaque état.
 
@@ -305,4 +304,3 @@ Si votre solution Office 365 ne collecte pas les données comme prévu, vérifie
 * Utilisez les recherches de journaux de [Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher des données détaillées sur les mises à jour.
 * [Créez vos propres tableaux de bord](../log-analytics/log-analytics-dashboards.md) pour afficher vos requêtes de recherche favoris Office 365.
 * [Créez des alertes](../log-analytics/log-analytics-alerts.md) pour être informé de façon proactive des activités importantes Office 365.  
-

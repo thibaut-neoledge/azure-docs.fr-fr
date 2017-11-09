@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
-translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 0f2f25175e3988c58961be3d23e0e7aabcb0da8d
-
-
+ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exemple d'utilisation : Déploiement continu sur des ordinateurs virtuels à l’aide d’Automation DSC et Chocolatey
 L’univers des opérations de développement offre de nombreux outils conçus pour aider les développeurs à franchir plus facilement différents stades dans le pipeline de l’intégration continue.  Le nouveau service Azure Automation Desired State Configuration (DSC) vient aujourd’hui enrichir la liste des options disponibles pour les équipes DevOps.  Cet article explique comment configurer le déploiement continu (CD) pour un ordinateur Windows.  Vous pouvez facilement étendre la technique afin d’inclure autant d’ordinateurs Windows que vous le souhaitez dans le rôle (par exemple, un site Web), puis dans des rôles supplémentaires.
@@ -77,7 +77,7 @@ Il existe aussi une approche manuelle.  La structure de dossier d’un module d�
 
 * Installez le module dont vous avez besoin sur votre station de travail, comme suit :
   * Installez [Windows Management Framework v5](http://aka.ms/wmf5latest) (inutile pour Windows 10)
-  * `Install-Module –Name MODULE-NAME` < — récupère le module à partir de la PowerShell Gallery 
+  * `Install-Module –Name MODULE-NAME` &lt; — récupère le module à partir de la PowerShell Gallery 
 * Copiez le dossier de module situé dans le répertoire `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` dans un dossier temporaire 
 * Supprimez les modèles et la documentation dans le dossier principal 
 * Compressez le dossier principal en attribuant au fichier ZIP exactement le même nom que celui du dossier 
@@ -176,10 +176,4 @@ La source complète de cet exemple se trouve dans ce [projet Visual Studio](http
 * [Vue d'ensemble d'Azure Automation DSC](automation-dsc-overview.md)
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

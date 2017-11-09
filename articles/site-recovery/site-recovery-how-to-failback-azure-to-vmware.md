@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 622604dc3ce69085feff6705168d58ad9938c429
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
-
+ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Restauration automatique d’Azure vers un site local
 
 Cet article explique comment restaurer automatiquement des machines virtuelles Azure sur le site local. Suivez les instructions de cet article pour restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure, en suivant le didacticiel [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 
 > [!WARNING]
-> Si vous avez [procédé à la migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas effectuer de restauration automatique après cela.
+> Vous ne pouvez pas procéder à une restauration automatique après avoir [effectué une migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé une machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure. Si vous désactivez la protection de la machine virtuelle, vous ne pouvez pas effectuer de restauration automatique.
 
 > [!NOTE]
 > Si vous avez effectué un basculement vers des machines virtuelles VMware, vous ne pouvez pas effectuer de restauration automatique vers un hôte Hyper-v.
@@ -65,9 +63,9 @@ Si vous procédez à une restauration automatique vers la machine virtuelle d’
 Si la machine virtuelle locale n’existe pas avant la reprotection, la solution consiste à utiliser un autre emplacement. Cette procédure recrée la machine virtuelle locale. Cela entraîne également le téléchargement complet de données.
 
 * Lorsque vous effectuez la restauration automatique sur un autre emplacement, la machine virtuelle est restaurée sur le même hôte ESX que celui où le serveur cible est déployé. Le magasin de données utilisé pour créer le disque sera le même que celui sélectionné lors de la reprotection de la machine virtuelle.
-* Vous ne pouvez effectuer la restauration automatique que dans un magasin de données VMFS (Virtual Machine File System). Si vous utilisez un disque vSAN ou RDM, la reprotection et la restauration automatique ne fonctionneront pas.
+* Vous ne pouvez effectuer la restauration automatique que dans une banque de données VMFS (Virtual Machine File System) ou vSAN. Si vous utilisez un disque RDM, la reprotection et la restauration automatique ne fonctionneront pas.
 * La reprotection implique un transfert de données initial de grande taille, suivi par les modifications. Ce processus est préconisé lorsque la machine virtuelle n’existe pas sur le site. Toutes les données doivent être répliquées. Cette reprotection prendra également plus de temps que la récupération sur l’emplacement d’origine.
-* Vous ne pouvez pas effectuer une restauration automatique sur des disques vSAN ou RDM. Seuls les nouveaux disques de machine virtuelle (VMDK) peuvent être créés sur un magasin de données VMFS.
+* Vous ne pouvez pas effectuer une restauration automatique sur des disques RDM. Seuls les nouveaux disques de machine virtuelle (VMDK) peuvent être créés dans une banque de données VMFS/vSAN.
 
 Une machine physique basculée vers Azure ne peut être restaurée automatiquement que comme une machine virtuelle VMware (également appelée P2A2V). Ce flux s’inscrit dans le cadre de la récupération d’un autre emplacement.
 
@@ -79,8 +77,11 @@ Avant toute chose, effectuez la reprotection afin que les machines virtuelles so
 
 ## <a name="prerequisites"></a>Composants requis
 
-* Un serveur de configuration est requis localement, lorsque vous effectuez une restauration automatique. Pendant la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échoue. Veillez donc à effectuer des sauvegardes régulières de votre serveur. En cas de problème, vous devez restaurer le serveur avec la même adresse IP pour que la restauration automatique fonctionne.
-* Le serveur cible maître ne doit avoir aucun instantané avant de déclencher la restauration automatique.
+> [!IMPORTANT]
+> Pendant le basculement vers Azure, comme le site local risque de ne pas être accessible, le serveur de configuration peut être indisponible ou à l’arrêt. Le serveur de configuration local doit être en cours d’exécution et connecté au cours de la reprotection et de la restauration automatique.
+
+* Un serveur de configuration est requis localement, lorsque vous effectuez une restauration automatique. Il doit être en cours d’exécution et connecté au service de telle sorte que son intégrité soit correcte. Pendant la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échoue. Veillez donc à effectuer des sauvegardes régulières de votre serveur. En cas de problème, vous devez restaurer le serveur avec la même adresse IP pour que la restauration automatique fonctionne.
+* Le serveur cible maître ne doit comporter aucun instantané avant le déclenchement de la reprotection/restauration automatique.
 
 ## <a name="steps-to-fail-back"></a>Procédure de restauration automatique
 
@@ -134,4 +135,3 @@ Une fois le travail de reprotection terminé, la machine virtuelle est répliqu�
 
 ## <a name="common-issues"></a>Problèmes courants
 Assurez-vous que le serveur vCenter est connecté avant de procéder à une restauration automatique. Sinon, la déconnexion des disques et leur attachement à la machine virtuelle échoueront.
-

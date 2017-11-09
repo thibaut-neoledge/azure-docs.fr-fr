@@ -5,29 +5,29 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-editor: na
 ms.assetid: b75f5f00-ea8b-4850-ae2e-134e5d678d97
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 08/11/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 181760d0bff399790143e7313be760e14a2e019e
-ms.openlocfilehash: 4cba977d3bc302fdf7a85a71098043098ac6de12
-
-
+ms.openlocfilehash: 39a82e581d9b1eee19b5be9a5aa8a425c150dcdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Didacticiel : Intégration d’Azure Active Directory à Soonr Workplace
 
-L’objectif de ce didacticiel est de vous montrer comment intégrer Soonr Workplace à Azure Active Directory (Azure AD).  
+Dans ce didacticiel, vous allez apprendre à intégrer Soonr Workplace à Azure Active Directory (Azure AD).
+
 L’intégration de Soonr Workplace à Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Soonr Workplace.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Soonr Workplace (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -38,226 +38,190 @@ Pour configurer l’intégration d’Azure AD à Soonr Workplace, vous avez bes
 - Un abonnement Azure AD
 - Un abonnement Soonr Workplace pour lequel l’authentification unique est activée
 
-
-> [!NOTE] 
+> [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
-- Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
-
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Soonr Workplace à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
-
 
 ## <a name="adding-soonr-workplace-from-the-gallery"></a>Ajout de Soonr Workplace à partir de la galerie
 Pour configurer l’intégration de Soonr Workplace à Azure AD, vous devez ajouter Soonr Workplace à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Soonr Workplace à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Applications][2]
-
-4. Cliquez sur **Ajouter** en bas de la page.
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Applications][3]
 
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
- 
-    ![Applications][4]
+4. Dans la zone de recherche, tapez **Soonr Workplace**.
 
-6. Dans la zone de recherche, tapez **Soonr Workplace**.
- 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_01.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_search.png)
 
-7. Dans le volet de résultats, sélectionnez **Soonr Workplace**, puis cliquez sur **Terminer** pour ajouter l’application.
+5. Dans le volet de résultats, sélectionnez **Soonr Workplace**, puis cliquez sur **Ajouter** pour ajouter l’application.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_02.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Soonr Workplace, avec un utilisateur de test appelé « Britta Simon ».
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Soonr Workplace, avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Soonr Workplace équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Soonr Workplace associé doit être établie.  
+Pour que l’authentification unique fonctionne, Azure AD doit connaître l’utilisateur Soonr Workplace correspondant à l’utilisateur Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Soonr Workplace associé doit être établie.
 
-Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Soonr Workplace.
+Dans Soonr Workplace, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** pour établir la relation.
 
 Pour configurer et tester l’authentification unique Azure AD avec Soonr Workplace, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Soonr Workplace](#creating-a-soonr-workplace-test-user)** : pour avoir un équivalent de Britta Simon dans Soonr Workplace lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test Soonr Workplace](#creating-a-soonr-workplace-test-user)** : pour avoir un équivalent de Britta Simon dans Soonr Workplace qui soit associé à la représentation de l’utilisateur Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application Soonr Workplace.
-
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Soonr Workplace.
 
 **Pour configurer l’authentification unique Azure AD avec Soonr Workplace, procédez comme suit :**
 
-1. Dans le portail Azure Classic, sur la page d’intégration d’applications **Soonr Workplace**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Soonr Workplace**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][6] 
+    ![Configurer l’authentification unique][4]
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Soonr Workplace**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_samlbase.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_03.png) 
+3. Dans la section **Domaine et URL Soonr Workplace**, effectuez les étapes suivantes :
 
-3. Sur la page de boîte de dialogue **Configurer les paramètres de l’application** , procédez comme suit :
+    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_url.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_04.png) 
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<servername>.soonr.com/singlesignon/saml/metadata`
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<server-name>.soonr.com/singlesignon/saml/SSO`.
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<servername>.soonr.com/singlesignon/saml/SSO`
 
-    b. Cliquez sur **Next**.
+4. Dans la section **Domaine et URL Soonr Workplace**, si vous souhaitez configurer l’application en **Mode initié par SP**, procédez comme suit :
+    
+    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_url1.png)
+
+    a. Cliquez sur l’option **Afficher les paramètres d’URL avancés**.
+
+    b. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<servername>.soonr.com/singlesignon/saml/SSO`
 
     > [!NOTE] 
-    > Notez qu’il ne s’agit pas de la valeur réelle. Vous devez mettre à jour la valeur avec l’URL de connexion réelle. Contactez l’équipe de support technique de Soonr Workplace pour obtenir cette valeur.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Contactez [l’équipe de support de Soonr Workplace](https://awp.autotask.net/help/) pour obtenir ces valeurs.
+ 
+5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-4. Sur la page **Configurer l’authentification unique sur Soonr Workplace**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur :
+    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_certificate.png) 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_05.png) 
+6. Cliquez sur le bouton **Enregistrer** .
 
-5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support Soonr Workplace et envoyez-lui les éléments suivants : 
+    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_general_400.png)
 
-    •  Le fichier de **métadonnées téléchargé**
+7. Dans la section **Configuration de Soonr Workplace**, cliquez sur **Configurer Soonr Workplace** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    • **L’URL de l’émetteur**
+    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_configure.png) 
 
-    • L’**URL d’authentification unique SAML**
+8. Pour configurer l’authentification unique côté **Soonr Workplace**, vous devez envoyer le **XML de métadonnées**, **, l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** téléchargés à l’[équipe de support de Soonr Workplace](https://awp.autotask.net/help/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
-    •  **L’URL du service de déconnexion unique**
+    >[!Note]
+    >Si vous avez besoin d’aide lors de la configuration d’Autotask Workplace, consultez [cette page](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) pour obtenir de l’aide avec votre compte Workplace.
 
-    >[!NOTE]
-    >Cette application est remplacée par <a href="https://azure.microsoft.com/en-us/marketplace/partners/autotask-corporataion/autotask/">Autotask Workplace</a> et vous pouvez vous reporter à <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-autotaskworkplace-tutorial">ce</a> didacticiel pour la configuration de l’application avec Azure AD.
-   
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
-
-    ![Authentification unique Azure AD][10]
-
-7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
-  
-    ![Authentification unique Azure AD][11]
-
-
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.  
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-![Créer un utilisateur Azure AD][20]
+![Créer un utilisateur Azure AD][100]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_09.png) 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_01.png) 
 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_02.png) 
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
-
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_03.png) 
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
-
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_04.png) 
 
-5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_05.png) 
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
 
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-
-    c. Cliquez sur **Next**.
-
-6.  Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
-
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_06.png) 
-
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-
-    e. Cliquez sur **Next**.
-
-7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
-
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_07.png) 
-
-8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
-
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_08.png) 
-
-    a. Notez la valeur du **Nouveau mot de passe**.
-
-    b. Cliquez sur **Terminé**.   
-
-
-
+    d. Cliquez sur **Créer**.
+ 
 ### <a name="creating-a-soonr-workplace-test-user"></a>Création d’un utilisateur de test Soonr Workplace
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Soonr Workplace. Collaborez avec l’équipe de support technique de Soonr Workplace pour créer un utilisateur dans la plateforme. Vous pouvez soumettre un ticket de support avec Soonr <a href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fsoonr.com%2FAWPHelp%2FContent%2F0_HOME%2FSupport_for_End_Clients.htm&data=01%7C01%7Cv-saikra%40microsoft.com%7Ccbb4367ab09b4dacaac408d3eebe3f42%7C72f988bf86f141af91ab2d7cd011db47%7C1&sdata=FB92qtE6m%2Fd8yox7AnL2f1h%2FGXwSkma9x9H8Pz0955M%3D&reserved=0/">à partir d’ici</a>.
-
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Soonr Workplace. Collaborez avec [l’équipe de support de Soonr Workplace](https://awp.autotask.net/help/) pour créer un utilisateur dans la plateforme. Vous pouvez soumettre un ticket de support avec Soonr <a href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fsoonr.com%2FAWPHelp%2FContent%2F0_HOME%2FSupport_for_End_Clients.htm&data=01%7C01%7Cv-saikra%40microsoft.com%7Ccbb4367ab09b4dacaac408d3eebe3f42%7C72f988bf86f141af91ab2d7cd011db47%7C1&sdata=FB92qtE6m%2Fd8yox7AnL2f1h%2FGXwSkma9x9H8Pz0955M%3D&reserved=0/">à partir d’ici</a>.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Soonr Workplace.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Soonr Workplace.
 
 ![Affecter des utilisateurs][200] 
 
 **Pour affecter Britta Simon à Soonr Workplace, procédez comme suit :**
 
-1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **Soonr Workplace**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_50.png) 
+    ![Configurer l’authentification unique](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_app.png) 
 
-1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Affecter des utilisateurs][203] 
+    ![Affecter des utilisateurs][202] 
 
-1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
+    ![Affecter des utilisateurs][203]
 
-    ![Affecter des utilisateurs][205]
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
-Quand vous cliquez sur la vignette Soonr Workplace dans le volet d’accès, vous devez être connecté automatiquement à votre application Soonr Workplace.
 
+Quand vous cliquez sur la vignette Soonr Workplace dans le volet d’accès, vous devez être connecté automatiquement à votre application Soonr Workplace.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
 
 
 <!--Image references-->
@@ -267,19 +231,10 @@ Quand vous cliquez sur la vignette Soonr Workplace dans le volet d’accès, vou
 [3]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

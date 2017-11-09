@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 09/16/2017
 ms.author: markvi
 ms.reviewer: calebb
+ms.openlocfilehash: 74b97ac263dcc45f7a8dd7461cbdb23d9fd5e6fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
 
@@ -98,30 +97,91 @@ Dans votre environnement, vous devez éviter les configurations suivantes :
 - **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
 
 
-## <a name="common-scenarios"></a>Scénarios courants
 
-### <a name="requiring-multi-factor-authentication-for-apps"></a>Exiger l’authentification multifacteur pour les applications
+## <a name="policy-migration"></a>Migration des stratégies
 
-Dans de nombreux environnements, certaines applications nécessitent un niveau de protection plus élevé que d’autres.
-C’est le cas des applications qui ont accès à des données sensibles.
-Si vous souhaitez ajouter une couche de protection supplémentaire pour ces applications, vous pouvez configurer une stratégie d’accès conditionnel qui requiert l’authentification multifacteur lorsque les utilisateurs accèdent à ces applications.
+Si des stratégies sont configurées dans le portail Azure Classic, vous devez les migrer vers le portail Azure, car :
 
 
-### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>Exiger l’authentification multifacteur pour l’accès à partir de réseaux non approuvés
+- Un utilisateur qui figure dans une stratégie du portail Azure Classic et une stratégie du portail Azure doit remplir les conditions requises dans les deux stratégies 
 
-Ce scénario est semblable au précédent, car il ajoute une exigence pour l’authentification multifacteur.
-Toutefois, la principale différence réside dans la condition de cette exigence.  
-Tandis que le scénario précédent se concentre sur les applications ayant accès à des données sensibles, ce scénario concerne les emplacements approuvés.  
-En d’autres termes, l’authentification multifacteur peut être requise si un utilisateur accède à une application à partir d’un réseau que vous n’avez pas approuvé.
+- Si vous ne migrez vos stratégies existantes, vous ne pourrez pas implémenter de stratégies qui accordent l’accès
 
 
-### <a name="only-trusted-devices-can-access-office-365-services"></a>Seuls les appareils approuvés ont accès aux services Office 365
+### <a name="migration-from-the-azure-classic-portal"></a>Migration à partir du portail Azure Classic
 
-Si vous utilisez Intune dans votre environnement, vous pouvez utiliser d’emblée l’interface de stratégie d’accès conditionnel dans la console Azure.
+Dans ce scénario : 
 
-De nombreux clients Intune utilisent l’accès conditionnel pour vérifier que seuls les appareils approuvés ont accès aux services Office 365. Cela signifie que les appareils mobiles sont inscrits dans Intune, qu’ils répondent aux critères de la stratégie de conformité et que des PC Windows sont joints à un domaine local. L’avantage, c’est que vous n’avez pas à définir la même stratégie pour chacun des services Office 365.  Lorsque vous créez une stratégie, configurez les applications cloud pour inclure chacune des applications Office 365 que vous souhaitez protéger avec l’accès conditionnel.
+- Dans votre [portail Azure Classic](https://manage.windowsazure.com), vous avez configuré :
+
+    - SharePoint Online
+
+    ![Accès conditionnel](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - Une stratégie d’accès conditionnel basé sur l’appareil
+
+    ![Accès conditionnel](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Vous souhaitez configurer une stratégie d’accès conditionnel de gestion des applications mobiles dans le portail Azure 
+ 
+
+#### <a name="configuration"></a>Configuration 
+
+- Passez en revue vos stratégies d’accès conditionnel basé sur l’appareil
+
+- Migrez-les vers le portail Azure 
+
+- Ajoutez des stratégies d’accès conditionnel de gestion des applications mobiles
+
+
+### <a name="migrating-from-intune"></a>Migration à partir d’Intune 
+
+Dans ce scénario :
+
+- Dans [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), vous avez configuré une stratégie d’accès conditionnel de gestion des applications mobiles pour Exchange Online ou SharePoint Online.
+
+    ![Accès conditionnel](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Vous souhaitez migrer afin d’utiliser l’accès conditionnel de gestion des applications mobiles dans le portail Azure
+
+
+#### <a name="configuration"></a>Configuration 
+ 
+- Passez en revue vos stratégies d’accès conditionnel basé sur l’appareil
+
+- Migrez-les vers le portail Azure 
+
+- Passez en revue vos stratégies d’accès conditionnel de gestion des applications mobiles configurées pour Exchange Online ou SharePoint Online dans Intune
+
+- Ajoutez le contrôle pour **Exiger des applications approuvées** en plus du contrôle basé sur l’appareil 
+ 
+
+### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migration à partir du portail Azure Classic et Intune
+
+Dans ce scénario :
+
+- Vous avez configuré ce qui suit :
+
+    - **Portail Azure Classic** : accès conditionnel basé sur l’appareil 
+
+    - **Intune** : stratégies d’accès conditionnel de gestion des applications mobiles 
+    
+- Vous souhaitez migrer les deux stratégies afin d’utiliser des stratégies d’accès conditionnel de gestion des applications mobiles dans le portail Azure
+
+
+#### <a name="configuration"></a>Configuration
+
+- Passez en revue vos stratégies d’accès conditionnel basé sur l’appareil
+
+- Migrez-les vers le portail Azure 
+
+- Passez en revue votre stratégie d’accès conditionnel de gestion des applications mobiles configurée pour Exchange Online ou SharePoint Online dans Intune
+
+- Ajoutez le contrôle pour **Exiger des applications approuvées** en plus du contrôle basé sur l’appareil 
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Transfert de données vers et à partir d’Azure Storage
 Si vous voulez déplacer des données locales vers Azure Storage (ou inversement), il existe plusieurs façons de procéder. L’approche la mieux adaptée à vos besoins dépend de votre scénario. Cet article fournit un aperçu des différents scénarios et des offres appropriées pour chacun d’eux.
@@ -78,4 +77,3 @@ Consultez [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) p
 ### <a name="moving-data-faq"></a>FAQ sur le déplacement des données :
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>Puis-je migrer des disques durs virtuels d’une région à une autre sans copie ?
 La seule façon de copier des disques durs virtuels entre des régions consiste à copier les données entre les comptes de stockage dans chaque région. Pour ce faire, vous pouvez utiliser AZCopy. Pour en savoir plus, consultez Transfert de données avec l’utilitaire de ligne de commande AzCopy. Pour les très grandes quantités de données, vous pouvez également utiliser Azure Import/Export. Consultez [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) pour en savoir plus.
-

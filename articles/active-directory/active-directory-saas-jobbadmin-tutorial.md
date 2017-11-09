@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 848a6d6d0f072bc3f697ff57756714fc45e7dcc4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Didacticiel : Intégration d’Azure Active Directory à Jobbadmin
 
@@ -231,5 +229,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-jobbadmin-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jobbadmin-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jobbadmin-tutorial/tutorial_general_203.png
-
 

@@ -8,7 +8,7 @@
 
 # Prise en main
 ## [Créer un serveur dans le portail Azure](analysis-services-create-server.md)
-## [Créer un serveur avec PowerShell](analysis-services-create-powershell.md)
+## [Créer un serveur avec Azure PowerShell](analysis-services-create-powershell.md)
 ## [Déployer un modèle à partir de Visual Studio](analysis-services-deploy.md)
 ## [Créer un modèle dans le portail Azure (aperçu)](analysis-services-create-model-portal.md)
 
@@ -16,6 +16,7 @@
 ## [Gérer un serveur](analysis-services-manage.md)
 ## [Gérer les utilisateurs de base de données](analysis-services-database-users.md)
 ## [Gérer les administrateurs de serveur](analysis-services-server-admins.md)
+## [Surveiller les indicateurs de performances du serveur](analysis-services-monitor.md)
 ## [Installer et configurer une passerelle de données locale](analysis-services-gateway-install.md)
 ## [Obtenir les bibliothèques clientes](analysis-services-data-providers.md)
 ## [Sauvegarde et restauration](analysis-services-backup.md)
@@ -42,14 +43,14 @@
 ### [Leçon supplémentaire – Hiérarchies irrégulières](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Référence
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Ressources
-## [Exemples de code Analysis Services sur GitHub](https://github.com/Microsoft/Analysis-Services)
+## [Exemples](analysis-services-samples.md)
 ## [Blog de l’équipe Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Forum Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)

@@ -1,6 +1,6 @@
 ---
 title: "Configuration d’un groupe de disponibilité Always On dans des machines virtuelles Azure (Classic) | Microsoft Docs"
-description: "Créez un groupe de disponibilité Always On avec des machines virtuelles Azure. Ce didacticiel utilise l&quot;interface utilisateur et des outils, plutôt que des scripts."
+description: "Créez un groupe de disponibilité Always On avec des machines virtuelles Azure. Ce didacticiel utilise l'interface utilisateur et des outils, plutôt que des scripts."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
 ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Configuration d’un groupe de disponibilité Always On dans des machines virtuelles Azure (Classic)
 > [!div class="op_single_selector"]
@@ -415,5 +414,4 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 Vous avez correctement implémenté SQL Server Always On en créant un groupe de disponibilité dans Azure. Pour configurer un écouteur pour ce groupe de disponibilité, voir [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](../classic/ps-sql-int-listener.md).
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
 

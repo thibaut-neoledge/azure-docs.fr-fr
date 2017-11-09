@@ -1,6 +1,6 @@
 ---
 title: "Sauvegarde Azure pour les charges de travail SQL Server à l’aide de DPM | Microsoft Docs"
-description: "Présentation de la sauvegarde de bases de données SQL Server à l&quot;aide du service Azure Backup"
+description: "Présentation de la sauvegarde de bases de données SQL Server à l'aide du service Azure Backup"
 services: backup
 documentationcenter: 
 author: adigan
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
 ms.openlocfilehash: c9edc066ea2edc9cd4b8453047d5584a588174dc
-ms.lasthandoff: 03/02/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 Cet article vous guide tout au long des étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide de la Sauvegarde Azure.
@@ -40,11 +39,11 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](backup-azu
 2. Dans le ruban des outils, cliquez sur **Nouveau** pour créer un nouveau groupe de protection.
 
     ![Créer un groupe de protection](./media/backup-azure-backup-sql/protection-group.png)
-3. DPM affiche l'écran de démarrage avec les conseils destinés à la création d'un **groupe de protection**. Cliquez sur **Next**.
+3. DPM affiche l'écran de démarrage avec les conseils destinés à la création d'un **groupe de protection**. Cliquez sur **Suivant**.
 4. Sélectionnez **Serveurs**.
 
     ![Sélectionner le type de groupe de protection - « Servers »](./media/backup-azure-backup-sql/pg-servers.png)
-5. Développez l'ordinateur SQL Server sur lequel se trouvent les bases de données à sauvegarder. DPM affiche diverses sources de données pouvant être sauvegardés à partir de ce serveur. Développez **Tous les partages SQL** et sélectionnez les bases de données (dans ce cas, nous avons sélectionné ReportServer$ MSDPM2012 et ReportServer$ MSDPM2012TempDB) à sauvegarder. Cliquez sur **Next**.
+5. Développez l'ordinateur SQL Server sur lequel se trouvent les bases de données à sauvegarder. DPM affiche diverses sources de données pouvant être sauvegardés à partir de ce serveur. Développez **Tous les partages SQL** et sélectionnez les bases de données (dans ce cas, nous avons sélectionné ReportServer$ MSDPM2012 et ReportServer$ MSDPM2012TempDB) à sauvegarder. Cliquez sur **Suivant**.
 
     ![Sélectionner la base de données SQL](./media/backup-azure-backup-sql/pg-databases.png)
 6. Donnez un nom au groupe de protection, puis cochez la case **Je souhaite une protection en ligne** .
@@ -70,7 +69,7 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](backup-azu
     Par défaut, DPM crée un volume par source de données (base de données SQL Server) utilisée pour la copie de sauvegarde initiale. Suivant cette approche, le Gestionnaire de disque logique (LDM) limite la protection DPM à 300 sources de données (bases de données SQL Server). Pour contourner cette limitation, sélectionnez l’option **Colocaliser les données dans le pool de stockage DPM**. Si vous choisissez cette option, DPM utilise un même volume pour plusieurs sources de données, ce qui permet à DPM de protéger jusqu’à 2 000 bases de données SQL.
 
     Si l’option **Augmenter automatiquement les volumes** est sélectionnée, DPM peut gérer l’augmentation du volume de sauvegarde à mesure que les données de production augmentent. Si l’option **Augmenter automatiquement les volumes** n’est pas sélectionnée, DPM limite le stockage de sauvegarde utilisé pour les sources de données dans le groupe de protection.
-9. Les administrateurs peuvent opter pour le transfert manuel de cette sauvegarde initiale manuellement (hors réseau) pour éviter l’encombrement de la bande passante ou sur le réseau. Ils peuvent également configurer l’heure à laquelle le transfert initial peut se produire. Cliquez sur **Next**.
+9. Les administrateurs peuvent opter pour le transfert manuel de cette sauvegarde initiale manuellement (hors réseau) pour éviter l’encombrement de la bande passante ou sur le réseau. Ils peuvent également configurer l’heure à laquelle le transfert initial peut se produire. Cliquez sur **Suivant**.
 
     ![Méthode de réplication initiale](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -143,12 +142,12 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 2. Cliquez avec le bouton droit sur le nom de base de données et cliquez sur **Récupérer**.
 
     ![Récupérer depuis Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM affiche les détails du point de récupération. Cliquez sur **Next**. Pour remplacer la base de données, sélectionnez le type de récupération **Récupérer l’instance d’origine de SQL Server**. Cliquez sur **Next**.
+3. DPM affiche les détails du point de récupération. Cliquez sur **Suivant**. Pour remplacer la base de données, sélectionnez le type de récupération **Récupérer l’instance d’origine de SQL Server**. Cliquez sur **Suivant**.
 
     ![Récupérer à l’emplacement d’origine](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     Dans cet exemple, DPM permet la récupération de la base de données vers une autre instance SQL Server ou dans un dossier de réseau autonome.
-4. Dans l'écran **Spécifier des options de récupération** , vous pouvez sélectionner les options de récupération telles que la limitation de bande passante réseau pour limiter la bande passante utilisée par la récupération. Cliquez sur **Next**.
+4. Dans l'écran **Spécifier des options de récupération** , vous pouvez sélectionner les options de récupération telles que la limitation de bande passante réseau pour limiter la bande passante utilisée par la récupération. Cliquez sur **Suivant**.
 5. Dans l’écran **Résumé** , vous voyez toutes les configurations de récupération fournies jusqu’à présent. Cliquez sur **Restaurer**.
 
     L’état de récupération indique la base de données en cours de récupération. Vous pouvez cliquer sur **Fermer** pour fermer l’Assistant et afficher la progression dans l’espace de travail **Surveillance**.
@@ -159,4 +158,3 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 
 ### <a name="next-steps"></a>Étapes suivantes :
 •    [Sauvegarde Azure - FAQ](backup-azure-backup-faq.md)
-

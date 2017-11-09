@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
 ms.openlocfilehash: 22c72020200138e78835ed7dd2661f18b824c785
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Didacticiel : Intégration d’Azure Active Directory à iLMS
 
@@ -123,13 +121,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url1.png)
 
-    Dans la zone de texte **URL de connexion**, collez la valeur **Point de terminaison (URL)** que vous copiez à partir de la section **Fournisseur de services** des paramètres SAML dans le portail d’administration en tant que `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`        
+    Dans la zone de texte **URL de connexion**, collez la valeur **Point de terminaison (URL)** que vous copiez à partir de la section **Fournisseur de services** des paramètres SAML dans le portail d’administration en tant que `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
 5. Pour activer l’approvisionnement JIT, l’application iLMS attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
     ![Configurer l’authentification unique](./media/active-directory-saas-ilms-tutorial/4.png)
     
-    Créez les attributs **Département, région** et **Division** et ajoutez le nom de ces attributs dans iLMS. Tous les attributs présentés ci-dessus sont requis.    
+    Créez les attributs **Département, région** et **Division** et ajoutez le nom de ces attributs dans iLMS. Tous les attributs présentés ci-dessus sont requis.  
 
     > [!NOTE] 
     > Vous devez activer **Créer un compte utilisateur non reconnu** dans iLMS pour mapper ces attributs. Suivez les instructions [ici](http://support.inspiredelearning.com/customer/portal/articles/2204526) pour avoir une idée sur la configuration des attributs.
@@ -325,5 +323,4 @@ Lorsque vous cliquez sur la mosaïque iLMS dans le volet d’accès, vous devez 
 [201]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_203.png
-
 

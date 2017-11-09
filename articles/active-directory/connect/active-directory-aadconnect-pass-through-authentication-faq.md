@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: e1bd58797124210f7c31e90fb20d728289a04ba2
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: ded80330ad323a0019ad59ac54d076a78b70f521
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
 Dans cet article, nous répondons au forum aux questions sur l’authentification directe d’Azure Active Directory (Azure AD). N’hésitez pas à le consulter régulièrement, du contenu nouveau y est fréquemment ajouté.
-
->[!IMPORTANT]
->La fonctionnalité Authentification directe est actuellement en préversion.
 
 ## <a name="which-of-the-azure-ad-sign-in-methods---pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs---should-i-choose"></a>Parmi les nouvelles méthodes de connexion Azure AD - authentification directe, synchronisation de hachage de mot de passe et services de fédération Active Directory (AD FS) - laquelle dois-je choisir ?
 
@@ -35,7 +30,7 @@ Cela dépend de votre environnement local et des exigences de votre organisation
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>L’authentification directe est-elle une fonctionnalité gratuite ?
 
-L’authentification directe est gratuite et aucune édition payante d’Azure AD n’est nécessaire pour l’utiliser. Elle reste gratuite même une fois mise à la disponibilité générale.
+L’authentification directe est gratuite et aucune édition payante d’Azure AD n’est nécessaire pour l’utiliser.
 
 ## <a name="is-pass-through-authentication-available-in-microsoft-cloud-germanyhttpwwwmicrosoftdecloud-deutschland-and-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L’authentification directe est-elle disponible dans [Microsoft Cloud Allemagne](http://www.microsoft.de/cloud-deutschland) et [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/) ?
 
@@ -51,7 +46,7 @@ Oui. L’authentification directe prend en charge `Alternate ID` comme nom d’u
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 
-Non, la synchronisation du hachage de mot de passe n’est pas une solution de secours générique pour l’authentification directe. Elle agit uniquement comme solution de secours pour les [scénarios que l’authentification directe ne prend pas en charge aujourd'hui](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Non, l’authentification directe _ne bascule pas_ automatiquement vers la synchronisation de hachage de mot de passe. Elle agit uniquement comme solution de secours pour les [scénarios que l’authentification directe ne prend pas en charge aujourd'hui](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../active-directory-application-proxy-get-started.md) sur le même serveur qu’un agent d’authentification directe ?
 
@@ -63,9 +58,9 @@ Vous devez utiliser la version 1.1.486.0 ou une version ultérieure pour Azure A
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-using-pass-through-authentication"></a>Que se passe-t-il si mon mot de passe utilisateur a expiré et qu’ils essaient de se connecter à l’aide de l’authentification directe ?
 
-Dans le cas où vous avez configuré [la réécriture du mot de passe](../active-directory-passwords-update-your-own-password.md) pour un utilisateur spécifique et que cet utilisateur se connecte à l’aide de l’authentification directe, leurs mots de passe peuvent être modifiés ou réinitialisés. Les mots de passe seront réécrits dans l’annuaire Active Directory local comme prévu.
+Dans le cas où vous avez configuré [l’écriture différée du mot de passe](../active-directory-passwords-update-your-own-password.md) pour un utilisateur spécifique et que cet utilisateur se connecte à l’aide de l’authentification directe, leurs mots de passe peuvent être modifiés ou réinitialisés. Les mots de passe seront réécrits dans l’annuaire Active Directory local comme prévu.
 
-Toutefois, si la réécriture du mot de passe n’est pas configurée pour un utilisateur spécifique ou si l’utilisateur n’a aucune licence Azure AD valide attribuée, il ne peut pas mettre à jour son mot de passe dans le cloud. Il ne peut pas mettre à jour son mot de passe même si le mot de passe a expiré. À la place, l’utilisateur voit le message : « Votre organisation ne vous autorise pas à mettre à jour votre mot de passe sur ce site. Veuillez le mettre à jour en fonction de la méthode recommandée par votre organisation, ou contactez votre administrateur si vous avez besoin d’aide ». L’utilisateur ou l’administrateur doit réinitialiser son mot de passe dans Active Directory local.
+Toutefois, si l’écriture différée du mot de passe n’est pas configurée pour un utilisateur spécifique ou si l’utilisateur n’a aucune licence Azure AD valide attribuée, il ne peut pas mettre à jour son mot de passe dans le cloud. Il ne peut pas mettre à jour son mot de passe même si le mot de passe a expiré. À la place, l’utilisateur voit le message : « Votre organisation ne vous autorise pas à mettre à jour votre mot de passe sur ce site. Veuillez le mettre à jour en fonction de la méthode recommandée par votre organisation, ou contactez votre administrateur si vous avez besoin d’aide ». L’utilisateur ou l’administrateur doit réinitialiser son mot de passe dans Active Directory local.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Comment l’authentification directe vous protège-t-elle contre les attaques par recherche exhaustive de mot de passe ?
 
@@ -100,11 +95,11 @@ Si les services AD FS ont été configurés en tant que méthode de connexion _h
 
 Oui. Les environnements à plusieurs forêts sont pris en charge s’il existe des approbations de forêts entre les forêts AD et si le routage du suffixe de leurs noms est configuré correctement.
 
-## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>Les agents d’authentification directe fournissent-ils une fonctionnalité d’équilibrage de charge ?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Combien d’agents d’authentification directe dois-je installer ?
 
-Non, l’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), mais pas l’équilibrage de charge. Un ou deux agents d’authentification peuvent mettre fin à la gestion de l’ensemble des requêtes de connexion.
+L’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Toutefois, cela ne fournit pas un équilibrage de charge déterministe entre les agents d’authentification.
 
-Les requêtes de validation du mot de passe que les Agents d’authentification doivent gérées sont légères. Par conséquent la charge de pointe et moyenne pour la plupart des clients est facilement gérée par deux ou trois agents d’authentification au total.
+Envisagez la charge moyenne et les pics de charge lors des demandes de connexion que vous attendez de la part de votre locataire. À titre de référence, un seul agent d’authentification peut gérer entre 300 000 et 400 000 authentifications par seconde sur un serveur doté d’un CPU à 4 cœurs et de 16 Go de RAM. Pour la plupart des clients, deux ou trois agents d’authentification au total suffisent à offrir la haute disponibilité et suffisamment de capacité.
 
 Nous vous recommandons d’installer des agents d’authentification près de vos contrôleurs de domaine pour améliorer la latence de connexion.
 
@@ -132,10 +127,11 @@ Réexécutez l’assistant Azure AD Connect et modifiez la méthode de connexion
 La désinstallation d’un agent d’authentification directe à partir d’un serveur provoque l’interruption de l’acceptation des requêtes de connexion. Assurez-vous d’avoir un autre agent d’authentification en cours d’exécution avant de procéder à cette opération, pour éviter de rompre la connexion utilisateur sur votre client.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : cette fonctionnalité est actuellement en préversion. Découvrez les scénarios pris en charge et ceux qui ne le sont pas.
+- [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
-- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez le mode opératoire de cette fonctionnalité.
+- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
+- [**Immersion dans la sécurité**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
 - [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.
-

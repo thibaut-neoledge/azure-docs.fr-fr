@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
+ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5631484bd2106ab5abff79dd3cbbf539c62bb164
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -44,7 +43,7 @@ IoT Edge vous permet d’écrire des applications grâces auxquelles des apparei
 Des kits _service SDK_ sont disponibles pour plusieurs langages et permettent de créer des [applications principales](#back-end-app) qui interagissent avec un hub IoT. Les didacticiels sur IoT Hub expliquent comment utiliser ces kits service SDK. Le code source et des informations supplémentaires sur les Kits de développement logiciel de services sont disponibles dans ce [dépôt](https://github.com/Azure/azure-iot-sdks) GitHub.
 
 ## <a name="azure-portal"></a>Portail Azure
-Le [portail Microsoft Azure](https://portal.azure.com) permet de configurer et de gérer l’ensemble de vos ressources Azure. Son contenu est organisé à l’aide de _panneaux_. Dans certains didacticiels concernant IoT Hub, vous pouvez être invité à utiliser le [portail Azure Classic](https://manage.windowsazure.com).
+Le [portail Microsoft Azure](https://portal.azure.com) permet de configurer et de gérer l’ensemble de vos ressources Azure. Son contenu est organisé à l’aide de _panneaux_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) est une collection d’applets de commande permettant de gérer Azure avec Windows PowerShell. Ces applets de commande permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure.
@@ -127,7 +126,7 @@ Vous pouvez utiliser l’[API REST de messagerie des appareils](https://docs.mic
 L’approvisionnement des appareils est le processus d’ajout des [données d’appareil](#device-data) initiales aux magasins dans votre solution. Pour permettre à un nouvel appareil de se connecter à votre hub, vous devez ajouter un ID et des clés d’appareil au [registre des identités](#identity-registry) d’IoT Hub. Dans le cadre du processus d’approvisionnement, vous devrez peut-être initialiser les données spécifiques à l’appareil dans d’autres magasins de la solution.
 
 ## <a name="device-twin"></a>Jumeau d’appareil
-Un [jumeau d’appareil](iot-hub-devguide-device-twins.md) est un document JSON contenant des informations d’état d’appareil telles que des métadonnées, des configurations et des conditions. [IoT Hub](#iot-hub) conserve un jumeau d’appareil pour chaque appareil que vous configurez dans votre hub IoT. Les jumeaux d’appareil vous permettent de synchroniser des [conditions d’appareil](#device-condition) et des configurations entre l’appareil et le back-end de la solution. Vous pouvez interroger des jumeaux d’appareil pour localiser des appareils spécifiques et déterminer l’état d’opérations longues.
+Un [jumeau d’appareil](iot-hub-devguide-device-twins.md) est un document JSON contenant des informations d’état d’appareil telles que des métadonnées, des configurations et des conditions. [IoT Hub](#iot-hub) conserve une représentation d’appareil pour chaque appareil que vous configurez dans votre IoT Hub. Les jumeaux d’appareil vous permettent de synchroniser des [conditions d’appareil](#device-condition) et des configurations entre l’appareil et le back-end de la solution. Vous pouvez interroger des jumeaux d’appareil pour localiser des appareils spécifiques et déterminer l’état d’opérations longues.
 
 ## <a name="device-twin-queries"></a>Requêtes de jumeaux d’appareil
 Les [requêtes de jumeaux d’appareil](iot-hub-devguide-query-language.md) utilisent le langage de requête similaire à SQL d’IoT Hub pour extraire des informations de vos jumeaux d’appareil. Vous pouvez utiliser ce même langage de requête IoT Hub pour extraire des informations sur des [travaux](#job) en cours d’exécution dans votre hub IoT.
@@ -257,4 +256,3 @@ Vous pouvez utiliser un service d’émission de jeton pour implémenter un méc
 
 ## <a name="x509-client-certificate"></a>Certificat client X.509
 Un appareil peut utiliser un certificat X.509 pour s’authentifier auprès de [IoT Hub](#iot-hub). L’utilisation d’un certificat X.509 est une alternative à l’utilisation d’un [jeton SAP](#shared-access-signature).
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: d0602a61b0335ef2bb92e27051c286852bc08d35
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Ajouter une connexion à une application de bureau Windows
 Le point de terminaison v2.0 vous permet de rapidement ajouter une authentification à vos applications de bureau avec la prise en charge des comptes Microsoft personnels, ainsi que les comptes professionnels ou scolaires.  Il permet également à votre application de communiquer de manière sécurisée avec une API web principale, ainsi qu’avec [Microsoft Graph](https://graph.microsoft.io) et un nombre limité [d’API unifiées Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -257,10 +255,9 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées.  Par exemple 
 
 Pour obtenir des ressources supplémentaires, consultez :  
 
-* [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Balise « msal » StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
+* [Guide du développeur 2.0 &gt;&gt;](active-directory-appmodel-v2-overview.md)
+* [Balise « msal » StackOverflow &gt;&gt;](http://stackoverflow.com/questions/tagged/msal)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
-
 

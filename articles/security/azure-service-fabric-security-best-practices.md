@@ -12,165 +12,176 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 11/01/2017
 ms.author: tomsh
+ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 3132e42aac72c0132c7526ac56d80bc5eec269e7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
-Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer une application cloud en production, il peut être judicieux d’évaluer votre application par rapport à une liste de bonnes pratiques essentielles et recommandées.
+Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
 
-Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer. 
+Azure Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer. 
 
 Pour chaque bonne pratique, nous détaillons les éléments suivants :
 
--   Nature de la bonne pratique
--   Raison pour laquelle activer cette bonne pratique
--   Conséquence possible en cas de non-utilisation de la bonne pratique
--   Comment apprendre à utiliser la bonne pratique
+-   La nature de la bonne pratique
+-   La raison pour laquelle vous devez l’implémenter
+-   Ce qui peut se produire si vous ne l’implémentez pas
+-   La façon d’apprendre à l’utiliser
 
-Nous disposons des bonnes pratiques suivantes pour la sécurité Azure Service Fabric :
+Nous recommandons les bonnes pratiques suivantes pour la sécurité Azure Service Fabric :
 
--   Utiliser un modèle Azure Resource Manager (ARM) et le module Azure PowerShell Service Fabric pour créer le cluster sécurisé
--   Utiliser des certificats X.509
--   Configurer des stratégies de sécurité
--   Configurer la sécurité de Reliable Actors
--   Configurer SSL pour Azure Service Fabric
--   Sécurité/isolement réseau avec Azure Service Fabric
--   Configurer un coffre de clés pour la sécurité
--   Affecter des utilisateurs aux rôles
+-   Utiliser des modèles Azure Resource Manager et le module PowerShell Service Fabric pour créer les clusters sécurisés.
+-   Utiliser des certificats X.509.
+-   Configurer des stratégies de sécurité.
+-   Implémenter la configuration de la sécurité de Reliable Actors.
+-   Configurer SSL pour Azure Service Fabric.
+-   Utiliser la sécurité et l’isolement réseau avec Azure Service Fabric.
+-   Configurer Azure Key Vault pour la sécurité.
+-   Affecter des utilisateurs aux rôles.
 
 
-## <a name="best-practices-for-securing-your-cluster"></a>Bonnes pratiques pour sécuriser votre cluster
+## <a name="best-practices-for-securing-your-clusters"></a>Bonnes pratiques pour sécuriser vos clusters
 
-**Grandes lignes**
+Utiliser toujours un cluster sécurisé :
+-   Implémenter la sécurité du cluster à l’aide de certificats.
+-   Fournir l’accès client (administrateur et en lecture seule) à l’aide d’Azure Active Directory (Azure AD).
 
-Utiliser toujours un cluster sécurisé
--   Sécurité du cluster : utiliser des certificats
--   Accès client (admin et en lecture seule) : utiliser AAD
+Utiliser des déploiements automatisés :
+-   Utiliser des scripts pour générer, déployer et substituer les secrets.
+-   Stocker les secrets dans Azure Key Vault et utiliser Azure AD pour tous les autres accès clients.
+-   Exiger une authentification pour l’accès aux secrets par une personne.
 
-Utiliser des déploiements automatisés
--   Utiliser des scripts pour générer, déployer et substituer les secrets
--   Conserver les secrets dans un coffre de clés, utiliser AD pour tous les autres accès client
--   Personne ne doit y avoir accès sans authentification.
+En outre, tenez compte des options de configuration suivantes :
+-   Créer des réseaux de périmètre (également appelés zones DMZ et sous-réseaux filtrés) à l’aide de groupes de sécurité réseau Azure.
+-   Accéder aux machines virtuelles du cluster ou gérer votre cluster à l’aide de serveurs de rebond (« jump ») avec la Connexion Bureau à distance.
 
-En outre, tenez compte des points suivants :
--   Créer des zones DMZ à l’aide des groupes de sécurité réseau (NSG)
--   Utiliser des serveurs de rebond (« jump ») pour accéder au moyen du protocole RDP aux machines virtuelles du cluster ou pour gérer votre cluster
+Vos clusters doivent être sécurisés pour empêcher les utilisateurs non autorisés de se connecter, surtout quand un cluster est en cours d’exécution dans l’environnement de production. Même s’il est possible de créer des clusters non sécurisés, les utilisateurs anonymes peuvent s’y connecter si les points de terminaison de gestion sont exposés sur l’Internet public.
 
-Les clusters doivent être sécurisés pour empêcher les utilisateurs non autorisés de se connecter à votre cluster, surtout quand des charges de travail sont en cours d’exécution sur ce dernier. Bien qu’il soit possible de créer un cluster non sécurisé, cela permet à tout utilisateur anonyme de s’y connecter si les points de terminaison de gestion sur l’Internet public.
+Il existe trois [scénarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pour implémenter la sécurité du cluster à l’aide de différentes technologies :
 
-Technologies utilisées pour implémenter ces scénarios. Les [scénarios de sécurité des clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) sont les suivants :
+-   Sécurité nœud à nœud : ce scénario sécurise les communications entre les machines virtuelles et les ordinateurs du cluster. Cette forme de sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent héberger les applications et les services dans le cluster.
+Dans ce scénario, les clusters qui s’exécutent sur Azure, ou les clusters autonomes qui s’exécutent sur Windows, peuvent utiliser la [Sécurité par certificat](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) ou la [Sécurité Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) pour les machines Windows Server.
+-   Sécurité client à nœud : ce scénario sécurise la communication entre un client Service Fabric et les nœuds individuels du cluster.
+-   Contrôle d’accès en fonction du rôle (RBAC) : ce scénario utilise des identités distinctes (certificats, Azure AD, etc.) pour chaque rôle client utilisateur et administrateur qui accède au cluster. Vous spécifiez les identités de rôle quand vous créez le cluster.
 
--   Sécurité nœud à nœud : sécurise les communications entre les machines virtuelles et les ordinateurs du cluster. Cette sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent participer à l’hébergement des applications et des services dans le cluster.
-Les clusters qui s’exécutent sur Azure ou les clusters autonomes sur Windows peuvent utiliser la [Sécurité par certificat](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) ou la [Sécurité Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) pour les ordinateurs Windows Server.
--   Sécurité client à nœud : sécurise la communication entre un client Service Fabric et des nœuds individuels du cluster.
--   Contrôle d’accès en fonction du rôle (RBAC) : vous spécifiez les rôles client utilisateur et administrateur au moment de la création du cluster en fournissant des identités distinctes (certificats, AAD, etc.) pour chacun.
--   Recommandations pour sécurité : pour les clusters Azure, nous vous recommandons d’utiliser la sécurité AAD pour authentifier les clients et les certificats pour la sécurité nœud à nœud.
+>[!NOTE]
+>**Recommandation de sécurité pour les clusters Azure :** utilisez la sécurité Azure AD pour authentifier les clients et les certificats pour la sécurité nœud à nœud.
 
-Pour configurer le cluster Windows autonome, consultez [Paramètres de configuration pour un cluster Windows autonome](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
+Pour configurer un cluster Windows autonome, consultez [Paramètres de configuration pour un cluster Windows autonome](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
 
-Utilisez des modèles Azure Resource Manager et le module Azure PowerShell Service Fabric pour créer le cluster sécurisé.
-Un guide vous montrant pas à pas comment configurer un cluster Azure Service Fabric sécurisé dans Azure à l’aide d’Azure Resource Manager est disponible [ici](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
+Utilisez des modèles Azure Resource Manager et le module PowerShell Service Fabric pour créer un cluster sécurisé.
+Pour des instructions pas à pas sur la création d’un cluster Service Fabric sécurisé à l’aide de modèles Azure Resource Manager, consultez [Créer un cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
 
-Utiliser le modèle Azure Resource Manager pour personnaliser votre cluster
--   Stockage des VHD de machine virtuelle géré par le programme d’installation
+Utiliser le modèle Azure Resource Manager :
+-   Personnaliser votre cluster en utilisant le modèle afin de configurer le stockage géré pour les disques durs virtuels (VHD) de machine virtuelle.
+-   Piloter les modifications apportées à votre groupe de ressources en utilisant le modèle pour faciliter la gestion de la configuration et de l’audit.
 
-Utiliser le modèle Azure Resource Manager pour piloter les changements dans votre groupe de ressources
--   Gestion des configurations aisée
--   Audit
+Traiter la configuration du cluster comme du code :
+-   Vérifier vos configurations de déploiement avec minutie.
+-   Éviter d’utiliser des commandes implicites pour modifier directement vos ressources.
 
-Traiter la configuration du cluster comme du code
--   Vérifiez minutieusement les configurations que vous choisissez de déployer
--   Évitez d’utiliser des commandes implicites pour optimiser vos ressources directement
-
-Plusieurs aspects du [cycle de vie des applications Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle) peuvent être automatisés. Le [module Azure PowerShell Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications#upload-the-application-package) automatise les tâches courantes de déploiement, de mise à niveau, de suppression et de test des applications Service Fabric. Des API gérées et HTTP pour la gestion de l’application sont également disponibles.
+Plusieurs aspects du [cycle de vie des applications Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle) peuvent être automatisés. Le [module PowerShell Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications#upload-the-application-package) automatise les tâches courantes de déploiement, de mise à niveau, de suppression et de test des applications Service Fabric. Des API managées et des API HTTP pour la gestion de l’application sont également disponibles.
 
 ## <a name="use-x509-certificates"></a>Utiliser des certificats X.509
-Les clusters doivent toujours être sécurisés à l’aide de certificats X.509 ou de la sécurité Windows. La sécurité peut uniquement être configurée au moment de la création du cluster et il n’est pas possible d’activer la sécurité une fois le cluster créé.
+Sécurisez systématiquement vos clusters à l’aide de certificats X.509 ou de la sécurité Windows. La sécurité n’est configurée qu’à la création des clusters. Il est impossible d’activer la sécurité par la suite.
 
-Si vous spécifiez un [certificat de cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security), affectez à ClusterCredentialType la valeur X509. Si vous spécifiez un certificat de serveur pour des connexions externes, donnez à ServerCredentialType la valeur X509.
+Pour spécifier un [certificat de cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security), affectez à la propriété **ClusterCredentialType** la valeur X509. Pour spécifier un certificat de serveur pour des connexions externes, donnez à la propriété **ServerCredentialType** la valeur X509.
 
--   Les certificats utilisés dans les clusters qui exécutent des charges de travail de production doivent être créés en utilisant un service de certificats Windows Server correctement configuré ou obtenus auprès d’une autorité de certification approuvée.
--   En production, n’utilisez jamais de certificats temporaires ou de test créés avec des outils comme MakeCert.exe.
--   Vous pouvez utiliser un certificat auto-signé, mais seulement pour les clusters de test et non en production.
+En outre, suivez les pratiques suivantes :
+-   Créez les certificats pour les clusters de production à l’aide d’un service de certificats Windows Server correctement configuré. Vous pouvez également obtenir les certificats auprès d’une autorité de certification approuvée.
+-   N’utilisez jamais un certificat temporaire ou de test pour les clusters de production si le certificat a été créé à l’aide de MakeCert.exe ou d’un outil similaire.
+-   Utilisez un certificat auto-signé pour les clusters de test, mais pas pour les clusters de production.
 
-Si le cluster n’est pas sécurisé. N’importe qui peut se connecter anonymement et effectuer des opérations de gestion. Les clusters de production doivent donc toujours être sécurisés à l’aide de certificats X.509 ou via la sécurité Windows.
+Si le cluster n’est pas sécurisé, toute personne peut s’y connecter de façon anonyme pour effectuer des opérations de management. Vous devez donc sécuriser systématiquement vos clusters de production à l’aide de certificats X.509 ou de la sécurité Windows.
 
-Pour plus d’informations sur la façon d’activer des certificats dans le cluster Service Fabric, consultez [Ajouter ou supprimer des certificats pour un cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure).
+Pour plus d’informations sur l’utilisation de certificats X.509, consultez [Ajouter ou supprimer des certificats pour un cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure).
 
 ## <a name="configure-security-policies"></a>Configurer des stratégies de sécurité
-Service Fabric permet également de sécuriser les ressources utilisées par des applications au moment du déploiement sous les comptes utilisateurs, par exemple les fichiers, les annuaires et les certificats. Ainsi, les applications en cours d’exécution sont plus sécurisées, même dans un environnement hébergé partagé.
+De plus, Service Fabric sécurise les ressources utilisées par les applications. Les ressources telles que les fichiers, les répertoires et les certificats sont stockées sous les comptes d’utilisateur quand l’application est déployée. Cette fonctionnalité sécurise l’exécution d’une application à partir d’une autre, même dans un environnement hébergé partagé.
 
--   Utiliser un utilisateur ou un groupe de domaine Active Directory : vous pouvez exécuter le service sous les informations d’identification d’un compte d’utilisateur ou de groupe Active Directory. Il s’agit d’Active Directory en local au sein de votre domaine et non avec Azure Active Directory (Azure AD). En utilisant un groupe ou un utilisateur de domaine, vous pouvez accéder à d’autres ressources dans le domaine (par exemple, les partages de fichiers) qui disposent d’autorisations.
+-   Utiliser un utilisateur ou un groupe de domaine Active Directory : exécutez le service sous les informations d’identification d’un compte d’utilisateur ou de groupe Active Directory. Veillez à utiliser Active Directory en local au sein de votre domaine et non Azure Active Directory. Accédez à d’autres ressources dans le domaine qui disposent d’autorisations en utilisant un groupe ou un utilisateur de domaine. Par exemple, les ressources telles que les partages de fichiers.
 
--   Assigner une stratégie d’accès de sécurité pour des points de terminaison HTTP et HTTPS : si vous appliquez une stratégie RunAs à un service et que le manifeste de service déclare des ressources de point de terminaison avec le protocole HTTP, vous devez spécifier une stratégie SecurityAccessPolicy pour vous assurer que les ports affectés à ces points de terminaison sont bien au format ACL pour le compte utilisateur RunAs sous lequel le service est exécuté. Sinon, http.sys n’a pas accès au service et les appels en provenance du client échouent.
-Pour en savoir plus sur l’activation des stratégies de sécurité dans Service Fabric, consultez [Configurer les stratégies de sécurité de votre application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-runas-security).
+-   Affecter une stratégie d’accès de sécurité pour des points de terminaison HTTP et HTTPS : spécifiez la propriété **SecurityAccessPolicy** pour appliquer une stratégie **RunAs** à un service quand le manifeste de service déclare des ressources de point de terminaison avec HTTP. Les ports alloués aux points de terminaison HTTP sont des listes de contrôle d’accès correctes pour le compte d’utilisateur d’identification sous lequel le service s’exécute. Quand la stratégie n’est pas définie, http.sys n’a pas accès au service et les appels en provenance du client échouent.
 
-## <a name="reliable-actors-security-configuration"></a>Configurer la sécurité de Reliable Actors
-Service Fabric Reliable Actors est une implémentation du modèle de conception d’acteurs. Comme pour n’importe quel modèle de conception de logiciels, le choix de l’utilisation d’un modèle spécifique dépend de son degré d’adéquation avec le problème de conception du logiciel.
+Pour savoir comment utiliser des stratégies de sécurité dans un cluster Service Fabric, consultez [Configurer les stratégies de sécurité de votre application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-runas-security).
 
-En règle générale, vous pouvez envisager d’utiliser le modèle d’acteur pour modéliser votre problème ou votre scénario si :
+## <a name="implement-the-reliable-actors-security-configuration"></a>Implémenter la configuration de la sécurité de Reliable Actors
+Service Fabric Reliable Actors est une implémentation du modèle de conception d’acteurs. Comme pour n’importe quel modèle de conception de logiciels, le choix de l’utilisation d’un modèle spécifique dépend de son degré d’adéquation avec le problème du logiciel.
+
+En règle générale, utilisez le modèle de conception d’acteur afin de faciliter la modélisation de solutions pour les problèmes de logiciels ou les scénarios de sécurité suivants :
 -   Votre espace de problème implique un nombre élevé (plusieurs milliers) de petites unités d’état et de logique indépendantes et isolées.
--   Vous souhaitez travailler avec des objets monothread ne nécessitant aucune interaction significative avec des composants externes, par exemple l’interrogation de l’état sur un ensemble d’acteurs.
+-   Vous utilisez des objets monothread ne nécessitant aucune interaction significative avec des composants externes, par exemple l’interrogation de l’état sur un ensemble d’acteurs.
 -   Vos instances d’acteurs ne bloquent pas les appelants avec des retards inattendus en exécutant des opérations d’E/S.
 
-Dans Service Fabric, les acteurs sont implémentés dans l’infrastructure Reliable Actors, une infrastructure d’application basée sur un modèle d’acteurs et s’appuyant sur [Service Fabric Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction). Chaque service Reliable Actor que vous écrivez correspond en fait à une instance Reliable Service partitionnée avec état.
-Chaque acteur se définit comme une instance d’un type d’acteur, de la même façon qu’un objet .NET est une instance d’un type .NET. Par exemple, un type d'acteur peut implémenter les fonctionnalités d'une calculatrice, et plusieurs acteurs de ce type peuvent être distribués sur différents nœuds d'un cluster. Chaque acteur de ce type est identifié de façon unique par un ID d'acteur.
+Dans Service Fabric, les acteurs sont implémentés dans le framework d’application Reliable Actors. Ce framework repose sur le modèle d’acteur et [Service Fabric Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction). Chaque service Reliable Actor que vous écrivez correspond à une instance Reliable Service partitionnée avec état.
 
-Les [configurations de sécurité du réplicateur](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration) sont utilisées pour sécuriser le canal de communication utilisé durant la réplication. Un service ne peut donc pas afficher le trafic de réplication d’un autre service, ce qui garantit la sécurité des données rendues hautement disponibles. Par défaut, une section de configuration de sécurité vide empêche de sécuriser la réplication.
+Chaque acteur se définit comme une instance d’un type d’acteur, de la même façon qu’un objet .NET est une instance d’un type .NET. Par exemple, dans le cas d’un **type d’acteur** qui implémente les fonctionnalités d’une calculatrice, plusieurs acteurs de ce type peuvent être distribués sur différents nœuds d’un cluster. Chacun des acteurs distribués est identifié par un identificateur d’acteur.
+
+Les [configurations de sécurité du réplicateur](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration) sont utilisées pour sécuriser le canal de communication utilisé durant la réplication. Cette configuration empêche un service de voir le trafic de réplication des autres services et garantit que les données hautement disponibles sont sécurisées. Par défaut, une section de configuration de sécurité vide empêche de sécuriser la réplication.
 Les configurations de réplicateur servent à configurer le réplicateur responsable de la haute fiabilité de l’état du fournisseur d’état d’acteur.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Configurer SSL pour Azure Service Fabric
+Le processus d’authentification serveur [authentifie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) les points de terminaison de gestion de cluster auprès d’un client de gestion. Le client de gestion reconnaît ensuite qu’il communique avec le cluster réel. Ce certificat fournit également un certificat [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) pour l’API de gestion HTTPS et Service Fabric Explorer par le biais de HTTPS.
+Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Quand vous demandez un certificat auprès d’une autorité de certification, le nom d’objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour votre cluster.
 
-Authentification du serveur : [authentifie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) les points de terminaison de gestion du cluster sur un client de gestion, afin que le client de gestion sache qu’il communique avec le véritable cluster. Ce certificat fournit également un certificat [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) pour l’API de gestion HTTPS et Service Fabric Explorer par le biais de HTTPS.
-Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom de sujet du certificat doit correspondre au nom de domaine personnalisé utilisé pour votre cluster.
-
-Pour configurer le chiffrement SSL pour une application, vous devez d’abord obtenir un certificat SSL signé par une autorité de certification, un tiers approuvé qui émet des certificats à cet effet. Si vous n’en possédez pas, vous devez en obtenir un auprès de la société qui vend des certificats SSL.
+Pour configurer SSL pour une application, vous devez tout d’abord obtenir un certificat SSL qui a été signé par une autorité de certification. L’autorité de certification est un tiers de confiance qui émet des certificats à des fins de sécurité SSL. Si vous n’avez pas de certificat SSL, vous devez en obtenir un auprès d’une société qui en vend.
 
 Le certificat SSL doit répondre aux prérequis suivants dans Azure :
 -   Le certificat doit contenir une clé privée.
--   Le certificat doit être créé pour l'échange de clés et pouvoir faire l'objet d'un export au format Personal Information Exchange (.pfx).
--   Le nom d'objet du certificat doit correspondre au domaine servant à accéder au service cloud. Vous ne pouvez pas obtenir de certificat SSL d'une autorité de certification pour le domaine cloudapp.net. Vous devez acquérir un nom de domaine personnalisé à utiliser pour accéder à votre service. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom d’objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour accéder à votre application. Par exemple, si votre nom de domaine personnalisé est contoso.com, vous demandez un certificat auprès de votre autorité de certification pour **.contoso.com** ou **www.contoso.com**.
--   Le certificat doit utiliser au minimum un chiffrement à 2048 bits.
 
-HTTP n’est pas sécurisé et est soumis à des attaques d’écoute clandestine, car les données transférées à partir du navigateur web sur le serveur web ou entre les autres points de terminaison sont transmises en texte en clair. Cela signifie que des attaquants peuvent intercepter et afficher des données sensibles, telles que les détails d’une carte de crédit et des informations de connexion de compte. Quand les données sont envoyées ou publiées par le biais d’un navigateur via HTTPS, SSL garantit que ces informations sont chiffrées et protégées contre une interception.
+-   Le certificat doit être créé pour l’échange de clés et être exportable dans un fichier d’échange d’informations personnelles (.pfx).
 
-Pour plus d’informations, consultez [Configuration de SSL pour une application dans Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate).
+-   Le nom d’objet du certificat doit correspondre au nom de domaine servant à accéder à votre service cloud.
 
-## <a name="network-isolationsecurity-with-azure-service-fabric"></a>Sécurité/isolement réseau avec Azure Service Fabric
-Utilisez un [modèle Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) comme exemple pour définir un cluster sécurisé à trois types de nœud et pour contrôler le trafic réseau entrant et sortant à l’aide de groupes de sécurité réseau.
+    - Obtenez un nom de domaine personnalisé à utiliser pour accéder à votre service cloud.
+    - Demandez un certificat à une autorité de certification avec un nom d’objet qui correspond au nom de domaine personnalisé de votre service. Par exemple, si votre nom de domaine personnalisé est __contoso__**.com**, le certificat fourni par votre autorité de certification doit avoir comme nom d’objet **.contoso.com** ou __www__**.contoso.com**.
 
-Le modèle a un groupe de sécurité réseau pour chacun des groupes de machines virtuelles identiques afin de contrôler le trafic vers et depuis chacun d’eux. Par défaut, les règles sont configurées pour autoriser tout le trafic requis par les services système et les ports d’application spécifiés dans le modèle. Passez en revue ces règles et apportez les modifications nécessaires, y compris en ajoutant de nouvelles règles pour vos applications.
+    >[!NOTE]
+    >Vous ne pouvez pas obtenir de certificat SSL auprès d’une autorité de certification pour le domaine __cloudapp__**.net**.
+    
+-   Le certificat doit utiliser au minimum un chiffrement à 2 048 bits.
 
-Pour plus d’informations, consultez [Azure Service Fabric – scénarios de mise en réseau courants](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
+Le protocole HTTP n’est pas sécurisé et peut faire l’objet d’écoutes clandestines. Les données qui sont transmises via HTTP sont envoyées en texte en clair à partir du navigateur web au serveur web ou entre d’autres points de terminaison. Des attaquants peuvent intercepter et afficher des données sensibles envoyées via HTTP, telles que les détails d’une carte de crédit et des informations de connexion de compte. Quand les données sont envoyées ou publiées par le biais d’un navigateur via HTTPS, SSL garantit que les informations sensibles sont chiffrées et protégées contre une interception.
 
-## <a name="set-up-a-key-vault-for-security"></a>Configurer un coffre de clés pour la sécurité
-Les certificats sont utilisés dans Service Fabric à des fins d’authentification et de chiffrement pour sécuriser les divers aspects d’un cluster et de ses applications.
+Pour en savoir plus sur l’utilisation des certificats SSL, consultez [Configurer SSL pour des applications Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate).
 
-Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications. Key Vault sert à [gérer des certificats](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure) pour des clusters Service Fabric dans Azure. Lorsqu’un cluster est déployé dans Azure, le fournisseur de ressources Azure chargé de la création des clusters Service Fabric extrait les certificats de Key Vault et les installe sur les machines virtuelles du cluster.
+## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Utiliser la sécurité et l’isolement réseau avec Azure Service Fabric
+Configurez un cluster sécurisé à 3 types de nœud en utilisant le [modèle Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) comme exemple. Contrôlez les trafics réseau entrant et sortant à l’aide du modèle et de groupes de sécurité réseau.
 
-La relation entre [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), un cluster Service Fabric et le fournisseur de ressources Azure utilise des certificats stockés dans un coffre de clés quand il crée un cluster.
+Le modèle a un groupe de sécurité réseau pour chacun des groupes de machines virtuelles identiques et permet de contrôler le trafic vers et depuis chacun d’eux. Les règles sont configurées par défaut pour autoriser tout le trafic nécessaire aux services système et aux ports d’application spécifiés dans le modèle. Passez en revue ces règles et apportez toutes les modifications nécessaires, y compris en ajoutant de nouvelles règles pour vos applications.
 
-**Créer un groupe de ressources** La première étape consiste à créer un groupe de ressources dédié à votre coffre de clés. Nous vous recommandons de placer ce coffre de clés dans son propre groupe de ressources. Vous pouvez ainsi supprimer les groupes de ressources de calcul et de stockage, y compris le groupe de ressources contenant votre cluster Service Fabric, sans risquer de perdre vos clés et secrets. Le groupe de ressources qui contient votre coffre de clés doit se trouver dans la même région que le cluster qui l’utilise.
+Pour plus d’informations, consultez [Scénarios de mise en réseau courants pour Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-**Créer un coffre de clés dans le nouveau groupe de ressources** Le coffre de clés doit être activé pour le déploiement afin d’autoriser le fournisseur de ressources de calcul à obtenir des certificats à partir de ce coffre de clés et à les installer sur les instances de machines virtuelles.
-Pour plus d’informations sur la configuration du coffre de clés Azure, consultez [Bien démarrer avec Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+## <a name="set-up-azure-key-vault-for-security"></a>Configurer Azure Key Vault pour la sécurité
+Service Fabric utilise les certificats à des fins d’authentification et de chiffrement pour sécuriser un cluster et ses applications.
 
-## <a name="assign-users-roles"></a>Assigner des rôles aux utilisateurs
-Une fois que vous avez créé les applications pour représenter votre cluster, affectez les utilisateurs aux rôles pris en charge par Service Fabric : lecture seule et administrateur. Vous pouvez assigner ces rôles à l’aide du portail Azure Classic.
+Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications. Azure Key Vault sert à [gérer des certificats](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure) pour des clusters Service Fabric dans Azure. Le fournisseur de ressources Azure qui crée les clusters extrait les certificats d’un coffre de clés. Ensuite, le fournisseur installe les certificats sur les machines virtuelles quand le cluster est déployé sur Azure.
 
->[!Note]
-> Pour plus d’informations sur les rôles dans Service Fabric, consultez [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
+Il existe une relation de certificat entre [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), le cluster Service Fabric et le fournisseur de ressources qui utilise les certificats. Quand le cluster est créé, les informations relatives à la relation de certificat sont stockées dans un coffre de clés.
 
-Azure Service Fabric prend en charge deux types de contrôle d’accès différents pour les clients qui sont connectés à un [cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certaines opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster.
+Il existe deux étapes de base pour configurer un coffre de clés :
+1. Créez un groupe de ressources dédié à votre coffre de clés.
+
+    Nous vous recommandons de placer ce coffre de clés dans son propre groupe de ressources. Ainsi, vous évitez la perte de vos clés et secrets si d’autres groupes de ressources sont supprimés, tels qu’un groupe de stockage, de calcul ou le groupe qui contient votre cluster. Le groupe de ressources qui contient votre coffre de clés doit se trouver dans la même région que le cluster qui l’utilise.
+
+2. Créez un coffre de clés dans le nouveau groupe de ressources.
+
+    Le coffre de clés doit être activé pour le déploiement. Le fournisseur de ressources de calcul peut ensuite obtenir les certificats du coffre et les installer sur les instances de machine virtuelle.
+
+Pour plus d’informations sur la configuration d’un coffre de clés, consultez [Bien démarrer avec Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+
+## <a name="assign-users-to-roles"></a>Affecter des utilisateurs aux rôles
+Une fois que vous avez créé les applications pour représenter votre cluster, affectez les utilisateurs aux rôles qui sont pris en charge par Service Fabric : lecture seule et administrateur. Vous pouvez assigner ces rôles à l’aide du portail Azure.
+
+>[!NOTE]
+> Pour plus d’informations sur l’utilisation des rôles dans Service Fabric, consultez [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
+
+Azure Service Fabric prend en charge deux types de contrôle d’accès pour les clients qui sont connectés à un [cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) : administrateur et utilisateur. L’administrateur du cluster peut utiliser le contrôle d’accès afin de limiter l’accès à certaines opérations de cluster pour différents groupes d’utilisateurs. Le contrôle d’accès rend le cluster plus sécurisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Configuration de votre [environnement de développement](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) Service Fabric.
+- Configurez votre [environnement de développement](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) Service Fabric.
 - Découvrez les [options de support de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
-
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Démonstration à votre rythme d’Operations Management Suite (OMS) - Carte de service
 Il s’agit d’une démonstration qui vous permet de découvrir à votre rythme l’utilisation de la [solution Carte de service](operations-management-suite-service-map.md) dans Operations Management Suite (OMS) pour identifier et diagnostiquer un problème simulé dans une application web.  Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services.  Il regroupe également les données collectées par les autres services OMS pour vous aider à analyser les performances et identifier les problèmes.  Vous utiliserez également [Recherches de journal dans Log Analytics](../log-analytics/log-analytics-log-searches.md) pour détailler les données collectées afin d’identifier l’origine du problème.
 

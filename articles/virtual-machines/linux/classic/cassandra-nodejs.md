@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
+ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: acfa9f6f0166167341fc54c4d55fb37e0a338024
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Exécution de Cassandra avec Linux sur Azure et accès au cluster depuis Node.js
 > [!IMPORTANT] 
@@ -458,7 +457,7 @@ Vous devez obtenir un affichage semblable à celui-ci :
 
 Notez que le keyspace créé à l’étape 4 utilise SimpleStrategy avec un replication_factor égal à 3. SimpleStrategy est recommandé pour les déploiements de centre de données unique, tandis que NetworkTopologyStrategy est recommandé pour les déploiements de plusieurs centres de données. Un replication_factor égal à 3 procure une tolérance des échecs de nœuds.
 
-## <a id="tworegion"> </a>Processus de déploiement de plusieurs régions
+## <a id="tworegion"></a>Processus de déploiement de plusieurs régions
 Nous allons tirer parti du déploiement à une seule région que nous venons d'effectuer et répéter la même procédure pour installer la deuxième région. La principale différence entre le déploiement dans une seule région et dans plusieurs régions concerne la configuration du tunnel VPN pour la communication inter-région ; nous allons commencer par l'installation du réseau, puis approvisionner les machines virtuelles et configurer Cassandra.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Étape 1 : Création du réseau virtuel dans la seconde région
@@ -683,5 +682,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 * [http://cassandra.apache.org](http://cassandra.apache.org)
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)
-
 

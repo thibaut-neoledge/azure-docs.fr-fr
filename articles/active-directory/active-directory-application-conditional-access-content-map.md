@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 65d970651aec2afaa80c7b82fd58a8fc16e5b42c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 2de668f38ca836d3a8ab205a2689156349f8f8d0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-configuring-conditional-access-to-one-of-my-applications"></a>Problèmes lors de la configuration de l’accès conditionnel à une de mes applications
 
 
@@ -36,5 +34,4 @@ ms.lasthandoff: 04/17/2017
   * [Comment configurer un accès conditionnel pour Exchange Online ?](http://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Comment configurer un accès conditionnel pour les appareils Windows 7 ?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access#device-based-conditional-access/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Quelles applications sont prises en charge avec un accès conditionnel ?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-supported-apps/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-
 

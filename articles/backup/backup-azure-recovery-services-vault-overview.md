@@ -11,31 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/15/2017
+ms.date: 10/15/2017
 ms.author: markgal;arunak
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 19e2aafe3de106be32f3d90c63c0ea03c626f272
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
-
+ms.openlocfilehash: a3d50d0066f1d0fe38bd7c5474386f54df81bec5
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 
-Cet article décrit les fonctionnalités d’un coffre Recovery Services. Un coffre Recovery Services est une entité de stockage dans Azure qui héberge des données. Les données sont généralement des copies de données ou des informations de configuration pour des machines virtuelles, des charges de travail, des serveurs ou des stations de travail. Un coffre Recovery Services est la version Resource Manager d’un coffre de sauvegarde. Microsoft recommande d’utiliser des coffres Recovery Services, et de convertir les coffres de sauvegarde en coffres Recovery Services.
+Cet article décrit les fonctionnalités d’un coffre Recovery Services. Un coffre Recovery Services est une entité de stockage dans Azure qui héberge des données. Les données sont généralement des copies de données ou des informations de configuration pour des machines virtuelles, des charges de travail, des serveurs ou des stations de travail. Vous pouvez utiliser des coffres Recovery Services afin de stocker des données de sauvegarde pour divers services Azure tels que des machines virtuelles IaaS (Windows ou Linux) et des bases de données SQL Azure. Les coffres Recovery Services prennent en charge System Center DPM, Windows Server, le serveur de sauvegarde Azure et bien plus. Les coffres Recovery Services facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion. 
 
-## <a name="what-is-a-recovery-services-vault"></a>Qu’est-ce qu’un coffre Recovery Services
-
-Un coffre Recovery Services est une entité de stockage en ligne dans Azure qui permet de conserver des données telles que des copies de sauvegarde, des points de récupération et des stratégies de sauvegarde. Vous pouvez utiliser des coffres Recovery Services afin de stocker des données de sauvegarde pour divers services Azure tels que des machines virtuelles IaaS (Windows ou Linux) et des bases de données SQL Azure. Les coffres Recovery Services prennent en charge System Center DPM, Windows Server, le serveur de sauvegarde Azure et bien plus. Les coffres Recovery Services facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion.
-
-Dans un abonnement Azure, vous pouvez créer autant de coffres Recovery Services que vous le souhaitez.
+Dans un abonnement Azure, vous pouvez créer jusqu’à 25 coffres Recovery Services.
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Comparaison entre les coffres Recovery Services et les coffres de sauvegarde
 
-Les coffres Recovery Services sont basés sur le modèle Azure Resource Manager d’Azure, tandis que les coffres de sauvegarde sont basés sur le modèle Azure Service Manager. Lorsque vous mettez à niveau un coffre de sauvegarde vers un coffre Recovery Services, les données de sauvegarde restent intactes pendant et après le processus de mise à niveau. Les coffres Recovery Services fournissent des fonctionnalités non disponibles pour les coffres de sauvegarde, telles que :
+Si vous possédez toujours des coffres de sauvegarde, ils sont automatiquement mis à niveau vers des coffres Recovery Services. Depuis novembre 2017, tous les coffres de sauvegarde ont été mis à niveau vers des coffres Recovery Services. 
 
-- **Davantage de fonctionnalités pour sécuriser des données sauvegarde** : avec les coffres Recovery Services, le module Sauvegarde Microsoft Azure fournit des fonctionnalités de sécurité pour protéger les sauvegardes cloud. Ces fonctionnalités de sécurité vous garantissent de pouvoir sécuriser vos sauvegardes, et récupérer en toute sécurité des données à partir de sauvegardes cloud, même si des serveurs de production et de sauvegarde sont compromis. [En savoir plus](backup-azure-security-feature.md)
+Les coffres Recovery Services sont basés sur le modèle Azure Resource Manager d’Azure, tandis que les coffres de sauvegarde étaient basés sur le modèle Azure Service Manager. Lorsque vous mettez à niveau un coffre de sauvegarde vers un coffre Recovery Services, les données de sauvegarde restent intactes pendant et après le processus de mise à niveau. Les coffres Recovery Services fournissent des fonctionnalités non disponibles pour les coffres de sauvegarde, telles que :
+
+- **Davantage de fonctionnalités pour sécuriser des données sauvegarde** : avec les coffres Recovery Services, le module Sauvegarde Microsoft Azure fournit des fonctionnalités de sécurité pour protéger les sauvegardes cloud. Ces fonctionnalités de sécurité vous garantissent de pouvoir sécuriser vos sauvegardes et récupérer en toute sécurité des données même si des serveurs de production et de sauvegarde sont compromis. [En savoir plus](backup-azure-security-feature.md)
 
 - **Surveillance centrale de votre environnement informatique hybride** : avec les coffres Recovery Services, vous pouvez surveiller non seulement vos [machines virtuelles IaaS Azure](backup-azure-manage-vms.md), mais aussi votre [ressources locales](backup-azure-manage-windows-server.md#manage-backup-items) à partir d’un portail centralisé. [En savoir plus](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
@@ -46,7 +42,7 @@ Les coffres Recovery Services sont basés sur le modèle Azure Resource Manager 
 - **Restauration instantanée de machines virtuelles IaaS** : les coffres Recovery Services vous permettent de restaurer des fichiers et dossiers d’une machine virtuelle IaaS sans restaurer la machine virtuelle entière, ce qui permet d’accélérer les temps de restauration. La restauration instantanée de machines virtuelles IaaS est disponible pour les machines virtuelles Windows et Linux. [En savoir plus](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gestion des coffres Recovery Services dans le portail
-La création et la gestion de coffres Recovery Services dans le portail Azure sont faciles, car le service de sauvegarde est intégré dans le panneau Paramètres d’Azure. Cette intégration signifie que vous pouvez créer ou gérer un coffre Recovery Services *dans le contexte du service cible*. Par exemple, pour afficher les points de récupération pour une machine virtuelle, sélectionnez celle-ci, puis cliquez sur **Sauvegarde** dans le panneau Paramètres. Les informations de sauvegarde spécifiques de cette machine virtuelle s’affichent. Dans l’exemple suivant, **ContosoVM** est le nom de la machine virtuelle. **ContosoVM-demovault** est le nom du coffre Recovery Services. Vous n’avez pas besoin de mémoriser le nom du coffre Recovery Services qui stocke les points de récupération, car vous pouvez accéder à ces informations à partir de la machine virtuelle.  
+La création et la gestion de coffres Recovery Services dans le portail Azure sont faciles car le service de sauvegarde est intégré dans le menu Paramètres d’Azure. Cette intégration signifie que vous pouvez créer ou gérer un coffre Recovery Services *dans le contexte du service cible*. Par exemple, pour afficher les points de récupération pour une machine virtuelle, sélectionnez celle-ci, puis cliquez sur **Sauvegarde** dans le menu Paramètres. Les informations de sauvegarde spécifiques de cette machine virtuelle s’affichent. Dans l’exemple suivant, **ContosoVM** est le nom de la machine virtuelle. **ContosoVM-demovault** est le nom du coffre Recovery Services. Vous n’avez pas besoin de mémoriser le nom du coffre Recovery Services qui stocke les points de récupération, car vous pouvez accéder à ces informations à partir de la machine virtuelle.  
 
 ![coffre recovery services, détails, machine virtuelle](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
 
@@ -74,8 +70,7 @@ Les sections suivantes contiennent des liens vers des articles qui expliquent co
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez l’article suivant pour :</br>
+Consultez les articles suivants pour :</br>
 [Sauvegarder une machine virtuelle IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Sauvegarder un serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md)</br>
 [Sauvegarder un serveur Windows Server](backup-configure-vault.md)
-

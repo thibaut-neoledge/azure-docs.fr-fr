@@ -3,7 +3,7 @@ title: "Utiliser l’émulateur express pour exécuter et déboguer un service c
 description: "Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale"
 services: visual-studio-online
 documentationcenter: n/a
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: 73108f98-a552-4817-b7a1-551367b71906
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
-ms.author: kraigb
+ms.author: mikejo
+ms.openlocfilehash: 9c258ad7de5e25b4b304f5e56d93abeff1187f71
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: fe31dcb78c6713d93bf87e92ac12341d8692f679
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="using-emulator-express-to-run-and-debug-an-azure-cloud-service-on-a-local-machine"></a>Utiliser l’émulateur express pour exécuter et déboguer un service cloud Azure sur une machine locale
 Avec l’émulateur express, vous testez et déboguez un service cloud sans avoir à exécuter Visual Studio en tant qu’administrateur. Vous pouvez définir les paramètres du projet pour utiliser l’émulateur express ou l’émulateur complet selon la configuration requise de votre service cloud. Pour plus d’informations sur l’émulateur complet, consultez [Exécuter une application Azure dans l’émulateur de calcul](storage/common/storage-use-emulator.md).
@@ -55,4 +54,3 @@ Les problèmes suivants sont des restrictions connues de l’émulateur express�
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Débogage des services cloud Azure](https://msdn.microsoft.com/library/azure/ee405479.aspx)
-

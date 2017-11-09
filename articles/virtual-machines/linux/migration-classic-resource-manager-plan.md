@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 5db4e5b18ad385e7eba125a1296a9c5054213446
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier son parcours de migration pour que tout se passe sans heurts. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration. 
 
@@ -96,7 +94,7 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
 - **Circuits ExpressRoute et VPN**. Actuellement, il n’est pas possible de migrer les passerelles ExpressRoute avec liens d’autorisation sans temps mort. Vous trouverez une solution de contournement à la page [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement Classic au modèle de déploiement Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 - **Extensions de machines virtuelles** : les extensions de machines virtuelles sont potentiellement l’un des principaux obstacles à la migration de machines virtuelles en cours d’exécution. La correction des extensions de machines virtuelles peut prendre plus d’un ou deux jours : adaptez votre planification en conséquence.  Un agent Azure fonctionnel est nécessaire pour rapporter l’état des extensions de machines virtuelles en cours d’exécution. Si l’état renvoyé pour une machine virtuelle en cours d’exécution est mauvais, la migration sera interrompue. L’agent lui-même n’a pas besoin d’être en état de fonctionnement pour permettre la migration, mais, si des extensions existent sur la machine virtuelle, un agent fonctionnel ET une connectivité Internet sortante (avec DNS) seront nécessaires pour que la migration se poursuive.
-  - Si la connectivité à un serveur DNS est perdue pendant la migration, toutes les extensions de machines virtuelles, à l’exception de BGInfo v1.\*, doivent tout d’abord être supprimées de chacune des machines virtuelles avant la préparation de la migration, puis rajoutées à la machine virtuelle après la migration d’Azure Resource Manager.  **Cela concerne uniquement les machines virtuelles en cours d’exécution.**  Si les machines virtuelles sont arrêtées et libérées, il n’est pas nécessaire de supprimer les extensions de machines virtuelles. **Remarque :** de nombreuses extensions, par exemple les diagnostics Azure et le contrôle de Security Center, se réinstallent après la migration ; les supprimer n’est donc pas un problème.
+  - Si la connectivité à un serveur DNS est perdue pendant la migration, toutes les extensions de machines virtuelles, à l’exception de BGInfo v1.\* doivent être supprimées de chacune des machines virtuelles avant la préparation de la migration, puis rajoutées aux machines virtuelles après la migration d’Azure Resource Manager.  **Cela concerne uniquement les machines virtuelles en cours d’exécution.**  Si les machines virtuelles sont arrêtées et libérées, il n’est pas nécessaire de supprimer les extensions de machines virtuelles. **Remarque :** de nombreuses extensions, par exemple les diagnostics Azure et le contrôle de Security Center, se réinstallent après la migration ; les supprimer n’est donc pas un problème.
   - Par ailleurs, assurez-vous que les groupes de sécurité réseau ne restreignent pas l’accès à Internet sortant. Cela peut se produire avec certaines configurations de groupes de sécurité réseau. Un accès à Internet sortant (et un DNS) est nécessaire pour migrer les extensions de machines virtuelles vers Azure Resource Manager. 
   - Il existe deux versions de l’extension BGInfo : v1 et v2.  Si la machine virtuelle a été créée avec le Portail Classic ou PowerShell, elle comportera probablement l’extension v1. Il n’est pas nécessaire de supprimer cette extension : elle sera ignorée (non migrée) par l’API de migration. En revanche, si la machine virtuelle Classic a été créée avec le nouveau Portail Azure, elle comportera probablement la version v2 JSON de BGInfo, qui peut être migrée vers Azure Resource Manager à condition que l’agent fonctionne et dispose d’un accès à Internet sortant (et d’un DNS). 
   - **Option de correction 1**. Si vous savez que vos machines virtuelles ne disposeront pas d’un accès à Internet sortant, d’un service DNS fonctionnel et d’agents Azure fonctionnels, désinstallez toutes les extensions de machines virtuelles dans le cadre de la migration avant l’opération Préparer, puis réinstallez-les après la migration. 
@@ -125,19 +123,19 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
 
     Vous pouvez vérifier vos quotas Azure Resource Manager actuels en utilisant les commandes suivantes avec la dernière version d’Azure CLI 2.0.
 
-    **Calcul** *(cœurs, groupes à haute disponibilité)*
+    **Calcul***(cœurs, groupes à haute disponibilité)*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 
     ```
 
-    **Réseau** *(réseaux virtuels, adresses IP publiques statiques, adresses IP publiques, groupes de sécurité réseau, interfaces réseau, équilibreurs de charge, tables de routage)*
+    **Réseau***(réseaux virtuels, adresses IP publiques statiques, adresses IP publiques, groupes de sécurité réseau, interfaces réseau, équilibreurs de charge, tables de routage)*
     
     ```bash
     az network list-usages -l <azure-region> -o jsonc
     ```
 
-    **Stockage** *(compte de stockage)*
+    **Stockage***(compte de stockage)*
     
     ```bash
     az storage account show-usage
@@ -213,4 +211,3 @@ Gardez à l’esprit les raisons pour lesquelles vous avez démarré ce parcours
 * [Outils de la communauté pour aider à la migration de ressources IaaS de Classic vers Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Passer en revue les erreurs courantes de migration](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Passez en revue les questions fréquemment posées sur la migration des ressources IaaS de Classic vers Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

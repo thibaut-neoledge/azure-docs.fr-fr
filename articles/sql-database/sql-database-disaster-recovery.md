@@ -12,15 +12,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: On Demand
 ms.date: 04/14/2017
 ms.author: sashan
+ms.openlocfilehash: cbd54a2a309874c81d8384d789bebe4f94c97adf
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: e5242b5f76866ca382b31005deca07cd722af423
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
 Le service Base de données SQL Azure offre les fonctionnalités suivantes pour la récupération après une panne :
@@ -64,7 +63,7 @@ Utilisez l’un des guides suivants pour effectuer le basculement vers une base 
 
 * [Basculer vers une base de données secondaire géorépliquée à l’aide du portail Azure](sql-database-geo-replication-portal.md)
 * [Basculer vers une base de données secondaire géorépliquée à l’aide de PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [Basculer vers une base de données secondaire géorépliquée à l’aide de T-SQL](/sql/t-sql/statements/alter-database-azure-sql-database.md)
+* [Basculer vers une base de données secondaire géorépliquée à l’aide de T-SQL](/sql/t-sql/statements/alter-database-azure-sql-database)
 
 ## <a name="recover-using-geo-restore"></a>Récupérer à l’aide de la géorestauration
 Si le temps d’arrêt de votre application ne met pas en cause votre responsabilité professionnelle, vous pouvez utiliser la [géorestauration](sql-database-recovery-using-backups.md) pour récupérer les bases de données de votre application. Cela permet de créer une copie de la base de données à partir de la dernière sauvegarde géo-redondante.
@@ -100,5 +99,4 @@ Si la fonction d’audit doit accéder à votre base de données, vous devez l�
 * Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
 * Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity.md)
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
-
 

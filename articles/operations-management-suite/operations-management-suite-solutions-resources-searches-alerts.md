@@ -1,6 +1,6 @@
 ---
 title: "Alertes et recherches enregistrées dans les solutions OMS | Microsoft Docs"
-description: "Les solutions dans OMS incluent généralement des recherches enregistrées dans Log Analytics pour analyser les données collectées par la solution.  Elles peuvent également définir des alertes pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique.  Cet article décrit comment définir les alertes et recherches enregistrées de Log Analytics dans un modèle ARM, de sorte qu’elles puissent être incluses dans des solutions de gestion."
+description: "Les solutions dans OMS incluent généralement des recherches enregistrées dans Log Analytics pour analyser les données collectées par la solution.  Elles peuvent également définir des alertes pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique.  Cet article décrit comment définir les alertes et recherches enregistrées de Log Analytics dans un modèle Resource Manager, de sorte qu’elles puissent être incluses dans des solutions de gestion."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -11,18 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 10/16/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion OMS (préversion)
 
 > [!NOTE]
@@ -34,8 +31,8 @@ Les [solutions de gestion dans OMS](operations-management-suite-solutions.md) in
 > [!NOTE]
 > Les exemples dans cet article utilisent des paramètres et des variables qui sont nécessaires ou courants pour les solutions de gestion. Ils sont décrits dans la rubrique [Création de solutions de gestion dans Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
 
-## <a name="prerequisites"></a>Composants requis
-Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](operations-management-suite-solutions-creating.md) et la structure d’un [modèle ARM](../resource-group-authoring-templates.md) et d’un fichier solution.
+## <a name="prerequisites"></a>Prérequis
+Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](operations-management-suite-solutions-creating.md) et la structure d’un [modèle Resource Manager](../resource-group-authoring-templates.md) et d’un fichier solution.
 
 
 ## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
@@ -45,9 +42,24 @@ Le nom de l’espace de travail figure dans le nom de chaque ressource Log Analy
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
+## <a name="log-analytics-api-version"></a>Version de l’API Log Analytics
+Toutes les ressources Log Analytics définies dans un modèle Resource Manager ont une propriété **apiVersion** qui définit la version de l’API que la ressource doit utiliser.  Cette version varie selon que les ressources utilisent [le langage de requête hérité ou mis à niveau](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ Le tableau suivant présente les versions de l’API Log Analytics pour les espaces de travail hérités et mis à niveau, ainsi qu’un exemple de requête illustrant les différences de syntaxe. 
+
+| Version de l’espace de travail | Version de l’API | Exemple de requête |
+|:---|:---|:---|
+| v1 (hérité)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2 (mis à niveau) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+
+Notez les points suivants concernant la prise en charge des espaces de travail par les différentes versions.
+
+- Les modèles qui utilisent le langage de requête hérité peuvent être installés dans un espace de travail hérité ou mis à niveau.  Si les modèles sont installés dans un espace de travail mis à niveau, les requêtes sont converties à la volée dans le nouveau langage quand elles sont exécutées par l’utilisateur.
+- Les modèles qui utilisent le langage de requête mis à niveau peuvent uniquement être installés dans un espace de travail mis à niveau.
+
 
 ## <a name="saved-searches"></a>Recherches enregistrées
-Ajoutez des [recherches enregistrées](../log-analytics/log-analytics-log-searches.md) à une solution pour permettre aux utilisateurs d’interroger les données collectées par votre solution.  Les recherches enregistrées apparaissent sous **Favoris** dans le portail OMS et sous **Recherches enregistrées** dans le Portail Azure.  Une recherche enregistrée est également requise pour chaque alerte.   
+Ajoutez des [recherches enregistrées](../log-analytics/log-analytics-log-searches.md) à une solution pour permettre aux utilisateurs d’interroger les données collectées par votre solution.  Les recherches enregistrées apparaissent sous **Favoris** dans le portail OMS et sous **Recherches enregistrées** dans le portail Azure.  Une recherche enregistrée est également requise pour chaque alerte.   
 
 Les ressources de [recherche enregistrée Log Analytics](../log-analytics/log-analytics-log-searches.md) ont le type `Microsoft.OperationalInsights/workspaces/savedSearches` et présentent la structure suivante.  Cela inclut des variables et des paramètres courants, vous pouvez donc copier et coller cet extrait de code dans votre fichier de solution et modifier les noms des paramètres. 
 
@@ -68,7 +80,7 @@ Les ressources de [recherche enregistrée Log Analytics](../log-analytics/log-an
 
 
 
-Chacune des propriétés d’une recherche enregistrée est décrite dans le tableau suivant. 
+Chaque propriété d’une recherche enregistrée est décrite dans le tableau suivant. 
 
 | Propriété | Description |
 |:--- |:--- |
@@ -84,10 +96,10 @@ Les [alertes Log Analytics](../log-analytics/log-analytics-alerts.md) sont cré�
 
 Les règles d’alerte d’une solution de gestion sont constituées des trois ressources suivantes.
 
-- **Recherche enregistrée.**  Définit la recherche de journal qui sera exécutée.  Plusieurs règles d’alerte peuvent partager une même recherche enregistrée.
-- **Planification.**  Définit la fréquence d’exécution de la recherche de journal.  Chaque règle d’alerte est associée à une planification unique.
-- **Action d’alerte.**  Chaque règle d’alerte est associée à une ressource d’action avec un type **Alerte**, qui définit les détails de l’alerte, notamment les critères déterminant quand un enregistrement d’alerte est créé et la gravité de l’alerte.  La ressource d’action peut éventuellement définir une réponse par e-mail et basée sur un runbook.
-- **Action webhook (facultative).**  Si la règle d’alerte appelle un webhook, elle requiert une ressource d’action supplémentaire avec un type **Webhook**.    
+- **Recherche enregistrée.**  Définit la recherche dans les journaux qui est exécutée.  Plusieurs règles d’alerte peuvent partager une même recherche enregistrée.
+- **Planification.**  Définit la fréquence d’exécution de la recherche dans les journaux.  Chaque règle d’alerte est associée à une planification unique.
+- **Action d’alerte.**  Chaque règle d’alerte est associée à une ressource d’action avec un type **Alert**, qui définit les détails de l’alerte, notamment les critères déterminant quand un enregistrement d’alerte est créé et la gravité de l’alerte.  La ressource d’action peut éventuellement définir une réponse par e-mail et basée sur un runbook.
+- **Action webhook (facultative).**  Si la règle d’alerte appelle un webhook, elle nécessite une ressource d’action supplémentaire de type **Webhook**.    
 
 Les ressources de recherche enregistrée sont décrites ci-dessus.  Les autres ressources sont décrites ci-dessous.
 
@@ -177,10 +189,10 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 
 | Nom de l'élément | Requis | Description |
 |:--|:--|:--|
-| Type | Oui | Type de l’action.  Ce type sera **Alert** pour les actions d’alerte. |
+| Type | Oui | Type de l’action.  **Alert** pour les actions d’alerte. |
 | Nom | Oui | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
 | Description | Non | La description facultative de l’alerte. |
-| Severity | Oui | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **Critical**<br>**Avertissement**<br>**Informational** |
+| Severity | Oui | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **Critique**<br>**Avertissement**<br>**Information** |
 
 
 ##### <a name="threshold"></a>Seuil
@@ -196,7 +208,7 @@ Cette section est obligatoire.  Elle définit les propriétés du seuil d’aler
 Cette section est facultative.  Vous devez l’inclure pour une alerte relative aux mesures métriques.
 
 > [!NOTE]
-> Les alertes relatives aux mesures métriques sont actuellement en version préliminaire publique. 
+> Les alertes relatives aux mesures métriques sont actuellement en préversion publique. 
 
 | Nom de l'élément | Requis | Description |
 |:--|:--|:--|
@@ -216,7 +228,7 @@ Cette section est facultative.  Insérez cette section si vous souhaitez supprim
 
 | Nom de l'élément | Requis | Description |
 |:--|:--|:--|
-| Destinataires | Oui | La liste des adresses e-mail (séparées par des virgules) auxquelles envoyer une notification lorsqu’une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Destinataires | Oui | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Objet | Oui | La ligne d’objet du message. |
 | Pièce jointe | Non | Actuellement, les pièces jointes ne sont pas prises en charge.  Si cet élément est inclus, il doit avoir la valeur **None**. |
 
@@ -256,7 +268,7 @@ Les propriétés des ressources d’action Webhook sont décrites dans les table
 
 | Nom de l'élément | Requis | Description |
 |:--|:--|:--|
-| type | Oui | Type de l’action.  Il s’agit de **Webhook** pour les actions de webhook. |
+| type | Oui | Type de l’action.  **Webhook** pour les actions de webhook. |
 | name | Oui | Le nom d’affichage de l’action.  Il n’est pas affiché dans la console. |
 | wehookUri | Oui | L’URI du webhook. |
 | customPayload | Non | Charge utile personnalisée à envoyer au webhook. Le format dépend de ce que le webhook attend. |
@@ -511,5 +523,4 @@ Le fichier de paramètres suivant fournit des exemples de valeurs pour cette sol
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajoutez des vues](operations-management-suite-solutions-resources-views.md) à votre solution de gestion.
 * [Ajoutez des runbooks Automation et d’autres ressources](operations-management-suite-solutions-resources-automation.md) à votre solution de gestion.
-
 

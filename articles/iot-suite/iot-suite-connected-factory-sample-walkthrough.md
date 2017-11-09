@@ -1,5 +1,5 @@
 ---
-title: "Procédure pas à pas pour la solution d’usine connectée Azure IoT Suite | Microsoft Docs"
+title: "Procédure pas à pas pour la solution d’usine connectée - Azure | Microsoft Docs"
 description: "Description de la solution préconfigurée d’usine connectée Azure IoT et de son architecture."
 services: 
 suite: iot-suite
@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
+ms.openlocfilehash: 675a3b0fb59e449f0f76f8201d62768c03144818
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procédure pas à pas de la solution préconfigurée d’usine connectée
 
 La [solution préconfigurée][lnk-preconfigured-solutions] d’usine connectée IoT Suite est une implémentation d’une solution industrielle de bout en bout qui :
 
-* Se connecte à la fois aux appareils industriels simulés fonctionnant sur des serveurs OPC UA dans des lignes de production simulées et aux appareils fonctionnant sur des serveurs OPC UA réels. Pour plus d’informations sur l’OPC UA, consultez le [FAQ sur l’usine connectée](iot-suite-faq-cf.md).
+* Se connecte à la fois aux appareils industriels simulés fonctionnant sur des serveurs OPC UA dans des lignes de production simulées et aux appareils fonctionnant sur des serveurs OPC UA réels. Pour plus d’informations sur OPC UA, consultez les [questions fréquentes (FAQ) sur l’usine connectée](iot-suite-faq-cf.md).
 * Affiche les indicateurs de performance clé (KPI) opérationnels et les OEE de ces appareils et des lignes de production.
 * Montre comment une application basée sur le cloud peut être utilisée pour interagir avec les systèmes de serveur OPC UA.
 * Vous permet de connecter vos propres appareils de serveur OPC UA.
@@ -35,7 +34,7 @@ La [solution préconfigurée][lnk-preconfigured-solutions] d’usine connectée 
 
 Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser][lnk-customize] pour répondre à vos propres exigences professionnelles.
 
-Cet article vous familiarise avec les éléments clés de la solution d’usine connectée pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
+Cet article vous familiarise avec les éléments clés de la solution d’usine connectée pour vous permettre de comprendre son fonctionnement. Cet article décrit aussi le flux de données dans la solution. Ces connaissances vous aident à :
 
 * Résoudre les problèmes dans la solution.
 * Adapter la solution à vos besoins professionnels.
@@ -125,12 +124,116 @@ La solution utilise le stockage d’objets blob Azure comme stockage sur disque 
 ## <a name="web-app"></a>Application web
 L’application web déployée dans le cadre de la solution préconfigurée comprend un client OPC UA intégré, un système de traitement des alertes et de visualisation de télémétrie.
 
+## <a name="telemetry-data-flow"></a>Flux de données de télémétrie
+
+![Flux de données de télémétrie](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+
+### <a name="flow-steps"></a>Étapes du flux
+
+1. L’éditeur OPC lit les certificats X509 UA OPC et les informations d’identification de sécurité IoT Hub depuis le magasin de certificats local.
+    - Si nécessaire, l’éditeur OPC crée et stocke tous les certificats ou informations d’identification manquants dans le magasin de certificats.
+
+2. L’éditeur OPC s’inscrit avec IoT Hub.
+    - Utilise le protocole configuré. Peut utiliser n’importe quel protocole pris en charge par le kit de développement logiciel (SDK) de client IoT Hub. La valeur par défaut est MQTT.
+    - La communication de protocole est sécurisée par TLS.
+
+3. L’éditeur OPC lit le fichier de configuration.
+
+4. L’éditeur OPC crée une session OPC avec chaque serveur UA OPC configuré.
+    - Utilise la connexion TCP.
+    - L’éditeur OPC et le serveur UA OPC s’authentifient à l’aide des certificats X509.
+    - Tout trafic UA OPC supplémentaire est chiffré par le mécanisme de chiffrement UA OPC configuré.
+    - L’éditeur OPC crée un abonnement OPC dans la session OPC, pour chaque intervalle de publication configurée.
+    - Crée des éléments surveillés OPC pour les nœuds OPC afin de publier dans l’abonnement OPC.
+
+5. Si la valeur d’un nœud OPC surveillé est modifiée, le serveur UA OPC envoie les mises à jour à l’éditeur OPC.
+
+6. L’éditeur OPC transcode la nouvelle valeur.
+    - Traite plusieurs changements si le traitement est activé.
+    - Crée un message IoT Hub.
+
+7. L’éditeur OPC envoie un message à IoT Hub.
+    - Utilise le protocole configuré.
+    - La communication est sécurisée par TLS.
+
+8. Time Series Insights (TSI) lit les messages depuis IoT Hub.
+    - Utilise AMQP via TCP/TLS.
+    - Cette étape est interne au centre de données.
+
+9. Données au repos dans TSI.
+
+10. Les requêtes d’application web de fabrique connectée dans Azure App Service nécessitent des données de TSI.
+    - Utilise des communications sécurisées TCP/TLS.
+    - Cette étape est interne au centre de données.
+
+11. Le navigateur web se connecte à l’application web de fabrique connectée.
+    - Affiche le tableau de bord de la fabrique connectée.
+    - Se connecte via le protocole HTTPS.
+    - L’accès à l’application de fabrique connectée nécessite l’authentification de l’utilisateur via Azure Active Directory.
+    - Tous les appels WepApi dans les applications de fabrique connectée sont sécurisés par des jetons Anti-Forgery-Tokens.
+
+12. Lors de mises à jour des données, l’application web de fabrique connectée envoie des données mises à jour au navigateur web.
+    - Utilise le protocole SignalR.
+    - Sécurisé par TCP/TLS.
+
+## <a name="browsing-data-flow"></a>Flux de données de navigation
+
+![Flux de données de navigation](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+
+### <a name="flow-steps"></a>Étapes du flux
+
+1. Le proxy OPC (composant serveur) démarre.
+    - Lit les clés d’accès partagé à partir d’un magasin local.
+    - Si nécessaire, stocke les clés d’accès manquantes dans le magasin.
+
+2. Le proxy OPC (composant serveur) s’inscrit avec IoT Hub.
+    - Lit tous les périphériques connus de IoT Hub.
+    - Utilise MQTT via Socket ou Secure Websocket.
+
+3. Le navigateur web se connecte à l’application web de fabrique connectée et affiche le tableau de bord de fabrique connectée.
+    - Utilise le protocole HTTPS.
+    - Un utilisateur sélectionne un serveur UA OPC pour s’y connecter.
+
+4. L’application web de fabrique connectée établit une session UA OPC dans le serveur UA OPC sélectionné.
+    - Utilise la pile UA OPC.
+
+5. Le transport de proxy OPC reçoit une requête de la pile UA OPC pour établir une connexion socket TCP au serveur UA OPC.
+    - Il récupère la charge utile TCP et l’utilise telle quelle.
+    - Cette étape est interne à l’application web de fabrique connectée.
+
+6. Le proxy OPC (composant client) cherche le l’appareil proxy OPC (composant serveur) dans le registre de l’appareil IoT Hub. Il appelle ensuite une méthode d’appareil à l’appareil proxy OPC (composant serveur) dans IoT Hub.
+    - Utilise le protocole HTTPS via TCP/TLS pour chercher le proxy OPC.
+    - Utilise le protocole HTTPS via TCP/TLS pour établir une connexion socket TCP au serveur UA OPC.
+    - Cette étape est interne au centre de données.
+
+7. IoT Hub appelle ensuite une méthode d’appareil à l’appareil proxy OPC (composant serveur).
+    - Utilise un protocole MQTT établit via des connexions Socket ou Secure Websocket pour établir une connexion socket TCP sur le serveur UA OPC.
+
+8. Le proxy OPC (composant serveur) envoie la charge utile TCP sur le réseau d’atelier.
+
+9. Le serveur UA OPC traite la charge utile et renvoie la réponse.
+
+10. Le socket du proxy OPC (composant serveur) reçoit la réponse.
+    - Le proxy OPC envoie les données en tant que valeur renvoyée de la méthode d’appareil à IoT Hub et au proxy OPC (composant client).
+    - Ces données sont fournies à la pile UA OPC dans l’application de fabrique connectée.
+
+11. L’application web de fabrique connectée renvoie le navigateur OPC UX enrichi avec les informations spécifiques à UA OPC qu’elle a reçu du serveur UA OPC, vers le navigateur web et les affiche.
+    - En naviguant dans l’espace d’adresse OPC et en appliquant les fonctions aux nœuds dans l’espace d’adresse OPC, le client UX du navigateur OPC utilise des appels AJAX via le protocole sécurisé HTTPS avec des jetons Anti-Forgery-Tokens pour obtenir des données de l’application web de fabrique connectée.
+    - Si nécessaire, le client utilise les communications détaillées de l’étape 4 à 10 pour échanger des informations avec le serveur UA OPC.
+
+> [!NOTE]
+> Le proxy OPC (composant serveur) et le proxy OPC (composant client) réalisent les étapes 4 à 10 pour tout trafic TCP relatifs aux communications UA OPC.
+
+> [!NOTE]
+> Pour le serveur UA OPC et la pile UA OPC au sein de l’application web de fabrique connectée, les communications du proxy OPC sont transparentes et toutes les fonctionnalités de sécurité UA OPC pour l’authentification et le chiffrement s’appliquent.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
 
 * [Autorisations sur le site azureiotsuite.com][lnk-permissions]
 * [Déployer une passerelle sur Windows ou Linux pour la solution préconfigurée d’usine connectée](iot-suite-connected-factory-gateway-deployment.md)
+* [Implémentation de référence de l’éditeur OPC](iot-suite-connected-factory-publisher.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -141,4 +244,3 @@ Vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles sui
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-

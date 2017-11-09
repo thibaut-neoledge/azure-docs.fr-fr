@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 ## <a name="introduction"></a>Introduction
@@ -462,7 +461,7 @@ Par exemple, supposez qu’à la suite d’un bogue, le poids de toutes les voit
         AND previousWeight > 20000
 ````
 
-**Explication** : Utilisez **LAG** pour afficher le flux d’entrée sur 24 heures et recherchez les instances dans lesquelles **StartFault** et **StopFault** sont couvertes par la condition « weight < 20000 » (poids inférieur à 20 000 livres).
+**Explication** : Utilisez **LAG** pour afficher le flux d’entrée sur 24 heures et recherchez les instances dans lesquelles **StartFault** et **StopFault** sont couvertes par la condition « weight &lt; 20000 » (poids inférieur à 20 000 livres).
 
 ## <a name="query-example-fill-missing-values"></a>Exemple de requête : Remplir les valeurs manquantes
 **Description** : Pour le flux des événements qui ont des valeurs manquantes, produire un flux d’événements à intervalles réguliers.
@@ -515,5 +514,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

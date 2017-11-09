@@ -3,7 +3,7 @@ title: "Surveillance d’un site SharePoint avec Application Insights"
 description: "Démarrage de la surveillance d'une nouvelle application avec une nouvelle clé d'instrumentation"
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 3977cbc0f111de39621a875cce2d6714559a73fd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
-
+ms.author: mbullwin
+ms.openlocfilehash: 9c07ba125e0f9eae2b8f94661abf6dc1efc0cdad
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Surveillance d’un site SharePoint avec Application Insights
 Azure Application Insights surveille la disponibilité, les performances et l’utilisation de vos applications. Vous allez maintenant apprendre à le configurer pour un site SharePoint.
@@ -145,6 +144,5 @@ function onRequestFail(sender, args) {
 * [Application Insights](app-insights-overview.md) pour les autres types d'applications.
 
 <!--Link references-->
-
 
 

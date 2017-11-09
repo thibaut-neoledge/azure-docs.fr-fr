@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
+ms.openlocfilehash: 9b8f96b34b53982c469273a3df9751ceb7930d60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9c6eab099057ef91f79ff1a97e1cc1bd397fc946
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Surveillez un cluster DC/OS Azure Container Service avec Operations Management Suite.
 
 Microsoft Operations Management Suite (OMS) est une solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud. La solution Conteneurs fait partie intégrante d’OMS Log Analytics, qui vous octroie une visibilité sur le stock, les performances et les fichiers journaux des conteneurs à un emplacement unique. Vous pouvez auditer les conteneurs, résoudre les problèmes en consultant les fichiers journaux de manière centralisée, et identifier les conteneurs bruyants à consommation supérieure sur un hôte.
@@ -52,8 +50,7 @@ Cet article suppose que vous avez configuré un univers DC/OS et avez déployé 
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Ici, vous êtes invité à entrer `wsid` (l’ID d’espace de travail OMS) et `wskey` (la clé primaire OMS pour l’ID d’espace de travail). Pour obtenir à la fois `wsid` et `wskey`, vous devez créer un compte OMS à l’adresse <https://mms.microsoft.com>.
-Suivez la procédure de création de compte. Une fois que vous avez créé le compte, pour obtenir votre `wsid` et votre `wskey`, cliquez sur **Paramètres**, puis sur **Sources connectés**, puis sur **Serveurs Linux**, tel que représenté ci-dessous.
+3. Ici, vous êtes invité à entrer `wsid` (l’ID d’espace de travail OMS) et `wskey` (la clé primaire OMS pour l’ID d’espace de travail). Pour obtenir à la fois `wsid` et `wskey`, vous devez créer un compte OMS à l’adresse <https://mms.microsoft.com>. Suivez la procédure de création de compte. Une fois que vous avez créé le compte, pour obtenir votre `wsid` et votre `wskey`, cliquez sur **Paramètres**, puis sur **Sources connectés**, puis sur **Serveurs Linux**, tel que représenté ci-dessous.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -117,4 +114,3 @@ Qu’est-ce qui fonctionne ? Quels sont les manquements ? Quels éléments pou
 ## <a name="next-steps"></a>Étapes suivantes
 
  Maintenant que vous avez configuré OMS pour surveiller vos conteneurs, [consultez le tableau de bord des conteneurs](../../log-analytics/log-analytics-containers.md).
-

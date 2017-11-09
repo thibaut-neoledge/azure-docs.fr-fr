@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Gestion du contenu unique des différents types de campagnes de notifications Push
 Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modifier le contenu de vos annonces, sondages, Push de données et vignettes (Windows Phone uniquement). Le paramètre du contenu des campagnes Push est spécifique au type de campagne. 
@@ -60,7 +59,7 @@ Chaque occurrence du modèle {deviceid} est automatiquement remplacée par l'ide
   * Exemple : http://www.azure.com
   * Envoyer un courrier électronique
   * mailto:\[destinataire-e-mail\]?subject=\[objet\]&body=\[message\] 
-  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&amp;body=Good%20stuff!
   * Envoyer un SMS
   * sms:\[numéro-téléphone\] 
   * Exemple :sms:2125551212
@@ -84,7 +83,7 @@ Chaque occurrence du modèle {deviceid} est automatiquement remplacée par l'ide
   * Exemple : http://www.azure.com
   * Envoyer un courrier électronique
   * mailto:\[destinataire-e-mail\]?subject=\[objet\]&body=\[message\] 
-  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&amp;body=Good%20stuff!
   * Envoyer un SMS (application Skype du Store requise)
   * sms:\[numéro-téléphone\] 
   * Exemple :sms:2125551212
@@ -238,5 +237,4 @@ Un Push de vignette est la version du service de notifications Push de Microsoft
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

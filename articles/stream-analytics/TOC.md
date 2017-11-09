@@ -18,23 +18,30 @@
 ## Créer des travaux
 ### [Créer des entrées](stream-analytics-define-inputs.md)
 ### [Exemples de données d’entrée](stream-analytics-sample-data-input.md)
-### [Modèles de requête courants](stream-analytics-stream-analytics-query-patterns.md)      
+### [Modèles de requête courants](stream-analytics-stream-analytics-query-patterns.md)
 ### [Fonctions Windows](stream-analytics-window-functions.md)
+
 ### [Utiliser les données de référence](stream-analytics-use-reference-data.md)
 ### [Requêtes de test](stream-analytics-test-query.md)
 ### [Intégration d’UDF JavaScript](stream-analytics-javascript-user-defined-functions.md)
+### [Intégration d’UDA JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Intégrer l’API REST et le service Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Créer des sorties](stream-analytics-define-outputs.md)
-### [Externaliser vers Azure Functions](stream-analytics-functions-redis.md)
 ### [Sortie vers Data Lake Store](stream-analytics-data-lake-output.md)
-### [Sortie vers DocumentDB](stream-analytics-documentdb-output.md)
+### [Sortie vers Cosmos DB](stream-analytics-documentdb-output.md)
+
+## Utiliser les outils Visual Studio
+### [Installer](stream-analytics-tools-for-visual-studio-install.md)
+### [Prise en main](stream-analytics-tools-for-visual-studio.md)
+### [Configurer des pipelines d’intégration continue/de livraison continue](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Surveiller et optimiser
 ### [Ajouter des alertes](stream-analytics-set-up-alerts.md)
 ### [Surveiller des travaux](stream-analytics-monitoring.md)
 ### [Surveiller les travaux par programmation](stream-analytics-monitor-jobs.md)
 ### [Surveiller les travaux avec PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Optimiser les unités de streaming](stream-analytics-streaming-unit-consumption.md)
+### [Comprendre et ajuster les unités de diffusion en continu](stream-analytics-streaming-unit-consumption.md)
+### [Profiter de la parallélisation de requête](stream-analytics-parallelization.md)
 ### [Mettre à l’échelle pour augmenter le débit](stream-analytics-scale-jobs.md)
 ### [Mettre à l’échelle pour les fonctions Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 
@@ -48,17 +55,17 @@
 ### [Diagramme de travail et mesures](stream-analytics-job-diagram-with-metrics.md)
 ### [Débogage de SELECT INTO](stream-analytics-select-into.md)
 ### [Gestion de commande d’événement](stream-analytics-out-of-order-and-late-events.md)
+### [Considérations relatives à l’organisation des événements](stream-analytics-out-of-order-and-late-events.md)
 ### [Limites du lecteur Event Hub](stream-analytics-event-hub-consumer-groups.md)
 ### [Journaux de diagnostics](stream-analytics-job-diagnostic-logs.md)
 
 ## Automatisation
-### [Outils pour Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Utiliser le kit de développement logiciel (SDK) .NET de gestion](stream-analytics-dotnet-management-sdk.md)
-### [PowerShell en un clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+### [One-click Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
-## [PowerShell](/powershell/module/azurerm.streamanalytics)
+## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Langage de requête](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)

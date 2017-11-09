@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
-ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Prise en charge de plusieurs domaines pour la fédération avec Azure AD
 La documentation suivante fournit des conseils sur l’utilisation de plusieurs domaines de niveau supérieur et sous-domaines lors de la fédération avec des domaines Office 365 ou Azure AD.
@@ -67,7 +66,7 @@ De plus, `-SupportMultipleDomain` s’assure que le système AD FS inclut la val
 
 Ainsi, pendant l’authentification auprès d’Azure AD ou Office 365, l’élément IssuerUri du jeton de l’utilisateur est employé pour localiser le domaine dans Azure AD.  Si aucune correspondance ne peut être trouvée, l’authentification échoue. 
 
-Par exemple, si l’UPN d’un utilisateur est bsimon@bmcontoso.com,, l’élément IssuerUri dans les émissions AD FS du jeton a la valeur http://bmcontoso.com/adfs/services/trust. Il correspond à la configuration Azure AD et donc l’authentification réussit.
+Par exemple, si l’UPN d’un utilisateur est bsimon@bmcontoso.com, l’élément IssuerUri dans les émissions AD FS du jeton a la valeur http://bmcontoso.com/adfs/services/trust. Il correspond à la configuration Azure AD et donc l’authentification réussit.
 
 Vous trouverez ci-dessous la règle de revendication personnalisée qui implémente cette logique :
 
@@ -163,5 +162,4 @@ Utilisez les étapes suivantes pour ajouter une revendication personnalisée pou
     ![Remplacer la revendication](./media/active-directory-multiple-domains/sub2.png)
 
 5. Cliquez sur OK.  Cliquez sur Appliquer.  Cliquez sur OK.  Fermez Gestion AD FS.
-
 

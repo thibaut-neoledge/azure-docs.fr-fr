@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/11/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0bcf8f0d1c5fc44a31de9be9adbdad3893ff111f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari
 
@@ -52,6 +51,9 @@ L’interface utilisateur Web d’Ambari est disponible sur votre cluster HDInsi
 Bien qu’Ambari pour votre cluster soit accessible directement via Internet, certains liens de l’interface utilisateur web d’Ambari (comme celui vers le JobTracker) ne sont pas exposés sur Internet. Pour accéder à ces services, vous devez créer un tunnel SSH. Pour plus d’informations, consultez [Utilisation du tunneling SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="ambari-web-ui"></a>Interface utilisateur web d'Ambari
+
+> [!WARNING]
+> Les fonctionnalités de l’interface utilisateur web Ambari ne sont pas toutes prises en charge dans HDInsight. Pour plus d’informations, consultez la section [Opérations non prises en charge](#unsupported-operations) de ce document.
 
 Pendant la connexion à l’interface utilisateur web d’Ambari, vous devez vous authentifier auprès de la page. Utilisez le nom d’utilisateur et le mot de passe de l’administrateur du cluster (administrateur par défaut) utilisés lors de la création du cluster.
 
@@ -238,3 +240,12 @@ Les affichages Ambari permettent aux développeurs d’incorporer des éléments
 
 * Vue Tez : la vue Tez vous permet de mieux comprendre et optimiser les tâches. Vous pouvez afficher des informations sur l’exécution des tâches Tez et les ressources utilisées.
 
+## <a name="unsupported-operations"></a>Opérations non prises en charge
+
+Les opérations Ambari suivantes ne sont pas prises en charge dans HDInsight :
+
+* __Déplacement du service Collecteur de métriques__. Quand vous affichez des informations sur le service Collecteur de métriques, l’une des actions disponibles à partir du menu Service Actions est __Move Metrics collector__. Cette opération n’est pas prise en charge avec HDInsight.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez comment utiliser [l’API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) avec HDInsight.

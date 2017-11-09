@@ -4,16 +4,16 @@
 # Prise en main
 ## [Portail Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
+## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+## [Interface de ligne de commande Azure](data-lake-analytics-get-started-cli2.md)
 
 # Procédures
 
-## Gérer les comptes Data Lake Analytics
+## Gérer Data Lake Analytics
 ### [Portail Azure](data-lake-analytics-manage-use-portal.md)
-### [interface de ligne de commande Azure](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Interface de ligne de commande Azure](data-lake-analytics-manage-use-cli.md)
+### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [Kit SDK .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Kit de développement logiciel (SDK) Python](data-lake-analytics-manage-use-python-sdk.md)
 ### [Kit de développement logiciel (SDK) Java](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
@@ -33,6 +33,7 @@
 
 ## Déboguer des programmes U-SQL
 ### [Travaux de surveillance et de résolution des problèmes](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Résoudre les problèmes liés à une tâche périodique inhabituelle](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [Déboguer le code C# dans U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Utiliser l’explorateur de travaux et la vue des travaux](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Utiliser la vue d’exécution du vertex](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
@@ -41,12 +42,12 @@
 
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
-## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
+## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [REST](/rest/api/datalakeanalytics/)
-## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
+## [INTERFACE DE LIGNE DE COMMANDE](https://docs.microsoft.com/cli/azure/dla)
 
 # Ressources
 ## [Blog Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)

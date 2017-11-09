@@ -12,36 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/30/2017
+ms.date: 09/18/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4b6da997f44860dccb2aa2571ce099ab2d0231f3
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: c0cd24e03c24655adfe851bc85b721c0b617efcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Activer la synchronisation du mot de passe pour Azure Active Directory Domain Services
 Dans les tâches précédentes, vous avez activé Azure Active Directory Domain Services pour votre locataire Azure Active Directory (Azure AD). Dans la tâche suivante, vous allez activer la synchronisation des hachages d’informations d’identification requis pour l’authentification NT LAN Manager (NTLM) et Kerberos avec Services de domaine Azure AD. Une fois la synchronisation des informations d’identification configurée, les utilisateurs peuvent se connecter au domaine managé à l’aide de leurs informations d’identification d’entreprise.
 
-Les étapes nécessaires sont différentes pour les comptes d’utilisateurs uniquement dans le cloud par rapport aux comptes d’utilisateurs qui sont synchronisés à partir de votre répertoire local à l’aide d’Azure AD Connect.  Si votre locataire Azure AD utilise une combinaison d’utilisateurs dans le cloud uniquement et d’utilisateurs provenant de votre répertoire Active Directory local, vous devez effectuer ces deux étapes.
+Les étapes nécessaires sont différentes pour les comptes d’utilisateurs uniquement dans le cloud par rapport aux comptes d’utilisateurs qui sont synchronisés à partir de votre répertoire local à l’aide d’Azure AD Connect. 
+
+<br>
+| **Type de compte d’utilisateur** | **Étapes à effectuer** |
+| --- |---|
+| **Comptes d’utilisateur cloud créés dans Azure AD** |**&#x2713;** [Suivez les instructions de cet article](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
+| **Comptes d’utilisateur synchronisés à partir d’un répertoire local** |**&#x2713;** [Synchroniser les mots de passe des comptes d’utilisateur synchronisés à partir de votre répertoire AD local avec votre domaine managé](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
-> [!div class="op_single_selector"]
-> * **Comptes d’utilisateurs uniquement dans le cloud** : [synchroniser les mots de passe des comptes d’utilisateurs uniquement dans le cloud avec votre domaine géré](active-directory-ds-getting-started-password-sync.md)
-> * **Comptes d’utilisateurs locaux** : [synchroniser les mots de passe des comptes d’utilisateurs synchronisés à partir de votre répertoire Active Directory local avec votre domaine géré](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+> [!TIP]
+> **Vous devrez peut-être effectuer les deux ensembles d’étapes.**
+> Si votre locataire Azure AD utilise une combinaison d’utilisateurs dans le cloud uniquement et d’utilisateurs provenant de votre répertoire Active Directory local, vous devez effectuer ces deux ensembles d’étapes.
 >
->
-
-<br>
 
 ## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts"></a>Tâche 5 : activer la synchronisation de mot de passe avec votre domaine géré pour les comptes d’utilisateurs uniquement dans le cloud
 Pour authentifier les utilisateurs sur le domaine managé, Azure AD DS exige que les hachages d’informations d’identification présentent un format adapté à l’authentification NTLM et Kerberos. Azure AD ne génère pas et ne stocke pas les hachages d’informations d’identification dans le format requis pour l’authentification NTLM ou Kerberos, à moins que vous n’activiez Azure Active Directory Domain Services pour votre locataire. Pour des raisons évidentes de sécurité, Azure AD ne stocke pas non plus d’informations de mot de passe dans un format en texte clair. Par conséquent, Azure AD n’a pas la capacité de générer automatiquement ces hachages d’informations d’identification NTLM ou Kerberos en fonction des informations d’identification existantes des utilisateurs.
 
 > [!NOTE]
-> Si votre organisation utilise des comptes d’utilisateurs dans le cloud uniquement, les utilisateurs ayant besoin Azure Active Directory Domain Services doivent modifier leur mot de passe. Un compte d’utilisateur uniquement dans le cloud est un compte qui a été créé dans votre répertoire Azure AD à l’aide du portail Azure ou d’applets de commande PowerShell Azure AD. Ces comptes d’utilisateurs ne sont pas synchronisés à partir d’un répertoire local.
+> **Si votre organisation utilise des comptes d’utilisateur dans le cloud uniquement, tous les utilisateurs ayant besoin d’Azure Active Directory Domain Services doivent modifier leur mot de passe.** Un compte d’utilisateur uniquement dans le cloud est un compte qui a été créé dans votre répertoire Azure AD à l’aide du portail Azure ou d’applets de commande PowerShell Azure AD. Ces comptes d’utilisateurs ne sont pas synchronisés à partir d’un répertoire local.
 >
 >
 
@@ -62,7 +63,7 @@ Voici les instructions que vous devez fournir aux utilisateurs pour qu’ils pui
 
     ![Cliquez sur « Modifier le mot de passe »](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-   > [!NOTE]
+   > [!TIP]
    > Si l’option **Modifier le mot de passe** ne s’affiche pas sur la fenêtre du volet d’accès, vérifiez que votre organisation a configuré la [gestion des mots de passe dans Azure AD](../active-directory/active-directory-passwords-getting-started.md).
    >
    >
@@ -72,7 +73,7 @@ Voici les instructions que vous devez fournir aux utilisateurs pour qu’ils pui
 
 5. Cliquez sur **Envoyer**.
 
-Quelques minutes après cette modification, le nouveau mot de passe est utilisable Azure AD DS. Après 20 minutes environ (en général), vous pouvez vous connecter aux ordinateurs joints au domaine managé à l’aide du nouveau mot de passe.
+Quelques minutes après cette modification, le nouveau mot de passe est utilisable Azure AD DS. Au bout de 20 minutes environ, vous pouvez vous connecter aux ordinateurs joints au domaine managé à l’aide du nouveau mot de passe.
 
 ## <a name="related-content"></a>Contenu connexe
 * [Comment mettre à jour votre mot de passe](../active-directory/active-directory-passwords-update-your-own-password.md)
@@ -81,4 +82,3 @@ Quelques minutes après cette modification, le nouveau mot de passe est utilisab
 * [Administrer un domaine managé par Azure Active Directory Domain Services ](active-directory-ds-admin-guide-administer-domain.md)
 * [Joindre une machine virtuelle Windows à un domaine managé par Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Joindre une machine virtuelle Red Hat Enterprise Linux à un domaine managé par Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-

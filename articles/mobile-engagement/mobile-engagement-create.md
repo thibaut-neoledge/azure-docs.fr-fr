@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Création d’un compte Azure Mobile Engagement
 Cet article explique comment utiliser la méthode **Création rapide** pour créer une application **Azure Mobile Engagement**. Il explique également comment accéder à votre portail **Mobile Engagement** pour commencer à surveiller et gérer vos applications. 
@@ -48,5 +47,4 @@ Une fois dans le portail Mobile Engagement, vous pouvez analyser, créer et gér
 [Définir votre stratégie Mobile Engagement](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Prise en main d’Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (vous pouvez sélectionner d’autres plateformes mobiles en haut de la page).
-
 

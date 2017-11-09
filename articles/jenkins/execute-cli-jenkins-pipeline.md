@@ -15,14 +15,12 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Déploiement dans Azure App Service avec Jenkins et l’interface CLI Azure
 Pour déployer une application web Java dans Azure, vous pouvez utiliser l’interface CLI Azure dans le [pipeline Jenkins](https://jenkins.io/doc/book/pipeline/). Dans ce didacticiel, vous créez un pipeline CI/CD sur une machine virtuelle Azure et apprenez notamment comment :
 
@@ -93,7 +91,7 @@ Lorsque le plan est prêt, l’interface de ligne de commande Azure affiche une 
 
 ### <a name="create-an-azure-web-app"></a>Création d’une application web Azure
 
- Utilisez la commande d’interface de ligne de commande [az webapp create](/cli/azure/appservice/web#create) pour créer une définition d’application web dans le plan App Service `myAppServicePlan`. La définition d’application web fournit une URL pour accéder à votre application et permet de configurer plusieurs options pour déployer votre code dans Azure. 
+ Utilisez la commande d’interface de ligne de commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) pour créer une définition d’application web dans le plan App Service `myAppServicePlan`. La définition d’application web fournit une URL pour accéder à votre application et permet de configurer plusieurs options pour déployer votre code dans Azure. 
 
 ```azurecli-interactive
 az webapp create \
@@ -233,4 +231,3 @@ Dans ce didacticiel, vous avez configuré un pipeline Jenkins qui extrait le cod
 > * Préparer un dépôt GitHub
 > * Créer un pipeline Jenkins
 > * Exécuter le pipeline et vérifier l’application web
-

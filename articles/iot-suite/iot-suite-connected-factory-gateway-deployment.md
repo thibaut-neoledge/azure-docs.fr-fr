@@ -1,5 +1,5 @@
 ---
-title: "Déploiement de votre passerelle d’usine connectée Azure IoT Suite | Microsoft Docs"
+title: "Déploiement de votre passerelle d’usine connectée - Azure | Microsoft Docs"
 description: "Comment déployer une passerelle sur Windows ou Linux pour activer la connectivité à la solution préconfigurée d’usine connectée."
 services: 
 suite: iot-suite
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
+ms.openlocfilehash: 9f11d93be49f7d88012b1274ad61495e38a2e9a9
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: caa12f4ef55006cd3edbe2d9606397d34fed3a3e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Déployer une passerelle sur Windows ou Linux pour la solution préconfigurée d’usine connectée
 
 Le logiciel requis afin de déployer une passerelle pour la solution préconfigurée d’usine connectée comporte deux composants :
@@ -155,6 +153,8 @@ Vous pouvez également effectuer cette étape après l’installation de Docker,
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’architecture de la solution préconfigurée d’usine connectée, consultez la [présentation de la solution préconfigurée d’usine connectée][lnk-walkthrough].
+
+Découvrez [l’implémentation de référence de l’éditeur OPC](iot-suite-connected-factory-publisher.md).
 
 [img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
 [img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png

@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 972cc48057c13271d725b0c973c3ccf651ad27c4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -55,7 +53,6 @@ Des informations de base sur le jeton obtenu via `AcquireTokenAsync` ou `Acquire
 L’API Graph nécessite que l’étendue `user.read` lise le profil utilisateur. Par défaut, cette étendue est automatiquement ajoutée à toutes les applications inscrites dans notre portail d’inscription. D’autres API Graph ainsi que des API personnalisées pour votre serveur principal nécessitent des étendues supplémentaires. Par exemple, pour Graph, `Calendars.Read` est requis afin de répertorier les calendriers de l’utilisateur. Pour accéder au calendrier de l’utilisateur dans le contexte d’une application, vous devez ajouter les informations d’inscription de l’application déléguée `Calendars.Read`, puis ajouter `Calendars.Read` à l’appel `AcquireTokenAsync`. L’utilisateur peut être invité à donner des consentements supplémentaires lorsque vous augmentez le nombre d’étendues.
 
 <!--end-collapse-->
-
 
 
 

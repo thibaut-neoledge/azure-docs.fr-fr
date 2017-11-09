@@ -1,46 +1,41 @@
 ---
-title: Diagnostics in Azure Stack | Microsoft Docs
-description: How to collect log files for diagnostics in Azure Stack
+title: Diagnostics dans Azure Stack
+description: Comment collecter des fichiers journaux de diagnostics dans Azure Stack
 services: azure-stack
-documentationcenter: 
 author: adshar
-manager: 
-editor: 
-ms.assetid: 
+manager: byronr
+cloud: azure-stack
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 10/2/2017
 ms.author: adshar
+ms.openlocfilehash: 9b1fbbf63ddd8bac2c1a76bbcd5daca69e2513f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 70004cfd83360ac4c66fd4c90632d341709d2e6f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostics tools
- 
-Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs, which means that diagnosing issues can quickly become a challenging task, especially for errors coming from multiple interacting Azure Stack components. 
+# <a name="azure-stack-diagnostics-tools"></a>Outils de diagnostics Azure Stack
 
-Our diagnostics tools help make sure the log collection mechanism is easy and efficient. The following diagram shows how log collection tools in Azure Stack work:
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+ 
+Azure Stack est une grande collection de composants qui fonctionnent ensemble et interagissent. Tous ces composants génèrent leurs propres journaux. Cela peut compliquer le diagnostic des problèmes, notamment lorsque les erreurs proviennent de plusieurs composants Azure Stack en interaction. 
 
-![Log collection tools](media/azure-stack-diagnostics/image01.png)
- 
- 
-## <a name="trace-collector"></a>Trace Collector
- 
-The Trace Collector is enabled by default. It continuously runs in the background and collects all Event Tracing for Windows (ETW) logs from component services on Azure Stack and stores them on a common local share. 
+Nos outils de diagnostic aident à garantir la simplicité d’utilisation et l’efficacité du mécanisme de collection de journaux. Le diagramme suivant illustre le fonctionnement des outils de collecte de journaux Azure Stack :
 
-The following are important things to know about the Trace Collector:
+![Outils de collecte de journaux](media/azure-stack-diagnostics/image01.png)
  
-* The Trace Collector runs continuously with default size limits. The default maximum size allowed for each file (200 MB) is **not** a cutoff size. A size check occurs periodically (currently every 10 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8 GB (configurable) limit on the total file size generated per event session. Once this limit is reached, the oldest files are deleted as new ones are created.
-* There is a 5-day age limit on the logs. This limit is also configurable. 
-* Each component defines the trace configuration properties through a JSON file. The JSON files are stored in `C:\TraceCollector\Configuration`. If necessary, these files can be edited to change the age and size limits of the collected logs. Changes to these files require a restart of the *Microsoft Azure Stack Trace Collector* service for the changes to take effect.
-* The following example is a trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
+ 
+## <a name="trace-collector"></a>Collecteur de traces
+ 
+Le collecteur de traces est activé par défaut. Il s’exécute de manière continue en arrière-plan, collecte tous les journaux de suivi d’événements pour Windows (ETW) à partir des services de composants sur Azure Stack, et les stocke sur un partage local commun. 
+
+Voici quelques choses importantes à savoir concernant le collecteur de traces :
+ 
+* Le collecteur de traces s’exécute en permanence avec les limites de taille par défaut. La taille maximale par défaut autorisée pour chaque fichier (200 Mo) n’est **pas** une taille limite. Une vérification de la taille se produit régulièrement (actuellement, toutes les 2 minutes) et, si la taille du fichier actuel est supérieure ou égale à 200 Mo, il est enregistré et un fichier est généré. Il existe également une limite de 8 Go (configurable) concernant la taille totale des fichiers générés par session d’événements. Une fois cette limite atteinte, les fichiers les plus anciens sont supprimés à mesure que de nouveaux sont créés.
+* Il existe une limite d’âge de journal de cinq jours. Cette limite est également configurable. 
+* Chaque composant définit les propriétés de configuration de trace par le biais d’un fichier JSON. Les fichiers JSON sont stockés dans `C:\TraceCollector\Configuration`. Si nécessaire, vous pouvez modifier ces fichiers pour changer les limites d’âge et de taille des journaux collectés. Les changements apportés à ces fichiers nécessitent un redémarrage du service *Collecteur de traces Microsoft Azure Stack* pour que les modifications prennent effet.
+* L’exemple suivant est un fichier JSON de configuration de trace pour les opérations de FabricRingServices à partir de la machine virtuelle XRP : 
 
 ```
 {
@@ -64,95 +59,126 @@ The following are important things to know about the Trace Collector:
 
 * **MaxDaysOfFiles**
 
-    This parameter controls the age of files to keep. Older log files are deleted.
+    Ce paramètre contrôle la durée de conservation des fichiers. Les fichiers journaux plus anciens sont supprimés.
 * **MaxSizeInMB**
 
-    This parameter controls the size threshold for a single file. If the size is reached, a new .etl file is created.
+    Ce paramètre contrôle le seuil de taille pour un seul fichier. Si la taille est atteinte, un nouveau fichier .etl est créé.
 * **TotalSizeInMB**
 
-    This parameter controls the total size of the .etl files generated from an event session. If the total file size is greater than this parameter value, older files are deleted.
+    Ce paramètre contrôle la taille totale des fichiers .etl générés à partir d’une session d’événements. Si la taille totale des fichiers est supérieure à la valeur de ce paramètre, les fichiers plus anciens sont supprimés.
   
-## <a name="log-collection-tool"></a>Log collection tool
+## <a name="log-collection-tool"></a>Outil de collecte de journaux
  
-The PowerShell command `Get-AzureStackLog` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
+Vous pouvez utiliser la commande PowerShell `Get-AzureStackLog` pour collecter des journaux à partir de tous les composants dans un environnement Azure Stack. Elle les enregistre dans des fichiers zip à un emplacement défini par l’utilisateur. Si notre équipe de support technique a besoin de vos journaux pour aider à résoudre un problème, elle peut vous demander d’exécuter cet outil.
 
 > [!CAUTION]
-> These log files may contain personally identifiable information (PII). Take this into account before you publicly post any log files.
+> Ces fichiers journaux peuvent contenir des informations d’identification personnelle. Pensez-y avant de publier des fichiers journaux publiquement.
  
-We currently collect the following log types:
-*   **Azure Stack deployment logs**
-*   **Windows event logs**
-*   **Panther logs**
+Voici quelques exemples de types de journaux collectés :
+*   **Journaux de déploiement Azure Stack**
+*   **Journaux des événements Windows**
+*   **Journaux Panther**
 
-     To troubleshoot VM creation issues.
-*   **Cluster logs**
-*   **Storage diagnostic logs**
-*   **ETW logs**
+   Pour résoudre les problèmes de création de machine virtuelle, procédez comme suit :
+*   **Journaux de cluster**
+*   **Journaux de diagnostics de stockage**
+*   **Journaux ETW**
 
-    These are collected by the Trace Collector and stored in a share from where `Get-AzureStackLog` retrieves them.
+Ces fichiers sont recueillis par le collecteur de traces et stockés dans un partage à partir duquel `Get-AzureStackLog` les récupère.
  
-To identify all the logs that get collected from all the components, refer to the `<Logs>` tags in the customer configuration file located at `C:\EceStore\<Guid>\<GuidWithMaxFileSize>`.
- 
-### <a name="to-run-get-azurestacklog"></a>To run Get-AzureStackLog
-1.  Log in as AzureStack\AzureStackAdmin on the host.
-2.  Open a PowerShell window as an administrator.
-3.  Run `Get-AzureStackLog`.  
+**Pour exécuter Get-AzureStackLog sur un Kit de développement Azure Stack (ASDK)**
+1.  Connectez-vous en tant que AzureStack\AzureStackAdmin sur l’hôte.
+2.  Ouvrez une fenêtre PowerShell en tant qu’administrateur.
+3.  Exécutez `Get-AzureStackLog`.  
 
-    **Examples**
+    **Exemples**
 
-    - Collect all logs for all roles:
+    - Collecter tous les journaux pour tous les rôles :
 
         `Get-AzureStackLog -OutputPath C:\AzureStackLogs`
 
-    - Collect logs from VirtualMachines and BareMetal roles:
+    - Collecter les journaux à partir des rôles VirtualMachines et BareMetal :
 
         `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal`
 
-    - Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
+    - Collecter les journaux à partir des rôles VirtualMachines et BareMetal, avec un filtrage de date pour les fichiers journaux pour les huit dernières heures :
 
-        `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date)`
+        `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)`
 
-If the `FromDate` and `ToDate` parameters are not specified, logs are collected for the past 4 hours by default.
+    - Collecter les journaux à partir des rôles VirtualMachines et BareMetal, avec un filtrage de date pour les fichiers journaux des 2 à 8 dernières heures :
 
-Currently, you can use the `FilterByRole` parameter to filter log collection by the following roles:
+      `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)`
 
-|   |   |   |
-| - | - | - |
-| `ACSMigrationService`     | `ACSMonitoringService`   | `ACSSettingsService` |
-| `ACS`                     | `ACSFabric`              | `ACSFrontEnd`        |
-| `ACSTableMaster`          | `ACSTableServer`         | `ACSWac`             |
-| `ADFS`                    | `ASAppGateway`           | `BareMetal`          |
-| `BRP`                     | `CA`                     | `CPI`                |
-| `CRP`                     | `DeploymentMachine`      | `DHCP`               |
-|`Domain`                   | `ECE`                    | `ECESeedRing`        |        
-| `FabricRing`              | `FabricRingServices`     | `FRP`                |
-|` Gateway`                 | `HealthMonitoring`       | `HRP`                |               
-| `IBC`                     | `InfraServiceController` | `KeyVaultAdminResourceProvider`|
-| `KeyVaultControlPlane`    | `KeyVaultDataPlane`      | `NC`                 |            
-| `NonPrivilegedAppGateway` | `NRP`                    | `SeedRing`           |
-| `SeedRingServices`        | `SLB`                    | `SQL`                |     
-| `SRP`                     | `Storage`                | `StorageController`  |
-| `URP`                     | `UsageBridge`            | `VirtualMachines`    |  
-| `WAS`                     | `WASPUBLIC`              | `WDS`                |
+**Pour exécuter Get-AzureStackLog sur un système intégré Azure Stack :**
+
+Pour exécuter l’outil de collection de journaux sur un système intégré, vous devez avoir accès au point de terminaison privilégié (PEP). Voici un exemple de script que vous pouvez exécuter à l’aide du point de terminaison privilégié pour collecter des journaux sur un système intégré :
+
+```
+$ip = "<IP OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDREESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- Lorsque vous collectez les journaux à partir du point de terminaison privilégié, spécifiez le paramètre `OutputPath` afin qu’il corresponde à un emplacement sur la machine HLH. Vérifiez également que l’emplacement est chiffré.
+- Les paramètres `OutputSharePath` et `OutputShareCredential` sont facultatifs et sont utilisés lorsque vous chargez des journaux vers un dossier partagé externe. Utilisez ces paramètres *en plus* de `OutputPath`. Si le paramètre `OutputPath` n’est pas spécifié, l’outil de collection de journal utilise le lecteur système de la machine virtuelle PEP pour le stockage. Cela peut entraîner l’échec du script, car l’espace disque est limité.
+- Comme indiqué dans l’exemple précédent, les paramètres `FromDate` et `ToDate` peuvent être utilisés pour collecter des journaux pour une période donnée. Cela peut être pratique pour les scénarios, tels que la collection de journaux après l’application d’un package de mise à jour sur un système intégré.
+
+**Considérations relatives aux paramètres du kit ASDK et des systèmes intégrés :**
+
+- Si vous ne spécifiez pas les paramètres `FromDate` et `ToDate`, par défaut les journaux sont collectés pour les quatre dernières heures.
+- Vous pouvez utiliser le paramètre `TimeOutInMinutes` pour définir le délai d’expiration pour la collection de journaux. Il est défini sur 150 (2,5 heures) par défaut.
+
+- Actuellement, vous pouvez utiliser le paramètre `FilterByRole` pour filtrer la collecte de journaux en fonction des rôles suivants :
+
+   |   |   |   |
+   | - | - | - |
+   | `ACSMigrationService`     | `ACSMonitoringService`   | `ACSSettingsService` |
+   | `ACS`                     | `ACSFabric`              | `ACSFrontEnd`        |
+   | `ACSTableMaster`          | `ACSTableServer`         | `ACSWac`             |
+   | `ADFS`                    | `ASAppGateway`           | `BareMetal`          |
+   | `BRP`                     | `CA`                     | `CPI`                |
+   | `CRP`                     | `DeploymentMachine`      | `DHCP`               |
+   |`Domain`                   | `ECE`                    | `ECESeedRing`        |        
+   | `FabricRing`              | `FabricRingServices`     | `FRP`                |
+   |` Gateway`                 | `HealthMonitoring`       | `HRP`                |               
+   | `IBC`                     | `InfraServiceController` | `KeyVaultAdminResourceProvider`|
+   | `KeyVaultControlPlane`    | `KeyVaultDataPlane`      | `NC`                 |            
+   | `NonPrivilegedAppGateway` | `NRP`                    | `SeedRing`           |
+   | `SeedRingServices`        | `SLB`                    | `SQL`                |     
+   | `SRP`                     | `Storage`                | `StorageController`  |
+   | `URP`                     | `UsageBridge`            | `VirtualMachines`    |  
+   | `WAS`                     | `WASPUBLIC`              | `WDS`                |
 
 
-A few things to note:
+Autres informations à connaître :
 
-* This command takes some time for log collection based on which role logs are collected. Contributing factors include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
-* After log collection completes, check the new folder created in the `-OutputPath` parameter specified in the command.
-* A file called `Get-AzureStackLog_Output.log` is created in the folder containing the zip files and includes the command output, which can be used for troubleshooting any failures in log collection.
-* Each role has its logs inside an individual zip file. 
-* To investigate a specific failure, logs may be needed from more than one component.
-    -   System and Event logs for all infrastructure VMs are collected in the *VirtualMachines* role.
-    -   System and Event logs for all hosts are collected in the *BareMetal* role.
-    -   Failover Cluster and Hyper-V event logs are collected in the *Storage* role.
-    -   ACS logs are collected in the *Storage* and *ACS* roles.
-* For more details, you can refer to the customer configuration file. Investigate the `<Logs>` tags for the different roles.
+* L’exécution de cette commande peut prendre un certain temps, en fonction des données du ou des rôles collectées par les journaux. Les facteurs qui entrent en compte sont la durée spécifiée pour la collecte de journaux et le nombre de nœuds de l’environnement Azure Stack.
+* Une fois la collecte de journaux terminée, vérifiez le dossier créé dans le paramètre `-OutputPath` spécifié dans la commande.
+* Les journaux de chaque rôle se trouvent à l’intérieur de fichiers zip individuels. Selon leur taille, les journaux d’un rôle collectés peuvent être séparés en plusieurs fichiers zip. Pour ce type de rôle, si vous souhaitez disposer de tous les fichiers journaux décompressés dans un dossier unique, utilisez un outil qui peut effectuer cette opération en blocs (7zip, par exemple). Sélectionnez tous les fichiers compressés du rôle, puis sélectionnez **Extract Here**. Cette opération permet de décompresser tous les fichiers journaux de ce rôle, au sein d’un dossier fusionné unique.
+* Un fichier appelé `Get-AzureStackLog_Output.log` est également créé dans le dossier qui contient les fichiers journaux compressés. Ce fichier est un journal de la sortie de la commande, qui peut être utilisé pour résoudre des problèmes lors de la collection de journaux.
+* Pour examiner un échec spécifique, vous aurez peut-être besoin des journaux de plusieurs composants.
+    -   Les journaux système et des événements pour toutes les machines virtuelles de l’infrastructure sont collectés dans le rôle *VirtualMachines*.
+    -   Les journaux système et des événements pour tous les hôtes sont collectés dans le rôle *BareMetal*.
+    -   Les journaux des événements de cluster de basculement et Hyper-V sont collectés dans le rôle *Storage*.
+    -   Les journaux ACS sont collectés dans les rôles *Storage* et *ACS*.
 
 > [!NOTE]
-> We are enforcing size and age limits to the logs collected as it is essential to ensure efficient utilization of your storage space to make sure it doesn't get flooded with logs. Having said that, when diagnosing a problem you will often need logs that might not exist anymore due to these limits being enforced. Hence, it is **highly recommended** that you offload your logs to an external storage space (a storage account in public Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months depending on your requirements.
+> Nous appliquons des limites de taille et d’âge aux journaux collectés, car il est essentiel de garantir une utilisation efficace de votre espace de stockage afin de s’assurer que vous ne vous retrouverez pas submergé de journaux. Toutefois, lorsque vous diagnostiquez un problème, vous avez parfois besoin de journaux qui n’existent plus, à cause de ces limites. Par conséquent, nous vous **recommandons vivement** de décharger vos journaux vers un espace de stockage externe (un compte de stockage dans Azure, un dispositif de stockage local supplémentaire, etc.) toutes les 8 à 12 heures, et de les conserver pendant 1 à 3 mois, en fonction de vos besoins. Vérifiez également que l’emplacement de stockage est chiffré.
 
-
-## <a name="next-steps"></a>Next steps
-[Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)
-
+## <a name="next-steps"></a>Étapes suivantes
+[Dépannage de Microsoft Azure Stack](azure-stack-troubleshooting.md)
