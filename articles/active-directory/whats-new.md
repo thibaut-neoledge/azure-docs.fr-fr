@@ -1,27 +1,35 @@
 ---
 title: "Nouveautés Notes de publication pour Azure Active Directory | Microsoft Docs"
-description: "Utilisez ces notes de version pour rester informé des versions les plus récentes, des problèmes connus, des résolutions de bogues, des fonctionnalités déconseillées et des modifications planifiées dans Azure Active Directory (Azure AD)."
+description: "Découvrez les nouveautés d’Azure Active Directory (Azure AD), notamment les dernières notes de publication, les problèmes connus, les corrections de bogues, les fonctionnalités dépréciées et les modifications à venir."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
 editor: 
+featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1d98233e1bfc2c9a926d7c61737286ec6e4fc422
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93b80744f68546e37934c987f45d7e2747d64f83
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
+
+
+
+
+> Restez informé des nouveautés d’Azure Active Directory en vous abonnant à ce [flux](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) dans votre lecteur de flux RSS favori.
+
+
 
 Nous améliorons Azure Active Directory de manière continue. Pour vous permettre de rester à jour avec les développements les plus récents, cette rubrique fournit des informations sur les éléments suivants :
 

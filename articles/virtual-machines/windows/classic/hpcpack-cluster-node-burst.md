@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Ajouter des nœuds d’extension sur demande à un cluster HPC Pack dans Azure
 Si vous avez configuré un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) dans Azure, vous aurez peut-être besoin d’une solution permettant de mettre rapidement à l’échelle sa capacité en l’augmentant ou en la réduisant, sans avoir à conserver un ensemble de machines virtuelles de nœud de calcul préconfiguré. Cet article vous montre comment ajouter des nœuds « d’extension » à la demande (instances de rôle de travail en cours d’exécution dans un service cloud) en tant que ressources de calcul à un nœud principal dans Azure. 
 
 > [!IMPORTANT] 
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Nœuds d’extension][burst]
 
@@ -42,10 +43,10 @@ Les étapes décrites dans cet article vous aident à ajouter rapidement des nœ
 * **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds Azure avec des tailles multicœur. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Étape 1 : Créer un service cloud et un compte de stockage pour les nœuds Azure
-Utilisez le portail Azure Classic ou des outils équivalents pour configurer les ressources suivantes qui sont nécessaires pour déployer vos nœuds Azure :
+Utilisez le portail Azure ou des outils équivalents pour configurer les ressources suivantes qui sont nécessaires pour déployer vos nœuds Azure :
 
-* Un nouveau service cloud Azure
-* Un nouveau compte de stockage Azure
+* Un nouveau service cloud Azure (classique)
+* Un nouveau compte de stockage Azure (classique)
 
 > [!NOTE]
 > Ne réutilisez pas un service cloud existant dans votre abonnement. 
@@ -60,7 +61,11 @@ Utilisez le portail Azure Classic ou des outils équivalents pour configurer les
 ## <a name="step-2-configure-an-azure-management-certificate"></a>Étape 2 : configurer un certificat de gestion Azure
 Pour ajouter des nœuds Azure en tant que ressources de calcul, vous devez disposer d’un certificat de gestion sur le nœud principal et charger un certificat correspondant vers l’abonnement Azure utilisé pour le déploiement.
 
-Pour ce scénario, vous pouvez choisir le **certificat de gestion Azure HPC par défaut** que HPC Pack installe et configure automatiquement sur le nœud principal. Ce certificat est utile à des fins de test et pour les déploiements pour validation technique. Pour utiliser ce certificat, chargez le fichier C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer de la machine virtuelle à nœud principal vers l’abonnement. Pour télécharger le certificat dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Paramètres** > **Certificats de gestion**.
+Pour ce scénario, vous pouvez choisir le **certificat de gestion Azure HPC par défaut** que HPC Pack installe et configure automatiquement sur le nœud principal. Ce certificat est utile à des fins de test et pour les déploiements pour validation technique. Pour utiliser ce certificat, chargez le fichier C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer de la machine virtuelle à nœud principal vers l’abonnement. Pour charger le certificat sur le [portail Azure](https://portal.azure.com) :
+
+1. Cliquez sur **Abonnements** > *nom_de_votre_abonnement*.
+
+2. Cliquez sur **Certificats de gestion** > **Charger**.
 
 Pour obtenir des options supplémentaires pour configurer le certificat de gestion, consultez [Scénarios de configuration du certificat de gestion Azure pour les déploiements d’extension Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
