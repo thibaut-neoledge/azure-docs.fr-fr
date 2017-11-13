@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/02/2017
 * Une haute disponibilité garantie.
 * [Une indexation secondaire automatique](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Ces applications peuvent migrer vers Azure Cosmos DB à l’aide de l’API de table sans aucune modification de code, et tirer parti des fonctionnalités Premium. L’API de table est disponible pour .NET et Python.
+Les applications écrites pour le stockage de table Azure peuvent migrer vers Azure Cosmos DB à l’aide de l’API de table sans aucune modification de code, et tirer parti des fonctionnalités Premium. L’API de table contient un Kit de développement logiciel (SDK) client disponible pour .NET.
 
-Nous vous recommandons de visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique comment prendre en main l’API de table pour Azure Cosmos DB :
+Nous vous recommandons de visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique comment prendre en main l’API de table d’Azure Cosmos DB :
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
@@ -41,7 +41,7 @@ Nous vous recommandons de visionner la vidéo suivante, dans laquelle Aravind Ra
 ## <a name="table-offerings"></a>Offres de table
 Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des avantages suivants en passant à la préversion de l’API Table de Azure Cosmos DB :
 
-| | Stockage de table Azure | API Table de Azure Cosmos DB (version préliminaire) |
+| | Stockage de tables Azure | API Table de Azure Cosmos DB (version préliminaire) |
 | --- | --- | --- |
 | Latency | Rapide, mais aucune limite supérieure sur la latence. | Une latence de quelques millisecondes pour les lectures et écritures, appuyée par des lectures avec une latence de < 10 ms et des écritures avec une latence de < 15 ms au 99e centile, à n’importe quelle échelle, n’importe où dans le monde. |
 | Throughput | Modèle de débit variable. Les tables ont une limite d’évolutivité de 20 000 opérations/s. | Hautement évolutif avec un [débit dédié réservé par table](request-units.md), qui est appuyé par des contrats de niveau de service. Les comptes n’ont aucune limite supérieure sur le débit, et prennent en charge > 10 millions d’opérations/s par table. |
@@ -64,5 +64,5 @@ Voici quelques conseils pour vous aider à démarrer :
 * [Interroger des données de table avec l’API de table](tutorial-query-table.md)
 * [Comment configurer la distribution mondiale Azure Cosmos DB à l’aide de l’API de table](tutorial-global-distribution-table.md)
 * [API .NET Table Azure Cosmos DB](table-sdk-dotnet.md)
-* [Kit de développement logiciel (SDK) de table Azure Cosmos DB pour Python](table-sdk-python.md)
+
 

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Déployer et gérer une appliance cloud StorSimple dans Azure (Update 3 et versions ultérieures)
 
@@ -183,6 +183,18 @@ Procédez comme suit pour créer un point de terminaison public sur l’applianc
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 Nous vous recommandons de vous connecter à partir d’une autre machine virtuelle à l’intérieur du même réseau virtuel, car cela réduit le nombre de points de terminaison publics sur votre réseau virtuel. Dans ce cas, connectez-vous à la machine virtuelle via une session Bureau à distance, puis configurez cette machine virtuelle pour utilisation, comme vous le feriez avec tout autre client Windows sur un réseau local. Il est inutile d’ajouter le numéro de port public, car le port est déjà connu.
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>Obtenir une adresse IP privée pour l’appliance cloud
+
+Pour que l’appliance cloud puisse se connecter au serveur hôte dans le même réseau virtuel, vous avez besoin de l’adresse IP interne ou privée de l’appliance cloud. Suivez les étapes ci-dessous pour obtenir l’adresse IP privée de l’appliance cloud
+
+1. Accédez à la machine virtuelle sous-jacente de votre appliance cloud. La machine virtuelle porte le même nom que votre appliance cloud. Accédez à **Toutes les ressources**, indiquez le nom de l’appliance cloud et de l’abonnement, puis sélectionnez le type machines virtuelles. Dans la liste des machines virtuelles présentées, sélectionnez et cliquez sur la machine virtuelle correspondant à l’appliance cloud.
+
+     ![Sélectionner la machine virtuelle de votre appliance cloud](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. Accédez à **Paramètres > Mise en réseau**. Dans le volet droit, vous obtenez l’adresse IP privée de l’appliance cloud. Notez cette adresse.
+
+    ![Obtenir l’adresse IP privée de votre appliance cloud](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>Utiliser StorSimple Cloud Appliance
 

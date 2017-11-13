@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ Pour que votre déclencheur Scheduler lance une exécution de pipeline, insére
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ Pour que votre déclencheur Scheduler lance une exécution de pipeline, insére
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ Pour que votre déclencheur Scheduler lance une exécution de pipeline, insére
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ Pour que votre déclencheur Scheduler lance une exécution de pipeline, insére
 }
 ```
 
+> [!IMPORTANT]
+>  La propriété **parameters** est une propriété obligatoire de **pipelines**. Même si votre pipeline n’accepte aucun paramètre, incluez un json vide pour les paramètres, car la propriété doit exister.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Vue d’ensemble : schéma du déclencheur Scheduler
 Le tableau suivant présente les principaux objets liés à la périodicité et à la planification d’un déclencheur :
 
 Propriété JSON |     Description
 ------------- | -------------
 startTime | startTime Correspond à la date/l’heure de début du lancement du déclencheur. Pour les planifications simples, l’heure de début correspond à la première exécution. Pour les planifications complexes, le déclencheur ne démarre pas avant l’heure de début indiquée.
+endTime | Spécifie la date/l’heure de fin du lancement du déclencheur. Le déclencheur n’exécute plus le pipeline après ce délai. La valeur endTime ne peut pas se situer dans le passé.
+timeZone | Actuellement, seul UTC est pris en charge. 
 recurrence | Spécifie les règles de périodicité pour le déclencheur. Il prend en charge les éléments suivants : frequency, interval, endTime, count et schedule. Si la périodicité est définie, la fréquence doit l’être aussi. Les autres éléments de la valeur recurrence sont facultatifs.
 frequency | Représente l’unité de fréquence à laquelle le déclencheur se répète. Valeurs prises en charge : `minute`, `hour`, `day`, `week` ou `month`.
 interval | Sa valeur doit être un entier positif. Il indique l’intervalle qui détermine la fréquence à laquelle le déclencheur s’exécute. Par exemple, si l’intervalle est défini sur 3 et la fréquence est définie sur « semaine », le déclencheur se répète toutes les 3 semaines.
-endTime | Spécifie la date/l’heure de fin du lancement du déclencheur. Le déclencheur n’exécute plus le pipeline après ce délai. La valeur endTime ne peut pas se situer dans le passé.
 schedule | Un déclencheur dont la fréquence est spécifiée modifie sa périodicité selon une planification périodique. Une planification contient des modifications basées sur des minutes, heures, jours de la semaine, jour du mois et numéro de semaine.
+
+
+### <a name="schedule-trigger-example"></a>Exemple de déclencheur de planification
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Vue d’ensemble : valeurs par défaut, limites et exemples du schéma du déclencheur Scheduler
 
@@ -251,7 +292,7 @@ Enfin, lorsqu’un déclencheur a une planification, si les heures et/ou les min
 ### <a name="deep-dive-schedule"></a>Présentation approfondie : schedule
 D’une part, une planification peut limiter le nombre d’exécutions du déclencheur. Par exemple, si un déclencheur avec une fréquence « mois » a une planification qui s’exécute uniquement le 31, le déclencheur s’exécute uniquement pendant les mois qui comptent un 31e jour.
 
-D’autre part, une planification peut également augmenter le nombre d’exécutions du déclencheur. Par exemple, si un déclencheur avec une fréquence « mois » a une planification qui s’exécute le 1 et le 2 de chaque mois, le déclencheur s’exécute le 1er et le 2e jours du mois au lieu d’une fois par mois.
+Une planification peut, quant à elle, également augmenter le nombre d’exécutions du déclencheur. Par exemple, si un déclencheur avec une fréquence « mois » a une planification qui s’exécute le 1 et le 2 de chaque mois, le déclencheur s’exécute le 1er et le 2e jours du mois au lieu d’une fois par mois.
 
 Si plusieurs éléments de planification sont spécifiés, l’ordre d’évaluation va du plus grand au plus petit : numéro de semaine, jour du mois, jour de la semaine, heure et minute.
 
@@ -262,9 +303,9 @@ Nom JSON | Description | Valeurs valides
 --------- | ----------- | ------------
 minutes | Minutes d’exécution du déclencheur dans l’heure. | <ul><li>Entier </li><li>Tableau d’entiers</li></ul>
 hours | Heures d’exécution du déclencheur dans la journée. | <ul><li>Entier </li><li>Tableau d’entiers</li></ul>
-weekDays | Jours d’exécution du déclencheur dans la semaine. Peut uniquement être spécifié avec une fréquence hebdomadaire. | <ul><li>Lundi, mardi, mercredi, jeudi, vendredi, samedi ou dimanche</li><li>Tableau comprenant l’une des valeurs ci-dessus (taille de tableau maximale 7)</li></p>Ne respectent pas la casse</p>
+weekDays | Jours d’exécution du déclencheur dans la semaine. Peut uniquement être spécifié avec une fréquence hebdomadaire. | <ul><li>Lundi, mardi, mercredi, jeudi, vendredi, samedi ou dimanche</li><li>Tableau comprenant l’une des valeurs (taille de tableau maximale 7)</li></p>Ne respectent pas la casse</p>
 monthlyOccurrences | Détermine les jours d’exécution du déclencheur dans le mois. Peut uniquement être spécifié avec une fréquence mensuelle. | Tableau d’objets monthlyOccurence : `{ "day": day,  "occurrence": occurence }`. <p> day correspond au jour d’exécution du déclencheur dans la semaine, par exemple, `{Sunday}` correspond à tous les dimanches du mois. Obligatoire.<p>occurrence correspond à l’occurrence du jour dans le mois. Par exemple, `{Sunday, -1}` correspond au dernier dimanche du mois. facultatif.
-monthDays | Jour d’exécution du déclencheur dans le mois. Peut uniquement être spécifié avec une fréquence mensuelle. | <ul><li>Toute valeur <= -1 et >= -31</li><li>Toute valeur >= 1 et <= 31</li><li>Un tableau composé des valeurs ci-dessus</li>
+monthDays | Jour d’exécution du déclencheur dans le mois. Peut uniquement être spécifié avec une fréquence mensuelle. | <ul><li>Toute valeur <= -1 et >= -31</li><li>Toute valeur >= 1 et <= 31</li><li>Tableau de valeurs</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Exemples : planifications de périodicité

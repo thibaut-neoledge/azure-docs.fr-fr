@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ Dans le portail Azure, vous pouvez [créer un serveur](analysis-services-create-
 Une fois que vous avez créé un serveur, vous pouvez créer un modèle tabulaire directement dans le portail Azure. La nouvelle [fonctionnalité de concepteur web](analysis-services-create-model-portal.md) (préversion) vous permet de vous connecter à une base de données Azure SQL ou à une source de données Azure SQL Data Warehouse, ou d’importer un fichier .pbix Power BI Desktop. Les relations entre les tables sont créées automatiquement et vous pouvez créer les mesures ou éditer le fichier model.bim au format json directement depuis votre navigateur.
 
 ## <a name="scale-to-your-needs"></a>Évolutif selon vos besoins
+
+### <a name="the-right-tier-when-you-need-it"></a>Le niveau approprié, quand vous en avez besoin
+
 Azure Analysis Services est disponible pour les niveaux Développeur, De base et Standard. Dans chaque niveau, les coûts de plan varient en fonction de la puissance de traitement, des QPUs et de la taille de la mémoire. Lorsque vous créez un serveur, vous sélectionnez un plan au sein d’un niveau. Vous pouvez modifier les plans vers le haut ou vers le bas au sein du même niveau, ou le passer à un niveau supérieur, mais vous ne pouvez pas le rétrograder d’un niveau supérieur à un niveau inférieur.
 
-Montez en puissance, descendez en puissance ou suspendez votre serveur. Utilisez le portail Azure ou obtenez le contrôle total à la volée à l’aide de PowerShell. Vous paierez uniquement pour ce que vous utiliserez. Pour plus d’informations sur les différents plans et niveaux, et pour utiliser le calculateur de prix permet afin de déterminer le plan adapté pour vous, consultez la [Tarification Analysis Services Azure](https://azure.microsoft.com/pricing/details/analysis-services/).
+Augmentez la puissance, réduisez la puissance ou suspendez votre serveur. Utilisez le portail Azure ou obtenez le contrôle total à la volée à l’aide de PowerShell. Vous paierez uniquement pour ce que vous utiliserez. Pour plus d’informations sur les différents plans et niveaux, et pour utiliser le calculateur de prix permet afin de déterminer le plan adapté pour vous, consultez la [Tarification Analysis Services Azure](https://azure.microsoft.com/pricing/details/analysis-services/).
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>Ressources évolutives pour des réponses aux requêtes rapides
+
+Grâce à l’évolutivité d’Azure Analysis Services, les requêtes des clients sont distribuées entre plusieurs *réplicas de requête* dans un pool de requêtes. Les réplicas de requête contiennent des copies synchronisées de vos modèles tabulaires. Grâce à la répartition de la charge de travail de requête, les temps de réponse lors de charges de travail de requête élevées peuvent être réduits. Les opérations de traitement du modèle peuvent être séparées du pool de requêtes, garantissant ainsi que les requêtes des clients ne soient pas affectées par les opérations de traitement. Vous pouvez créer un pool de requêtes comportant jusqu’à sept réplicas de requête supplémentaires (pour un total de huit, votre serveur compris). 
+
+Comme pour la modification de votre niveau, vous pouvez faire évoluer les réplicas de requête selon vos besoins. Configurez l’évolution dans le portail ou à l’aide d’API REST. Pour en savoir plus, voir [Évolution d’Azure Analysis Services](analysis-services-scale-out.md).
 
 ## <a name="keep-your-data-close"></a>Conserver vos données à proximité
 Les serveurs Analysis Services Azure peuvent être créés dans les [régions Azure](https://azure.microsoft.com/regions/) suivantes :
@@ -92,11 +101,17 @@ L’authentification utilisateur pour Azure Analysis Services est gérée par [A
 #### <a name="data-security"></a>Sécurité des données
 Azure Analysis Services utilise le stockage Blob Azure pour conserver le stockage et les métadonnées des bases de données Analysis Services. Les fichiers de données Blob sont chiffrés à l’aide du chiffrement côté serveur (SSE) Azure Blob. Si vous utilisez le mode Requête directe, seules les métadonnées sont stockées. Les données réelles sont accessibles à partir de la source de données au moment de la requête.
 
+#### <a name="firewall"></a>Pare-feu
+
+Le pare-feu Azure Analysis Services bloque toutes les connexions clients autres que celles spécifiées dans les règles. Configurez des règles spécifiant des adresses IP autorisées par adresses IP clients individuelles ou par plage. Les connexions Power BI (service) peuvent également être autorisées ou bloquées. 
+
 #### <a name="on-premises-data-sources"></a>Sources de données locales
 Vous sécurisez l’accès aux données locales dans votre entreprise en installant et en configurant une [Passerelle de données locale](analysis-services-gateway.md). Les passerelles fournissent un accès aux données pour les requêtes directes et les modes en mémoire. Lorsqu’un modèle Azure Analysis Services se connecte à une source de données locale, une requête est créée, ainsi que les informations d’identification chiffrées pour la source de données locale. Le service cloud de la passerelle analyse la requête et envoie la requête vers Azure Service Bus. La passerelle locale interroge Azure Service Bus pour connaître les requêtes en attente. La passerelle reçoit ensuite la requête, déchiffre les informations d’identification et se connecte à la source de données pour l’exécution. Les résultats sont ensuite renvoyés de la source de données vers la passerelle, puis vers la base de données Azure Analysis Services.
 
 Azure Analysis Services est régi par les [Termes du contrat Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) et la [Déclaration de confidentialité Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 Pour plus d’informations sur la sécurité Azure, consultez [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>Prise en charge des derniers outils clients
 ![Visualisations de données](./media/analysis-services-overview/aas-overview-clients.png)

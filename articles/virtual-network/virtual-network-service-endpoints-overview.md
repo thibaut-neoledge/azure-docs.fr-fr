@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Points de terminaison de service de réseau virtuel (préversion)
 
@@ -27,7 +27,7 @@ Les points de terminaison de service de réseau virtuel étendent votre espace d
 
 Cette fonctionnalité est disponible en préversion pour les services et régions Azure suivants :
 
-- **Stockage Azure** : WestCentralUS, WestUS2, EastUS, WestUS, AustraliaEast et AustraliaSouthEast.
+- **Stockage Azure** : toutes les régions dans le cloud public Azure.
 - **Azure SQL Database** : WestCentralUS, WestUS2 et EastUS.
 
 Pour obtenir des notifications actualisées pour la préversion, vérifiez la page [Mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).

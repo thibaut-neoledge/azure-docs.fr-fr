@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>Qu’est-ce qu’Azure IoT Suite ?
 
@@ -85,6 +85,9 @@ Lorsque vous déployez une solution préconfigurée, le processus de déploiemen
 | Cosmos DB            | Oui                | Oui                    | Oui               |
 | Tables Azure         |                    | Oui                    | Oui               |
 
+> [!NOTE]
+> Pour plus d’informations sur les ressources déployées dans la solution préconfigurée de surveillance à distance, consultez cet [article](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) disponible sur GitHub.
+
 * [Azure IoT Hub](../iot-hub/index.md). Ce service fournit les fonctionnalités de messagerie Appareil vers cloud et Cloud vers appareil, et agit comme la passerelle vers le cloud et les autres services clés IoT Suite. Le service vous permet de recevoir à grande échelle des messages provenant de vos périphériques et d’envoyer des commandes à vos périphériques. Le service vous permet également de [gérer vos appareils](../iot-hub/iot-hub-device-management-overview.md). Par exemple, vous pouvez configurer, redémarrer ou effectuer une réinitialisation aux paramètres d’usine sur un ou plusieurs appareils connectés au hub.
 * [Azure Event Hubs](../event-hubs/index.md). Ce service permet l’ingestion d’événements de haut volume vers le cloud. Voir [Comparaison entre Azure IoT Hub et Azure Event Hub](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.md). Les solutions préconfigurées utilisent ce service pour analyser et afficher les données de télémétrie de vos périphériques.
@@ -124,7 +127,7 @@ Cette architecture de microservices est un modèle ayant fait ses preuves pour l
 Lorsque vous déployez la nouvelle version de surveillance à distance, vous devez sélectionner une des options de déploiement suivantes :
 
 * **Basic :** version à coût réduit pour une démonstration ou pour tester un déploiement. Tous les microservices se déploient sur une seule machine virtuelle Azure.
-* **Enterprise :** déploiement étendu de l’infrastructure pour le développement d’un déploiement de production. Azure Container Service déploie les microservices vers plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
+* **Standard :** déploiement étendu de l’infrastructure pour le développement d’un déploiement de production. Azure Container Service déploie les microservices vers plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
 
 ### <a name="language-choices-java-and-net"></a>Options de langage : Java et .NET
 

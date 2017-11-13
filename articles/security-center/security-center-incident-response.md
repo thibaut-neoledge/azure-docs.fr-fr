@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95af26a655e72a9cc370f339da5ecedbed441997
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Utilisation d’Azure Security Center pour la réponse aux incidents
 De nombreuses organisations apprennent à répondre aux incidents uniquement après avoir subi une attaque. Pour réduire les coûts et les dommages, il est important de disposer d’un plan de réponse aux incidents avant qu’une attaque ne survienne. Vous pouvez utiliser Azure Security Center à différentes étapes de la réponse à un incident.
@@ -96,7 +96,7 @@ Sam reçoit le dossier de Judy et commence à examiner les étapes de correction
 ![Cycle de vie de la réponse aux incidents](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### <a name="additional-resources"></a>Ressources supplémentaires
-L’équipe de réponse aux incidents peut également tirer parti de la fonctionnalité [Security Center Power BI](security-center-powerbi.md) pour afficher différents types de rapports. Ces rapports peuvent les aider lors d’un examen plus poussé pour visualiser, analyser et filtrer des recommandations et des alertes de sécurité. Les entreprises qui utilisent leur solution SIEM (Security Information and Event Management) pendant le processus d’examen peuvent également [intégrer Azure Security Center à celle-ci](security-center-integrating-alerts-with-log-integration.md). Vous pouvez également intégrer les journaux d’audit et les événements de sécurité des machines virtuelles Azure à l’aide de [l’outil d’intégration des journaux Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). Pour examiner ces attaques, vous pouvez utiliser ces informations conjointement avec les informations fournies par Azure Security Center.
+Les entreprises qui utilisent leur solution SIEM (Security Information and Event Management) pendant le processus d’examen peuvent également [intégrer Azure Security Center à celle-ci](security-center-integrating-alerts-with-log-integration.md). Vous pouvez également intégrer les journaux d’audit et les événements de sécurité des machines virtuelles Azure à l’aide de [l’outil d’intégration des journaux Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). Pour examiner ces attaques, vous pouvez utiliser ces informations conjointement avec les informations fournies par Azure Security Center. Vous pouvez également utiliser la fonctionnalité [d’enquête](https://docs.microsoft.com/azure/security-center/security-center-investigation) de Security Center pour vous aider à déterminer la cause d’un incident.
 
 ## <a name="conclusion"></a>Conclusion
 La mise en place d’une équipe avant la survenue d’un incident est très importante pour votre organisation et aura un impact positif sur la gestion des incidents. Si elle dispose des bons outils pour surveiller les ressources, cette équipe pourra plus facilement prendre des mesures précises pour résoudre un incident de sécurité. Les [fonctionnalités de détection](security-center-detection-capabilities.md) d’Azure Security Center aident le département informatique à répondre aux incidents de sécurité et à corriger les problèmes de sécurité rapidement.
