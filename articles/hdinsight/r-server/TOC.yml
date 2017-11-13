@@ -20,8 +20,6 @@
       items:
         - name: Options de stockage
           href: r-server-storage.md
-        - name: Installer R Studio
-          href: r-server-install-r-studio.md
         - name: Contexte de calcul
           href: r-server-compute-contexts.md
         - name: ScaleR et SparkR
@@ -126,19 +124,19 @@
           href: ../hdinsight-hadoop-provision-linux-clusters.md
           maintainContext: true
           items:
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
               maintainContext: true
             - name: Utiliser cURL et l’API REST Azure
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Utiliser le kit .NET SDK
+            - name: Utiliser le kit de développement logiciel (SDK) .NET
               href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
               maintainContext: true
-            - name: Utiliser l’interface de ligne de commande Azure
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: Utiliser le portail Azure
+            - name: Utilisation du portail Azure
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Utiliser les modèles Azure Resource Manager
@@ -151,13 +149,13 @@
           href: ../hdinsight-administer-use-portal-linux.md
           maintainContext: true
           items:
-            - name: Utiliser le kit .NET SDK
+            - name: Utilisation du Kit de développement logiciel (SDK) .NET
               href: ../hdinsight-administer-use-dotnet-sdk.md
               maintainContext: true
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Utiliser l’interface de ligne de commande Azure
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Gérer des clusters à l’aide de l’interface utilisateur web Ambari
@@ -183,7 +181,7 @@
               href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
             - name: Exécuter à l’aide de cURL
               href: ../hadoop/apache-hadoop-use-sqoop-curl.md
-            - name: Exécuter à l’aide du kit .NET SDK
+            - name: Exécuter à l’aide du kit de développement logiciel (SDK) .NET
               href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
             - name: Exécuter à l’aide d’Azure PowerShell
               href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
