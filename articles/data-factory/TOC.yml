@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Procédures
   items:
-    - name: Transfert de données
+    - name: Copier des données
       items:
-        - name: Vue d’ensemble des activités de copie
+        - name: Copier des données à partir des sources prises en charge vers des destinations
           href: copy-activity-overview.md
+        - name: Lire ou écrire des données partitionnées
+          href: how-to-read-write-partitioned-data.md
         - name: Connecteurs
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+            - name: Base de données Azure pour MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Stockage Fichier Azure
               href: connector-azure-file-storage.md
             - name: Recherche Azure
@@ -168,6 +172,8 @@
       items:
         - name: Activité Condition si
           href: control-flow-if-condition-activity.md
+        - name: Activité jusqu’à
+          href: control-flow-until-activity.md
         - name: Activité web
           href: control-flow-web-activity.md
         - name: Activité de recherche
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: Pour chaque activité
           href: control-flow-for-each-activity.md
+        - name: Activité d’attente
+          href: control-flow-wait-activity.md
         - name: Langage d’expression
           href: control-flow-expression-language-functions.md
         - name: Variables système
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Chiffrer des informations d’identification pour le runtime d’intégration auto-hébergé
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Identité du service de fabrique de données
+          href: data-factory-service-identity.md
     - name: Surveillance et gestion
       items:
         - name: Utiliser les kits de développement logiciel

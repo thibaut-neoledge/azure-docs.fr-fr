@@ -28,7 +28,13 @@
 - name: Concepts
   items:
     - name: Mise à niveau de l’espace de travail
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: Présentation de la mise à niveau
+          href: log-analytics-log-search-upgrade.md
+        - name: Résumé des modifications
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: FAQ sur la mise à niveau
+          href: log-analytics-log-search-faq.md
     - name: FAQ sur Log Analytics
       href: log-analytics-faq.md
     - name: Consommation des données
@@ -41,8 +47,6 @@
       items:
         - name: Présentation de la recherche dans les journaux
           href: log-analytics-log-search-new.md
-        - name: FAQ sur la recherche dans les journaux
-          href: log-analytics-log-search-faq.md
         - name: Portails de recherche dans les journaux
           href: log-analytics-log-search-portals.md
 - name: Procédures

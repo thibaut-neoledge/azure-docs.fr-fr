@@ -71,9 +71,7 @@
 
 ## Définir des stratégies de ressources
 ### [Que sont les stratégies de ressources ?](resource-manager-policy.md)
-### Exemples
-#### [Balises](resource-manager-policy-tags.md)
-#### [Conventions d’affectation de noms](resource-manager-policy-naming-convention.md)
+### [Conventions d’affectation de noms](resource-manager-policy-naming-convention.md)
 
 ## Audit
 ### [Afficher les journaux d’activité](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Erreurs de déploiement de la machine virtuelle

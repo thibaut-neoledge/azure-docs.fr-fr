@@ -120,6 +120,8 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [API REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [Automatiser les niveaux de calcul](manage-compute-with-azure-functions.md)
+
 ### Classes de ressources
 #### [Instructions](resource-classes-for-workload-management.md)
 #### [Analyser votre charge de travail](analyze-your-workload.md)

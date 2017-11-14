@@ -15,14 +15,12 @@
       href: container-instances-quickstart-powershell.md
 - name: Didacticiels
   items:
-    - name: Générer et déployer un conteneur
-      items:
-        - name: 1 - Créer une image conteneur
-          href: container-instances-tutorial-prepare-app.md
-        - name: 2 - Créer un registre de conteneur
-          href: container-instances-tutorial-prepare-acr.md
-        - name: 3 - Déployer une application
-          href: container-instances-tutorial-deploy-app.md
+    - name: 1 - Créer une image conteneur
+      href: container-instances-tutorial-prepare-app.md
+    - name: 2 - Créer un registre de conteneur
+      href: container-instances-tutorial-prepare-acr.md
+    - name: 3 - Déployer l’application
+      href: container-instances-tutorial-deploy-app.md
 - name: Concepts
   items:
     - name: Régions et disponibilité
@@ -35,11 +33,11 @@
   items:
     - name: Déployer des groupes de plusieurs conteneurs
       href: container-instances-multi-container-group.md
-    - name: Gérer l’état avec les partages de fichiers Azure
+    - name: Conserver les données avec Azure Files
       href: container-instances-mounting-azure-files-volume.md
     - name: Déployer depuis Azure Container Registry
       href: container-instances-using-azure-container-registry.md
-    - name: Résoudre les problèmes de déploiement vers les instances d’Azure Container
+    - name: Dépanner les déploiements
       href: container-instances-troubleshooting.md
 - name: Référence
   items:
@@ -49,13 +47,19 @@
       href: /rest/api/container-instances
     - name: PowerShell
       href: '/powershell/module/azurerm.containerinstance#container_instances'
+    - name: Modèle Resource Manager
+      href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Modèles - Container Instances
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
-    - name: Calculatrice de prix
-      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/container-instances/'
+    - name: Feuille de route
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Indiquer des commentaires sur le produit
+      href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
+    - name: Dépassement de capacité de la pile
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-instances'
+    - name: Vidéos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'

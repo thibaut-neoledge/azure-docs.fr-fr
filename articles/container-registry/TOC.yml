@@ -15,6 +15,12 @@
       href: container-registry-get-started-powershell.md
 - name: Didacticiels
   items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Service (ACS)
+      href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Service Fabric
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
     - name: Géoréplication (préversion)
       items:
         - name: 1 - Préparer le registre de conteneurs
@@ -23,12 +29,6 @@
           href: container-registry-tutorial-deploy-app.md
         - name: 3 - Mettre à jour l’application web
           href: container-registry-tutorial-deploy-update.md
-    - name: Azure Container Instances
-      href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Container Service (ACS)
-      href: ../aks/tutorial-kubernetes-prepare-app.md
-    - name: Service Fabric
-      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Concepts
   items:
     - name: Références SKU de registres de conteneurs
@@ -57,13 +57,19 @@
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/azurerm.containerregistry
+    - name: Modèle Resource Manager
+      href: /azure/templates/microsoft.containerregistry/registries
 - name: Ressources
   items:
-    - name: Feuille de route
-      href: 'https://aka.ms/acr/roadmap'
-    - name: Tarification
-      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stack Overflow
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Feuille de route
+      href: 'https://aka.ms/acr/roadmap'
+    - name: Indiquer des commentaires sur le produit
+      href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
+    - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'
+    - name: Vidéos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'

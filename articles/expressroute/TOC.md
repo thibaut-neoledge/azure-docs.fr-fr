@@ -36,15 +36,22 @@
 ### [Portail Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
+## [Déplacer d’un appairage public vers l’appairage Microsoft](how-to-move-peering.md)
 ## [Migrer un circuit d’un déploiement classique vers Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrer les réseaux virtuels associés du déploiement classique vers Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configurer un routeur pour ExpressRoute
 ### [Configurer un routeur](expressroute-config-samples-routing.md)
 ### [Exemples de configuration de routeur pour NAT](expressroute-config-samples-nat.md)
 ## [Configurer Network Performance Monitor pour ExpressRoute](how-to-npm.md)
+## Articles sur le modèle de déploiement classique
+### [Modifier un circuit](expressroute-howto-circuit-classic.md)
+### [Créer et modifier une configuration de l’homologation](expressroute-howto-routing-classic.md)
+### [Lier un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
+### [Configurer la coexistence de connexions ExpressRoute et S2S](expressroute-howto-coexist-classic.md)
+### [Ajouter une passerelle à un réseau virtuel](expressroute-howto-add-gateway-classic.md)
 
-## Bonnes pratiques
-### [Bonnes pratiques pour la sécurité réseau et les services cloud](../best-practices-network-security.md)
+## Meilleures pratiques
+### [Meilleures pratiques pour la sécurité réseau et les services cloud](../best-practices-network-security.md)
 ### [Optimiser le routage](expressroute-optimize-routing.md)
 ### [Routage asymétrique](expressroute-asymmetric-routing.md)
 ### [NAT pour ExpressRoute](expressroute-nat.md)

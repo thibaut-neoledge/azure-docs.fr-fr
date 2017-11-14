@@ -51,13 +51,15 @@
       href: /rest/api/aks
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarification
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stack Overflow
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Feuille de route
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Indiquer des commentaires sur le produit
+      href: 'https://github.com/Azure/AKS/issues'
+    - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
