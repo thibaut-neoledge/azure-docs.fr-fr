@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 13297eafd957d926dfd311a14c4ba9351e55e2bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f4df68a5cb240e9483cc088c620716bba207439b
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale (GA), consultez [Connecteur SQL Server dans V1](v1/data-factory-sqlserver-connector.md).
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier des données à partir de toute base de données SQL Server vers toute banque de données réceptrice prise en charge, ou copier des données à partir de toute banque de données source prise en charge vers une base de données SQL Server. Pour obtenir la liste des magasins de données pris en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -507,7 +507,7 @@ Lors de la copie des données vers/à partir de SQL Server, les mappages suivant
 | texte |String, Char[] |
 | time |intervalle de temps |
 | timestamp |Byte[] |
-| tinyint |Byte |
+| tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |

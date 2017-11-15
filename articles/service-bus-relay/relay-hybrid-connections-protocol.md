@@ -20,12 +20,12 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
 ---
-# Protocole de connexions hybrides Azure Relay
+# <a name="azure-relay-hybrid-connections-protocol"></a>Protocole de connexions hybrides Azure Relay
 Azure Relay est l’une des fonctionnalités clés de la plateforme Azure Service Bus. La nouvelle fonctionnalité *Connexions hybrides* de Relay est une évolution sécurisée, à protocole ouvert, sur HTTP et WebSocket. Elle remplace l’ancienne fonctionnalité, nommée *BizTalk Services*, conçue sur un protocole propriétaire. L’intégration des connexions hybrides dans Azure App Services continue de fonctionner telle quelle.
 
 Les connexions hybrides permettent d’établir une communication de flux binaire bidirectionnel entre deux applications en réseau, durant laquelle une des deux, voire les deux, peuvent se trouver derrière un NAT ou un pare-feu. Cet article décrit les interactions côté client avec le relais de connexions hybrides pour connecter les clients ayant le rôle d’expéditeur ou d’écouteur et la façon dont les écouteurs acceptent de nouvelles connexions.
 
-## Modèle d’interaction
+## <a name="interaction-model"></a>Modèle d’interaction
 Le relais Connexions hybrides connecte deux parties en fournissant un point de rencontre détectable par les deux parties dans le cloud Azure, auquel elles peuvent se connecter du point de vue de leur propre réseau. Ce point de rencontre est appelé « Connexion hybride » dans ce document, entre autres, dans les API et dans le Portail Azure. Le point de terminaison de service Connexions hybrides est appelé « service » dans la suite de cet article. Le modèle d’interaction utilise la nomenclature établie par de nombreuses autres API de mise en réseau.
 
 Un écouteur indique tout d’abord qu’il est prêt à gérer des connexions entrantes, puis les accepte dès leur arrivée. De l’autre côté, un client de connexion se connecte à l’écouteur et attend l’acceptation de cette connexion pour établir un chemin de communication bidirectionnelle.
@@ -35,46 +35,46 @@ Selon les modèles de communication relayée, l’une des parties établit des c
 
 Les programmes des deux côtés d’une connexion sont appelés « clients », puisqu’il s’agit de clients du service. Le client qui attend et accepte les connexions est « l’écouteur » ; on peut également dire qu’il a le « rôle d’écouteur ». Le client qui démarre une nouvelle connexion vers un écouteur par le biais du service est appelé « expéditeur » ou considéré comme ayant le « rôle d’expéditeur ».
 
-### Interactions de l’écouteur
+### <a name="listener-interactions"></a>Interactions de l’écouteur
 L’écouteur a quatre interactions avec le service ; tous les détails sont décrits plus loin dans cet article, dans la section des références.
 
-#### Écouter
+#### <a name="listen"></a>Écouter
 Pour indiquer au service qu’il est prêt à accepter les connexions, l’écouteur crée une connexion WebSocket sortante. L’établissement de la connexion porte le nom d’une connexion hybride configurée dans l’espace de noms Relay, et un jeton de sécurité qui confère le droit « d’écoute » sur ce nom.
 Quand le WebSocket est accepté par le service, l’inscription est terminée et le WebSocket établi reste actif en tant que « canal de contrôle » autorisant toutes les interactions suivantes. Le service autorise jusqu’à 25 écouteurs simultanés sur une connexion hybride. S’il existe plusieurs écouteurs actifs, les connexions entrantes sont réparties entre tous selon un ordre aléatoire ; la répartition équitable n’est pas garantie.
 
-#### Acceptation
+#### <a name="accept"></a>Acceptation
 Quand un expéditeur ouvre une nouvelle connexion sur le service, celui-ci choisit et informe l’un des écouteurs actifs sur la connexion hybride. Cette notification est envoyée à l’écouteur sur le canal de contrôle ouvert sous forme de message JSON contenant l’URL du point de terminaison du WebSocket auquel doit se connecter l’écouteur pour accepter la connexion.
 
 L’URL peut et doit être utilisée directement par l’écouteur sans aucun travail supplémentaire.
 Les informations encodées sont valides seulement pendant une courte durée, pour l’essentiel tant que l’expéditeur est disposé à attendre que la connexion soit établie de bout en bout, mais avec un maximum de 30 secondes. L’URL ne peut être utilisée que pour une seule tentative de connexion réussie. Dès que la connexion du WebSocket à l’URL de rencontre est établie, toutes les activités supplémentaires sur ce WebSocket sont relayées à partir de et vers l’expéditeur, sans aucune intervention ni interprétation par le service.
 
-#### Renouveler
+#### <a name="renew"></a>Renouveler
 Le jeton de sécurité qui doit être utilisé pour enregistrer l’écouteur et maintenir le canal de contrôle peut expirer alors que l’écouteur est actif. L’expiration du jeton n’affecte pas les connexions en cours, mais elle entraîne l’annulation du canal de contrôle par le service au moment de l’expiration ou juste après. L’opération « renouveler » est un message JSON que peut envoyer l’écouteur pour remplacer le jeton associé au canal de contrôle, afin de conserver le canal de contrôle plus longtemps.
 
-#### Ping
+#### <a name="ping"></a>Ping
 Si le canal de contrôle reste inactif pendant une longue période, les intermédiaires présents sur l’itinéraire, comme les équilibreurs de charge ou les NAT, peuvent supprimer la connexion TCP. L’opération « ping » permet d’éviter cela en envoyant une petite quantité de données sur le canal, qui rappelle à tous les éléments présents sur l’itinéraire du réseau que la connexion est destinée à rester active ; elle sert également de test d’activité de l’écouteur. Si la commande ping échoue, le canal de contrôle doit être considéré comme inutilisable et l’écouteur doit se reconnecter.
 
-### Interaction de l’expéditeur
+### <a name="sender-interaction"></a>Interaction de l’expéditeur
 L’expéditeur n’a qu’une seule interaction avec le service : il se connecte.
 
-#### Connecter
+#### <a name="connect"></a>Connecter
 L’opération « se connecter » ouvre un WebSocket sur le service, fournissant le nom de la connexion hybride et un jeton de sécurité (facultatif, mais obligatoire par défaut) conférant l’autorisation « Envoyer » dans la chaîne de requête. Le service interagit ensuite avec l’écouteur de la façon décrite précédemment, et l’écouteur crée une connexion conjointe avec ce WebSocket. Une fois le WebSocket accepté, toutes les autres interactions sur ce WebSocket se font avec un écouteur connecté.
 
-### Résumé de l’interaction
+### <a name="interaction-summary"></a>Résumé de l’interaction
 Le résultat de ce modèle d’interaction est que le client expéditeur ressort de la liaison avec un WebSocket « propre », qui est connecté à un écouteur et n’a besoin d’aucun préambule et d’aucune préparation supplémentaire. Avec ce modèle, presque toutes les implémentations client existantes de WebSocket peuvent facilement tirer parti du service Connexions hybrides en fournissant une URL correctement construite dans la couche client de leur WebSocket.
 
 Le WebSocket de connexion jointe qu’obtient l’écouteur par le biais de l’interaction d’acceptation est également propre et peut être transmis à une implémentation serveur de WebSocket existante avec une abstraction supplémentaire minimale qui fait la distinction entre les opérations « accepter » sur les écouteurs du réseau local de leur infrastructure et les opérations « accepter » à distance des Connexions hybrides.
 
-## Référence sur le protocole
+## <a name="protocol-reference"></a>Référence sur le protocole
 
 Cette section fournit les détails des interactions de protocole décrites plus haut.
 
 Toutes les connexions de WebSocket sont effectuées sur le port 443 mis à niveau à partir de HTTPS 1.1, qui est couramment abstrait par les API et les infrastructures de WebSocket. Cette description ne tient pas compte de l’implémentation et ne suggère aucune infrastructure en particulier.
 
-### Protocole de l’écouteur
+### <a name="listener-protocol"></a>Protocole de l’écouteur
 Le protocole de l’écouteur se compose de deux mouvements de connexion et de trois opérations messages.
 
-#### Connexion du canal de contrôle de l’écouteur
+#### <a name="listener-control-channel-connection"></a>Connexion du canal de contrôle de l’écouteur
 Le canal de contrôle est ouvert lors de la création d’une connexion de WebSocket à :
 
 ```
@@ -109,7 +109,7 @@ Si la connexion du WebSocket est intentionnellement arrêtée par le service apr
 | 1008 |Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée. |
 | 1011 |Un problème est survenu dans le service. |
 
-### Négociation d’acceptation
+### <a name="accept-handshake"></a>Négociation d’acceptation
 La notification d’acceptation est envoyée par le service à l’écouteur sur le canal de contrôle établi précédemment sous forme de message JSON dans un bloc de texte de WebSocket. Il n’y a pas de réponse à ce message.
 
 Le message contient un objet JSON nommé « accept », qui définit les propriétés suivantes à ce jour :
@@ -118,7 +118,7 @@ Le message contient un objet JSON nommé « accept », qui définit les propri
 * **ID** : identificateur unique de cette connexion. Si l’ID a été fourni par le client expéditeur, il s’agit de la valeur fournie par l’expéditeur, sinon d’une valeur générée par le système.
 * **connectHeaders** : tous les en-têtes HTTP qui ont été fournis au point de terminaison Relay par l’expéditeur, dont également les en-têtes Sec-WebSocket-Protocol et Sec-WebSocket-Extensions.
 
-#### Message d’acceptation
+#### <a name="accept-message"></a>Message d’acceptation
 
 ```json
 {                                                           
@@ -136,7 +136,7 @@ Le message contient un objet JSON nommé « accept », qui définit les propri
 
 L’adresse URL fournie dans le message JSON est utilisée par l’écouteur pour que le WebSocket accepte ou rejette le socket de l’expéditeur.
 
-#### Accepter le socket
+#### <a name="accepting-the-socket"></a>Accepter le socket
 Pour accepter, l’écouteur établit une connexion WebSocket à l’adresse fournie.
 
 Si le message d’acceptation comporte un en-tête `Sec-WebSocket-Protocol`, il est attendu que l’écouteur accepte uniquement le WebSocket s’il prend en charge ce protocole. De plus, il définit l’en-tête au moment où le WebSocket est établi.
@@ -173,7 +173,7 @@ Une fois la connexion établie, le serveur arrête le WebSocket quand le WebSock
 | 1008 |Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée. |
 | 1011 |Un problème est survenu dans le service. |
 
-#### Rejeter le socket
+#### <a name="rejecting-the-socket"></a>Rejeter le socket
 Pour rejeter le socket après avoir inspecté le message d’acceptation, une liaison similaire est nécessaire afin que le code et la description de l’état communiquant le motif du rejet puissent être transmis à l’expéditeur.
 
 Le choix de conception du protocole consiste ici à utiliser une liaison WebSocket (qui est conçue pour se terminer avec un état d’erreur défini) afin que les implémentations du client écouteur puissent continuer à s’appuyer sur un client WebSocket sans devoir utiliser un client HTTP supplémentaire sans système d’exploitation.
@@ -194,12 +194,12 @@ En cas de réussite, cette liaison échoue intentionnellement avec un code d’e
 | 403 |Interdit |L’URL n’est pas valide. |
 | 500 |Erreur interne |Un problème est survenu dans le service. |
 
-### Renouvellement du jeton de l’écouteur
+### <a name="listener-token-renewal"></a>Renouvellement du jeton de l’écouteur
 Lorsque le jeton de l’écouteur est sur le point d’expirer, celui-ci peut le remplacer en envoyant un message de bloc de texte au service via le canal de contrôle établi. Le message contient un objet JSON nommé `renewToken`, qui définit la propriété suivante à ce moment donné :
 
 * **token** : jeton d’accès partagé Service Bus valide et encodé au format URL pour l’espace de noms ou la connexion hybride qui confère le droit d’**écoute**.
 
-#### Message renewToken
+#### <a name="renewtoken-message"></a>Message renewToken
 
 ```json
 {                                                                                                                                                                        
@@ -215,7 +215,7 @@ Si la validation du jeton échoue, l’accès est refusé et le service cloud fe
 | --- | --- |
 | 1008 |Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée. |
 
-## Protocole de l’expéditeur
+## <a name="sender-protocol"></a>Protocole de l’expéditeur
 Le protocole de l’expéditeur est identique au mode d’établissement d’un écouteur.
 L’objectif est une transparence maximale pour le WebSocket de bout en bout. L’adresse de connexion est la même que pour l’écouteur, mais « l’action » diffère et le jeton a besoin d’une autorisation différente :
 
@@ -262,7 +262,7 @@ Si la connexion du WebSocket est intentionnellement arrêtée par le service apr
 | 1008 |Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée. |
 | 1011 |Un problème est survenu dans le service. |
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [FAQ sur Azure Relay](relay-faq.md)
 * [Créer un espace de noms](relay-create-namespace-portal.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer toutes les stratégies d’un laboratoire dans Azure DevTest Labs
 
@@ -28,7 +28,11 @@ Azure DevTest Labs vous permet de contrôler les coûts et de réduire le gaspil
 ## <a name="set-allowed-virtual-machine-sizes"></a>Définir les tailles de machine virtuelle autorisées
 La stratégie pour définir les tailles de machine virtuelle autorisées vous permet de spécifier les tailles de machine virtuelle autorisées dans le laboratoire et contribue ainsi à réduire les pertes de laboratoire. Si cette stratégie est activée, seules les tailles de machine virtuelle de cette liste peuvent être utilisées pour créer des machines virtuelles.
 
-1. Dans le panneau **Configuration et stratégies** du laboratoire, sélectionnez **Tailles de machine virtuelle autorisées**.
+1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), sélectionnez un lab, puis **Configuration and policies** (Configuration et stratégies).
+
+    ![Accéder à la configuration et aux stratégies du lab](./media/devtest-lab-set-lab-policy/policies-menu.png)
+
+1. Dans le volet **Configuration et stratégies** du lab, sélectionnez **Tailles de machine virtuelle autorisées**.
    
     ![Tailles de machine virtuelle autorisées](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
 
@@ -41,7 +45,7 @@ La stratégie pour définir les tailles de machine virtuelle autorisées vous pe
 ## <a name="set-virtual-machines-per-user"></a>Définir les machines virtuelles par utilisateur
 La stratégie **Machines virtuelles par utilisateur** vous permet de spécifier le nombre maximal de machines virtuelles pouvant être créées par un utilisateur individuel. Si un utilisateur tente de créer ou de revendiquer une machine virtuelle alors que le nombre limite par utilisateur est atteint, un message d’erreur indique que la machine virtuelle ne peut pas être créée/revendiquée. 
 
-1. Dans le menu **Configuration et stratégies** du laboratoire, sélectionnez **Machines virtuelles par utilisateur**.
+1. Dans le volet **Configuration et stratégies** du lab, sélectionnez **Machines virtuelles par utilisateur**.
    
     ![Machines virtuelles par utilisateur](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
@@ -52,9 +56,9 @@ La stratégie **Machines virtuelles par utilisateur** vous permet de spécifier 
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="set-virtual-machines-per-lab"></a>Définir les machines virtuelles par laboratoire
-La stratégie **Machines virtuelles par laboratoire** vous permet de spécifier le nombre maximal de machines virtuelles pouvant être créées pour le laboratoire actuel. Si un utilisateur tente de créer une machine virtuelle alors que le nombre limite par laboratoire est atteint, un message d’erreur indique que la machine virtuelle ne peut pas être créée. 
+La stratégie **Machines virtuelles par lab** vous permet de spécifier le nombre maximal de machines virtuelles pouvant être créées pour le lab actuel. Si un utilisateur tente de créer une machine virtuelle alors que le nombre limite par laboratoire est atteint, un message d’erreur indique que la machine virtuelle ne peut pas être créée. 
 
-1. Dans le menu **Configuration et stratégies** du laboratoire, sélectionnez **Machines virtuelles par laboratoire**.
+1. Dans le volet **Configuration et stratégies** du lab, sélectionnez **Machines virtuelles par lab**.
    
     ![Machines virtuelles par laboratoire](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
@@ -65,9 +69,9 @@ La stratégie **Machines virtuelles par laboratoire** vous permet de spécifier 
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="set-auto-shutdown"></a>Définir l’arrêt automatique
-La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laquelle les machines virtuelles du laboratoire doivent s’arrêter et contribue ainsi à réduire les pertes de laboratoire.
+La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laquelle les machines virtuelles du lab doivent s’arrêter et contribue ainsi à réduire les pertes du lab.
 
-1. Dans le panneau **Configuration et stratégies**, sélectionnez **Arrêt automatique**.
+1. Dans le volet **Configuration et stratégies** du lab, sélectionnez **Arrêt automatique**.
    
     ![Arrêt automatique](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -75,16 +79,16 @@ La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laque
 
 1. Si vous activez cette stratégie, spécifiez l’heure (et le fuseau horaire) de l’arrêt pour toutes les machines virtuelles du laboratoire actif.
 
-1. Spécifiez **Oui** ou **Non** pour l’option d’envoi de notification 15 minutes avant l’heure d’arrêt automatique spécifiée. Si vous spécifiez **Oui**, entrez un point de terminaison d’URL webhook pour recevoir la notification. Pour plus d’informations sur les webhooks, consultez [Créer une fonction Azure d’API ou de webhook](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Spécifiez **Oui** ou **Non** pour l’option d’envoi de notification 15 minutes avant l’heure d’arrêt automatique spécifiée. Si vous spécifiez **Oui**, entrez un point de terminaison de l’URL de Webhook ou une adresse e-mail pour y publier ou envoyer la notification. Pour plus d’informations sur les webhooks, consultez [Créer une fonction Azure d’API ou de webhook](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Sélectionnez **Enregistrer**.
 
-    Par défaut, une fois activée, cette stratégie s’applique à toutes les machines virtuelles dans le laboratoire en cours. Pour supprimer ce paramètre sur une machine virtuelle spécifique, ouvrez le panneau de la machine virtuelle et modifiez son paramètre **Arrêt automatique** . 
+Par défaut, une fois activée, cette stratégie s’applique à toutes les machines virtuelles dans le laboratoire en cours. Pour supprimer ce paramètre sur une machine virtuelle spécifique, ouvrez le volet de gestion de la machine virtuelle et modifiez son paramètre **Arrêt automatique**.
 
 ## <a name="set-auto-start"></a>Définir le démarrage automatique
-La stratégie de démarrage automatique vous permet de spécifier quand les machines virtuelles du laboratoire doivent être démarrées.  
+La stratégie de démarrage automatique vous permet de spécifier quand les machines virtuelles du lab actuel doivent être démarrées.  
 
-1. Dans le panneau **Configuration et stratégies**, sélectionnez **Démarrage automatique**.
+1. Dans le volet **Configuration et stratégies** du lab, sélectionnez **Démarrage automatique**.
    
     ![Démarrage automatique](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -94,10 +98,10 @@ La stratégie de démarrage automatique vous permet de spécifier quand les mach
 
 4. Sélectionnez **Enregistrer**.
 
-    Une fois activée, cette stratégie n’est pas automatiquement appliquée à toutes les machines virtuelles dans le laboratoire en cours. Pour appliquer ce paramètre à une machine virtuelle spécifique, ouvrez le panneau de la machine virtuelle et modifiez son paramètre **Démarrage automatique** . 
+Une fois activée, cette stratégie n’est pas automatiquement appliquée à toutes les machines virtuelles dans le laboratoire en cours. Pour appliquer ce paramètre à une machine virtuelle spécifique, ouvrez le volet de gestion de la machine virtuelle et modifiez son paramètre **Démarrage automatique**.
 
 ## <a name="set-expiration-date"></a>Définir une date d’expiration
-Lorsque vous [créez la machine virtuelle](devtest-lab-add-vm.md), vous pouvez définir une date d’expiration. Dans **Paramètres avancés**, choisissez l’icône de calendrier pour spécifier la date à laquelle la machine virtuelle doit être automatiquement supprimée.  Par défaut, la machine virtuelle n’expire jamais.
+Lorsque vous [créez la machine virtuelle](devtest-lab-add-vm.md), vous pouvez définir une date d’expiration. Dans **Paramètres avancés**, choisissez l’icône de calendrier pour spécifier la date à laquelle la machine virtuelle est automatiquement supprimée. Par défaut, la machine virtuelle n’arrive jamais à expiration.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

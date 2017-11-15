@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d914684a0ee5598cee7972b78c3ec6296184466
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291ca51c83233294d882a94f886bc874e13e97be
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copier des données depuis/vers Azure Cosmos DB à l’aide d’Azure Data Factory
 
@@ -30,7 +30,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Azure Cosmos DB dans V1](v1/data-factory-azure-documentdb-connector.md).
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier des données d’Azure Cosmos DB vers toute banque de données réceptrice prise en charge, ou copier des données de toute banque de données source prise en charge vers Azure Cosmos DB. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs pour l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 

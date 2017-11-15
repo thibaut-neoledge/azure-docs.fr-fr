@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
 
@@ -94,7 +94,7 @@ La table suivante décrit les paramètres de stratégie de mot de passe disponib
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Définir des stratégies d’expiration de mot de passe dans Azure Active Directory
 
-Un administrateur global d’un service cloud Microsoft, peut utiliser le Module Microsoft Azure Active Directory pour Windows PowerShell afin de configurer des mots de passe utilisateur qui n’expirent pas. Vous pouvez également utiliser des applets de commande Windows PowerShell pour supprimer la configuration de non-expiration, ou voir quels mots de passe utilisateur sont configurés pour ne pas expirer. Ces conseils s’appliquent à d’autres fournisseurs tels que Microsoft Intune et Office 365, qui s’appuient également sur Microsoft Azure Active Directory pour les services d’annuaire et d’identité.
+Un administrateur global d’un service cloud Microsoft, peut utiliser le Module Microsoft Azure Active Directory pour Windows PowerShell afin de configurer des mots de passe utilisateur qui n’expirent pas. Vous pouvez également utiliser des applets de commande Windows PowerShell pour supprimer la configuration de non-expiration, ou voir quels mots de passe utilisateur sont configurés pour ne pas expirer. Ces conseils s’appliquent à d’autres fournisseurs tels que Microsoft Intune et Office 365, qui s’appuient également sur Microsoft Azure Active Directory pour les services d’annuaire et d’identité. Il s’agit de la seule partie de la stratégie qui peut être modifiée.
 
 > [!NOTE]
 > Seuls les mots de passe de comptes d’utilisateurs non synchronisés via une synchronisation d’annuaires peuvent être configurés pour ne pas expirer. Pour plus d’informations sur la synchronisation d’annuaires, consultez [Connecter Active Directory à Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -127,6 +127,9 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 
    * Pour définir le mot de passe d’un utilisateur afin qu’il n’expire jamais, exécutez l’applet de commande suivante en utilisant le nom d’utilisateur principal (UPN) ou l’identifiant d’utilisateur de l’utilisateur : `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils n’expirent jamais, utilisez l’applet de commande suivante : `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+
+   > [!WARNING]
+   > Si vous définissez `-PasswordNeverExpires $true`, l’ancienneté du mot de passe continuera à être prise en compte selon l’attribut `pwdLastSet`. Par conséquent, si vous configurez les mots de passe de manière qu’ils n’expirent jamais, puis que vous définissez `-PasswordNeverExpires $false` alors que plus de 90 jours se sont écoulés selon `pwdLastSet`, tous les mots de passe qui présentent un attribut `pwdLastSet` dont l’ancienneté est supérieure à 90 jours devront être modifiés à la prochaine ouverture de session. Cette modification de stratégie est susceptible d’avoir un impact sur un grand nombre d’utilisateurs. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

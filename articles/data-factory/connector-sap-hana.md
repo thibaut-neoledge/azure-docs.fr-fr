@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 2e66edf63b4bdac1aacfedb64ca1edf207e46a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copier des données de SAP HANA à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur SAP HANA dans V1](v1/data-factory-sap-hana-connector.md).
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier des données d’une base de données SAP HANA vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs pour l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -102,8 +102,7 @@ Pour copier des données de SAP HANA, affectez la valeur **RelationalTable** à 
 ```json
 {
     "name": "SAPHANADataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<SAP HANA linked service name>",
@@ -194,4 +193,4 @@ Il existe quelques limitations connues lors de la copie des données à partir d
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 1170ee7232e1046e194f5223f7b7bf582ef18dfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff008b6fdfe9e248a0588f24a1cb87b39ca8d90c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copier des données à partir de Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Sybase dans V1](v1/data-factory-onprem-sybase-connector.md).
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier des données d’une base de données Sybase vers tout magasin de données récepteur pris en charge. Pour obtenir la liste des magasins de données pris en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -106,8 +106,7 @@ Pour copier des données à partir de Sybase, affectez la valeur **RelationalTab
 ```json
 {
     "name": "SybaseDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<Sybase linked service name>",
@@ -171,4 +170,4 @@ Sybase prend en charge les types T-SQL. Pour obtenir une table de mappage entre 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

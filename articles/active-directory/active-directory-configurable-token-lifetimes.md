@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: d23721eba308096a05211eb6e26e1338a69cae0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (version préliminaire publique)
 Vous pouvez spécifier la durée de vie d’un jeton émis par Azure Active Directory (Azure AD). Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation.
@@ -58,9 +58,9 @@ Les clients publics ne peuvent pas stocker en toute sécurité un mot de passe c
 Les jetons d’ID sont transmis aux sites web et clients natifs. Les jetons d’ID contiennent des informations de profil sur un utilisateur. Un jeton d’ID est lié à une combinaison spécifique d’utilisateur et de client. Les jetons d’ID sont considérés comme valides jusqu’à leur expiration. En règle générale, une application web fait correspondre la durée de vie de session d’un utilisateur de l’application à la durée de vie du jeton d’ID émis pour l’utilisateur. Vous pouvez ajuster la durée de vie des jetons d’ID pour contrôler la fréquence à laquelle l’application web arrête la session de l’application et demande à l’utilisateur de s’authentifier à nouveau auprès d’Azure AD (en mode silencieux ou interactif).
 
 ### <a name="single-sign-on-session-tokens"></a>Jetons de session d’authentification unique
-Lorsqu’un utilisateur s’authentifie auprès d’Azure AD et coche la case **Maintenir la connexion**, une session d’authentification unique (SSO) est établie avec le navigateur de l’utilisateur et Azure AD. Le jeton SSO représente cette session sous la forme d’un cookie. Notez que le jeton de session SSO n’est pas lié à une application cliente/ressource spécifique. Les jetons de session SSO peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
+Lorsqu’un utilisateur s’authentifie auprès d’Azure AD, une session d’authentification unique (SSO) est établie avec le navigateur de l’utilisateur et Azure AD. Le jeton SSO représente cette session sous la forme d’un cookie. Notez que le jeton de session SSO n’est pas lié à une application cliente/ressource spécifique. Les jetons de session SSO peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
 
-Azure AD utilise deux types de jetons de session SSO : persistant et non persistant. Les jetons de session persistants sont stockés en tant que cookies persistants par le navigateur. Les jetons de session non persistants sont stockés en tant que cookies de session. (Les cookies de session sont détruits lors de la fermeture du navigateur.)
+Azure AD utilise deux types de jetons de session SSO : persistant et non persistant. Les jetons de session persistants sont stockés en tant que cookies persistants par le navigateur. Les jetons de session non persistants sont stockés en tant que cookies de session. (Les cookies de session sont détruits lors de la fermeture du navigateur.) En règle générale, un jeton de session non persistant est stocké. Cependant, quand l’utilisateur sélectionne la case à cocher **Maintenir la connexion** lors de l’authentification, un jeton de session persistant est stocké.
 
 Les jetons de session non persistants ont une durée de vie de 24 heures. Les jetons persistants ont une durée de vie de 180 jours. À chaque fois qu’un jeton de session SSO est utilisé au cours de sa période de validité, celle-ci est prolongée à nouveau de 24 heures ou de 180 jours, en fonction du type de jeton. Si un jeton de session SSO n’est pas utilisé au cours de sa période de validité, il est considéré comme arrivé à expiration et n’est plus accepté.
 

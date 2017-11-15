@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: edbf797e6277a65b5311e4939f5ab72776b11557
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimisation des requêtes Hive dans Azure HDInsight
 
@@ -51,7 +51,7 @@ Tez est plus rapide pour les raisons suivantes :
 * **Il évite les écritures inutiles**. Lorsque plusieurs tâches sont préparées pour la même requête Hive dans le moteur MapReduce, la sortie de chacune d’elles est écrite vers HDFS pour les données intermédiaires. Comme Tez réduit le nombre de tâches de chaque requête Hive, il est possible d’éviter de telles écritures inutiles.
 * **Il réduit les délais de démarrage**. Tez peut réduire davantage le délai de démarrage en réduisant le nombre de mappeurs nécessaires au démarrage tout en améliorant l’optimisation tout au long du processus.
 * **Il réutilise les conteneurs**. Dès que possible, Tez peut réutiliser les conteneurs pour réduire la latence provoquée par le nombre de conteneurs au démarrage.
-* **Il utilise des techniques d’optimisation continue**. Généralement, l’optimisation est effectuée lors de la compilation. Cependant, des informations supplémentaires sur les entrées sont disponibles pour améliorer l’optimisation durant le démarrage. Tez utilise des techniques d’optimisation continue permettant d’améliorer le plan lors du démarrage.
+* **Il utilise des techniques d’optimisation continue**. Généralement, l’optimisation est effectuée lors de la compilation. Cependant, des informations supplémentaires sur les entrées sont disponibles pour améliorer l’optimisation durant le démarrage. Tez utilise des techniques d’optimisation continue qui permettent d’améliorer le plan lors de la phase de runtime.
 
 Pour plus d’informations sur ces concepts, consultez [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
@@ -180,11 +180,11 @@ Vous pouvez envisager plusieurs autres méthodes d’optimisation, par exemple 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris plusieurs méthodes d’optimisation courantes des requêtes. Pour en savoir plus, consultez les articles suivants :
 
-* [Utilisation d’Apache Hive dans HDInsight](hdinsight-use-hive.md)
+* [Utilisation d’Apache Hive dans HDInsight](hadoop/hdinsight-use-hive.md)
 * [Analyse des données sur les retards de vol avec Hive dans HDInsight](hdinsight-analyze-flight-delay-data.md)
 * [Analyse des données Twitter avec Hive dans HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analyse des données de capteur à l’aide de la console de requête Hive sur Hadoop dans HDInsight](hdinsight-hive-analyze-sensor-data.md)
-* [Utilisation de Hive avec HDInsight pour analyser les journaux de site web](hdinsight-hive-analyze-website-log.md)
+* [Analyse des données de capteur à l’aide de la console de requête Hive sur Hadoop dans HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
+* [Utilisation de Hive avec HDInsight pour analyser les journaux de site web](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

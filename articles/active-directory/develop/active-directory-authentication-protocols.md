@@ -21,10 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
 ---
-# Protocoles d’authentification d’Azure Active Directory
+# <a name="azure-active-directory-authentication-protocols"></a>Protocoles d’authentification d’Azure Active Directory
 Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’authentification et d’autorisation parmi ceux les plus couramment utilisés. Les rubriques de cette section décrivent les protocoles pris en charge et leur implémentation dans Azure AD. Les rubriques comprennent une revue des types de revendications pris en charge, une présentation de l’utilisation des métadonnées de fédération, de la documentation de référence détaillée sur les protocoles OAuth 2.0. et SAML 2.0 et une section de dépannage.
 
-## Articles et référence relatifs aux protocoles d’authentification
+## <a name="authentication-protocols-articles-and-reference"></a>Articles et référence relatifs aux protocoles d’authentification
 * [Informations importantes sur la substitution des clés de signature dans Azure AD](active-directory-signing-key-rollover.md) : découvrez le rythme de substitution des clés de signature d’Azure AD, les modifications que vous pouvez effectuer pour mettre la clé à jour automatiquement et une description de la mise à jour des scénarios d’application les plus courants.
 * [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md) : découvrez les revendications des jetons émis par Azure AD.
 * [Métadonnées de fédération](active-directory-federation-metadata.md) : découvrez comment trouver et interpréter les documents de métadonnées générés par Azure AD.
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 * [Appels de service à service avec le flux Pour le compte de](active-directory-protocols-oauth-on-behalf-of.md) : découvrez comment utiliser les flux Pour le compte de OAuth 2.0 pour les appels de service à service.
 * [Informations de référence sur le protocole SAML](active-directory-saml-protocol-reference.md) : découvrez les profils SAML d’authentification unique et de déconnexion unique d’Azure AD.
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
 [Exemples de code Azure Active Directory](active-directory-code-samples.md)

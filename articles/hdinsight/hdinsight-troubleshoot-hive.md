@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Résolution de problèmes Hive à l’aide d’Azure HDInsight
 
@@ -54,7 +54,7 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
 - [Se connecter à HDInsight (Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Comment localiser les journaux Hive sur un cluster ?
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Comment localiser les journaux Hive dans un cluster ?
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
@@ -83,7 +83,7 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
 - [Se connecter à HDInsight (Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Comment lancer un interpréteur de commandes Hive avec des configurations spécifiques sur un cluster ?
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Comment lancer l’interpréteur de commandes Hive avec des configurations spécifiques dans un cluster ?
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
@@ -110,7 +110,7 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties) (Propriétés de configuration Hive, en anglais)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Comment analyser les données de DAG Tez sur un chemin critique de cluster ?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Comment analyser les données de DAG Tez dans un chemin critique de cluster ?
 
 
 ### <a name="resolution-steps"></a>Étapes de résolution
@@ -177,6 +177,8 @@ Il existe deux façons de collecter les données de DAG Tez :
 [Se connecter à HDInsight (Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### <a name="see-also"></a>Voir aussi
+[Résoudre des problèmes à l’aide d’Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

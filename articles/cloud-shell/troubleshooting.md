@@ -12,29 +12,43 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 4c99ae37b66200244514ee554c9696cf18c1b800
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 89d5d8df9327c6136fbd00078f6a34f78d85032e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Dépannage d’Azure Cloud Shell
 
 Les solutions connues aux problèmes d’Azure Cloud Shell sont les suivantes :
 
-## <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Boîte de dialogue de stockage - Erreur : 403 RequestDisallowedByPolicy
+## <a name="general-resolutions"></a>Résolutions générales
+
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Boîte de dialogue de stockage - Erreur : 403 RequestDisallowedByPolicy
 - **Détails** : lorsque vous créez un compte de stockage par le biais de Cloud Shell, l’opération échoue en raison d’une stratégie Azure appliquée par votre administrateur. Le message d’erreur inclut le texte suivant :`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Résolution** : contactez votre administrateur Azure pour supprimer ou mettre à jour la stratégie Azure refusant la création du stockage.
 
-## <a name="storage-dialog---error-400-disallowedoperation"></a>Boîte de dialogue de stockage - Erreur : 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>Boîte de dialogue de stockage - Erreur : 400 DisallowedOperation
  - **Détails** : lorsque j’utilise un abonnement Azure Active Directory, je ne peux pas créer de stockage.
  - **Résolution** : pour résoudre ce problème, utilisez un abonnement Azure habilité à créer des ressources de stockage. Les abonnements Azure AD ne peuvent pas créer de ressources Azure.
 
-## <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Sortie du terminal - Erreur : Failed to connect terminal: websocket cannot be established. Press `Enter` to reconnect. (Échec de la connexion du terminal : impossible d’établir la connexion WebSocket. Appuyez sur Entrée pour rétablir la connexion.)
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Sortie du terminal - Erreur : Failed to connect terminal: websocket cannot be established. Press `Enter` to reconnect. (Échec de la connexion du terminal : impossible d’établir la connexion WebSocket. Appuyez sur Entrée pour rétablir la connexion.)
  - **Détails** : Cloud Shell doit pouvoir établir une connexion websocket à l’infrastructure Cloud Shell.
  - **Résolution** : vérifiez vous avez configuré vos paramètres réseau pour activer l’envoi de demandes https et websocket aux domaines sur *. console.azure.com.
+
+## <a name="bash-resolutions"></a>Résolutions Bash
+
+### <a name="cannot-run-az-login"></a>Impossible d’exécuter la commande az login
+
+- **Détails** : l’exécution de la commande `az login` ne fonctionne pas, car vous êtes déjà authentifié avec le compte utilisé pour vous connecter à Cloud Shell ou au portail Azure.
+- **Résolution** : servez-vous du compte utilisé pour la connexion ou la déconnexion et authentifiez-vous de nouveau avec le compte Azure approprié.
+
+### <a name="cannot-run-the-docker-daemon"></a>Impossible d’exécuter le démon Docker
+
+- **Détails** : comme Cloud Shell utilise un conteneur pour héberger votre environnement d’interpréteur de commandes, l’exécution du démon est interdite.
+- **Résolution** : utilisez l’outil [docker-machine](https://docs.docker.com/machine/overview/), qui est installé par défaut, pour gérer les conteneurs Docker d’un hôte Docker distant.
 
 ## <a name="powershell-resolutions"></a>Résolutions PowerShell
 

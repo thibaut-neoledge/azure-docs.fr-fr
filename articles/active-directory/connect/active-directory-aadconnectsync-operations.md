@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure Connect AD sync : tâches opérationnelles et examen
 L’objectif de cette rubrique consiste à décrire les tâches opérationnelles de la synchronisation d’Azure AD Connect.
@@ -68,11 +68,18 @@ Vous avez maintenant effectué une exportation intermédiaire vers Azure AD et A
 #### <a name="verify"></a>Vérifier
 1. Démarrez une invite de commande et accédez à `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Exécution : `csexport "Name of Connector" %temp%\export.xml /f:x` le nom du connecteur se trouve dans le service de synchronisation. Le nom est similaire à « contoso.com – AAD » pour Azure AD.
-3. Copiez le script PowerShell à partir de la section [CSAnalyzer](#appendix-csanalyzer) dans un fichier nommé `csanalyzer.ps1`.
-4. Ouvrez une fenêtre PowerShell et accédez au dossier où vous avez créé le script PowerShell.
-5. Exécutez : `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. Vous disposez maintenant d’un fichier nommé **processedusers1.csv** qui peut être examiné dans Microsoft Excel. Toutes les modifications à exporter vers Azure AD sont trouvent dans ce fichier.
-7. Apportez les modifications nécessaires aux données ou à la configuration et réexécutez ces opérations (importer, synchroniser et vérifier) jusqu’à ce que les modifications sur le point d’être exportées soient attendues.
+3. Exécution : `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` dans %temp%, vous disposez d’un fichier nommé export.csv qui peut être examiné dans Microsoft Excel. Ce fichier contient toutes les modifications sur le point d’être exportées.
+4. Apportez les modifications nécessaires aux données ou à la configuration et réexécutez ces opérations (importer, synchroniser et vérifier) jusqu’à ce que les modifications sur le point d’être exportées soient attendues.
+
+**Comprendre le fichier export.csv** La majeure partie du fichier est explicite. Certaines abréviations permettant de comprendre le contenu :
+* OMODT – Type de modification d’objet. Indique si l’opération au niveau de l’objet est un ajout, une mise à jour ou une suppression.
+* AMODT – Type de modification d’attribut. Indique si l’opération au niveau de l’attribut est un ajout, une mise à jour ou une suppression.
+
+**Récupérer les identificateurs courants** Le fichier export.csv contient toutes les modifications qui sont sur le point d’être exportées. Chaque ligne correspond à une modification d’un objet dans l’espace connecteur, objet qui est identifié par l’attribut de nom unique (DN). L’attribut DN est un identificateur unique assigné à un objet dans l’espace connecteur. Quand le fichier export.csv à analyser contient de nombreuses lignes/modifications, il peut s’avérer difficile de déterminer quels objets sont concernés par les modifications à l’aide uniquement de l’attribut DN. Pour simplifier le processus d’analyse des modifications, utilisez le script PowerShell csanalyzer.ps1. Le script récupère les identificateurs courants (par exemple, displayName, userPrincipalName) des objets. Pour utiliser le script :
+1. Copiez le script PowerShell à partir de la section [CSAnalyzer](#appendix-csanalyzer) dans un fichier nommé `csanalyzer.ps1`.
+2. Ouvrez une fenêtre PowerShell et accédez au dossier où vous avez créé le script PowerShell.
+3. Exécutez : `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+4. Vous disposez maintenant d’un fichier nommé **processedusers1.csv** qui peut être examiné dans Microsoft Excel. Notez que le fichier fournit un mappage de l’attribut DN aux identificateurs courants (par exemple, displayName et userPrincipalName). Il n’inclut pas les modifications d’attribut réelles qui sont sur le point d’être exportées.
 
 #### <a name="switch-active-server"></a>Changer de serveur actif
 1. Sur le serveur actif, éteignez le serveur (DirSync/FIM/Azure AD Sync) pour qu’il ne soit pas exporté vers Azure AD ou définissez-le en mode intermédiaire (Azure AD Connect).

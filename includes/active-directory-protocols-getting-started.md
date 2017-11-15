@@ -19,7 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
 ---
-## Inscrire votre application avec votre client AD
+## <a name="register-your-application-with-your-ad-tenant"></a>Inscrire votre application avec votre client AD
 Tout d’abord, vous devez inscrire votre application avec votre client Azure Active Directory (Azure AD). Ceci vous fournira un ID d’application pour votre application et lui permettra de recevoir des jetons.
 
 * Connectez-vous au [portail Azure](https://portal.azure.com).

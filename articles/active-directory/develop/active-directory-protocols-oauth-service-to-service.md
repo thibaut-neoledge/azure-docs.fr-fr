@@ -21,10 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
 ---
-# Appels de service à service à l’aide des informations d’identification du client (secret partagé ou certificat)
+# <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Appels de service à service à l’aide des informations d’identification du client (secret partagé ou certificat)
 Le flux d’octroi des informations d’identification du client OAuth2.0 permet à un service web (*client confidentiel*) d’utiliser ses propres informations d’identification pour s’authentifier lorsqu’il appelle un autre service web, au lieu d’emprunter l’identité d’un utilisateur. Dans ce scénario, le client est généralement un service web de niveau intermédiaire, un service démon ou un site web. Pour augmenter le niveau d’assurance, Azure AD autorise également le service d’appel à utiliser un certificat (au lieu d’un secret partagé) comme une information d’identification.
 
-## Diagramme représentant le flux d’octroi des informations d’identification du client
+## <a name="client-credentials-grant-flow-diagram"></a>Diagramme représentant le flux d’octroi des informations d’identification du client
 Le diagramme suivant explique comment fonctionne le flux d’octroi des informations d’identification du client dans Azure Active Directory (Azure AD).
 
 ![Flux d’octroi des informations d’identification du client OAuth2.0](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
@@ -34,20 +34,20 @@ Le diagramme suivant explique comment fonctionne le flux d’octroi des informat
 3. Le jeton d’accès est utilisé pour l’authentification auprès de la ressource sécurisée.
 4. Les données de la ressource sécurisée sont renvoyées à l’application web.
 
-## Inscription des services dans Azure AD
+## <a name="register-the-services-in-azure-ad"></a>Inscription des services dans Azure AD
 Inscrivez à la fois le service appelant et le service de destination dans Azure Active Directory (Azure AD). Pour obtenir des instructions détaillées, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md).
 
-## Demander un jeton d’accès
+## <a name="request-an-access-token"></a>Demander un jeton d’accès
 Pour demander un jeton d’accès, envoyez une requête HTTP POST au point de terminaison Azure AD propre au client.
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
-## Demande de jeton d’accès de service à service
+## <a name="service-to-service-access-token-request"></a>Demande de jeton d’accès de service à service
 Deux cas de figure se présentent, selon que l’application cliente choisit d’être sécurisée par un secret partagé ou un certificat.
 
-### Premier cas : demande de jeton d’accès avec un secret partagé
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : demande de jeton d’accès avec un secret partagé
 Lorsque l’application utilise un secret partagé, la demande de jeton d’accès de service à service contient les paramètres suivants :
 
 | Paramètre |  | Description |
@@ -57,7 +57,7 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | client_secret |required |Entrez une clé enregistrée pour le service web appelant ou l’application démon dans Azure AD. Pour créer une clé, dans le portail Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application, **Paramètres** et **Clés**, puis ajoutez une clé.|
 | resource |required |Entrez l’URI ID d’application du service web de destination. Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application du service, puis sur **Paramètres** et **Propriétés**. |
 
-#### Exemple
+#### <a name="example"></a>Exemple
 La requête HTTP POST suivante demande un jeton d’accès pour le service web https://service.contoso.com/. `client_id` identifie le service web qui demande le jeton d’accès.
 
 ```
@@ -68,7 +68,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### Deuxième cas : demande de jeton d’accès avec un certificat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : demande de jeton d’accès avec un certificat
 Une demande de jeton d’accès de service à service avec un certificat contient les paramètres suivants :
 
 | Paramètre |  | Description |
@@ -81,7 +81,7 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 
 Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
 
-#### Exemple
+#### <a name="example"></a>Exemple
 La demande HTTP POST suivante demande un jeton d’accès au service web https://service.contoso.com/ avec un certificat. `client_id` identifie le service web qui demande le jeton d’accès.
 
 ```
@@ -92,7 +92,7 @@ Content-Type: application/x-www-form-urlencoded
 resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b3bf&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
 ```
 
-### Réponse de jeton d’accès de service à service
+### <a name="service-to-service-access-token-response"></a>Réponse de jeton d’accès de service à service
 
 Une réponse affirmative contient une réponse JSON OAuth 2.0 avec les paramètres suivants :
 
@@ -105,7 +105,7 @@ Une réponse affirmative contient une réponse JSON OAuth 2.0 avec les paramètr
 | not_before |Heure à partir de laquelle le jeton d’accès devient utilisable. La date est exprimée en nombre de secondes entre 1970-01-01T0:0:0Z UTC et le début de la validité du jeton.|
 | resource |L’URI ID d’application du service web de destination. |
 
-#### Exemple de réponse
+#### <a name="example-of-response"></a>Exemple de réponse
 L’exemple suivant illustre une réponse affirmative à une demande de jeton d’accès à un service web.
 
 ```
@@ -118,6 +118,6 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 }
 ```
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * [OAuth 2.0 dans Azure AD](active-directory-protocols-oauth-code.md)
 * [Exemple en C# de l’appel de service à service avec un secret partagé](https://github.com/Azure-Samples/active-directory-dotnet-daemon) et [Exemple en C# de l’appel de service à service avec un certificat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

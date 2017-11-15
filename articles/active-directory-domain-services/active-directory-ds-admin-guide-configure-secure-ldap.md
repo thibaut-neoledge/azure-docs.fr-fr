@@ -4,7 +4,7 @@ description: "Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine g�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05af1ccc9702891980e60a1c1db4c527ffbed0fa
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine managé Azure AD Domain Services
 Cet article explique comment activer le protocole LDAPS pour votre domaine géré par les services de domaine Azure Active Directory. Le protocole LDAP sécurisé est également appelé « protocole LDAP sur SSL (Secure Sockets Layer) / TLS (Transport Layer Security) ».
@@ -55,31 +55,36 @@ Obtenez un certificat valide, en suivant les instructions ci-dessous, avant d’
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Tâche 1 : Obtenir un certificat pour le protocole LDAP sécurisé
 La première tâche consiste à obtenir un certificat à utiliser pour l’accès du protocole LDAP sécurisé au domaine géré. Deux options s'offrent à vous :
 
-* Obtenez un certificat d’une autorité de certification. L’autorité peut être une autorité de certification publique.
+* Vous pouvez obtenir un certificat auprès d’une autorité de certification publique.
 * Vous pouvez créer un certificat auto-signé.
-
-### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Option A (recommandée) : obtention d’un certificat LDAP sécurisé auprès d’une autorité de certification
-Si votre organisation obtient ses certificats auprès d’une autorité de certification publique, vous devez obtenir le certificat LDAP sécurisé auprès de cette dernière.
-
-Quand vous demandez un certificat, veillez à satisfaire toutes les exigences détaillées dans la section [Configuration requise pour le certificat LDAP sécurisé](#requirements-for-the-secure-ldap-certificate).
 
 > [!NOTE]
 > Les ordinateurs clients qui doivent se connecter au domaine géré via le protocole LDAP sécurisé doivent approuver l’émetteur du certificat LDAP sécurisé.
 >
+
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Option A (recommandée) : obtention d’un certificat LDAP sécurisé auprès d’une autorité de certification
+Si votre organisation obtient ses certificats auprès d’une autorité de certification publique, obtenez le certificat LDAP sécurisé auprès de cette dernière.
+
+> [!TIP]
+> **Utilisez des certificats auto-signés pour les domaines managés présentant le suffixe de domaine « .onmicrosoft.com ».**
+> Si le nom de domaine DNS de votre domaine managé se termine par « .onmicrosoft.com », vous ne pouvez pas obtenir de certificat LDAP auprès d’une autorité de certification publique. Étant donné que le domaine « onmicrosoft.com » est la propriété de Microsoft, les autorités de certification publique refusent d’émettre des certificats LDAP sécurisés pour les domaines présentant ce suffixe. Dans ce cas de figure, créez un certificat auto-signé et utilisez-le pour configurer le protocole LDAP sécurisé.
 >
 
+Vérifiez que le certificat que vous obtenez auprès de l’autorité de certification publique remplit tous les critères décrits dans [Configuration requise pour le certificat LDAP sécurisé](#requirements-for-the-secure-ldap-certificate).
+
+
 ### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>Option B : création d’un certificat auto-signé pour le protocole LDAP sécurisé
-Si vous ne prévoyez pas d’utiliser un certificat d’une autorité de certification publique, vous pouvez choisir de créer un certificat auto-signé pour le protocole LDAP sécurisé.
+Si vous ne prévoyez pas d’utiliser un certificat d’une autorité de certification publique, vous pouvez choisir de créer un certificat auto-signé pour le protocole LDAP sécurisé. Choisissez cette option si le nom de domaine DNS de votre domaine managé se termine par « .onmicrosoft.com ».
 
 **Créer un certificat auto-signé à l’aide de PowerShell**
 
 Sur votre ordinateur Windows, ouvrez une nouvelle fenêtre PowerShell en tant **qu’administrateur** et saisissez les commandes suivantes, afin de créer un certificat auto-signé.
+```
+$lifetime=Get-Date
+New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
+```
 
-    $lifetime=Get-Date
-
-    New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
-
-Dans l’exemple ci-dessus, remplacez « *.contoso100.com » par le nom de domaine DNS de votre domaine managé. Par exemple, si vous avez créé un domaine managé nommé « contoso100.onmicrosoft.com », remplacez «* . contoso100.com » dans le script ci-dessus par « *.contoso100.onmicrosoft.com ».
+Dans l’exemple ci-dessus, remplacez « *.contoso100.com » par le nom de domaine DNS de votre domaine managé. Par exemple, si vous avez créé un domaine managé nommé « contoso100.onmicrosoft.com », remplacez «* .contoso100.com » dans le script précédent par « *.contoso100.onmicrosoft.com ».
 
 ![Sélectionner un annuaire Azure AD](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

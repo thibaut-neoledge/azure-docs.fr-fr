@@ -20,7 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
 ---
-# Prise en charge du protocole SAML dans Azure Active Directory
+# <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Prise en charge du protocole SAML dans Azure Active Directory
 Azure Active Directory (Azure AD) utilise le protocole SAML 2.0 pour permettre aux applications de fournir une expérience d’authentification unique à leurs utilisateurs. Les profils SAML [Authentification unique](active-directory-single-sign-on-protocol-reference.md) et [Déconnexion unique](active-directory-single-sign-out-protocol-reference.md) d’Azure AD expliquent comment les assertions, les protocoles et les liaisons SAML sont utilisées dans le service de fournisseur d’identité.
 
 Le protocole SAML a besoin du fournisseur d’identité (Azure AD) et du fournisseur de services (l’application) pour échanger des informations à leur sujet.

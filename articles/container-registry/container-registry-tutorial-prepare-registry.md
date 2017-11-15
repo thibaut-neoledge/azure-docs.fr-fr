@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 88feffc13690a3a33f757a43972c5ef1fe967b7f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 75408dc88b23b615971a23dc6235c563229d75aa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Préparer un registre de conteneurs Azure géorépliqué
 
@@ -247,10 +247,10 @@ Dans ce didacticiel, vous avez créé un registre de conteneurs géorépliqué p
 > * Généré une image conteneur Docker à partir de la source de l’application.
 > * Envoyé l’image conteneur à votre registre.
 
-Passez au didacticiel suivant pour apprendre à déployer votre conteneur dans plusieurs instances Azure App Service en utilisant la géoréplication pour fournir les images localement.
+Passez au didacticiel suivant pour apprendre à déployer votre conteneur dans plusieurs instances Web App pour conteneurs en utilisant la géoréplication pour fournir les images localement.
 
 > [!div class="nextstepaction"]
-> [Déployer des conteneurs dans Azure App Services](container-registry-tutorial-deploy-app.md)
+> [Déployer une application web à partir d’Azure Container Registry](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

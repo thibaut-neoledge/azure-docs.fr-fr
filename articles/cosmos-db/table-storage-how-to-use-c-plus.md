@@ -1,5 +1,5 @@
 ---
-title: Utilisation du stockage Table (C++) | Microsoft Docs
+title: Utilisation du stockage Table Azure avec C++ | Microsoft Docs
 description: "Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 services: cosmos-db
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 8314292cdb9b7a3f464c60119ed10f6b06ed4d10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6adfda2ef17e04cedd026964cfcad7443e0bd9
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-use-table-storage-from-c"></a>Utilisation du stockage de table à partir de C++
+# <a name="how-to-use-azure-table-storage-with-c"></a>Utilisation du stockage Table Azure avec C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 

@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-dotren
-ms.openlocfilehash: 3c62bff7ba37f7e45d73fa2cf67a4aee3b4a7a38
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
 
@@ -62,7 +62,12 @@ Pour vérifier que les nœuds de calcul de votre pool Azure Batch fonctionnent d
 * Le service Batch doit communiquer avec les nœuds de calcul du pool pour la planification des tâches. Pour activer cette communication, ajoutez un routage défini par l’utilisateur pour chaque adresse IP utilisée par le service Batch dans la région où se trouve votre compte Batch. Pour obtenir la liste des adresses IP du service Batch, contactez le support Azure.
 
 * Vérifiez que le trafic sortant vers le stockage Azure (plus précisément, les URL sous la forme `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` et `<account>.blob.core.windows.net`) n’est pas bloqué par votre appliance de réseau local.
-    
+
+Lorsque vous ajoutez un itinéraire défini par l’utilisateur, définissez l’itinéraire pour chaque préfixe d’adresse IP Batch connexe et définissez **Type de tronçon suivant** sur **Internet**. Voir l’exemple suivant :
+
+![Itinéraire défini par l’utilisateur](./media/batch-virtual-network/user-defined-route.png)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
+- Pour plus d’informations sur la création d’un itinéraire défini par l’utilisateur, consultez [Créer un itinéraire défini par l’utilisateur - portail Azure](../virtual-network/create-user-defined-route-portal.md).

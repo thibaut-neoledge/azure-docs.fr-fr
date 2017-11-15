@@ -15,20 +15,20 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 28b6885e7e74a44f4d00f4a804a93e74f6eec685
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Masquer une application tierce de l’expérience utilisateur dans Azure Active Directory
 
 Si vous avez une application tierce (une application publiée par d’autres éditeurs que Microsoft) que vous ne souhaitez pas voir apparaître dans les panneaux d’accès des utilisateurs ou les lanceurs Office 365, une option vous permet de masquer sa vignette. En masquant l’application, les utilisateurs disposent toujours d’autorisations d’accès à cette application mais ils ne la voient pas dans leurs lanceurs d’applications. Vous devez disposer des autorisations nécessaires pour gérer l’application d’entreprise, et vous devez être l’administrateur général du répertoire.
 
-## <a name="hiding-a-users-access-panel"></a>Masquage du panneau d’accès d’un utilisateur
-Effectuez les étapes suivantes pour masquer le panneau d’accès d’un utilisateur et les lanceurs d’applications Office 365.
+## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Masquer une application tierce à partir de l’expérience utilisateur
+Effectuez les étapes suivantes pour masquer une application tierce du panneau d’accès d’un utilisateur et des lanceurs d’applications Office 365.
 
-### <a name="how-do-i-hide-an-app-from-users-access-panel-and-o365-app-launchers"></a>Comment faire pour masquer une application dans le panneau d’accès de l’utilisateur et les lanceurs d’applications Office 365 ?
+### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Comment faire pour masquer une application tierce du panneau d’accès d’un utilisateur et des lanceurs d’applications Office 365 ?
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2.  Sélectionnez **Plus de services**, saisissez **Azure Active Directory** dans la zone de texte, puis sélectionnez **Entrée**.

@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/12/2017
 ---
-# Protocoles v2.0 : flux du code d’autorisation OAuth 2.0
+# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocoles v2.0 : flux du code d’autorisation OAuth 2.0
 L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API Web.  Avec la mise en œuvre du modèle d’application v2.0 d’OAuth 2.0, vous pouvez ajouter une connexion et un accès API à vos applications mobiles et de bureau.  Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l'une de nos bibliothèques open source.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications q
 
 Le flux de code d'autorisation OAuth 2.0 est décrit dans la [section 4.1 de la spécification OAuth 2.0](http://tools.ietf.org/html/rfc6749).  Il est utilisé pour exécuter des activités d’authentification et d’autorisation dans la majorité des types d’applications, notamment les [applications web](active-directory-v2-flows.md#web-apps) et les [applications installées de façon native](active-directory-v2-flows.md#mobile-and-native-apps).  Il permet aux applications d’acquérir de manière sûre les jetons d’accès pouvant être utilisés pour accéder aux ressources sécurisées à l’aide du point de terminaison v2.0.  
 
-## Schéma de protocole
+## <a name="protocol-diagram"></a>Schéma de protocole
 À un niveau élevé, le flux d'authentification complet pour une application native/mobile ressemble est semblable à l'illustration suivante :
 
 ![Flux de code d’authentification OAuth](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-## Demander un code d’autorisation
+## <a name="request-an-authorization-code"></a>Demander un code d’autorisation
 Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` .  Dans cette requête, le client indique les autorisations dont il a besoin d’obtenir auprès de l’utilisateur :
 
 ```
@@ -74,7 +74,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 Une fois que l’utilisateur a procédé à l’authentification et accordé son consentement, le point de terminaison v2.0 renvoie une réponse à votre application à l’élément `redirect_uri` indiqué, à l’aide de la méthode spécifiée dans le paramètre `response_mode`.
 
-#### Réponse correcte
+#### <a name="successful-response"></a>Réponse correcte
 Une réponse correcte utilisant `response_mode=query` se présente ainsi :
 
 ```
@@ -88,7 +88,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | code |Le code d’autorisation demandé par l’application. L’application peut utiliser ce code d’autorisation pour demander un jeton d’accès pour la ressource cible.  Les codes d’autorisation présentent une durée de vie très courte. Généralement, ils expirent au bout de 10 minutes. |
 | state |Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
 
-#### Réponse d’erreur
+#### <a name="error-response"></a>Réponse d’erreur
 Les réponses d’erreur peuvent également être envoyées à l’élément `redirect_uri` , de manière à ce que l’application puisse les traiter de manière appropriée :
 
 ```
@@ -102,7 +102,7 @@ error=access_denied
 | error |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 
-#### Codes d’erreur pour les erreurs de point de terminaison d’autorisation
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Codes d’erreur pour les erreurs de point de terminaison d’autorisation
 Le tableau suivant décrit les différents codes d’erreur qui peuvent être retournés dans le paramètre `error` de la réponse d’erreur.
 
 | Code d'erreur | Description | Action du client |
@@ -115,7 +115,7 @@ Le tableau suivant décrit les différents codes d’erreur qui peuvent être re
 | temporarily_unavailable |Le serveur est temporairement trop occupé pour traiter la demande. |relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
 | invalid_resource |La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. |Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
 
-## Demander un jeton d’accès
+## <a name="request-an-access-token"></a>Demander un jeton d’accès
 Maintenant que vous avez acquis un code d'autorisation (authorization_code) et que l'utilisateur vous a octroyé une autorisation, vous pouvez échanger `code` contre un élément `access_token` sur la ressource souhaitée, en envoyant une demande `POST` au point de terminaison `/token` :
 
 ```
@@ -148,7 +148,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |required |Valeur redirect_uri qui a déjà été utilisée pour obtenir le paramètre authorization_code. |
 | client_secret |requis pour les applications Web |Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application.  Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils.  Il est requis pour les applications Web et les API Web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur. |
 
-#### Réponse correcte
+#### <a name="successful-response"></a>Réponse correcte
 Une réponse de jeton réussie se présente ainsi :
 
 ```
@@ -169,7 +169,7 @@ Une réponse de jeton réussie se présente ainsi :
 | scope |L’étendue de validité du jeton d’accès. |
 | refresh_token |Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel.  Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées.  Pour plus d'informations, consultez la page de [référence sur les jetons v2.0](active-directory-v2-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `offline_access` a été demandée. |
 | id_token |Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité.  Pour en savoir plus sur les id_tokens, consultez la page de [référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `openid` a été demandée. |
-#### Réponse d’erreur
+#### <a name="error-response"></a>Réponse d’erreur
 Les réponses d’erreur se présentent comme suit :
 
 ```
@@ -194,7 +194,7 @@ Les réponses d’erreur se présentent comme suit :
 | trace_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
 | correlation_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
-#### Codes d’erreur pour les erreurs de point de terminaison de jeton
+#### <a name="error-codes-for-token-endpoint-errors"></a>Codes d’erreur pour les erreurs de point de terminaison de jeton
 | Code d'erreur | Description | Action du client |
 | --- | --- | --- |
 | invalid_request |Erreur de protocole, tel qu’un paramètre obligatoire manquant. |Corrigez l’erreur, puis envoyez à nouveau la demande. |
@@ -206,7 +206,7 @@ Les réponses d’erreur se présentent comme suit :
 | interaction_required |La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. |Relancez la demande avec la même ressource. |
 | temporarily_unavailable |Le serveur est temporairement trop occupé pour traiter la demande. |relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
 
-## Utiliser le jeton d’accès
+## <a name="use-the-access-token"></a>Utiliser le jeton d’accès
 Maintenant que vous avez acquis un jeton `access_token`, vous pouvez l'utiliser dans des requêtes dirigées vers des API Web en l'incluant dans l'en-tête `Authorization` :
 
 > [!TIP]
@@ -220,7 +220,7 @@ Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## Actualiser le jeton d’accès
+## <a name="refresh-the-access-token"></a>Actualiser le jeton d’accès
 Les jetons d’accès présentent une durée de vie courte. Après leur expiration, vous devez les actualiser afin de pouvoir continuer à accéder aux ressources.  Pour ce faire, envoyez une nouvelle requête `POST` au point de terminaison `/token`, en fournissant l’élément `refresh_token` au lieu de l’élément `code`:
 
 ```
@@ -253,7 +253,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |required |Valeur redirect_uri qui a déjà été utilisée pour obtenir le paramètre authorization_code. |
 | client_secret |requis pour les applications Web |Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application.  Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils.  Il est requis pour les applications Web et les API Web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur. |
 
-#### Réponse correcte
+#### <a name="successful-response"></a>Réponse correcte
 Une réponse de jeton réussie se présente ainsi :
 
 ```
@@ -275,7 +275,7 @@ Une réponse de jeton réussie se présente ainsi :
 | refresh_token |Un nouveau jeton d’actualisation OAuth 2.0. Vous devez remplacer l’ancien jeton d’actualisation par ce nouveau jeton d’actualisation nouvellement acquis, afin de vous assurer que vos jetons d’actualisation demeurent valident le plus longtemps possible. <br> **Remarque :** Fourni uniquement si l’étendue `offline_access` a été demandée. |
 | id_token |Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité.  Pour en savoir plus sur les id_tokens, consultez la page de [référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `openid` a été demandée. |
 
-#### Réponse d’erreur
+#### <a name="error-response"></a>Réponse d’erreur
 ```
 {
   "error": "invalid_scope",

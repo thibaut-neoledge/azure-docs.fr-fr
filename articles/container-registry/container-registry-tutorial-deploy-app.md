@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 749a536fea50d0f45b021cfeaffe8e493faa9b3f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 90d4b51dfaad409298f72887480dfaf827aef9f0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>Déployer une application web à partir d’Azure Container Registry
 
@@ -36,7 +36,7 @@ Si vous n’avez pas encore créé de registre géorépliqué et placé l’imag
 
 La partie suivante de la série explique comment mettre à jour l’application, puis envoyer une nouvelle image du conteneur au registre. Enfin, vous accédez à chaque instance d’application web en cours d’exécution pour voir la modification répercutée automatiquement dans les deux, montrant la géoréplication et les webhooks d’Azure Container Registry en action.
 
-## <a name="automatic-deployment-to-web-app-for-containers"></a>Déploiement automatique sur Web App pour conteneurs
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>Déploiement automatique sur Web App pour conteneurs
 
 Azure Container Registry prend en charge le déploiement d’applications en conteneur directement vers [Web App pour conteneurs](../app-service/containers/index.yml). Ce didacticiel explique comment utiliser le portail Azure pour déployer l’image de conteneur créée dans le didacticiel précédent vers deux plans d’application web situés dans des régions Azure différentes.
 
@@ -48,11 +48,11 @@ Cette étape explique comment créer une instance Web App pour conteneurs dans l
 
 Connectez-vous au [portail Azure](https://portal.azure.com), puis accédez au registre que vous avez créé dans le didacticiel précédent.
 
-Sélectionnez **Dépôts** > **acr-helloworld**, cliquez avec le bouton droit sur la balise **v1** sous **Balises**, puis sélectionnez **Déployer sur App Service**.
+Sélectionnez **Dépôts** > **acr-helloworld**, cliquez avec le bouton droit sur la balise **v1** sous **Balises**, puis sélectionnez **Déployer sur l’application web**.
 
 ![Déployer vers le service d’application dans le portail Azure][deploy-app-portal-01]
 
-Sous **Web App sur Linux (préversion)**, spécifiez les valeurs suivantes pour chaque paramètre :
+Sous **Web App pour conteneurs**, spécifiez les valeurs suivantes pour chaque paramètre :
 
 | Paramètre | Valeur |
 |---|---|
@@ -71,7 +71,7 @@ Une fois le déploiement terminé, vous pouvez afficher l’application en cours
 
 Dans le portail, sélectionnez **App Services**, puis l’application web que vous avez approvisionnée à l’étape précédente. Dans cet exemple, l’application web est nommée *uniqueregistryname-westus*.
 
-Sélectionnez le lien hypertexte de l’URL de l’application web dans l’angle supérieur droit de la **vue d’ensemble ’App Service** pour afficher l’application en cours d’exécution dans votre navigateur.
+Sélectionnez le lien hypertexte de l’URL de l’application web dans l’angle supérieur droit de la vue d’ensemble **App Service** pour afficher l’application en cours d’exécution dans votre navigateur.
 
 ![Application web sur une configuration Linux dans le portail Azure][deploy-app-portal-04]
 
@@ -81,7 +81,7 @@ Une fois l’image Docker déployée à partir de votre registre de conteneurs g
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Déployer une deuxième instance Web App pour conteneurs
 
-Suivez la procédure décrite dans la section précédente pour déployer une deuxième application web dans la région *Est des États-Unis*. Sous **Web App sur Linux (préversion)**, spécifiez les valeurs suivantes :
+Suivez la procédure décrite dans la section précédente pour déployer une deuxième application web dans la région *Est des États-Unis*. Sous **Web App pour conteneurs**, spécifiez les valeurs suivantes :
 
 | Paramètre | Valeur |
 |---|---|

@@ -20,10 +20,10 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/14/2017
 ---
-# Prise en charge de protocoles supplémentaires pour IoT Hub
+# <a name="support-additional-protocols-for-iot-hub"></a>Prise en charge de protocoles supplémentaires pour IoT Hub
 Azure IoT Hub en mode natif prend en charge la communication par le biais des protocoles AMQP, MQTT et HTTPS. Dans certains cas, il est possible que des appareils ou des passerelles ne soient pas en mesure d’utiliser l’un des protocoles standard et nécessitent une adaptation de protocole. Dans ce cas, vous pouvez utiliser une passerelle personnalisée. Une passerelle personnalisée active l’adaptation de protocole pour les points de terminaison IoT Hub en effectuant le pontage du trafic vers et à partir d’IoT Hub. Vous pouvez utiliser la [passerelle de protocole Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) comme passerelle personnalisée pour permettre l’adaptation de protocole pour IoT Hub.
 
-## passerelle de protocole Azure IoT
+## <a name="azure-iot-protocol-gateway"></a>passerelle de protocole Azure IoT
 La passerelle de protocole Azure IoT est une infrastructure pour l’adaptation du protocole, conçue pour la communication bidirectionnelle à grande échelle entre les appareils, avec IoT Hub. La passerelle de protocole est un composant direct qui accepte les connexions des appareils via un protocole spécifique. Elle réduit le trafic vers IoT Hub via AMQP 1.0. 
 
 Vous pouvez déployer la passerelle de protocole dans Azure de manière très évolutive grâce à Azure Service Fabric, aux rôles de travail d’Azure Cloud Services ou aux machines virtuelles Windows. En outre, la passerelle de protocole peut être déployée dans les environnements locaux comme des passerelles de champ.
@@ -34,7 +34,7 @@ L’adaptateur MQTT illustre également le modèle de programmation pour la cré
 
 Pour plus de flexibilité, la passerelle de protocole Azure IoT et l’implémentation de MQTT sont fournies dans un projet logiciel open source. Vous pouvez utiliser le projet open source pour ajouter la prise en charge de différents protocoles et versions de protocole, ou personnaliser l’implémentation en fonction de votre scénario. 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la passerelle de protocole Azure IoT, son utilisation et son déploiement dans le cadre de votre solution IoT, consultez :
 
 * [Référentiel sur la passerelle de protocole Azure IoT sur GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: d3178413e894c095235dde067b369e3554375aa6
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,6 +48,9 @@ Oui, les sauvegardes fonctionnent de façon transparente et sans devoir de nouve
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Ma machine virtuelle est arrêtée. Les sauvegardes à la demande et planifiées fonctionneront-elles ?
 Oui. Même lorsqu’une machine est éteinte, les sauvegardes fonctionnent et le point de récupération est marqué comme cohérent en cas d’incident. Pour plus d’informations, consultez la section de [cet article](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines) consacrée à la cohérence des données.
+
+### <a name="can-i-cancel-an-in-progress-backup-job"></a>Puis-je annuler un travail de sauvegarde en cours ?
+Oui. Vous pouvez annuler le travail de sauvegarde s’il est dans la phase « Capture instantanée en cours ». **Vous ne pouvez pas annuler un travail si un transfert de données à partir de la capture instantanée est en cours**. 
 
 ## <a name="restore"></a>Restauration
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Comment choisir entre la restauration des disques et la restauration complète de la machine virtuelle ?

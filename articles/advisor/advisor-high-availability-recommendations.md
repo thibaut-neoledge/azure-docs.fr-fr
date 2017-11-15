@@ -14,39 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7b63de2453180e562596c211d40cebe85b95bd54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1cd7948e1969cd4ddb926e428c09b559190a805
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="advisor-high-availability-recommendations"></a>Recommandations du conseiller en matière de haute disponibilité
 
 Azure Advisor vous aide à garantir et à améliorer la continuité de vos applications stratégiques. Vous pouvez obtenir des recommandations en matière de haute disponibilité auprès du conseiller à partir de l’onglet **Haute disponibilité** du tableau de bord du conseiller.
 
-![Bouton de haute disponibilité sur le tableau de bord d’Advisor](./media/advisor-high-availability-recommendations/advisor-high-availability-tab.png)
-
-
 ## <a name="ensure-virtual-machine-fault-tolerance"></a>Assurer la tolérance de panne des machines virtuelles
 
-Le conseiller identifie les machines virtuelles qui ne font pas partie d’un groupe à haute disponibilité et recommande de les déplacer dans un groupe à haute disponibilité. Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu’au moins une des machines virtuelles est disponible pendant un événement de maintenance planifié ou non et répond au contrat de niveau de service Azure. Vous pouvez choisir de créer un groupe à haute disponibilité pour la machine virtuelle ou d’ajouter la machine virtuelle à un groupe à haute disponibilité existant.
+Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Le conseiller identifie les machines virtuelles qui ne font pas partie d’un groupe à haute disponibilité et recommande de les déplacer dans un groupe à haute disponibilité. Cette configuration assure qu’au moins une des machines virtuelles est disponible pendant un événement de maintenance planifié ou non et répond au contrat de niveau de service Azure. Vous pouvez choisir de créer un groupe à haute disponibilité pour la machine virtuelle ou d’ajouter la machine virtuelle à un groupe à haute disponibilité existant.
 
 > [!NOTE]
 > Si vous choisissez de créer un groupe à haute disponibilité, vous devez y ajouter au moins une machine virtuelle supplémentaire. Nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité pour garantir qu’au moins une d’elles reste disponible en cas de panne.
 
-![Recommandation d’Advisor : Pour la redondance des machines virtuelles, utilisez les groupes à haute disponibilité](./media/advisor-high-availability-recommendations/advisor-high-availability-create-availability-set.png)
-
 ## <a name="ensure-availability-set-fault-tolerance"></a>Assurer la tolérance de panne d’un groupe à haute disponibilité 
 
-Advisor identifie les groupes à haute disponibilité contenant une seule machine virtuelle et recommande d’y ajouter au moins une machine virtuelle. Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu’au moins une des machines virtuelles est disponible pendant un événement de maintenance planifié ou non et répond au contrat de niveau de service Azure. Vous pouvez soit créer une machine virtuelle, soit utiliser une machine virtuelle existante et l’ajouter à un groupe à haute disponibilité.  
-
-![Recommandation d’Advisor : Ajoutez une ou plusieurs machines virtuelles à ce groupe à haute disponibilité](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
-
+Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Advisor identifie les groupes à haute disponibilité contenant une seule machine virtuelle et recommande d’y ajouter au moins une machine virtuelle. Cette configuration assure qu’au moins une des machines virtuelles est disponible pendant un événement de maintenance planifié ou non et répond au contrat de niveau de service Azure. Vous pouvez créer une machine virtuelle ou ajouter une machine virtuelle existante au groupe à haute disponibilité.  
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Assurer la tolérance de panne d’une passerelle
 Pour garantir la continuité métier des applications stratégiques qui sont alimentées par des passerelles d’application, Advisor identifie les instances de passerelle d’application qui ne sont pas configurées pour la tolérance de panne, et suggère des mesures de mise à jour que vous pouvez prendre. Advisor identifie les passerelles d’application de moyenne ou grande taille à instance unique, et recommande d’ajouter au moins une instance de plus. Il identifie également les petites passerelles d’application à une ou plusieurs instances et recommande de migrer vers des références de moyenne ou grande taille. Advisor recommande ces actions pour assurer que vos instances de passerelle d’application sont configurées pour satisfaire les exigences actuelles du contrat de niveau de service pour ces ressources.
-
-![Recommandation d’Advisor : Déployez deux instances (ou plus) de passerelle d’application de moyenne ou grande taille](./media/advisor-high-availability-recommendations/advisor-high-availability-application-gateway.png)
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>Améliorer les performances et la fiabilité des disques de machine virtuelle
 
@@ -56,26 +46,14 @@ Azure Premium Storage offre une prise en charge très performante et à faible l
 
 Si votre disque ne nécessite pas une valeur élevée d’E/S par seconde, vous pouvez limiter les coûts en le maintenant en stockage standard. Le stockage standard stocke les données de disque des machines virtuelles sur des disques durs (HDD) au lieu de disques SSD. Vous pouvez choisir de migrer vos disques de machines virtuelles vers des disques Premium. Les disques Premium sont pris en charge sur la plupart des références de machines virtuelles. Toutefois, dans certains cas, si vous souhaitez utiliser des disques Premium, vous devrez également mettre à niveau la référence de votre machine virtuelle.
 
-![Recommandation d’Advisor : Améliorez la fiabilité de vos disques virtuels en mettant à niveau vers des disques premium](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png)
-
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Protégez les données de vos machines virtuelles d’une suppression accidentelle
-Advisor identifie les machines virtuelles sur lesquelles la sauvegarde n’est pas activée, et recommande l’activation de la sauvegarde. La configuration de la sauvegarde de machine virtuelle permet de garantir la disponibilité de vos données métier stratégiques et offre une protection contre une suppression accidentelle ou un endommagement des données.
+La configuration de la sauvegarde de machine virtuelle permet de garantir la disponibilité de vos données métier stratégiques et offre une protection contre une suppression accidentelle ou un endommagement des données.  Advisor identifie les machines virtuelles sur lesquelles la sauvegarde n’est pas activée, et recommande l’activation de la sauvegarde. 
 
-![Recommandation d’Advisor : Configurez la sauvegarde des machines virtuelles pour protéger vos données stratégiques](./media/advisor-high-availability-recommendations/advisor-high-availability-virtual-machine-backup.png)
+## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de haute disponibilité dans le conseiller
 
-## <a name="access-high-availability-recommendations-in-advisor"></a>Accéder aux recommandations en matière de haute disponibilité dans Advisor
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-
-2. Dans le volet gauche, cliquez sur **Autres services**.
-
-3. Dans le volet du menu de services, sous **Surveillance et gestion**, cliquez sur **Azure Advisor**.  
- Le tableau de bord Advisor s’affiche.
-
-4. Dans le tableau de bord Advisor, cliquez sur l’onglet **Haute disponibilité**, et sélectionnez l’abonnement pour lequel vous souhaitez recevoir des recommandations.
-
-> [!NOTE]
-> Pour accéder aux recommandations d’Advisor, vous devez d’abord *enregistrer* votre abonnement avec auprès d’Advisor. L’abonnement est inscrit lorsque son *propriétaire* lance le tableau de bord Advisor, puis clique sur le bouton **Obtenir des recommandations**. Cette opération ne doit être *exécutée qu’une seule fois*. Une fois l’abonnement inscrit, vous pouvez accéder aux recommandations d’Advisor en tant que *propriétaire*, *collaborateur* ou *lecteur* d’un abonnement, d’un groupe de ressources ou d’une ressource spécifique.
+2.  Dans le tableau de bord Advisor, cliquez sur l’onglet **Haute disponibilité**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

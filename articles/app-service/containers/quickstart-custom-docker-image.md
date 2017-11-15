@@ -1,10 +1,10 @@
 ---
-title: "Exécuter une image Docker Hub personnalisée dans Web App pour conteneurs | Microsoft Docs"
-description: "Comment utiliser une image Docker personnalisée pour Web App pour conteneurs."
+title: "Exécuter une image Docker Hub personnalisée dans Azure Web App for Containers | Microsoft Docs"
+description: "Comment utiliser une image Docker personnalisée pour Azure Web App for Containers."
 keywords: azure app service, application web, linux, docker, conteneur
 services: app-service
 documentationcenter: 
-author: naziml
+author: cephalin
 manager: cfowler
 editor: 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -13,18 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/05/2017
-ms.author: wesmc
+ms.date: 11/02/2017
+ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 8e7afd89def170ce756aae9e76daf91d78cc20e0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Exécuter une image Docker Hub personnalisée dans Web App pour conteneurs
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Exécuter une image Docker Hub personnalisée dans Azure Web App for Containers
 
-App Service fournit des piles d’applications prédéfinies sur Linux avec la prise en charge de versions spécifiques, comme PHP 7.0 et Node.js 4.5. Vous pouvez également utiliser une image Docker personnalisée pour déployer votre application web sur une pile d’applications qui n’est pas encore définie dans Azure. Ce guide de démarrage rapide vous montre comment créer une application web et y déployer une image Docker basée sur Python. Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+App Service fournit des piles d’applications prédéfinies sur Linux avec la prise en charge de versions spécifiques, comme PHP 7.0 et Node.js 4.5. Vous pouvez également utiliser une image Docker personnalisée pour exécuter votre application web sur une pile d’applications qui n’est pas encore définie dans Azure. Ce guide de démarrage rapide vous montre comment créer une application web et y déployer l’[image Docker Nginx officielle](https://hub.docker.com/r/_/nginx/). Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+
+![Exemple d’application s’exécutant dans Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -39,10 +41,10 @@ App Service fournit des piles d’applications prédéfinies sur Linux avec la p
 Créez une [application web](../app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#create). N’oubliez pas de remplacer `<app name>` par un nom d’application unique.
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx
 ```
 
-Dans la commande précédente, `--deployment-container-image-name` pointe vers l’image publique Docker Hub [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). Vous pouvez examiner son contenu à l’adresse [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest).
+Dans la commande précédente, `--deployment-container-image-name` pointe vers l’image publique Docker Hub [https://hub.docker.com/r/_/nginx/](https://hub.docker.com/r/_/nginx/).
 
 Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :
 
@@ -76,4 +78,4 @@ http://<app_name>.azurewebsites.net
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer une application web Docker Python et PostgreSQL dans Azure](tutorial-docker-python-postgresql-app.md)
+> [Utiliser une image Docker personnalisée](tutorial-custom-docker-image.md)

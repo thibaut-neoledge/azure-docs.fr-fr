@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>Historique de publication des versions du connecteur
 Les connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM) sont fréquemment mis à jour.
 
 > [!NOTE]
 > Cette rubrique ne concerne que FIM et MIM. Ces connecteurs ne sont pas pris en charge pour l’installation sur Azure AD Connect. Les connecteurs finaux sont préinstallés sur AADConnect lors de la mise à niveau vers la version spécifiée.
+
 
 Cette rubrique répertorie toutes les versions des connecteurs qui ont été publiées.
 
@@ -37,6 +38,29 @@ Liens connexes :
 * [connecteur PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [connecteur Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>Problèmes résolus :
+
+* Lotus Notes :
+  * Option de filtrage des certificateurs personnalisés.
+  * La définition des opérations pouvant être exécutées dans le mode « Vues » et dans le mode « Recherche » dans le cadre de l’importation de la classe ImportOperations a été corrigée.
+* LDAP générique :
+  * OpenLDAP Directory utilise le nom unique (DN) comme point d’ancrage au lieu de l’attribut entryUUID. Nouvelle option permettant de modifier le point d’ancrage pour le connecteur GLDAP
+* SQL générique :
+  * Correction de l’exportation dans le champ présentant le type varbinary(max).
+  * Lors de l’ajout de données binaires dans un objet CSEntry à partir d’une source de données, la fonction DataTypeConversion échouait avec un nombre d’octets nul. Correction de la fonction DataTypeConversion de la classe CSEntryOperationBase.
+
+
+
+
+### <a name="enhancements"></a>Améliorations :
+
+* SQL générique :
+  * La possibilité de configurer le mode d’exécution d’une procédure stockée avec des paramètres nommés ou non nommés a été ajoutée dans une fenêtre de configuration de l’agent de gestion SQL générique. La page « Paramètres globaux » présente une case à cocher avec le libellé « Use named parameters to execute a stored procedure » (Utiliser des paramètres nommés pour exécuter une procédure stockée), qui permet de définir le mode d’exécution d’une procédure stockée avec des paramètres nommés ou non.
+    * Actuellement, l’exécution d’une procédure stockée avec des paramètres nommés fonctionne uniquement pour les bases de données IBM DB2 et MSSQL. Cette approche ne fonctionne pas pour les bases de données Oracle et MySQL : 
+      * Les syntaxes SQL de MySQL ne prennent pas en charge les paramètres nommés dans les procédures stockées.
+      * Le pilote ODBC pour Oracle ne prend pas en charge les paramètres nommés dans les procédures stockées.
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ Avant mars 2016, les connecteurs étaient publiés sous forme de rubriques de pr
 * [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, février 2014  
 * [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, octobre 2013
 * [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, août 2013
+
+## <a name="troubleshooting"></a>Résolution des problèmes 
+
+> [!NOTE]
+> Lors de la mise à jour de Microsoft Identity Manager ou AADConnect pour l’utilisation d’un des connecteurs ECMA2. 
+
+Si vous n’actualisez pas la définition du connecteur au moment de la mise à niveau, vous recevrez le message d’erreur suivant, qui signale l’avertissement nº 6947, dans le journal des événements de l’application : « Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll". » (La version de l’assembly dans la configuration du connecteur AAD (« X.X.XXX.X ») est antérieure à la version réelle (« X.X.XXX.X ») de « C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll ».).
+
+Pour actualiser la définition :
+* Ouvrez les propriétés de l’instance du connecteur.
+* Cliquez sur l’onglet Connection / Connect to (Connexion / Se connecter à).
+  * Entrez le mot de passe du compte du connecteur.
+* Cliquez sur chacun des onglets de propriétés.
+  * Si ce type de connecteur présente un onglet Partitions avec un bouton Actualiser, cliquez sur ce bouton.
+* Une fois que vous avez accédé à tous les onglets de propriétés, cliquez sur le bouton OK pour enregistrer les modifications.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 07f6d0ddac0daf5810d5433c1089114966e80719
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 54afc7d993058ac2b3d2990ba131d334e9332555
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur HTTP dans V1](v1/data-factory-http-connector.md).
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier des données d’une source HTTP vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -72,11 +72,9 @@ Définissez la valeur de la propriété « authenticationType » sur **De base
 ```json
 {
     "name": "HttpLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "HttpServer",
-        "typeProperties":
-        {
+        "typeProperties": {
             "authenticationType": "Basic",
             "url" : "<HTTP endpoint>",
             "userName": "<username>",
@@ -115,11 +113,9 @@ Si vous utilisez « certThumbprint » pour l’authentification et que le cert
 ```json
 {
     "name": "HttpLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "HttpServer",
-        "typeProperties":
-        {
+        "typeProperties": {
             "authenticationType": "ClientCertificate",
             "url": "<HTTP endpoint>",
             "certThumbprint": "<thumbprint of certificate>"
@@ -137,11 +133,9 @@ Si vous utilisez « certThumbprint » pour l’authentification et que le cert
 ```json
 {
     "name": "HttpLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "HttpServer",
-        "typeProperties":
-        {
+        "typeProperties": {
             "authenticationType": "ClientCertificate",
             "url": "<HTTP endpoint>",
             "embeddedCertData": "<base64 encoded cert data>",
@@ -260,4 +254,4 @@ Pour copier des données de HTTP, définissez le type de source dans l’activit
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

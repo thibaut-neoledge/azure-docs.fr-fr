@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -57,7 +57,7 @@ Comme d’autres types d’échantillonnage, l’algorithme conserve les éléme
 
 Les points de données ignorés par l’échantillonnage ne sont disponibles dans aucune fonctionnalité Application Insights, par exemple l’ [exportation continue](app-insights-export-telemetry.md).
 
-L’échantillonnage d’ingestion ne fonctionne pas pendant qu’une opération d’échantillonnage adaptatif ou taux fixe basé sur un Kit de développement logiciel (SDK) est en cours d’exécution. Si le taux d’échantillonnage dans le Kit de développement logiciel (SDK) est inférieur à 100 %, le taux d’échantillonnage d’ingestion que vous avez défini est ignoré.
+L’échantillonnage d’ingestion ne fonctionne pas pendant qu’une opération d’échantillonnage adaptatif ou taux fixe basé sur un Kit de développement logiciel (SDK) est en cours d’exécution. Notez que l’échantillonnage adaptatif est activé par défaut lorsque le Kit de développement logiciel (SDK) ASP.NET est activé dans Visual Studio ou à l’aide de Status Monitor et que l’échantillonnage d’ingestion est désactivé. Si le taux d’échantillonnage dans le Kit de développement logiciel (SDK) est inférieur à 100 %, le taux d’échantillonnage d’ingestion que vous avez défini est ignoré.
 
 > [!WARNING]
 > La valeur affichée sur la vignette indique la valeur que vous définissez pour l’échantillonnage d’ingestion. Il ne représente pas le taux d’échantillonnage réel si l’échantillonnage du kit de développement logiciel (SDK) est effectué.

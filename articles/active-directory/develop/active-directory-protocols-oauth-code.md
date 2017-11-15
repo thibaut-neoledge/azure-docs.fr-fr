@@ -21,19 +21,19 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
 ---
-# Autoriser l’accès aux applications web à l’aide d’OAuth 2.0 et Azure Active Directory
+# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autoriser l’accès aux applications web à l’aide d’OAuth 2.0 et Azure Active Directory
 Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.
 
 Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des spécifications OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). Il est utilisé pour exécuter des activités d’authentification et d’autorisation dans la majorité des types d’applications, notamment les applications web et les applications installées de façon native.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
-## Flux d’autorisation OAuth 2.0
+## <a name="oauth-20-authorization-flow"></a>Flux d’autorisation OAuth 2.0
 À un niveau élevé, le flux d’autorisation complet pour une application est semblable à l’illustration suivante :
 
 ![Flux de code d’authentification OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
-## Demander un code d’autorisation
+## <a name="request-an-authorization-code"></a>Demander un code d’autorisation
 Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Dans cette requête, le client indique les autorisations qu’il doit obtenir auprès de l’utilisateur : Vous pouvez obtenir les points de terminaison OAuth 2.0 à partir de la page de votre application dans le portail Azure Classic, à l’aide du bouton **Points de terminaison** du panneau inférieur.
 
 ```
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 À ce stade, l’utilisateur est invité à entrer ses informations d’identification et à donner son consentement vis-à-vis des autorisations indiquées dans le paramètre de requête `scope`. Une fois que l’utilisateur s’authentifie et donne son consentement, Azure AD envoie une réponse à votre application à l’adresse `redirect_uri` dans votre demande.
 
-### Réponse correcte
+### <a name="successful-response"></a>Réponse correcte
 Une réponse réussie se présenterait ainsi :
 
 ```
@@ -83,7 +83,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | session_state |Une valeur unique identifiant la session utilisateur actuelle. Cette valeur est un GUID, mais doit être traitée comme une valeur opaque n’ayant fait l’objet d’aucune analyse. |
 | state |Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. Avant d’utiliser la réponse, il est recommandé que l’application vérifie que les valeurs d’état de la demande et de la réponse sont identiques. Cela permet de détecter les [attaques par falsification de requête intersites (CSRF, Cross Site Request Forgery)](https://tools.ietf.org/html/rfc6749#section-10.12) menaçant le client. |
 
-### Réponse d’erreur
+### <a name="error-response"></a>Réponse d’erreur
 Les réponses d’erreur peuvent également être envoyées à l’élément `redirect_uri` , de manière à ce que l’application puisse les traiter de manière appropriée.
 
 ```
@@ -98,7 +98,7 @@ error=access_denied
 | error_description |Une description plus détaillée de l’erreur. Ce message n’est pas destiné à offrir une description claire à l’utilisateur final. |
 | state |La valeur d’état est une valeur non réutilisée, générée de manière aléatoire, envoyée dans la demande et retournée dans la réponse pour empêcher les falsifications de requête intersites (CSRF, Cross Site Request Forgery). |
 
-#### Codes d’erreur pour les erreurs de point de terminaison d’autorisation
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Codes d’erreur pour les erreurs de point de terminaison d’autorisation
 Le tableau suivant décrit les différents codes d’erreur qui peuvent être retournés dans le paramètre `error` de la réponse d’erreur.
 
 | Code d'erreur | Description | Action du client |
@@ -111,7 +111,7 @@ Le tableau suivant décrit les différents codes d’erreur qui peuvent être re
 | temporarily_unavailable |Le serveur est temporairement trop occupé pour traiter la demande. |relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
 | invalid_resource |La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. |Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
 
-## Utiliser le code d’autorisation pour demander un jeton d’accès
+## <a name="use-the-authorization-code-to-request-an-access-token"></a>Utiliser le code d’autorisation pour demander un jeton d’accès
 Maintenant que vous avez acquis un code d’autorisation et que l’utilisateur vous a octroyé une autorisation, vous pouvez échanger le code contre un jeton d’accès à la ressource souhaitée, en envoyant une demande POST au point de terminaison `/token` :
 
 ```
@@ -142,7 +142,7 @@ grant_type=authorization_code
 
 Pour rechercher l’URI ID d’application, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application, puis sur **Configurer**.
 
-### Réponse correcte
+### <a name="successful-response"></a>Réponse correcte
 Azure AD renvoie un jeton d’accès dès réception d’une réponse correcte. Pour réduire le nombre d’appels réseau de l’application cliente et la latence associée, l’application cliente doit mettre en cache des jetons d’accès tout au long de la durée de vie des jetons, spécifiée dans la réponse OAuth 2.0. Pour déterminer la durée de vie des jetons, utilisez les valeurs de paramètre `expires_in` ou `expires_on`.
 
 Si une ressource de l’API web renvoie un code d’erreur `invalid_token` , cela peut indiquer que la ressource a déterminé que le jeton est arrivé à expiration. Si les temps horloge du client et de la ressource sont différents (on parle alors de « différence de temps »), la ressource peut considérer que le jeton a expiré avant que celui-ci n’ait été effacé du cache du client. Si cela se produit, effacez le jeton du cache, même si sa durée de vie calculée n’a pas expiré.
@@ -174,7 +174,7 @@ Une réponse réussie se présenterait ainsi :
 | refresh_token |Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel.  Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. |
 | id_token |Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité. |
 
-### Demandes de jeton JWT
+### <a name="jwt-token-claims"></a>Demandes de jeton JWT
 Le jeton JWT dans la valeur du paramètre `id_token` peut être décodé dans les revendications suivantes :
 
 ```
@@ -219,7 +219,7 @@ Le paramètre `id_token` inclut les types de revendication suivants :
 | upn |Nom d’utilisateur principal. |
 | ver |Version. La version du jeton JWT, généralement 1.0. |
 
-### Réponse d’erreur
+### <a name="error-response"></a>Réponse d’erreur
 Les erreurs de point de terminaison d’émission de jeton sont des codes d’erreur HTTP, étant donné que le client appelle directement le point de terminaison d’émission de jeton. Outre le code d’état HTTP, le point de terminaison d’émission de jeton Azure AD retourne également un document JSON avec des objets qui décrivent l’erreur.
 
 Une réponse d’erreur se présenterait ainsi :
@@ -246,7 +246,7 @@ Une réponse d’erreur se présenterait ainsi :
 | trace_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
 | correlation_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
-#### Codes d’état HTTP
+#### <a name="http-status-codes"></a>Codes d’état HTTP
 Le tableau suivant répertorie les codes d’état HTTP retournés par le point de terminaison d’émission de jeton. Dans certains cas, le code d’erreur est suffisant pour décrire la réponse, mais en cas d’erreurs, vous devez analyser le document JSON joint et examiner son code d’erreur.
 
 | Code HTTP | Description |
@@ -256,7 +256,7 @@ Le tableau suivant répertorie les codes d’état HTTP retournés par le point 
 | 403 |Échec de l’autorisation. Par exemple, l’utilisateur n’est pas autorisé à accéder à la ressource. |
 | 500 |Une erreur interne s’est produite au niveau du service. relancez la requête. |
 
-#### Codes d’erreur pour les erreurs de point de terminaison de jeton
+#### <a name="error-codes-for-token-endpoint-errors"></a>Codes d’erreur pour les erreurs de point de terminaison de jeton
 | Code d'erreur | Description | Action du client |
 | --- | --- | --- |
 | invalid_request |Erreur de protocole, tel qu’un paramètre obligatoire manquant. |Corrigez l’erreur, puis envoyez à nouveau la demande. |
@@ -268,17 +268,17 @@ Le tableau suivant répertorie les codes d’état HTTP retournés par le point 
 | interaction_required |La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Au lieu d’une demande non interactive, réessayez avec une demande d’autorisation interactive pour la même ressource. |
 | temporarily_unavailable |Le serveur est temporairement trop occupé pour traiter la demande. |relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
 
-## Utiliser le jeton d’accès pour accéder à la ressource
+## <a name="use-the-access-token-to-access-the-resource"></a>Utiliser le jeton d’accès pour accéder à la ressource
 Maintenant que vous avez acquis un jeton `access_token`, vous pouvez l'utiliser dans des requêtes dirigées vers des API Web en l'incluant dans l'en-tête `Authorization`. La spécification [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) explique comment utiliser des jetons du porteur dans les requêtes HTTP pour accéder aux ressources protégées.
 
-### Exemple de requête
+### <a name="sample-request"></a>Exemple de requête
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
-### Réponse d’erreur
+### <a name="error-response"></a>Réponse d’erreur
 Les ressources sécurisées qui implémentent la spécification RFC 6750 émettent des codes d’état HTTP. Si la demande n’inclut pas d’informations d’authentification ou ne contient pas le jeton, la réponse inclut un en-tête `WWW-Authenticate` . Lorsqu’une requête échoue, le serveur de ressources répond avec un code d’état HTTP et un code d’erreur.
 
 Voici un exemple de réponse qui échoue lorsque la demande du client n’inclut pas le jeton du porteur :
@@ -288,7 +288,7 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
-#### Paramètres d’erreur
+#### <a name="error-parameters"></a>Paramètres d’erreur
 | Paramètre | Description |
 | --- | --- |
 | authorization_uri |L’URI (point de terminaison physique) du serveur d’autorisation. Cette valeur est également utilisée comme clé de recherche pour obtenir plus d’informations sur le serveur à partir d’un point de terminaison de détection. <p><p> Le client doit valider l’approbation du serveur d’autorisation. Quand la ressource est protégée par Azure AD, il suffit de vérifier que l’URL commence par https://login.microsoftonline.com ou un autre nom d’hôte pris en charge par Azure AD. Une ressource spécifique au client doit toujours retourner un URI d’autorisation spécifique au client. |
@@ -296,7 +296,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | error_description |Une description plus détaillée de l’erreur. Ce message n’est pas destiné à offrir une description claire à l’utilisateur final. |
 | resource_id |Retourne l’identificateur unique de la ressource. L’application cliente peut utiliser cet identificateur en tant que valeur du paramètre `resource` lorsqu’elle demande un jeton pour la ressource. <p><p> Il est important pour l’application cliente de vérifier cette valeur. Sinon, un service malveillant peut être en mesure de provoquer une attaque **par élévation de privilèges** <p><p> La stratégie recommandée pour empêcher une attaque consiste à vérifier que le paramètre `resource_id` correspond à la base de l’URL de l’API web faisant l’objet de l’accès. Par exemple, si https://service.contoso.com/data fait l’objet d’un accès, `resource_id` peut être htttps://service.contoso.com/. L’application cliente doit rejeter un `resource_id` qui ne commence pas par l’URL de base sauf s’il existe une autre façon fiable de vérifier l’ID. |
 
-#### Codes d’erreur du schéma de porteur
+#### <a name="bearer-scheme-error-codes"></a>Codes d’erreur du schéma de porteur
 La spécification RFC 6750 définit les erreurs suivantes pour les ressources qui utilisent l’en-tête WWW-Authenticate et le schéma de porteur dans la réponse.
 
 | Code d’état HTTP | Code d'erreur | Description | Action du client |
@@ -306,7 +306,7 @@ La spécification RFC 6750 définit les erreurs suivantes pour les ressources qu
 | 403 |insufficient_scope |Le jeton d’accès ne contient pas les autorisations d’emprunt d’identité requises pour accéder à la ressource. |Envoyez une nouvelle demande d’autorisation au point de terminaison d’autorisation. Si la réponse contient le paramètre d’étendue, utilisez la valeur d’étendue dans la demande à la ressource. |
 | 403 |insufficient_access |Le sujet du jeton n’a pas les autorisations requises pour accéder à la ressource. |Invitez l’utilisateur à utiliser un compte différent ou à demander des autorisations pour la ressource spécifiée. |
 
-## Actualisation des jetons d’accès
+## <a name="refreshing-the-access-tokens"></a>Actualisation des jetons d’accès
 Les jetons d’accès présentent une durée de vie courte. Après leur expiration, vous devez les actualiser afin de pouvoir continuer à accéder aux ressources. Pour actualiser le `access_token`, envoyez une nouvelle requête `POST` au point de terminaison `/token` en fournissant l’élément `refresh_token` au lieu de l’élément `code`.
 
 Les jetons d’actualisation n’ont pas de durée de vie spécifiée. En règle générale, leur durée de vie est relativement longue. Toutefois, dans certains cas, les jetons d’actualisation expirent, sont révoqués ou ne disposent pas de privilèges suffisants pour l’action souhaitée. Votre application doit envisager et gérer correctement les erreurs retournées par le point de terminaison d’émission de jeton.
@@ -329,7 +329,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-### Réponse correcte
+### <a name="successful-response"></a>Réponse correcte
 Une réponse de jeton réussie se présente ainsi :
 
 ```
@@ -352,7 +352,7 @@ Une réponse de jeton réussie se présente ainsi :
 | access_token |Le nouveau jeton d’accès qui a été demandé. |
 | refresh_token |Un nouveau jeton d’actualisation OAuth 2.0 pouvant être utilisé pour demander de nouveaux jetons d’accès lorsque celui de cette réponse expire. |
 
-### Réponse d’erreur
+### <a name="error-response"></a>Réponse d’erreur
 Une réponse d’erreur se présenterait ainsi :
 
 ```

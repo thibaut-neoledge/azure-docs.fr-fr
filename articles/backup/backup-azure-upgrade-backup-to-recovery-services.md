@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services
 
@@ -120,7 +120,7 @@ Une fois que vous avez effectué la mise à niveau vers un coffre Recovery Servi
 Non. Vos sauvegardes en cours se poursuivent sans interruption pendant et après la mise à niveau.
 
 **Si je n’envisage de mise à niveau prochainement, qu’advient-il de mes coffres ?**</br>
-Toutes les nouvelles fonctionnalités s’appliquant uniquement aux coffres Recovery Services, nous vous conseillons vivement de mettre à niveau vos coffres. Le portail classique finira par être déconseillé par Microsoft. À compter du 1er septembre 2017, Microsoft commencera la mise à niveau automatique des coffres de sauvegarde vers des coffres Recovery Services. D’ici le 1er novembre 2017, Microsoft aura terminé le processus de mise à niveau. Votre coffre peut être mis à niveau automatiquement à tout moment entre septembre ou octobre. Microsoft vous recommande de mettre à niveau votre coffre dès que possible.
+Toutes les nouvelles fonctionnalités s’appliquant uniquement aux coffres Recovery Services, nous vous conseillons vivement de mettre à niveau vos coffres. Le portail classique finira par être déconseillé par Microsoft. À compter du 1er septembre 2017, Microsoft commencera la mise à niveau automatique des coffres de sauvegarde vers des coffres Recovery Services. D’ici le 30 novembre 2017, Microsoft aura terminé le processus de mise à niveau. Votre coffre peut être mis à niveau automatiquement à tout moment dans l’intervalle. Microsoft vous recommande de mettre à niveau votre coffre dès que possible.
 
 **Quelles sont les implications de cette migration pour mes outils existants ?**</br>
 Mettez à jour vos outils vers le modèle de déploiement Resource Manager. Les coffres Recovery Services ont été créés pour une utilisation dans le modèle de déploiement Resource Manager. Il est important de planifier le modèle de déploiement Resource Manager et de tenir compte de la différence dans vos coffres. 

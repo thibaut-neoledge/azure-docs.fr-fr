@@ -1,30 +1,35 @@
 ---
 title: "Guide des vendeurs de la Place de marché Azure | Microsoft Docs"
-description: "Ce guide est destiné aux utilisateurs professionnels et aux chefs de produits travaillant pour des éditeurs de logiciels indépendants (ISV) qui souhaitent vendre leurs images de machine virtuelle certifiées Azure à des développeurs et à des professionnels de l’informatique."
+description: "Ce guide est destiné aux utilisateurs professionnels et aux chefs de produits travaillant pour des éditeurs de logiciels indépendants (ISV) qui souhaitent vendre leurs images de machines virtuelles certifiées Azure ainsi que des applications gérées à des développeurs et à des professionnels de l’informatique."
 documentationcenter: 
-author: rupeshazure
-manager: hamidm
+author: divacc
+manager: prkumar
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: rupesk@microsoft.com
-ms.robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.author: divacc@microsoft.com
+ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guide du vendeur Place de marché Azure
 
-Bienvenue dans le guide des vendeurs de la Place de marché Azure. Ce guide est destiné aux utilisateurs professionnels et aux chefs de produits travaillant pour des éditeurs de logiciels indépendants (ISV) qui souhaitent vendre leurs images de machine virtuelle certifiées Azure à des développeurs et à des professionnels de l’informatique. Avec des clients Azure disséminés dans le monde entier, la [Place de marché ](https://azuremarketplace.microsoft.com/) peut apporter à vos produits un maximum de portée et d’exposition.
-
+Bienvenue dans le guide des vendeurs de la Place de marché Azure. Ce guide est conçu pour les utilisateurs professionnels et les chefs de produits travaillant pour des éditeurs de logiciels indépendants (ISV) qui souhaitent vendre leurs images de machines virtuelles certifiées Azure ainsi que des applications gérées à des développeurs et à des professionnels de l’informatique. Avec des clients Azure disséminés dans le monde entier, [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/) peut apporter à vos produits un maximum de portée et d’exposition.
 
 > [!NOTE]
-> Si vous cherchez à vendre vos produits SaaS finis à des utilisateurs professionnels, vous pouvez passer en revue les options qui vous sont proposées pour les répertorier dans [AppSource](https://appsource.microsoft.com).
+> Si vous souhaitez vendre votre [application gérée](https://docs.microsoft.com/en-us/azure/managed-applications/overview), vous devez suivre les instructions pour la faire figurer dans Place de marché Azure [ici](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Si vous souhaitez vendre vos produits SaaS (Software as a service) finis aux _professionnels de l’informatique et développeurs_, vous pouvez contacter saas-on-amp@microsoft.com pour en savoir plus sur vos options.
+
+> [!NOTE]
+> Si vous cherchez à vendre vos produits SaaS finis à des _utilisateurs professionnels_, vous pouvez passer en revue les options qui vous sont proposées pour les répertorier dans [AppSource](https://appsource.microsoft.com).
+
 
 À la fin de ce guide, vous saurez où trouver des informations plus détaillées sur les points suivants :
 
@@ -43,9 +48,9 @@ Allons-y.
 
 ## <a name="whats-the-azure-marketplace"></a>Qu’est-ce que la Place de marché Azure ?
 
-La Place de marché Azure est un marché en ligne d’applications et de services qui permet aux éditeurs de logiciels indépendants appartenant à des startups ou à des entreprises de proposer leurs solutions aux clients Azure partout dans le monde. La Place de marché permet aux éditeurs Azure de distribuer et de vendre leurs images de machines virtuelles à d’autres professionnels qui souhaitent développer rapidement leurs applications cloud et leurs solutions mobiles dans Azure. La Place de marché prend en charge des offres très diverses, notamment des applications d’analyse de données de bout en bout avec traitement des données, stockage des données et couches d’analyse, ou encore des applications de commerce électronique à plusieurs niveaux (données, services et Internet).
+La Place de marché Azure est un marché en ligne d’applications et de services qui permet aux éditeurs de logiciels indépendants appartenant à des startups ou à des entreprises de proposer leurs solutions aux clients Azure partout dans le monde. Place de marché permet aux éditeurs Azure de distribuer et de vendre leurs images de machines virtuelles, leurs applications gérées et leurs applications SaaS à d’autres professionnels souhaitant développer rapidement leurs applications cloud et leurs solutions mobiles dans Azure. Place de marché Microsoft Azure prend en charge des offres très diverses, notamment des applications d’analyse de données de bout en bout avec traitement des données, stockage des données et couches d’analyse, ou encore des applications de commerce électronique à plusieurs niveaux (données, services et Internet).
 
-Les clients du cloud sont confrontés à plusieurs difficultés lorsqu’ils doivent trouver des solutions adaptées à leurs besoins spécifiques. La Place de marché offre un moyen de les surmonter et de relier les clients à des solutions ISV innovantes, comme expliqué dans le tableau ci-dessous :
+Les clients du cloud sont confrontés à plusieurs difficultés lorsqu’ils doivent trouver des solutions adaptées à leurs besoins spécifiques. Place de marché Microsoft Azure offre un moyen de les surmonter et de relier les clients à des solutions ISV innovantes, comme expliqué dans le tableau ci-dessous :
 
 | Besoin du client | Solution de la Place de marché Azure |
 | --- | --- |
@@ -54,14 +59,14 @@ Les clients du cloud sont confrontés à plusieurs difficultés lorsqu’ils doi
 | A besoin d’un mécanisme de déploiement évolutif pour les applications et services tiers | Permet de créer et configurer des déploiements évolutifs pour des applications et services tiers |
 | A besoin de nouveaux services et applications qui s’intègrent et fonctionnent avec les solutions existantes | Intègre facilement des applications et services tiers avec les solutions existantes sur Azure |
 
-La Place de marché offre aux clients du monde entier la qualité, le choix et la puissance de l’écosystème de partenaires Azure. Voici les principaux avantages :
+Place de marché Microsoft Azure offre aux clients du monde entier la qualité, le choix et la puissance de l’écosystème de partenaires Azure. Voici les principaux avantages :
 
 - Emplacement unifié pour les offres Azure proposées par Microsoft et ses partenaires.
 - Plus de 5 000 offres.
 - Expérience de plateforme intégrée.
 - Configuration, déploiement et gestion rationalisés.
 
-## <a name="is-the-marketplace-right-for-my-business"></a>La Place de marché est-elle adaptée à mon entreprise ?
+## <a name="is-azure-marketplace-right-for-my-business"></a>Place de marché Microsoft Azure est-elle adaptée à mon entreprise ?
 
 Vous vous demandez peut-être si la Place de marché est adaptée à votre entreprise et, si tel est le cas, quels avantages vous allez pouvoir en tirer. La Place de marché vous offre de nouvelles opportunités commerciales :
 
@@ -74,23 +79,32 @@ Vous vous demandez peut-être si la Place de marché est adaptée à votre entre
 
 La clientèle de la Place de marché est très diversifiée. Azure possède en outre une base de clients connaissant l’un des taux de croissance les plus rapides de l’ensemble des fournisseurs cloud. Vous atteignez des développeurs et des professionnels de l’informatique qui travaillent aussi bien pour des start-up que pour de grandes entreprises, dans tous les secteurs économiques et aussi bien dans le public que dans le privé.
 
-## <a name="how-does-the-marketplace-work"></a>Comment fonctionne la Place de marché ?
+## <a name="how-does-marketplace-work"></a>Comment fonctionne Place de marché ?
 
-Elle est relativement facile à utiliser. Une fois approuvé, vous créez une image de machine virtuelle certifiée Azure et la publiez sur la Place de marché. Les clients Azure peuvent alors trouver, acheter et déployer votre produit en quelques minutes. Mieux encore, les clients peuvent déployer votre solution en toute confiance, en sachant que l’environnement est configuré pour fonctionner correctement sur Azure et que l’infrastructure est prête en quelques minutes.
+Elle est relativement facile à utiliser. Une fois approuvé, vous créez une image de machine virtuelle certifiée Azure ou une application gérée et la publiez sur Place de marché. Les clients Azure peuvent alors trouver, acheter et déployer votre produit en quelques minutes. Mieux encore, les clients peuvent déployer votre solution en toute confiance, en sachant que l’environnement est configuré pour fonctionner correctement sur Azure et que l’infrastructure est prête en quelques minutes.
 
-Le portail Microsoft Cloud Partner (CPP) centralise la création des offres sur la Place de marché. Les images de machines virtuelles sont préconfigurées avec un système d’exploitation et une ou plusieurs applications entièrement installés. Pour certifier votre image en vue de sa publication, vous devez respecter certaines conditions préalables. Nous les aborderons dans la section suivante.
+Le portail Microsoft Cloud Partner (CPP) centralise la création des offres sur la Place de marché. Pour certifier votre offre en vue de sa publication, vous devez respecter certaines conditions préalables. Nous les aborderons dans la section suivante.
 
 
 ## <a name="whats-next"></a>Et ensuite ?
 
-Vous pensez peut-être que la Place de marché Azure est parfaitement adaptée à votre produit. Alors, par quoi commencer ? Cette section traite de la prise en main de la Place de marché (Figure 1) et notamment des étapes suivantes : 
+Vous pensez peut-être que la Place de marché Azure est parfaitement adaptée à votre produit. Alors, par quoi commencer ? Cette section est axée sur la configuration et l’exécution des images de machines virtuelles sur Place de marché (Figure 1) par le biais des étapes suivantes : 
 * Obtenir une certification Azure.
 * Obtenir une approbation pour vendre votre produit.
-* Créer votre offre dans le portail Microsoft Cloud Partner. 
+* Créer et publier votre offre via le portail Cloud Partner. 
 
 ![Processus de vente sur la Place de marché Azure](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
 Figure 1 : processus de vente sur la Place de marché Azure
+
+En fonction de la charge de travail (machine virtuelle ou application gérée) que vous envisagez de publier, vous allez suivre un processus différent pour publier votre offre. Le contenu suivant est axé sur la publication des _offres de machines virtuelles_.
+
+> [!NOTE]
+> Si vous souhaitez vendre votre [application gérée](https://docs.microsoft.com/en-us/azure/managed-applications/overview), vous devez suivre les instructions pour la faire figurer dans Place de marché Azure [ici](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Si vous souhaitez vendre vos produits SaaS (Software as a service) finis aux _professionnels de l’informatique et développeurs_, vous pouvez contacter saas-on-amp@microsoft.com pour en savoir plus sur vos options.
+
 
 Vous allez d’abord devoir répondre à un ensemble de conditions techniques et autres et préparer votre image de machine virtuelle. Après quoi, vous devrez nommer votre produit et vous inscrire en tant que vendeur. Pour finir, vous ajouterez du contenu marketing et le soumettrez pour publication. Vous pourrez examiner votre offre dans un environnement préliminaire/intermédiaire avant qu’elle ne soit publiée sur la Place de marché.
 
@@ -103,6 +117,7 @@ La première étape dans la création de votre offre pour la Place de marché Az
 ![Exigences applicables à l’obtention de la certification Azure](./media/cloud-partner-portal-seller-guide/azurecertified.png)
 
 Figure 2 : Exigences applicables à l’obtention de la certification Azure
+
 
 ### <a name="technical-prerequisites"></a>Conditions techniques requises
 
@@ -147,13 +162,15 @@ L’obtention de la _certification Azure_ signifie que vous avez terminé avec s
 
 ## <a name="how-do-i-nominate-my-product-and-get-approved"></a>Comment désigner mon produit et obtenir l’approbation nécessaire ?
 
-Il est maintenant temps d’obtenir l’approbation qui vous permettra de vendre votre produit sur la Place de marché (Figure 3). Microsoft vous permet de nommer facilement votre produit tout en vous aidant à suivre le processus de publication et à vous enregistrer en tant que vendeur.
+Il est maintenant temps d’obtenir l’approbation qui vous permettra de vendre votre produit sur la Place de marché (Figure 3). 
+
+Microsoft vous permet de nommer facilement votre produit tout en vous aidant à suivre le processus de publication et à vous enregistrer en tant que vendeur. En fonction de la charge de travail (machine virtuelle ou application gérée) que vous envisagez de publier, vous allez suivre un processus de nomination différent.
 
 ![obtenir l’approbation de vendre sur la Place de marché Azure](./media/cloud-partner-portal-seller-guide/gettingapprovedsteps.png)
 
 Figure 3 : étapes à suivre pour obtenir l’approbation de vendre sur la Place de marché Azure
 
-La première étape consiste à [nommer](https://createopportunity.azurewebsites.net/) votre produit avant son inscription et sa publication. L’approbation peut prendre _jusqu’à trois jours ouvrables_.
+Si vous souhaitez publier une _offre de machine virtuelle_, vous allez désigner votre produit [ici](https://createopportunity.azurewebsites.net/). L’approbation peut prendre _jusqu’à trois jours ouvrables_.
 
 Une fois l’approbation obtenue, vous recevrez les éléments suivants :
 
@@ -172,17 +189,19 @@ Vous êtes maintenant prêt à certifier votre image de machine virtuelle et à 
 
 ## <a name="what-about-best-practices"></a>Qu’en est-il des meilleures pratiques ?
 
-Voici une liste d’outils et de meilleures pratiques pouvant vous être utiles pour profiter pleinement de votre statut de vendeur sur la Place de marché.
+Voici quelques meilleures pratiques qui peuvent vous être utiles pour profiter pleinement de votre statut de vendeur sur Place de marché.
 
 ### <a name="azure-test-drives"></a>Version d’évaluation Azure
 
 Les [versions d’évaluation Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/test-drives?page=1) offrent un excellent moyen de présenter votre produit à vos clients potentiels et de leur donner la possibilité de l’essayer avant d’acheter. Les versions d’évaluation peuvent favoriser la conversion et la génération de prospects.
 
-Après avoir fourni leurs coordonnées, les clients peuvent accéder à votre version d’évaluation prédéfinie. Ils peuvent alors découvrir par eux-mêmes les fonctionnalités et avantages principaux de votre produit dans un scénario réel.
+Après avoir fourni leurs coordonnées, les clients peuvent accéder à votre version d’évaluation prédéfinie. Ils peuvent alors découvrir par eux-mêmes les fonctionnalités et avantages principaux de votre produit dans un scénario réel. Encore mieux ? Vous pouvez obtenir jusqu’à 36 % de prospects supplémentaires en publiant une version d’évaluation associée à votre offre.
 
-Vous pouvez actuellement publier une version d’évaluation de votre produit uniquement sur le portail de publication classique. Découvrez plus d’informations dans la documentation sur la [publication d’une nouvelle version d’évaluation](https://github.com/Azure/AzureTestDrive/wiki).
+Nous vous fournissons tous les conseils nécessaires pour publier une version d’évaluation dans le portail Cloud Partner pendant le processus d’intégration. En savoir plus sur les [versions d’évaluation Azure](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
-En savoir plus sur les [versions d’évaluation Azure](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
+###<a name="lead-generation"></a>Génération de prospects
+
+Parmi les propositions de valeur principales associées à l’affichage de votre produit sur Place de marché Azure, c’est que nous vous envoyons des prospects hautement qualifiés comme clients qui sont intéressés par votre produit ou qui l’ont déployé. Ce qui est encore mieux, c’est que nous envoyons ces prospects directement à votre CRM, afin que vous puissiez prendre des mesures et donner suite rapidement, en créant plus d’opportunités et en concluant d’autres ventes. L’intégration de la génération de prospects prend quelques minutes et est effectuée pendant la publication dans le portail Cloud Partner.
 
 ### <a name="go-to-market-checklist"></a>Liste de vérification pour la commercialisation
 
@@ -198,21 +217,20 @@ Avant le lancement, nous vous recommandons de prendre quelques mesures pour acc�
 
 ## <a name="what-about-reports"></a>Qu’en est-il des rapports ?
 
-La Place de marché propose des rapports sur vos commandes, sur l’utilisation et sur les clients. Ces rapports sont accessibles via le [portail de création de rapport des éditeurs](https://reports.azure.com). En plus des informations et analyses utiles, des données brutes sont fournies dans une table navigable et peuvent être téléchargées sous forme de fichier CSV ou XLS.
+Place de marché propose des rapports sur vos commandes, sur l’utilisation et sur les clients. Ces rapports sont accessibles via la section Informations du portail Cloud Partner. En plus des informations et analyses utiles, des données brutes sont fournies dans une table navigable et peuvent être téléchargées sous forme de fichier CSV ou XLS.
 
-[Cette vidéo](https://player.vimeo.com/video/200859918) donne un aperçu des fonctionnalités de rapport et des avantages associés, notamment :
+Caractéristiques et avantages de la section Informations :
 
-- Types de rapports : récapitulatif des commandes, de l’utilisation et des tendances client présenté sous forme de capture instantanée sur la page d’accueil.
+- Types de rapport : récapitulatif des commandes, de l’utilisation, des déploiements et des tendances client présenté sous forme de capture instantanée dans la page d’accueil Informations.
 - Données détaillées sur les commandes, l’utilisation et les clients.
 - Commandes et utilisation présentées sous forme de récapitulatif mensuel ou d’aperçu des tendances sur six mois.
-- Plusieurs analyses présentées de façon standard.
 - Utilisation/commandes par :
   - Marché
   - Canal
   - Offres tendance
   - Type de licence de la Place de marché
 
-Les rapports détaillés fournissent des informations sur le client, par exemple le nom de la société, l’emplacement géographique et même le code postal, afin que vous puissiez comparer vos clients. La liste suivante répertorie les attributs spécifiques que nous fournissons à propos de vos clients :
+Les rapports détaillés fournissent des informations sur le client, par exemple le nom de la société, l’emplacement géographique et même le code postal, afin que vous puissiez comparer vos clients et dédommager vos vendeurs. La liste suivante répertorie les attributs spécifiques que nous fournissons à propos de vos clients :
 
 - Reseller
 - FirstName
@@ -221,7 +239,7 @@ Les rapports détaillés fournissent des informations sur le client, par exemple
 - CompanyName
 - TransactionDate
 - SubscriptionName
-- AzureSubscriptionId
+- AzureSubscriptionId (clients avec paiement à l’utilisation uniquement)
 - CloudInstanceName
 - OrderCount
 - CustomerCountryRegion
@@ -229,7 +247,7 @@ Les rapports détaillés fournissent des informations sur le client, par exemple
 - CustomerCommunicationCulture
 - CustomerZipCode
 
-Nous proposons également une formation grâce à une documentation d’aide, un glossaire et une démonstration enregistrée. Si vous avez besoin d’aide ou d’assistance pour vos rapports, vous pouvez ouvrir un [ticket de support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249).
+Nous proposons également une formation grâce à une documentation d’aide, un glossaire et une démonstration enregistrée. Si vous avez besoin d’aide ou d’assistance pour vos rapports, vous pouvez ouvrir à tout moment un ticket de support via le portail Cloud Partner.
 
 Nous vous souhaitons la bienvenue dans notre communauté d’éditeurs de logiciels indépendants et attendons votre offre avec impatience.
 

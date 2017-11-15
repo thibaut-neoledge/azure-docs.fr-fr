@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a422b02623a18ac6a1eef460bbada681672e69f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
 Ce document contient les notes de publication du Kit de développement logiciel (SDK) Azure pour .NET version 2.5.1. 
@@ -40,11 +40,11 @@ Les nouvelles fonctionnalités et mises à jour intégrées dans le Kit de déve
 * De nouvelles fonctionnalités\nouveaux scénarios associés aux **outils HDInsight** dans Visual Studio sont activés dans cette version. 
   
   * Validation locale des scripts Hive. Cliquez sur le bouton Valider le script dans la barre d'outils pour voir si votre script contient des erreurs. 
-  * Débogage amélioré des tâches Hive. Vous pouvez maintenant déboguer les tâches Hive en accédant aux journaux Yarn dans Visual Studio. Si votre application présente des problèmes de performances, l'examen des journaux Yarn fournit des informations utiles.
+  * Débogage amélioré des tâches Hive. Vous pouvez maintenant déboguer les tâches Hive en accédant aux journaux Yarn dans Visual Studio. Si votre application présente des problèmes de performances, l'examen des journaux YARN fournit des informations utiles.
   * (Version préliminaire publique) Prise en charge d'IntelliSense et de la saisie semi-automatique des mots clés pour Hive. Pour vous aider à créer des scripts Hive, HDInsight Tools pour Visual Studio a ajouté la prise en charge d'IntelliSense et de la saisie semi-automatique des mots clés pour Hive.
   * Prise en charge de Storm. Vous pouvez désormais utiliser HDInsight Tools pour Visual Studio pour développer des topologies/spouts/bolts Storm en C#. Vous pouvez ensuite soumettre la topologie développée à un cluster Storm et voir l'état de la topologie/bolt/spout. Vous pouvez utiliser les journaux système et les journaux client pour dépanner vos topologies/bolts/spouts Storm. Vous pouvez également utiliser les ressources JAVA existantes dans Storm sur HDInsight.
     
-    Pour plus d’informations, consultez la page [Prise en main de HDInsight Hadoop Tools pour Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
+    Pour plus d’informations, consultez la page [Prise en main de HDInsight Hadoop Tools pour Visual Studio](../hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## <a id="known_issues_2_5_1"></a>Limitations et problèmes connus du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
 * Azure API Apps apparaît sous la forme d'une cible de déploiement pour Mobile Apps. Web Apps devrait être la seule destination pour Mobile Apps jusqu'à une version suivante. 

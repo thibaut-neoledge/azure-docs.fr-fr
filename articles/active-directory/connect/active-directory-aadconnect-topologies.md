@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -111,7 +111,7 @@ Certaines charges de travail Office 365 ont certaines restrictions quant aux to
 
 | Charge de travail | Restrictions |
 --------- | ---------
-| Exchange Online | S’il existe plusieurs organisations Exchange locales (c’est-à-dire si Exchange a été déployé sur plusieurs forêts), vous devez utiliser Exchange 2013 SP1 ou version ultérieure. Pour plus d’informations, consultez la rubrique [Déploiements hybrides à forêts Active Directory multiples](https://technet.microsoft.com/library/jj873754.aspx). |
+| Exchange Online | Pour plus d’informations sur les topologies hybrides prises en charge par Exchange Online, consultez [Déploiements hybrides avec plusieurs forêts Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype Entreprise | Lorsque vous utilisez plusieurs forêts locales, seule la topologie de forêt de ressources de comptes est prise en charge. Pour plus d’informations, consultez la rubrique [Configuration environnementale pour Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 

@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory v2.0 et flux Pour le compte de OAuth 2.0
+# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 et flux Pour le compte de OAuth 2.0
 Le flux Pour le compte de OAuth 2.0 sert quand une application appelle un service/API web, qui à son tour doit appeler un autre service/API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès d’Azure Active Directory (Azure AD) pour le compte de l’utilisateur.
 
 > [!NOTE]
@@ -29,7 +29,7 @@ Le flux Pour le compte de OAuth 2.0 sert quand une application appelle un servic
 >
 >
 
-## Schéma de protocole
+## <a name="protocol-diagram"></a>Schéma de protocole
 Supposons que l’utilisateur a été authentifié sur une application à l’aide du [flux d’octroi de code d’autorisation OAuth 2.0](active-directory-v2-protocols-oauth-code.md). À ce stade, l’application a un jeton d’accès (jeton A) avec les revendications et le consentement de l’utilisateur pour accéder à l’API web de niveau intermédiaire (API A). L’API A doit maintenant faire une demande authentifiée à l’API web en aval (API B).
 
 Les étapes qui suivent constituent le flux Pour le compte de et sont décrites à l’aide du diagramme suivant.
@@ -47,7 +47,7 @@ Les étapes qui suivent constituent le flux Pour le compte de et sont décrites 
 > Dans ce scénario, le service de niveau intermédiaire n’a aucune interaction utilisateur pour obtenir le consentement de l’utilisateur pour accéder à l’API en aval. Par conséquent, l’option d’accorder l’accès à l’API en aval est présentée au préalable lors de l’étape de consentement pendant l’authentification.
 >
 
-## Demande de jeton d’accès de service à service
+## <a name="service-to-service-access-token-request"></a>Demande de jeton d’accès de service à service
 Pour demander un jeton d’accès, faites une demande HTTP POST au point de terminaison Azure AD v2.0 spécifique au locataire avec les paramètres suivants.
 
 ```
@@ -56,7 +56,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 Deux cas de figure se présentent, selon que l’application cliente choisit d’être sécurisée par un secret partagé ou un certificat.
 
-### Premier cas : demande de jeton d’accès avec un secret partagé
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : demande de jeton d’accès avec un secret partagé
 Lorsque l’application utilise un secret partagé, la demande de jeton d’accès de service à service contient les paramètres suivants :
 
 | Paramètre |  | Description |
@@ -68,7 +68,7 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | scope |required | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](active-directory-v2-scopes.md).|
 | requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 
-#### Exemple
+#### <a name="example"></a>Exemple
 La requête HTTP POST suivante demande un jeton d’accès avec l’étendue `user.read` pour l’API web https://graph.microsoft.com.
 
 ```
@@ -86,7 +86,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### Deuxième cas : demande de jeton d’accès avec un certificat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : demande de jeton d’accès avec un certificat
 Une demande de jeton d’accès de service à service avec un certificat contient les paramètres suivants :
 
 | Paramètre |  | Description |
@@ -101,7 +101,7 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 
 Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
 
-#### Exemple
+#### <a name="example"></a>Exemple
 La requête HTTP POST suivante demande un jeton d’accès avec l’étendue `user.read` pour l’API web https://graph.microsoft.com avec un certificat.
 
 ```
@@ -120,7 +120,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read
 ```
 
-## Réponse de jeton d’accès de service à service
+## <a name="service-to-service-access-token-response"></a>Réponse de jeton d’accès de service à service
 Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec les paramètres suivants.
 
 | Paramètre | Description |
@@ -131,7 +131,7 @@ Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec
 | access_token |Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service destinataire. |
 | refresh_token |Jeton d’actualisation pour le jeton d’accès demandé. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration du jeton d’accès actuel. |
 
-### Exemple de réponse correspondant à une réussite
+### <a name="success-response-example"></a>Exemple de réponse correspondant à une réussite
 L’exemple suivant montre une réponse correspondant à une réussite à une demande de jeton d’accès pour l’API web https://graph.microsoft.com.
 
 ```
@@ -145,7 +145,7 @@ L’exemple suivant montre une réponse correspondant à une réussite à une de
 }
 ```
 
-### Exemple de réponse d’erreur
+### <a name="error-response-example"></a>Exemple de réponse d’erreur
 Une réponse d’erreur est retournée par le point de terminaison du jeton Azure AD lors de la tentative d’acquérir un jeton d’accès pour l’API en aval si une stratégie d’accès conditionnel comme l’authentification multifacteur est définie sur cette API. Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
 
 ```
@@ -160,17 +160,17 @@ Une réponse d’erreur est retournée par le point de terminaison du jeton Azur
 }
 ```
 
-## Utiliser le jeton d’accès pour accéder à la ressource sécurisée
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Utiliser le jeton d’accès pour accéder à la ressource sécurisée
 Le service de niveau intermédiaire peut maintenant utiliser le jeton obtenu ci-dessus pour faire des demandes authentifiées à l’API web en aval, en définissant le jeton dans l’en-tête `Authorization`.
 
-### Exemple
+### <a name="example"></a>Exemple
 ```
 GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez plus d’informations sur le protocole OAuth 2.0 et une autre méthode pour effectuer l’authentification de service à service à l’aide des informations d’identification du client.
 * [Octroi d’informations d’identification du client OAuth 2.0 dans Azure AD v2.0](active-directory-v2-protocols-oauth-client-creds.md)
 * [OAuth 2.0 dans Azure AD v2.0](active-directory-v2-protocols-oauth-code.md)

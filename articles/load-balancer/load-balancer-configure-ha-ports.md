@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Comment configurer des ports de haute disponibilité pour l’équilibreur de charge interne
 
@@ -30,7 +30,7 @@ Cet article montre un exemple de déploiement de ports de haute disponibilité d
 
 La figure 1 montre la configuration de l’exemple de déploiement décrit dans cet article :
 - Les appliances virtuelles réseau sont déployées dans le pool backend d’un équilibreur de charge interne, derrière la configuration des ports de haute disponibilité. 
-- L’itinéraire défini par l’utilisateur qui est appliqué au sous-réseau DMZ route tout le trafic vers <?> en faisant du tronçon suivant l’adresse IP virtuelle de l’équilibreur de charge interne. 
+- L’itinéraire défini par l’utilisateur qui est appliqué au sous-réseau DMZ achemine tout le trafic vers les appliances virtuelles réseau en faisant du tronçon suivant l’adresse IP virtuelle de l’équilibreur de charge interne. 
 - L’équilibreur de charge interne distribue le trafic vers l’une des appliances virtuelles réseau actives en fonction de l’algorithme d’équilibrage de charge.
 - L’appliance virtuelle réseau traite le trafic et le transfère vers la destination d’origine sur le sous-réseau backend.
 - Le chemin de retour peut également emprunter le même itinéraire si un itinéraire défini par l’utilisateur correspondant est configuré sur le sous-réseau backend. 
@@ -41,19 +41,13 @@ Figure 1 : Appliances virtuelles réseau déployées derrière un équilibreur d
 
 ## <a name="preview-sign-up"></a>S’inscrire à la préversion
 
-Pour découvrir la préversion des ports de haute disponibilité associés aux références SKU de l’équilibreur de charge standard, inscrivez votre abonnement et bénéficiez d’un accès via PowerShell ou Azure CLI 2.0.
+Pour découvrir la préversion des ports à haute disponibilité associés à Load Balancer Standard, inscrivez votre abonnement et bénéficiez d’un accès via PowerShell ou Azure CLI 2.0.  Inscrivez votre abonnement pour
 
-- S’inscrire à l’aide de PowerShell
+1. la [préversion standard de Load Balancer](https://aka.ms/lbpreview#preview-sign-up) et 
+2. la [préversion des ports haute disponibilité](https://aka.ms/haports#preview-sign-up).
 
-   ```powershell
-   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- S’inscrire à l’aide d’Azure CLI 2.0
-
-    ```cli
-  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
-    ```
+>[!NOTE]
+>Pour utiliser cette fonctionnalité, vous devez également vous inscrire à la [préversion standard](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer, en plus des ports haute disponibilité. L’inscription aux ports haute disponibilité et aux préversions standard de Load Balancer peut prendre jusqu’à une heure.
 
 ## <a name="configuring-ha-ports"></a>Configuration des ports de haute disponibilité
 
@@ -68,6 +62,39 @@ Le portail Azure inclut l’option **Ports HA** qui se présente sous la forme d
 ![Configuration des ports de haute disponibilité via le portail Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 Figure 2 : Configuration de ports de haute disponibilité via le portail
+
+### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>Configurer la règle d’équilibrage de charge des ports haute disponibilité via le modèle Resource Manager
+
+Vous pouvez configurer des ports haute disponibilité à l’aide de la version d’API 2017-08-01 pour Microsoft.Network/loadBalancers dans la ressource d’équilibrage de charge. L’extrait de code JSON suivant illustre les modifications apportées à la configuration de l’équilibreur de charge pour les ports haute disponibilité via une API REST.
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
 
 ### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>Configurer la règle d’équilibreur de charge des ports de haute disponibilité avec PowerShell
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9733774570f3148e0092f42c1321b4fac1c80b54
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-writeback-overview"></a>Vue d’ensemble de la réécriture du mot de passe
 
@@ -91,6 +91,8 @@ Les étapes suivantes partent du principe que vous avez déjà configuré Azure 
    ![Activation de l’écriture différée du mot de passe dans Azure AD Connect][Writeback]
 7. Dans l’écran Prêt à configurer, cliquez sur **Configurer** et attendez la fin du processus.
 8. Lorsque Configuration terminée s’affiche, cliquez sur **Quitter**
+
+Pour prendre connaissance des tâches de dépannage courantes associées à la réécriture de mot de passe, consultez la section [Résoudre les problèmes de réécriture du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) dans l’article portant sur la résolution des problèmes.
 
 ## <a name="active-directory-permissions"></a>Autorisations Active Directory
 
@@ -212,15 +214,15 @@ La taille de chacun des messages décrits ci-dessus est généralement inférieu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
+* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
 * [Réinitialisez ou modifiez votre mot de passe](active-directory-passwords-update-your-own-password.md).
 * [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md).
-* [Vous avez une question relative à la licence ?](active-directory-passwords-licensing.md)
-* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données devez-vous renseigner pour vos utilisateurs ?](active-directory-passwords-data.md)
+* [Vous avez une question relative à la licence ?](active-directory-passwords-licensing.md)
+* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](active-directory-passwords-data.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-policy.md)
 * [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-reporting.md)
-* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
+* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
 * [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
 

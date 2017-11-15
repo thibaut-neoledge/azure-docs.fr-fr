@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 55e5a60294fc5ccb2a55b1e572af2fd27c68f462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -61,7 +61,7 @@ La première étape de l’application de la conformité avec une stratégie Azu
    ![Afficher les définitions de stratégie disponibles](media/create-manage-policy/open-policy-definitions.png)
 
 5. Sélectionnez **Nécessitent SQL Server version 12.0**.
-   
+
    ![Rechercher une stratégie](media/create-manage-policy/select-available-definition.png)
 
 6. Attribuez un **Nom** d’affichage à l’affectation de stratégie. Dans le cas présent, utilisons *Require SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur la façon dont cette affectation de stratégie s’assure que tous les serveurs SQL créés dans cet environnement utilisent la version 12.0.
@@ -93,7 +93,7 @@ Maintenant que nous avons attribué la définition de stratégie, nous allons cr
       - Les paramètres de la stratégie.
       - Les règles/conditions de la stratégie, dans ce cas : la taille de la référence (SKU) de la machine virtuelle est égale à la série G
       - L’effet de la stratégie, dans ce cas – **Refuser**.
-   
+
    Voici à quoi le fichier json devrait ressembler
 
 ```json
@@ -118,9 +118,225 @@ Maintenant que nous avons attribué la définition de stratégie, nous allons cr
 }
 ```
 
+<!-- Update the following link to the top level samples page
+-->
    Pour afficher des exemples de code json, consultez cet article : [Vue d’ensemble des stratégies de ressources](../azure-resource-manager/resource-manager-policy.md)
-   
+
 4. Sélectionnez **Enregistrer**.
+
+## <a name="create-a-policy-definition-with-rest-api"></a>Créer une définition de stratégie avec l’API REST
+
+Vous pouvez créer une stratégie avec l’API REST pour les définitions des stratégies. L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes.
+Pour créer une définition de stratégie, utilisez l’exemple suivant :
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+Incluez un texte de demande semblable à l’exemple suivant :
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## <a name="create-a-policy-definition-with-powershell"></a>Créer une définition de stratégie avec PowerShell
+
+Avant de passer à l’exemple PowerShell, assurez-vous d’avoir installé la dernière version d’Azure PowerShell. Les paramètres de stratégie ont été ajoutés dans la version 3.6.0. Si vous utilisez une version antérieure, les exemples renvoient une erreur indiquant que le paramètre est introuvable.
+
+Vous pouvez créer une définition de stratégie en utilisant l’applet de commande `New-AzureRmPolicyDefinition`.
+
+Pour créer une définition de stratégie à partir d’un fichier, transmettez le chemin d’accès au fichier. Pour un fichier externe, utilisez l’exemple suivant :
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Pour un fichier local, utilisez l’exemple suivant :
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Pour créer une définition de stratégie avec une règle en ligne, utilisez l’exemple suivant :
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+Le résultat est stocké dans un objet `$definition` utilisé lors de l’attribution de la stratégie.
+L’exemple suivant crée une définition de stratégie qui inclut des paramètres :
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## <a name="view-policy-definitions"></a>Afficher les définitions de stratégie
+
+Pour afficher toutes les définitions de stratégie dans votre abonnement, utilisez la commande suivante :
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+Elle renvoie toutes les définitions de stratégie disponibles, y compris les stratégies intégrées. Chaque stratégie est renvoyée au format suivant :
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## <a name="create-a-policy-definition-with-azure-cli"></a>Créer une définition de stratégie avec Azure CLI
+
+Vous pouvez créer une définition de stratégie à l’aide d’Azure CLI avec la commande de définition de stratégie.
+Pour créer une définition de stratégie avec une règle en ligne, utilisez l’exemple suivant :
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## <a name="view-policy-definitions"></a>Afficher les définitions de stratégie
+
+Pour afficher toutes les définitions de stratégie dans votre abonnement, utilisez la commande suivante :
+
+```
+az policy definition list
+```
+
+Elle renvoie toutes les définitions de stratégie disponibles, y compris les stratégies intégrées. Chaque stratégie est renvoyée au format suivant :
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Créer et attribuer une définition d’initiative
 
@@ -166,7 +382,7 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
    - niveau de tarification : Standard
    - étendue concernée par cette attribution : **Azure Advisor Capacity Dev**
 
-5. Sélectionnez **Attribuer**. 
+5. Sélectionnez **Attribuer**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Résoudre une ressource non conforme ou refusée
 
@@ -205,4 +421,4 @@ Dans ce didacticiel, vous avez effectué avec succès les opérations suivantes�
 Pour plus d’informations sur les structures des définitions de stratégie, consultez cet article :
 
 > [!div class="nextstepaction"]
-> [Structure de la définition de stratégie](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Structure de définition Azure Policy](policy-definition.md)

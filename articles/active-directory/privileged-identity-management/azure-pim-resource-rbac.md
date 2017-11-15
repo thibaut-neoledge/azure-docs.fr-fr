@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barclayn
-ms.openlocfilehash: abaf78428cb12235a659bad5c13d64e8e51f4ba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 114ef434e6167ef2b25b040e35ab3ce1b85151a9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="pim-for-azure-resources-preview"></a>PIM pour les ressources Azure (préversion)
 
@@ -43,11 +43,12 @@ Azure AD PIM peut gérer les rôles intégrés de Azure Resource, ainsi que les 
 - Gestionnaire de sécurité, et plus
 
 >[!NOTE]
-Les utilisateurs ou les membres d’un groupe affectés aux rôles de propriétaire ou d’administrateur de l’accès utilisateur, de même que les administrateurs globaux qui permettent la gestion des abonnements dans Azure AD, sont des administrateurs de ressources. Ces administrateurs peuvent assigner des rôles, configurer des paramètres de rôle et revoir les accès à l’aide de PIM pour Azure Resources. Afficher la liste des [rôles intégrés pour les ressources Azure](../role-based-access-built-in-roles.md)
+Les utilisateurs ou les membres d’un groupe affectés aux rôles de propriétaire ou d’administrateur de l’accès utilisateur, de même que les administrateurs globaux qui permettent la gestion des abonnements dans Azure AD, sont des administrateurs de ressources. Ces administrateurs peuvent assigner des rôles, configurer des paramètres de rôle et revoir les accès à l’aide de PIM pour Azure Resources. Affichez la liste des [rôles intégrés pour les ressources Azure](../role-based-access-built-in-roles.md).
 
 ## <a name="tasks"></a>Tâches
 
 PIM offre un accès aisé pour activer des rôles, afficher les demandes/activations en attente ainsi que les approbations en attente (pour [les rôles d’annuaire Azure AD](azure-ad-pim-approval-workflow.md)) et les revus attendant votre réponse à partir de la section Tâches du menu de navigation gauche.
+
 Lorsque vous accédez à l’un des éléments du menu Tâches à partir du point d’entrée Vue d’ensemble, la vue correspondante contient les résultats pour les rôles d’annuaire Azure AD et les rôles de ressources Azure (version préliminaire). 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
@@ -56,7 +57,7 @@ Mes rôles contiennent une liste de vos attributions de rôles actives et éligi
 
 ## <a name="activate-roles"></a>Activer des rôles
 
-L’activation de rôles pour les ressources Azure (préversion) introduit une nouvelle expérience permettant aux membres du rôle éligible de planifier une activation à une date/heure future et de sélectionner une durée d’activation spécifique au sein d’un délai maximal (configuré par les administrateurs). En savoir plus sur [l’activation de rôles de Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md)
+L’activation de rôles pour les ressources Azure (préversion) introduit une nouvelle expérience permettant aux membres du rôle éligible de planifier une activation à une date/heure future et de sélectionner une durée d’activation spécifique au sein d’un délai maximal (configuré par les administrateurs). En savoir plus sur [l’activation de rôles de Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 

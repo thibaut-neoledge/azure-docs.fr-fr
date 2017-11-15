@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2017
+ms.date: 10/20/2017
 ms.author: ccompy
-ms.openlocfilehash: fef9e7b280387934cb093f51b4c8aa134a3b87e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0b148cb9c304c54b47be9601740e7634462d59b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service #
 
@@ -30,13 +30,13 @@ Dans Azure App Service, les connexions hybrides peuvent être utilisées pour ac
 
 
 ## <a name="how-it-works"></a>Fonctionnement ##
-La fonctionnalité Connexions hybrides se compose de deux appels sortants vers Service Bus Relay.  Il existe une connexion à partir d’une bibliothèque sur l’hôte sur lequel votre application est exécutée dans le service d’application, et entre le Gestionnaire de connexion hybride (GCH) et Service Bus Relay.  Le GCH est un service de relais que vous déployez dans le réseau d’hébergement 
+La fonctionnalité Connexions hybrides se compose de deux appels sortants vers Service Bus Relay.  Il existe une connexion à partir d’une bibliothèque sur l’hôte sur lequel votre application est exécutée dans App Service, et entre le Gestionnaire de connexion hybride (GCH) et Service Bus Relay.  Le GCH est un service de relais que vous déployez dans le réseau hébergeant la ressource à laquelle vous tentez d’accéder. 
 
 Grâce aux deux connexions liées, votre application inclut un tunnel TCP vers une combinaison hôte:port fixe de l’autre côté du GCH.  La connexion utilise TLS 1.2 pour la sécurité et des clés SAP pour l’authentification/autorisation.    
 
-![][1]
+![Flux de haut niveau de la connexion hybride][1]
 
-Lorsque votre application effectue une requête DNS qui correspond à un point de terminaison de connexion hybride configuré, le trafic TCP sortant est redirigé vers la connexion hybride.  
+Lorsque votre application effectue une requête DNS qui correspond à un point de terminaison de connexion hybride configuré, le trafic TCP sortant est redirigé via la connexion hybride.  
 
 > [!NOTE]
 > Cela signifie que vous devez toujours utiliser un nom DNS pour votre connexion hybride.  Certains logiciels clients n’effectuent une recherche DNS que si le point de terminaison utilise une adresse IP à la place.
@@ -47,14 +47,14 @@ Il existe deux types de connexions hybrides : les nouvelles connexions hybrides 
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Avantages d’une connexion hybride App Service ###
 
-La fonctionnalité de connexions hybrides offre un certain nombre d’avantages, notamment
+La fonctionnalité de connexions hybrides offre un certain nombre d’avantages, notamment :
 
 - les applications peuvent accéder en toute sécurité aux systèmes et services locaux ;
 - la fonctionnalité ne nécessite pas un point de terminaison Internet accessible ;
-- sa configuration est simple et rapide ;  
+- sa configuration est simple et rapide ; 
 - chaque connexion hybride correspond à une combinaison hôte:port unique, gage de sécurité ;
 - elle ne nécessite généralement pas de ports de pare-feu car les connexions sont toutes sortantes sur des ports web standard ;
-- la fonctionnalité se situant au niveau du réseau, cela signifie également qu’elle n’est pas spécifique du langage utilisé par votre application et de la technologie utilisée par le point de terminaison ;
+- la fonctionnalité se situant au niveau du réseau, elle n’est pas spécifique au langage utilisé par votre application et à la technologie utilisée par le point de terminaison ;
 - elle peut être utilisée pour fournir un accès à plusieurs réseaux à partir d’une même application. 
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Ce que vous ne pouvez pas faire avec les connexions hybrides ###
@@ -69,13 +69,13 @@ Vous ne pouvez pas faire certaines opérations avec les connexions hybrides, not
 
 ## <a name="adding-and-creating-a-hybrid-connection-in-your-app"></a>Ajout et création d’une connexion hybride dans votre application ##
 
-Une connexion hybride peut être créée via le portail de l’application ou à partir du portail du service de connexion hybride.  Nous vous recommandons vivement d’utiliser le portail de l’application pour créer les connexions hybrides à utiliser avec votre application.  Pour créer une connexion hybride, accédez au [portail Azure][portal] puis à l’interface utilisateur de votre application.  Sélectionnez **Mise en réseau > Configurer vos points de terminaison de connexion hybride**.  Là, vous pouvez voir ici les connexions hybrides qui sont configurées avec votre application  
+Les connexions hybrides peuvent être créées via votre application App Service dans le portail Azure ou à partir de Azure Relay dans le portail Azure.  Il est fortement recommandé de créer des connexions hybrides via l’application App Service que vous souhaitez utiliser avec la connexion hybride.  Pour créer une connexion hybride, accédez au [portail Azure][portal] et sélectionnez votre application.  Sélectionnez **Mise en réseau > Configurer vos points de terminaison de connexion hybride**.  Là, vous pouvez voir ici les connexions hybrides qui sont configurées pour votre application.  
 
-![][2]
+![Liste des connexions hybrides][2]
 
 Pour ajouter une nouvelle connexion hybride, cliquez sur Ajouter une connexion hybride.  L’interface utilisateur qui s’ouvre répertorie les connexions hybrides que vous avez déjà créées.  Pour en ajouter une ou plusieurs à votre application, cliquez sur les connexions souhaitées et appuyez sur **Ajouter la connexion hybride sélectionnée**.  
 
-![][3]
+![Portail des connexions hybrides][3]
 
 Si vous souhaitez créer une nouvelle connexion hybride, cliquez sur **Créer une connexion hybride**.  Vous spécifiez ici le : 
 
@@ -84,19 +84,30 @@ Si vous souhaitez créer une nouvelle connexion hybride, cliquez sur **Créer un
 - Port du point de terminaison
 - Espace de noms Service Bus que vous voulez utiliser
 
-![][4]
+![Create a hybrid connection][4]
 
 Chaque connexion hybride est liée à un espace de noms Service Bus et chaque espace de noms Service Bus se trouve dans une région Azure.  Il convient de tester et d’utiliser un espace de noms Service Bus dans la même région que votre application pour éviter une latence du réseau.
 
 Si vous souhaitez supprimer votre connexion hybride de votre application, cliquez avec le bouton droit sur celle-ci et sélectionnez **Déconnecter**.  
 
-Lorsqu’une connexion hybride est ajoutée à votre application web, vous pouvez afficher ses détails en cliquant simplement dessus.  
+Lorsqu’une connexion hybride est ajoutée à votre application, vous pouvez afficher ses détails en cliquant simplement dessus. 
 
-![][5]
+![Informations sur la connexion hybride][5]
+
+### <a name="creating-a-hybrid-connection-in-the-azure-relay-portal"></a>Création d’une connexion hybride dans le portail Azure Relay ###
+
+Outre l’utilisation du portail à partir de votre application, il est également possible de créer des connexions hybrides à partir du portail Azure Relay. Pour qu’une connexion hybride puisse être utilisée par Azure App Service, elle doit respecter deux conditions. Elle doit :
+
+* Obtenir l’autorisation du client
+* Comporter un élément de métadonnées nommé point de terminaison contenant une combinaison hôte:port comme valeur
 
 ## <a name="hybrid-connections-and-app-service-plans"></a>Connexions hybrides et plans App Service ##
 
-Les seules connexions hybrides que vous pouvez créer désormais sont de nouvelles connexions hybrides.  Elles sont uniquement disponibles dans les références de tarification De base, Standard, Premium et Isolé.  Des limites sont liées au plan de tarification.  
+Les connexions hybrides sont uniquement disponibles dans les références de tarification De base, Standard, Premium et Isolé.  Des limites sont liées au plan de tarification.  
+
+> [!NOTE] 
+> Vous pouvez uniquement créer de nouvelles connexions hybrides basées sur Azure Relay. Il n’est pas possible de créer de nouvelles connexions hybrides BizTalk.
+>
 
 | Plan de tarification | Nombre de connexions hybrides utilisables dans le plan |
 |----|----|
@@ -107,48 +118,52 @@ Les seules connexions hybrides que vous pouvez créer désormais sont de nouvell
 
 Dans la mesure où il existe des restrictions de plan App Service, une interface utilisateur existe également dans le plan App Service qui vous montre le nombre de connexions hybrides utilisées et par quelles applications.  
 
-![][6]
+![Propriétés au niveau du plan App Service][6]
 
-Comme dans la vue de l’application, vous pouvez afficher plus d’informations sur votre connexion hybride en cliquant sur celle-ci.  Dans les propriétés affichées ici, vous pouvez voir toutes les informations disponibles dans la vue de l’application, mais vous pouvez également savoir combien d’autres applications du même plan App Service utilisent cette connexion hybride.
+Vous pouvez afficher plus d’informations sur votre connexion hybride en cliquant sur celle-ci.  Dans les propriétés affichées ici, vous pouvez voir toutes les informations disponibles dans la vue de l’application, mais vous pouvez également savoir combien d’autres applications du même plan App Service utilisent cette connexion hybride.
 
-![][7]
+Même s’il existe une limite du nombre de points de terminaison de connexion hybride pouvant être utilisés dans un plan App Service, chaque connexion hybride utilisée peut l’être sur un nombre quelconque d’applications de ce plan App Service.  En d’autres termes, une même connexion hybride utilisée dans cinq applications distinctes dans un plan App Service compte comme une connexion hybride.
 
-Même s’il existe une limite du nombre de points de terminaison de connexion hybride pouvant être utilisés dans un plan App Service, chaque connexion hybride utilisée peut l’être sur un nombre quelconque d’applications de ce plan App Service.  Ainsi, si je dispose d’1 connexion hybride que j’utilisais dans 5 applications distinctes de mon plan App Service, je dispose toujours d’1 seule connexion hybride.
-
-Un coût supplémentaire s’applique sur les connexions hybrides en plus de celles utilisables dans une référence De base, Standard, Premium ou Isolé.  Pour plus d’informations sur la tarification de la connexion hybride, accédez ici : [Tarification Service Bus][sbpricing].
+L’utilisation des connexions hybrides fait l’objet de frais supplémentaires.  Pour plus d’informations sur la tarification de la connexion hybride, accédez ici : [Tarification Service Bus][sbpricing].
 
 ## <a name="hybrid-connection-manager"></a>Gestionnaire de connexion hybride ##
 
 Pour que les connexions hybrides fonctionnent, vous avez besoin d’un agent de relais dans le réseau qui héberge votre point de terminaison de connexion hybride.  Cet agent de relais est appelé le Gestionnaire de connexion hybride (GCH).  Cet outil peut être téléchargé à partir de l’interface utilisateur **Mise en réseau > Configurer vos points de terminaison de connexion hybride** disponible à partir de votre application dans le [portail Azure][portal].  
 
-Cet outil s’exécute sur Windows Server 2008 R2 et les versions ultérieures de Windows.  Une fois installé, le GCH s’exécute en tant que service.  Ce service se connecte au relais Service Bus Azure en fonction des points de terminaison configurés.  Les connexions à partir du GCH sont sortantes vers les ports 80 et 443.    
+Cet outil s’exécute sur Windows Server 2012 et les versions ultérieures de Windows.  Une fois installé, le GCH s’exécute en tant que service.  Ce service se connecte à Azure Service Bus Relay en fonction des points de terminaison configurés.  Les connexions à partir du GCH accèdent à Azure par le biais du port 443.    
 
 Le GCH inclut une interface utilisateur permettant de le configurer.  Après avoir installé le GCH, vous pouvez ouvrir l’interface utilisateur en exécutant le fichier HybridConnectionManagerUi.exe qui se trouve dans le répertoire d’installation du Gestionnaire de connexion hybride.  Vous pouvez également y accéder facilement sur Windows 10 en saisissant *Interface utilisateur du Gestionnaire de connexion hybride* dans la zone de recherche.  
+
+![Portail des connexions hybrides][7]
 
 À l’ouverture de l’interface utilisateur du GCH, vous voyez tout d’abord un tableau qui répertorie toutes les connexions configurées avec cette instance du GCH.  Si vous souhaitez apporter des modifications, vous devez vous authentifier auprès d’Azure. 
 
 Pour ajouter une ou plusieurs connexions hybrides à votre GCH :
 
 1. Démarrez l’interface utilisateur du GCH
-1. Cliquez sur Configure another hybrid connection (Configurer une autre connexion hybride) ![][8]
+1. Cliquez sur Configurer une autre connexion hybride ![Ajoutez une connexion hybride dans le GCH][8]
 
 1. Connectez-vous à votre compte Azure
 1. Sélectionnez un abonnement
-1. Cliquez sur les connexions hybrides que vous souhaitez voir relayées par ce GCH ![][9]
+1. Cliquez sur les connexions hybrides que vous souhaitez voir relayées par le GCH ![Sélectionnez une connexion hybride][9]
 
 1. Cliquez sur Enregistrer.
 
-À ce stade, vous voyez les connexions hybrides que vous avez ajoutées.  Vous pouvez également cliquer sur la connexion hybride configurée et afficher les détails la concernant.
+À ce stade, vous voyez les connexions hybrides que vous avez ajoutées.  Vous pouvez également cliquer sur la connexion hybride configurée et afficher les informations la concernant.
 
-![][10]
+![Informations sur la connexion hybride][10]
 
 Pour que le GCH puisse prendre en charge les connexions hybrides avec lesquelles il est configuré, il doit disposer de :
 
 - Accès TCP à Azure sur les ports 80 et 443
 - Accès TCP au point de terminaison de connexion hybride
-- possibilité de recherches DNS sur l’hôte du point de terminaison et l’espace de noms Service Bus Azure
+- Possibilité de recherches DNS sur l’hôte du point de terminaison et l’espace de noms Azure Service Bus
 
 Le GCH prend en charge les nouvelles connexions hybrides et les anciennes connexions hybrides BizTalk.
+
+> [!NOTE]
+> Azure Relay s’appuie sur les sockets web pour assurer la connectivité. Cette fonctionnalité est uniquement disponible sur Windows Server 2012 ou version ultérieure. C’est pourquoi le Gestionnaire de connexions hybrides n'est pas pris en charge sur les systèmes antérieurs à Windows Server 2012.
+>
 
 ### <a name="redundancy"></a>Redondance ###
 
@@ -156,26 +171,26 @@ Chaque GCH peut prendre en charge plusieurs connexions hybrides.  De plus, toute
 
 ### <a name="manually-adding-a-hybrid-connection"></a>Ajout manuel d’une connexion hybride ###
 
-Si vous souhaitez qu’un utilisateur en dehors de votre abonnement héberge une instance GCH pour une connexion hybride donnée, vous pouvez lui communiquer la chaîne de connexion de passerelle de la connexion hybride.  Vous la trouverez dans les propriétés d’une connexion hybride dans le [portail Azure][portal]. Pour utiliser cette chaîne, cliquez sur le bouton **Configurer manuellement** dans le GCH et collez la chaîne de connexion de passerelle.
+Si vous souhaitez qu’un utilisateur en dehors de votre abonnement héberge une instance GCH pour une connexion hybride donnée, vous pouvez lui communiquer la chaîne de connexion de passerelle de la connexion hybride.  Vous la trouverez dans les propriétés d’une connexion hybride dans le [portail Azure][portal]. Pour utiliser cette chaîne, cliquez sur le bouton **Saisir manuellement** dans le GCH et collez la chaîne de connexion de passerelle.
 
 
-## <a name="troubleshooting"></a>Résolution de problèmes ##
+## <a name="troubleshooting"></a>Résolution des problèmes ##
 
-Lorsque votre connexion hybride est configurée avec une application en cours d’exécution et qu’il existe au moins un GCH dans lequel cette connexion hybride est configurée, l’état **Connecté** est indiqué dans le portail.  Si l’état n’est pas **Connecté**, cela signifie que votre application est arrêtée ou que votre GCH ne peut pas se connecter à Azure sur les ports 80 ou 443.  
+L’état d’une connexion hybride signifie qu’au moins un GCH est configuré avec cette connexion hybride et qu’il est en mesure d’atteindre Azure.  Si l’état de votre connexion hybride n’indique pas **Connecté**, alors votre connexion hybride n’est configurée sur aucun GCH ayant accès à Azure.
 
 La raison principale pour laquelle les clients ne peuvent pas se connecter à leur point de terminaison est que le point de terminaison a été spécifié à l’aide d’une adresse IP au lieu d’un nom DNS.  Si votre application ne peut pas accéder au point de terminaison souhaité et que vous avez utilisé une adresse IP, utilisez un nom DNS valide sur l’hôte sur lequel le GCH est exécuté.  Vous devez également vérifier que le nom DNS est correctement résolu sur l’hôte sur lequel le GCH est exécuté et qu’il existe une connectivité entre l’hôte exécutant le GCH et le point de terminaison de connexion hybride.  
 
-Un outil dans App Service appelé tcpping peut être appelé à partir de la console.  Cet outil peut vous indiquer si vous avez accès à un point de terminaison TCP, mais ne vous dit pas si vous avez accès à un point de terminaison de connexion hybride.  Lorsqu’elle est utilisée dans la console par rapport à un point de terminaison de connexion hybride, la commande ping vous indique uniquement qu’une connexion hybride est configurée pour votre application qui utilise cette combinaison hôte:port.  
+Un outil dans App Service appelé tcpping peut être appelé à partir de la console Outils avancés (Kudu).  Cet outil peut vous indiquer si vous avez accès à un point de terminaison TCP, mais ne vous dit pas si vous avez accès à un point de terminaison de connexion hybride.  Lorsqu’elle est utilisée dans la console par rapport à un point de terminaison de connexion hybride, la commande ping vous indique uniquement qu’une connexion hybride est configurée pour votre application qui utilise cette combinaison hôte:port.  
 
 ## <a name="biztalk-hybrid-connections"></a>Connexions hybrides BizTalk ##
 
-L’ancienne fonctionnalité Connexions hybrides BizTalk a été désactivée pour ne plus permettre de créer de connexion hybride BizTalk supplémentaire.  Vous pouvez continuer à utiliser vos connexions hybrides BizTalk existantes avec vos applications, mais vous devez migrer vers le nouveau service.  Les avantages du nouveau service par rapport à la version BizTalk incluent entre autres :
+L’ancienne fonctionnalité Connexions hybrides BizTalk a été désactivée pour ne plus permettre de créer de connexion hybride BizTalk supplémentaire.  Vous pouvez continuer à utiliser vos connexions hybrides BizTalk existantes avec vos applications, mais vous devez migrer vers les nouvelles connexions hybrides utilisant Azure Relay.  Les avantages du nouveau service par rapport à la version BizTalk incluent entre autres :
 
 - aucun compte BizTalk supplémentaire n’est requis ;
 - TLS 1.2 au lieu de 1.0 comme dans les connexions hybrides BizTalk ;
 - la communication se fait sur les ports 80 et 443 à l’aide d’un nom DNS pour accéder à Azure au lieu d’adresses IP et d’une plage d’autres ports supplémentaires.  
 
-Pour ajouter une connexion hybride BizTalk à votre application, accédez à votre application dans le [portail Azure][portal], puis cliquez sur **Mise en réseau > Configurer vos points de terminaison de connexion hybride**.  Dans la table de connexions hybrides classiques, cliquez sur **Ajouter la connexion hybride classique**.  La liste de vos connexions hybrides BizTalk s’affiche alors.  
+Pour ajouter une connexion hybride BizTalk existante à votre application, accédez à votre application dans le [portail Azure][portal], puis cliquez sur **Mise en réseau > Configurer vos points de terminaison de connexion hybride**.  Dans la table de connexions hybrides classiques, cliquez sur **Ajouter la connexion hybride classique**.  La liste de vos connexions hybrides BizTalk s’affiche alors.  
 
 
 <!--Image references-->
@@ -195,4 +210,3 @@ Pour ajouter une connexion hybride BizTalk à votre application, accédez à vot
 [portal]: http://portal.azure.com/
 [oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
-

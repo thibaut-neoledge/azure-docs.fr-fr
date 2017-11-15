@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0
+# <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0
 Vous pouvez utiliser [l’octroi des informations d’identification du client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), parfois appelé *OAuth à deux branches* pour accéder à des ressources hébergées sur le web à l’aide de l’identité d’une application. Ce type d'octroi est couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l'interaction immédiate d’un utilisateur. Ces types d’application sont souvent appelés *démons* (daemons) ou *comptes de service*.
 
 > [!NOTE]
@@ -31,22 +31,22 @@ Vous pouvez utiliser [l’octroi des informations d’identification du client O
 
 Dans l’octroi *OAuth à trois branches* le plus courant, une application cliente est autorisée à accéder à une ressource pour le compte d’un utilisateur spécifique. L’autorisation est déléguée de l’utilisateur à l’application, en général, durant le processus de [consentement](active-directory-v2-scopes.md). Toutefois, dans le flux des informations d’identification du client, les autorisations sont accordées directement à l’application elle-même. Lorsque l’application présente un jeton à une ressource, la ressource impose que l’application elle-même, et non pas l'utilisateur, ait l’autorisation d’effectuer une action.
 
-## Schéma de protocole
+## <a name="protocol-diagram"></a>Schéma de protocole
 Le flux d’informations d’identification client complet est similaire à l’illustration suivante. Nous décrirons en détail chacune des étapes plus loin dans cet article.
 
 ![Flux des informations d’identification du client](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
-## Obtenir l’autorisation directe
+## <a name="get-direct-authorization"></a>Obtenir l’autorisation directe
 Une application reçoit généralement l’autorisation directe d’accéder à une ressource de deux manières : via une liste de contrôle d’accès (ACL) sur la ressource, ou via l’attribution de l’autorisation d’application dans Azure Active Directory (Azure AD). Ces deux méthodes sont les plus courantes dans Azure AD et sont recommandées pour les clients et les ressources qui exécutent le flux des informations d’identification du client. Toutefois, une ressource peut choisir d’autoriser ses clients d’autres manières. Chaque serveur de ressources peut choisir la méthode la plus logique pour son application.
 
-### Listes de contrôle d'accès
+### <a name="access-control-lists"></a>Listes de contrôle d'accès
 Un fournisseur de ressources peut appliquer une vérification d’autorisation basée sur une liste d’ID d’application qu’il connaît et octroyer un niveau d’accès spécifique. Lorsque la ressource reçoit un jeton à partir du point de terminaison v2.0, elle peut décoder le jeton et extraire l’ID d’application du client à partir des revendications `appid` et `iss`. Elle compare ensuite l’application par rapport à une liste ACL qu’elle gère. La granularité et la méthode ACL peuvent varier considérablement entre les ressources.
 
 Un cas d’utilisation typique consiste à utiliser une liste ACL afin d'exécuter des tests pour une application web ou une API Web. L’API Web peut accorder uniquement un sous-ensemble d'autorisations complètes à un client spécifique. Pour exécuter des tests de bout en bout sur l’API, créez un client de test qui acquiert des jetons à partir du point de terminaison v2.0 puis envoie ceux-ci à l’API. L’API vérifie ensuite l’ID d’application du client de test dans la liste ACL pour lui accorder un accès complet à toutes les fonctionnalités de l’API. Si vous utilisez ce type d’ACL, veillez à valider non seulement la valeur `appid` de l'appelant, mais également que la valeur `iss` du jeton approuvé.
 
 Ce type d’autorisation est courant pour les démons et les comptes de service qui doivent accéder à des données qui appartiennent à des utilisateurs avec des comptes Microsoft personnels. Pour les données appartenant à des organisations, nous vous recommandons d’acquérir l’autorisation requise via les autorisations de l’application.
 
-### Autorisations de l’application
+### <a name="application-permissions"></a>Autorisations de l’application
 Au lieu d’utiliser des listes ACL, vous pouvez utiliser l’API pour exposer un ensemble d’autorisations de l’application. Une autorisation de l’application est accordée à une application par un administrateur d’une organisation et peut uniquement être utilisée pour accéder aux données appartenant à cette organisation et ses employés. Par exemple, Microsoft Graph expose plusieurs autorisations d’application pour effectuer les opérations suivantes :
 
 * Lire les messages dans toutes les boîtes aux lettres
@@ -58,17 +58,17 @@ Pour plus d’informations sur les autorisations d’application, consultez la p
 
 Pour utiliser les autorisations d’application dans votre application, effectuez les étapes abordées dans les sections suivantes.
 
-#### Demander les autorisations dans le portail d’inscription de l’application
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Demander les autorisations dans le portail d’inscription de l’application
 1. Accédez à votre application dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou [créez une application](active-directory-v2-app-registration.md), si ce n’est déjà fait. Vous devez utiliser au moins une clé secrète d’application lorsque vous créez votre application.
 2. Recherchez la section **Autorisations directes pour les applications** puis ajoutez les autorisations dont votre application a besoin.
 3. **Enregistrez** l’inscription de l’application.
 
-#### Recommandé : connectez l’utilisateur à votre application
+#### <a name="recommended-sign-the-user-in-to-your-app"></a>Recommandé : connectez l’utilisateur à votre application
 En général, lorsque vous créez une application qui utilise des autorisations d’application, l’application doit disposer d’une page/vue qui permet à l’administrateur d’approuver les autorisations de l’application. Cette page peut faire partie du flux d’inscription de l’application, des paramètres de l’application ou d’un flux de connexion dédié. Dans de nombreux cas, il est judicieux pour l’application d’afficher la vue de « connexion » uniquement après qu’un utilisateur se soit connecté avec un compte Microsoft professionnel ou scolaire.
 
 Si vous connectez l’utilisateur à votre application vous pouvez identifier l’organisation à laquelle l’utilisateur appartient avant de lui demander d’approuver les autorisations d'application. Bien que cela ne soit pas strictement nécessaire, cela peut vous aider à créer une expérience plus intuitive pour vos utilisateurs. Pour connecter l’utilisateur, suivez nos [didacticiels sur le protocole v2.0](active-directory-v2-protocols.md).
 
-#### Demander les autorisations à un administrateur d’annuaire
+#### <a name="request-the-permissions-from-a-directory-admin"></a>Demander les autorisations à un administrateur d’annuaire
 Lorsque vous êtes prêt à demander les autorisations à l’administrateur de l'organisation, vous pouvez rediriger l’utilisateur vers le *point de terminaison de consentement de l’administrateur* v2.0.
 
 ```
@@ -97,7 +97,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 À ce stade, Azure AD impose que seul un administrateur de client peut se connecter pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations directes d’application demandées pour votre application dans le portail d’inscription des applications.
 
-##### Réponse correcte
+##### <a name="successful-response"></a>Réponse correcte
 Si l’administrateur approuve les autorisations pour votre application, la réponse correcte sera :
 
 ```
@@ -110,7 +110,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | state |Une valeur incluse dans la requête, qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | admin_consent |Défini sur **true**. |
 
-##### Réponse d’erreur
+##### <a name="error-response"></a>Réponse d’erreur
 Si l’administrateur n’approuve pas les autorisations pour votre application, la réponse d’échec ressemble à ce qui suit :
 
 ```
@@ -124,10 +124,10 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 Une fois que vous avez reçu une réponse correcte du point de terminaison de mise en service de l’application, votre application a acquis les autorisations directes d’application qu’elle avait demandées. Vous pouvez désormais demander un jeton pour la ressource que vous souhaitez.
 
-## Obtention d’un jeton
+## <a name="get-a-token"></a>Obtention d’un jeton
 Une fois que vous avez acquis l’autorisation nécessaire pour votre application, passez à l’acquisition des jetons d’accès pour les API. Pour obtenir un jeton à l’aide de l’octroi des informations d’identification du client, envoyez une demande POST au point de terminaison v2.0 `/token` :
 
-### Premier cas : demande de jeton d’accès avec un secret partagé
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : demande de jeton d’accès avec un secret partagé
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -148,7 +148,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | client_secret |Requis |La clé secrète que vous avez créée pour votre application dans le portail d’inscription des applications. |
 | grant_type |Requis |Doit être `client_credentials`. |
 
-### Deuxième cas : demande de jeton d’accès avec un certificat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : demande de jeton d’accès avec un certificat
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -168,7 +168,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-
 
 Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
 
-### Réponse correcte
+### <a name="successful-response"></a>Réponse correcte
 Une réponse correcte se présente ainsi :
 
 ```
@@ -185,7 +185,7 @@ Une réponse correcte se présente ainsi :
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est `bearer`. |
 | expires_in |La durée de validité (en secondes) du jeton d’accès. |
 
-### Réponse d’erreur
+### <a name="error-response"></a>Réponse d’erreur
 Une réponse d’erreur ressemble à ceci :
 
 ```
@@ -210,7 +210,7 @@ Une réponse d’erreur ressemble à ceci :
 | trace_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
 | correlation_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
-## Utilisation d’un jeton
+## <a name="use-a-token"></a>Utilisation d’un jeton
 Maintenant que vous avez acquis un jeton, utilisez-le pour effectuer des demandes auprès de la ressource. Lorsque le jeton expire, répétez la demande auprès du point de terminaison `/token` pour acquérir un nouveau jeton d’accès.
 
 ```
@@ -227,5 +227,5 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## Exemple de code
+## <a name="code-sample"></a>Exemple de code
 Pour voir un exemple d’application qui implémente l’octroi client_credentials à l’aide du point de terminaison de consentement de l’administrateur, consultez notre [exemple de code de démon v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

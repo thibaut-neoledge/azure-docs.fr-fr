@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Didacticiel BikeShare : Préparation de données avancée avec Azure Machine Learning Workbench
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -493,7 +493,7 @@ Sélectionnez __OK__ pour appliquer le filtre.
 
 ### <a name="remove-columns"></a>Supprimer des colonnes
 
-Dans les données de trajet, chaque ligne représente un événement de collecte de vélo. Pour ce didacticiel, vous avez uniquement besoin des colonnes **starttime** et **start station**. Supprimez les autres colonnes en sélectionnant simultanément ces deux colonnes, cliquez avec le bouton droit sur leur en-tête de colonne, puis sélectionnez **Conserver la colonne**. Les autres colonnes sont supprimées.
+Dans les données de trajet, chaque ligne représente un événement de collecte de vélo. Pour ce didacticiel, vous avez uniquement besoin des colonnes **starttime** et **start station id**. Supprimez les autres colonnes en sélectionnant simultanément ces deux colonnes, cliquez avec le bouton droit sur leur en-tête de colonne, puis sélectionnez **Conserver la colonne**. Les autres colonnes sont supprimées.
 
 ![Image de l’option Conserver la colonne](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

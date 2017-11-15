@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
 
@@ -131,18 +131,13 @@ Vous pouvez utiliser le niveau de risque de connexion calculé en tant que condi
 
 ### <a name="device-platforms"></a>Plateformes d’appareils
 
-La plateforme d’appareils se caractérise par le système d’exploitation qui s’exécute sur votre appareil :
+La plateforme d’appareil est caractérisée par le système d’exploitation exécuté sur votre appareil : vous pouvez définir les plateformes d’appareils incluses et celles qui sont exclues d’une stratégie.  
+Pour utiliser des plateformes d’appareils dans la stratégie, commencez par régler les options de configuration sur **Oui**, puis sélectionnez une, plusieurs ou l’ensemble des plateformes d’appareils auxquelles s’applique la stratégie. Si vous sélectionnez certaines plateformes d’appareils, la stratégie ne s’applique qu’à celles-ci. Dans ce cas, la stratégie est sans effet sur les connexions aux autres plateformes prises en charge.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- Mac OS (préversion). 
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
 
-Vous pouvez définir les plateformes d’appareils incluses et celles qui sont exclues d’une stratégie.  
-Pour utiliser des plateformes d’appareils dans la stratégie, commencez par régler les options de configuration sur **Oui**, puis sélectionnez une, plusieurs ou l’ensemble des plateformes d’appareils auxquelles s’applique la stratégie. Si vous sélectionnez certaines plateformes d’appareils, la stratégie ne s’applique qu’à celles-ci. Dans ce cas, la stratégie est sans effet sur les connexions aux autres plateformes prises en charge.
+Pour obtenir la liste complète des plateformes d’appareils prises en charge, consultez [Condition de plateforme d’appareil](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### <a name="locations"></a>Emplacements

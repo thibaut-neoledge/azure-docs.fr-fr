@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: jingwang
-ms.openlocfilehash: c0fd6db570a91eeb1ddcc8a0dcade009b8179f2c
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 76b44766780a730092b31a0c44396f9851dd411a
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copier des données depuis/vers Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,7 +26,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Stockage Blob Azure dans V1](v1/data-factory-azure-blob-connector.md).
 
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier et coller les données à partir de toute banque de données source prise en charge vers Stockage Blob Azure, ou de Stockage Blob Azure vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md).
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reformer un service web prédictif existant
 Ce document décrit le processus de reformation pour le scénario suivant :
@@ -86,9 +86,10 @@ Dans la section des **informations de base sur la consommation** de la page **Ut
 ### <a name="update-the-azure-storage-information"></a>Mettre à jour les informations Azure Storage
 L’exemple de code BES charge un fichier à partir d’un lecteur local (par exemple, « C:\temp\CensusInput.csv ») vers le Stockage Azure, le traite, réécrit les résultats dans le Stockage Azure.  
 
-Pour mettre à jour les informations du Stockage Azure, vous devez récupérer les informations de nom, de clé et de conteneur pour votre compte de stockage à partir du portail Azure Classic, puis mettre à jour les valeurs correspondantes dans le code. Après exécution de votre expérience, le flux de travail obtenu doit être similaire à ce qui suit :
+Pour mettre à jour les informations sur le service Stockage Azure, vous devez récupérer les informations de nom de compte, de clé et de conteneur de stockage de votre compte de stockage depuis le portail Azure Classic, puis mettre à jour les valeurs correspondantes dans le code.
+Après que vous avez exécuté cette procédure, le flux de travail obtenu doit être semblable à ce qui suit :
 
-![Flux de travail obtenu après l’exécution][4]valeurs ng dans le code 
+![Flux de travail obtenu après l’exécution][4]
 
 1. Connectez-vous à la version classique du portail Azure.
 2. Dans la colonne de navigation de gauche, cliquez sur **Stockage**.
@@ -119,7 +120,9 @@ Lorsque vous spécifiez l’emplacement de sortie dans la Charge utile des deman
             }
         },
 
-Voici un exemple de sortie de reformation : ![Sortie de reformation][6]
+Voici un exemple de sortie de reformation :
+
+![Sortie du nouvel apprentissage.][6]
 
 ## <a name="evaluate-the-retraining-results"></a>Évaluer les résultats de la reformation
 Lorsque vous exécutez l’application, la sortie inclut l’URL et le jeton de signature d’accès partagé (SAP) nécessaires pour accéder aux résultats de l’évaluation.

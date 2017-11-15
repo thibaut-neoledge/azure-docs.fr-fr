@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 6d28b82f892ac88c32ab3e04df19143d69a5a05b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copier des données depuis/vers HDFS à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur HDFS dans V1](v1/data-factory-hdfs-connector.md).
 
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier les données depuis HDFS vers tout magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs pour l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -67,11 +67,9 @@ Les propriétés prises en charge pour le service lié HDFS sont les suivantes 
 ```json
 {
     "name": "HDFSLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Hdfs",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "authenticationType": "Anonymous",
             "userName": "hadoop"
@@ -89,11 +87,9 @@ Les propriétés prises en charge pour le service lié HDFS sont les suivantes 
 ```json
 {
     "name": "HDFSLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Hdfs",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "authenticationType": "Windows",
             "userName": "<username>@<domain>.com (for Kerberos auth)",
@@ -388,4 +384,4 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Référence technique de Azure Active Directory Conditional Access
 
@@ -82,11 +82,7 @@ Outre les applications cloud Microsoft, vous pouvez affecter une stratégie d’
 
 ## <a name="device-platform-condition"></a>Condition de plateforme d’appareil
 
-Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition de plateforme d’appareil pour lier la stratégie au système d’exploitation d’un client.
-
-![Lier la stratégie d’accès au système d’exploitation client](./media/active-directory-conditional-access-technical-reference/41.png)
-
-L’accès conditionnel Azure AD prend en charge les plateformes suivantes :
+Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition de plateforme d’appareil pour lier la stratégie au système d’exploitation d’un client. L’accès conditionnel Azure AD prend en charge les plateformes suivantes :
 
 - Android
 
@@ -96,7 +92,12 @@ L’accès conditionnel Azure AD prend en charge les plateformes suivantes :
 
 - Windows
 
-- Mac OS (préversion)
+- macOS
+
+
+![Lier la stratégie d’accès au système d’exploitation client](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -131,11 +132,11 @@ Dans une stratégie d’accès conditionnel, les navigateurs suivants sont pris 
 | Windows Server 2016    | Chrome                      | Bientôt disponible |
 | Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Vérification][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Vérification][1] |
-| macOS                  | Safari                      | ![Vérification][1] |
-| macOS                  | Chrome                      | Bientôt disponible |
+| macOS                  | Chrome, Safari              | ![Vérification][1] |
+
 
 > [!NOTE]
-> La prise en charge de Chrome nécessite l’installation de la mise à jour Creators Update (version 1703) de Windows 10 ou d’une version ultérieure.<br>
+> La prise en charge de Chrome nécessite l’installation de Windows 10 Creators Update (version 1703) ou version ultérieure.<br>
 > Vous pouvez installer [cette extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Applications mobiles et clients de bureau pris en charge
@@ -153,7 +154,7 @@ Les applications mobiles et clients de bureau suivants prennent en charge l’ac
 | Application Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, Android|
 | Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)| Office 365 Exchange Online| Windows 10|
 | Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications| Android et iOS|
-| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS et Android|
+| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS|
 | Applications Office 2016, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
 | Applications Office 2016, applications Universal Office, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office et de l’application SharePoint| Office 365 SharePoint Online| Windows 10|
 | Office 2016 pour Mac OS (Word, Excel, PowerPoint, OneNote uniquement). Prise en charge de OneDrive Entreprise prévue| Office 365 SharePoint Online| Mac OS X|
@@ -165,6 +166,7 @@ Les applications mobiles et clients de bureau suivants prennent en charge l’ac
 | Application PowerBI. L’application Power BI pour Android ne prend pas en charge actuellement l’accès conditionnel en fonction de l’appareil.| Service PowerBI| Windows 10, Windows 8.1, Windows 7 et iOS|
 | Skype Entreprise| Office 365 Exchange Online| Android, IOS|
 | Application Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, Android|
+
 
 
 

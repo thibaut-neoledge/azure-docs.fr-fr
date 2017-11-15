@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Créer une API sans serveur à l’aide d’Azure Functions
 
@@ -61,7 +61,8 @@ Ensuite, testez votre fonction pour observer son fonctionnement avec la nouvelle
 1. Revenez à la page de développement en cliquant sur le nom de la fonction dans la barre de navigation gauche.
 1. Cliquez sur **Récupérer l’URL de la fonction** et copiez l’URL. Normalement, elle utilise maintenant l’itinéraire `/api/hello`.
 1. Copiez l’URL dans un nouvel onglet du navigateur ou dans le client REST de votre choix. Les navigateurs utilisent GET par défaut.
-1. Exécutez la fonction et vérifiez qu’elle fonctionne. Vous devrez peut-être fournir le paramètre « name » comme chaîne de requête par conformité au code de démarrage rapide.
+1. Ajoutez des paramètres à la chaîne de requête dans votre URL, par exemple `/api/hello/?name=John`.
+1. Appuyez sur Entrée pour vérifier qu’elle fonctionne. La réponse « *Hello John* » doit s’afficher.
 1. Vous pouvez également essayer d’appeler le point de terminaison avec une autre méthode HTTP pour vérifier que la fonction n’est pas exécutée. Pour cela, vous devrez utiliser un client REST, par exemple cURL, Postman ou Fiddler.
 
 ## <a name="proxies-overview"></a>Vue d’ensemble des proxys
@@ -85,9 +86,8 @@ Dans cette section, vous allez créer un proxy qui sert de frontend à votre API
 Répétez les étapes de la page [Créer une application de fonction](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) pour créer une application de fonction dans laquelle vous allez créer votre proxy. L’URL de cette nouvelle application servira de frontend à notre API et l’application de fonction que vous avez modifiée précédemment servira de backend.
 
 1. Accédez à votre nouvelle application de fonction frontend sur le portail.
-1. Sélectionnez **Paramètres**. Définissez **Activer les proxys Azure Functions (préversion)** sur « Activé ».
-1. Sélectionnez **Paramètres de la plateforme** et choisissez **Paramètres de l’application**.
-1. Faites défiler jusqu’à **Paramètres de l’application** et créez un nouveau paramètre avec la clé « HELLO_HOST ». Donnez-lui comme valeur l’hôte de votre application de fonction backend, par exemple `<YourBackendApp>.azurewebsites.net`. Il s’agit d’une partie de l’URL que vous avez copiée au moment de tester votre fonction HTTP. Vous ferez référence à ce paramètre plus tard dans la configuration.
+1. Sélectionnez **Fonctionnalités de la plateforme** et choisissez **Paramètres de l’application**.
+1. Faites défiler jusqu’à **Paramètres de l’application** où les paires clé/valeur sont stockées, puis créez un paramètre avec la clé « HELLO_HOST ». Donnez-lui comme valeur l’hôte de votre application de fonction backend, par exemple `<YourBackendApp>.azurewebsites.net`. Il s’agit d’une partie de l’URL que vous avez copiée au moment de tester votre fonction HTTP. Vous ferez référence à ce paramètre plus tard dans la configuration.
 
     > [!NOTE] 
     > Les paramètres de l’application sont recommandés pour la configuration d’hôte afin d’éviter une dépendance à l’environnement codé en dur pour le proxy. Grâce à eux, vous pouvez déplacer la configuration du proxy d’un environnement à l’autre, et les paramètres de l’application propres à l’environnement s’appliqueront.
@@ -120,7 +120,7 @@ Répétez les étapes de la page [Créer une application de fonction](https://do
 
 Maintenant, vous allez utiliser un proxy pour créer une API factice pour votre solution. Cela permet au développement client de progresser, sans que le serveur principal soit nécessairement implémenté dans sa totalité. Dans la suite du développement, vous pourrez créer une nouvelle application de fonction qui prenne en charge cette logique et y redirige votre proxy.
 
-Pour créer cette API fictive, nous allons créer un nouveau proxy, cette fois en utilisant [l’Éditeur App Service](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Pour commencer, accédez à votre application de fonction sur le portail. Sélectionnez **Fonctionnalités de la plateforme** et **Éditeur App Service**. L’éditeur App Service s’ouvre dans un nouvel onglet.
+Pour créer cette API fictive, nous allons créer un nouveau proxy, cette fois en utilisant [l’Éditeur App Service](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Pour commencer, accédez à votre application de fonction sur le portail. Sélectionnez **Fonctionnalités de la plateforme**, puis, sous **Outils de développement**, recherchez **Éditeur App Service**. L’éditeur App Service s’ouvre dans un nouvel onglet.
 
 Sélectionnez `proxies.json` dans la barre de navigation gauche. Il s’agit du fichier qui stocke la configuration de tous vos proxys. Si vous utilisez l’une des [méthodes de déploiement de Functions](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), c’est le fichier que vous maintiendrez dans le contrôle de code source. Pour en savoir plus sur ce fichier, consultez la page [Configuration avancée des proxys](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
@@ -178,7 +178,7 @@ Vous allez maintenant ajouter votre API factice. Remplacez votre fichier proxies
 
 Cela ajoute un nouveau proxy, « GetUserByName », sans la propriété backendUri. Au lieu d’appeler une autre ressource, il modifie la réponse par défaut des proxys par substitution de réponse. Les substitutions de demandes et de réponses peuvent également être utilisées en association avec une URL principale. C’est particulièrement utile pour la redirection via proxy vers un système hérité, où vous devrez peut-être modifier les en-têtes, interroger des paramètres, etc. Pour en savoir plus sur les substitutions de demandes et de réponses, consultez la page [Modifier les demandes et les réponses dans les proxys](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
 
-Testez votre API factice en appelant le point de terminaison `/api/users/{username}` à l’aide d’un navigateur ou du client REST de votre choix. Veillez à remplacer _{username}_ par une valeur de chaîne représentant un nom d’utilisateur.
+Testez votre API factice en appelant le point de terminaison `<YourProxyApp>.azurewebsites.net/api/users/{username}` à l’aide d’un navigateur ou du client REST de votre choix. Veillez à remplacer _{username}_ par une valeur de chaîne représentant un nom d’utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

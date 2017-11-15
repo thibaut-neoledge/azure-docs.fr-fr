@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: d8e2f8fc19ff879e6a7b632f033fd0ed9d77392a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca5105ff8ec45e703a3fb8e0cbb8666eb0b2c38e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Comment obtenir une certification AppSource pour Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) est une destination pour les utilisateurs professionnels permettant de découvrir, d’essayer et de gérer des applications SaaS métier (applications SaaS autonomes et module complémentaire pour des produits SaaS Microsoft existant).
@@ -108,9 +108,9 @@ Pour plus d’informations sur l’expérience d’essai gratuit AppSource, rega
 
 
 ## <a name="get-support"></a>Obtenir de l’aide
-Pour l’intégration Azure Active Directory, nous utilisons [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) avec la communauté pour proposer de l’aide. 
+Pour l’intégration Azure Active Directory, nous utilisons [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) avec la communauté pour proposer de l’aide. 
 
-Nous vous recommandons vivement de poser vos questions sur Stack Overflow d’abord et de parcourir les problèmes existants pour voir si quelqu’un d’autre a déjà posé la même question. Vérifiez que vos questions ou commentaires portent la mention `[azure-active-directory]`.
+Nous vous recommandons vivement de poser vos questions sur Stack Overflow d’abord et de parcourir les problèmes existants pour voir si quelqu’un d’autre a déjà posé la même question. Assurez-vous que vos questions ou commentaires portent les mentions [`[azure-active-directory]` et `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
 

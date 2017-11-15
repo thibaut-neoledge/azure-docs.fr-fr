@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 15e6127d419bb41f1b146aff147c43dce2233d8d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: dc8a94e998b36331a6a42253a68b43d76be6657c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Créer son premier conteneur dans Azure Container Instances
-
 Azure Container Instances facilite la création et la gestion de conteneurs Docker dans Azure, sans avoir à approvisionner les machines virtuelles ou à adopter un service de niveau supérieur. Dans ce guide de démarrage rapide, vous créez un conteneur dans Azure et l’exposez sur internet avec une adresse IP publique. Cette opération s’effectue en une seule commande. En l’espace de quelques secondes, ceci s’affiche dans votre navigateur :
 
 ![L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur][aci-app-browser]
@@ -33,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.12 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour procéder à ce démarrage rapide. Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite que vous exécutiez la version 2.0.20 minimum d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -49,13 +48,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Vous pouvez créer un conteneur en attribuant un nom, une image Docker ainsi qu’un groupe de ressources Azure à la commande [az container create][az-container-create]. Si vous le souhaitez, vous pouvez exposer le conteneur sur internet avec une adresse IP publique. Dans ce cas, nous utilisons un conteneur qui héberge une application web basique écrite dans [Node.js](http://nodejs.org).
+Vous pouvez créer un conteneur en attribuant un nom, une image Docker ainsi qu’un groupe de ressources Azure à la commande [az container create][az-container-create]. Si vous le souhaitez, vous pouvez exposer le conteneur sur internet avec une adresse IP publique. Dans ce démarrage rapide, vous déployez un conteneur qui héberge une petite application web écrite sur la plateforme [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
-Après quelques secondes, vous obtenez une réponse à votre requête. Au début, le conteneur aura le statut **En cours de création**, mais démarrera après quelques secondes. Vous pouvez vérifier le statut à l’aide de la commande [az container show][az-container-show] :
+Après quelques secondes, vous obtenez une réponse à votre requête. Initialement, le conteneur est défini sur l’état **En cours de création**, mais il doit démarrer après quelques secondes. Vous pouvez vérifier le statut à l’aide de la commande [az container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -66,7 +65,7 @@ En bas de la sortie, vous verrez le statut de la configuration et l’adresse IP
 ```json
 ...
 "ipAddress": {
-      "ip": "13.88.8.148",
+      "ip": "13.88.176.27",
       "ports": [
         {
           "port": 80,
@@ -107,6 +106,14 @@ Lorsque vous avez fini d’utiliser le conteneur, vous pouvez le supprimer à l�
 az container delete --name mycontainer --resource-group myResourceGroup
 ```
 
+Pour vérifier que le conteneur a été supprimé, exécutez la commande [az container list](/cli/azure/container#az_container_list) :
+
+```azurecli-interactive
+az container list --resource-group myResourceGroup -o table
+```
+
+Le conteneur **mycontainer** ne doit pas apparaître dans la sortie de la commande. Si vous ne disposez d’aucun autre conteneur dans le groupe de ressources, aucune sortie ne s’affiche.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Les codes pour le conteneur et le fichier Dockerfile utilisés dans ce guide de démarrage rapide sont disponibles [sur GitHub][app-github-repo]. Si vous voulez essayer de le créer et de le déployer dans Azure Container Instances à l’aide d’Azure Container Registry, veuillez vous référer au didacticiel sur Azure Container Instances.
@@ -114,7 +121,7 @@ Les codes pour le conteneur et le fichier Dockerfile utilisés dans ce guide de 
 > [!div class="nextstepaction"]
 > [Didacticiels Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Pour tester les options d’exécution des conteneurs dans un système d’orchestration sur Azure, consultez les démarrages rapides [Service Fabric][service-fabric] ou [Azure Container Service (ACS)][container-service].  
+Pour tester les options d’exécution des conteneurs dans un système d’orchestration sur Azure, consultez les démarrages rapides [Service Fabric][service-fabric] ou [Azure Container Service (ACS)][container-service].
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

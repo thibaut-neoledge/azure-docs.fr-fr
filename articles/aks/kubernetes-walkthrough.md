@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: a25f91d092c2f72ea1cbc174d1bf8bf48885788a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 89d469b330644b8f5b82a343ea4408d5b8d10b12
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Déployer un cluster Azure Container Service (ACS)
 
@@ -77,7 +77,7 @@ L’exemple suivant crée un cluster à un nœud nommé *myK8sCluster*.
 az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
 ```
 
-Au bout de quelques minutes, la commande se termine et retourne des informations formatées Json sur le cluster.
+Au bout de quelques minutes, la commande se termine et retourne des informations formatées JSON sur le cluster.
 
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 
@@ -93,7 +93,7 @@ az aks install-cli
 Pour configurer kubectl afin qu’il se connecte à votre cluster Kubernetes, exécutez la commande suivante. Cette étape télécharge les informations d’identification et configure l’interface de ligne de commande Kubernetes pour leur utilisation.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
 ```
 
 Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) pour retourner une liste des nœuds du cluster.
@@ -113,7 +113,7 @@ k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 
 Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, incluant les images conteneur à exécuter. Dans cet exemple, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote.
 
-Créez un fichier nommé `azure-vote.yml` et copiez-y le YAML suivant. Si vous travaillez dans Azure Cloud Shell, vous pouvez créer ce fichier à l’aide de vi ou de Nano comme si vous travailliez sur un système virtuel ou physique.
+Créez un fichier nommé `azure-vote.yml` et copiez-y le code YAML suivant. Si vous travaillez dans Azure Cloud Shell, vous pouvez créer ce fichier à l’aide de vi ou de Nano comme si vous travailliez sur un système virtuel ou physique.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,7 +211,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 Une fois que l’adresse *EXTERNAL-IP* est passée du statut *En attente* à *Adresse IP*, utilisez `CTRL-C` pour arrêter le processus de surveillance kubectl.
 
 ```
-azure-vote-front   LoadBalancer   10.0.37.27   52.175.236.185   80:30572/TCP   2m
+azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 Vous pouvez désormais accéder à l’adresse IP externe pour voir l’application Azure Vote.

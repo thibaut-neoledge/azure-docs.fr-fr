@@ -4,23 +4,26 @@ description: "L’API Recherche de journal Log Analytics permet aux clients d’
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Récupérer des données à partir de Log Analytics via un script Python
 [L’API Recherche de journal Log Analytics](log-analytics-log-search-api.md) permet aux clients d’API REST de récupérer des données à partir d’un espace de travail Log Analytics.  Cet article présente un exemple de script Python qui utilise l’API Recherche de journal Log Analytics.  
+
+>[!NOTE]
+> Cet article utilise l’API Recherche de journal pour le langage de requête hérité de Log Analytics.  Une mise à jour sera apportée à cet article pour les espaces de travail qui ont été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md).
 
 ## <a name="authentication"></a>Authentification
 Ce script utilise un principal de service dans Azure Active Directory pour s’authentifier auprès de l’espace de travail.  Les principaux de service permettent à une application cliente de demander à ce que le service authentifie un compte même si le client n’a pas le nom du compte. Avant d’exécuter ce script, vous devez créer un principal de service à l’aide du processus indiqué dans [Utiliser le portail pour créer une application et un principal de service Azure Active Directory pouvant accéder aux ressources](../azure-resource-manager/resource-group-create-service-principal-portal.md).  Vous devrez fournir l’ID d’application, l’ID de locataire et la clé d’authentification pour le script. 

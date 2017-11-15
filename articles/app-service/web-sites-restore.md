@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 79d4084deb6d8c028918690c339c21c720e63594
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Restauration d'une application dans Azure App Service
-Cet article vous explique comment restaurer une application dans [Azure App Service](../app-service/app-service-web-overview.md) que vous avez précédemment sauvegardée (voir [Sauvegarde de votre application dans Azure](web-sites-backup.md)). Vous pouvez restaurer votre application avec ses bases de données liées à la demande à un état antérieur ou créer une application à partir de la sauvegarde de votre application d’origine. Azure App Service prend en charge les bases de données suivantes pour la sauvegarde et restauration :
+Cet article vous explique comment restaurer une application dans [Azure App Service](../app-service/app-service-web-overview.md) que vous avez précédemment sauvegardée (voir [Sauvegarde de votre application dans Azure](web-sites-backup.md)). Vous pouvez restaurer votre application avec ses bases de données liées à la demande à un état antérieur ou créer une application à partir de l’une des sauvegardes de votre application d’origine. Azure App Service prend en charge les bases de données suivantes pour la sauvegarde et restauration :
 - [Base de données SQL](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Azure Database pour MySQL (Version préliminaire)](https://azure.microsoft.com/en-us/services/mysql)
 - [Azure Database pour PostgreSQL (Version préliminaire)](https://azure.microsoft.com/en-us/services/postgres)
@@ -33,10 +33,10 @@ La restauration à partir de sauvegardes est disponible pour des applications ex
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Restauration d’une application à partir d’une sauvegarde existante
-1. Dans le panneau **Paramètres** de votre application dans le portail Azure, cliquez sur **Sauvegardes** pour afficher le panneau **Sauvegardes**. Cliquez ensuite sur **Restaurer**.
+1. Dans la page **Paramètres** de votre application dans le portail Azure, cliquez sur **Sauvegardes** pour afficher la page **Sauvegardes**. Cliquez ensuite sur **Restaurer**.
    
     ![Sélectionner Restaurer maintenant][ChooseRestoreNow]
-2. Dans le panneau **Restaurer** , sélectionnez tout d'abord la source de la sauvegarde.
+2. Dans la page **Restaurer**, sélectionnez tout d’abord la source de la sauvegarde.
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
@@ -59,9 +59,9 @@ La restauration à partir de sauvegardes est disponible pour des applications ex
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Télécharger ou supprimer une sauvegarde à partir d’un compte de stockage
-1. Dans le panneau **Parcourir** principal du portail Azure, sélectionnez **Comptes de stockage**. La liste de vos comptes de stockage existants s’affiche.
-2. Sélectionnez le compte de stockage contenant la sauvegarde que vous souhaitez télécharger ou supprimer. Le panneau du compte de stockage s’affiche.
-3. Dans le panneau du compte de stockage, sélectionnez le conteneur que vous souhaitez.
+1. Dans la page **Parcourir** principale du portail Azure, sélectionnez **Comptes de stockage**. La liste de vos comptes de stockage existants s’affiche.
+2. Sélectionnez le compte de stockage contenant la sauvegarde que vous souhaitez télécharger ou supprimer. La page du compte de stockage s’affiche.
+3. Dans la page du compte de stockage, sélectionnez le conteneur souhaité.
    
     ![Afficher les conteneurs][ViewContainers]
 4. Sélectionnez le fichier de sauvegarde à télécharger ou à supprimer.
@@ -72,12 +72,21 @@ La restauration à partir de sauvegardes est disponible pour des applications ex
 <a name="OperationLogs"></a>
 
 ## <a name="monitor-a-restore-operation"></a>Surveillance d’une opération de restauration
-Pour afficher les détails concernant la réussite ou l’échec de l’opération de restauration de l’application, naviguez jusqu’au panneau **Journal d’activité** dans le portail Azure.  
+Pour afficher les détails concernant la réussite ou l’échec de l’opération de restauration de l’application, accédez à la page **Journal d’activité** dans le portail Azure.  
  
 
 Faites défiler la liste pour trouver l’opération de restauration souhaitée et cliquez dessus.
 
-Le panneau de détails affiche les informations disponibles relatives à l’opération de restauration.
+La page de détails affiche les informations disponibles concernant l’opération de restauration.
+
+## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
+
+Vous pouvez automatiser la gestion des sauvegardes à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).
+
+Pour obtenir des exemples, consultez :
+
+- [Exemples d’interface de ligne de commande Azure](app-service-cli-samples.md)
+- [Exemples Azure PowerShell](app-service-powershell-samples.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

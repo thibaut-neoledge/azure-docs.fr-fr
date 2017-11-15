@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 041847f2f341528c742d127f5d624e60c26e01fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6047528b56c220a410a602422604c1453024903
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
-La fonctionnalité de sauvegarde et de restauration d’[Azure App Service](app-service-web-overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
+La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](app-service-web-overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
 
 Pour plus d’informations sur la restauration d’une application à partir d’une sauvegarde, consultez [Restauration d’une application dans Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 
 ## <a name="what-gets-backed-up"></a>Éléments sauvegardés
-App Service peut sauvegarder les informations suivantes sur un compte de stockage Azure et un conteneur que votre application à été configurée pour utiliser. 
+App Service peut sauvegarder les informations suivantes dans un compte de stockage Azure et un conteneur pour l’utilisation desquels votre application a été configurée. 
 
 * la configuration d’une application ;
 * le contenu d’un fichier ;
@@ -57,46 +57,46 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Création d’une sauvegarde manuelle
-1. Sur le [Portail Azure](https://portal.azure.com), accédez au panneau de votre application et sélectionnez **Sauvegardes**. Le panneau **Sauvegardes** s’affiche.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à la page de votre application, puis sélectionnez **Sauvegardes**. La page **Sauvegardes** s’affiche.
    
     ![Page Sauvegardes][ChooseBackupsPage]
    
    > [!NOTE]
-   > Si le message ci-dessous s’affiche, cliquez dessus pour mettre à niveau votre plan App Service avant de pouvoir poursuivre avec les sauvegardes.
-   > Consultez la page [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md) pour plus d’informations.  
+   > Si le message suivant s’affiche, cliquez dessus pour mettre à niveau votre plan App Service avant de pouvoir poursuivre les sauvegardes.
+   > Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](web-sites-scale.md).  
    > ![Sélection d'un compte de stockage](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. Dans le panneau **Sauvegarde**, cliquez sur **Configurer**
-![Cliquer sur Configurer](./media/web-sites-backup/ClickConfigure1.png).
-3. Dans le panneau **Configuration de la sauvegarde**, cliquez sur **Stockage : Non configuré** pour configurer un compte de stockage.
+2. Dans la page **Sauvegarde**, cliquez sur **Configurer**.
+![Cliquer sur Configurer](./media/web-sites-backup/ClickConfigure1.png)
+3. Dans la page **Configuration de la sauvegarde**, cliquez sur **Stockage : Non configuré** pour configurer un compte de stockage.
    
     ![Sélection d'un compte de stockage][ChooseStorageAccount]
-4. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
+4. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les pages respectives. Quand vous avez terminé, cliquez sur **Sélectionner**.
    
     ![Sélection d'un compte de stockage](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. Dans le panneau **Configuration de la sauvegarde**, toujours ouvert, vous pouvez configurer **Base de données de sauvegarde**, puis sélectionner les bases de données que vous souhaitez inclure dans les sauvegardes (base de données SQL ou MySQL) et enfin cliquer sur **OK**.  
+5. Dans la page **Configuration de la sauvegarde** toujours ouverte, vous pouvez configurer **Base de données de sauvegarde**, sélectionner les bases de données que vous souhaitez inclure dans les sauvegardes (base de données SQL ou MySQL), puis cliquer sur **OK**.  
    
     ![Sélection d'un compte de stockage](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Pour qu’une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** du panneau **Paramètres d’application** de votre application.
+   > Pour qu’une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** de la page **Paramètres d’application** de votre application.
    > 
    > 
-6. Dans le panneau **Configuration de la sauvegarde**, cliquez sur **Enregistrer**.    
-7. Dans le panneau **Sauvegardes**, cliquez sur **Sauvegarde**.
+6. Dans la page **Configuration de la sauvegarde**, cliquez sur **Enregistrer**.    
+7. Dans la page **Sauvegardes**, cliquez sur **Sauvegarde**.
    
     ![Bouton Backup Now][BackUpNow]
    
     Un message de progression s’affiche au cours du processus de sauvegarde.
 
-Une fois que le compte de stockage et le conteneur configurés, vous pouvez lancer une sauvegarde manuelle à tout moment.  
+Une fois le compte de stockage et le conteneur configurés, vous pouvez lancer une sauvegarde manuelle à tout moment.  
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Configuration de sauvegardes automatisées
-1. Dans le panneau **Configuration de la sauvegarde**, **activez** la **Sauvegarde planifiée**. 
+1. Dans la page **Configuration de la sauvegarde**, **activez** la **Sauvegarde planifiée**. 
    
     ![Sélection d'un compte de stockage](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Les options de planification de la sauvegarde apparaissent : **activez** la **Sauvegarde planifiée**, puis configurez la planification de sauvegarde comme vous le souhaitez et cliquez sur **OK**.
@@ -109,7 +109,7 @@ Une fois que le compte de stockage et le conteneur configurés, vous pouvez lanc
 Parfois, vous ne souhaitez pas sauvegarder tout le contenu de votre application. Voici quelques exemples :
 
 * Vous [configurez une sauvegarde hebdomadaire](web-sites-backup.md#configure-automated-backups) de votre application qui contient du contenu statique qui ne change jamais, comme des anciens billets de blog ou des images.
-* Votre application a plus de 10 Go de contenu (qui est la quantité maximale que vous pouvez sauvegarder à la fois).
+* Votre application contient plus de 10 Go de données (quantité maximale que vous pouvez sauvegarder à la fois).
 * Vous ne souhaitez pas sauvegarder les fichiers journaux.
 
 Les sauvegardes partielles vous permettent de choisir exactement les fichiers à sauvegarder.
@@ -146,14 +146,23 @@ Exécutez des sauvegardes comme vous le faites normalement, [manuellement](#crea
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Mode de stockage des sauvegardes
-Dès lors que vous avez effectué une ou plusieurs sauvegardes de votre application, celles-ci apparaissent dans le panneau **Conteneurs** de votre compte de stockage, et votre application. Dans le compte de stockage, chaque sauvegarde se compose d’un fichier `.zip` et d’un fichier `.xml` contenant respectivement les données sauvegardées et un manifeste du contenu du fichier `.zip`. Vous pouvez décompresser et parcourir ces fichiers si vous souhaitez accéder à vos sauvegardes sans réellement effectuer une restauration d'application.
+Dès que vous avez effectué une ou plusieurs sauvegardes de votre application, celles-ci apparaissent dans la page **Conteneurs** de votre compte de stockage et dans votre application. Dans le compte de stockage, chaque sauvegarde se compose d’un fichier `.zip` et d’un fichier `.xml` contenant respectivement les données sauvegardées et un manifeste du contenu du fichier `.zip`. Vous pouvez décompresser et parcourir ces fichiers si vous souhaitez accéder à vos sauvegardes sans réellement effectuer une restauration d'application.
 
-La sauvegarde de base de données pour l’application est stockée dans la racine du fichier .zip. Pour une base de données SQL, il s'agit d'un fichier BACPAC (pas d'extension de fichier) qui peut être importé. Pour créer une base de données SQL en fonction de l’exportation de BACPAC, consultez [Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur](http://technet.microsoft.com/library/hh710052.aspx).
+La sauvegarde de base de données pour l'application est stockée dans la racine du fichier .zip. Pour une base de données SQL, il s'agit d'un fichier BACPAC (pas d'extension de fichier) qui peut être importé. Pour créer une base de données SQL en fonction de l’exportation de BACPAC, consultez [Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
 > Toute modification apportée aux fichiers de votre conteneur **websitebackups** peut invalider la sauvegarde et la rendre impossible à restaurer.
 > 
 > 
+
+## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
+
+Vous pouvez automatiser la gestion des sauvegardes à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).
+
+Pour obtenir des exemples, consultez :
+
+- [Exemples d’interface de ligne de commande Azure](app-service-cli-samples.md)
+- [Exemples Azure PowerShell](app-service-powershell-samples.md)
 
 <a name="nextsteps"></a>
 

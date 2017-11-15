@@ -14,17 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 995a1f37a3fd68b39c14a95d46109c0f7814018d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e32723cd3ef13829890a630f4bff308164e17674
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="advisor-performance-recommendations"></a>Recommandations Azure Advisor en matière de performances
 
 Les recommandations d’Azure Advisor en matière de performances vous aident à optimiser la vitesse et la réactivité de vos applications stratégiques. Vous pouvez obtenir des recommandations en matière de performances à l’aide d’Advisor dans l’onglet **Performances** du tableau de bord d’Advisor.
-
-![Onglet Performances du conseiller](./media/advisor-performance-recommendations/advisor-performance-tab.png)
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Améliorer les performances de base de données avec SQL DB Advisor
 
@@ -34,8 +32,6 @@ Le conseiller vous offre une vue cohérente et consolidée des recommandations p
 > Pour obtenir des recommandations, une base de données doit avoir été utilisée pendant environ une semaine et avoir fait l’objet d’une activité cohérente au cours de cette semaine. SQL Database Advisor peut plus facilement optimiser les modèles de requête cohérents que les pics d’activité aléatoires.
 
 Pour plus d’informations sur SQL Database Advisor, consultez la page [SQL Database Advisor](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
-
-![Recommandations SQL Database](./media/advisor-performance-recommendations/advisor-performance-sql.png)
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>Améliorer la fiabilité et les performances du Cache Redis
 
@@ -49,23 +45,12 @@ Le conseiller Azure intègre des recommandations quant aux meilleures pratiques 
 * Détection des instances où la colocalisation de ressources telles que les applications web et les bases de données peut améliorer les performances et réduire les coûts. 
 
 Pour plus d’informations sur les recommandations App Services, consultez [Meilleures pratiques pour Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
-![Recommandations App Services](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans le conseiller
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Dans le volet gauche, cliquez sur **Autres services**.
-
-3. Dans le volet du menu de services, sous **Surveillance et gestion**, cliquez sur **Azure Advisor**.  
- Le tableau de bord Advisor s’affiche.
-
-4. Dans le tableau de bord Advisor, cliquez sur l’onglet **Performances**.
-
-5. Sélectionnez l’abonnement pour lequel vous souhaitez recevoir des recommandations, puis cliquez sur **Obtenir des recommandations**.
-
-> [!NOTE]
-> Pour accéder aux recommandations d’Advisor, vous devez d’abord *inscrire votre abonnement*  auprès d’Advisor. L’abonnement est inscrit lorsque son *propriétaire* lance le tableau de bord Advisor, puis clique sur le bouton **Obtenir des recommandations**. Cette opération ne doit être *exécutée qu’une seule fois*. Une fois l’abonnement inscrit, vous pouvez accéder aux recommandations d’Advisor en tant que *propriétaire*, *collaborateur* ou *lecteur* d’un abonnement, d’un groupe de ressources ou d’une ressource spécifique.
+2.  Dans le tableau de bord Advisor, cliquez sur l’onglet **Performances**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

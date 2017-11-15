@@ -14,76 +14,119 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="get-started-with-azure-advisor"></a>Prise en main d’Azure Advisor
 
-Découvrez comment accéder à Advisor à l’aide du portail Azure, et comment obtenir, implémenter, rechercher et actualiser des recommandations.
+Découvrez comment accéder à Advisor à l’aide du portail Azure, obtenir des recommandations et implémenter ces dernières.
 
 ## <a name="get-advisor-recommendations"></a>Obtenir des recommandations du conseiller
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le volet gauche, cliquez sur **Autres services**.
-
-3. Dans le volet du menu de services, sous **Surveillance et gestion**, cliquez sur **Azure Advisor**.  
+2. Dans le volet gauche, cliquez sur **Advisor**.  Si vous ne voyez pas Advisor dans le volet gauche, cliquez sur **Autres services**.  Dans le volet du menu de services, sous **Surveillance et gestion**, cliquez sur **Advisor**.
  Le tableau de bord Advisor s’affiche.
 
-   ![Accéder au conseiller Azure avec le portail Azure](./media/advisor-overview/advisor-azure-portal-menu.png) 
+   ![Accéder au conseiller Azure avec le portail Azure](./media/advisor-get-started/advisor-portal-menu.png) 
 
-4. Dans le tableau de bord d’Advisor, sélectionnez l’abonnement pour lequel vous souhaitez recevoir des recommandations.  
-Le tableau de bord du conseiller affiche des recommandations personnalisées pour un abonnement sélectionné. 
+4. Le tableau de bord Advisor présente un résumé de vos recommandations pour tous les abonnements sélectionnés.  Vous pouvez choisir les abonnements pour lesquels afficher les recommandations à l’aide de la liste déroulante de filtrage des abonnements.
 
-5. Pour obtenir des recommandations pour une catégorie particulière, cliquez sur l’un des onglets **Haute disponibilité**, **Sécurité**, **Performances** ou **Coût**.
+5. Pour obtenir des recommandations pour une catégorie spécifique, cliquez sur l’onglet **Haute disponibilité**, **Sécurité**, **Performances** ou **Coût**.
  
 > [!NOTE]
-> Pour accéder aux recommandations d’Advisor, vous devez d’abord *inscrire votre abonnement*  auprès d’Advisor. L’abonnement est inscrit lorsque son *propriétaire* lance le tableau de bord Advisor, puis clique sur le bouton **Obtenir des recommandations**. Cette opération ne doit être *exécutée qu’une seule fois*. Une fois l’abonnement inscrit, vous pouvez accéder aux recommandations d’Advisor en tant que *propriétaire*, *collaborateur* ou *lecteur* d’un abonnement, d’un groupe de ressources ou d’une ressource spécifique.
+> Pour utiliser Azure Advisor avec un abonnement, un *propriétaire* de cet abonnement doit lancer le tableau de bord Advisor.  Cette action enregistre l’abonnement auprès d’Advisor.  Dès lors, tout *propriétaire*, *contributeur* ou *lecteur* de l’abonnement peut accéder aux recommandations d’Advisor associées.  
 
-  ![Tableau de bord du conseiller Azure](./media/advisor-overview/advisor-all-tab.png)
+  ![Tableau de bord du conseiller Azure](./media/advisor-overview/advisor-dashboard.png)
 
 ## <a name="get-advisor-recommendation-details-and-implement-a-solution"></a>Obtenir les détails de recommandation d’Advisor et implémenter une solution
 
-Le panneau **Recommandation** d’Advisor offre des informations supplémentaires sur la recommandation. 
+Vous pouvez sélectionner une recommandation dans Advisor pour afficher des détails supplémentaires, tels que les actions de la recommandation et les ressources affectées, et pour implémenter la solution associée à la recommandation.  
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), puis lancez [Azure Advisor](https://aka.ms/azureadvisordashboard).
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Dans le tableau de bord **Recommandations du conseiller**, cliquez sur **Obtenir des recommandations**.
+2. Sélectionnez une catégorie de recommandations pour afficher la liste des recommandations de cette catégorie, ou sélectionnez l’onglet **Tout** pour afficher toutes vos recommandations.
 
-3. Dans la liste des recommandations, cliquez sur une recommandation que vous souhaitez examiner en détail.  
-Le panneau **Recommandation** s’affiche.
+3. Cliquez sur une recommandation que vous souhaitez examiner en détail.
 
-4. Dans le panneau **Recommandations**, passez en revue les informations sur les actions que vous pouvez effectuer pour résoudre un problème potentiel ou tirer parti d’une opportunité d’économies. 
-  
-  ![Panneau des recommandations d’Advisor](./media/advisor-overview/advisor-recommendation-action-example.png)
+4. Prenez connaissance des informations relatives à la recommandation et aux ressources auxquelles celle-ci s’applique.
 
-## <a name="search-for-advisor-recommendations"></a>Recherchez des recommandations du conseiller
+5. Cliquez sur **Action recommandée** pour implémenter la recommandation.
 
-Vous pouvez rechercher des recommandations pour un abonnement ou un groupe de ressources spécifiques. Vous pouvez également rechercher des recommandations par état.
+## <a name="filter-advisor-recommendations"></a>Filtrer les recommandations d’Advisor
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), puis lancez [Azure Advisor](https://aka.ms/azureadvisordashboard).
+Vous pouvez filtrer les recommandations pour accéder aux informations qui vous intéressent le plus.  Vous pouvez filtrer par abonnement, par type de ressource ou par état de recommandation.  
 
-2. Recherchez des recommandations en filtrant sur les abonnements, les groupes de ressources et les états de recommandation (**Active** ou **Répétée**).
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
 
-3. Cliquez sur **Obtenir des recommandations** pour obtenir une liste de recommandations d’Advisor en fonction de vos filtres de recherche.
+2.  Utilisez les menus déroulants du tableau de bord Advisor pour filtrer par abonnement, par type de ressource ou par état de recommandation.
 
-  ![Critères de filtre de recherche d’Advisor](./media/advisor-get-started/advisor-search.png)
+    ![Critères de filtre de recherche d’Advisor](./media/advisor-get-started/advisor-filters.png)
 
 ## <a name="snooze-or-dismiss-advisor-recommendations"></a>Répéter ou ignorer les recommandations d’Advisor
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), puis lancez [Azure Advisor](https://aka.ms/azureadvisordashboard).
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Cliquez sur **Obtenir des recommandations**, puis dans la liste des recommandations, cliquez sur une recommandation.
+2. Accédez à la recommandation que vous souhaitez répéter ou ignorer.
 
-3. Dans le panneau **Recommandations**, cliquez sur **Répéter**.  
+3. Cliquez sur la recommandation.
 
-   ![Exemple d’action recommandée du conseiller](./media/advisor-get-started/advisor-snooze.png)
+4. Cliquez sur **Répéter**. 
 
-4. Spécifiez une période de répétition ou sélectionnez **Jamais** pour faire disparaître la recommandation.
+5. Spécifiez une période de répétition ou sélectionnez **Jamais** pour faire disparaître la recommandation.
 
+## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Exclure des abonnements ou des groupes de ressources d’Advisor
+
+Il se peut que vous possédiez des groupes de ressources ou des abonnements pour lesquels vous ne souhaitez pas recevoir de recommandations d’Advisor, tels que les ressources de « test ».  Vous pouvez configurer Advisor de manière à générer des recommandations uniquement pour des abonnements et des groupes de ressources spécifiques.
+
+> [!NOTE]
+> Pour inclure un abonnement ou un groupe de ressources dans Advisor ou l’en exclure, vous devez être propriétaire de cet abonnement ou de ce groupe de ressources.  Si vous ne disposez pas des autorisations requises pour un abonnement ou un groupe de ressources, l’option permettant de l’inclure ou de l’exclure est désactivée dans l’interface utilisateur.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
+
+2. Dans la barre d’action, cliquez sur **Configurer**.
+
+3. Désactivez les abonnements ou les groupes de ressources pour lesquels vous ne souhaitez pas recevoir de recommandations d’Advisor.
+
+    ![Exemple de configuration de ressources dans Advisor](./media/advisor-get-started/advisor-configure-resources.png)
+
+4. Cliquez sur le bouton **Appliquer**.
+
+## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>Configurer la règle d’utilisation moyenne du processeur pour la recommandation en cas de faible utilisation de machines virtuelles
+
+Advisor surveille l’utilisation de votre machine virtuelle pendant 14 jours et identifie les machines virtuelles faiblement utilisées. Les machines virtuelles pour lesquelles l’utilisation moyenne du processeur est inférieure ou égale à 5 % et l’utilisation du réseau est inférieure ou égale à 7 Mo pendant quatre jours ou plus sont considérées comme des machines virtuelles faiblement utilisées.
+
+Si vous souhaitez être plus « agressif » dans l’identification des machines virtuelles faiblement utilisées, vous pouvez ajuster la règle d’utilisation moyenne du processeur par abonnement.  La règle d’utilisation moyenne du processeur peut être définie sur 5 %, 10 %, 15 % ou 20 %.
+
+> [!NOTE]
+> Pour ajuster la règle d’utilisation moyenne du processeur aux fins d’identification des machines virtuelles faiblement utilisées, vous devez être *propriétaire* de l’abonnement.  Si vous ne disposez pas des autorisations requises pour un abonnement ou un groupe de ressources, l’option permettant de l’inclure ou de l’exclure est désactivée dans l’interface utilisateur. 
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
+
+2. Dans la barre d’action, cliquez sur **Configurer**.
+
+3. Cliquez sur l’onglet **Règles**.
+
+4. Sélectionnez les abonnements pour lesquels vous voulez ajuster la règle d’utilisation moyenne du processeur, puis cliquez sur **Modifier**.
+
+5. Sélectionnez la valeur d’utilisation moyenne du processeur souhaitée, puis cliquez sur **Appliquer**.
+
+6. Cliquez sur **Actualiser les recommandations** pour mettre à jour vos recommandations existantes avec la nouvelle règle d’utilisation moyenne du processeur. 
+
+   ![Exemple de configuration de règles de recommandation dans Advisor](./media/advisor-get-started/advisor-configure-rules.png)
+
+## <a name="download-your-advisor-recommendations"></a>Télécharger les recommandations d’Advisor
+
+Advisor permet de télécharger un résumé de vos recommandations.  Vous pouvez télécharger vos recommandations sous forme de fichier PDF ou CSV.  En téléchargeant vos recommandations, vous pourrez facilement les partager avec des collègues ou effectuer votre propre analyse sur les données de recommandation.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
+
+2. Dans la barre d’action, cliquez sur **Télécharger au format CSV** ou **Télécharger au format PDF**.
+
+L’option de téléchargement conserve les filtres que vous avez appliqués au tableau de bord Advisor.  Si vous sélectionnez l’option de téléchargement alors qu’une catégorie de recommandations ou une recommandation spécifique est affichée, le résumé téléchargé inclut uniquement les informations de cette catégorie ou de cette recommandation. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/03/2017
+ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 50fd59c288312c7aa5ffe6abf1318a5ec2f406e6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ebe9351641f3c4ddade0ea456e8784d59acf9332
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Créer votre première fonction dans Azure avec Java et Maven (aperçu)
 
@@ -32,7 +32,7 @@ Ce démarrage rapide vous guide dans la création d’un projet de fonction [san
 Pour développer une application de fonction avec Java, les éléments suivants doivent être installés :
 
 -  La version la plus récente de [.NET Core](https://www.microsoft.com/net/core).
--  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) version 1.8.
+-  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) version 8.
 -  [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
 -  [Node.js](https://nodejs.org/download/) version 8.6 ou ultérieure.

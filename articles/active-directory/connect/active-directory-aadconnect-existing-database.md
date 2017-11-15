@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installer Azure AD Connect à l’aide d’une base de données ADSync existante
 Azure AD Connect nécessite une base de données SQL Server pour stocker les données. Vous pouvez utiliser la Base de données locale (LocalDB) par défaut de SQL Server 2012 Express installée avec Azure AD Connect ou utiliser votre propre version complète de SQL. Auparavant, quand vous installiez Azure AD Connect, une nouvelle base de données nommée ADSync était toujours créée. Avec Azure AD Connect version 1.1.613.0 (ou ultérieure), vous pouvez installer Azure AD Connect en le pointant sur une base de données ADSync existante.
@@ -37,17 +37,17 @@ Ces avantages sont utiles dans les scénarios suivants :
 - Vous avez un déploiement existant d’Azure AD Connect. Votre serveur Azure AD Connect existant ne fonctionne plus, mais le serveur SQL contenant la base de données ADSync fonctionne toujours. Vous pouvez installer un nouveau serveur Azure AD Connect et le faire pointer sur la base de données ADSync existante. 
 - Vous avez un déploiement existant d’Azure AD Connect. Votre serveur SQL contenant la base de données ADSync ne fonctionne plus. Toutefois, vous disposez d’une sauvegarde récente de la base de données. Vous pouvez tout d’abord restaurer la base de données ADSync sur un nouveau serveur SQL. Après cela, vous pouvez installer un nouveau serveur Azure AD Connect et le faire pointer sur la base de données ADSync restaurée.
 - Vous avez un déploiement existant d’Azure AD Connect qui utilise Base de données locale. En raison de la limite de 10 Go imposée par Base de données locale, vous souhaitez migrer vers la version complète de SQL. Vous pouvez sauvegarder la base de données ADSync à partir de Base de données locale et la restaurer sur un serveur SQL. Après cela, vous pouvez réinstaller un nouveau serveur Azure AD Connect et le faire pointer sur la base de données ADSync restaurée.
-- Vous tentez de configurer un serveur intermédiaire et souhaitez vous assurer que sa configuration correspond à celle du serveur actif actuel. Vous pouvez sauvegarder la base de données ADSync et la restaurer sur un autre serveur SQL. Après cela, vous pouvez réinstaller un nouveau serveur Azure AD Connect et le faire pointer sur la base de données ADSync restaurée.
+- Vous essayez de configurer un serveur intermédiaire et souhaitez vous assurer que sa configuration correspond à celle du serveur actif actuel. Vous pouvez sauvegarder la base de données ADSync et la restaurer sur un autre serveur SQL. Après cela, vous pouvez réinstaller un nouveau serveur Azure AD Connect et le faire pointer sur la base de données ADSync restaurée.
 
 ## <a name="prerequisite-information"></a>Informations relatives aux prérequis
 
 Remarques importantes avant de continuer :
 
-
 - Veillez à examiner les prérequis pour l’installation d’Azure AD Connect dans Matériel et prérequis, ainsi que les comptes et les autorisations requises pour l’installation d’Azure AD Connect. Les autorisations requises pour l’installation d’Azure AD Connect à l’aide du mode « Utiliser une base de données existante » sont identiques à celles d’une installation « Personnalisée ».
+- Le déploiement d’Azure AD Connect parallèlement à une base de données ADSync existante est uniquement pris en charge avec la version complète de SQL. Il n’est pas pris en charge avec Base de données locale SQL Express. Si vous souhaitez utiliser une base de données ADSync existante de Base de données locale, vous devez tout d’abord sauvegarder la base de données ADSync (Base de données locale) et la restaurer vers la version complète de SQL. Vous pourrez alors déployer Azure AD Connect parallèlement à la base de données restaurée à l’aide de cette méthode.
 - La version d’Azure AD Connect utilisée pour l’installation doit remplir les critères suivants :
     - Version 1.1.613.0 ou ultérieure, ET
-    - Identique ou ultérieure à la dernière version d’Azure AD Connect utilisée avec la base de données ADSync. Si la version d’Azure AD Connect utilisée pour l’installation est ultérieure à celle utilisée en dernier avec la base de données ADSync, une synchronisation complète peut être requise.  Cela est nécessaire s’il y a des modifications de règle de synchronisation ou de schéma entre les deux versions. 
+    - Identique ou ultérieure à la dernière version d’Azure AD Connect utilisée avec la base de données ADSync. Si la version d’Azure AD Connect utilisée pour l’installation est ultérieure à celle utilisée en dernier avec la base de données ADSync, une synchronisation complète peut être requise.  Une synchronisation complète est nécessaire s’il y a des modifications de règle de synchronisation ou de schéma entre les deux versions. 
 - La base de données ADSync utilisée doit contenir un état de synchronisation relativement récent. La dernière activité de synchronisation avec la base de données ADSync existante doit avoir eu lieu durant les trois dernières semaines.
 - Quand vous installez Azure AD Connect à l’aide du mode « Utiliser une base de données existante », la méthode d’authentification configurée sur le serveur Azure AD Connect précédent n’est pas conservée. De plus, vous ne pouvez pas configurer la méthode de connexion pendant l’installation. Vous pouvez uniquement configurer la méthode de connexion une fois l’installation terminée.
 - Vous ne pouvez avoir plusieurs serveurs Azure AD Connect qui partagent la même base de données ADSync. Le mode « Utiliser une base de données existante » vous permet de réutiliser une base de données ADSync existante avec un nouveau serveur Azure AD Connect. Il ne prend pas en charge le partage.

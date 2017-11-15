@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e0b4bc196786ca4dfa3d57f3e89dd36ddc32acbc
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: d8b0cd2a3e5f9829f0844783aad22d375eb9d7a8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="forecast-future-spending"></a>Prévoir les dépenses futures
 
@@ -57,7 +57,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Prévoir les dépenses futures
 
 
-Passez à la documentation de Cloudyn pour en savoir plus sur la prise en main de Cloudyn et l’utilisation de ses fonctionnalités.
+Passez au didacticiel suivant pour découvrir comment gérer les coûts avec les rapports de facturation et d’allocation des coûts.
 
 > [!div class="nextstepaction"]
-> [Documentation de Cloudyn](https://support.cloudyn.com/hc/)
+> [Gérer les coûts grâce à des rapports de facturation et d’allocation des coûts](tutorial-manage-costs.md)

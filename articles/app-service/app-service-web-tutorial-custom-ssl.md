@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Lier un certificat SSL existant à des applications web Azure
 
@@ -151,13 +151,13 @@ Si vous avez utilisé IIS ou _Certreq.exe_ pour générer votre demande de certi
 
 Pour charger votre certificat SSL, cliquez sur **Certificats SSL** dans le volet de navigation gauche de votre application web.
 
-Cliquez sur **Charger le certificat**.
+Cliquez sur **Charger le certificat**. 
 
 Dans **Fichier de certificat PFX**, sélectionnez votre fichier PFX. Dans **Mot de passe du certificat**, tapez le mot de passe que vous avez créé lors de l’exportation du fichier PFX.
 
 Cliquez sur **Télécharger**.
 
-![Téléchargement d’un certificat](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Téléchargement d’un certificat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 Lorsque App Service finit de charger votre certificat, celui-ci apparaît dans la page **Certificats SSL**.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>Certificats publics (facultatifs)
+Vous pouvez charger les [certificats publics](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) sur votre application web. Vous pouvez utiliser les certificats publics avec Web Apps dans les services App Service ou App Service Environment (ASE). Si vous devez stocker le certificat dans le magasin de certificats LocalMachine, vous devez utiliser une application web dans le service App Service Environment. Pour plus d’informations, consultez [How to configure Public Certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Configuration de certificats publics pour votre application web).
+
+![Charger un certificat public](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
 
@@ -88,6 +88,23 @@ Cette option détermine le nombre minimal de méthodes d’authentification ou d
 Les utilisateurs peuvent choisir de fournir plusieurs méthodes d’authentification si elles sont activées par l’administrateur.
 
 Si un utilisateur n’a pas le nombre minimal requis de méthodes inscrites, une page d’erreur s’affiche et lui indique de contacter un administrateur pour réinitialiser son mot de passe.
+
+#### <a name="changing-authentication-methods"></a>Modification des méthodes d’authentification
+
+Si vous démarrez avec une stratégie qui présente une seule méthode d’authentification requise pour la réinitialisation ou le déverrouillage et que vous définissez ensuite ce nombre sur 2, que se passe-t-il ?
+
+| Nombre de méthodes inscrites | Nombre de méthodes requises | Résultat |
+| :---: | :---: | :---: |
+| 1 ou plus | 1 | Réinitialisation ou déverrouillage **possible** |
+| 1 | 2 | Réinitialisation ou déverrouillage **impossible** |
+| 2 ou plus | 2 | Réinitialisation ou déverrouillage **possible** |
+
+Si vous modifiez les types de méthodes d’authentification qu’un utilisateur peut employer, vous risquez d’empêcher par inadvertance les utilisateurs d’employer SSPR s’ils ne disposent pas de la quantité minimale de données.
+
+Exemple : 
+1. La stratégie d’origine est configurée avec 2 méthodes d’authentification requises, faisant uniquement appel à un téléphone de bureau et à des questions de sécurité. 
+2. L’administrateur modifie la stratégie pour ne plus utiliser de questions de sécurité, mais permettre l’utilisation d’un téléphone mobile et d’une autre adresse de messagerie.
+3. Les utilisateurs dont les champs de téléphone mobile et d’autre adresse de messagerie ne sont pas renseignés ne peuvent pas réinitialiser leur mot de passe.
 
 ### <a name="how-secure-are-my-security-questions"></a>Sécuriser mes questions de sécurité
 
@@ -169,6 +186,7 @@ La désactivation de cette fonctionnalité permettra toujours aux utilisateurs d
 > [!NOTE]
 > Les utilisateurs peuvent fermer le portail d’inscription de réinitialisation du mot de passe en cliquant sur Annuler ou en fermant la fenêtre, mais celui-ci s’affichera tout de même à chaque fois, tant qu’ils n’auront pas effectué l’inscription.
 >
+> La connexion des utilisateurs ne sera pas interrompue s’ils sont déjà connectés.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification
 
@@ -190,7 +208,7 @@ Exemple : quatre administrateurs font partie d’un environnement. L’administ
 
 ## <a name="on-premises-integration"></a>Intégration locale
 
-Si vous avez installé, configuré et activé Azure AD Connect, vous disposerez des options supplémentaires suivantes pour les intégrations locales.
+Si vous avez installé, configuré et activé Azure AD Connect, vous disposerez des options supplémentaires suivantes pour les intégrations locales. Si ces options sont grisées, cela signifie que la réécriture n’a pas été configurée correctement. Pour plus d’informations, consultez [Configuration de la réécriture du mot de passe](active-directory-passwords-writeback.md#configuring-password-writeback).
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Réécriture du mot de passe dans votre répertoire local
 
@@ -215,20 +233,23 @@ La réinitialisation et la modification du mot de passe sont totalement compatib
 
 Pour tester ce scénario avec l’un des utilisateurs partenaires, consultez la page http://passwordreset.microsoftonline.com. Tant que ces utilisateurs disposent d’une autre adresse de messagerie ou d’un e-mail d’authentification, la réinitialisation du mot de passe fonctionne comme prévu.
 
+> [!NOTE]
+> Les comptes Microsoft auxquels un accès invité à votre locataire Azure AD a été octroyé, tels que les comptes Hotmail.com, Outlook.com ou autres adresses e-mail personnelles, ne peuvent pas utiliser Azure AD SSPR et doivent réinitialiser leur mot de passe à l’aide des informations fournies dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
-* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
+* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
 * [Réinitialisez ou modifiez votre mot de passe](active-directory-passwords-update-your-own-password.md).
 * [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md).
-* [Vous avez une question relative à la licence ?](active-directory-passwords-licensing.md)
-* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données devez-vous renseigner pour vos utilisateurs ?](active-directory-passwords-data.md)
+* [Vous avez une question relative à la licence ?](active-directory-passwords-licensing.md)
+* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](active-directory-passwords-data.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-policy.md)
-* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](active-directory-passwords-writeback.md)
-* [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-reporting.md)
-* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
+* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-policy.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](active-directory-passwords-writeback.md)
+* [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-reporting.md)
+* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
 * [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
 

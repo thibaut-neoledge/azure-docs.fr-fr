@@ -11,13 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 > [!div class="op_single_selector"]
@@ -164,10 +164,11 @@ Les entrées sont réparties en deux catégories dans Azure Functions : l’une 
 package com.example;
 
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import java.util.Optional;
 
 public class MyClass {
-    public static String echo(String in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
     }
 
     private static class MyObject {
@@ -210,7 +211,7 @@ L’annotation `@BindingName` accepte une propriété `String` qui représente l
 }
 ```
 
-Par conséquent, lorsque cette fonction est appelée, la charge utile des demandes HTTP passe un élément `String` pour l’argument `in` et un type `MyObject` de service de Table Azure passé à l’argument `obj`.
+Par conséquent, lorsque cette fonction est appelée, la charge utile des requêtes HTTP transmet un élément `String` facultatif pour l’argument `in` et un type `MyObject` du service Stockage Table Azure transmis à l’argument `obj`. Utilisez le type `Optional<T>` pour gérer les entrées dans vos fonctions qui peuvent être de valeur Null.
 
 ## <a name="outputs"></a>outputs
 
@@ -271,11 +272,34 @@ Parfois, une fonction doit disposer d’un contrôle détaillé sur les entrées
 
 | Type spécialisé      |       Cible        | Utilisation classique                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    Déclencheur HTTP     | Obtention des requêtes, en-têtes et méthodes |
-| `HttpResponseMessage` | Liaison de sortie HTTP | État de retour autre que 200   |
+| `HttpRequestMessage<T>`  |    Déclencheur HTTP     | Obtention des requêtes, en-têtes et méthodes |
+| `HttpResponseMessage<T>` | Liaison de sortie HTTP | État de retour autre que 200   |
 
 > [!NOTE] 
 > Vous pouvez également utiliser l’annotation `@BindingName` pour obtenir des requêtes et en-têtes HTTP. Par exemple, `@Bind("name") String query` itère les en-têtes et requêtes des demandes HTTP et passe cette valeur à la méthode. Par exemple, l’élément `query` aura la valeur `"test"` si l’URL de la demande est la suivante : `http://example.org/api/echo?name=test`.
+
+### <a name="metadata"></a>Metadata
+
+Les métadonnées proviennent de différentes sources, telles que les en-têtes HTTP, les requêtes HTTP et les [métadonnées de déclencheur](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Utilisez l’annotation `@BindingName` avec le nom des métadonnées pour obtenir cette valeur.
+
+Par exemple, l’élément `queryValue` de l’extrait de code suivant est `"test"` si l’URL demandée est `http://{example.host}/api/metadata?name=test`.
+
+```Java
+package com.example;
+
+import java.util.Optional;
+import com.microsoft.azure.serverless.functions.annotation.*;
+
+public class MyClass {
+    @FunctionName("metadata")
+    public static String metadata(
+        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @BindingName("name") String queryValue
+    ) {
+        return body.orElse(queryValue);
+    }
+}
+```
 
 ## <a name="functions-execution-context"></a>Contexte d’exécution des fonctions
 
@@ -294,7 +318,7 @@ import com.microsoft.azure.serverless.functions.ExecutionContext;
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
-            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+            context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
         return String.format(req);
     }

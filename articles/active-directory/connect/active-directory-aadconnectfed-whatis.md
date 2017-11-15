@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: anandy
-ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc5ef81704423c5a1bc136fb2d51d79a9265e20
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Fédération avec Azure AD Connect
 Azure Active Directory (Azure AD) Connect vous permet de configurer la fédération avec Active Directory Federation Services (AD FS) et Azure AD au niveau local. Avec l’authentification de fédération, vous pouvez autoriser les utilisateurs à se connecter aux services Azure AD avec leurs mots de passe locaux sans avoir à les saisir de nouveau, et ce, alors qu’ils sont sur le réseau d’entreprise. En utilisant l’option de fédération AD FS, vous pouvez déployer un nouveau service AD FS ou spécifier une installation existante dans une batterie de serveurs Windows Server 2012 R2.
@@ -40,6 +40,7 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 | [Ajouter un nouveau serveur de proxy d’application web AD FS](active-directory-aadconnect-federation-management.md#addwapserver) |Extension d’une batterie de serveurs AD FS avec l’ajout d’un serveur proxy d’application web après l’installation initiale. |
 | [Ajouter un nouveau domaine fédéré](active-directory-aadconnect-federation-management.md#addfeddomain) |Ajoutez un domaine à fédérer avec Azure AD. |
 | [Mettre à jour le certificat SSL](active-directory-aadconnectfed-ssl-update.md)| Mettez à jour le certificat SSL d’une batterie de serveurs AD FS. |
+| [Renouvellement des certificats de fédération pour Office 365 et Azure AD](active-directory-aadconnect-o365-certs.md)|Renouvelez votre certificat O365 avec Azure AD.|
 | **Autre configuration de fédération** | |
 | [Fédérer plusieurs instances d’Azure AD avec une seule instance d’AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Fédérer plusieurs instances d’Azure AD avec une seule batterie de serveurs AD FS| 
 | [Ajouter un logo/une illustration personnalisée de la société](active-directory-aadconnect-federation-management.md#customlogo) |Modifiez l’expérience de connexion en spécifiant le logo personnalisé qui apparaît sur la page de connexion AD FS. |

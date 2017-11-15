@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 33562f5ac7acdf8f724ac2de68b9e66735af47b3
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 8cc4d44bff6284f2c52423f04e463e324a932abd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory
 Cet article explique pas à pas comment configurer un runtime d’intégration Azure-SSIS dans Azure Data Factory. Vous pouvez ensuite utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer des packages SQL Server Integration Services (SSIS) sur ce runtime dans Azure.
@@ -41,6 +41,10 @@ Pour obtenir des informations conceptuelles sur la jonction d’une IR Azure SSI
     - Vous souhaitez vous connecter à des magasins de données sur site à partir de packages SSIS en cours d’exécution sur un runtime d’intégration Azure-SSIS.
 - **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps). Vous utilisez PowerShell pour exécuter un script afin de configurer un runtime d’intégration Azure-SSIS qui exécute des packages SSIS dans le cloud. 
 
+> [!NOTE]
+> Pour obtenir la liste des régions prises en charge par Azure Data Factory version 2 et Azure-SSIS Integration Runtime, consultez [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/). Développez **Données + Analytique** pour afficher **Data Factory V2** et **SSIS Integration Runtime**.
+
+
 ## <a name="create-variables"></a>Créer des variables
 Définissez des variables à utiliser dans le script de ce didacticiel :
 
@@ -49,12 +53,12 @@ Définissez des variables à utiliser dans le script de ce didacticiel :
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-$DataFactoryLocation = "EastUS" # In public preview, only EastUS|EastUS2 are supported.
+$DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
-$AzureSSISLocation = "EastUS" # In public preview, only EastUS|NorthEurope are supported.
+$AzureSSISLocation = "EastUS" 
 $AzureSSISNodeSize = "Standard_A4_v2" # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeNumber = 2 # In public preview, only 1-10 nodes are supported.
 $AzureSSISMaxParallelExecutionsPerNode = 2 # In public preview, only 1-8 parallel executions per node are supported.

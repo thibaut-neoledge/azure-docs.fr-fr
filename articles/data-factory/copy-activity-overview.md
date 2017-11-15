@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 037cd8ac0065adc7572f7a60bac019c05a6e308a
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 9629a86e72e0d5943f0e50e04268720fbedf6c35
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -155,7 +155,7 @@ Les détails de l’exécution de l’activité copie et les caractéristiques d
 | sqlDwPolyBase | Si PolyBase est utilisé lors de la copie de données dans SQL Data Warehouse. | Boolean |
 | redshiftUnload | Si UNLOAD est utilisé lors de la copie de données à partir de Redshift. | Boolean |
 | hdfsDistcp | Si DistCp est utilisé lors de la copie de données à partir de HDFS. | Boolean |
-| effectiveIntegrationRuntime | Affichez le(s) runtime(s) d’intégration utilisé(s) pour dynamiser l’exécution de l’activité au format « `<IR name> (<region if it's Azure IR>)` ». | Texte (chaîne) |
+| effectiveIntegrationRuntime | Affichez la ou les infrastructures Integration Runtime permettant de dynamiser l’exécution d’activité au format « `<IR name> (<region if it's Azure IR>)` ». | Texte (chaîne) |
 | usedCloudDataMovementUnits | Unités de déplacement de données cloud effectives pendant la copie. | Valeur Int32 |
 | redirectRowPath | Chemin d’accès du journal des lignes incompatibles ignorées dans le stockage blob que vous configurez sous « redirectIncompatibleRowSettings ». Voir exemple ci-dessous. | Texte (chaîne) |
 | billedDuration | Durée est facturée pour le déplacement des données. | Valeur Int32 en secondes |

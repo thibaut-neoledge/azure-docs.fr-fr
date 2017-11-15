@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Questions fréquentes (FAQ) sur la nouvelle recherche dans les journaux Log Analytics et problèmes connus
 
@@ -38,13 +38,6 @@ Non. Certaines modifications apportées aux actions de Webhook et de runbook ris
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Question : J’obtiens des erreurs quand j’essaie d’utiliser des groupes d’ordinateurs.  Leur syntaxe a-t-elle changé ?
 Oui, la syntaxe utilisée pour les groupes d’ordinateurs change du moment que votre espace de travail est mis à niveau.  Pour plus d’informations, consultez [Groupes d’ordinateurs dans les recherches dans les journaux Log Analytics](log-analytics-computer-groups.md).
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>Problème connu : Groupes importés à partir d’Active Directory
-Il est actuellement impossible de créer une requête qui utilise un groupe d’ordinateurs importé à partir d’Active Directory.  Pour contourner ce problème en attendant sa correction, créez un groupe d’ordinateurs à partir du groupe Active Directory importé, puis utilisez ce nouveau groupe dans votre requête.
-
-Voici un exemple de requête permettant de créer un groupe d’ordinateurs qui comprend un groupe Active Directory importé :
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>Tableaux de bord
@@ -76,11 +69,6 @@ Minify est une fonctionnalité qui fournit une synthèse de vos résultats de re
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problème connu : Les résultats de recherche figurant dans une liste peuvent inclure des propriétés sans données
-Les résultats des recherches dans les journaux figurant dans une liste peuvent présenter des propriétés sans données.  Avant la mise à niveau, ces propriétés n’auraient pas été incluses.  Ce problème sera corrigé pour que les propriétés vides ne s’affichent pas.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Problème connu : Le fait de sélectionner une valeur dans un graphique n’a pas pour effet d’afficher des résultats détaillés
-Avant la mise à niveau, quand vous sélectionniez une valeur dans un graphique, vous obteniez en retour une liste détaillée d’enregistrements correspondant à la valeur sélectionnée.  Après la mise à niveau, seule la ligne résumée est retournée.  Ce problème est actuellement examiné.
 
 ## <a name="log-search-api"></a>API Recherche de journal
 
@@ -109,11 +97,9 @@ Votre navigateur doit pouvoir accéder aux adresses suivantes pour exécuter des
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Question : Existe-t-il des changements suite à l’intégration de Power BI ?
-Oui.  Une fois votre espace de travail mis à niveau, puis le processus d’exportation des données de Log Analytics à Power BI ne fonctionne plus.  Toutes les planifications existantes que vous avez créées avant la mise à niveau sont alors désactivées.  Après la mise à niveau, Azure Log Analytics utilise la même plateforme qu’Application Insights et vous devez utiliser le même processus vous permettant d’exporter des requêtes de Log Analytics vers Power BI comme [processus d’exportation des requêtes d’Application Insights vers Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Oui.  Une fois votre espace de travail mis à niveau, puis le processus d’exportation des données de Log Analytics à Power BI ne fonctionne plus.  Toutes les planifications existantes que vous avez créées avant la mise à niveau sont alors désactivées.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>Problème connu : Limite de la taille des demandes Power BI
-L’exportation d’une requête Log Analytics vers Power BI est actuellement limitée à une taille de 8 Mo.  Cette limite sera prochainement rehaussée.
-
+Après la mise à niveau, Azure Log Analytics utilise la même plateforme qu’Application Insights et vous devez utiliser le même processus vous permettant d’exporter des requêtes de Log Analytics vers Power BI comme [processus d’exportation des requêtes d’Application Insights vers Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  L’exportation vers Power BI appelle désormais directement le point de terminaison d’API. Vous pouvez ainsi obtenir jusqu’à 500 000 lignes ou 64 000 000 octets de données, exporter des requêtes longues et personnaliser le délai d’expiration de la requête (le délai d’expiration par défaut est de 3 minutes et le délai d’expiration maximal est de 10 minutes).
 
 ## <a name="powershell-cmdlets"></a>Applets de commande PowerShell
 
@@ -153,14 +139,11 @@ Oui.  Vous devez utiliser la version d’API 2017-03-15-preview et ajouter une s
 ### <a name="question-will-my-solutions-continue-to-work"></a>Question : Mes solutions continueront-elles de fonctionner ?
 Toutes les solutions continueront de fonctionner dans un espace de travail mis à niveau. Cependant, en les convertissant dans le nouveau langage de requête, vous bénéficierez de meilleures performances.  Certaines solutions existantes décrites dans cette section font face à des problèmes connus.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>Problème connu : Solution Capacity and Performance
-Certaines parties de la vue [Capacity and Performance](log-analytics-capacity.md) peuvent être vides.  Ce problème sera prochainement corrigé.
-
-### <a name="known-issue-application-insights-connector"></a>Problème connu : Application Insights Connector
-Dans la [solution Application Insights Connector](log-analytics-app-insights-connector.md), les perspectives ne sont pas prises en charge dans un espace de travail mis à niveau pour l’instant.  Un correctif permettant de résoudre ce problème est en cours d’analyse.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>Problème connu : perspectives dans le connecteur Application Insights
+Les perspectives dans la [solution Application Insights Connector](log-analytics-app-insights-connector.md) ne sont plus prises en charge dans la solution du connecteur Application Insights.  Vous pouvez utiliser le concepteur de vues pour créer des vues personnalisées avec des données d’Application Insights.
 
 ### <a name="known-issue-backup-solution"></a>Problème connu : solution Sauvegarde
-La solution Sauvegarde ne collecte pas de données dans un espace de travail mis à niveau. Une nouvelle solution Sauvegarde qui fonctionne avec l’espace de travail mis à niveau sera annoncée sous peu.
+La solution de sauvegarde peut ne pas collecter de données si elle a été installée avant la mise à niveau d’un espace de travail. Désinstallez la solution, puis installez sa version la plus récente.  Comme la nouvelle version de la solution ne prend pas en charge les coffres de sauvegarde classiques, vous devez également procéder à une mise à niveau vers les coffres Recovery Services pour continuer à utiliser la solution.
 
 ## <a name="upgrade-process"></a>Mise à niveau
 
@@ -182,9 +165,6 @@ Avant la disponibilité générale, vous pouviez revenir à la dernière version
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Question : Comment créer une vue avec le Concepteur de vues ?
 Avant la mise à niveau, il était possible de créer une vue avec le Concepteur de vues à partir d’une vignette du tableau de bord principal.  Quand l’espace de travail est mis à niveau, cette vignette est supprimée.  Vous pouvez créer une vue à l’aide du Concepteur de vues dans le portail OMS en cliquant sur le bouton + vert dans le menu de gauche.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Problème connu : L’option Afficher tout pour les graphiques en courbes située dans les vues ne génère pas de graphique en courbes
-Quand vous cliquez sur l’option *Afficher tout* au bas d’un graphique en courbes dans une vue, vous obtenez un tableau.  Avant la mise à niveau, vous obteniez un graphique en courbes.  Ce problème est en cours d’analyse en vue d’une possible modification.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

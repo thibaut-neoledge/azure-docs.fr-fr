@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: d8fa78585842a7e4414c8decf422c971938b683f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur ODBC dans V1](v1/data-factory-odata-connector.md).
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier des données d’une source ODBC vers toute banque de données réceptrice prise en charge, ou à partir de toute banque de données source prise en charge vers un récepteur ODBC. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -66,11 +66,9 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
@@ -95,11 +93,9 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
@@ -134,15 +130,13 @@ Pour copier des données depuis/vers une banque de données ODBC, affectez la va
 ```json
 {
     "name": "ODBCDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
         },
-        "typeProperties":
-        {
+        "typeProperties": {
             "tableName": "<table name>"
         }
     }
@@ -253,11 +247,9 @@ Créez un service lié ODBC pour lier une banque de données IBM Informix à une
 ```json
 {
     "name": "InformixLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<Informix connection string or DSN>"
@@ -292,11 +284,9 @@ Créez un service lié ODBC pour lier une base de données Microsoft Access à u
 ```json
 {
     "name": "MicrosoftAccessLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
@@ -331,11 +321,9 @@ Créez un service lié ODBC pour lier une base de données Microsoft Access à u
 ```json
 {
     "name": "HistorianLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<GE Historian store connection string or DSN>"
@@ -374,11 +362,9 @@ Créez un service lié ODBC pour lier une banque de données SAP HANA à une fab
 ```json
 {
     "name": "SAPHANAViaODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"

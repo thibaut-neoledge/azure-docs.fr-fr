@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: 92c8e4c205043f6c5c2925d9197270fb720969a3
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 66f07481d6e62b4375dd2752c5e7d6f8e02d4a3c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
 
@@ -75,6 +75,9 @@ L’initialisation de PowerShell dans Azure Cloud Shell peut prendre jusqu’à 
 ### <a name="no-home-directory-persistence"></a>Aucune persistance du répertoire $Home
 
 Les données écrites sur `$Home` par n’importe quelle application (telle que git, vim, etc.) ne sont pas conservées entre les sessions PowerShell. Consultez [ici](troubleshooting.md#powershell-resolutions) la solution de contournement.
+
+### <a name="default-file-location-when-created-from-azure-drive"></a>Emplacement du fichier par défaut lors de sa création à partir du lecteur Azure :
+Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des cmdlets PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier C:\Users par défaut. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

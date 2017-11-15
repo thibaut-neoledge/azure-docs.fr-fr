@@ -1,6 +1,6 @@
 ---
-title: "Utiliser une image Docker personnalisée pour Web App pour conteneurs - Azure | Microsoft Docs"
-description: "Découvrez comment utiliser une image Docker personnalisée pour Web App pour conteneurs."
+title: "Utiliser une image Docker personnalisée pour Web App for Containers - Azure | Microsoft Docs"
+description: "Comment utiliser une image Docker personnalisée pour Web App pour conteneurs."
 keywords: azure app service, application web, linux, docker, conteneur
 services: app-service
 documentationcenter: 
@@ -16,17 +16,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utiliser une image Docker personnalisée pour Web App pour conteneurs
+# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utiliser une image Docker personnalisée pour Web App for Containers
 
-[Web App pour conteneurs](app-service-linux-intro.md) fournit des images Docker intégrées sur Linux avec prise en charge de versions spécifiques, comme PHP 7.0 et Node.js 4.5. Web App pour conteneurs utilise la technologie de conteneur Docker pour héberger à la fois des images intégrées et des images personnalisées en tant que service PaaS (platform as a service). Dans ce didacticiel, vous allez apprendre à générer une image Docker personnalisée et à la déployer sur Web App pour conteneurs. Ce modèle est utile quand les images intégrées n’incluent pas la langue de votre choix ou quand votre application nécessite une configuration spécifique qui n’est pas fournie dans les images intégrées.
+[Web App for Containers](app-service-linux-intro.md) fournit des images Docker intégrées sur Linux avec prise en charge de versions spécifiques, comme PHP 7.0 et Node.js 4.5. Web App pour conteneurs utilise la technologie de conteneur Docker pour héberger à la fois des images intégrées et des images personnalisées en tant que service PaaS (platform as a service). Dans ce didacticiel, vous allez apprendre à générer une image Docker personnalisée et à la déployer sur Web App pour conteneurs. Ce modèle est utile quand les images intégrées n’incluent pas la langue de votre choix ou quand votre application nécessite une configuration spécifique qui n’est pas fournie dans les images intégrées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -48,7 +48,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Créer l’image à partir du fichier Docker
 
-Dans le dépôt Git, examinez _Dockerfile_. Ce fichier décrit l’environnement Python exigé pour exécuter notre application. En outre, l’image définit un serveur [SSH](https://www.ssh.com/ssh/protocol/) pour sécuriser la communication entre le conteneur et l’hôte.
+Dans le dépôt Git, examinez _Dockerfile_. Ce fichier décrit l’environnement Python exigé pour exécuter votre application. En outre, l’image définit un serveur [SSH](https://www.ssh.com/ssh/protocol/) pour sécuriser la communication entre le conteneur et l’hôte.
 
 ```docker
 FROM python:3.4
@@ -180,7 +180,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Déployer des applications dans Azure
 
-Vous pouvez héberger des applications Linux natives dans le cloud en utilisant Azure Web Apps. Pour créer une application Web App pour conteneurs, vous devez exécuter les commandes Azure CLI qui créent un groupe, un plan de service puis l’application web elle-même. 
+Vous pouvez héberger des applications Linux natives dans le cloud en utilisant Azure Web Apps. Pour créer une application Web App for Containers, vous devez exécuter les commandes CLI d’Azure qui créent un groupe, un plan de service puis l’application web elle-même. 
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -261,7 +261,7 @@ Dans votre dépôt Git local, ouvrez app/templates/app/index.html. Localisez le 
 
 Après avoir modifié et enregistré le fichier Python, vous devez reconstruire et transmettre la nouvelle image Docker. Redémarrez ensuite l’application web pour que les modifications prennent effet. Utilisez les mêmes commandes que vous avez utilisées précédemment dans ce didacticiel. Si vous le souhaitez, consultez [Créer l’image à partir du fichier Docker](#build-the-image-from-the-docker-file) et [Envoyer (push) l’image Docker à Docker Hub](#push-the-docker-image-to-docker-hub). Testez l’application web en suivant les instructions dans [Tester l’application web](#test-the-web-app).
 
-## <a name="connect-to-web-app-for-containers-using-ssh"></a>Se connecter à Web App pour conteneurs à l’aide de SSH
+## <a name="connect-to-web-app-for-containers-using-ssh"></a>Se connecter à Web App for Containers à l’aide de SSH
 
 SSH permet d’établir une communication sécurisée entre un conteneur et un client. Pour qu’une image Docker personnalisée prenne en charge SSH, vous devez l’intégrer à un fichier Docker. Vous activez SSH dans le fichier Docker lui-même. Les instructions SSH ayant déjà été ajoutées à l’exemple de fichier docker, vous pouvez appliquer ces instructions à votre propre image personnalisée :
 
@@ -279,7 +279,7 @@ SSH permet d’établir une communication sécurisée entre un conteneur et un c
     > [!NOTE]
     > Cette configuration n’autorise pas les connexions externes avec le conteneur. SSH est disponible uniquement via le site Kudu/SCM. Le site Kudu/SCM est authentifié avec des informations d’identification de publication.
 
-* Une instruction [COPY](https://docs.docker.com/engine/reference/builder/#copy) qui indique au moteur Docker de copier le fichier [sshd_config](http://man.openbsd.org/sshd_config) dans le répertoire */etc/ssh/*. Votre fichier de configuration doit être basé sur [ce fichier sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* Une instruction [COPY](https://docs.docker.com/engine/reference/builder/#copy) qui indique au moteur Docker de copier le fichier [sshd_config](http://man.openbsd.org/sshd_config) dans le répertoire */etc/ssh/*. Votre fichier de configuration doit être basé sur [ce fichier sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -329,7 +329,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Félicitations ! Vous avez configuré une image Docker personnalisée destinée à Web App pour conteneurs
+Félicitations ! Vous avez configuré une image Docker personnalisée destinée à Web App pour conteneurs.
 
 ## <a name="use-a-private-image-from-docker-hub-optional"></a>Utiliser une image privée à partir de Docker Hub (facultatif)
 
@@ -373,7 +373,7 @@ Dans cette section, vous allez apprendre à utiliser une image Docker à partir 
 
 Azure Container Registry est un service Docker géré à partir d’Azure pour l’hébergement d’images privées. Les déploiements peuvent être de tout type, notamment [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/) et Web App pour conteneurs. 
 
-### <a name="create-an-azure-container-registry"></a>Création d’un registre de conteneurs Azure Container Registry
+### <a name="create-an-azure-container-registry"></a>Création d’un Azure Container Registry
 
 Dans Cloud Shell, utilisez la commande [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create) pour créer un registre de conteneurs Azure Container Registry. Transmettez le nom, le groupe de ressources et `Basic` pour la référence SKU. Les références disponibles sont `Classic`, `Basic`, `Standard`, et `Premium`.
 
@@ -493,7 +493,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Dans Cloud Shell, exécutez la commande [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) pour affecter l’image Docker personnalisée à l’application web. Remplacez *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_ et _<password>_. Pour Azure Container Registry, *\<docker-registry-server-url>* est au format `https://<azure-container-registry-name>.azurecr.io`. 
+Dans Cloud Shell, exécutez la commande [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) pour affecter l’image Docker personnalisée à l’application web. Remplacez *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ et _\<password>_. Pour Azure Container Registry, *\<docker-registry-server-url>* est au format `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -534,4 +534,5 @@ La commande fournit un résultat similaire à la chaîne JSON suivante, indiquan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Questions fréquentes (FAQ) sur Azure App Service sur Linux](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Créer une application web Docker Python et PostgreSQL dans Azure](tutorial-docker-python-postgresql-app.md)

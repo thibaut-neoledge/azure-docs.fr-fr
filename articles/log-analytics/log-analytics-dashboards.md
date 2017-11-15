@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Créer un tableau de bord personnalisé à utiliser dans Log Analytics
 
->[!NOTE]
-> Si votre espace de travail a été mis à niveau pour utiliser le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), vous ne pouvez pas créer de nouveaux tableaux de bord ni modifier des tableaux de bord existants. 
-
 Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d’afficher l’ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement.
+
+>[!NOTE]
+> Si votre espace de travail a été mis à niveau pour utiliser le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), alors vous ne pouvez pas modifier votre vignette **Mon tableau de bord** existante. Si vous n’avez ajouté aucune vignette **Mon tableau de bord** à votre espace de travail, alors **Mon tableau de bord** n’apparaîtra pas dans votre espace de travail mis à niveau. 
 
 ![Exemple de tableau de bord](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 

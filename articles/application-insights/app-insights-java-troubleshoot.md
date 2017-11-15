@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Guide de dépannage et questions-réponses concernant Application Insights pour Java
 Vous avez des questions concernant [Azure Application Insights dans Java][java] ou vous rencontrez des problèmes ? Voici quelques conseils.
@@ -124,6 +124,13 @@ Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic so
 **Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?**
 
 Consultez [Rétention des données et confidentialité][data].
+
+## <a name="debug-logging"></a>Enregistrement du débogage
+Application Insights utilise `org.apache.http`. Cet élément a été déplacé au sein des principaux fichiers JAR d’Application Insights sous l’espace de noms `com.microsoft.applicationinsights.core.dependencies.http`. Cela permet à Application Insights de gérer les scénarios dans lesquels différentes versions du même élément `org.apache.http` existent dans une base de code. 
+
+>[!NOTE]
+>Si vous activez l’enregistrement au niveau du DÉBOGAGE pour tous les espaces de noms dans l’application, il est respecté par tous les modules en cours d’exécution, y compris `org.apache.http` renommé `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights ne peut pas appliquer de filtrage pour ces appels, car l’appel de journal est effectué par la bibliothèque Apache. L’enregistrement au niveau du débogage produit une quantité considérable de données de journal et n’est pas recommandé pour les instances de production dynamiques.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 **J’ai configuré Application Insights pour mon application serveur Java. Que puis-je faire d’autre ?**

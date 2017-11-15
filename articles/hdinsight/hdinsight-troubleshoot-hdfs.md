@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c9d555130d806728f9d3a82f49e81b18c1e5125
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Résolution de problèmes HDFS à l’aide d’Azure HDInsight
 
@@ -232,3 +232,6 @@ Le cluster HDInsight a été redimensionné et ne compte plus que quelques nœud
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
+
+### <a name="see-also"></a>Voir aussi
+[Résoudre des problèmes à l’aide d’Azure HDInsight](hdinsight-troubleshoot-guide.md)

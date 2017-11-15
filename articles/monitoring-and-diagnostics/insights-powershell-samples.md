@@ -1,8 +1,8 @@
 ---
-title: "Exemples de démarrage rapide avec Azure Monitor PowerShell. | Microsoft Docs"
+title: "Exemples de démarrage rapide Azure Monitor PowerShell. | Microsoft Docs"
 description: "Utilisez PowerShell pour accéder aux fonctionnalités d’Azure Monitor telles que la mise à l’échelle, les alertes, les webhooks et la recherche dans les journaux d’activité."
-author: kamathashwin
-manager: orenr
+author: rboucher
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: ashwink
-ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: robb
+ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide avec Azure Monitor PowerShell
-Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions Azure Monitor. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
+# <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide Azure Monitor PowerShell
+Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights. Azure Monitor vous permet de mettre à l’échelle automatiquement les services Cloud, les machines virtuelles et Web Apps. Cette plateforme vous permet également d’envoyer des notifications d’alerte ou d’appeler des URL web en fonction des valeurs des données de télémétrie configurées.
 
 > [!NOTE]
-> Azure Monitor est le nouveau nom de ce qui était appelé « Azure Insights » jusqu’au 25 septembre 2016. Toutefois, les espaces de noms et, par conséquent, les commandes suivantes contiennent toujours « insights ».
+> Azure Monitor est le nouveau nom de ce qui était appelé « Azure Insights » jusqu’au 25 septembre 2016. Toutefois, les espaces de noms et donc les commandes suivantes contiennent toujours le mot « insights ».
 > 
 > 
 
@@ -41,13 +41,13 @@ Tout d’abord, connectez-vous à votre abonnement Azure.
 Login-AzureRmAccount
 ```
 
-Vous devez vous identifier. Vos informations de compte, d’ID de locataire et d’ID d’abonnement par défaut s’affichent alors. Toutes les applets de commande Azure fonctionnent dans le cadre de votre abonnement par défaut. Pour afficher la liste des abonnements auxquels vous avez accès, utilisez la commande suivante.
+Un écran de connexion apparaît. Dès que vous vous connectez à votre compte, les paramètres ID de locataire et ID d’abonnement par défaut s’affichent. Toutes les applets de commande Azure fonctionnent dans le cadre de votre abonnement par défaut. Pour afficher la liste des abonnements auxquels vous avez accès, utilisez la commande suivante :
 
 ```PowerShell
 Get-AzureRmSubscription
 ```
 
-Pour remplacer votre contexte de travail par un autre abonnement, utilisez la commande suivante.
+Pour remplacer votre contexte de travail par un autre abonnement, utilisez la commande suivante :
 
 ```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -139,9 +139,9 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 `Get-AzureRmAlertRule` prend en charge d'autres paramètres. Consultez [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) pour plus d'informations.
 
 ## <a name="create-metric-alerts"></a>Créer des alertes de métriques
-Vous pouvez utiliser l’applet de commande `Add-AlertRule` pour créer, mettre à jour ou désactiver une règle d'alerte.
+Vous pouvez utiliser la cmdlet `Add-AlertRule` pour créer, mettre à jour ou désactiver une règle d’alerte.
 
-Vous pouvez créer des propriétés de messagerie et webhook à l'aide de `New-AzureRmAlertRuleEmail` et `New-AzureRmAlertRuleWebhook`, respectivement. Dans l'applet de commande de la règle d'alerte, affectez ces éléments comme des actions à la propriété **Actions** de la règle d'alerte.
+Vous pouvez créer des propriétés de messagerie et webhook à l'aide de `New-AzureRmAlertRuleEmail` et `New-AzureRmAlertRuleWebhook`, respectivement. Dans la cmdlet de la règle d’alerte, affectez ces propriétés en tant qu’actions à la propriété **Actions** de la règle d’alerte.
 
 Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer une alerte à l'aide d'une mesure.
 
@@ -156,10 +156,10 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 | Valeur de seuil (nombre/s pour cette métrique) |1 |
 | WindowSize (format hh:mm:ss) |00:05:00 |
 | agrégation (statistique de la métrique, qui utilise la valeur Average dans ce cas) |Moyenne |
-| e-mails personnalisés (tableau de chaînes) |'foo@example.com','bar@example.com' |
-| envoyer un  e-mail aux propriétaires, contributeurs et lecteurs |-SendToServiceOwners |
+| courriers électroniques personnalisés (tableau de chaînes) |'foo@example.com','bar@example.com' |
+| envoyer un courrier électronique aux propriétaires, contributeurs et lecteurs |-SendToServiceOwners |
 
-Créer un e-mail
+Créer un courrier électronique
 
 ```PowerShell
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
@@ -201,25 +201,25 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 Une liste complète des options disponibles pour `Get-AzureRmMetricDefinition` est disponible dans [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-autoscale-settings"></a>Créer et gérer les paramètres de mise à l'échelle automatique
-Une ressource, par exemple une application web, une machine virtuelle, un service cloud ou un groupe de machines virtuelles identiques, ne peut avoir qu’un seul paramètre de mise à l’échelle automatique configuré.
+Une ressource (application web, machine virtuelle, service cloud ou groupe de machines virtuelles identiques) ne peut avoir qu’un seul paramètre de mise à l’échelle automatique configuré.
 Cependant, chaque paramètre de mise à l'échelle automatique peut avoir plusieurs profils. Par exemple, un pour un profil de mise à l’échelle en fonction des performances et un autre pour un profil basé sur une planification. Chaque profil peut avoir plusieurs règles configurées. Pour plus d’informations sur la mise à l’échelle automatique, voir [Mise à l’échelle automatique d’une application](../cloud-services/cloud-services-how-to-scale.md).
 
-Voici la procédure que nous allons suivre :
+Voici la procédure à utiliser :
 
 1. Créez une ou plusieurs règles.
 2. Créez un ou plusieurs profils correspondant aux règles que vous avez créées précédemment pour les profils.
-3. Facultatif : créez des notifications de mise à l'échelle automatique en configurant les propriétés d’ e-mail et webhook.
+3. Facultatif : créez des notifications de mise à l'échelle automatique en configurant les propriétés de courrier électronique et webhook.
 4. Créez un paramètre de mise à l'échelle automatique avec un nom pour la ressource cible en mappant les profils et les notifications que vous avez créés aux étapes précédentes.
 
 Les exemples suivants montrent comment créer un paramètre de mise à l’échelle automatique pour un groupe de machines virtuelles identiques sur un système d’exploitation Windows à l’aide de la métrique d’utilisation du processeur.
 
-Tout d’abord, créez une règle de montée en charge, avec augmentation du nombre d’instances.
+Tout d’abord, créez une règle d’augmentation de la taille des instances, avec une augmentation du nombre d’instances.
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
-Créez ensuite une règle de baisse de charge, avec une diminution du nombre d’instances.
+Créez ensuite une règle de diminution de la taille des instances, avec une diminution du nombre d’instances.
 
 ```PowerShell
 $rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
@@ -231,19 +231,19 @@ Puis créez un profil pour les règles.
 $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "My_Profile"
 ```
 
-Créez une propriété de webhook
+Créez une propriété webhook
 
 ```PowerShell
 $webhook_scale = New-AzureRmAutoscaleWebhook -ServiceUri "https://example.com?mytoken=mytokenvalue"
 ```
 
-Créez la propriété de notification pour le paramètre de mise à l'échelle automatique, y compris les propriétés d’e-mail et de webhook que vous avez créées précédemment.
+Créez la propriété de notification pour le paramètre de mise à l'échelle automatique, y compris les propriétés de courrier électronique et webhook que vous avez créées précédemment.
 
 ```PowerShell
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
-Enfin, créez le paramètre de mise à l'échelle automatique pour ajouter le profil que vous avez créé précédemment.
+Enfin, créez le paramètre de mise à l’échelle automatique pour ajouter le profil que vous avez créé précédemment. 
 
 ```PowerShell
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
@@ -289,7 +289,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>Gérer les profils de journal pour le journal d’activité
-Vous pouvez créer un *profil de journal* et exporter des données de votre journal d’activité vers un compte de stockage, puis configurer la rétention de données pour celui-ci. Si vous le souhaitez, vous pouvez aussi transmettre en continu les données vers votre hub d'événements. Notez que cette fonctionnalité est actuellement en version préliminaire et vous ne pouvez créer qu'un seul profil de journal par abonnement. Vous pouvez utiliser les applets de commande suivantes avec votre abonnement actuel pour créer et gérer des profils de journal. Vous pouvez également choisir un abonnement spécifique. Bien que PowerShell utilise par défaut l’abonnement actif, vous pouvez toujours modifier ce paramètre avec `Set-AzureRmContext`. Vous pouvez configurer le journal d’activité afin d’acheminer les données vers n'importe quel compte de stockage ou un hub d'événements au sein de cet abonnement. Les données sont écrites en tant que fichiers blob au format JSON.
+Vous pouvez créer un *profil de journal* et exporter des données de votre journal d’activité vers un compte de stockage, puis configurer la rétention de données pour celui-ci. Si vous le souhaitez, vous pouvez aussi transmettre en continu les données vers votre hub d'événements. Cette fonctionnalité est actuellement en préversion et vous ne pouvez créer qu’un seul profil de journal par abonnement. Vous pouvez utiliser les applets de commande suivantes avec votre abonnement actuel pour créer et gérer des profils de journal. Vous pouvez également choisir un abonnement spécifique. Bien que PowerShell utilise par défaut l’abonnement actif, vous pouvez toujours modifier ce paramètre avec `Set-AzureRmContext`. Vous pouvez configurer le journal d’activité afin d’acheminer les données vers n'importe quel compte de stockage ou un hub d'événements au sein de cet abonnement. Les données sont écrites en tant que fichiers blob au format JSON.
 
 ### <a name="get-a-log-profile"></a>Obtenir un profil de journal
 Pour extraire vos profils de journal existants, utilisez l’applet de commande `Get-AzureRmLogProfile` .
@@ -312,14 +312,19 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>Ajouter un profil de journal avec conservation des données et hub d'événements
-En plus du routage de vos données vers un compte de stockage, vous pouvez également transmettre en continu ces données vers un hub d'événements. Notez que dans cette version préliminaire, la configuration du compte de stockage est obligatoire mais la configuration du hub d'événements est facultative.
+En plus du routage de vos données vers un compte de stockage, vous pouvez également transmettre en continu ces données vers un hub d'événements. Dans cette version préliminaire, la configuration du compte de stockage est obligatoire, mais celle d’Event Hub est facultative.
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Configuration des journaux de diagnostic
-De nombreux services Azure fournissent des journaux et des télémétries supplémentaires qui peuvent être configurés pour enregistrer des données dans votre compte de stockage Azure, les envoyer à Event Hubs et/ou les envoyer à un espace de travail Log Analytics OMS. Cette opération ne peut être effectuée qu’au niveau d’une ressource, et le compte de stockage ou le hub d’événements doit être présent dans la même région que la ressource cible où les paramètres de diagnostic sont configurés.
+De nombreux services Azure fournissent des journaux et données de télémétrie supplémentaires qui peuvent être : 
+ - configurés pour enregistrer les données dans votre compte de stockage Azure ;
+ - envoyés à Event Hubs ;
+ - envoyés à un espace de travail OMS Log Analytics. 
+
+L’opération ne peut être effectuée qu’au niveau d’une ressource. Le compte de stockage ou l’Event Hub doit être présent dans la même région que la ressource cible où les paramètres de diagnostic sont configurés.
 
 ### <a name="get-diagnostic-setting"></a>Obtenir le paramètre de diagnostic
 ```PowerShell

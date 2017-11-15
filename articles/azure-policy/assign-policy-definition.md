@@ -5,24 +5,26 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure
-La première étape pour comprendre la conformité dans Azure est de savoir où vous en êtes avec vos propres ressources actuelles. Ce démarrage rapide vous guide pas à pas dans le processus de création d’une stratégie d’affectation pour identifier les ressources qui n’utilisent pas SQL Server version 12.0. À la fin de ce processus, vous aurez identifié correctement les serveurs avec une version différente, qui sont par conséquent *non conformes*.
+La première étape pour comprendre la conformité dans Azure est de savoir où vous en êtes avec vos propres ressources actuelles. Ce démarrage rapide vous guide pas à pas dans le processus de création d’une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques gérés.
+
+À la fin de ce processus, vous aurez identifié correctement les machines virtuelles qui n’utilisent pas de disques gérés et qui sont donc *non conformes*.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="opt-in-to-azure-policy"></a>Choisir Azure Policy
 
-Azure Policy est désormais disponible en préversion limitée : vous devez donc vous inscrire pour en demander l’accès.
+Azure Policy est désormais disponible en préversion publique et vous devez vous inscrire pour en demander l’accès.
 
 1. Accédez à Azure Policy sur https://aka.ms/getpolicy et sélectionnez **S’inscrire** dans le volet gauche.
 
@@ -32,13 +34,13 @@ Azure Policy est désormais disponible en préversion limitée : vous devez donc
 
    ![Accepter l’utilisation d’Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   Quelques jours peuvent nous être nécessaires pour accepter votre demande d’inscription, en fonction de la demande. Une fois que votre demande est acceptée, vous êtes averti par e-mail que vous pouvez commencer à utiliser le service.
+   Votre requête est approuvée automatiquement pour la préversion. Patientez 30 minutes pour que le système traite votre inscription.
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
-Dans ce démarrage rapide, nous créons une affectation de stratégie et affectons la définition *Require SQL Server version 12.0*. 
+Dans ce guide de démarrage rapide, nous créons une affectation de stratégie et attribuons la définition de stratégie *Audit Virtual Machines without Managed Disks (Auditer des machines virtuelles sans disques gérés)*.
 
-1. Sélectionnez **Affectations** dans le volet gauche de la page Azure Policy.
+1. Sélectionnez **Attributions** dans le volet gauche de la page Azure Policy.
 2. Sélectionnez **Assigner une stratégie** en haut du volet **Affectations**.
 
    ![Affecter une définition de stratégie](media/assign-policy-definition/select-assign-policy.png)
@@ -53,11 +55,11 @@ Dans ce démarrage rapide, nous créons une affectation de stratégie et affecto
    - Apply tag and its value
    - Require SQL Server version 12.0
 
-4. Recherchez dans vos définitions de stratégie la définition de stratégie *Require SQL Server version 12.0*. Cliquez sur cette stratégie, puis sur **Sélectionner**.
+4. Parcourez vos définitions de stratégie pour rechercher la définition *Audit VMs that do not use managed disks (Auditer des machines virtuelles qui n’utilisent pas de disques gérés)*. Cliquez sur cette stratégie, puis sur **Affecter**.
 
    ![Rechercher la définition de stratégie appropriée](media/assign-policy-definition/select-available-definition.png)
 
-5. Attribuez un **Nom** d’affichage à l’affectation de stratégie. Dans le cas présent, utilisons *Require SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur la façon dont cette affectation de stratégie s’assure que tous les serveurs SQL créés dans cet environnement utilisent la version 12.0.
+5. Attribuez un **Nom** d’affichage à l’affectation de stratégie. Dans ce cas, nous allons utiliser la définition *Audit VMs that do not use managed disks (Auditer des machines virtuelles qui n’utilisent pas de disques gérés)*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur la façon dont cette affectation de stratégie identifie toutes les machines virtuelles créées dans cet environnement qui n’utilisent pas de disques gérés.
 6. Définissez le niveau tarifaire sur **Standard** pour vous assurer que la stratégie soit appliquée aux ressources existantes.
 
    Il existe deux niveaux tarifaires dans Azure Policy : *Gratuit* et *Standard*. Avec le niveau Gratuit, vous pouvez uniquement appliquer des stratégies à des ressources futures, alors qu’avec le niveau Standard, vous pouvez également les appliquer à des ressources existantes pour mieux comprendre votre état de conformité. Étant donné qu’il s’agit d’une préversion limitée, nous n'avons pas encore publié de modèle tarifaire. Vous ne recevrez donc pas de facture pour la sélection du niveau *Standard*. Pour en savoir plus sur les prix, consultez : [Prix Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
@@ -93,7 +95,7 @@ Si une condition est évaluée sur vos ressources existantes et génère la vale
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 D’autres guides de cette collection sont basés sur ce démarrage rapide. Si vous prévoyez de continuer avec les didacticiels suivants, ne nettoyez pas les ressources créées dans ce démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées au cours de ce démarrage rapide dans le portail Azure.
-1. Sélectionnez **Affectations** dans le volet gauche.
+1. Sélectionnez **Attributions** dans le volet gauche.
 2. Recherchez l’affectation que vous venez de créer.
 
    ![Supprimer une affectation](media/assign-policy-definition/delete-assignment.png)
@@ -108,4 +110,3 @@ Pour plus d’informations sur l’affectation de stratégies et garantir que le
 
 > [!div class="nextstepaction"]
 > [Création et gestion des stratégies](./create-manage-policy.md)
-

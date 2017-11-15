@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -176,6 +176,11 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   > **R :** La durée de vie de session pour la réinitialisation du mot de passe est de 15 minutes. À compter du début de l’opération de réinitialisation du mot de passe, l’utilisateur dispose de 15 minutes pour le réinitialiser. Le code secret à usage unique pour les messages électroniques et les SMS perd sa validité à l’issue de cette période.
   >
   >
+* **Q : Puis-je empêcher des utilisateurs de réinitialiser leur mot de passe ?**
+
+  > **R :** Oui, si vous utilisez un groupe pour activer la réinitialisation du mot de passe en libre-service, vous pouvez les supprimer du groupe qui leur donne cette possibilité.
+  >
+  >
 
 ## <a name="password-change"></a>Modification de mot de passe
 
@@ -187,6 +192,11 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 * **Q : Mes utilisateurs peuvent-ils être informés de l’expiration de leur mot de passe local dans le portail Office ?**
 
   > **R :** Cela est actuellement possible si vous utilisez AD FS en suivant les instructions fournies ici : [Configurer AD FS pour envoyer des revendications d’expiration de mot de passe](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Si vous utilisez la synchronisation de hachage de mot de passe, ces notifications ne sont pas prises en charge actuellement. Comme nous ne synchronisons pas les stratégies de mot de passe en local, nous ne sommes pas en mesure de publier des notifications d’expiration dans les expériences cloud. Dans les deux cas, il est également possible de [notifier les utilisateurs dont les mots de passe sont sur le point d’expirer à l’aide de PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **Q : Puis-je empêcher des utilisateurs de modifier leur mot de passe ?**
+
+  > **R :** Pour des utilisateurs du cloud uniquement, cela n’est pas possible. Pour des utilisateurs locaux, vous pouvez cocher `User cannot change password` afin qu’ils ne puissent pas modifier leur mot de passe.
   >
   >
 
@@ -223,7 +233,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
   >
 
-## <a name="password-writeback"></a>Écriture différée du mot de passe
+## <a name="password-writeback"></a>Réécriture du mot de passe
 
 * **Q : Comment l’écriture différée du mot de passe fonctionne-t-elle en arrière-plan ?**
 
@@ -263,14 +273,14 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
+* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
 * [Réinitialisez ou modifiez votre mot de passe](active-directory-passwords-update-your-own-password.md).
 * [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md).
-* [Vous avez une question relative à la licence ?](active-directory-passwords-licensing.md)
-* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données devez-vous renseigner pour vos utilisateurs ?](active-directory-passwords-data.md)
+* [Vous avez une question relative à la licence ?](active-directory-passwords-licensing.md)
+* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](active-directory-passwords-data.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-policy.md)
-* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](active-directory-passwords-writeback.md)
-* [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-reporting.md)
-* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
+* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-policy.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](active-directory-passwords-writeback.md)
+* [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-reporting.md)
+* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)

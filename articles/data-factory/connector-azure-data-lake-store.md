@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5e6e56dd7ce1a16cadf35f9efe959ac490a65071
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6ef76763859482d24c088f58fe361882cc4a619b
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Lake Store à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Azure Data Lake Store dans V1](v1/data-factory-azure-datalake-connector.md).
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier des données de toute banque de données source prise en charge vers Azure Data Lake Store, ou d’Azure Data Lake Store vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -52,7 +52,7 @@ Pour utiliser une authentification du principal du service, inscrivez une entit�
 - Clé de l'application
 - ID client
 
-[!TIP]
+>[!TIP]
 > Veillez à accorder l’autorisation appropriée au principal de service dans Azure Data Lake Store :
 >- En tant que source, accordez au moins l’autorisation d’accès aux données **Lecture + Exécution** pour lister et copier le contenu d’un dossier, ou l’autorisation **Lecture** pour copier un seul fichier. Aucune exigence sur le contrôle d’accès au niveau du compte.
 >- En tant que récepteur, accordez au moins l’autorisation d’accès aux données **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Et si vous utilisez Azure IR pour autoriser la copie (la source et le récepteur sont tous les deux dans le cloud) et permettre la détection par Data Factory de la région de Data Lake Store, accordez au moins le rôle **Lecteur** dans le contrôle d’accès au compte (IAM). Si vous souhaitez éviter ce rôle IAM, [créez un runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) avec l’emplacement de votre Data Lake Store et procédez à l’association dans le service lié Data Lake Store, comme le montre l’exemple suivant.

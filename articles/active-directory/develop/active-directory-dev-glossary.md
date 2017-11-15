@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossaire du développeur Azure Active Directory
 Cet article contient des définitions pour certains des principaux concepts de développeur Azure Active Directory (AD), qui s’avèrent utiles lors de l’apprentissage du développement d’applications pour Azure AD.
@@ -153,13 +153,13 @@ La fonction d’ouverture de session d’une application est généralement util
 Processus de désactivation de l’authentification d’un utilisateur final par lequel l’état utilisateur associé à [l’application cliente](#client-application) pendant la [connexion](#sign-in) est détaché.
 
 ## <a name="tenant"></a>locataire
-Une instance d’un répertoire Azure AD est désignée sous le nom de client Azure AD. Elle offre une multitude de fonctionnalités, notamment :
+Une instance d’un répertoire Azure AD est désignée sous le nom de client Azure AD. Celui-ci fournit plusieurs fonctionnalités, notamment :
 
 * un service de registre pour les applications intégrées
 * l’authentification des comptes utilisateurs et des applications enregistrées
 * les points de terminaison REST requis pour prendre en charge différents protocoles, notamment OAuth2 et SAML, y compris le [point de terminaison d’autorisation](#authorization-endpoint), le [point de terminaison de jeton](#token-endpoint) et le point de terminaison « commun » utilisé par les [applications mutualisées](#multi-tenant-application).
 
-Un client est également associé à un abonnement Azure AD ou Office 365 lors de l’approvisionnement de l’abonnement, ce qui offre des fonctionnalités de gestion d’identité et d’accès pour l’abonnement. Pour plus d’informations sur les diverses méthodes permettant d’accéder à un locataire, consultez [Obtention d’un locataire Azure Active Directory][AAD-How-To-Tenant]. Pour plus d’informations sur la relation entre les abonnements et un client Azure AD, consultez [Association des abonnements Azure avec Azure Active Directory][AAD-How-Subscriptions-Assoc].
+Les locataires Azure AD sont créés avec/associés à des abonnements Azure et Office 365 pendant l’inscription, fournissant des fonctionnalités de gestion des identités et des accès pour l’abonnement. Les administrateurs d’abonnement Azure peuvent également créer d’autres locataires Azure AD via le portail Azure. Pour plus d’informations sur les diverses méthodes permettant d’accéder à un locataire, consultez [Obtention d’un locataire Azure Active Directory][AAD-How-To-Tenant]. Pour plus d’informations sur la relation entre les abonnements et un client Azure AD, consultez [Association des abonnements Azure avec Azure Active Directory][AAD-How-Subscriptions-Assoc].
 
 ## <a name="token-endpoint"></a>point de terminaison de jeton
 Un des points de terminaison implémentés par le [serveur d’autorisation](#authorization-server) pour prendre en charge les [octrois d’autorisation](#authorization-grant) OAuth2. En fonction de l’octroi, il peut être utilisé pour acquérir un [jeton d’accès](#access-token) (et les jetons « d’actualisation » liés) à un [client](#client-application) ou un [jeton d’ID](#ID-token) lorsqu’il est utilisé avec le protocole [OpenID Connect][OpenIDConnect].

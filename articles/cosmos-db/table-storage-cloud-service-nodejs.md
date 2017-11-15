@@ -1,5 +1,5 @@
 ---
-title: Application web avec stockage Table (Node.js) | Microsoft Docs
+title: "Stockage Table Azure : créer une application web Node.js | Microsoft Docs"
 description: "Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express."
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,15 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Application Web Node.js utilisant le stockage
+# <a name="azure-table-storage-nodejs-web-application"></a>Stockage Table Azure : application web Node.js
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>Vue d'ensemble
 Dans ce didacticiel, l’application que vous avez créée dans le didacticiel [Application web Node.js avec Express] est étendue à l’aide des bibliothèques clientes Microsoft Azure pour Node.js, afin qu’elle fonctionne avec les services de gestion de données. Vous étendez votre application en créant une application de liste de tâches web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
 

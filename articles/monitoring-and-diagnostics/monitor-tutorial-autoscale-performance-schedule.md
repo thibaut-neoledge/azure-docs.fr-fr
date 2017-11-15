@@ -10,20 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Créer un paramètre de mise à l’échelle automatique pour des ressources Azure basées sur les données de performances ou une planification
 
-Les paramètres de mise à l’échelle automatique vous permettent d’ajouter ou de supprimer des instances de service en fonction de conditions prédéfinies. Ces paramètres peuvent être créés via le portail. Cette méthode fournit une interface utilisateur basée sur navigateur pour créer et configurer un paramètre de mise à l’échelle automatique. Ce didacticiel décrit en détail les opérations suivantes :
+Les paramètres de mise à l’échelle automatique vous permettent d’ajouter ou de supprimer des instances de service en fonction de conditions prédéfinies. Ces paramètres peuvent être créés via le portail. Cette méthode fournit une interface utilisateur basée sur navigateur pour créer et configurer un paramètre de mise à l’échelle automatique. 
 
-1. Création d’un plan App Service
-2. Configuration d’un paramètre de mise à l'échelle automatique
-3. Déclenchement d’une action de montée en charge
-4. Déclenchement d’une action de réduction de l’échelle
+Ce didacticiel présente les procédures suivantes : 
+> [!div class="checklist"]
+> * Créer une application web et un plan App Service
+> * Configurer des règles de mise à l’échelle automatique pour la diminution et l’augmentation de la taille des instances en fonction du nombre de requêtes reçues par une application web
+> * Déclencher une action d’augmentation de la taille des instances et regarder le nombre d’instances augmenter
+> * Déclencher une action de diminution de la taille des instances et regarder le nombre d’instances diminuer
+> * Nettoyage des ressources
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -32,12 +35,15 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Créer une application web et un plan App Service
-1. Cliquez sur l’option **Nouveau** dans le volet de navigation gauche
-2. Recherchez et sélectionnez l’élément *Application web* puis cliquez sur **Créer**
-3. Nommez l’application, par exemple *MyTestScaleWebApp*. Créez un nouveau groupe de ressources *myResourceGroup' et placez-le dans le groupe de ressources de votre choix.
-4. En quelques minutes, vos ressources devraient être configurées. Nous faisons référence à l’application web et au plan App Service correspondant qui viennent d’être créés dans les étapes restantes de ce didacticiel.
+Cliquez sur l’option **Nouveau** dans le volet de navigation gauche
 
-    ![Créer un plan App Service dans le portail](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+Recherchez et sélectionnez l’élément *Application web* puis cliquez sur **Créer**
+
+Nommez l’application, par exemple *MyTestScaleWebApp*. Créez un nouveau groupe de ressources *myResourceGroup' et placez-le dans le groupe de ressources de votre choix.
+
+En quelques minutes, vos ressources devraient être configurées. Utilisez l’application web et le plan App Service correspondant dans le reste de ce didacticiel.
+
+    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Naviguer jusqu’aux paramètres de mise à l’échelle automatique
 1. Dans le volet de navigation de gauche, sélectionnez l’option **Moniteur**. Une fois la page chargée, sélectionnez l’onglet **Mise à l’échelle automatique**.
@@ -45,7 +51,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
     ![Naviguer jusqu’aux paramètres de mise à l’échelle automatique](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
-3. Dans le paramètre de mise à l’échelle automatique, cliquez sur le bouton **Activer la mise à l’échelle automatique**
+3. Dans le paramètre de mise à l’échelle automatique, cliquez sur le bouton **Activer la mise à l’échelle automatique**.
 
 Les quelques étapes suivantes vous aident à compléter l’écran de mise à l’échelle automatique afin qu’il ressemble à l’image suivante :
 
@@ -54,12 +60,12 @@ Les quelques étapes suivantes vous aident à compléter l’écran de mise à l
  ## <a name="configure-default-profile"></a>Configurer un profil par défaut
 1. Fournir un **nom** pour le paramètre de mise à l’échelle automatique
 2. Dans le profil par défaut, vérifiez que le **mode de mise à l’échelle** est défini sur 'Mettre à l'échelle à un nombre d'instances spécifique'
-3. Définissez le nombre d’instances sur 1. Ce paramètre garantit que si aucun autre profil n’est actif ou en vigueur, le profil par défaut utilise un nombre d’instances de 1.
+3. Définissez le nombre d’instances sur **1**. Ce paramètre garantit que si aucun autre profil n’est actif ou en vigueur, le profil par défaut utilise un nombre d’instances de 1.
 
   ![Naviguer jusqu’aux paramètres de mise à l’échelle automatique](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrence-profile"></a>Créer un profil de récurrence
+## <a name="create-recurrance-profile"></a>Créer un profil de récurrence
 
 1. Cliquez sur le lien **Ajouter une condition de mise à l’échelle**, situé sous le profil par défaut
 
@@ -67,11 +73,11 @@ Les quelques étapes suivantes vous aident à compléter l’écran de mise à l
 
 3. Vérifiez que le **mode de mise à l’échelle** est défini sir 'Mettre à l'échelle selon une mesure'
 
-4. Pour **Limites d’instance**, définissez la valeur **minimale** sur '1', la valeur **maximale** sur '2' et la **valeur par défaut** sur '1'. Cette opération garantit que ce profil ne met pas automatiquement à l’échelle le plan de service pour qu’il contienne moins de 1 instance ou plus de 2 instances. Si le profil n’a pas suffisamment de données pour prendre une décision, il utilise le nombre d’instances par défaut (dans ce cas, 1).
+4. Pour **Limites d’instance**, définissez la valeur **minimale** sur '1', la valeur **maximale** sur '2' et la **valeur par défaut** sur '1'. Ce paramètre garantit que ce profil ne met pas automatiquement à l’échelle le plan de service pour qu’il contienne moins de 1 instance ou plus de 2 instances. Si le profil n’a pas suffisamment de données pour prendre une décision, il utilise le nombre d’instances par défaut (dans ce cas, 1).
 
-5. Pour **Planification**, sélectionnez 'Répéter des jours spécifiques'
+5. Pour **Planification**, sélectionnez Répéter des jours spécifiques.
 
-6. Définissez le profil afin qu’il se répète du lundi au vendredi, de 9h00 PST à 18h00 PST. Cela garantit que ce profil s’applique uniquement de 9h00 à 18h00, du lundi au vendredi. À tous les autres moments, le profil 'Par défaut' est le profil utilisé par le paramètre de mise à l’échelle automatique.
+6. Définissez le profil afin qu’il se répète du lundi au vendredi, de 9h00 PST à 18h00 PST. Ce paramètre garantit que ce profil s’applique uniquement de 9 h 00 à 18 h 00, du lundi au vendredi. À tous les autres moments, le profil 'Par défaut' est le profil utilisé par le paramètre de mise à l’échelle automatique.
 
 ## <a name="create-a-scale-out-rule"></a>Créer une règle de montée en charge
 
@@ -150,7 +156,7 @@ La condition de diminution de la taille du paramètre de mise à l’échelle au
 
 6. Un graphique indique le nombre d’instances du plan App Service au fil du temps.
 
-7. En quelques minutes, le nombre d’instances devrait diminuer de 2 à 1. Le processus dure au moins dix minutes.  
+7. En quelques minutes, le nombre d’instances doit diminuer de 2 à 1. Le processus dure au moins 100 minutes.  
 
 8. Sous le graphique, vous pouvez visualiser le jeu correspondant d’entrées du journal d’activité pour chaque action de mise à l’échelle effectuée par ce paramètre de mise à l’échelle automatique
 
@@ -168,7 +174,16 @@ La condition de diminution de la taille du paramètre de mise à l’échelle au
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé une application web simple et un plan App Service. Vous avez ensuite créé un paramètre de mise à l’échelle automatique qui fait évoluer le plan App Service en fonction du nombre de requêtes reçues par l’application web. Pour en savoir plus sur les paramètres de mise à l’échelle automatique, passez à la vue d’ensemble de la mise à l’échelle automatique.
+Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :  
+> [!div class="checklist"]
+> * Créer une application web et un plan App Service
+> * Configurer des règles de mise à l’échelle automatique pour la diminution et l’augmentation de la taille des instances en fonction du nombre de requêtes reçues par une application web
+> * Déclencher une action d’augmentation de la taille des instances et regarder le nombre d’instances augmenter
+> * Déclencher une action de diminution de la taille des instances et regarder le nombre d’instances diminuer
+> * Nettoyer des ressources
+
+
+Pour en savoir plus sur les paramètres de mise à l’échelle automatique, passez à la [vue d’ensemble de la mise à l’échelle automatique](monitoring-overview-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Archiver vos données de monitorage](./monitor-tutorial-archive-monitoring-data.md)
+> [Archiver vos données de monitorage](monitor-tutorial-archive-monitoring-data.md)

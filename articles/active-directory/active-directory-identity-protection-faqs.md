@@ -11,16 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0a030c635255d2e6fcbacd5c138f8d09b1ef85b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d0505caf75a3e6433e2c9fd9795b3176d66d297
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>FAQ Azure Active Directory Identity Protection
+
+Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Identity Protection. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](active-directory-identityprotection.md). 
 
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>Pourquoi certains événements à risque ont-ils le statut de « Clôturé (système) » ?
@@ -30,12 +32,18 @@ ms.lasthandoff: 10/11/2017
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>Dois-je être administrateur général pour utiliser la protection d’identité dans le portail Azure ?
-**R :****non**. Vous pouvez être un lecteur de sécurité, un administrateur de sécurité ou un administrateur général pour utiliser la protection d’identité.
+**R :** Non. Vous pouvez être un lecteur de sécurité, un administrateur de sécurité ou un administrateur général pour utiliser la protection d’identité.
 
 ---
 
 ## <a name="how-do-i-get-identity-protection"></a>Comment obtenir Identity Protection ?
+
 **R :** Consultez [Prise en main d’Azure Active Directory Premium](active-directory-get-started-premium.md) pour connaître la réponse à cette question.
 
 ---
 
+## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>Comment faire pour trier les utilisateurs répertoriés dans « Utilisateurs avec indicateur de risque » ?
+
+**R :** Téléchargez le rapport des utilisateurs avec indicateur de risque en cliquant sur le bouton **Télécharger** en haut de la page **Utilisateurs avec indicateur de risque**. Vous pouvez ensuite trier les données téléchargées en fonction des champs disponibles, notamment Dernière mise à jour (UTC).
+
+---
