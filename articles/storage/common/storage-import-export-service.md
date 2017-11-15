@@ -1,6 +1,6 @@
 ---
-title: "Utilisation du service Azure Import/Export pour transférer des données du et vers le stockage d’objets blob | Microsoft Docs"
-description: "Découvrez comment créer des tâches d’importation et d’exportation dans le portail Azure pour transférer des données de et vers le stockage d’objets blob."
+title: "Utilisation du service Azure Import/Export pour transférer des données vers et à partir de Stockage Azure | Microsoft Docs"
+description: "Découvrez comment créer des tâches d’importation et d’exportation dans le portail Azure pour transférer des données vers et à partir de Stockage Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export
-Cet article présente des instructions pas à pas sur l’utilisation du service Azure Import/Export pour transférer en toute sécurité des volumes importants de données vers le Stockage Blob Azure et Stockage Fichier en expédiant des lecteurs de disques vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données depuis le Stockage Blob Azure vers des lecteurs de disques durs et les expédier vers vos sites locaux. Les données d’un seul lecteur de disque SATA interne peuvent être importées dans le Stockage Blob Azure ou Stockage Fichier Azure. 
+Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour transférer en toute sécurité des volumes importants de données vers Stockage Blob Azure et Azure Files en expédiant des lecteurs de disques vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disques durs et les expédier vers vos sites locaux. Les données d’un seul lecteur de disque SATA interne peuvent être importées dans Stockage Blob Azure ou Azure Files. 
 
 > [!IMPORTANT] 
 > Ce service accepte uniquement les HDD ou SSD SATA internes. Aucun autre périphérique n’est pris en charge. N’envoyez pas de périphériques NAS ni HDD externes, entre autres, car ils seront renvoyés si possible ou rejetés.
 >
 >
 
-Suivez les étapes ci-après si les données sur le disque doivent être importées dans le Stockage Blob Azure.
+Suivez les étapes ci-dessous si les données sur le disque doivent être importées dans Stockage Azure.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Étape 1 : Préparer les lecteurs à l’aide de l’outil WAImportExport et générer les fichiers journaux.
 
-1.  Identifiez les données à importer dans le Stockage Blob Azure. Il peut s’agir de répertoires et de fichiers autonomes sur un serveur local ou sur un partage réseau.
+1.  Identifiez les données à importer dans Stockage Azure. Il peut s’agir de répertoires et de fichiers autonomes sur un serveur local ou sur un partage réseau.
 2.  En fonction de la taille totale des données, procurez-vous le nombre requis de SSD de 2,5 pouces ou HDD SATA II ou III de 2,5 ou 3,5 pouces.
 3.  Attachez les disques durs directement à l’aide de SATA ou avec des adaptateurs USB externes à un ordinateur Windows.
 4.  Créez un seul volume NTFS sur chaque disque dur et affectez-lui une lettre de lecteur. Pas de points de montage.
@@ -80,7 +80,7 @@ Vous pouvez utiliser ce service dans des scénarios tels que :
 
 * Migration de données vers le cloud : déplacez de grandes quantités de données vers Azure rapidement et à moindre coût.
 * Distribution de contenu : envoyez rapidement des données aux sites de vos clients.
-* Sauvegarde : sauvegardez vos données locales dans Stockage Blob Azure.
+* Sauvegarde : sauvegardez vos données locales dans Stockage Azure.
 * Récupération des données : récupérez les grandes quantités de données stockées pour les transférer vers votre site local.
 
 ## <a name="prerequisites"></a>Composants requis
@@ -90,13 +90,13 @@ Dans cette section, nous répertorions les composants requis pour utiliser ce se
 Vous devez disposer d’un abonnement Azure et d’un ou plusieurs comptes de stockage pour pouvoir utiliser le service Import/Export. Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Types de données
-Vous pouvez utiliser le service Azure Import/Export pour copier des données dans des objets blob de **blocs**, des objets blob de **pages** ou des **fichiers**. En revanche, vous ne pouvez qu’exporter les objets blob de **bloc**, de **page** ou **d’ajout** depuis le stockage Azure. Le service ne prend pas en charge l’exportation de fichiers Azure et peut uniquement importer les fichiers dans Stockage Azure.
+Vous pouvez utiliser le service Azure Import/Export pour copier des données dans des objets blob de **blocs**, des objets blob de **pages** ou des **fichiers**. En revanche, vous ne pouvez qu’exporter les objets blob de **bloc**, de **page** ou **d’ajout** depuis le stockage Azure. Le service prend en charge uniquement l’importation d’Azure Files vers Stockage Azure. L’exportation d’Azure Files n’est pas prise en charge actuellement.
 
 ### <a name="job"></a>Travail
 Pour démarrer le processus d’importation ou d’exportation vers ou à partir d’un stockage, commencez par créer une tâche. Il peut s'agir d'une tâche d'importation ou d'une tâche d'exportation :
 
-* Une tâche d’importation vise à transférer des données locales vers des objets blob de votre compte de stockage Azure.
-* Un travail d’exportation vise à transférer des données stockées sous forme de blobs dans votre compte de stockage sur des disques durs qui nous sont ensuite expédiés. Lorsque vous créez une tâche, vous avertissez le service Import/Export que vous allez expédier un ou plusieurs disques durs vers un centre de données Azure.
+* Créez une tâche d’importation quand vous souhaitez transférer des données locales vers votre compte de stockage Azure.
+* Créez une tâche d’exportation quand vous souhaitez transférer des données stockées dans votre compte de stockage vers des disques durs qui nous sont ensuite expédiés. Lorsque vous créez une tâche, vous avertissez le service Import/Export que vous allez expédier un ou plusieurs disques durs vers un centre de données Azure.
 
 * Dans le cas d’un travail d’importation, vous expédiez des disques durs contenant vos données.
 * Dans le cas d’un travail d’exportation, vous expédiez des disques durs vides.
@@ -107,7 +107,7 @@ Vous pouvez créer une tâche d’importation ou d’exportation à l’aide du 
 ### <a name="waimportexport-tool"></a>Outil WAImportExport
 Pour créer une tâche **d’importation**, la première étape consiste à préparer les disques qui seront utilisés pour l’importation. Pour ce faire, vous devez les connecter à un serveur local et exécuter l’outil WAImportExport sur le serveur local. Cet outil facilite la copie de vos données sur le disque, leur chiffrement avec BitLocker et la génération des fichiers journaux du disque.
 
-Ces fichiers journaux stockent des informations sur votre travail et sur le disque, par exemple le numéro de série du disque et le nom du compte de stockage. Ce fichier journal n’est pas stocké sur le disque. Il est utilisé lors de la création de travaux d’importation. Une procédure détaillée de la création de ces tâches est fournie plus loin dans cet article.
+Ces fichiers journaux stockent des informations sur votre travail et sur le disque, par exemple le numéro de série du disque et le nom du compte de stockage. Ce fichier journal n’est pas stocké sur le disque. Il est utilisé lors de la création de travaux d’importation. Une procédure détaillée de la création de ces travaux est fournie plus loin dans cet article.
 
 L’outil WAImportExport est compatible uniquement avec le système d’exploitation Windows 64 bits. Pour connaître les versions de système d’exploitation prises en charge, consultez la section [Système d’exploitation](#operating-system) .
 
@@ -294,7 +294,7 @@ Lorsque vous envoyez des disques à Azure, vous payez le coût d’expédition a
 
 **Frais de transaction**
 
-Aucuns frais de transaction ne s’appliquent pour l’importation de données dans Stockage Blob. Des frais de sortie standard s’appliquent lorsque les données sont exportées depuis Stockage Blob. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)
+Aucun frais de transaction ne s’applique lors de l’importation de données dans Stockage Azure. Des frais de sortie standard s’appliquent quand les données sont exportées à partir de Stockage Blob. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -304,7 +304,6 @@ Lors de l’importation des données à l’aide du service Azure Import/Export,
 
 1. Identifiez les données à importer dans le Stockage Fichier Azure. Il peut s’agir de répertoires et de fichiers autonomes sur le serveur local ou sur un partage de réseau.  
 2. Déterminez le nombre de disques nécessaires en fonction de la taille totale des données. Procurez-vous le nombre requis de disques durs SSD de 2,5 pouces ou SATA II ou III de 2,5 ou 3,5 pouces.
-3. Identifiez le compte de stockage cible, le conteneur, les répertoires virtuels et les objets blob.
 4. Déterminez les répertoires et/ou les fichiers à copier sur chaque disque dur.
 5. Créez les fichiers CSV du jeu de données et du jeu de disques.
     
@@ -498,11 +497,11 @@ Les données de votre compte Stockage Azure sont accessibles via le portail Azur
 
 **Une fois la tâche d’importation terminée, à quoi mes données ressembleront-elles dans le compte de stockage ? Mon arborescence sera-t-elle préservée ?**
 
-Lorsque vous préparez un disque dur pour une tâche d’importation, la destination est spécifiée par le champ DstBlobPathOrPrefix du fichier CSV du jeu de données. Il s’agit du conteneur cible dans le compte de stockage dans lequel les données du disque dur sont copiées. Dans ce conteneur cible, des répertoires virtuels sont créés pour les dossiers du disque dur et des objets blob sont créés pour les fichiers. 
+Quand vous préparez un disque dur pour une tâche d’importation, la destination est spécifiée par le champ DstBlobPathOrPrefix du fichier CSV du jeu de données. Il s’agit du conteneur cible dans le compte de stockage dans lequel les données du disque dur sont copiées. Dans ce conteneur cible, des répertoires virtuels sont créés pour les dossiers du disque dur et des objets blob sont créés pour les fichiers. 
 
-**Si le disque contient des fichiers déjà existants dans mon compte de stockage, le service va-t-il remplacer les objets blob dans mon compte de stockage ?**
+**Si le disque contient des fichiers qui existent déjà dans mon compte de stockage, le service va-t-il remplacer les fichiers ou les objets blob dans mon compte de stockage ?**
 
-Lors de la préparation du disque, vous pouvez indiquer si les fichiers cibles doivent être remplacés ou ignorés à l’aide du champ Disposition:< rename|no-overwrite|overwrite> du fichier CSV du jeu de données. Par défaut, le service ne remplace pas les objets blob mais renomme les nouveaux fichiers.
+Lors de la préparation du disque, vous pouvez indiquer si les fichiers cibles doivent être remplacés ou ignorés à l’aide du champ Disposition:< rename|no-overwrite|overwrite> du fichier CSV du jeu de données. Par défaut, le service ne remplace pas les objets blob ou les fichiers, mais renomme les nouveaux fichiers.
 
 **L’outil WAImportExport est-il compatible avec un système d’exploitation Windows 32 bits ?**
 Non. L’outil WAImportExport est compatible uniquement avec les systèmes d’exploitation Windows 64 bits. Pour obtenir la liste complète des versions de système d’exploitation pris en charge, consultez la section [Conditions préalables](#pre-requisites) .
