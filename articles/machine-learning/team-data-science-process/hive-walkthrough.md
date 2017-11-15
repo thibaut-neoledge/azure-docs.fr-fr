@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop Azure HDInsight
 Dans cette procédure pas à pas, nous allons utiliser le [processus TDSP (Team Data Science Process)](overview.md) avec un scénario complet au moyen d’un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.
@@ -59,15 +59,15 @@ Voici trois exemples de problèmes de prévisions que nous allons traiter dans 
 
 1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *valeur tip\_amount* de 0 $ est un exemple négatif.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Classification multiclasse**: prédire la fourchette du montant des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Tâche de régression**: prédire le montant du pourboire versé pour une course.  
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour une analyse avancée
@@ -132,7 +132,7 @@ Les données doivent être désormais dans le stockage Blob Azure et prêtes à 
 > 
 > 
 
-Pour accéder au nœud principal du cluster afin d’exécuter une analyse exploratoire des données et une réduction de l’échantillon des données, suivez la procédure décrite dans [Accéder au nœud principal du cluster Hadoop](customize-hadoop-cluster.md#headnode).
+Pour accéder au nœud principal du cluster afin d’exécuter une analyse exploratoire des données et une réduction de l’échantillon des données, suivez la procédure décrite dans [Accéder au nœud principal du cluster Hadoop](customize-hadoop-cluster.md).
 
 Dans cette procédure pas à pas, nous utilisons principalement les requêtes écrites dans [Hive](https://hive.apache.org/), un langage de requête similaire à SQL, pour effectuer des explorations de données préliminaires. Les requêtes Hive sont stockées dans des fichiers .hql. Nous réduisons ensuite l’échantillon de ces données à utiliser avec Azure Machine Learning pour la construction de modèles.
 
@@ -413,7 +413,7 @@ Voici le contenu du fichier *sample\_hive\_trip\_count\_by\_medallion.hql* pour 
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-À partir de l'invite du répertoire Hive, exécutez la commande suivante :
+À partir de l’invite du répertoire Hive, exécutez la commande suivante :
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
@@ -523,7 +523,7 @@ Exécutez la commande suivante dans la console de ligne de commande Hadoop :
 
 Avoir une idée de la distance directe nous permet de déterminer l'écart entre celle-ci et la distance de course réelle. Nous expliquons cette fonctionnalité par le fait qu’un passager peut être moins susceptible de donner un pourboire s’il se rend compte que le chauffeur a pris intentionnellement un itinéraire beaucoup plus long.
 
-Pour afficher la comparaison entre la distance de course réelle et la [distance Haversine](http://en.wikipedia.org/wiki/Haversine_formula) entre deux points de latitude-longitude (la distance orthodromique), nous utilisons les fonctions trigonométriques disponibles au sein de Hive, par conséquent :
+Pour afficher la comparaison entre la distance de course réelle et la [distance Haversine](http://en.wikipedia.org/wiki/Haversine_formula) entre deux points de latitude-longitude (la distance orthodromique), nous utilisons les fonctions trigonométriques disponibles au sein de Hive :
 
     set R=3959;
     set pi=radians(180);
@@ -557,7 +557,7 @@ Dans ce cas, nous écrivons nos résultats sur un répertoire nommé « queryou
 
 Les résultats de la requête sont consignés dans 9 blobs Azure ***queryoutputdir/000000\_0*** à  ***queryoutputdir/000008\_0*** situés dans le conteneur par défaut du cluster Hadoop.
 
-Pour connaître la taille des objets BLOB individuels, nous exécutons la commande suivante à partir de l'invite du répertoire Hive :
+Pour connaître la taille des objets BLOB individuels, nous exécutons la commande suivante à partir de l’invite du répertoire Hive :
 
     hdfs dfs -ls wasb:///queryoutputdir
 
@@ -712,7 +712,7 @@ Voici le contenu du fichier *sample\_hive\_prepare\_for\_aml\_full.hql* qui pré
         on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
         where t.sample_key<=0.01
 
-Pour exécuter cette requête, à partir de l'invite du répertoire Hive :
+Pour exécuter cette requête, à partir de l’invite du répertoire Hive :
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
@@ -723,24 +723,24 @@ En tant que composants requis pour la création de requêtes Hive dans le module
 
 Certains détails sur le module [Importer des données][import-data] et les paramètres à entrer :
 
-**URI du serveur HCatalog** : si le nom du cluster est abc123, c’est simplement : https://abc123.azurehdinsight.net
+**URI du serveur HCatalog** : si le nom du cluster est abc123, il s’agit simplement de https://abc123.azurehdinsight.net
 
-**Nom du compte utilisateur Hadoop** : le nom d’utilisateur choisi pour le cluster (et **non** le nom d’utilisateur de l’accès à distance)
+**Nom du compte d’utilisateur Hadoop** : nom d’utilisateur choisi pour le cluster (et **non** le nom d’utilisateur de l’accès à distance)
 
-**Mot de passe du compte utilisateur Hadoop** : le mot de passe choisi pour le cluster (et **non** le mot de passe d’accès à distance)
+**Mot de passe du compte d’utilisateur Hadoop** : mot de passe choisi pour le cluster (et **non** le mot de passe d’accès à distance)
 
-**Emplacement des données de sortie** : il est choisi pour être Azure.
+**Emplacement des données de sortie** : il doit s’agir d’Azure.
 
-**Nom du compte de stockage Azure** : le nom du compte de stockage par défaut associé au cluster.
+**Nom du compte de stockage Azure** : nom du compte de stockage par défaut associé au cluster.
 
-**Nom de conteneur Azure** : c’est le nom de conteneur par défaut pour le cluster et c’est généralement le même que le nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
+**Nom de conteneur Azure** : il s’agit du nom de conteneur par défaut du cluster. Il correspond généralement au nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
 
 > [!IMPORTANT]
 > **Toute table que nous souhaitons interroger à l’aide du module [Importer des données][import-data] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
 > 
 > 
 
-À partir de l'invite du répertoire Hive, exécutez la commande :
+À partir de l’invite du répertoire Hive, exécutez la commande :
 
     hdfs dfs -ls wasb:///D.db/T
 
@@ -783,7 +783,7 @@ Par conséquent, nous obtenons une intégration de 0,987 comme indiqué dans la 
 
 a. Pour ce problème, notre cible (ou classe) est « tip\_class », ce qui peut prendre une des cinq valeurs suivantes (0,1,2,3,4). Comme dans le cas de classification binaire, nous avons quelques colonnes qui sont des fuites cibles pour cette expérience. En particulier : avec pourboire, tip\_amount et total\_amount révèlent des informations sur l’étiquette cible qui n’est pas disponible au moment du test. Nous supprimons ces colonnes à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
-L'instantané ci-dessous illustre notre expérience pour prédire le compartiment où un pourboire est susceptible de tomber (classe 0 : pourboire = 0 $, classe 1 : pourboire > 0 $ et pourboire <= 5 $, classe 2 : pourboire > 5 $ et pourboire <= 10 $, classe 3 : pourboire > 10 $ et pourboire <= 20 $, classe 4 : pourboire > 20 $)
+L’instantané ci-dessous illustre notre expérience pour prédire le compartiment où un pourboire est susceptible de tomber (classe 0 : pourboire = 0 $, classe 1 : pourboire > 0 $ et pourboire <= 5 $, classe 2 : pourboire > 5 $ et pourboire <= 10 $, classe 3 : pourboire > 10 $ et pourboire <= 20 $, classe 4 : pourboire > 20 $)
 
 ![Instantané de l’expérience](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -795,13 +795,13 @@ b. Pour cette expérience, nous utilisons une matrice de confusion pour consulte
 
 ![Matrice de confusion](./media/hive-walkthrough/cxFmErM.png)
 
-Notez que la précision des classes sur les classes les plus courantes est assez bonne, mais que le modèle n'effectue pas un bon travail d’« apprentissage » sur les classes plus rares.
+Notez que les précisions des classes sur les classes les plus courantes sont assez bonnes, mais que le modèle n’effectue pas un bon travail d’« apprentissage » sur les classes plus rares.
 
 **3. Tâche de régression** : prédire le montant du pourboire versé pour une course.
 
 **Apprenant utilisé :** arbre de décision optimisé
 
-a. Pour ce problème, notre étiquette (ou classe) cible est « tip\_amount ». Nos fuites cibles dans ce cas sont : avec pourboire, tip\_class, total\_amount. Toutes ces variables révèlent des informations sur le montant du pourboire qui est en général indisponible au moment du test. Nous supprimons ces colonnes à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
+a. Pour ce problème, notre étiquette (ou classe) cible est « tip\_amount ». Nos fuites cibles dans ce cas sont : avec pourboire, tip\_class, total\_amount. Toutes ces variables révèlent des informations sur le montant du pourboire, qui est en général indisponible au moment du test. Nous supprimons ces colonnes à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
 L'instantané ci-dessous illustre notre expérience pour prédire la quantité de pourboire donné.
 
@@ -814,12 +814,12 @@ b. Pour les problèmes de régression, nous évaluons la précision de nos prév
 Nous voyons que le coefficient de détermination est de 0,709, ce qui signifie que 71 % environ de la variance est expliquée par nos coefficients modèles.
 
 > [!IMPORTANT]
-> Pour en savoir plus sur Azure Machine Learning, comment y accéder et comment l’utiliser, voir [Qu’est-ce que l’apprentissage automatique ?](../studio/what-is-machine-learning.md). La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/)est une ressource très utile pour découvrir de nombreuses expériences d’apprentissage automatique sur Azure Machine Learning. La galerie couvre une large gamme d'expériences et fournit une présentation approfondie des fonctionnalités d’Azure Machine Learning.
+> Pour en savoir plus sur Azure Machine Learning, comment y accéder et comment l’utiliser, consultez [Qu’est-ce que l’apprentissage automatique (« machine learning ») ?](../studio/what-is-machine-learning.md). La [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/)est une ressource très utile pour découvrir de nombreuses expériences d’apprentissage automatique sur Azure Machine Learning. La galerie couvre une large gamme d'expériences et fournit une présentation approfondie des fonctionnalités d’Azure Machine Learning.
 > 
 > 
 
 ## <a name="license-information"></a>Informations de licence
-Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la licence MIT. Pour plus d’informations, voir le fichier LICENSE.txt figurant dans le répertoire de l’exemple de code sur GitHub.
+Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la licence MIT. Pour plus d’informations, consultez le fichier LICENSE.txt figurant dans le répertoire de l’exemple de code sur GitHub.
 
 ## <a name="references"></a>Références
 •    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 00f9f38fbae028486270053dedb4df580a3f1a44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bea3b56cea81362b25e696a672bf2a00e26d3ef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Files d’attente, rubriques et abonnements Service Bus
 
-Microsoft Azure Service Bus prend en charge un ensemble de technologies middleware Cloud orientées messages, notamment la mise en file d’attente de messages fiable et la messagerie de publication/abonnement durable. Ces fonctionnalités de messagerie répartie peuvent être considérées comme des fonctions de messagerie découplée prenant en charge le découplage temporel de publication-souscription, l’abonnement de messagerie temporel découplage, les scénarios d’infrastructure d’équilibrage de charge à l’aide de la structure de messagerie Service Bus. La communication découplée présente de nombreux avantages ; par exemple, les clients et les serveurs peuvent se connecter en fonction des besoins et exécuter leurs opérations de manière asynchrone.
+Microsoft Azure Service Bus prend en charge un ensemble de technologies middleware Cloud orientées messages, notamment la mise en file d’attente de messages fiable et la messagerie de publication/abonnement durable. Ces fonctionnalités de messagerie répartie peuvent être considérées comme des fonctions de messagerie découplée prenant en charge la publication-abonnement, le découplage temporel et les scénarios d’équilibrage de charge qui utilisent la charge de travail de messagerie Service Bus. La communication découplée présente de nombreux avantages ; par exemple, les clients et les serveurs peuvent se connecter en fonction des besoins et exécuter leurs opérations de manière asynchrone.
 
 Les entités de messagerie qui constituent l’essentiel des fonctionnalités de messagerie dans Service Bus sont les files d’attente, les rubriques et abonnements, les règles et les actions.
 
@@ -30,7 +30,7 @@ Les entités de messagerie qui constituent l’essentiel des fonctionnalités de
 
 Les files d’attente permettent la livraison de messages sur le principe du *premier entré, premier sorti (FIFO)* à un ou plusieurs destinataires concurrents. En d’autres termes, les messages sont généralement prévus pour être reçus et traités par les récepteurs dans l’ordre dans lesquels ils ont été ajoutés à la file d’attente, et chaque message est reçue et traitée par un seul consommateur de message. Un des principaux avantages de l’utilisation des files d’attente consiste à réaliser le « découplage temporel » des composants d’application. En d’autres termes, les producteurs (expéditeurs) et les consommateurs (récepteurs) ne sont pas forcés d’envoyer et de recevoir des messages simultanément, car les messages sont stockés durablement dans la file d’attente. En outre, le producteur n’a pas à attendre de réponse du destinataire pour continuer de traiter et d’envoyer d’autres messages.
 
-Un des avantages associés est le nivellement de charge, qui permet aux producteurs et aux consommateurs d’envoyer et de recevoir des messages à des vitesses différentes. Dans de nombreuses applications, la charge système varie au fil du temps. Cependant le temps de traitement nécessaire à chaque élément de travail est normalement constant. L’ajout d’une file d’attente entre les producteurs et les consommateurs des messages fait que l’application de destination doit être en mesure de gérer seulement une charge moyenne, plutôt que la charge de travail maximale. La file d’attente s’allonge et se raccourcit en fonction de la charge entrante. Ceci permet de faire des économies concernant les infrastructures nécessaires pour faire face à la charge de travail de l’application. À mesure que la charge augmente, d’autres processus de travail peuvent être ajoutés pour lire les éléments de la file d’attente. Chaque message est traité par un seul des processus de travail. De plus, cet équilibrage de la charge basé sur l’extraction permet d’optimiser l’utilisation des ordinateurs de travail, même si ceux-ci diffèrent en termes de puissance de traitement, car ils demandent les messages au maximum de leur capacité. Ce modèle est souvent appelé modèle consommateur concurrent.
+Un des avantages associés est le nivellement de charge, qui permet aux producteurs et aux consommateurs d’envoyer et de recevoir des messages à des vitesses différentes. Dans de nombreuses applications, la charge système varie au fil du temps. Cependant le temps de traitement nécessaire à chaque élément de travail est normalement constant. L’ajout d’une file d’attente entre les producteurs et les consommateurs des messages fait que l’application de destination doit être en mesure de gérer seulement une charge moyenne, plutôt que la charge de travail maximale. La file d’attente s’allonge et se raccourcit en fonction de la charge entrante. Ceci permet de faire des économies concernant les infrastructures nécessaires pour faire face à la charge de travail de l’application. À mesure que la charge augmente, d’autres processus de travail peuvent être ajoutés pour lire les éléments de la file d’attente. Chaque message est traité par un seul des processus de travail. De plus, cet équilibrage de la charge basé sur le tirage (pull) permet d’optimiser l’utilisation des ordinateurs de travail, même si ceux-ci n’ont pas la même puissance de traitement, puisqu’ils tirent les messages au maximum de leur capacité. Ce modèle est souvent appelé modèle consommateur concurrent.
 
 L’utilisation de files d’attente comme intermédiaire entre les producteurs et les consommateurs de message fournit un couplage souple inhérent entre les composants. Producteurs et consommateurs étant indépendants les uns des autres, il est possible de mettre à niveau un consommateur sans que cela affecte le producteur.
 
@@ -52,7 +52,7 @@ MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateS
 QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 ```
 
-Vous pouvez envoyer des messages à la file d’attente. Par exemple, si vous avez une liste de messages répartis nommée `MessageList`, le code ressemble à ce qui suit :
+Vous pouvez envoyer des messages à la file d’attente. Par exemple, si vous avez une liste de messages répartis nommée `MessageList`, le code ressemble à ce qui suit :
 
 ```csharp
 for (int count = 0; count < 6; count++)
@@ -82,7 +82,7 @@ En mode [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode), la r
 
 Si l’application est dans l’impossibilité de traiter un message pour une raison quelconque, elle peut appeler la méthode [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) pour le message reçu (au lieu de la méthode [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Cela permet à Service Bus de déverrouiller le message et le met à disposition pour être à nouveau reçu, soit par le même consommateur, soit par un consommateur concurrent. De même, il faut savoir qu’un message verrouillé dans une file d’attente est assorti d’un délai d’expiration et que si l’application ne parvient pas à traiter le message dans le temps imparti (par exemple, en cas d’incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception (essentiellement en effectuant une opération [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) par défaut).
 
-Notez que si l’application subit un incident après le traitement du message, mais avant l’envoi de la demande **Complete**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Cette opération est souvent appelée *Au moins une fois*. Chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer un traitement dupliqué, une logique supplémentaire est nécessaire dans l’application pour détecter les doublons susceptibles d’être obtenus à partir de la propriété **MessageId** du message, qui demeure constante entre les tentatives de remise. Cette opération est connue sous le nom de traitement *seulement une fois*.
+Notez que si l’application subit un incident après le traitement du message, mais avant l’envoi de la demande **Complete**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Cette opération est souvent appelée *Au moins une fois*. Chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer un traitement dupliqué, une logique supplémentaire doit être ajoutée à l’application pour détecter les doublons. Pour cela, utilisez la propriété **MessageId** du message, car elle demeure constante entre les tentatives de remise. Cette opération est connue sous le nom de traitement *seulement une fois*.
 
 ## <a name="topics-and-subscriptions"></a>Rubriques et abonnements
 Contrairement aux files d’attente, où chaque message est traité par un seul consommateur, les *rubriques* et les *abonnements* fournissent une forme de communication « un à plusieurs », à l’aide d’un modèle de *publication et d’abonnement*. Utile en cas d’évolution vers un très grand nombre de destinataires, chaque message publié est mis à disposition de tous les abonnements inscrits auprès de la rubrique. Les messages sont envoyés à une rubrique et remis à un ou plusieurs abonnements associés, en fonction des règles de filtrage qui peuvent être définies sur une base par abonnement. Les abonnements peuvent utiliser des filtres supplémentaires pour restreindre les messages qu’ils souhaitent recevoir. Les messages sont envoyés à une rubrique de la même façon qu’ils sont envoyés à une file d’attente, mais les messages ne sont pas reçus directement de la rubrique. Ils sont envoyés depuis les abonnements. Un abonnement à une rubrique ressemble à une file d’attente virtuelle recevant des copies des messages envoyés à la rubrique. Les messages sont reçus d’un abonnement identique de la même façon que ceux qui sont reçus de la file d’attente.
@@ -155,7 +155,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Avec ce filtre d’abonnement en place, seuls les messages dont la propriété `StoreName` est définie sur `Store1` sont copiés vers la file d’attente virtuelle de l’abonnement `Dashboard`.
 
-Pour plus d’informations sur les valeurs de filtre possibles, consultez la documentation des classes [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) et [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction). Consultez également les exemples [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Messagerie répartie : Filtres avancés) et [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Filtres de rubrique).
+Pour plus d’informations sur les valeurs de filtre possibles, consultez la documentation des classes [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) et [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction). Consultez également les exemples [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Messagerie répartie : Filtres avancés) et [Topic Filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters) (Filtres de rubrique).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les rubriques avancées suivantes pour obtenir plus d’informations et des exemples d’utilisation de la messagerie Service Bus.
@@ -163,6 +163,5 @@ Consultez les rubriques avancées suivantes pour obtenir plus d’informations e
 * [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
 * [Didacticiel .NET sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-dotnet.md)
 * [Didacticiel REST sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-rest.md)
-* [Topic Filters sample ](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters) (Exemple de filtres de rubrique)
 * [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Messagerie répartie : exemples de filtres avancés)
 

@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 06/30/2017
-ms.openlocfilehash: 7ad4a2fd7452f31689a02b144078a9630bfd5259
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de Ruby pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application [Ruby](https://www.ruby-lang.org). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement via Ruby, et que vous ne savez pas utiliser Azure Database pour PostgreSQL.
@@ -53,7 +53,7 @@ Installez Ruby sur votre ordinateur.
 - Générez le module pg Ruby à l’aide de Gem en exécutant la commande `sudo gem install pg`.
 
 ## <a name="run-ruby-code"></a>Exécuter le code Ruby 
-- Enregistrez le code dans un fichier texte, puis enregistrez ce fichier dans un dossier du projet avec l’extension .rb. Exemples : `C:\rubypostgres\read.rb` ou `/home/username/rubypostgres/read.rb`.
+- Enregistrez le code dans un fichier texte avec l’extension .rb, puis enregistrez ce fichier dans un dossier du projet, par exemple `C:\rubypostgres\read.rb` ou `/home/username/rubypostgres/read.rb`.
 - Pour exécuter le code, lancez l’invite de commandes ou l’interpréteur de commandes Bash. Remplacez le répertoire dans votre dossier de projet `cd rubypostgres`, puis saisissez la commande `ruby read.rb` pour exécuter l’application.
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion

@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiver les données de surveillance d’Azure
 
 Plusieurs couches de votre environnement Azure génèrent des données de journal et de métrique qui peuvent être archivées sur un compte de stockage Azure. Vous pouvez effectuer cette opération pour conserver un historique des données de surveillance au fil du temps dans un magasin non interrogeable peu coûteux après que les données ont dépassé leur période de rétention dans Log Analytics ou Azure Monitor. Ce didacticiel décrit le processus de configuration de votre environnement Azure pour archiver des données sur un compte de stockage.
+
+> [!div class="checklist"]
+> * Créer un compte de stockage pour contenir les données de surveillance
+> * Y acheminer les journaux d’abonnement 
+> * Y acheminer les données de ressource 
+> * Y acheminer les données de machine virtuelle (système d’exploitation invité) 
+> * Y afficher les données de surveillance 
+> * Nettoyage des ressources 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -158,7 +166,18 @@ Vous avez à présent correctement configuré les données de surveillance à ar
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à configurer les données de surveillance de votre environnement Azure (abonnement, ressources et système d’exploitation invité) de façon à ce qu’elles soient archivées sur un compte de stockage. Pour rendre vos données plus significatives et en dériver des informations, essayez de les envoyer également à Log Analytics.
+Dans ce didacticiel, vous avez appris à configurer les données de surveillance de votre environnement Azure (abonnement, ressources et système d’exploitation invité) de façon à ce qu’elles soient archivées sur un compte de stockage. 
+
+
+> [!div class="checklist"]
+> * Créer un compte de stockage pour contenir les données de surveillance
+> * Y acheminer les journaux d’abonnement 
+> * Y acheminer les données de ressource 
+> * Y acheminer les données de machine virtuelle (système d’exploitation invité) 
+> * Y afficher les données de surveillance 
+> * Nettoyage des ressources 
+
+Pour tirer le meilleur parti de vos données et en dégager des informations supplémentaires, envoyez également vos données dans Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Prise en main d’un espace de travail Log Analytics](../log-analytics/log-analytics-get-started.md)

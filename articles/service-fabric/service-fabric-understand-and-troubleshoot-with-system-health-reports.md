@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utiliser les rapports d’intégrité du système pour la résolution des problèmes
 Les composants Azure Service Fabric fournissent des rapports d’intégrité du système prêts à l’emploi pour toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
@@ -55,6 +55,18 @@ Le rapport spécifie le délai d’expiration du bail global comme durée de vie
 * **SourceId**: System.Federation.
 * **Property** : commence par **Neighborhood** et inclut des informations sur le nœud.
 * **Étapes suivantes** : recherchez ce qui a provoqué la perte de voisinage (par exemple, vérifiez la communication entre les nœuds du cluster).
+
+### <a name="rebuild"></a>Reconstruction
+
+Le service **Failover Manager** (**FM**) gère les informations sur les nœuds des clusters. Lorsque FM perd ses données et passe en perte de données, il ne peut pas être sûr qu’il dispose des informations les plus récentes concernant les nœuds du cluster. Dans ce cas, le système passe par une **regénération**, et **System.FM** recueille les données de tous les nœuds du cluster afin de rétablir son état. Parfois, en raison de problèmes liés au réseau ou aux nœuds, il peut arriver que la regénération soit bloquée. Cela peut également se produire avec le service **Failover Manager Master** (**FMM**). Le service **FMM** est un service système sans état qui assure le suivi de toutes les instances du service **FM** qui se trouvent dans le cluster. Le nœud principal du service **FMM** est toujours le nœud dont l’ID est le plus proche de 0. Si ce nœud est supprimé, une **regénération** est déclenchée.
+Lorsque l’une des conditions précédentes se produit, **System.FM** ou **System.FMM** la signalent via un rapport d’erreurs. La regénération peut se bloquer lors de l’une des deux phases suivantes :
+
+* Attente de la diffusion : **FM/FMM** attend la réponse des autres nœuds au message de diffusion. **Étapes suivantes :** Vérifier qu’il n’y a pas de problèmes de connexion réseau entre les nœuds.   
+* Attente des nœuds : **FM/FMM** a déjà reçu une réponse de diffusion des autres nœuds et attend la réponse de certains nœuds. Le rapport d’intégrité répertorie les nœuds pour lesquels **FM/FMM** attend une réponse. **Étapes suivantes :** Vérifier la connexion réseau entre **FM/FMM** et les nœuds répertoriés. Examinez chacun des nœuds répertoriés pour vérifier qu’ils ne comportent pas d’autres problèmes.
+
+* **SourceID** : System.FM ou System.FMM
+* **Propriété** : Rebuild.
+* **Étapes suivantes** : Vérifier la connexion réseau entre les nœuds, ainsi que l’état de tous les nœuds qui sont répertoriés dans la description du rapport d’intégrité.
 
 ## <a name="node-system-health-reports"></a>Rapports d’intégrité du système sur les nœuds
 **System.FM**, qui représente le service Failover Manager, est l’autorité qui gère les informations sur les nœuds de cluster. Un rapport System.FM indiquant son état doit être alloué à chaque nœud. Les entités de nœud sont supprimées lorsque l’état du nœud est supprimé. Pour plus d’informations, consultez [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).

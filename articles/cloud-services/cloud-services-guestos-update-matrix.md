@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/22/2017
+ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: b94001e16068f1163beaac81053a03600af5f768
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -43,6 +43,8 @@ Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
 
+###### <a name="november-8-2017"></a>**8 novembre 2017**
+Publication de l’OS invité octobre.
 
 ###### <a name="october-6-2017"></a>**6 octobre 2017**
 Publication du SE invité septembre. Pour la version de septembre de Windows Server 2016, netfx3 est activé par défaut. Les clients doivent ajouter « dism /online /disable-feature /featurename:netfx3 » dans leur OnStart si leur flux de travail en a besoin pour exécuter une application .NET 2.x avec un runtime 4.x ou s’ils ont exécuté une application .NET 2.x, ont géré une erreur, puis ont exécuté une application .NET 4.x.
@@ -71,12 +73,6 @@ Publication du SE invité mai.
 ###### <a name="may-17-2017"></a>**17 mai 2017**
 En raison d’un bogue de sécurité, nous désactivons les versions suivantes du système d’exploitation de décembre 2016 et janvier 2017, qui n’ont pas le [correctif] du portail : WA-GUEST-OS-5.4_201612-01,WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
 
-###### <a name="may-12-2017"></a>**12 mai 2017**
-Début du déploiement du SE invité de mai le 12 mai et publication projetée le 13 juin.
-
-###### <a name="april-18-2017"></a>**18 avril 2017**
-Début du déploiement du SE invité d’avril le 18 avril et publication projetée le 9 mai.
-
 
 ## <a name="releases"></a>Publications
 ## <a name="family-5-releases"></a>Publications de famille 5
@@ -92,16 +88,16 @@ Début du déploiement du SE invité d’avril le 18 avril et publication proje
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.12_201710-01 |8 novembre 2017 |Publication 5.14 |TBD |
 | WA-GUEST-OS-5.11_201709-01 |6 octobre 2017 |Post 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |24 août 2017 |Post 5.12 |TBD |
-| WA-GUEST-OS-5.9_201707-01 |3 août 2017 |Post 5.11 |TBD |
+|~~WA-GUEST-OS-5.9_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |10 janvier 2017 |5 juin 2017|TBD |
 |~~WA-GUEST-OS-5.3_201611-01~~ |14 décembre 2016 |9 mai 2017 |TBD |
-|~~WA-GUEST-OS-5.2_201610-02~~ |1er novembre 2016 |10 avril 2017 |TBD |
 
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
@@ -115,20 +111,16 @@ Début du déploiement du SE invité d’avril le 18 avril et publication proje
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.47_201710-01 |8 novembre 2017 |Publication 4.49 |TBD |
 | WA-GUEST-OS-4.46_201709-01 |6 octobre 2017 |Post 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |24 août 2017 |Post 4.47 |TBD |
-| WA-GUEST-OS-4.44_201707-01 |3 août 2017 |Post 4.46 |TBD |
+|~~WA-GUEST-OS-4.44_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |10 janvier 2017 |5 juin 2017 |TBD |
 |~~WA-GUEST-OS-4.38_201611-01~~ |14 décembre 2016 |9 mai 2017 |TBD |
-|~~WA-GUEST-OS-4.37_201610-02~~ |16 novembre 2016 |10 avril 2017 |TBD |
-|~~WA-GUEST-OS-4.36_201609-01~~ |13 octobre 2016 |14 janvier 2017 |TBD |
-|~~WA-GUEST-OS-4.35_201608-01~~ |13 septembre 2016 |16 décembre 2016 |TBD |
-|~~WA-GUEST-OS-4.34_201607-01~~ |8 août 2016 |13 novembre 2016 |TBD |
-
 
 ## <a name="family-3-releases"></a>Publications de famille 3
 **Windows Server 2012**
@@ -142,20 +134,16 @@ Début du déploiement du SE invité d’avril le 18 avril et publication proje
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.54_201710-01 |8 novembre 2017 |Publication 3.56 |TBD |
 | WA-GUEST-OS-3.53_201709-01 |6 octobre 2017 |Post 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |24 août 2017 |Post 3.54 |TBD |
-| WA-GUEST-OS-3.51_201707-01 |3 août 2017 |Post 3.53 |TBD |
+|~~WA-GUEST-OS-3.51_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |10 janvier 2017 |5 juin 2017 |TBD |
 |~~WA-GUEST-OS-3.45_201611-01~~ |14 décembre 2016 |9 mai 2017 |TBD |
-|~~WA-GUEST-OS-3.44_201610-02~~ |16 novembre 2016 |1 mai 2017 |TBD |
-|~~WA-GUEST-OS-3.43_201609-01~~ |13 octobre 2016 |14 janvier 2017 |TBD |
-|~~WA-GUEST-OS-3.42_201608-01~~ |13 septembre 2016 |16 décembre 2016 |TBD |
-|~~WA-GUEST-OS-3.41_201607-01~~ |8 août 2016 |13 novembre 2016 |TBD |
-
 
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
@@ -169,9 +157,10 @@ Début du déploiement du SE invité d’avril le 18 avril et publication proje
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.67_201710-01 |8 novembre 2017 |Publication 2.69 |TBD |
 | WA-GUEST-OS-2.66_201709-01 |6 octobre 2017 |Post 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |24 août 2017 |Post 2.67 |TBD |
-| WA-GUEST-OS-2.64_201707-01 |3 août 2017 |Post 2.66 |TBD |
+|~~WA-GUEST-OS-2.64_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
 |~~WA-GUEST-OS-2.63_201706-01~~ |7 juillet 2017 |6 octobre 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 juin 2017 |24 août 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
@@ -179,11 +168,6 @@ Début du déploiement du SE invité d’avril le 18 avril et publication proje
 |~~WA-GUEST-OS-2.59_201701-01~~ |10 janvier 2017 |5 juin 2017 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |10 janvier 2017 |9 mai 2017|TBD |
 |~~WA-GUEST-OS-2.57_201611-01~~ |14 décembre 2016 |10 avril 2017 |TBD |
-|~~WA-GUEST-OS-2.56_201610-02~~ |16 novembre 2016 |10 février 2017 |TBD |
-|~~WA-GUEST-OS-2.55_201609-01~~ |13 octobre 2016 |14 janvier 2017 |TBD |
-|~~WA-GUEST-OS-2.54_201608-01~~ |13 septembre 2016 |16 décembre 2016 |TBD |
-|~~WA-GUEST-OS-2.53_201607-01~~ |8 août 2016 |13 novembre 2016 |TBD |
-
 
 
 ## <a name="msrc-patch-updates"></a>Mises à jour correctives MSRC

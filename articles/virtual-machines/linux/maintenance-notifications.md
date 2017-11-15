@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Gestion de notifications de maintenance planifiées pour les machines virtuelles Linux
 
@@ -65,6 +65,8 @@ Les valeurs suivantes sont retournées sous MaintenanceRedeployStatus :
 | LastOperationResultCode               | Résultat de la dernière tentative de lancement de la maintenance sur la machine virtuelle ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>Démarrer la maintenance sur votre machine virtuelle à l’aide de l’interface de ligne de commande
 
 L’appel suivant lance la maintenance sur une machine virtuelle si `IsCustomerInitiatedMaintenanceAllowed` est défini sur true.
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>Déploiements Classic
+
+Si vous avez encore des machines virtuelles qui ont été déployées à l’aide du modèle de déploiement Classic, vous pouvez utiliser CLI 1.0 pour interroger ces machines virtuelles et démarrer la maintenance.
+
+Vérifiez que vous êtes dans le mode approprié pour utiliser une machine virtuelle Classic en tapant :
+
+```
+azure config mode asm
+```
+
+Pour obtenir l’état de la maintenance d’une machine virtuelle nommée *myVM*, tapez :
+
+```
+azure vm show myVM 
+``` 
+
+Pour démarrer la maintenance sur votre machine virtuelle Classic *myVM* dans le service *myService* et le déploiement *myDeployment*, tapez :
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>Forum Aux Questions
@@ -91,9 +115,9 @@ Pour plus d’informations sur la haute disponibilité, consultez l’article Ge
 
 **Q : J’ai un jeu de récupération d’urgence dans une autre région. Suis-je sécurisé ?**
 
-**R :** Chaque région Azure est jumelée à une autre région au sein de la même région géographique (par exemple les États-Unis, l’Europe ou l’Asie). Les mises à jour Azure planifiées sont déployées vers les régions jumelées une par une pour limiter les interruptions de service et les risques de panne de l’application. Pendant la maintenance planifiée, Azure peut planifier une fenêtre similaire pour que les utilisateurs démarrent la maintenance. Toutefois, la fenêtre de maintenance planifiée est différente entre les régions jumelées.  
+**R :**Chaque région Azure est associée à une autre région au sein de la même région géographie (par exemple, États-Unis, Europe ou Asie). Les mises à jour Azure planifiées sont déployées vers les régions jumelées une par une pour limiter les interruptions de service et les risques de panne de l’application. Pendant la maintenance planifiée, Azure peut planifier une fenêtre similaire pour que les utilisateurs démarrent la maintenance. Toutefois, la fenêtre de maintenance planifiée est différente entre les régions jumelées.  
 
-Pour plus d’informations sur les régions Azure, reportez-vous à l’article Régions et disponibilité des machines virtuelles dans Azure.  Vous y trouverez la liste complète des paires de régions.
+Pour plus d’informations sur les régions Azure, reportez-vous à l’article Régions et disponibilité des machines virtuelles dans Azure.  Vous pouvez afficher la liste des paires de régions ici.
 
 **Q : Comment être averti d’une maintenance planifiée ?**
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Utiliser la solution Service Map dans Operations Management Suite
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, processus et ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
@@ -224,11 +224,26 @@ L’illustration suivante est une vue détaillée d’un événement Modificatio
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Intégration des performances d’Operations Management Suite
-Le volet **Performances d’une machine** affiche des métriques de performance standard pour le serveur sélectionné. Ces métriques incluent l’utilisation du processeur, l’utilisation de la mémoire, les octets réseau envoyés et reçus, et la liste des principaux processus classée par octets réseau envoyés et reçus. Pour obtenir les données de performances réseau, vous devez également activer la solution Wire Data 2.0 dans Operations Management Suite.
+Le volet **Performances d’une machine** affiche des métriques de performance standard pour le serveur sélectionné. Ces métriques incluent l’utilisation du processeur, l’utilisation de la mémoire, les octets réseau envoyés et reçus, et la liste des principaux processus classée par octets réseau envoyés et reçus.
 
 ![Volet Performances d’une machine](media/oms-service-map/machine-performance.png)
 
+Pour afficher les données de performances, vous pouvez avoir besoin d’[activer les compteurs de performances Log Analytics appropriés](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Les compteurs que vous souhaitez activer :
 
+Windows :
+- Processeur(*)\% temps processeur
+- Mémoire\% octets validés en cours d’utilisation
+- Carte réseau(*)\Octets envoyés/s
+- Carte réseau(*)\Octets reçus/s
+
+Linux :
+- Processeur(*)\% temps processeur
+- Mémoire(*)\% mémoire utilisée
+- Carte réseau(*)\Octets envoyés/s
+- Carte réseau(*)\Octets reçus/s
+
+Pour obtenir les données de performances réseau, vous devez également activer la solution Wire Data 2.0 dans Operations Management Suite.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Intégration de la solution Security and Audit d’Operations Management Suite
 L’intégration de la solution Service Map avec la fonction Security and Audit est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite.
 

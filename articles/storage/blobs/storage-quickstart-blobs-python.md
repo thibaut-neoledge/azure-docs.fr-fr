@@ -15,42 +15,24 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 44ec416a814ff6a5fef79ef21e2f54ce4ce4da17
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec Python
 Dans ce guide de démarrage rapide, vous apprenez à utiliser Python pour charger, télécharger et lister des objets blob de blocs dans un conteneur de Stockage Blob Azure. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-Pour effectuer ce guide de démarrage rapide : 
+Pour effectuer ce démarrage rapide : 
 * Installez [Python](https://www.python.org/downloads/)
 * Téléchargez et installez le [SDK Stockage Azure pour Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Créer un compte de stockage dans le portail Azure
-
-Commencez par créer un compte de stockage à usage général pour les besoins de ce guide de démarrage rapide. 
-
-1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure. 
-2. Dans le menu Hub, sélectionnez **Nouveau** > **Stockage** > **Compte de stockage - blob, fichier, table, file d’attente**. 
-3. Entrez un nom pour votre compte de stockage. Le nom doit contenir entre 3 et 24 caractères, et uniquement des lettres minuscules et des chiffres. Il doit également être unique.
-4. Définissez `Deployment model` sur **Resource Manager**.
-5. Définissez `Account kind` sur **Usage général**.
-6. Définissez `Performance` sur **Standard**. 
-7. Définissez `Replication` sur **Stockage localement redondant (LRS)**.
-8. Définissez `Storage service encryption` sur **Désactivé**.
-9. Définissez `Secure transfer required` sur **Désactivé**.
-10. Sélectionnez votre abonnement. 
-11. Pour `resource group`, créez-en un et donnez-lui un nom unique. 
-12. Sélectionnez le paramètre `Location` à utiliser pour votre compte de stockage.
-13. Cochez **Épingler au tableau de bord** et cliquez sur **Créer** pour créer votre compte de stockage. 
-
-Une fois votre compte de stockage créé, il est épinglé au tableau de bord. Cliquez sur le compte pour l’ouvrir. Sous **PARAMÈTRES**, cliquez sur **Clés d’accès**. Sélectionnez une clé et copiez le nom du compte de stockage dans le Presse-papiers, puis collez-le dans le Bloc-notes pour l’utiliser plus tard.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 L’[exemple d’application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) utilisé dans ce démarrage rapide est une application Python de base.  
@@ -100,8 +82,10 @@ La première chose à faire est de créer les références aux objets utilisés 
 
 Une fois que vous avez le conteneur d’objets blob de cloud, vous pouvez instancier l’objet **CloudBlockBlob** qui pointe vers l’objet blob spécifique qui vous intéresse, puis effectuer des opérations de chargement, de téléchargement et de copie.
 
-Dans cette section, vous instanciez les objets, créez un conteneur, puis définissez des autorisations sur le conteneur pour que les objets blob soient publics. Le conteneur est appelé **quickstartblobs**. 
+> [!IMPORTANT]
+> Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
+Dans cette section, vous instanciez les objets, créez un conteneur, puis définissez des autorisations sur le conteneur pour que les objets blob soient publics. Le conteneur est appelé **quickstartblobs**. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account

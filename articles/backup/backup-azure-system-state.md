@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Sauvegarder l’état du système Windows dans un déploiement Resource Manager
 Cet article explique comment sauvegarder l’état du système Windows Server vers Azure. Il s’agit d’un didacticiel destiné à vous présenter les notions de base.
@@ -29,7 +29,7 @@ Si vous souhaitez en savoir plus sur Sauvegarde Azure, lisez cette [présentatio
 Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) pour accéder à n’importe quel service Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
-Pour sauvegarder vos fichiers et dossiers, vous devez créer un archivage de Recovery Services dans la région où vous souhaitez stocker les données. Vous devez également spécifier le mode de réplication de votre stockage.
+Pour sauvegarder l’état du système Windows Server, vous devez créer un archivage de Recovery Services dans la région où vous souhaitez stocker les données. Vous devez également spécifier le mode de réplication de votre stockage.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Pour créer un coffre Recovery Services
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de votre abonnement Azure.
@@ -135,6 +135,9 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
     Les informations d’identification du coffre sont téléchargées dans le dossier Téléchargements. Une fois cette opération terminée, une fenêtre contextuelle s’affiche, vous demandant si vous voulez ouvrir ou enregistrer ces informations. Cliquez sur **Save**. Si vous cliquez sur **Ouvrir** par erreur, attendez que la boîte de dialogue qui s’affiche annonce l’échec de la tentative d’ouverture des informations d’identification du coffre. En effet, vous ne pouvez pas les ouvrir. Passez à l'étape suivante. Les informations d’identification du coffre se trouvent dans le dossier Téléchargements.   
 
     ![Fin du téléchargement des informations d’identification du coffre](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+> [!NOTE]
+> Les informations d’identification du coffre doivent être enregistrées uniquement à un emplacement proche du serveur Windows sur lequel vous souhaitez utiliser l’agent. 
+>
 
 ## <a name="install-and-register-the-agent"></a>Installer et inscrire l’agent
 
@@ -163,40 +166,13 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 
 L’agent est désormais installé et votre ordinateur est inscrit dans le coffre. Vous êtes prêt à configurer et à planifier votre sauvegarde.
 
-## <a name="back-up-windows-server-system-state-preview"></a>Sauvegarder l’état du système Windows Server (préversion)
-La sauvegarde initiale comprend trois tâches :
+## <a name="back-up-windows-server-system-state"></a>Sauvegarder l’état du système Windows Server 
+La sauvegarde initiale comprend deux tâches :
 
-* Activer la sauvegarde de l’état du système à l’aide de l’agent de sauvegarde Azure
 * Planifier la sauvegarde
-* Sauvegarder les fichiers et dossiers pour la première fois
+* Sauvegarder l’état du système pour la première fois
 
 Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Recovery Services.
-
-### <a name="to-enable-system-state-backup-using-the-azure-backup-agent"></a>Pour activer la sauvegarde de l’état du système à l’aide de l’agent de sauvegarde Azure
-
-1. Dans une session PowerShell, exécutez la commande suivante pour arrêter le moteur de sauvegarde Azure.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Ouvrez le Registre Windows.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Ajoutez la clé de Registre suivante avec la valeur DWord spécifiée.
-
-  | Chemin d’accès au Registre | Clé de Registre | Valeur DWord |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Redémarrez le moteur de sauvegarde en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges.
-
-  ```
-  PS C:\> Net start obengine
-  ```
 
 ### <a name="to-schedule-the-backup-job"></a>Pour planifier un travail de sauvegarde
 
@@ -216,11 +192,7 @@ Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Reco
 
 6. Cliquez sur **Suivant**.
 
-7. La planification de sauvegarde et de rétention de l’état du système est configurée automatiquement pour effectuer une sauvegarde tous les dimanches à 21h00 heure locale, et la période de rétention est définie sur 60 jours.
-
-   > [!NOTE]
-   > La stratégie de sauvegarde et de rétention de l’état du système est configurée automatiquement. Si vous sauvegardez Fichiers et dossiers en plus de l’état du système Windows Server, spécifiez uniquement la stratégie Sauvegarde et rétention pour les sauvegardes de fichiers à partir de l’Assistant. 
-   >
+7. Sélectionnez la fréquence de sauvegarde requise et la stratégie de rétention pour les sauvegardes de l’état du système dans les pages suivantes. 
 
 8. Sur la page Confirmation, passez en revue les informations, puis cliquez sur **Terminer**.
 
@@ -234,88 +206,21 @@ Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Reco
 
     ![Sauvegarder Windows Server maintenant](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, puis cliquez sur **Sauvegarder**.
+3. Sélectionnez **État du système** dans l’écran **Sélectionner l’élément de sauvegarde** qui s’affiche, puis cliquez sur **Suivant**.
+
+4. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, puis cliquez sur **Sauvegarder**.
 
 4. Cliquez sur **Fermer** pour fermer l’assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
 
-5. Si vous sauvegardez Fichiers et dossiers sur votre serveur, en plus de l’état du système Windows Server, l’Assistant Sauvegarder maintenant sauvegardera uniquement les fichiers. Pour effectuer une sauvegarde ad hoc de l’état du système, exécutez la commande PowerShell suivante :
 
-    ```
-    PS C:\> Start-OBSystemStateBackup
-    ```
-
-  Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans la console Backup.
+Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans la console Backup.
 
   ![RI terminé](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
-
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
-
-Les questions et réponses suivantes fournissent des informations supplémentaires.
-
-### <a name="what-is-the-staging-volume"></a>Qu’est-ce que le volume intermédiaire ?
-
-Le volume intermédiaire représente l’emplacement intermédiaire où la Sauvegarde Windows Server disponible en mode natif prépare la sauvegarde de l’état du système. Ensuite, l’agent de sauvegarde Azure compresse et chiffre cette sauvegarde intermédiaire, et il l’envoie au coffre Recovery Services configuré par le biais du protocole HTTPS sécurisé. **Nous vous recommandons vivement d’établir le volume intermédiaire sur un volume autre qu’un volume de système d’exploitation Windows. Si vous observez des problèmes avec les sauvegardes de l’état du système, la vérification de l’emplacement de votre volume intermédiaire est la première étape de dépannage.** 
-
-### <a name="how-can-i-change-the-staging-volume-path-specified-in-the-azure-backup-agent"></a>Comment faire pour modifier le chemin du volume intermédiaire spécifié dans l’agent de sauvegarde Azure ?
-
-Le volume intermédiaire se trouve par défaut dans le dossier de cache. 
-
-1. Pour changer cet emplacement, exécutez la commande suivante (à partir d’une invite de commandes avec élévation de privilèges) :
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Ensuite, mettez à jour les entrées de Registre suivantes avec le chemin du nouveau dossier de volume intermédiaire.
-
-  |Chemin d’accès au Registre|Clé de Registre|Valeur|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | nouvel emplacement du volume intermédiaire |
-
-Le chemin intermédiaire respecte la casse et doit avoir exactement la même casse que ce qui existe sur le serveur. 
-
-3. Une fois que vous avez changé le chemin du volume intermédiaire, redémarrez le moteur de sauvegarde :
-  ```
-  PS C:\> Net start obengine
-  ```
-4. Pour récupérer le chemin modifié, ouvrez l’agent Microsoft Azure Recovery Services et déclenchez une sauvegarde ad hoc de l’état du système.
-
-### <a name="why-is-the-system-state-default-retention-set-to-60-days"></a>Pourquoi la rétention par défaut de l’état du système est-elle définie sur 60 jours ?
-
-La durée de vie utile d’une sauvegarde de l’état du système est identique au paramètre « durée de vie de temporisation » pour le rôle Windows Server Active Directory. La valeur par défaut pour l’entrée de durée de vie de temporisation est de 60 jours. Cette valeur peut être définie sur l’objet de configuration du Service d’annuaire (NTDS).
-
-### <a name="how-do-i-change-the-default-backup-and-retention-policy-for-system-state"></a>Comment faire pour changer la stratégie de sauvegarde et de rétention par défaut pour l’état du système ?
-
-Pour changer la stratégie de sauvegarde et de rétention par défaut pour l’état du système
-1. Arrêtez le moteur de sauvegarde. Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Ajoutez ou mettez à jour les entrées de clés de Registre suivantes dans HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
-
-  |Nom de Registre|Description|Valeur|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Permet de configurer l’heure de la sauvegarde. La valeur par défaut est 21h00 heure locale.|DWord : format HHMM (décimal), par exemple 2130 pour 21h30 heure locale.|
-  |SSBScheduleDays|Permet de configurer les jours pendant lesquels la sauvegarde de l’état du système doit être effectuée à l’heure spécifiée. Les chiffres spécifient les jours de la semaine. 0 représente le dimanche, 1 le lundi, et ainsi de suite. Le jour de sauvegarde par défaut est le dimanche.|DWord : jours de la semaine pendant lesquels effectuer une sauvegarde (décimal). Par exemple, 1230 planifie les sauvegardes le lundi, le mardi, le mercredi et le dimanche.|
-  |SSBRetentionDays|Permet de configurer le nombre de jours pendant lesquels conserver la sauvegarde. La valeur par défaut est 60. La valeur maximale autorisée est 180.|DWord : nombre de jours pendant lesquels conserver la sauvegarde (décimal).|
-
-3. Exécutez la commande suivante pour redémarrer le moteur de sauvegarde.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Ouvrez l’agent Microsoft Recovery Services.
-
-5. Cliquez sur **Planifier la sauvegarde**, puis sur **Suivant** jusqu’à ce que les changements soient reflétés.
-
-6. Cliquez sur **Terminer** pour appliquer les modifications.
-
 
 ## <a name="questions"></a>Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Approfondissez vos connaissances sur la [sauvegarde de machines Windows](backup-configure-vault.md).
-* Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos archivages et vos serveurs](backup-azure-manage-windows-server.md).
+* L’état du système Windows Server étant sauvegardé, vous pouvez [gérer vos archivages et vos serveurs](backup-azure-manage-windows-server.md).
 * Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).

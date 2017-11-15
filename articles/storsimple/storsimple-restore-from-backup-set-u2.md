@@ -12,18 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/22/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76fa3dd8fa2f9775dc166686e699a8dd66399aff
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde (Mise à jour 2)
+> [!NOTE]
+> Le portail Azure Classic pour StorSimple est déconseillé. Vos instances de StorSimple Device Manager seront automatiquement déplacées vers le nouveau portail Azure à la date de désapprobation planifiée. Vous serez prévenu de ce déplacement par un e-mail et une notification du portail. Ce document sera également bientôt retiré. Pour afficher la version de cet article applicable au nouveau portail Azure, accédez à [Restaurer un volume StorSimple à partir d’un jeu de sauvegarde (mise à jour 2)](storsimple-8000-restore-from-backup-set-u2.md). Si vous avez des questions concernant le déplacement, consultez [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 La page **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Utilisez cette page pour répertorier et gérer les sauvegardes, restaurer à partir d’un jeu de sauvegarde ou cloner un volume.
 
  ![Page Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set-u2/restore.png)

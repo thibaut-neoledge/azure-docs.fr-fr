@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: d8c357474e040f2e35c51dec0c7785cf98381a37
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure
  
 Terraform fournit un moyen simple de définir, de prévisualiser et de déployer l’infrastructure cloud à l’aide d’un [langage de création de modèles simple](https://www.terraform.io/docs/configuration/syntax.html). Cet article décrit les étapes nécessaires pour utiliser Terraform en vue d’approvisionner des ressources dans Azure. 
 
 > [!TIP]
-> Intégré à [l’expérience Bash d’Azure Cloud Shell](/azure/cloud-shell/quickstart), Terraform est préconfiguré avec des informations d’identification et des [modules Azure Terraform](https://registry.terraform.io/modules/Azure).
+> Terraform est installé par défaut dans [l’environnement Bash d’Azure Cloud Shell](/azure/cloud-shell/quickstart). Il est également préconfiguré avec des informations d’identification et des [modules Azure Terraform](https://registry.terraform.io/modules/Azure). Si vous utilisez Cloud Shell, vous pouvez ignorer les sections de ce document sur l’installation et la configuration.
 
 ## <a name="install-terraform"></a>Installer Terraform
 
@@ -47,9 +47,7 @@ Il existe plusieurs façons de créer une application Azure AD et un principal d
 
 Connectez-vous afin de gérer votre abonnement Azure en émettant la commande suivante :
 
-```azurecli-interactive
-az login
-```
+   `az login`
 
 Si vous avez plusieurs abonnements Azure, leurs détails sont retournés par la commande `az login`. Définissez la variable d’environnement `SUBSCRIPTION_ID` pour qu’elle contienne la valeur du champ `id` retourné à partir de l’abonnement que vous souhaitez utiliser. 
 

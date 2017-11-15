@@ -1,6 +1,6 @@
 ---
-title: "Applications managées Azure sur la Place de marché | Microsoft Docs"
-description: "Décrit les applications managées Azure disponibles sur la Place de marché."
+title: "Applications gérées Azure sur la Place de marché | Microsoft Docs"
+description: "Décrit les applications gérées Azure disponibles via la Place de marché."
 services: azure-resource-manager
 author: ravbhatnagar
 manager: rjmax
@@ -8,37 +8,37 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 11/08/2017
 ms.author: gauravbh
-ms.openlocfilehash: b4fda06f85c7dab52ff38558b0d928193e0694f6
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 41eaff13cf55d58f58b33bc05d39a6665d51ea29
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Applications managées Azure sur la Place de marché
+# <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
 
-Les fournisseurs peuvent utiliser les applications managées Azure pour offrir leurs solutions à tous les clients de la Place de marché Azure. Il peut s’agir de fournisseurs de services managés, d’éditeurs de logiciels indépendants et d’intégrateurs de système. Les applications managées réduisent les opérations de maintenance et de mise à jour des clients. Les fournisseurs vendent des infrastructures et des logiciels sur la Place de marché. Ils peuvent joindre des services et un support opérationnel pour les applications managées. Pour plus d’informations, consultez [Vue d’ensemble des applications managées](overview.md).
+Les fournisseurs peuvent utiliser les applications managées Azure pour offrir leurs solutions à tous les clients de la Place de marché Azure. Il peut s’agir de fournisseurs de services managés, d’éditeurs de logiciels indépendants et d’intégrateurs de système. Les applications managées réduisent les opérations de maintenance et de mise à jour des clients. Les fournisseurs vendent des infrastructures et des logiciels sur la Place de marché. Ils peuvent joindre des services et le support opérationnel pour les applications gérées. Pour plus d’informations, consultez [Vue d’ensemble des applications gérées](overview.md).
 
 Cet article explique comment publier une application sur la Place de marché et la mettre à la disposition des clients.
 
-## <a name="prerequisites-for-publishing-a-managed-application"></a>Prérequis pour la publication d’une application managée
+## <a name="prerequisites-for-publishing-a-managed-application"></a>Conditions préalables à la publication d’une application gérée
 
 Pour suivre cet article, vous devez déjà disposer du fichier .zip pour votre définition d’application managée. Pour plus d’informations, consultez [Créer l’application de catalogue de services](publish-service-catalog-app.md).
 
-Il existe également plusieurs prérequis métier. En voici la liste :
+Il existe également plusieurs prérequis métier. Il s'agit de :
 
 * Votre entreprise (ou sa filiale) doit être située dans un pays où les ventes sont prises en charge par la Place de marché.
 * Votre produit doit être concédé sous licence de manière à être compatible avec les modèles de facturation pris en charge par la Place de marché.
 * Consentez tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique. Ce support peut être gratuit, payant ou accessible via une communauté.
-* Concédez sous licence vos logiciels et toutes les dépendances logicielles tierces.
-* Fournissez du contenu conforme aux critères définis pour que votre offre soit répertoriée sur la Place de marché et sur le portail Microsoft Azure.
-* Acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de marché Microsoft Azure.
+* Gérez les licences de vos logiciels et de toutes les dépendances de logiciels tiers.
+* Fournissez du contenu conforme aux critères définis pour que votre offre soit répertoriée sur la Place de Marché et sur le portail Microsoft Azure.
+* Acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de Marché Microsoft Azure.
 * Engagez-vous à respecter les Conditions d’utilisation, la Déclaration de confidentialité Microsoft et le Contrat relatif au programme Microsoft Azure Certified.
 
 ## <a name="set-up-your-account-for-publishing-portal"></a>Configurer votre compte pour le portail de publication
 
-Le portail de publication permet de publier et de gérer vos offres. Pour publier une application de Place de marché, vous devez avoir un compte approuvé Développeur Microsoft pour la Place de marché Azure. Si vous ne vous êtes pas inscrit pour obtenir un compte approuvé, consultez [Créer un compte de développeur Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Le portail de publication permet de publier et de gérer vos offres. Pour publier une application de Place de Marché, vous devez avoir un compte approuvé Développeur Microsoft pour la Place de Marché Azure. Si vous ne vous êtes pas inscrit pour obtenir un compte approuvé, consultez [Créer un compte de développeur Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
 Si vous avez un compte **Centre de développement Microsoft** approuvé mais que vous n’avez pas encore utilisé le [portail de publication Azure](https://cloudpartner.azure.com/), vous devez vous inscrire auprès du portail de publication.
 
@@ -59,7 +59,7 @@ Une fois que les conditions préalables sont remplies, vous êtes prêt à crée
 
 ### <a name="set-up-an-offer"></a>Configuration d’une offre
 
-Une offre d’application managée correspond à une offre de produit d’un éditeur. Si vous avez un nouveau type d’application à mettre à disposition sur la Place de marché, vous pouvez en faire une nouvelle offre. Une offre est une collection de références (SKU). Toutes les offres apparaissent en tant qu’entités distinctes sur la Place de marché.
+Une offre d’application gérée correspond à une classe d’offre de produit d’un éditeur. Si vous avez un nouveau type d’application à mettre à disposition sur la Place de marché, vous pouvez en faire une nouvelle offre. Une offre est une collection de références (SKU). Toutes les offres apparaissent en tant qu’entités distinctes sur la Place de marché.
 
 1. Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -77,7 +77,7 @@ Le formulaire **Paramètres de l’offre** contient les champs suivants :
 
 * **Offer ID** (ID de l’offre) - Il s’agit d’un identificateur unique qui identifie l’offre au sein d’un profil d’éditeur. Cet ID est visible dans les URL de produit, les modèles Resource Manager et les états de facturation. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). L’ID ne peut pas se terminer par un tiret. Il est limité à un maximum de 50 caractères. Ce champ est verrouillé une fois l’offre publiée.
 * **Publisher ID** (ID de l’éditeur) : utilisez cette liste déroulante pour choisir le profil d’éditeur sous lequel vous voulez publier cette offre. Ce champ est verrouillé une fois l’offre publiée.
-* **Nom** : ce nom d’affichage pour votre offre s’affiche dans la Place de marché et dans le portail. Il ne peut pas comprendre plus de 50 caractères. Incluez un nom de marque reconnaissable pour votre produit. N’incluez pas ici le nom de votre entreprise, sauf si c’est le nom sous lequel l’offre est commercialisée. Si vous commercialisez cette offre sur votre propre site web, assurez-vous que le nom présente rigoureusement le même aspect que sur votre site.
+* **Nom** : ce nom d’affichage pour votre offre s’affiche dans le Marketplace et dans le portail. Il ne peut pas comprendre plus de 50 caractères. Incluez un nom de marque reconnaissable pour votre produit. N’incluez pas ici le nom de votre entreprise, sauf si c’est le nom sous lequel l’offre est commercialisée. Si vous commercialisez cette offre sur votre propre site web, assurez-vous que le nom présente rigoureusement le même aspect que sur votre site.
 
 Une fois terminé, sélectionnez **Enregistrer** pour enregistrer votre progression.
 
@@ -108,7 +108,7 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
    * **Titre** : saisissez un titre pour cette référence. Ce titre s’affiche dans la galerie pour cet élément.
    * **Summary** (Résumé) : saisissez un bref résumé décrivant cette référence (SKU). Ce texte s’affiche en dessous du titre.
    * **Description** : saisissez une description détaillée de la référence (SKU).
-   * **SKU Type** (Type de référence) - Les valeurs autorisées sont *Managed Application* (Application managée) et *Solution Templates* (Modèles de solution). Dans le cas présent, sélectionnez *Managed Application* (Application managée).
+   * **SKU Type** (Type de référence) - Les valeurs autorisées sont *Managed Application* (Application gérée) et *Solution Templates* (Modèles de solution). Dans le cas présent, sélectionnez *Managed Application* (Application gérée).
    * **Disponibilité par pays/région** : sélectionnez les pays où l’application managée est disponible.
 
       ![Sélectionner les pays](./media/publish-marketplace-app/select-country.png)
@@ -122,7 +122,7 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
    Renseignez les champs suivants :
 
    * **Current Version** (Version actuelle) : saisissez la version du package chargé. Il doit respecter le format `{number}.{number}.{number}{number}`.
-   * **Sélectionner un fichier de package** : ce package contient le fichier nécessaire compressé dans un package .zip. Pour plus d’informations, consultez [Créer l’application de catalogue de services](publish-service-catalog-app.md).
+   * **Sélectionner un fichier de package** : ce package contient les deux fichiers nécessaires compressés dans un package .zip. L’un des fichiers est un modèle Resource Manager, qui définit les ressources à déployer pour l’application gérée. L’autre fichier définit [l’interface utilisateur](create-uidefinition-overview.md) pour les consommateurs qui déploient l’application gérée via le portail. Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
    * **PrincipalId** : cette propriété représente l’identificateur Azure Active Directory (Azure AD) d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auquel ou à laquelle l’accès aux ressources de l’abonnement du client a été accordé. La définition de rôle décrit les autorisations.
    * **Role Definition** - Cette propriété dresse une liste de tous les rôles RBAC intégrés fournis par Azure AD. Vous pouvez sélectionner le rôle le mieux adapté pour gérer les ressources pour le compte du client.
 
@@ -130,11 +130,11 @@ Vous pouvez ajouter plusieurs autorisations. Nous vous recommandons de créer un
 
 Pour plus d’informations sur le sujet, consultez [Bien démarrer avec RBAC dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
 
-## <a name="marketplace-form"></a>Formulaire Place de marché
+## <a name="marketplace-form"></a>Formulaire Marketplace
 
 Le formulaire Marketplace (Place de marché) permet de définir les champs qui s’affichent dans la [Place de marché Azure](https://azuremarketplace.microsoft.com) et sur le [portail Azure](https://portal.azure.com/).
 
-### <a name="preview-subscription-ids"></a>ID d’abonnement pour la préversion
+### <a name="preview-subscription-ids"></a>ID d’abonnement pour version préliminaire
 
 Entrez une liste d’ID d’abonnement Azure qui peuvent accéder à l’offre après sa publication. Vous pouvez utiliser ces abonnements autorisés pour tester l’offre préliminaire avant sa publication. Vous pouvez compiler une liste blanche de jusqu'à 100 abonnements dans le portail partenaire.
 
@@ -142,27 +142,27 @@ Entrez une liste d’ID d’abonnement Azure qui peuvent accéder à l’offre a
 
 Sélectionnez dans la liste jusqu’à cinq catégories auxquelles votre offre peut être associée au mieux. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
 
-#### <a name="azure-marketplace"></a>Place de marché Azure
+#### <a name="azure-marketplace"></a>Azure Marketplace
 
-Les champs suivants s’affichent dans le résumé de votre application managée :
+Les champs suivants s’affichent dans le résumé de votre application gérée :
 
 ![Résumé sur la place de marché](./media/publish-marketplace-app/publishvm10.png)
 
-Les champs suivants s’affichent dans l’onglet **Vue d’ensemble** de votre application managée :
+Les champs suivants s’affichent dans l’onglet **Vue d’ensemble** de votre application gérée :
 
 ![Présentation de la Place de marché](./media/publish-marketplace-app/publishvm11.png)
 
-Les champs suivants s’affichent dans l’onglet **Abonnements + Tarification** de votre application managée :
+Les champs suivants s’affichent dans l’onglet **Abonnements + Tarification** de votre application gérée :
 
 ![Plans sur la place de marché](./media/publish-marketplace-app/publishvm15.png)
 
 #### <a name="azure-portal"></a>Portail Azure
 
-Les champs suivants s’affichent dans le résumé de votre application managée :
+Les champs suivants s’affichent dans le résumé de votre application gérée :
 
 ![Résumé sur le portail](./media/publish-marketplace-app/publishvm12.png)
 
-Les champs suivants s’affichent dans la vue d’ensemble de votre application managée :
+Les champs suivants s’affichent dans la vue d’ensemble de votre application gérée :
 
 ![Présentation du portail](./media/publish-marketplace-app/publishvm13.png)
 
@@ -197,5 +197,5 @@ Après avoir rempli toutes les sections, sélectionnez **Publish** (Publier) pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour voir une présentation des applications managées, consultez [Vue d’ensemble des applications managées](overview.md).
-* Pour plus d’informations sur la publication d’une application managée de catalogue de services, consultez l’article [Créer et publier une application managée de catalogue de services](publish-service-catalog-app.md).
+* Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées](overview.md).
+* Pour plus d’informations sur la publication d’une application gérée de catalogue de services, consultez l’article [Créer et publier une application gérée de catalogue de services](publish-service-catalog-app.md).

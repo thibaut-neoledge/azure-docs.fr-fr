@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques
 Ce guide de surveillance et de résolution des problèmes présente des techniques de suivi de l’intégrité de la réplication et de résolution des problèmes pour Azure Site Recovery.
 
 ## <a name="understand-the-components"></a>Comprendre les composants
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>Déploiement d’une machine virtuelle VMware ou d’un serveur physique à répliquer entre un site local et Azure
-Pour configurer la récupération de base de données entre une machine virtuelle VMware locale ou un serveur physique local et Azure, vous devez configurer le serveur de configuration, le serveur cible maître et le serveur de processus sur votre machine ou votre serveur. Lorsque vous activez la protection du serveur source, Azure Site Recovery installe la fonctionnalité Mobile Apps de Microsoft Azure App Service. Après une défaillance locale et le basculement du serveur source sur Azure, les clients doivent configurer un serveur de processus dans Azure et un serveur cible maître local pour reconstruire le serveur source localement.
+Pour configurer la récupération de base de données entre une machine virtuelle VMware locale ou un serveur physique local et Azure, vous devez configurer le serveur de configuration, le serveur cible maître et le serveur de processus sur votre machine ou votre serveur. Quand vous activez la protection pour le serveur source, Azure Site Recovery installe le Service mobilité à partir du serveur de processus choisi si une version à jour n’est pas déjà déployée. Après une défaillance locale et le basculement du serveur source sur Azure, les clients doivent configurer un serveur de processus dans Azure et un serveur cible maître local pour reconstruire le serveur source localement.
 
 ![Déploiement d’un site VMware/physique à répliquer entre un site local et Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 

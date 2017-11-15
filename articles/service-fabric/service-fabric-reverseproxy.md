@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/08/2017
+ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
@@ -114,9 +114,7 @@ La passerelle transmet ensuite ces requêtes à l’URL du service :
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## <a name="special-handling-for-port-sharing-services"></a>Traitement spécial des services de partage de port
-Azure Application Gateway tente de résoudre à nouveau une adresse de service, relançant la requête lorsqu’un service est inaccessible. Il s’agit là d’un avantage majeur d’Application Gateway, car le code client n’a pas besoin d’implémenter sa propre boucle de résolution et sa propre résolution de service.
-
-En règle générale, lorsqu’un service est inaccessible, le réplica ou l’instance de service ont été déplacés vers un autre nœud dans le cadre de leur cycle de vie normal. Dans ce cas, Application Gateway peut recevoir une erreur de connexion au réseau, qui indique qu’un point de terminaison n’est plus ouvert sur l’adresse résolue à l’origine.
+Le proxy inverse Service Fabric tente à nouveau de résoudre une adresse de service, et réexécute la requête lorsqu’un service est inaccessible. En règle générale, lorsqu’un service est inaccessible, le réplica ou l’instance de service ont été déplacés vers un autre nœud dans le cadre de leur cycle de vie normal. Dans ce cas, le proxy inverse peut recevoir une erreur de connexion au réseau, qui indique qu’un point de terminaison n’est plus ouvert sur l’adresse résolue à l’origine.
 
 Toutefois, les instances de service ou réplicas peuvent partager un processus hôte, voire un port, lorsqu’ils sont hébergés par un serveur web basé sur HTTP.sys. Cela inclut :
 
@@ -124,21 +122,21 @@ Toutefois, les instances de service ou réplicas peuvent partager un processus h
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-Dans cette situation, le serveur web est probablement disponible dans le processus hôte et répond aux requêtes, mais le réplica ou l’instance de service résolue ne sont plus accessibles sur l’hôte. Dans ce cas, la passerelle reçoit une réponse HTTP 404 du serveur web. Par conséquent, une réponse HTTP 404 a deux sens distincts :
+Dans cette situation, le serveur web est probablement disponible dans le processus hôte et répond aux requêtes, mais le réplica ou l’instance de service résolue ne sont plus accessibles sur l’hôte. Dans ce cas, la passerelle reçoit une réponse HTTP 404 du serveur web. Par conséquent, une réponse HTTP 404 peut avoir deux significations :
 
 - 1er cas : l’adresse du service est correcte, mais la ressource demandée par l’utilisateur n’existe pas.
 - 2e cas : l’adresse du service est incorrecte, et la ressource demandée par l’utilisateur peut exister sur un autre nœud.
 
-Le premier cas est une erreur HTTP 404 normale, considérée comme une erreur de l’utilisateur. Toutefois, dans le deuxième cas, l’utilisateur a demandé une ressource qui existe réellement. Application Gateway n’a pas réussi à la localiser parce que le service lui-même a été déplacé. Application Gateway doit résoudre à nouveau l’adresse et relancer la requête.
+Le premier cas est une erreur HTTP 404 normale, considérée comme une erreur de l’utilisateur. Toutefois, dans le deuxième cas, l’utilisateur a demandé une ressource qui existe réellement. Le proxy inverse n’a pas réussi à la localiser parce que le service a été déplacé. Le proxy inverse doit résoudre à nouveau l’adresse et réexécuter la requête.
 
-Application Gateway a donc besoin d’un moyen de faire la distinction entre ces deux cas. Le serveur doit lui fournir une indication lui permettant d’y parvenir.
+Le proxy inverse doit donc faire la distinction entre ces deux cas. Le serveur doit lui fournir une indication lui permettant d’y parvenir.
 
-* Par défaut, Application Gateway part du principe qu’il s’agit du deuxième cas et tente à nouveau de résoudre le problème, puis de renvoyer la requête.
-* Pour indiquer à Application Gateway qu’il s’agit du premier cas, le service doit renvoyer l’en-tête de réponse HTTP suivant :
+* Par défaut, le proxy inverse part du principe qu’il s’agit du deuxième cas et tente à nouveau de résoudre le problème, puis de renvoyer la requête.
+* Pour indiquer au proxy inverse qu’il s’agit du premier cas, le service doit retourner l’en-tête de réponse HTTP suivant :
 
   `X-ServiceFabric : ResourceNotFound`
 
-Cet en-tête indique une situation HTTP 404 normale, dans laquelle la ressource demandée n’existe pas, et Application Gateway ne tente pas de résoudre à nouveau l’adresse du service.
+Cet en-tête indique une situation HTTP 404 normale, dans laquelle la ressource demandée n’existe pas, et le proxy inverse ne tente pas de résoudre à nouveau l’adresse du service.
 
 ## <a name="setup-and-configuration"></a>Installation et configuration
 

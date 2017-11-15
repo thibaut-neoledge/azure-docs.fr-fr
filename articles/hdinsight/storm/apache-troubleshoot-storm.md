@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Résolution de problèmes Storm à l’aide d’Azure HDInsight
 
@@ -42,7 +42,7 @@ Exemple :
 
  https://stormcluster.azurehdinsight.net/stormui
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Comment transférer les informations de point de contrôle du spout Storm Eventhub d’une topologie à une autre ?
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Comment transférer les informations de point de contrôle du spout de concentrateurs d’événements Storm depuis une topologie vers une autre ?
 
 Lorsque vous développez des topologies qui lisent à partir des hubs d’événements Azure en utilisant le fichier .jar du spout Storm Eventhub, vous devez déployer une topologie portant le même nom sur un nouveau cluster. Toutefois, vous devez conserver les données de point de contrôle validées dans Apache ZooKeeper sur l’ancien cluster.
 
@@ -122,7 +122,7 @@ Les nœuds de travail Storm exécutent les services suivants :
 * Machines virtuelles Java (JVM) de travail, pour l’exécution des topologies
 * Ambari Agent
  
-## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Comment localiser les fichiers binaires de spout EventHub Storm pour le développement ?
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Comment localiser les fichiers binaires du spout de concentrateurs d’événements Storm pour le développement ?
  
 Pour plus d’informations sur l’utilisation de fichiers .jar de spout EventHub Storm avec votre topologie, consultez les ressources suivantes.
  
@@ -152,3 +152,5 @@ Le fichier de configuration Log4J du Worker est lu à partir du chemin /usr/hdp/
  
 Par exemple : /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### <a name="see-also"></a>Voir aussi
+[Résoudre des problèmes à l’aide d’Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

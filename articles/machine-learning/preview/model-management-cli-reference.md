@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/17/2017
-ms.openlocfilehash: 708d1f186fb2877568243049c9ef8dd62cc0f2fc
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.date: 11/08/2017
+ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>Informations de référence sur l’interface CLI de gestion des modèles
 
@@ -221,6 +221,7 @@ Arguments d’un manifeste non inscrit
 
 
 ## <a name="service-commands"></a>Commandes du service
+Les commandes suivantes sont prises en charge pour le service. Pour voir les paramètres de chaque commande, utilisez l’option -h. Par exemple, utilisez `az ml service create realtime -h` pour voir les détails de la commande create.
 
     create
     delete

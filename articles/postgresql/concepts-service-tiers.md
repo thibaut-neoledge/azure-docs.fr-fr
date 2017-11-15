@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/31/2017
-ms.openlocfilehash: 0ebdced6ac748245faed90949fd0e76c0eacb2d3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Options et performances de Base de données Azure pour PostgreSQL : comprendre les éléments disponibles dans chaque niveau tarifaire
 Quand vous créez un serveur Azure Database pour le serveur PostgreSQL, vous choisissez entre trois options principales pour configurer les ressources allouées pour ce serveur. Ces choix ont un impact sur les performances et la mise à l’échelle du serveur.
@@ -53,7 +53,7 @@ Pour choisir un niveau tarifaire, commencez par déterminer si votre charge de t
 Pendant la phase de préversion, vous ne pouvez pas changer le niveau tarifaire une fois que le serveur est créé. Ultérieurement, il sera possible de faire passer un serveur d’un niveau tarifaire à l’autre.
 
 ## <a name="understand-the-price"></a>Comprendre les tarifs
-Lorsque vous créez une base de données Azure pour PostgreSQL à l’intérieur du [portail Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), cliquez sur le panneau **Niveau tarifaire** pour afficher le coût mensuel en fonction des options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, utilisez la calculatrice de prix Azure pour obtenir un prix estimé. Pour personnaliser les options, visitez le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), cliquez sur **Ajouter des produits à votre estimation**, développez la catégorie **Bases de données**, puis choisissez **Base de données Azure pour PostgreSQL**.
+Lorsque vous créez un serveur Azure Database pour PostgreSQL à l’intérieur du [portail Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), cliquez sur la page **Niveau tarifaire** pour afficher le coût mensuel en fonction des options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, utilisez la calculatrice de prix Azure pour obtenir un prix estimé. Pour personnaliser les options, visitez le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), cliquez sur **Ajouter des produits à votre estimation**, développez la catégorie **Bases de données**, puis choisissez **Base de données Azure pour PostgreSQL**.
 
 ## <a name="choose-a-performance-level-compute-units"></a>Choisir un niveau de performances (unités de calcul)
 Une fois que vous avez déterminé le niveau tarifaire de votre serveur Azure Database pour PostgreSQL, vous êtes prêt à déterminer le niveau de performances en sélectionnant le nombre d’unités de calcul nécessaires. Un bon point de départ est 200 ou 400 unités de calcul pour les applications qui ont besoin d’accès concurrentiels en nombre plus élevé pour leurs charges de travail web ou d’analyse, puis d’ajuster par palier au fil des besoins. 
@@ -85,7 +85,7 @@ La configuration du stockage définit la quantité de stockage disponible pour u
 
 Un minimum de capacité de stockage est inclus avec chaque niveau tarifaire, indiqué dans le tableau précédent par « Taille du stockage inclus ». Une capacité de stockage supplémentaire peut être ajoutée lors de la création du serveur, par incréments de 125 Go, jusqu’au stockage maximal autorisé. La capacité de stockage supplémentaire peut être configurée indépendamment de la configuration des unités de calcul. Le prix change en fonction de la quantité de stockage sélectionnée.
 
-La configuration des E/S par seconde dans chaque niveau de performances est relative au niveau tarifaire et à la taille de stockage choisis. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans le niveau tarifaire Standard, les E/S par seconde augmentent proportionnellement à la taille maximale de stockage, selon un ratio fixe de 3:1. Le stockage de 125 Go inclus garantit 375 E/S par seconde approvisionnées, chaque E/S pouvant atteindre 256 Ko. Vous pouvez choisir un stockage supplémentaire jusqu’à un maximum de 1 To, avec une garantie de 3 000 E/S par seconde approvisionnés.
+La configuration des E/S par seconde dans chaque niveau de performances est relative au niveau tarifaire et à la taille de stockage choisis. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans le niveau tarifaire Standard, les E/S par seconde augmentent proportionnellement à la taille maximale de stockage, selon un ratio fixe de 3:1. Le stockage de 125 Go inclus garantit 375 E/S par seconde provisionnées, chaque E/S pouvant atteindre 256 Ko. Vous pouvez choisir un stockage supplémentaire jusqu’à un maximum de 1 To, avec une garantie de 3 000 E/S par seconde approvisionnés.
 
 Surveillez le graphe des métriques dans le portail Azure ou lancez des commandes Azure CLI pour mesurer la consommation de stockage et les E/S par seconde. Les métriques pertinentes à surveiller sont Limite de stockage, Pourcentage de stockage, Stockage utilisé et Pourcentage d’E/S.
 
@@ -93,11 +93,11 @@ Surveillez le graphe des métriques dans le portail Azure ou lancez des commande
 > Pendant la phase de préversion, vous choisissez la quantité de stockage au moment de la création du serveur. Le changement de taille du stockage sur un serveur existant n’est pas encore pris en charge. 
 
 ## <a name="scaling-a-server-up-or-down"></a>Augmentation ou diminution de la puissance d’un serveur
-Vous choisissez initialement le niveau tarifaire et le niveau de performances quand vous créez votre serveur Azure Database pour PostgreSQL. Ultérieurement, vous pouvez augmenter ou diminuer dynamiquement les unités de calcul, dans la plage du même niveau de tarification. Dans le portail Azure, faites glisser le curseur des unités de calcul sur le panneau Niveau de tarification du serveur, ou créez un script en suivant cet exemple : [Surveiller et mettre à l’échelle un serveur PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md)
+Vous choisissez initialement le niveau tarifaire et le niveau de performances quand vous créez votre serveur Azure Database pour PostgreSQL. Ultérieurement, vous pouvez augmenter ou diminuer dynamiquement les unités de calcul, dans la plage du même niveau tarifaire. Dans le portail Azure, faites glisser le curseur des unités de calcul dans la page Niveau tarifaire du serveur, ou créez un script en suivant cet exemple : [Surveiller et mettre à l’échelle un serveur PostgreSQL avec Azure CLI](scripts/sample-scale-server-up-or-down.md)
 
 La mise à l’échelle des unités de calcul se fait indépendamment de la taille maximale de stockage que vous avez choisie.
 
-En réalité, un changement du niveau tarifaire d’une base de données crée un réplica de la base de données d’origine avec le nouveau niveau de performances, puis bascule les connexions vers ce réplica. Aucune donnée n’est perdue au cours de ce processus. Pendant le bref instant où nous basculons vers le réplica, les connexions à la base de données sont désactivées, de sorte que certaines transactions en cours sont susceptibles d’être annulées. Cette fenêtre de désactivation varie, mais elle dure moins de 4 secondes en moyenne et ne dépasse pas 30 secondes dans plus de 99 % des cas. Cette durée peut se révéler supérieure, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
+En réalité, un changement du niveau de performances d’un serveur crée une copie du serveur d’origine avec le nouveau niveau de performances, puis bascule les connexions vers ce serveur copié. Aucune donnée n’est perdue au cours de ce processus. Pendant le bref instant où le système bascule vers la copie du serveur, les connexions à la base de données sont désactivées, et certaines transactions en cours peuvent être annulées. Cette fenêtre de désactivation varie, mais elle dure moins de 4 secondes en moyenne et ne dépasse pas 30 secondes dans plus de 99 % des cas. Cette durée peut se révéler supérieure, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
 
 La durée de la totalité du processus de mise à l’échelle dépend de la taille et du niveau tarifaire du serveur avant et après le changement. Par exemple, le changement des unités de calcul au sein du niveau tarifaire Standard ne demande normalement que quelques minutes. Les nouvelles propriétés du serveur ne sont appliquées qu’une fois les modifications terminées.
 

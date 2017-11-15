@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec .NET
 
@@ -34,25 +34,7 @@ Pour effectuer ce démarrage rapide :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Créer un compte de stockage dans le portail Azure
-
-Commencez par créer un compte de stockage à usage général pour les besoins de ce guide de démarrage rapide. 
-
-1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure. 
-2. Dans le menu Hub, sélectionnez **Nouveau** > **Stockage** > **Compte de stockage - blob, fichier, table, file d’attente**. 
-3. Entrez un nom pour votre compte de stockage. Le nom doit contenir entre 3 et 24 caractères, et uniquement des lettres minuscules et des chiffres. Il doit également être unique.
-4. Définissez `Deployment model` sur **Resource Manager**.
-5. Définissez `Account kind` sur **Usage général**.
-6. Définissez `Performance` sur **Standard**. 
-7. Définissez `Replication` sur **Stockage localement redondant (LRS)**.
-8. Définissez `Storage service encryption` sur **Désactivé**.
-9. Définissez `Secure transfer required` sur **Désactivé**.
-10. Sélectionnez votre abonnement. 
-11. Pour `resource group`, créez-en un et donnez-lui un nom unique. 
-12. Sélectionnez le paramètre `Location` à utiliser pour votre compte de stockage.
-13. Cochez **Épingler au tableau de bord** et cliquez sur **Créer** pour créer votre compte de stockage. 
-
-Une fois votre compte de stockage créé, il est épinglé au tableau de bord. Cliquez sur le compte pour l’ouvrir. Sous PARAMÈTRES, cliquez sur **Clés d’accès**. Sélectionnez une clé et copiez la CHAÎNE DE CONNEXION dans le Presse-papiers, puis collez-la dans un éditeur de texte pour l’utiliser plus tard.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 
@@ -68,7 +50,7 @@ Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir la sol
 
 ## <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
 
-Dans l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. Ouvrez le fichier `app.config` à partir de l’Explorateur de solutions dans Visual Studio. Recherchez l'entrée `StorageConnectionString`. Dans le champ **valeur**, remplacez la valeur entière de la chaîne de connexion par celle que vous avez enregistrée à partir du portail Azure. Votre `storageConnectionString` doit être semblable à ce qui suit :
+Dans l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. Ouvrez le fichier `app.config` à partir de l’Explorateur de solutions dans Visual Studio. Recherchez l'entrée `StorageConnectionString`. Dans le champ **valeur**, remplacez la valeur entière de la chaîne de connexion par celle que vous avez enregistrée à partir du portail Azure. Votre `storageConnectionString` doit être semblable à ce qui suit :
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -115,6 +97,9 @@ La première chose à faire est de créer les références aux objets utilisés 
 * Créez une instance de l’objet **CloudBlobContainer** qui représente le conteneur auquel vous accédez. Les conteneurs sont utilisés pour organiser vos objets blob de la même façon que vous utilisez des dossiers pour organiser vos fichiers sur votre ordinateur.
 
 Une fois que vous avez le **CloudBlobContainer**, vous pouvez créer une instance de l’objet **CloudBlockBlob** qui pointe vers l’objet blob spécifique qui vous intéresse, et effectuer une opération de chargement, téléchargement, copie, etc.
+
+> [!IMPORTANT]
+> Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 Dans cette section, vous créez une instance des objets, un conteneur, puis définissez des autorisations sur le conteneur pour les objets blob soient publics et accessibles par une simple URL. Le conteneur est appelé **quickstartblobs**. 
 

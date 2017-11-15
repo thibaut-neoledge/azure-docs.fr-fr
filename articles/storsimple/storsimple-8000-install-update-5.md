@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installer Update 5 sur votre appareil StorSimple
 
@@ -30,7 +30,7 @@ Update 5 comprend les mises à jour logicielles de l’appareil, celles de Stor
 
 > [!IMPORTANT]
 > * Un ensemble de vérifications préalables manuelles et automatiques sont effectuées avant l’installation pour déterminer l’intégrité de l’appareil sur le plan de l’état du matériel et de la connectivité réseau. Ces vérifications préalables sont effectuées uniquement si vous appliquez les mises à jour à partir du portail Azure.
-> * Nous vous recommandons vivement d’installer les mises à jour à l’aide de la méthode du correctif logiciel lorsque vous mettez à jour un appareil exécutant des versions antérieures à Update 3. Pour que l’équipe de support vous guide tout au long de la mise à jour, [enregistrez un ticket de support](storsimple-8000-contact-microsoft-support.md).
+> * Nous vous recommandons vivement d’installer les mises à jour à l’aide de la méthode du correctif logiciel lorsque vous mettez à jour un appareil exécutant des versions antérieures à Update 3. Si vous rencontrez des problèmes, [créez un ticket de support](storsimple-8000-contact-microsoft-support.md).
 > * Nous vous recommandons d’installer les mises à jour du logiciel et d’autres mises à jour régulières au moyen du portail Azure. Vous devez uniquement accéder à l’interface Windows PowerShell de l’appareil (pour installer les mises à jour) en cas d’échec de la vérification de la passerelle avant la mise à jour dans le portail. Selon la version que vous mettez à jour, l’installation des mises à jour peut prendre 4 heures (ou plus). Les mises à jour du mode de maintenance doivent être installées via l’interface Windows PowerShell de l’appareil. Les mises à jour en mode de maintenance étant des mises à jour perturbatrices, elles entraînent un temps d’arrêt pour votre appareil.
 > * Si vous exécutez l’outil facultatif StorSimple Snapshot Manager, veillez à le mettre à niveau vers la version Update 5 avant de mettre l’appareil à jour.
 

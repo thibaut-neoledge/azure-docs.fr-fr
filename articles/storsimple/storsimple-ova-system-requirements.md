@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
 ## <a name="overview"></a>Vue d’ensemble
@@ -50,7 +50,7 @@ La configuration logicielle requise inclut les informations sur les navigateurs 
 | Quantité minimale de mémoire (RAM) |8 Go <br> Pour un serveur de fichiers, 8 Go pour moins de 2 millions de fichiers et 16 Go pour 2 à 4 millions de fichiers|
 | Espace disque<sup>1</sup> |Disque de système d'exploitation - 80 Go  <br></br>Disque de données - 500 Go à 8 To |
 | Nombre minimal d'interfaces réseau |1 |
-| Bande passante Internet minimale<sup>2</sup> |5 Mbits/s |
+| Bande passante Internet<sup>2</sup> |Bande passante minimale requise : 5 Mbits/s <br> Bande passante recommandée : 100 Mbits/s <br> La vitesse de transfert des données varie selon la bande passante Internet. Par exemple, le transfert de 100 Go de données prend deux jours avec une bande passante de 5 Mbits/s. Cela peut entraîner des échecs de sauvegarde, car les sauvegardes quotidiennes ne peuvent pas dans ce cas s’effectuer en un seul jour. Avec une bande passante de 100 Mbits/s, le transfert de 100 Go de données s’effectue en deux heures et demie.   |
 
 <sup>1</sup> - Allocation dynamique
 
@@ -113,7 +113,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 > [!NOTE]
 > 
 > * Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées pour le cloud. 
-> * Les adresses IP de destination doivent être définies sur les [plages d’adresses IP Azure Datacenter](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> * Les adresses IP de destination doivent être définies sur les [plages d’adresses IP Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
@@ -128,6 +128,5 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 | `https://*.partners.extranet.microsoft.com/*` |Package de prise en charge |
 | `http://*.data.microsoft.com ` |Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et du diagnostic de la télémétrie](https://support.microsoft.com/en-us/kb/3068708) |
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 * [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-

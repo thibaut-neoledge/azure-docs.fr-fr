@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5a095663b7e716fd63322c9f89f67a1f3187638b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 Ce didacticiel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).
@@ -228,7 +228,11 @@ Ouvrez le fichier *Views/Shared/_Layout.cshtml*. Il s’agit de la disposition p
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>Mettre à jour le fichier VotingWeb.cs
-Ouvrez le fichier *VotingWeb.cs*. Il crée le WebHost Core ASP.NET dans le service sans état à l’aide du serveur web WebListener.  Ajoutez la directive `using System.Net.Http;` au début du fichier.  Remplacez la fonction `CreateServiceInstanceListeners()` par la commande suivante, puis enregistrez vos modifications.
+Ouvrez le fichier *VotingWeb.cs*. Il crée le WebHost Core ASP.NET dans le service sans état à l’aide du serveur web WebListener.  
+
+Ajoutez la directive `using System.Net.Http;` au début du fichier.  
+
+Remplacez la fonction `CreateServiceInstanceListeners()` par la commande suivante, puis enregistrez vos modifications.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -257,7 +261,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>Ajouter le fichier VotesController.cs
-Ajoutez un contrôleur qui définit les actions de vote. Cliquez avec le bouton droit sur le dossier **Contrôleurs** et sélectionnez **Ajouter -> Nouvel élément -> Classe**.  Nommez le fichier « VotesController.cs » et cliquez sur **Ajouter**.  Remplacez le contenu du fichier par la commande suivante, puis enregistrez vos modifications.  Plus tard, dans [Mettre à jour le fichier VotesController.cs](#updatevotecontroller_anchor), ce fichier est modifié pour lire et écrire des données de vote à partir du service principal.  Pour l’instant, le contrôleur retourne des données de chaîne statique à la vue.
+Ajoutez un contrôleur qui définit les actions de vote. Cliquez avec le bouton droit sur le dossier **Contrôleurs** et sélectionnez **Ajouter -> Nouvel élément -> Classe**.  Nommez le fichier « VotesController.cs » et cliquez sur **Ajouter**.  
+
+Remplacez le contenu du fichier par la commande suivante, puis enregistrez vos modifications.  Plus tard, dans [Mettre à jour le fichier VotesController.cs](#updatevotecontroller_anchor), ce fichier est modifié pour lire et écrire des données de vote à partir du service principal.  Pour l’instant, le contrôleur retourne des données de chaîne statique à la vue.
 
 ```csharp
 using System;
@@ -296,7 +302,23 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### <a name="configure-the-listening-port"></a>Configurer le port d’écoute
+Lorsque le service frontal VotingWeb est créé, Visual Studio sélectionne de manière aléatoire le port d’écoute du service.  Le service VotingWeb joue le rôle de serveur frontal de cette application et accepte le trafic externe. Associez ce service à un port fixe et connu. Dans l’Explorateur de solutions, ouvrez *VotingWeb/PackageRoot/ServiceManifest.xml*.  Recherchez la ressource **Endpoint** dans la section **Resources**, puis remplacez la valeur du **port** par 80 ou une autre valeur de port. Pour déployer et exécuter l’application localement, le port d’écoute de l’application doit être ouvert et disponible sur votre ordinateur.
 
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+Mettez également à jour la valeur de la propriété d’URL d’application dans le projet Voting, afin qu’un navigateur web s’ouvre sur le port adéquat lorsque vous effectuez le débogage en appuyant sur F5.  Dans l’Explorateur de solutions, sélectionnez le projet **Voting** et mettez à jour la propriété **URL de l’application**.
+
+![URL de l’application](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-application-locally"></a>Déployer et exécuter l’application localement
 Vous pouvez maintenant continuer et exécuter l’application. Appuyez sur `F5` dans Visual Studio pour déployer l’application en vue d’un débogage. La commande `F5` échoue si vous n’avez pas précédemment ouvert Visual Studio en tant qu’**administrateur**.

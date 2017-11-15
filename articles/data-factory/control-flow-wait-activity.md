@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: shlo
-ms.openlocfilehash: 892e61397bb6e54781665f210434a4ab9ccb2632
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 3ff06ea07fcf5e391783575adf9dd5d99255eced
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Activité Wait dans Azure Data Factory
 Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant la période spécifiée avant de poursuivre l’exécution des activités suivantes. 
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale (GA), consultez [Documentation de Data Factory V1](v1/data-factory-introduction.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory V1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -44,7 +44,7 @@ Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
 name | Nom de l’activité `Wait`. | String | Oui
 type | Doit être défini sur **Wait**. | String | Oui
-waitTimeInSeconds | Nombre de secondes pendant lesquelles le pipeline attend avant de poursuivre le traitement. | Entier | Oui
+waitTimeInSeconds | Nombre de secondes pendant lesquelles le pipeline attend avant de poursuivre le traitement. | Entier  | Oui
 
 ## <a name="example"></a>Exemple
 
@@ -106,9 +106,9 @@ Dans cet exemple, le pipeline a deux activités : **Until** et **Wait**. L’ac
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité If Condition](control-flow-if-condition-activity.md)
-- [Activité Execute Pipeline](control-flow-execute-pipeline-activity.md)
-- [Activité For Each](control-flow-for-each-activity.md)
-- [Activité Get Metadata](control-flow-get-metadata-activity.md)
-- [Activité Lookup](control-flow-lookup-activity.md)
+- [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
+- [Pour chaque activité](control-flow-for-each-activity.md)
+- [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
 - [Activité Web](control-flow-web-activity.md)
-- [Activité Unit](control-flow-until-activity.md)
+- [Activité jusqu’à](control-flow-until-activity.md)

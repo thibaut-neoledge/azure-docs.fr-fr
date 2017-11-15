@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 68031d548bdbeda9a83d1bceaaea7c5bbcab3188
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad497a0244f9c7cdad34faf807cc9ed10ea704d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Utilisation du Bureau à distance pour se connecter à une machine virtuelle Linux Microsoft Azure.
 > [!IMPORTANT] 
@@ -79,7 +79,7 @@ Pour OpenSUSE, utilisez :
     #sudo systemctl start xrdp
     #sudo systemctl enable xrdp
 
-Pour Ubuntu, xrdp sera démarré et activé au démarrage automatiquement après l’installation.
+Pour Ubuntu, xrdp est démarré et activé au démarrage automatiquement après l’installation.
 
 ## <a name="using-xfce-if-you-are-using-an-ubuntu-version-later-than-ubuntu-1204lts"></a>Utilisation de xfce si vous utilisez une version d’Ubuntu ultérieure à 12.04LTS
 Comme la version actuelle de xrdp ne prend pas en charge Gnome Desktop pour les versions d’Ubuntu ultérieures à 12.04LTS, nous allons utiliser `xfce` Desktop à la place.

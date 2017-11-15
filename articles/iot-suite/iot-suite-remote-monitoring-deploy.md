@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: babcf20b58af1415e0e658e0a622cb056e34642b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 159397ba4fc93628acbf2bb53edf5eb88fd0cac7
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Déployer la solution préconfigurée de surveillance à distance
 
@@ -39,13 +39,17 @@ Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation
 
 Avant de déployer la solution préconfigurée dans votre abonnement Azure, vous devez choisir des options de configuration :
 
-1. Connectez-vous à [azureiotsuite.com](https://www.azureiotsuite.com) à l’aide des informations d’identification de votre compte Azure, puis cliquez sur **+** pour créer une solution.
+1. Connectez-vous à [azureiotsuite.com](https://www.azureiotsuite.com) à l’aide des informations d’identification de votre compte Azure, puis cliquez sur **+** pour créer une solution :
 
-1. Cliquez sur **Sélectionner** sur la vignette **Surveillance à distance**.
+    ![Créer une solution](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+
+1. Cliquez sur **Sélectionner** sur la vignette d’aperçu de la **Surveillance à distance**.
+
+    ![Choisir la surveillance à distance](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
 1. Sur la page de **création d’une solution de surveillance à distance**, entrez un **nom de solution** pour votre solution préconfigurée de surveillance à distance.
 
-1. Sélectionnez un déploiement **de base** ou de type **entreprise**. Si vous déployez la solution pour découvrir son fonctionnement ou effectuer une démonstration, choisissez l’option **de base** pour réduire les coûts.
+1. Sélectionnez un déploiement **De base** ou **Standard**. Si vous déployez la solution pour découvrir son fonctionnement ou effectuer une démonstration, choisissez l’option **De base** afin de réduire les coûts.
 
 1. Choisissez le langage **Java** ou **.NET**. Tous les microservices sont disponibles sous la forme d’implémentations Java ou .NET.
 
@@ -53,7 +57,9 @@ Avant de déployer la solution préconfigurée dans votre abonnement Azure, vous
 
 1. Sélectionnez l’**Abonnement** et la **Région** à utiliser pour configurer la solution.
 
-1. Cliquez sur **Créer une solution** pour commencer le processus de déploiement. L’exécution de ce processus prend généralement plusieurs minutes.
+1. Cliquez sur **Créer une solution** pour commencer le processus de déploiement. L’exécution de ce processus prend généralement plusieurs minutes :
+
+    ![Détails de la solution de surveillance à distance](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 Pour obtenir des informations de dépannage, consultez la rubrique [What to do when a deployment fails](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) (Que faire si le déploiement échoue ?) dans le référentiel GitHub.
 
@@ -61,12 +67,16 @@ Pour obtenir des informations de dépannage, consultez la rubrique [What to do w
 
 Lorsque le processus d’approvisionnement est terminé, vous pouvez vous connecter à votre solution préconfigurée de surveillance à distance.
 
-1. Sur la page **Solutions approvisionnées**, choisissez votre nouvelle solution de surveillance à distance.
+1. Dans la page **Solutions approvisionnées**, choisissez votre nouvelle solution de surveillance à distance :
+
+    ![Choisir la nouvelle solution](media/iot-suite-remote-monitoring-deploy/choosenew.png)
 
 1. Vous pouvez consulter les informations relatives à votre solution de surveillance à distance dans le panneau qui s’affiche. Choisissez **Tableau de bord des solutions** pour vous connecter à votre solution de surveillance à distance.
 
     > [!NOTE]
     > Vous pouvez supprimer votre solution de surveillance à distance dans ce panneau lorsque vous n’en avez plus besoin.
+
+    ![Panneau de solutions](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
 
 1. Le tableau de bord des solutions de surveillance à distance s’affiche dans votre navigateur.
 

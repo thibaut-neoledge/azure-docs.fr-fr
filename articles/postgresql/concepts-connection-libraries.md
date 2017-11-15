@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Bibliothèques de connexions de la base de données Azure pour PostgreSQL
-Cette rubrique liste les bibliothèques et les pilotes que les développeurs peuvent utiliser pour programmer des applications qui se connectent à Azure Database pour PostgreSQL et l’interrogent.
+Cet article liste les bibliothèques et les pilotes qui sont à la disposition des développeurs pour développer des applications qui se connectent à Azure Database pour PostgreSQL et l’interrogent.
 
 ## <a name="client-interfaces"></a>Interfaces client
-La plupart des bibliothèques clientes de langages qui permettent de se connecter au serveur PostgreSQL sont des projets externes, distribués de manière indépendante. Ils sont pris en charge sur les plateformes Windows, Linux et Mac. Le tableau suivant liste quelques-uns des pilotes clients les plus courants :
+La plupart des bibliothèques clientes de langages qui permettent de se connecter au serveur PostgreSQL sont des projets externes, distribués de manière indépendante. Les bibliothèques répertoriées sont prises en charge sur les plateformes Windows, Linux et Mac, pour la connexion à Azure Database pour PostgreSQL. Plusieurs exemples de démarrage rapide sont regroupés à la section Étapes suivantes.
 
 | **Langage** | **Interface client** | **Informations supplémentaires** | **Télécharger** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|

@@ -1,6 +1,6 @@
 ---
-title: "Sauvegarde et restauration d’un serveur dans Base de données Azure pour PostgreSQL | Microsoft Docs"
-description: "Découvrez comment sauvegarder et restaurer un serveur dans Base de données Azure pour PostgreSQL à l’aide de l’interface Azure CLI."
+title: "Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL | Microsoft Docs"
+description: "Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL avec Azure CLI."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 0cfce63b1523f939dc2d706dba771e56ce9ccd6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Sauvegarde et restauration d’un serveur Base de données Azure pour PostgreSQL à l’aide de l’interface Azure CLI
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL avec l’interface de ligne de commande Azure
 
 Utilisez Base de données Azure pour PostgreSQL afin de restaurer une base de données de serveur à une date antérieure couvrant une période de 7 à 35 jours.
 
@@ -31,7 +31,7 @@ Pour utiliser ce guide pratique, il vous faut :
 > [!IMPORTANT]
 > Si vous installez et utilisez l’interface Azure CLI localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour mettre en œuvre la procédure décrite dans ce guide pratique. Pour vérifier la version, à l’invite de commande de l’interface Azure CLI, entrez `az --version`. Pour installer ou mettre à niveau l’interface Azure CLI, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="back-up-happens-automatically"></a>La sauvegarde s’effectue automatiquement
+## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
 Lorsque vous utilisez Base de données Azure pour PostgreSQL, le service de base de données crée automatiquement une sauvegarde du service toutes les 5 minutes. 
 
 Pour le niveau De base, les sauvegardes sont disponibles pendant 7 jours. Pour le niveau Standard, les sauvegardes sont disponibles pendant 35 jours. Pour plus d’informations, consultez [Niveaux tarifaires dans Base de données Azure pour PostgreSQL](concepts-service-tiers.md).
@@ -56,7 +56,7 @@ La commande `az postgres server restore` requiert les paramètres suivants :
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
 | name | mypgserver-restored | Nom du serveur créé par la commande de restauration. |
-| restore-point-in-time | 2017-04-13T13:59:00Z | Sélectionnez un état antérieur auquel effectuer la restauration. La date et l’heure doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme `2017-04-13T05:59:00-08:00`. Vous pouvez également utiliser le format UTC Zulu, par exemple, `2017-04-13T13:59:00Z`. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Sélectionnez un état antérieur auquel effectuer la restauration. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme `2017-04-13T05:59:00-08:00`. Vous pouvez également utiliser le format UTC Zulu, par exemple, `2017-04-13T13:59:00Z`. |
 | source-server | mypgserver-20170401 | Nom ou identifiant du serveur source à partir duquel la restauration s’effectuera. |
 
 Lorsque vous restaurez un serveur à un état antérieur, un nouveau serveur est créé. Le serveur d’origine et ses bases de données à l’état spécifié sont copiés sur le nouveau serveur.

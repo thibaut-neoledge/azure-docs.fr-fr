@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Sauvegarder Windows Server dans Azure
 
@@ -116,23 +116,19 @@ Vous utilisez l’agent Microsoft Azure Recovery Services pour planifier quand l
 
 3. Cliquez sur **Suivant** pour accéder à la page **Sélectionner les éléments à sauvegarder**.
 
-4. Cliquez sur **Ajouter les éléments** et dans la boîte de dialogue qui s’ouvre, sélectionnez **État du système** et les fichiers ou dossiers que vous souhaitez sauvegarder. Cliquez ensuite sur **OK**.
+4. Cliquez sur **Ajouter les éléments** puis, dans la boîte de dialogue qui s’ouvre, sélectionnez **État du système** et les fichiers ou dossiers que vous souhaitez sauvegarder. Cliquez ensuite sur **OK**.
 
 5. Cliquez sur **Suivant**.
 
-6. Dans la page **Spécifier la planification de sauvegarde**, spécifiez les heures du jour ou de la semaine lorsque les sauvegardes doivent être déclenchées pour les fichiers et les dossiers. La planification de la sauvegarde de l’état du système est configurée automatiquement. 
+6. Dans la page **Spécifier la planification de sauvegarde (état du système)**, spécifiez les heures du jour ou de la semaine auxquelles les sauvegardes doivent être déclenchées pour l’état du système, puis cliquez sur **Suivant**. 
 
-    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.  Dans la page **Sélectionner une stratégie de rétention**, définissez la stratégie de rétention pour la copie de sauvegarde des fichiers et des dossiers. La période de rétention des sauvegardes d’état du système est automatiquement définie à 60 jours.
+7.  Dans la page **Sélectionner la stratégie de rétention (état du système)**, définissez la stratégie de rétention pour la copie de l’état du système, puis cliquez sur **Suivant**.
+8. De même, sélectionnez la planification de sauvegarde et la stratégie de rétention pour les fichiers et dossiers sélectionnés. 
 8.  Dans la page **Choisir un type de sauvegarde initiale**, laissez l’option **Automatiquement sur le réseau** sélectionnée, puis cliquez sur **Suivant**.
 9.  Dans la page **Confirmation**, passez en revue les informations, puis cliquez sur **Terminer**.
 10. Lorsque l’Assistant a terminé la création de la planification de la sauvegarde, cliquez sur **Fermer**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Effectuer une hoc sauvegarde ad-hoc
-
 
 Vous avez établi la planification lors de l’exécution des tâches de sauvegarde. Toutefois, vous n’avez pas sauvegardé le serveur. Comme meilleure pratique en matière de récupération d’urgence, il est recommandé d’exécuter une sauvegarde à la demande pour garantir la résilience de données pour votre serveur.
 
@@ -140,8 +136,9 @@ Vous avez établi la planification lors de l’exécution des tâches de sauvega
 
     ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.  Dans la page **Confirmation**, vérifiez les paramètres utilisés par l’Assistant **Sauvegarder maintenant** pour sauvegarder votre serveur, puis cliquez sur **Sauvegarder**.
-3.  Cliquez sur **Fermer** pour fermer l’assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
+2.  Dans l’Assistant **Sauvegarder maintenant**, sélectionnez dans **Fichiers et dossiers** ou **État du système** l’élément que vous souhaitez sauvegarder, puis cliquez sur **Suivant**. 
+3. Dans la page **Confirmation**, vérifiez les paramètres utilisés par l’Assistant **Sauvegarder maintenant** pour sauvegarder votre serveur, puis cliquez sur **Sauvegarder**.
+4.  Cliquez sur **Fermer** pour fermer l’assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
 4.  Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans le volet **Travaux** de la console de l’agent MARS.
 
 

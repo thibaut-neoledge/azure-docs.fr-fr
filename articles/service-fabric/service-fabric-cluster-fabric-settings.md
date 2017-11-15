@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -596,7 +596,7 @@ PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
 | PeriodicApiSlowTraceInterval | Durée en secondes (valeur par défaut : 5 minutes) |Dynamique| Spécifiez la durée en secondes. PeriodicApiSlowTraceInterval définit la période pendant laquelle les appels d’API lents sont retracés par le moniteur d’API. |
 | NodeDeactivationMaxReplicaCloseDuration | Durée en secondes (valeur par défaut : 900) |Dynamique|Spécifiez la durée en secondes. Délai respecté par le système avant de mettre fin à des hôtes de service dont des réplicas sont bloqués en fermeture lors de la désactivation d’un nœud. |
 | FabricUpgradeMaxReplicaCloseDuration | Durée en secondes (valeur par défaut : 900) |Dynamique| Spécifiez la durée en secondes. Délai respecté par le système avant de mettre fin à des hôtes de service dont des réplicas sont bloqués en fermeture lors de la mise à niveau de Fabric. |
-|GracefulReplicaShutdownMaxDuration|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique|Spécifiez la durée en secondes. Délai respecté par le système avant de mettre fin à des hôtes de service dont des réplicas sont bloqués en fermeture.|
+|GracefulReplicaShutdownMaxDuration|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique|Spécifiez la durée en secondes. Délai respecté par le système avant de mettre fin à des hôtes de service dont des réplicas sont bloqués en fermeture. Si cette valeur est définie sur 0, les réplicas ne reçoivent pas d’instruction de fermeture.|
 |ReplicaChangeRoleFailureRestartThreshold|entier, valeur par défaut : 10|Dynamique| Entier. Spécifiez le nombre d’échecs d’API pendant la promotion principale après lesquels une action d’atténuation d’automatique (redémarrage du réplica) sera appliquée. |
 |ReplicaChangeRoleFailureWarningReportThreshold|entier, valeur par défaut : 2147483647|Dynamique| Entier. Spécifiez le nombre d’échecs d’API pendant la promotion principale après lesquels des rapports d’intégrité Warning seront générés.|
 

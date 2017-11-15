@@ -11,13 +11,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilisation d'Azure PowerShell avec Azure Storage
 
@@ -165,7 +165,7 @@ Pour régénérer l’autre clé, utilisez `key2` comme nom de clé à la place 
 Régénérez un de vos clés, puis récupérez-la à nouveau pour voir la nouvelle valeur.
 
 > [!NOTE] 
-> Vous devez planifier soigneusement la régénération de la clé pour un compte de stockage de production. La régénération d’une ou des deux clés invalidera l’accès pour n’importe quelle application utilisant la clé qui a été régénérée. Pour plus d’informations, consultez [Régénérer les clés d’accès au stockage](storage-create-storage-account.md#regenerate-storage-access-keys).
+> Vous devez planifier soigneusement la régénération de la clé pour un compte de stockage de production. La régénération d’une ou des deux clés invalidera l’accès pour n’importe quelle application utilisant la clé qui a été régénérée. Pour plus d’informations, consultez [Regénérer les clés d’accès au stockage](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Suppression d'un compte de stockage 
@@ -216,10 +216,16 @@ Maintenant que vous savez comment gérer votre compte de stockage avec PowerShel
 * [Comment gérer les objets Blob avec PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Comment gérer les fichiers avec PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Comment gérer les files d’attente avec PowerShell](../queues/storage-powershell-how-to-use-queues.md)
+* [Effectuer des opérations sur Stockage Table Azure avec PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+L’API Table Azure Cosmos DB fournit des fonctionnalités premium pour le stockage des tables, telles que la distribution globale clé en main, les opérations de lecture et d’écriture à faible latence, l’indexation secondaire automatique et un débit dédié. 
+
+* Pour plus d’informations, consultez [API Table Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
+* Pour découvrir comment utiliser PowerShell pour effectuer des opérations d’API Table Azure Cosmos DB, consultez [Effectuer des opérations d’API Table Azure Cosmos DB avec PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="azures-independently-deployed-clouds"></a>Clouds indépendants Azure
 
-La plupart des gens utilisent le cloud public Azure pour leur déploiement Azure global. Il existe également des déploiements indépendants de Microsoft Azure pour des raisons de souveraineté, entre autres. Ces déploiements indépendants sont appelés « environnements ». Voici les environnements disponibles :
+La plupart des gens utilisent le cloud public Azure pour leur déploiement Azure global. Pour des raisons de souveraineté, entre autres, il existe également des déploiements indépendants de Microsoft Azure. Ces déploiements indépendants sont appelés « environnements ». Voici les environnements disponibles :
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [Cloud Azure de Chine géré par 21Vianet en Chine](http://www.windowsazure.cn/)

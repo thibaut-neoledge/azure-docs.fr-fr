@@ -1,5 +1,5 @@
 ---
-title: Didacticiel Service Bus REST utilisant Azure Relay | Microsoft Docs
+title: Didacticiel REST utilisant Azure Relay | Microsoft Docs
 description: "Créez une simple application hôte Azure Service Bus Relay présentant une interface de type REST."
 services: service-bus-relay
 documentationcenter: na
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2017
+ms.date: 11/06/2017
 ms.author: sethm
-ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a5a2916514a125d0b7443ced42e5ec600c68857
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Didacticiel Azure WCF Relay REST
 
 Ce didacticiel explique comment créer une simple application hôte Azure Relay qui expose une interface de type REST. REST permet à un client web, par exemple un navigateur web, d’accéder aux API Service Bus via des requêtes HTTP.
 
-Le didacticiel utilise le modèle de programmation REST Windows Communication Foundation (WCF) pour construire un service REST sur Service Bus. Pour plus d’informations, consultez les rubriques [Modèle de programmation REST WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) et [Conception et implémentation de services](/dotnet/framework/wcf/designing-and-implementing-services) dans la documentation WCF.
+Ce didacticiel utilise le modèle de programmation REST WCF (Windows Communication Foundation) pour construire un service REST dans Azure Relay. Pour plus d’informations, consultez les rubriques [Modèle de programmation REST WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) et [Conception et implémentation de services](/dotnet/framework/wcf/designing-and-implementing-services) dans la documentation WCF.
 
 ## <a name="step-1-create-a-namespace"></a>Étape 1 : Création d’un espace de noms
 
@@ -32,9 +32,9 @@ Pour commencer à utiliser les fonctionnalités de relais dans Azure, vous devez
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Étape 2 : Définition d’un contrat de service REST WCF à utiliser avec Azure Relay
 
-Lorsque vous créez un service de type REST WCF, vous devez définir le contrat. Le contrat spécifie les opérations prises en charge par l'hôte. Une opération de service peut être considérée comme une méthode de service web. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) doit être appliqué à chaque opération. Si une méthode dans une interface qui contient l’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) n’a pas l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), cette méthode n’est pas exposée. Le code utilisé pour effectuer ces tâches est indiqué dans l'exemple suivant la procédure.
+Lorsque vous créez un service de type REST WCF, vous devez définir le contrat. Le contrat spécifie les opérations prises en charge par l'hôte. Une opération de service peut être considérée comme une méthode de service web. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) doit être appliqué à chaque opération. Si une méthode dans une interface qui contient l’attribut [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) n’a pas l’attribut [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), cette méthode n’est pas exposée. Le code utilisé pour effectuer ces tâches est indiqué dans l'exemple suivant la procédure.
 
-La principale différence entre un contrat WCF et un contrat de type REST est l’ajout d’une propriété à l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) : [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Cette propriété vous permet de mapper une méthode dans votre interface à une méthode de l'autre côté de l'interface. Dans ce cas, nous utiliserons [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) pour associer une méthode à HTTP GET. Cela permet à Service Bus de récupérer et d’interpréter correctement les commandes envoyées à l'interface.
+La principale différence entre un contrat WCF et un contrat de type REST est l’ajout d’une propriété à l’attribut [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) : [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Cette propriété vous permet de mapper une méthode dans votre interface à une méthode de l'autre côté de l'interface. Cet exemple utilise l’attribut [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) pour lier une méthode HTTP GET. Cela permet à Service Bus de récupérer et d’interpréter correctement les commandes envoyées à l’interface.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Création d’un contrat avec une interface
 
@@ -56,7 +56,7 @@ La principale différence entre un contrat WCF et un contrat de type REST est l�
     using System.IO;
     ```
    
-    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) est l’espace de noms qui permet l’accès par programme aux fonctionnalités WCF de base. WCF Relay utilise la plupart des objets et attributs de WCF pour définir des contrats de service. Vous utiliserez cet espace de noms dans la plupart de vos applications de relais. De même, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) permet de définir le canal, qui est l’objet via lequel vous communiquez avec Azure Relay et le navigateur web client. Enfin, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contient les types qui vous permettent de créer des applications web.
+    [System.ServiceModel](/dotnet/api/system.servicemodel) est l’espace de noms qui permet l’accès par programme aux fonctionnalités WCF de base. WCF Relay utilise la plupart des objets et attributs de WCF pour définir des contrats de service. Vous allez utiliser cet espace de noms dans la plupart de vos applications de relais. De même, [System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels) permet de définir le canal, qui est l’objet via lequel vous communiquez avec Azure Relay et le navigateur web client. Enfin, [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web) contient les types qui vous permettent de créer des applications web.
 7. Renommez l’espace de noms `ImageListener` en **Microsoft.ServiceBus.Samples**.
    
     ```csharp
@@ -98,7 +98,7 @@ La principale différence entre un contrat WCF et un contrat de type REST est l�
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
     
-    Un canal est l'objet WCF par le biais duquel le service et le client se transmettent des informations. Plus tard, vous créerez le canal dans votre application hôte. Azure Relay utilise ensuite ce canal pour transmettre les requêtes HTTP GET du navigateur vers votre implémentation **GetImage**. Le relais utilise également ce canal pour extraire la valeur **GetImage** renvoyée et la traduire en une HTTP GETRESPONSE pour le navigateur client.
+    Un canal est l'objet WCF par le biais duquel le service et le client se transmettent des informations. Ensuite, vous allez créer le canal dans votre application hôte. Azure Relay utilise ensuite ce canal pour transmettre les requêtes HTTP GET du navigateur vers votre implémentation **GetImage**. Le relais utilise également ce canal pour extraire la valeur **GetImage** renvoyée et la traduire en une HTTP GETRESPONSE pour le navigateur client.
 12. Dans le menu **Générer**, cliquez sur **Générer la solution** pour confirmer que votre travail est correct.
 
 ### <a name="example"></a>Exemple
@@ -149,7 +149,7 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l�
     }
     ```
     Comme pour d'autres implémentations d'interface, vous pouvez implémenter la définition dans un autre fichier. Toutefois, pour ce didacticiel, l’implémentation apparaît dans le même fichier que la définition d’interface et la méthode `Main()`.
-2. Appliquez l’attribut [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) à la classe **IImageService** pour indiquer que la classe est une implémentation d’un contrat WCF.
+2. Appliquez l’attribut [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) à la classe **IImageService** pour indiquer que la classe est une implémentation d’un contrat WCF.
    
     ```csharp
     [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -158,12 +158,12 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l�
     }
     ```
    
-    Comme mentionné précédemment, cet espace de noms n'est pas un espace de noms standard. Il fait en effet partie de l'architecture WCF qui identifie le contrat. Pour plus d’informations, consultez la rubrique [Noms des contrats de données](https://msdn.microsoft.com/library/ms731045.aspx) dans la documentation WCF.
+    Comme mentionné précédemment, cet espace de noms n'est pas un espace de noms standard. Il fait en effet partie de l'architecture WCF qui identifie le contrat. Pour plus d’informations, consultez l’article [Noms des contrats de données](https://msdn.microsoft.com/library/ms731045.aspx) dans la documentation WCF.
 3. Ajoutez une image .jpg à votre projet.  
    
     Il s'agit d'une image que le service affiche dans le navigateur de réception. Cliquez avec le bouton droit sur votre projet, puis cliquez sur **Ajouter**. Cliquez ensuite sur **Élément existant**. Utilisez la boîte de dialogue **Ajouter un élément existant** pour accéder à un fichier .jpg approprié, puis cliquez sur **Ajouter**.
    
-    Lorsque vous ajoutez le fichier, assurez-vous que l’option **Tous les fichiers** est sélectionnée dans la liste déroulante en regard du champ **Nom de fichier :**. Le reste de ce didacticiel suppose que le nom de l'image est « image.jpg ». Si vous avez un fichier différent, vous devrez renommer l'image ou modifier votre code pour compenser.
+    Lorsque vous ajoutez le fichier, assurez-vous que l’option **Tous les fichiers** est sélectionnée dans la liste déroulante en regard du champ **Nom de fichier :**. Le reste de ce didacticiel suppose que le nom de l'image est « image.jpg ». Si votre fichier est différent, vous devez renommer l’image ou modifier votre code pour compenser.
 4. Pour vous assurer que le service en cours d’exécution est capable de trouver le fichier image, cliquez avec le bouton droit sur le fichier image dans **l’Explorateur de solutions**, puis cliquez sur **Propriétés**. Dans le volet **Propriétés**, définissez la valeur **Copier dans le répertoire de sortie** sur **Copier si plus récent**.
 5. Ajoutez une référence à l’assembly **System.Drawing.dll** au projet et ajoutez également les instructions `using` associées suivantes.  
    
@@ -558,7 +558,7 @@ Après avoir créé la solution, procédez comme suit pour exécuter l'applicati
 3. Une fois que vous avez terminé, appuyez sur **Entrée** dans la fenêtre d’invite de commande pour fermer l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez créé une application qui utilise le service de relais Service Bus, consultez les articles suivants pour en savoir plus sur Azure Relay :
+Maintenant que vous avez créé une application qui utilise le service Azure Relay, consultez les articles suivants pour en savoir plus :
 
 * [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Vue d’ensemble d’Azure Relay](relay-what-is-it.md)

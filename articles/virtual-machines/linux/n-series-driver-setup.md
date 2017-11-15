@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -205,13 +205,13 @@ Ce fichier peut être appelé en tant que racine au démarrage en créant une en
 
 ## <a name="install-cuda-drivers-for-nc-vms"></a>Installer des pilotes CUDA pour des machines virtuelles NC
 
-Voici les étapes pour installer les pilotes NVIDIA sur des machines virtuelles Linux NC à partir du kit d’outils CUDA NVIDIA 8.0. 
+Voici les étapes pour installer les pilotes NVIDIA sur des machines virtuelles Linux NC à partir du kit d’outils CUDA NVIDIA. 
 
 Les développeurs C et C++ peuvent éventuellement installer le kit d’outils complet pour créer des applications avec accélération GPU. Pour plus d’informations, consultez le [Guide d’installation de CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> Les liens de téléchargement de pilotes CUDA fournis ici sont à jour au moment de la publication. Pour les pilotes CUDA les plus récents, visitez le site web de [NVIDIA](http://www.nvidia.com/).
+> Les liens de téléchargement de pilotes CUDA fournis ici sont à jour au moment de la publication. Pour les pilotes CUDA les plus récents, visitez le site web de [NVIDIA](https://developer.nvidia.com/cuda-zone).
 >
 
 Pour installer le kit d’outils CUDA, établissez une connexion SSH à chaque machine virtuelle. Pour vérifier que le système dispose d’un GPU compatible CUDA, exécutez la commande suivante :
@@ -273,20 +273,16 @@ sudo reboot
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Basé sur CentOS 7.3 ou Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> N’exécutez pas `sudo yum update` pour mettre à jour la version du noyau sur CentOS 7.3 ou Red Hat Enterprise Linux 7.3. Actuellement, l’installation et les mises à jour du pilote ne fonctionnent pas si le noyau est mis à jour.
->
-
 1. Installez les derniers services d’intégration Linux pour Hyper-V.
 
   > [!IMPORTANT]
-  > Si vous avez installé une image HPC basée sur CentOS sur une machine virtuelle NC24r, passez à l’étape 3. Étant donné que les pilotes RDMA Azure et les services d’intégration Linux sont préinstallés dans l’image, LIS ne doit pas être mis à niveau et les mises à jour du noyau sont désactivées par défaut.
+  > Si vous avez installé une image HPC basée sur CentOS sur une machine virtuelle NC24r, passez à l’étape 3. Étant donné que les pilotes RDMA Azure et les composants Linux Integration Services sont préinstallés dans l’image HPC, LIS ne doit pas être mis à niveau, et les mises à jour du noyau sont désactivées par défaut.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
  
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-1.tar.gz
  
   cd LISISO
  
@@ -304,7 +300,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -354,8 +350,9 @@ Déployez des machines virtuelles NC24r à partir d’une des images suivantes d
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
-* Il existe un problème connu avec les pilotes CUDA sur les machines virtuelles Azure de série N exécutant le noyau Linux 4.4.0-75 sur Ubuntu 16.04 LTS. Si vous effectuez une mise à niveau à partir d’une version antérieure du noyau, procédez à la mise à niveau vers la version 4.4.0-77 du noyau au minimum. 
+* Il existe un problème connu avec les pilotes CUDA sur les machines virtuelles Azure de série N exécutant le noyau Linux 4.4.0-75 sur Ubuntu 16.04 LTS. Si vous effectuez une mise à niveau à partir d’une version antérieure du noyau, procédez à la mise à niveau vers la version 4.4.0-77 du noyau au minimum.
 
+* Vous pouvez définir le mode de persistance à l’aide de nvidia-smi. De cette façon, la sortie de la commande est plus rapide quand vous avez besoin d’effectuer une requête sur les cartes. Pour définir le mode de persistance, exécutez `nvidia-smi -pm 1`. Notez que si la machine virtuelle est redémarrée, le paramètre du mode n’est pas conservé. Vous pouvez toujours définir le paramètre du mode dans un script à exécuter au démarrage.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

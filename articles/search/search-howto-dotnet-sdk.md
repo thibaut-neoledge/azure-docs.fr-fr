@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Comment utiliser Azure Search à partir d'une application .NET
 Cet article est une procédure pas à pas dont le but est de vous aider à utiliser le [SDK .NET Azure Search](https://aka.ms/search-sdk). Vous pouvez utiliser le SDK .NET pour intégrer une expérience de recherche enrichie dans votre application à l'aide d’Azure Search.
@@ -33,7 +33,7 @@ La bibliothèque cliente définit des classes comme `Index`, `Field` et `Documen
 
 La version actuelle du Kit de développement logiciel (SDK) .NET Azure Search est désormais mise à la disposition générale. Si vous souhaitez fournir des commentaires que nous pourrons intégrer dans la prochaine version, consultez notre [page de commentaires](https://feedback.azure.com/forums/263029-azure-search/).
 
-Le Kit de développement logiciel (SDK) .NET prend en charge la version `2016-09-01` de [l’API REST de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cette version inclut désormais la prise en charge des analyseurs personnalisés et de l’indexeur de table Azure et des objets Blob Azure. Les fonctionnalités d’évaluation qui ne font *pas* partie de cette version, par exemple la prise en charge de l’indexation des fichiers CSV et JSON, sont disponibles en [version d’évaluation](search-api-2015-02-28-preview.md) et accessibles par l’intermédiaire de la version [2.0-preview du Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk-preview), plus ancienne.
+Le Kit de développement logiciel (SDK) .NET prend en charge la version `2016-09-01` de [l’API REST de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cette version inclut désormais la prise en charge des analyseurs personnalisés et de l’indexeur de table Azure et des objets Blob Azure. Les fonctionnalités d’évaluation qui ne font *pas* partie de cette version, par exemple la prise en charge de l’indexation des fichiers CSV et JSON, sont disponibles en [préversion](search-api-2016-09-01-preview.md) et accessibles par l’intermédiaire de la [version 4.0.1-preview du Kit SDK .NET](https://aka.ms/search-sdk-preview).
 
 Ce Kit de développement logiciel (SDK) ne prend pas en charge les [opérations de gestion](https://docs.microsoft.com/rest/api/searchmanagement/) telles que la création et la mise à l’échelle des services de recherche, ainsi que la gestion des clés API. Si vous avez besoin de gérer vos ressources de recherche à partir d’une application .NET, vous pouvez utiliser le [Kit de développement logiciel (SDK) .NET de la Recherche Azure](https://aka.ms/search-mgmt-sdk).
 

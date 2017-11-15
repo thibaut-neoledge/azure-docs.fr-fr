@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Types d’adresses IP et méthodes d’allocation (classiques) dans Azure
 Vous pouvez affecter des adresses IP à des ressources Azure pour communiquer avec d’autres ressources Azure, votre réseau local et Internet. Les adresses IP que vous pouvez utiliser dans Azure sont de deux types : publiques et privées.
@@ -141,9 +141,8 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 
 | Ressource | Dynamique | statique | Plusieurs adresses IP |
 | --- | --- | --- | --- |
-| Machine virtuelle (dans un service cloud *autonome* ) |Oui |Oui |Oui |
-| Instance de rôle PaaS (dans un service cloud *autonome* ) |Oui |Non |Oui |
-| Instance de rôle PaaS ou VM (dans un VNet) |Oui |Oui |Oui |
+| Machine virtuelle (dans un service cloud ou un réseau virtuel *autonome*) |Oui |Oui |Oui |
+| Instance de rôle PaaS (dans un service cloud ou un réseau virtuel *autonome*) |Oui |Non |Non |
 | Équilibreur de charge interne frontal |Oui |Oui |Oui |
 | Passerelle d’application frontale |Oui |Oui |Oui |
 

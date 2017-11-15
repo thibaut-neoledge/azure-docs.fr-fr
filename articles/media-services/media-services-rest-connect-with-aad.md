@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: willzhan;juliako
-ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: willzhan;juliako;johndeu
+ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST
 
@@ -86,21 +86,14 @@ Voici les mappages entre les attributs JWT et les quatre applications ou service
 |Type d’application |Application |Attribut JWT |
 |---|---|---|
 |Client |Application ou solution cliente |appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6". ID client d’une application que vous allez inscrire dans Azure AD, dans la section suivante. |
-|Fournisseur d’identité (IDP) | Azure AD en tant que fournisseur d’identité |idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/".  Le GUID désigne l’ID du locataire Microsoft (microsoft.onmicrosoft.com). Chaque locataire a son propre ID unique. |
+|Fournisseur d’identité (IDP) | Azure AD en tant que fournisseur d’identité |Fournisseur d’identité (IDP) : https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/. Le GUID désigne l’ID du locataire Microsoft (microsoft.onmicrosoft.com). Chaque locataire a son propre ID unique. |
 |Secure Token Service (STS)/serveur OAuth |Azure AD en tant que STS | iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/". Le GUID désigne l’ID du locataire Microsoft (microsoft.onmicrosoft.com). |
 |Ressource | API REST Media Services |aud: "https://rest.media.azure.net". Destinataire ou audience du jeton d’accès. |
 
 ## <a name="steps-for-setup"></a>Étapes de configuration
 
-Pour inscrire et configurer une application Azure AD concernant l’authentification Azure AD, et pour obtenir un jeton d’accès afin d’appeler le point de terminaison de l’API REST Azure Media Services, procédez comme suit :
+Pour vous inscrire et configurer une application Azure Active Directory (AAD), ainsi que pour obtenir les clés permettant d’appeler le point de terminaison d’API REST Azure Media Services, consultez l’article [Bien démarrer avec l’authentification Azure AD à l’aide du portail Azure](media-services-portal-get-started-with-aad.md)
 
-1.  Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), inscrivez une application Azure AD (par exemple, wzmediaservice) sur le locataire Azure AD (par exemple, microsoft.onmicrosoft.com). Peu importe si l’inscription est faite en tant qu’application web ou application native. En outre, vous pouvez choisir n’importe quelle URL de connexion et URL de réponse (par exemple, http://wzmediaservice.com pour les deux).
-2. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), cliquez sur l’onglet **Configurer** de votre application. Notez l’**ID client**. Ensuite, sous **Clés**, générez une **clé client** (clé secrète client). 
-
-    > [!NOTE] 
-    > Prenez note de la clé secrète client. Elle ne s’affichera plus.
-    
-3.  Dans le [portail Azure](http://ms.portal.azure.com), accédez à votre compte Media Services. Sélectionnez le volet **Contrôle d’accès (IAM)**. Ajoutez un membre qui a le rôle Propriétaire ou Collaborateur. Pour le principal, recherchez le nom de l’application que vous avez inscrite à l’étape 1 (dans cet exemple, wzmediaservice).
 
 ## <a name="info-to-collect"></a>Informations à collecter
 
@@ -138,9 +131,9 @@ L’exemple de projet a trois fonctionnalités :
 
 Certains peuvent se demander où se trouve le jeton d’actualisation. Pourquoi ne pas utiliser un jeton d’actualisation ici ?
 
-L’objectif d’un jeton d’actualisation n’est pas d’actualiser un jeton d’accès. En fait, il est conçu pour ignorer l’authentification utilisateur ou l’intervention utilisateur et pour toujours obtenir un jeton d’accès valide lorsqu’un jeton de version antérieure expire. Il serait peut-être plus clair de parler de « jeton de contournement de la reconnexion utilisateur ».
+L’objectif d’un jeton d’actualisation n’est pas d’actualiser un jeton d’accès. Il est conçu pour ignorer l’authentification utilisateur et pour représenter continuellement un jeton d’accès valide en cas d’expiration d’un jeton précédent. Il serait peut-être plus clair de parler de « jeton de contournement de la reconnexion utilisateur ».
 
-Si vous utilisez le flux d’octroi d’autorisation OAuth 2.0 (nom d’utilisateur et mot de passe, au nom d’un utilisateur), un jeton d’actualisation vous permet de renouveler un jeton d’accès sans demander l’intervention de l’utilisateur. Toutefois, pour le flux d’octroi d’informations d’identification client OAuth 2.0 que nous décrivons dans cet article, le client agit pour son propre compte. Vous n’avez besoin d’aucune intervention utilisateur, et le serveur d’autorisation n’a pas besoin de vous fournir un jeton d’actualisation (et ne le fera pas). Si vous déboguez la méthode **GetUrlEncodedJWT**, vous remarquerez que la réponse du point de terminaison de jeton présente un jeton d’accès, mais aucun jeton d’actualisation.
+Si vous utilisez le flux d’octroi d’autorisation OAuth 2.0 (nom d’utilisateur et mot de passe, au nom d’un utilisateur), un jeton d’actualisation vous permet de renouveler un jeton d’accès sans demander l’intervention de l’utilisateur. Toutefois, pour le flux d’octroi d’informations d’identification client OAuth 2.0 décrit dans cet article, le client agit pour son propre compte. Vous n’avez besoin d’aucune intervention de la part de l’utilisateur, et le serveur d’autorisation n’a pas besoin de vous fournir un jeton d’actualisation. Si vous déboguez la méthode **GetUrlEncodedJWT**, vous remarquerez que la réponse du point de terminaison de jeton présente un jeton d’accès, mais aucun jeton d’actualisation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,24 +1,24 @@
 ---
-title: "Files d’attente Azure et files d’attente Service Bus : comparaison et différences | Microsoft Docs"
+title: "Comparaison des files d’attente Azure et des files d’attente Service Bus | Microsoft Docs"
 description: "Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: 555759073507219188b59af76a82be74b112c57c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les ressemblances entre les deux types de file d’attente proposés aujourd’hui par Microsoft Azure : les files d’attente Azure et les files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
@@ -33,7 +33,7 @@ Les **files d’attente Service Bus** font partie d’une infrastructure de [mes
 Bien que les deux technologies de file d’attente coexistent, les files d’attente Azure sont apparues en premier, en tant que mécanisme de stockage en file d’attente dédié, basé sur les services de stockage Azure. Les files d’attente Service Bus font partie d’une infrastructure de « messagerie » plus large conçue pour intégrer des applications ou des composants d’applications qui peuvent s’étendre sur plusieurs protocoles de communication, contrats de données, domaines de confiance et/ou environnements réseau.
 
 ## <a name="technology-selection-considerations"></a>Considérations relatives à la sélection de la technologie
-Les files d’attente Azure et Service Bus sont des implémentations du service de mise en file d’attente des messages, actuellement proposé sur Microsoft Azure. Chaque technologie possède un ensemble de fonctionnalités légèrement différent, ce qui signifie que vous pouvez choisir l'une ou l'autre, ou utiliser les deux, selon les besoins de votre solution spécifique ou du problème d'entreprise/technique à résoudre.
+Les files d’attente Azure et Service Bus sont des implémentations du service de mise en file d’attente des messages, actuellement proposé par Microsoft Azure. Chaque technologie possède un ensemble de fonctionnalités légèrement différent, ce qui signifie que vous pouvez choisir l'une ou l'autre, ou utiliser les deux, selon les besoins de votre solution spécifique ou du problème d'entreprise/technique à résoudre.
 
 Pour déterminer quelle technologie de file d'attente est adaptée à une solution donnée, les développeurs et les architectes de solutions doivent prendre en compte les recommandations ci-dessous. Pour plus d'informations, consultez la section suivante.
 
@@ -49,7 +49,7 @@ En tant que développeur/architecte de solutions, **vous devez envisager d’uti
 * Votre solution nécessite la file d'attente pour fournir une livraison organisée selon la méthode Premier entré, premier sortie.
 * Vous souhaitez créer une expérience symétrique dans Azure et Windows Server (cloud privé). Pour plus d’informations, consultez [Service Bus pour Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
 * Votre solution doit pouvoir prendre en charge la détection automatique des doublons.
-* Vous voulez que votre application traite les messages sous forme de flux de longue durée parallèles (les messages sont associés à un flux à l’aide de la propriété [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) du message). Dans ce modèle, chaque nœud de l'application consommatrice entre en concurrence pour les flux, contrairement aux messages. Lorsqu'un flux est donné à un nœud consommateur, le nœud peut examiner l'état du flux de l'application à l'aide de transactions.
+* Vous voulez que votre application traite les messages sous forme de flux de longue durée parallèles (les messages sont associés à un flux à l’aide de la propriété [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) du message). Dans ce modèle, chaque nœud de l'application consommatrice entre en concurrence pour les flux, contrairement aux messages. Lorsqu'un flux est donné à un nœud consommateur, le nœud peut examiner l'état du flux de l'application à l'aide de transactions.
 * Votre solution nécessite un comportement transactionnel et l'atomicité lors de l'envoi ou de la réception de plusieurs messages à partir d'une file d'attente.
 * La caractéristique de durée de vie (TTL) de la charge de travail spécifique à l'application peut dépasser la période de 7 jours.
 * Votre application gère des messages qui peuvent dépasser 64 Ko, mais qui n'atteindront sans doute pas la limite de 256 Ko.
@@ -61,7 +61,7 @@ En tant que développeur/architecte de solutions, **vous devez envisager d’uti
 * Vous souhaitez être en mesure de publier et d'utiliser des lots de messages.
 
 ## <a name="comparing-storage-queues-and-service-bus-queues"></a>Comparaison des files d’attente Azure et des files d’attente Service Bus
-Dans les sections suivantes, les tableaux regroupent logiquement les fonctionnalités de file d’attente et vous permettent de comparer, en un clin d’œil, les fonctionnalités disponibles dans les files d’attente Azure et les files d’attente Service Bus.
+Dans les sections suivantes, les tableaux regroupent logiquement les fonctionnalités de file d’attente et vous permettent de comparer, en un clin d’œil, les fonctionnalités disponibles dans les files d’attente du stockage Azure et les files d’attente Service Bus.
 
 ## <a name="foundational-capabilities"></a>Fonctions de base
 Cette section compare certaines des fonctionnalités de base fournies par les files d’attente Azure et les files d’attente Service Bus.
@@ -121,7 +121,7 @@ Cette section compare les fonctionnalités avancées des files d’attente Azure
 * Le transfert automatique de file d'attente permet à des milliers de files d'attente de transférer automatiquement leurs messages à une seule file d'attente, à partir de laquelle l'application réceptrice consomme le message. Vous pouvez utiliser ce mécanisme pour garantir la sécurité, contrôler le flux et isoler le stockage entre chaque serveur de publication de message.
 * Les files d’attente de stockage prennent en charge la mise à jour du contenu des messages. Vous pouvez utiliser cette fonctionnalité pour les informations d'état persistantes et les mises à jour incrémentielles de progression dans le message, afin que celui-ci puisse être traité à partir du dernier point de contrôle connu, au lieu de recommencer depuis le début. Avec les files d'attente Service Bus, vous pouvez activer le même scénario à l'aide des sessions de messagerie. Les sessions vous permettent d’enregistrer et de récupérer l’état de traitement de l’application (à l’aide de [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) et [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
 * Le concept de [Lettre morte](service-bus-dead-letter-queues.md), qui est uniquement pris en charge par les files d’attente Service Bus, peut être utile pour isoler les messages qui ne peuvent pas être traités correctement par l’application réceptrice ou lorsque les messages n’atteignent pas leur destination en raison d’une propriété de durée de vie (TTL) expirée. La valeur de durée de vie spécifie la durée pendant laquelle un message reste dans la file d'attente. Avec Service Bus, le message est déplacé vers une file d'attente spéciale appelée $DeadLetterQueue lorsque la durée de vie expire.
-* Pour trouver les messages « incohérents » dans les files d’attente Azure, lors du retrait d’un message de la file d’attente, l’application examine la propriété **[DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx)** du message. Si la propriété **DequeueCount** dépasse un seuil donné, l’application déplace le message vers une file d’attente de type « lettre morte » définie par l’application.
+* Pour trouver les messages « incohérents » dans les files d’attente Azure, lors du retrait d’un message de la file d’attente, l’application examine la propriété [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) du message. Si la propriété **DequeueCount** dépasse un seuil donné, l’application déplace le message vers une file d’attente de type « lettre morte » définie par l’application.
 * Les files d’attente de stockage vous permettent d’obtenir un journal détaillé de toutes les transactions exécutées sur la file d’attente, ainsi que des mesures agrégées. Ces deux options sont utiles pour déboguer et comprendre comment votre application utilise les files d’attente de stockage. Elles sont également utiles pour régler les performances de votre application et réduire les coûts d'utilisation des files d'attente.
 * Le concept de « sessions de messagerie » pris en charge par Service Bus permet aux messages appartenant à un certain groupe logique d’être associés à un destinataire spécifique, ce qui ensuite crée une affinité de type session entre les messages et leurs récepteurs respectifs. Vous pouvez activer cette fonctionnalité avancée dans Service Bus en définissant la propriété [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) d’un message. Les récepteurs peuvent ensuite écouter par le biais d'un ID de session spécifique et recevoir les messages qui partagent l'identificateur de session spécifié.
 * La fonctionnalité de détection des doublons prise en charge par les files d’attente Service Bus supprime automatiquement les messages en double envoyés à une file d’attente ou une rubrique, selon la valeur de la propriété [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId).
@@ -133,7 +133,7 @@ Cette section compare les files d’attente de stockage et les files d’attente
 | --- | --- | --- |
 | Taille de file d'attente maximale |**500 To**<br/><br/>(limitée à une [capacité de compte de stockage unique](../storage/common/storage-introduction.md#queue-storage)) |**1 Go à 80 Go**<br/><br/>(définie lors de la création d’une file d’attente et d’une [activation du partitionnement](service-bus-partitioning.md) – consultez la section « Informations supplémentaires ») |
 | Taille de message maximale |**64 Ko**<br/><br/>(48 Ko avec un codage en **Base64**)<br/><br/>Azure prend en charge les messages volumineux en combinant des files d’attente et des objets BLOB. Dans ce cas, vous pouvez placer jusqu’à 200 Go en file d’attente pour un seul élément. |**256 Ko** ou **1 Mo**<br/><br/>(y compris l’en-tête et le corps, taille maximale d’en-tête : 64 Ko).<br/><br/>Dépend du [niveau de service](service-bus-premium-messaging.md). |
-| Durée de vie maximale des messages |**7 jours** |**`TimeSpan.Max`** |
+| Durée de vie maximale des messages |**7 jours** |**TimeSpan.Max** |
 | Nombre maximal de files d'attente |**Illimité** |**10,000**<br/><br/>(par espace de noms de service, peut être augmenté) |
 | Nombre maximal de clients simultanés |**Illimité** |**Illimité**<br/><br/>(la limite de 100 connexions simultanées s’applique uniquement à la communication basée sur le protocole TCP) |
 

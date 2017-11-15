@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/15/2017
-ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de Python pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure pour PostgreSQL. Il explique aussi comment utiliser des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS, Ubuntu Linux et Windows. Cet article suppose que vous connaissez les bases du développement via Python, et que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.
@@ -50,14 +50,14 @@ Installez le package [psycopg2](http://initd.org/psycopg/docs/install.html), qui
 Obtenez les informations de connexion requises pour vous connecter à la base de données Azure pour PostgreSQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez **mypgserver-20170401** (le serveur que vous venez de créer).
+2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez **mypgserver-20170401** (le serveur que vous avez créé).
 3. Cliquez sur le nom du serveur **mypgserver-20170401**.
 4. Sélectionnez la page **Vue d’ensemble** du serveur, puis notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**.
  ![Base de données Azure pour PostgreSQL - Connexion d’administrateur du serveur](./media/connect-python/1-connection-string.png)
 5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
 
 ## <a name="how-to-run-python-code"></a>Comment exécuter du code Python
-Cette rubrique contient un total de quatre exemples de code, qui effectuent chacun une fonction spécifique. Les instructions suivantes expliquent comment créer un fichier texte, insérer un bloc de code, et enregistrer ce fichier pour pouvoir l’exécuter ultérieurement. Veillez à créer quatre fichiers différents, un pour chaque bloc de code.
+Cet article contient un total de quatre exemples de code qui assurent chacun une fonction spécifique. Les instructions suivantes expliquent comment créer un fichier texte, insérer un bloc de code, et enregistrer ce fichier pour pouvoir l’exécuter ultérieurement. Veillez à créer quatre fichiers différents, un pour chaque bloc de code.
 
 - Dans l’éditeur de texte que vous préférez, créez un nouveau fichier.
 - Dans le fichier texte, copiez et collez un des exemples de code présents dans les sections suivantes. Remplacez les paramètres **host**, **dbname**, **user** et **password** par les valeurs spécifiées lors de la création du serveur et de la base de données.
@@ -66,7 +66,7 @@ Cette rubrique contient un total de quatre exemples de code, qui effectuent chac
 -  Pour exécuter le code, tapez la commande Python suivie du nom de fichier, par exemple `Python postgres.py`.
 
 > [!NOTE]
-> À partir de Python version 3, il est possible que vous rencontriez l’erreur `SyntaxError: Missing parentheses in call to 'print'` lors de l’exécution des blocs de code suivants. Dans ce cas, remplacez chaque appel à la commande `print "string"` par un appel de fonction avec parenthèses, par exemple `print("string")`.
+> À partir de Python version 3, vous pouvez rencontrer l’erreur `SyntaxError: Missing parentheses in call to 'print'` lorsque vous exécutez les blocs de code suivants ; dans ce cas, remplacez chaque appel à la commande `print "string"` par un appel de fonction en utilisant des parenthèses, comme `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Se connecter, créer des tables et insérer des données
 Utilisez le code suivant pour vous connecter et charger les données à l’aide de la fonction [psycopg2.connect](http://initd.org/psycopg/docs/connection.html), avec l’instruction SQL **INSERT**. La fonction [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) est utilisée pour exécuter la requête SQL sur la base de données PostgreSQL. Remplacez les paramètres host, dbname, user et password par les valeurs spécifiées lors de la création du serveur et de la base de données.
@@ -110,7 +110,7 @@ conn.close()
 
 Une fois que le code s’exécute avec succès, la sortie s’affiche comme suit :
 
-![Sortie de ligne de commande](media/connect-python/2-example-python-output.png)
+![Sortie de la ligne de commande](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Lire les données
 Utilisez le code suivant pour lire les données insérées à l’aide de la fonction [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute), avec l’instruction SQL **SELECT**. Cette fonction accepte une requête et renvoie un jeu de résultats qui peut être itéré à l’aide de [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Remplacez les paramètres host, dbname, user et password par les valeurs spécifiées lors de la création du serveur et de la base de données.

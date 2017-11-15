@@ -14,25 +14,93 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: c1a3370d29b47da752e4ab1ea67ccc1a4cdd94df
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notes de publication pour Microsoft Azure Storage Explorer (préversion)
 
-Cet article contient les notes de publication pour l’explorateur Stockage Azure 0.9.0 (préversion), ainsi que les notes de publication des versions précédentes.
+Cet article contient les notes de version pour l’Explorateur Stockage Azure 0.9.2 (préversion), ainsi que celles des versions précédentes.
 
 [L’explorateur de stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) (version préliminaire) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux.
 
+## <a name="version-092"></a>Version 0.9.2
+11/01/2017
+
+### <a name="download-azure-storage-explorer-092-preview"></a>Télécharger l’Explorateur Stockage Azure 0.9.2 (préversion)
+- [Explorateur Stockage Azure 0.9.2 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 0.9.2 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 0.9.2 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Correctifs logiciels
+* Des modifications inattendues de données pouvaient se produire quand des valeurs Edm.DateTime étaient modifiées pour des entités de table en fonction du fuseau horaire local. L’éditeur utilise maintenant une zone de texte brut, qui permet un contrôle précis et continu des valeurs Edm.DateTime.
+* Le chargement ou téléchargement d’un groupe d’objets blob ne démarrait pas quand il était joint avec un nom et une clé. Ce problème a été résolu.
+* Auparavant, l’Explorateur Stockage vous invitait à réauthentifier un compte obsolète uniquement si un ou plusieurs abonnements du compte étaient sélectionnés. L’Explorateur Stockage affiche maintenant une invite même si le compte est entièrement filtré.
+* Le domaine de points de terminaison pour Azure US Government était incorrect. Il a été corrigé.
+* Cliquer sur le bouton Appliquer dans le panneau Gérer les comptes était parfois difficile. Cela a été corrigé.
+
+### <a name="new"></a>Nouveau
+* Prise en charge de la préversion pour Azure Cosmos DB :
+    * [Documentation en ligne](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * Créer des bases de données et des collections
+    * Manipuler des données
+    * Interroger, créer ou supprimer des documents
+    * Mettre à jour les procédures stockées, les fonctions définies par l’utilisateur ou les déclencheurs
+    * Utiliser des chaînes de connexion pour se connecter à vos bases de données et les gérer
+* Amélioration des performances de chargement/téléchargement d’un grand nombre d’objets blob de petite taille.
+* Ajout d’une action « Retry All » (Tout réessayer) s’il existe des erreurs dans un groupe de chargement ou de téléchargement d’objets blob.
+* L’explorateur de stockage interrompt désormais l’itération lors du chargement/téléchargement d’objets blob s’il détecte une perte de votre connexion réseau. Vous pouvez ensuite reprendre l’itération, une fois que la connexion réseau a été rétablie.
+* Ajout des options « Close All » (Tout fermer), « Fermer les autres » et « Fermer » pour les onglets via le menu contextuel.
+* L’explorateur de stockage utilise désormais des boîtes de dialogue et des menus contextuels natifs.
+* L’explorateur de stockage est désormais plus accessible. Les améliorations incluent :
+    * la prise en charge améliorée des lecteurs d’écran : NVDA sur Windows et VoiceOver sur Mac ;
+    * l’amélioration des thèmes à contraste élevé ;
+    * les correctifs apportés à la tabulation et au focus de clavier.
+
+### <a name="fixes"></a>Correctifs
+* Si vous tentiez d’ouvrir ou de télécharger un objet blob avec un nom de fichier Windows non valide, l’opération entraînait un échec. L’explorateur de stockage sera désormais capable de détecter si un nom d’objet blob n’est pas valide et vous demandera si vous souhaitez encoder ou ignorer cet objet blob. L’explorateur de stockage pourra également détecter si un nom de fichier semble être encodé et vous demandera si souhaitez le décoder avant de le charger.
+* Lors du chargement de l’objet blob, l’éditeur du conteneur d’objets blob cible ne s’actualisait parfois pas correctement. Ce problème a été résolu.
+* La prise en charge de plusieurs formats de chaînes de connexion et d’URI SAP a été améliorée. Nous avons résolu tous les problèmes connus, mais n’hésitez pas à nous envoyer vos commentaires si vous en rencontrez d’autres.
+* La notification de mises à jour ne fonctionnait pas pour certains utilisateurs dans la version 0.9.0. Ce problème a été résolu. Ceux qui ont été affectés par ce bogue peuvent télécharger manuellement la dernière version de l’Explorateur Stockage [ici](https://azure.microsoft.com/en-us/features/storage-explorer/).
+
+### <a name="known-issues"></a>Problèmes connus
+* L’explorateur de stockage ne prend pas en charge les comptes ADFS.
+* Les touches de raccourci pour les options « View Explorer » (Afficher l’explorateur) et « View Account Management » (Afficher la gestion des comptes) sont Ctrl/Cmd + Maj + E ou Ctrl/Cmd + Maj + A, respectivement.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». Cela est dû au fait que nous utilisions la solution de contournement du filtre Annuler décrite ici.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Le panneau des paramètres de compte peut indiquer qu’il vous faut entrer à nouveau vos informations d’identification pour filtrer les abonnements.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+```
+./StorageExplorer.exe --disable-gpu
+```
+* Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre ordinateur :
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Pour les utilisateurs sur Ubuntu 17.04, l’installation de GConf est nécessaire. Elle peut être effectuée en exécutant les commandes suivantes, puis en redémarrant votre ordinateur :
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
+
 ## <a name="version-091--090-preview"></a>Version 0.9.1/0.9.0 (préversion)
 20/10/2017
-
 ### <a name="download-azure-storage-explorer-091-preview"></a>Télécharger Explorateur Stockage Azure 0.9.1 (préversion)
-- [Explorateur Stockage Azure 0.9.1 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorateur Stockage Azure 0.9.1 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorateur Stockage Azure 0.9.1 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Télécharger Explorateur Stockage Azure 0.9.1 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Télécharger Explorateur Stockage Azure 0.9.1 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Télécharger Explorateur Stockage Azure 0.9.1 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Nouveau
 * Prise en charge de la préversion pour Azure Cosmos DB :
@@ -86,13 +154,30 @@ Cet article contient les notes de publication pour l’explorateur Stockage Azur
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0816-preview"></a>Version 0.8.16 (préversion)
-8/21/2017
 
-### <a name="download-azure-storage-explorer-0816-preview"></a>Télécharger l’explorateur de stockage Azure 0.8.16 (préversion)
-* [Télécharger Explorateur Stockage Azure 0.8.16 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Télécharger Explorateur Stockage Azure 0.8.16 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Télécharger Explorateur Stockage Azure 0.8.16 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+## <a name="previous-releases"></a>Versions précédentes
+
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Version 0.8.9 / 0.8.8](#version-089--088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-0816"></a>Version 0.8.16
+8/21/2017
 
 ### <a name="new"></a>Nouveau
 * Lorsque vous ouvrez un objet blob, l’explorateur de stockage vous invite à charger le fichier téléchargé si une modification est détectée
@@ -130,26 +215,6 @@ Cet article contient les notes de publication pour l’explorateur Stockage Azur
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versions précédentes
-
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Version 0.8.9 / 0.8.8](#version-089--088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
-
 
 ### <a name="version-0814"></a>Version 0.8.14
 06/22/2017

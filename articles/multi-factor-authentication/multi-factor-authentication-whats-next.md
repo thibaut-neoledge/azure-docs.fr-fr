@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configurer les paramètres d’Azure Multi-Factor Authentication - Préversion publique
 
@@ -29,6 +29,7 @@ Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant qu
 
 | Fonctionnalité | Description | 
 |:--- |:--- |
+| [Blocage/déblocage des utilisateurs](#block/unblock-users) |Bloquer/débloquer des utilisateurs peut empêcher les utilisateurs de recevoir des demandes d’authentification. |
 | [Alerte de fraude](#fraud-alert) |Une alerte de fraude peut être configurée et installée de manière à ce que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources. |
 | [Contournement à usage unique](#one-time-bypass) |Un contournement à usage unique permet à un utilisateur de s'authentifier une seule fois en « contournant » l'authentification multifacteur. |
 | [Messages vocaux personnalisés](#custom-voice-messages) |Les messages vocaux personnalisés vous permettent d'utiliser vos propres enregistrements ou messages d’accueil avec l'authentification multifacteur. |
@@ -37,6 +38,23 @@ Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant qu
 | [Mots de passe d'application](#app-passwords) |Un mot de passe d’application permet à une application qui ne prend pas en charge MFA de contourner l’authentification multifacteur et de continuer à fonctionner. |
 | [Mémoriser Multi-Factor Authentication pour les appareils et les navigateurs mémorisés](#remember-multi-factor-authentication-for-devices-that-users-trust) |Vous permet de mémoriser des appareils pour un nombre défini de jours après qu’un utilisateur soit parvenu à se connecter à l’aide de MFA. |
 | [Méthodes de vérification sélectionnables](#selectable-verification-methods) |Vous permet de choisir les méthodes d'authentification disponibles pour les utilisateurs. |
+
+## <a name="blockunblock-users"></a>Blocage/déblocage des utilisateurs
+En bloquant/débloquant des utilisateurs, vous pouvez les empêcher de recevoir des demandes d’authentification. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués.
+
+### <a name="block-a-user"></a>Bloquer un utilisateur
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
+2. Accédez à **Azure Active Directory** > **Serveur MFA** > **Bloquer/débloquer des utilisateurs**.
+3. Cliquez sur **Ajouter** pour bloquer un utilisateur.
+4. Sélectionnez le **Groupe de réplication**, indiquez le nom d’utilisateur bloqué en tant que **username@domain.com** et entrez un commentaire dans le champ **Motif**.
+5. Cliquez sur **Ajouter** pour achever de bloquer l’utilisateur.
+
+### <a name="unblock-a-user"></a>Débloquer un utilisateur
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
+2. Accédez à **Azure Active Directory** > **Serveur MFA** > **Bloquer/débloquer des utilisateurs**.
+3. Cliquez sur **Débloquer** dans la colonne **Action** en regard de l’utilisateur que vous voulez débloquer.
+4. Entrez un commentaire dans le champ **Motif du déblocage**.
+5. Cliquez sur **Débloquer** pour achever de débloquer l’utilisateur.
 
 ## <a name="fraud-alert"></a>Alerte de fraude
 Une alerte de fraude peut être configurée et installée de manière à ce que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources.  Les utilisateurs peuvent signaler une fraude à l’aide de l'application mobile ou de leur téléphone.

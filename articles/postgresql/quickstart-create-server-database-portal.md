@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
-ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Créer un serveur Azure Database pour PostgreSQL dans le portail Azure
 
@@ -124,7 +124,7 @@ Vous pouvez utiliser différentes applications pour vous connecter à votre serv
 
     Paramètre psql |Valeur suggérée|Description
     ---|---|---
-    --host | Nom du serveur | La valeur de nom de serveur utilisée lorsque vous avez créé le serveur Azure Database pour PostgreSQL. L’exemple de serveur dont nous nous servons ici est **mypgserver-20170401.postgres.database.azure.com.** Utilisez le nom de domaine complet (**\*.postgres.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion. 
+    --host | Nom du serveur | La valeur de nom de serveur utilisée lorsque vous avez créé le serveur Azure Database pour PostgreSQL. L’exemple de serveur dont vous vous servez ici est **mypgserver-20170401.postgres.database.azure.com.** Utilisez le nom de domaine complet (**\*.postgres.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion. 
     --port | 5432 | Le port à utiliser lorsque vous vous connectez au serveur Azure Database pour PostgreSQL. 
     --username | Nom de connexion de l’administrateur du serveur |Le nom d’utilisateur servant à la connexion de l’administrateur du serveur que vous avez fourni lorsque vous avez créé le serveur Azure Database pour PostgreSQL. Si vous ne vous souvenez pas de votre nom d’utilisateur, suivez les instructions de la section précédente pour obtenir les informations de connexion. Le format correct est *username@servername*.
     --dbname | *postgres* | Utilisez le nom de base de données généré par défaut par le système et qui a été créé pour la première connexion. Par la suite, vous créerez votre propre base de données.
@@ -151,7 +151,7 @@ Vous pouvez utiliser différentes applications pour vous connecter à votre serv
     > [!TIP]
     > Si le pare-feu n’est pas configuré pour autoriser l’adresse IP de Cloud Shell, l’erreur suivante se produit :
     > 
-    > "psql: FATAL: no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required.Specify SSL options and retry.
+    > "psql: FATAL:  aucune entrée pg_hba.conf pour l’hôte "138.91.195.82", utilisateur "mylogin", base de données "postgres", SSL sur FATAL :  Connexion SSL nécessaire. Spécifiez les options SSL puis réessayez.
     > 
     > Pour résoudre l’erreur, veillez à ce que la configuration du serveur corresponde à celle détaillée dans la section « Configurer une règle de pare-feu au niveau du serveur » de cet article.
 
@@ -199,7 +199,7 @@ Pour se connecter au serveur Azure PostgreSQL à l’aide de l’outil d’inter
 
 6. Dans la partie gauche du volet **Navigateur**, développez le nœud **Serveurs**. Sélectionnez votre serveur, par exemple **Serveur Azure PostgreSQL**. Cliquez pour vous connecter à celui-ci.
 
-7. Développez le nœud serveur, puis **Bases de données** situé en-dessous. La liste doit inclure votre base de données *postgres* existante, ainsi que toute base de données utilisateur récemment créée, telle que la base **mypgsqldb** que nous avons créée dans la section précédente. Notez que vous pouvez créer plusieurs bases de données par serveur avec Azure Database pour PostgreSQL.
+7. Développez le nœud serveur, puis **Bases de données** situé en-dessous. La liste doit inclure votre base de données *postgres* existante, ainsi que toute base de données utilisateur récemment créée, telle que la base **mypgsqldb** qui a été créée à la section précédente. Notez que vous pouvez créer plusieurs bases de données par serveur avec Azure Database pour PostgreSQL.
 
 8. Faites un clic droit sur **Bases de données**, choisissez le menu **Créer**, puis sélectionnez **Base de données**.
 
@@ -221,9 +221,9 @@ Vous disposez au choix de deux moyens de supprimer les ressources que vous avez 
 > Les autres guides de démarrage rapide de cette collection reposent sur ce guide. Si vous souhaitez continuer à utiliser d’autres guides de démarrage rapide, ne supprimez pas les ressources créées au cours de ce guide. Sinon, suivez ces étapes pour les supprimer dans le portail.
 
 Pour supprimer l’intégralité du groupe de ressources, y compris le serveur nouvellement créé :
-1. Localisez votre groupe de ressources dans le portail. Dans le menu de gauche, sélectionnez **Groupes de ressources**. Sélectionnez ensuite le nom de votre groupe de ressources, **myresourcegroup** dans notre exemple.
+1. Localisez votre groupe de ressources dans le portail. Dans le menu de gauche, sélectionnez **Groupes de ressources**. Sélectionnez ensuite le nom de votre groupe de ressources, **myresourcegroup** dans l’exemple.
 
-2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer**. Tapez le nom de votre groupe de ressources, **myresourcegroup** dans notre exemple, dans la zone de texte pour confirmer la suppression. Sélectionnez **Supprimer**.
+2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer**. Pour confirmer la suppression, dans la zone de texte, tapez le nom de votre groupe de ressources, **myresourcegroup** dans l’exemple. Sélectionnez **Supprimer**.
 
 Pour ne supprimer que le serveur nouvellement créé :
 1. Localisez votre serveur dans le portail, s’il n’est pas ouvert. Dans le menu de gauche, sélectionnez **Toutes les ressources**. Recherchez ensuite le serveur que vous avez créé.
@@ -232,7 +232,7 @@ Pour ne supprimer que le serveur nouvellement créé :
 
     ![Le bouton Supprimer](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Tapez votre nom de serveur dans la zone de texte, **mypgserver-20170401** dans notre exemple. Sélectionnez **Supprimer**.
+3. Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Tapez votre nom de serveur dans la zone de texte, **mypgserver-20170401** dans l’exemple. Sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

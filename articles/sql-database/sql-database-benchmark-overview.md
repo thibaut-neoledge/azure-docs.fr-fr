@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: 43ab7ed75313863d2912063169ccc089af6052c2
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: fb8a5f205ddc143dc47349829048f46f88963d05
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Vue d’ensemble du test d’évaluation de la base de données SQL Azure
 ## <a name="overview"></a>Vue d'ensemble
@@ -106,7 +106,7 @@ Le tableau ci-dessous indique le nombre d’utilisateurs effectivement pris en c
 | Standard (S2) |50 |7,1 Go |
 | Premium (P1) |100 |14 Go |
 | Premium (P2) |200 |28 Go |
-| Premium (P6/P3) |800 |114 Go |
+| Premium (P6) |800 |114 Go |
 
 ## <a name="measurement-duration"></a>Durée de la mesure
 Pour être reconnu valide, un test d’évaluation doit s’effectuer sur une durée de mesure constante d’au moins une heure.
