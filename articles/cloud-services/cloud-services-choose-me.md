@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Dois-je choisir Cloud Services ou un autre service ?
 Azure Cloud Services est-il fait pour vous ? Azure propose différents modèles d’hébergement d’applications. Chaque modèle fournit un ensemble différent de services, donc votre choix dépend exactement ce que vous essayez de faire.
@@ -43,14 +43,14 @@ Exécute votre application de façon autonome, sans utiliser IIS.
 
 Par exemple, une application simple peut utiliser un rôle web unique, servant un site web. À l’inverse, une application plus complexe peut utiliser un rôle web pour traiter les requêtes entrantes des utilisateurs, puis transmettre ces requêtes à un rôle de travail, à des fins de traitement. (Cette communication pourrait utiliser [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou les [files d’attente Azure](../storage/common/storage-introduction.md).)
 
-Ainsi que le suggère la figure ci-dessus, toutes les machines virtuelles d’une même application s’exécutent dans le même service cloud. Les utilisateurs accèdent à l’application par le biais d’une seule adresse IP publique, avec un équilibrage automatique de la charge des requêtes entre les machines virtuelles de cette application. La plateforme [met à l’échelle et déploie](cloud-services-how-to-scale.md) les machines virtuelles dans une application Cloud Services, afin d’éviter un point unique de défaillance matérielle.
+Ainsi que le suggère la figure ci-dessus, toutes les machines virtuelles d’une même application s’exécutent dans le même service cloud. Les utilisateurs accèdent à l’application par le biais d’une seule adresse IP publique, avec un équilibrage automatique de la charge des requêtes entre les machines virtuelles de cette application. La plateforme [met à l’échelle et déploie](cloud-services-how-to-scale-portal.md) les machines virtuelles dans une application Cloud Services, afin d’éviter un point unique de défaillance matérielle.
 
 Même si les applications s'exécutent sur des machines virtuelles, il est important de comprendre que Cloud Services fournit l'option PaaS, et non IaaS. Le processus peut être décrit de la manière suivante : avec la technologie IaaS (par exemple avec Azure Virtual Machines), vous commencez par créer et configurer l’environnement dans lequel s’exécutera votre application, puis vous déployez votre application dans cet environnement. Il vous appartient de gérer une grande partie de ce monde, par exemple, en déployant de nouvelles versions corrigées du système d'exploitation dans chaque machine virtuelle. Avec PaaS, en revanche, c'est comme si l'environnement existait déjà. Vous n'avez plus qu'à déployer votre application. La gestion de la plateforme sur laquelle elle s'exécute, y compris le déploiement de nouvelles versions du système d'exploitation, est assurée à votre place.
 
 ## <a name="scaling-and-management"></a>Mise à l'échelle et gestion
 Avec Cloud Services, vous ne créez pas de machines virtuelles. Au contraire, vous fournissez un fichier de configuration qui indique à Azure le nombre d'instances de chaque type voulu, par exemple, **trois instances de rôle Web** et **deux instances de rôle de travail**, et la plateforme se charge de les créer pour vous.  Vous continuez de choisir [la taille](cloud-services-sizes-specs.md) que doivent avoir ces machines virtuelles de stockage, mais vous ne les créez pas vous-même de manière explicite. Si votre application a besoin de traiter une charge plus importante, vous pouvez demander davantage de machines virtuelles ; Azure créera ces instances. Si la charge diminue, vous pouvez arrêter ces instances et cesser de payer pour elles.
 
-Une application Cloud Services est normalement mise à la disposition des utilisateurs au moyen d'un processus en deux étapes. Un développeur [télécharge d'abord l'application](cloud-services-how-to-create-deploy.md) dans la zone de transit de la plateforme. Lorsqu’il est prêt à activer l’application, il utilise le portail de gestion Azure pour la faire passer de l’étape intermédiaire à l’environnement de production. Le [basculement entre la zone de transit et l'environnement de production](cloud-services-nodejs-stage-application.md) peut se faire sans temps d'arrêt, ce qui permet de mettre à niveau une application en cours d'exécution vers une nouvelle version sans perturbation pour les utilisateurs.
+Une application Cloud Services est normalement mise à la disposition des utilisateurs au moyen d'un processus en deux étapes. Un développeur [télécharge d'abord l'application](cloud-services-how-to-create-deploy-portal.md) dans la zone de transit de la plateforme. Lorsqu’il est prêt à activer l’application, il utilise le portail de gestion Azure pour la faire passer de l’étape intermédiaire à l’environnement de production. Le [basculement entre la zone de transit et l'environnement de production](cloud-services-nodejs-stage-application.md) peut se faire sans temps d'arrêt, ce qui permet de mettre à niveau une application en cours d'exécution vers une nouvelle version sans perturbation pour les utilisateurs.
 
 ## <a name="monitoring"></a>Surveillance
 Cloud Services fournit également la surveillance. À l’instar d’Azure Virtual Machines, il détecte l’échec d’un serveur physique et redémarre sur un nouvel ordinateur les machines virtuelles qui étaient exécutées sur ce serveur. Mais Cloud Services détecte aussi les échecs des machines virtuelles et des applications, et pas seulement les défaillances matérielles. À la différence des machines virtuelles, ils ont un agent à l'intérieur de chaque rôle Web et de travail, et sont donc en mesure de démarrer de nouvelles instances des machines virtuelles et des applications lorsqu'une défaillance se produit.

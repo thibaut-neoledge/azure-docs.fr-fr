@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
@@ -776,6 +776,6 @@ Pour voir une vidéo de présentation des meilleures pratiques et des modèles A
 Pour plus d’informations, consultez les ressources suivantes :
 
 * [Azure Cloud Services Partie 1 : Présentation](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Gestion des services cloud](cloud-services-how-to-manage.md)
+* [Gestion des services cloud](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](/documentation/services/storage/)
 * [Choix d’un fournisseur de services cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

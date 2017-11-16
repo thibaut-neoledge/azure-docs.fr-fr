@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
-> [!div class="op_single_selector"]
-> * [Portail Azure](cloud-services-custom-domain-name-portal.md)
-> * [Portail Azure Classic](cloud-services-custom-domain-name.md)
-> 
-> 
-
 Lorsque vous créez un service cloud, Azure l'attribue à un sous-domaine de **cloudapp.net**. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs peuvent accéder à votre application par le biais d’une URL telle que http://contoso.cloudapp.net. Azure attribue également une adresse IP virtuelle.
 
 Toutefois, vous pouvez également exposer votre application sur votre propre nom de domaine, par exemple, **contoso.com**. Cet article explique comment réserver ou configurer un domaine personnalisé avec des rôles Web de service cloud.
@@ -62,7 +56,7 @@ Un enregistrement *A* mappe un domaine, tel que **contoso.com** ou **www.contoso
 > [!NOTE]
 > L’enregistrement A étant associé à une adresse IP statique, les changements d’adresse IP de votre service cloud ne sont donc pas pris en compte automatiquement. L’adresse IP utilisée par votre service cloud est allouée la première fois que vous effectuez un déploiement vers un emplacement vide (de production ou intermédiaire). Si vous supprimez le déploiement de l’emplacement, l’adresse IP est publiée par Azure et tout déploiement futur dans l’emplacement peut recevoir une nouvelle adresse IP.
 > 
-> De façon assez pratique, l’adresse IP d’un emplacement de déploiement donné (de production ou intermédiaire) est conservée lors du basculement entre les déploiements intermédiaires et de production ou lors de l’exécution de la mise à niveau sur place d’un déploiement existant. Pour plus d’informations sur ces actions, consultez la rubrique [Gestion des services cloud](cloud-services-how-to-manage.md).
+> De façon assez pratique, l’adresse IP d’un emplacement de déploiement donné (de production ou intermédiaire) est conservée lors du basculement entre les déploiements intermédiaires et de production ou lors de l’exécution de la mise à niveau sur place d’un déploiement existant. Pour plus d’informations sur ces actions, consultez la rubrique [Gestion des services cloud](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -139,7 +133,7 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Gestion des services cloud](cloud-services-how-to-manage.md)
+* [Gestion des services cloud](cloud-services-how-to-manage-portal.md)
 * [Mappage du contenu CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).

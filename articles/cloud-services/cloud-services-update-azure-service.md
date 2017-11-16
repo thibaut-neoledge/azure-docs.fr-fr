@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36d4ee9dabd39f4103d17455e47521b378af6ebb
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
 
@@ -186,6 +186,6 @@ Le diagramme suivant montre comment un service contenant deux rôles qui sont di
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Gestion des services cloud](cloud-services-how-to-manage.md)  
+[Gestion des services cloud](cloud-services-how-to-manage-portal.md)  
 [Surveillance des services cloud](cloud-services-how-to-monitor.md)  
-[Configurer Cloud Services](cloud-services-how-to-configure.md)  
+[Configurer Cloud Services](cloud-services-how-to-configure-portal.md)  
