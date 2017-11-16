@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: ef38517b55b352acf036e62d407f1ff840d6f804
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ba213ff9e5f2f1cb71d1ae6bbe38d4989f882255
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Connexion de votre appareil à la solution préconfigurée de surveillance à distance (Windows)
 
@@ -71,7 +71,7 @@ Créez un projet de démarrage dans Visual Studio 2017, puis ajoutez les package
 
 Ajoutez la bibliothèque JSON Parson au projet **RMDevice** ainsi que les instructions `#include` requises :
 
-1. Dans un dossier approprié sur votre ordinateur, clonez le dépôt GitHub Parson à l’aide de la commande suivante :
+1. Dans un dossier approprié sur votre ordinateur, clonez le référentiel GitHub Parson à l’aide de la commande suivante :
 
     ```cmd
     git clone https://github.com/kgabis/parson.git

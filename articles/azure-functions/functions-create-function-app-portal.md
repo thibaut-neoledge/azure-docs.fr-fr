@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3e4eef12c1d19be6e0f1051caaa5cf2e98626aef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Créer une Function App à l’aide du Portail Azure
 
@@ -40,7 +40,7 @@ Une fois la Function App créée, vous pouvez créer des fonctions individuelles
 
 Azure Functions contient deux plans de service différents : le plan de consommation et le plan App Service. Le plan de consommation alloue automatiquement la puissance de calcul lors de l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis diminue leur taille lorsque le code n’est pas en cours d’exécution. Le plan App Service donne à votre Function App l’accès à toutes les fonctions d’App Service. Vous devez choisir votre plan de service lors de la création de votre Function App. Il ne peut pas être modifié actuellement. Pour plus d’informations, consultez [Choisir un plan d’hébergement Azure Functions](functions-scale.md).
 
-Si vous prévoyez d’exécuter des fonctions JavaScript sur un plan App Service, vous devez choisir un plan avec moins de cœurs. Pour plus d’informations, consultez les [informations de référence sur JavaScript pour Functions](functions-reference-node.md#choose-single-core-app-service-plans).
+Si vous prévoyez d’exécuter des fonctions JavaScript sur un plan App Service, vous devez choisir un plan avec moins de cœurs. Pour plus d’informations, consultez les [informations de référence sur JavaScript pour Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 

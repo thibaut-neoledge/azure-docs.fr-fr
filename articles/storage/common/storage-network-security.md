@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurer Pare-feu et réseaux virtuels dans Stockage Azure (préversion)
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
@@ -81,7 +81,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Installez Azure CLI 2.0](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
 2. Affichez l’état de la règle par défaut pour le compte de stockage.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.defaultAction
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
 ```
 
 3. Définissez la règle par défaut pour refuser l’accès réseau par défaut.  
@@ -173,14 +173,14 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 3. Ajoutez une règle de réseau pour un réseau virtuel et un sous-réseau.  
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule add --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 4. Supprimez une règle de réseau pour un réseau virtuel et un sous-réseau. 
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule remove --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 > [!IMPORTANT]
@@ -340,7 +340,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Installez Azure CLI 2.0](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
 2. Affichez les exceptions pour les règles de réseau du compte de stockage.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.bypass
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
 ```
 
 3. Configurez les exceptions aux règles de réseau du compte de stockage.

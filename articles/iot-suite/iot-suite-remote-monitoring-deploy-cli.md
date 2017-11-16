@@ -7,22 +7,22 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 10/15/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 18e754697a7f2108b3095313dc47a65029863262
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: d0ed9a7fbb202b2008fee7f810ae0102b6f51c3d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>Déployer la solution préconfigurée de surveillance à distance à l’aide de l’interface CLI
 
 Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web depuis azureiotsuite.com ; pour en savoir plus sur cette option, consultez [Déployer la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour déployer la solution préconfigurée de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -99,9 +99,9 @@ Pour plus d’informations sur l’interface CLI, consultez [How to use the CLI]
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Configurer la solution préconfigurée
-> * Déployer la solution préconfigurée
-> * Vous connecter à la solution préconfigurée
+> * Configuration de la solution préconfigurée
+> * Déploiement de la solution préconfigurée
+> * Connexion à la solution préconfigurée
 
 La solution de surveillance à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](./iot-suite-remote-monitoring-deploy.md).
 

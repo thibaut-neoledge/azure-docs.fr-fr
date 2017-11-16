@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
-ms.reviewer: jsnow
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 8bb4c754f7bf22198b997ded7a994ccf0e4ad265
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -84,7 +84,7 @@ Lorsque l’extension NPS pour Azure est intégrée au serveur NPS, un flux d’
 
 8. L’utilisateur a accès au port virtuel sur le serveur VPN et établit un tunnel VPN chiffré.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Cette section détaille les prérequis à respecter avant de pouvoir intégrer MFA à la passerelle des services Bureau à distance. Avant de commencer, les éléments suivants doivent être en place :
 
 * Infrastructure VPN
@@ -146,7 +146,7 @@ Cette section présuppose que vous avez installé le rôle Services de stratégi
 ### <a name="register-server-in-active-directory"></a>Enregistrer le serveur dans Active Directory
 Pour fonctionner correctement dans ce scénario, le serveur NPS doit être enregistré dans Active Directory.
 
-1. Ouvrez le Gestionnaire de serveur.
+1. Ouvrez le Gestionnaire de serveurs.
 
 2. Dans Gestionnaire de serveur, sélectionnez **Outils**, puis **Network Policy Server**. 
 

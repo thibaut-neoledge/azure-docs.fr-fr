@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -79,7 +79,7 @@ La configuration de cluster à trois nœuds est prise en charge pour le dévelop
 
 En général, non. Service Fabric stocke l’état sur des disques éphémères locaux. En d’autres termes, si la machine virtuelle est déplacée vers un hôte différent, les données n’effectuent pas le déplacement. Normalement, ce n’est pas un problème car le nouveau nœud est mis à jour par d’autres nœuds. Toutefois, si vous arrêtez tous les nœuds et que vous les redémarrez ultérieurement, il est fort probable que la plupart des nœuds démarrent sur de nouveaux hôtes et empêchent la restauration du système.
 
-Si vous souhaitez créer des clusters pour tester votre application avant de la déployer, nous vous recommandons de les créer dynamiquement dans le cadre de votre [pipeline d’intégration continue/de déploiement continu](service-fabric-set-up-continuous-integration.md).
+Si vous souhaitez créer des clusters pour tester votre application avant de la déployer, nous vous recommandons de les créer dynamiquement dans le cadre de votre [pipeline d’intégration continue/de déploiement continu](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Comment mettre à niveau mon système d’exploitation (par exemple de Windows Server 2012 vers Windows Server 2016) ?

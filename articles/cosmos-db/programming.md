@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: andrl
-ms.openlocfilehash: 8cddc7a8c9aa677b9c93bee3a7e05c226cc1f655
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmation Azure Cosmos DB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
 Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage d’Azure Cosmos DB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur (FDU)** en mode natif dans une version [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) pour JavaScript. Vous pouvez ainsi écrire une logique d’application de programme de base de données qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données. 
@@ -681,7 +681,7 @@ En plus de l’API DocumentDB pour le client [Node.js](documentdb-sdk-node.md), 
     document.Year = 1949;
 
     // execute stored procedure
-    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
+    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
 Cet exemple illustre l’utilisation de l’[API .NET DocumentDB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) pour créer un prédéclencheur et un document dans lequel le déclencheur est activé. 

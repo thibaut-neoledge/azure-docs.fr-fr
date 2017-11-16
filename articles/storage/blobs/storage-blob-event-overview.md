@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a56e6026ed0c2c873030625fa7a9b35b92faf930
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Réagir aux événements de stockage d’objets Blob (version préliminaire)
 
@@ -80,7 +80,7 @@ Voici un exemple d’événement BlobCreated :
 
 ```
 
-Pour plus d’informations, consultez [Schéma des événements de stockage Blob](../../event-grid/event-schema.md#azure-blob-storage).
+Pour plus d’informations, consultez [Schéma des événements de stockage Blob](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtrage des événements
 Les abonnements aux événements d’objet Blob peuvent être filtrés en fonction du type d’événement et par le nom du conteneur et le nom de l’objet blob de l’objet qui a été créé ou supprimé.  Les filtres d’objet dans Event Grid reposent sur les correspondances « commence par » et « se termine par », afin que les événements dont l’objet correspond soient remis à l’abonné.

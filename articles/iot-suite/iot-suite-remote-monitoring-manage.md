@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/06/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e0b16a30bfd3b7ed711bcb1cc955d4eccf09fac2
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>Gérer et configurer vos appareils
 
@@ -34,7 +34,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Appeler des méthodes d’appareil à partir de la solution
 > * Reconfigurer un appareil
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -100,7 +100,7 @@ Pour effectuer le suivi de l’état du travail dans la page **Maintenance**, ch
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous a montré comment effectuer les opérations suivantes :
+Ce didacticiel vous a montré comment effectuer les opérations suivantes :
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

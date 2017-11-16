@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 2f5915093a0d7984f0350af21aa438cdd588bbf2
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 45f4de7e9ec880775f9ccf77b7d945766d465aa7
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Connecter votre appareil Raspberry Pi à la solution préconfigurée de surveillance à distance (C)
 
@@ -138,7 +138,7 @@ int main(void)
 
 Les étapes suivantes décrivent comment utiliser *CMake* pour créer votre application cliente.
 
-1. Dans un éditeur de texte, ouvrez le fichier **CMakeLists.txt** dans le dossier `remote_monitoring`.
+1. Dans un éditeur de texte, ouvrez le fichier **CMakeLists.txt** du dossier `remote_monitoring`.
 
 1. Ajoutez les instructions suivantes pour définir comment créer votre application cliente :
 
@@ -189,7 +189,7 @@ Les étapes suivantes décrivent comment utiliser *CMake* pour créer votre appl
     )
     ```
 
-1. Dans le dossier `remote_monitoring`, créez un dossier pour stocker les fichiers *make* générés par CMake. Ensuite, exécutez les commandes **cmake** et **make** comme suit :
+1. Dans le dossier `remote_monitoring`, créez un dossier pour stocker les fichiers *make* générés par CMake. Ensuite, exécutez les commandes **cmake** et **make** comme suit :
 
     ```sh
     mkdir cmake

@@ -56,7 +56,7 @@
               href: apache-hadoop-use-hive-curl.md
             - name: Utilisation d'Azure PowerShell
               href: apache-hadoop-use-hive-powershell.md
-            - name: Utiliser le kit .NET SDK
+            - name: Utilisation du Kit de développement logiciel (SDK) .NET
               href: apache-hadoop-use-hive-dotnet-sdk.md
             - name: Utiliser les outils HDInsight pour Visual Studio
               href: apache-hadoop-use-hive-visual-studio.md
@@ -71,13 +71,13 @@
           items:
             - name: Utiliser SSH
               href: apache-hadoop-use-mapreduce-ssh.md
-            - name: Utiliser cURL
+            - name: Utilisation de curl
               href: apache-hadoop-use-mapreduce-curl.md
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: apache-hadoop-use-mapreduce-powershell.md
             - name: Utiliser le Bureau à distance
               href: apache-hadoop-use-mapreduce-remote-desktop.md
-            - name: Utiliser le kit .NET SDK
+            - name: Utilisation du Kit de développement logiciel (SDK) .NET
               href: apache-hadoop-use-mapreduce-dotnet-sdk.md
             - name: Exécuter les exemples MapReduce
               href: apache-hadoop-run-samples-linux.md
@@ -86,11 +86,11 @@
           items:
             - name: Utiliser SSH et Pig
               href: apache-hadoop-use-pig-ssh.md
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: apache-hadoop-use-pig-powershell.md
-            - name: Utiliser le kit .NET SDK
+            - name: Utiliser le kit de développement logiciel (SDK) .NET
               href: apache-hadoop-use-pig-dotnet-sdk.md
-            - name: Utiliser cURL
+            - name: Utilisation de curl
               href: apache-hadoop-use-pig-curl.md
             - name: Utiliser le Bureau à distance
               href: apache-hadoop-use-pig-remote-desktop.md
@@ -107,7 +107,7 @@
         - name: Utiliser des nœuds de périmètre vides
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Développer des programmes de streaming Python
+        - name: Développer des programmes de diffusion en continu Python
           href: apache-hadoop-streaming-python.md
         - name: Traiter et analyser des documents JSON
           href: using-json-in-hive.md
@@ -227,28 +227,25 @@
         - name: Autoriser les utilisateurs à accéder à Ambari Views
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-        - name: Gérer les autorisations des utilisateurs au niveau des fichiers et des dossiers
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Gérer
       items:
         - name: Créer des clusters Linux
           href: ../hdinsight-hadoop-provision-linux-clusters.md
           maintainContext: true
           items:
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
               maintainContext: true
             - name: Utiliser cURL et l’API REST Azure
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Utiliser le kit .NET SDK
+            - name: Utiliser le kit de développement logiciel (SDK) .NET
               href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
               maintainContext: true
-            - name: Utiliser l’interface de ligne de commande Azure
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: Utiliser le portail Azure
+            - name: Utilisation du portail Azure
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Utiliser les modèles Azure Resource Manager
@@ -261,13 +258,13 @@
           href: ../hdinsight-administer-use-portal-linux.md
           maintainContext: true
           items:
-            - name: Utiliser le kit .NET SDK
+            - name: Utilisation du Kit de développement logiciel (SDK) .NET
               href: ../hdinsight-administer-use-dotnet-sdk.md
               maintainContext: true
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Utiliser l’interface de ligne de commande Azure
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Gérer des clusters à l’aide de l’interface utilisateur web Ambari
@@ -293,7 +290,7 @@
               href: apache-hadoop-use-sqoop-mac-linux.md
             - name: Exécuter à l’aide de cURL
               href: apache-hadoop-use-sqoop-curl.md
-            - name: Exécuter à l’aide du kit .NET SDK
+            - name: Exécuter à l’aide du kit de développement logiciel (SDK) .NET
               href: apache-hadoop-use-sqoop-dotnet-sdk.md
             - name: Exécuter à l’aide d’Azure PowerShell
               href: apache-hadoop-use-sqoop-powershell.md

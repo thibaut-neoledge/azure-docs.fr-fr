@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7cadb45202c7221876d377546e7c17199ec15809
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Sécurisation des données stockées dans Azure Data Lake Store
 La sécurisation des données dans Azure Data Lake Store se fait en trois étapes.
@@ -37,7 +37,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 * **Un compte Azure Data Lake Store**. Pour savoir comment en créer un, consultez [Prise en main d'Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Créer des groupes de sécurité dans Azure Active Directory
-Pour obtenir des instructions sur la création de groupes de sécurité AAD et l'ajout d'utilisateurs au groupe, consultez [Gestion des groupes de sécurité dans Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Pour obtenir des instructions sur la création de groupes de sécurité AAD et l'ajout d'utilisateurs au groupe, consultez [Gestion des groupes de sécurité dans Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
 > Vous pouvez ajouter tant des utilisateurs que d’autres groupes à un groupe dans Azure AD à l’aide du portail Azure. Toutefois, pour ajouter un principal de service à un groupe, utilisez le [module PowerShell d’Azure AD](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).

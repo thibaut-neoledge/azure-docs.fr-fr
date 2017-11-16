@@ -15,22 +15,21 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 3f8e5c015cefb50766ae3c168effb1ff360db744
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: decceb2acc11cc7b3457c6d9364d57ee9c252a4a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="billing-tags-policy-initiative"></a>Initiative de la stratégie de facturation en fonction d’étiquettes
 
-Cette stratégie exige des valeurs d’étiquette spécifiées pour le nom de produit et le centre de coûts. Utilise des stratégies intégrées pour appliquer les étiquettes nécessaires. Vous spécifiez les valeurs obligatoires pour les étiquettes.
+Cette stratégie exige des valeurs d’étiquette spécifiées pour le nom de produit et le centre de coûts. Utilise des stratégies intégrées pour appliquer les étiquettes nécessaires. Spécifiez les valeurs nécessaires pour les balises.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>Exemple de modèle
 
 [!code-json[main](../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
-
 
 Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-the-portal) ou avec [PowerShell](#deploy-with-powershell).
 
@@ -42,15 +41,14 @@ Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-th
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-
-````powershell
+```powershell
 $policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.definitions.json"
 $policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.parameters.json"
 
 $policyset= New-AzureRmPolicySetDefinition -Name "multiple-billing-tags" -DisplayName "Billing Tags Policy Initiative" -Description "Specify cost Center tag and product name tag" -PolicyDefinition $policydefinitions -Parameter $policysetparameters
 
 New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>  -Sku @{"Name"="A1";"Tier"="Standard"}
-````
+```
 
 ### <a name="clean-up-powershell-deployment"></a>Nettoyer un déploiement PowerShell
 

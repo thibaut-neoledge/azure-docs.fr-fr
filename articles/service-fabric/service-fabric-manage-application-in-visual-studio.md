@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilisation de Visual Studio pour simplifier l'écriture et la gestion des applications Service Fabric
 Vous pouvez gérer vos applications et services Azure Service Fabric via Visual Studio. Après avoir [configuré votre environnement de développement](service-fabric-get-started.md), vous pouvez utiliser Visual Studio pour créer des applications Service Fabric, ajouter des services ou empaqueter, enregistrer et déployer des applications dans votre cluster de développement local.
@@ -32,7 +32,7 @@ Par défaut, le déploiement d’une application regroupe les étapes suivantes 
 4. Suppression des instances d'application en cours d'exécution
 5. Création d’une instance d’application
 
-Dans Visual Studio, appuyer sur **F5** permet de déployer votre application et d’attacher le débogueur à toutes les instances de l’application. Vous pouvez utiliser **Ctrl + F5** pour déployer une application sans débogage ou la publier sur un cluster local ou distant à l’aide du profil de publication. Pour plus d’informations, reportez-vous à la section [Publication d’une application dans un cluster à distance avec Visual Studio](service-fabric-publish-app-remote-cluster.md).
+Dans Visual Studio, appuyer sur **F5** permet de déployer votre application et d’attacher le débogueur à toutes les instances de l’application. Vous pouvez utiliser **Ctrl + F5** pour déployer une application sans débogage ou la publier sur un cluster local ou distant à l’aide du profil de publication. 
 
 ### <a name="application-debug-mode"></a>Mode de débogage d’application
 Visual Studio fournit une propriété appelée **Mode de débogage de l’application**, qui contrôle la façon dont vous souhaitez que Visual Studio gère le déploiement de l’application dans le cadre du débogage.

@@ -102,7 +102,7 @@
       items:
         - name: Vue d'ensemble
           href: apache-spark-streaming-overview.md
-        - name: Traiter les événements de streaming
+        - name: Traiter les événements de diffusion en continu
           href: apache-spark-eventhub-streaming.md
         - name: Structured streaming avec Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
@@ -197,9 +197,6 @@
         - name: Autoriser les utilisateurs à accéder à Ambari Views
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-        - name: Gérer les autorisations des utilisateurs au niveau des fichiers et des dossiers
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Gérer
       items:
         - name: Planification de la capacité des clusters
@@ -209,19 +206,19 @@
           href: ../hdinsight-hadoop-provision-linux-clusters.md
           maintainContext: true
           items:
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
               maintainContext: true
             - name: Utiliser cURL et l’API REST Azure
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Utiliser le kit .NET SDK
+            - name: Utiliser le kit de développement logiciel (SDK) .NET
               href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
               maintainContext: true
-            - name: Utiliser l’interface de ligne de commande Azure
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: Utiliser le portail Azure
+            - name: Utilisation du portail Azure
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Utiliser les modèles Azure Resource Manager
@@ -234,13 +231,13 @@
             - name: Utiliser le portail
               href: ../hdinsight-administer-use-portal-linux.md
               maintainContext: true
-            - name: Utiliser le kit .NET SDK
+            - name: Utilisation du Kit de développement logiciel (SDK) .NET
               href: ../hdinsight-administer-use-dotnet-sdk.md
               maintainContext: true
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Utiliser l’interface de ligne de commande Azure
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Gérer des clusters à l’aide de l’interface utilisateur web Ambari
@@ -269,7 +266,7 @@
             - name: Exécuter à l’aide de cURL
               href: ../hadoop/apache-hadoop-use-sqoop-curl.md
               maintainContext: true
-            - name: Exécuter à l’aide du kit .NET SDK
+            - name: Exécuter à l’aide du kit de développement logiciel (SDK) .NET
               href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
               maintainContext: true
             - name: Exécuter à l’aide d’Azure PowerShell

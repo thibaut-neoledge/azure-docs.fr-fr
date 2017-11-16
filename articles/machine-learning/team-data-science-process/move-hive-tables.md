@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 1eee39135dca98db205677072d79421eadcdd85e
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 6d9df88d6047fbe674c216dacc6fa01bad8451ec
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/09/2017
@@ -142,11 +142,11 @@ Voici la requête Hive qui crée une table Hive.
 
 Voici les descriptions des champs que vous devez renseigner et d’autres opérations de configuration :
 
-* **&#60;database name>**: nom de la base de données que vous souhaitez créer. Si vous voulez utiliser la base de données par défaut, la requête *create database...* peut être omise.
-* **&#60;table name>** : nom de la table que vous voulez créer dans la base de données spécifiée. Si vous voulez utiliser la base de données par défaut, la table peut être désignée directement par *&#60;table name>* sans &#60;database name>.
-* **&#60;field separator>**: séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive.
+* **&#60;database name>** : nom de la base de données que vous souhaitez créer. Si vous voulez utiliser la base de données par défaut, la requête *create database...* peut être omise.
+* **<table name>** : nom de la table que vous voulez créer dans la base de données spécifiée. Si vous voulez utiliser la base de données par défaut, la table peut être désignée directement par *&#60;table name>* sans &#60;database name>.
+* **<field separator>** : séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive.
 * **&#60;line separator>**: séparateur qui délimite les lignes dans le fichier de données.
-* **&#60;storage location>** : emplacement Azure où enregistrer les données des tables Hive. Si vous ne spécifiez pas *LOCATION &#60;storage location>*, la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si vous souhaitez spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement relatif du conteneur par défaut du cluster au format *’wasb:///&#60;directory 1>/’* ou *’wasb:///&#60;directory 1>/&#60;directory 2>/’*, etc. Une fois la requête exécutée, les répertoires relatifs sont créés dans le conteneur par défaut.
+* **<storage location>** : emplacement Azure où enregistrer les données des tables Hive. Si vous ne spécifiez pas *LOCATION &#60;storage location>*, la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si vous souhaitez spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement relatif du conteneur par défaut du cluster au format *’wasb:///&#60;directory 1>/’* ou *’wasb:///&#60;directory 1>/&#60;directory 2>/’*, etc. Une fois la requête exécutée, les répertoires relatifs sont créés dans le conteneur par défaut.
 * **TBLPROPERTIES("skip.header.line.count"="1")** : si le fichier de données contient une ligne d’en-tête, vous devez ajouter cette propriété **à la fin** de la requête *create table*. Sinon, cette ligne d’en-tête est chargée comme un enregistrement dans la table. Si le fichier de données ne contient aucune ligne d’en-tête, cette configuration peut être omise dans la requête.
 
 ## <a name="load-data"></a>Chargement des données dans des tables Hive
@@ -154,7 +154,7 @@ Voici la requête Hive qui charge les données dans une table Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **&#60;path to blob data>** : si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le chemin *&#60;path to blob data>* doit être au format *'wasb:///&#60;directory in this container>/&#60;blob file name>'*. Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *&#60;path to blob data>* doit présenter le format *’wasb://&#60;nom du conteneur>@&#60;nom du compte de stockage>.blob.core.windows.net/&#60;nom du fichier blob>’*.
+* **<path to blob data>**: si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le chemin *<path to blob data>* doit être au format *'wasb:///<directory in this container>/<blob file name>'*. Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *&#60;path to blob data>* doit présenter le format *’wasb://&#60;nom du conteneur>@&#60;nom du compte de stockage>.blob.core.windows.net/&#60;nom du fichier blob>’*.
 
   > [!NOTE]
   > Les données blob à charger dans la table Hive doivent se trouver dans le conteneur par défaut ou un autre conteneur du compte de stockage du cluster Hadoop. Sinon, la requête *LOAD DATA* ne peut pas s'exécuter car elle n'aura pas accès aux données.

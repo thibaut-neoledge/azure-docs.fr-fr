@@ -3,7 +3,7 @@ title: "Kit de ressources Azure pour IntelliJ : déboguer des applications à di
 description: "Découvrez comment utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin de déboguer à distance des applications Spark qui s’exécutent sur des clusters HDInsight via VPN."
 services: hdinsight
 documentationcenter: 
-author: maxluk
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: maxluk
-ms.openlocfilehash: 9300973e4d3311c487179b41c4a298b1bda9ad28
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: nitinme
+ms.openlocfilehash: ce5b4af90d8744298e411c798e9c38f7cd5017da
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utiliser le kit de ressources Azure pour IntelliJ pour déboguer des applications Spark à distance dans HDInsight via VPN
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: terrylan
-ms.openlocfilehash: 8d00882caf5411240c5f0a3533c78c3dbe361ef2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e816f151ea1f71770f00d6d77b65395fe080da3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. En surveillant les activités suspectes via les fonctions avancées de reporting, d’audit et d’alertes de sécurité, vous êtes en mesure de limiter les problèmes de sécurité potentiels. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fournit une authentification unique à des milliers d’applications cloud (SaaS) et assure un accès aux applications web que vous exécutez en local.
@@ -57,7 +57,7 @@ En savoir plus :
 
 * [Présentation de l’authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../active-directory/active-directory-appssoaccess-whatis.md)
-* [Intégrer l’authentification unique Azure Active Directory aux applications SaaS](../active-directory/active-directory-sso-integrate-saas-apps.md)
+* [Intégrer l’authentification unique Azure Active Directory aux applications SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Proxy inversé
 Le proxy d’application Azure AD vous permet de publier des applications en local, telles que des sites [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US), des [applications web Outlook](https://technet.microsoft.com/library/jj657718.aspx) et des applications [IIS](http://www.iis.net/) à l’intérieur de votre réseau privé et offre un accès sécurisé aux utilisateurs en dehors de votre réseau. Le proxy d’application assure l’accès à distance et l’authentification unique (SSO) pour de nombreux types d’applications web locales, avec les milliers d’applications SaaS prises en charge par Azure AD. Les employés peuvent se connecter à vos applications depuis leur domicile sur leurs propres appareils et s’authentifier par le biais de ce proxy cloud.
@@ -67,7 +67,7 @@ En savoir plus :
 * [Activation du proxy d’application Azure AD](../active-directory/active-directory-application-proxy-enable.md)
 * [Publier des applications avec le Proxy d’application Azure AD](../active-directory/active-directory-application-proxy-publish.md)
 * [Authentification unique avec le proxy d’application](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Utilisation de l’accès conditionnel](../active-directory/active-directory-application-proxy-conditional-access.md)
+* [Utilisation de l’accès conditionnel](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
 ## <a name="multi-factor-authentication"></a>Authentification multifacteur
 Azure Multi-Factor Authentication (MFA) est une méthode d’authentification qui nécessite l’utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. MFA contribue à sécuriser l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Elle fournit une authentification forte par le biais de diverses options de vérification : appel téléphonique, SMS, notification par application mobile ou code de vérification et jetons OAuth tiers.

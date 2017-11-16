@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.openlocfilehash: 2726f5a78920f0ce47ed9d034e6a597c11b92e98
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database ou de SQL Data Warehouse
 L’authentification Azure Active Directory est un mécanisme servant à se connecter aux services Base de données SQL Microsoft Azure et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure AD, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations. Les avantages suivants sont inclus :
@@ -73,7 +73,7 @@ Pour créer un utilisateur de base de données à relation contenant-contenu dan
 ## <a name="azure-ad-features-and-limitations"></a>Limitations et fonctionnalités azure AD
 Les membres suivants d’Azure AD peuvent être configurés dans le serveur Azure SQL Server ou dans SQL Data Warehouse :
 
-* Membre natif : un membre créé dans le domaine géré ou le domaine client de Microsoft Azure AD. Pour plus d’informations, consultez [Ajout de votre nom de domaine personnalisé à Azure AD](../active-directory/active-directory-add-domain.md).
+* Membre natif : un membre créé dans le domaine géré ou le domaine client de Microsoft Azure AD. Pour plus d’informations, consultez [Ajout de votre nom de domaine personnalisé à Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
 * Membre de domaine fédéré : un membre créé dans Azure AD avec un domaine fédéré. Pour plus d’informations, consultez [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 * Membres importés à partir d’autres répertoires Azure AD qui sont des membres natifs ou de domaine fédéré.
 * Groupes Active Directory créés en tant que groupes de sécurité.

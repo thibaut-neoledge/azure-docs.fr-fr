@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3d58ba0985d7a5bb302028254be0951859b79dbb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 > [!div class="op_single_selector"]
@@ -325,7 +325,7 @@ L’application est prête lorsqu’elle est à l’état ```Ready``` : ![Prêt
 Ouvrez un navigateur et accédez à http://containercluster.westus2.cloudapp.azure.com:8081. Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
-Vous continuez à être facturé tant que le cluster est en cours d’exécution. Pensez à [supprimer votre cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  Les [clusters d’essai](http://tryazureservicefabric.westus.cloudapp.azure.com/) sont automatiquement supprimés après quelques heures.
+Vous continuez à être facturé tant que le cluster est en cours d’exécution. Pensez à [supprimer votre cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  Les [clusters d’essai](https://try.servicefabric.azure.com/) sont automatiquement supprimés après quelques heures.
 
 Une fois l’image publiée dans le registre de conteneurs, vous pouvez supprimer l’image locale de votre ordinateur de développement :
 

@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 871731adc849c575d97ed6735b87457811668ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 106eaa1eb64dffd6c8362b13b4edb6452d536965
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure Cosmos DB : développer avec l’API DocumentDB dans .NET
 
@@ -55,7 +55,6 @@ Commençons par créer un compte Azure Cosmos DB dans le portail Azure.
 
 > [!TIP]
 > * Possédez-vous un compte Azure Cosmos DB ? Si tel est le cas, passez directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).
-> * Possédiez-vous un compte Azure DocumentDB ? Si c’est le cas, votre compte a été converti en compte Azure Cosmos DB et vous pouvez passer directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).  
 > * Si vous utilisez l’émulateur Azure Cosmos DB, suivez les étapes de la section [Émulateur Azure Cosmos DB](local-emulator.md) pour le configurer, puis passez directement à l’étape [Configurer votre solution Visual Studio](#SetupVS). 
 >
 >

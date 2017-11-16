@@ -46,13 +46,13 @@
             - name: Utiliser BeeLine
               href: ../hadoop/apache-hadoop-use-hive-beeline.md
               maintainContext: true
-            - name: Utiliser cURL
+            - name: Utilisation de curl
               href: ../hadoop/apache-hadoop-use-hive-curl.md
               maintainContext: true
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: ../hadoop/apache-hadoop-use-hive-powershell.md
               maintainContext: true
-            - name: Utiliser le kit .NET SDK
+            - name: Utilisation du Kit de développement logiciel (SDK) .NET
               href: ../hadoop/apache-hadoop-use-hive-dotnet-sdk.md
               maintainContext: true
             - name: Utiliser les outils HDInsight pour Visual Studio
@@ -106,9 +106,6 @@
           maintainContext: true
         - name: Gérer des clusters
           href: ../domain-joined/apache-domain-joined-manage.md
-          maintainContext: true
-        - name: Gérer les autorisations utilisateur
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
           maintainContext: true
     - name: Analyser les données volumineuses (Big Data)
       items:
@@ -189,28 +186,25 @@
         - name: Autoriser les utilisateurs à accéder à Ambari Views
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-        - name: Gérer les autorisations des utilisateurs au niveau des fichiers et des dossiers
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Gérer
       items:
         - name: Créer des clusters
           href: ../hdinsight-hadoop-provision-linux-clusters.md
           maintainContext: true
           items:
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
               maintainContext: true
             - name: Utiliser cURL et l’API REST Azure
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Utiliser le kit .NET SDK
+            - name: Utiliser le kit de développement logiciel (SDK) .NET
               href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
               maintainContext: true
-            - name: Utiliser l’interface de ligne de commande Azure
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: Utiliser le portail Azure
+            - name: Utilisation du portail Azure
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Utiliser les modèles Azure Resource Manager
@@ -223,13 +217,13 @@
           href: ../hdinsight-administer-use-portal-linux.md
           maintainContext: true
           items:
-            - name: Utiliser le kit .NET SDK
+            - name: Utilisation du Kit de développement logiciel (SDK) .NET
               href: ../hdinsight-administer-use-dotnet-sdk.md
               maintainContext: true
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Utiliser l’interface de ligne de commande Azure
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Gérer des clusters à l’aide de l’interface utilisateur web Ambari

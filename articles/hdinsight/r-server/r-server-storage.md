@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 80af328fc046f8d33727930d02b569da37ccf332
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Solutions de stockage Azure pour R Server sur HDInsight
 
@@ -197,6 +197,5 @@ Maintenant que vous maîtrisez les options de stockage Azure, utilisez les liens
 
 * [Vue d’ensemble : R Server sur HDInsight (version préliminaire)](r-server-overview.md)
 * [Prise en main de R Server sur Hadoop](r-server-get-started.md)
-* [Ajouter RStudio Server à HDInsight (s’il n’est pas ajouté lors de la création du cluster)](r-server-install-r-studio.md)
 * [Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)](r-server-compute-contexts.md)
 

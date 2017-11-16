@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 07/10/2017
 ms.author: rickbyh
-ms.openlocfilehash: d1a73da7ba3e92f5229faf73cb932dd50b50dfe1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse
 
@@ -32,7 +32,7 @@ Cet article vous montre comment créer et remplir Azure AD, puis comment utilise
 ## <a name="create-and-populate-an-azure-ad"></a>Créer et renseigner un répertoire Azure AD
 Créez un annuaire Azure AD et renseignez-le avec les utilisateurs et les groupes. Azure AD peut être le domaine managé Azure AD initial. Azure AD peut également être une instance locale de services de domaine Active Directory, fédérée avec l’annuaire Azure AD.
 
-Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Ajout de votre propre nom de domaine à Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Gestion d’Azure AD à l’aide de Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) et [Ports et protocoles nécessaires à l’identité hybride](../active-directory/active-directory-aadconnect-ports.md).
+Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Ajout de votre propre nom de domaine à Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Gestion d’Azure AD à l’aide de Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) et [Ports et protocoles nécessaires à l’identité hybride](../active-directory/active-directory-aadconnect-ports.md).
 
 ## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Facultatif : associer ou modifier le répertoire actif actuellement associé à votre abonnement Azure
 Pour associer votre base de données à l’annuaire Azure AD de votre organisation, faites de l’annuaire un annulaire approuvé pour l’abonnement Azure qui héberge la base de données. Pour plus d’informations, consultez la page [Comment sont associés les abonnements Azure et Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).

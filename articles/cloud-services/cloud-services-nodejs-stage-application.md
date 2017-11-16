@@ -3,7 +3,7 @@ title: "Déploiement d’un service cloud dans un environnement intermédiaire (
 description: "Découvrez comment déployer votre application Azure vers un environnement intermédiaire, puis comment la déployer vers un environnement de production grâce à l'échange d'adresses IP virtuelles (VIP)."
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: d65d26a6-b424-49cd-a88c-7ef46bb112a8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: e35bbd31f39722c2e95ce58772dc6bd5eaf839a0
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Déploiement intermédiaire d'une application dans Azure
 Une application packagée peut être déployée dans l'environnement intermédiaire d'Azure afin d'être testée avant de la déplacer vers l'environnement de production dans lequel elle sera accessible sur Internet. L'environnement intermédiaire est exactement comme l'environnement de production, à la différence que vous ne pouvez accéder à l'environnement intermédiaire qu'avec une URL masquée générée par Azure. Une fois que vous avez vérifié que votre application fonctionne correctement, elle peut être déployée dans l'environnement de production après avoir effectué un échange d'adresses IP virtuelles (VIP).

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39b5c70c8740bc06beded42e9066e3be196741a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -942,7 +942,7 @@ Si la préparation de la machine virtuelle permet à cette dernière d’être g
 >
 > La dernière étape consiste à se connecter à une machine virtuelle à l’aide d’un compte d’administrateur. Ouvrez une fenêtre de commande Windows en tant *qu’administrateur*. Accédez à %windir%\windows\system32\sysprep et exécutez sysprep.exe.
 > Une petite fenêtre s’affiche. Il est important de cocher l’option **Généraliser** (vide par défaut) et de faire passer l’option d’extinction de sa valeur par défaut (Redémarrer) à « Arrêt ». Cette procédure suppose que le processus sysprep est exécuté localement dans le SE invité d’une machine virtuelle.
-> Si vous souhaitez exécuter la procédure avec une machine virtuelle en cours d’exécution dans Azure, suivez les étapes décrites dans [cet article](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
+> Si vous souhaitez exécuter la procédure avec une machine virtuelle en cours d’exécution dans Azure, suivez les étapes décrites dans [cet article](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
 >

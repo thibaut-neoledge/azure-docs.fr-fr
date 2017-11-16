@@ -16,6 +16,7 @@
 ### [Architecture MPP](massively-parallel-processing-mpp-architecture.md)
 ### [Niveaux de performances](performance-tiers.md)
 ### [Unités de l’entrepôt de données](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Limites de capacité](sql-data-warehouse-service-capacity-limits.md)
 ### [Forum Aux Questions](sql-data-warehouse-overview-faq.md)
 
 ## Sauvegarde et restauration
@@ -147,7 +148,7 @@
 
 # Référence
 
-## [Limites de capacité](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [Référence complète](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [Éléments de langage SQL DW](sql-data-warehouse-reference-tsql-language-elements.md)

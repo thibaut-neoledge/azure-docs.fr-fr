@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf2b506c6d12e6337161aba889b23ad5eca83d96
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Bien démarrer avec la création de solutions avec la bibliothèque cliente Batch pour .NET
 
@@ -56,7 +56,7 @@ L’exemple [DotNetTutorial][github_dotnettutorial] est l’un des nombreux exem
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
 ### <a name="batchlabs-optional"></a>BatchLabs (facultatif)
-[BatchLabs][github_batchlabs] est un outil client autonome, gratuit et doté de nombreuses fonctionnalités, aidant à créer, déboguer et analyser les applications de Azure Batch. Bien qu’il ne soit pas nécessaire pour suivre ce didacticiel, il peut être utile lors du développement et du débogage de vos solutions Batch.
+[BatchLabs][github_batchlabs] est un outil client autonome, gratuit et doté de nombreuses fonctionnalités, aidant à créer, déboguer et surveiller les applications Azure Batch. Bien qu’il ne soit pas nécessaire pour suivre ce didacticiel, il peut être utile lors du développement et du débogage de vos solutions Batch.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Vue d’ensemble de l’exemple de projet DotNetTutorial
 L’exemple de code *DotNetTutorial* est une solution Visual Studio qui se compose de deux projets : **DotNetTutorial** et **TaskApplication**.
@@ -323,7 +323,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
             targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
-            virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
+            virtualMachineSize: "small",                                                // single-vCPU, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
         // Create and assign the StartTask that will be executed when compute nodes join the pool.

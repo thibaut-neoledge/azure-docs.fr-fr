@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Présentation d’Azure Event Grid
 
@@ -25,6 +25,30 @@ Dans sa version préliminaire, Event Grid prend en charge les emplacements **wes
 Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md).
 
 ![Modèle de grille d’événement fonctionnel](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>Éditeurs d'événements
+
+Actuellement, les services Azure suivants ont une prise en charge de l’éditeur intégré pour Event Grid :
+
+* Groupes de ressources (opérations de gestion)
+* Abonnements Azure (opérations de gestion)
+* Event Hubs
+* Storage Blob
+* Rubriques personnalisées
+
+D’autres services Azure seront ajoutés cette année.
+
+## <a name="event-handlers"></a>Gestionnaires d’événements
+
+Actuellement, les services Azure suivants ont une prise en charge du gestionnaire intégré pour Event Grid : 
+
+* Azure Functions
+* Logic Apps
+* Azure Automation
+* WebHooks
+* Microsoft Flow
+
+D’autres services Azure seront ajoutés cette année.
 
 ## <a name="concepts"></a>Concepts
 
@@ -52,34 +76,6 @@ Voici les principales fonctionnalités d’Azure Event Grid :
 * **Événements personnalisés** : utilisez le routage Event Grid, le filtrage et les événements personnalisés livré de manière fiable dans votre application.
 
 Pour comparer les services Event Grid, Event Hubs et Service Bus, consultez [Choisir entre des services Azure qui remettent des messages](compare-messaging-services.md).
-
-## <a name="built-in-publisher-and-handler-integration"></a>Intégration du gestionnaire et de l’éditeur intégrés
-
-Azure propose la prise en charge de l’événement intégré à l’aide de nombreux services, y compris les éditeurs et les gestionnaires.
-
-### <a name="publishers"></a>Éditeurs
-
-Actuellement, les services Azure suivants ont une prise en charge de l’éditeur intégré pour Event Grid :
-
-* Groupes de ressources (opérations de gestion)
-* Abonnements Azure (opérations de gestion)
-* Event Hubs
-* Storage Blob
-* Rubriques personnalisées
-
-D’autres services Azure seront ajoutés cette année.
-
-### <a name="handlers"></a>Gestionnaires
-
-Actuellement, les services Azure suivants ont une prise en charge du gestionnaire intégré pour Event Grid : 
-
-* Azure Functions
-* Logic Apps
-* Azure Automation
-* WebHooks
-* Microsoft Flow
-
-D’autres services Azure seront ajoutés cette année.
 
 ## <a name="what-can-i-do-with-event-grid"></a>Que puis-je faire avec Event Grid ?
 

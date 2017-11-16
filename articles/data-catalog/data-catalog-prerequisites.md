@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: cf32ef4c80fa0ee68ce3dc1289467a419aab39c9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7d4ed0cc06e8b218b2b63c1d899701ba2eafd648
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Configuration requise pour Azure Data Catalog
 
@@ -28,7 +28,7 @@ Vous devez vous occuper de certaines choses avant de configurer Azure Data Catal
 ## <a name="azure-subscription"></a>Abonnement Azure
 Pour configurer Data Catalog, vous devez être le propriétaire ou le copropriétaire d’un abonnement Azure.
 
-Les abonnements Azure vous permettent d’organiser l’accès aux ressources du service cloud telles que Data Catalog. Ils vous permettent également de contrôler le signalement, la facturation et le paiement des ressources utilisées. Chaque abonnement peut disposer d’une configuration de facturation et de paiement différente. Vous pouvez donc avoir différents abonnements et différents plans par département, projet, bureau régional, etc. Chaque service cloud appartient à un abonnement. Vous devez donc avoir un abonnement avant de configurer Data Catalog. Pour plus d’informations, consultez [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-assign-admin-roles.md) (Gérer les comptes, les abonnements et les rôles d’administrateur).
+Les abonnements Azure vous permettent d’organiser l’accès aux ressources du service cloud telles que Data Catalog. Ils vous permettent également de contrôler le signalement, la facturation et le paiement des ressources utilisées. Chaque abonnement peut disposer d’une configuration de facturation et de paiement différente. Vous pouvez donc avoir différents abonnements et différents plans par département, projet, bureau régional, etc. Chaque service cloud appartient à un abonnement. Vous devez donc avoir un abonnement avant de configurer Data Catalog. Pour plus d’informations, consultez [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-assign-admin-roles-azure-portal.md) (Gérer les comptes, les abonnements et les rôles d’administrateur).
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 Pour configurer Data Catalog, vous devez être connecté avec un compte d’utilisateur Azure Active Directory (Azure AD).

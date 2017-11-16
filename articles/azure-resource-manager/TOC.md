@@ -69,10 +69,6 @@
 ### [API d’authentification pour l’accès aux abonnements](resource-manager-api-authentication.md)
 ### [Verrouiller des ressources](resource-group-lock-resources.md)
 
-## Définir des stratégies de ressources
-### [Que sont les stratégies de ressources ?](resource-manager-policy.md)
-### [Conventions d’affectation de noms](resource-manager-policy-naming-convention.md)
-
 ## Audit
 ### [Afficher les journaux d’activité](resource-group-audit.md)
 ### [Voir les opérations de déploiement](resource-manager-deployment-operations.md)

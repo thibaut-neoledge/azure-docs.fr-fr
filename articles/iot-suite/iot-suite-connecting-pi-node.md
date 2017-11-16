@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: d401dde25bf4ab430ac045fb6cfd90050a7ec2e7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5242d6d7abba1dc06f8e01b26a2d3bfdecb1d630
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Connecter votre appareil Raspberry Pi à la solution préconfigurée de surveillance à distance (Node.js)
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre apparei
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. Dans le dossier `RemoteMonitoring`, créez un fichier appelé **remote_monitoring.js**. Ouvrez ce fichier dans un éditeur de texte. Sur l’appareil Raspberry Pi, vous pouvez utiliser l’éditeur de texte `nano` ou `vi`.
+1. Dans le dossier `RemoteMonitoring`, créez un fichier nommé **remote_monitoring.js**. Ouvrez ce fichier dans un éditeur de texte. Sur l’appareil Raspberry Pi, vous pouvez utiliser l’éditeur de texte `nano` ou `vi`.
 
 1. Dans le fichier **remote_monitoring.js**, ajoutez les instructions `require` suivantes :
 
@@ -107,14 +107,14 @@ Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre apparei
     var Message = require('azure-iot-device').Message;
     ```
 
-1. Ajoutez les déclarations de variables suivantes après les instructions `require` . Remplacez les valeurs d’espace réservé `{Device Id}` et `{Device Key}` par les valeurs que vous avez notées pour l’appareil que vous avez provisionné dans la solution de surveillance à distance. Utilisez le nom d’hôte IoT Hub de la solution pour remplacer `{IoTHub Name}`. Par exemple, si votre nom d’hôte IoT Hub est `contoso.azure-devices.net`, remplacez `{IoTHub Name}` par `contoso` :
+1. Ajoutez les déclarations de variables suivantes après les instructions `require` . Remplacez les valeurs d’espace réservé `{Device Id}` et `{Device Key}` par les valeurs que vous avez notées pour l’appareil provisionné dans la solution de surveillance à distance. Utilisez le nom d’hôte IoT Hub de la solution pour remplacer `{IoTHub Name}`. Par exemple, si votre nom d’hôte IoT Hub est `contoso.azure-devices.net`, remplacez `{IoTHub Name}` par `contoso` :
 
     ```nodejs
     var connectionString = 'HostName={IoTHub Name}.azure-devices.net;DeviceId={Device Id};SharedAccessKey={Device Key}';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
-1. Pour définir des données de télémétrie de base, ajoutez les variables suivantes :
+1. Pour définir des données de télémétrie de base, ajoutez les variables suivantes :
 
     ```nodejs
     var temperature = 50;
@@ -125,7 +125,7 @@ Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre apparei
     var pressureUnit = 'psig';
     ```
 
-1. Pour définir des valeurs de propriété, ajoutez les variables suivantes :
+1. Pour définir des valeurs de propriété, ajoutez les variables suivantes :
 
     ```nodejs
     var temperatureSchema = 'chiller-temperature;v1';
@@ -140,7 +140,7 @@ Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre apparei
     var deviceLongitude = -122.13476;
     ```
 
-1. Ajoutez la variable suivante pour définir les propriétés déclarées à envoyer à la solution. Ces propriétés incluent les métadonnées décrivant les méthodes et les données de télémétrie utilisées par l’appareil :
+1. Ajoutez la variable suivante pour définir les propriétés déclarées à envoyer à la solution. Ces propriétés incluent les métadonnées décrivant les méthodes et les données de télémétrie utilisées par l’appareil :
 
     ```nodejs
     var reportedProperties = {
@@ -193,7 +193,7 @@ Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre apparei
     }
     ```
 
-1. Pour imprimer les résultats de l’opération, ajoutez la fonction d’assistance suivante :
+1. Pour imprimer les résultats de l’opération, ajoutez la fonction d’assistance suivante :
 
     ```nodejs
     function printErrorFor(op) {
@@ -211,7 +211,7 @@ Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre apparei
     }
     ```
 
-1. Ajoutez la fonction suivante pour gérer les appels de méthode directe à partir de la solution. La solution utilise des méthodes directes pour agir sur les appareils :
+1. Ajoutez la fonction suivante pour gérer les appels de méthode directe à partir de la solution. La solution utilise des méthodes directes pour agir sur les appareils :
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -231,7 +231,7 @@ Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre apparei
     }
     ```
 
-1. Ajoutez le code suivant pour envoyer les données de télémétrie à la solution. L’application cliente ajoute des propriétés au message pour identifier le schéma du message :
+1. Ajoutez le code suivant pour envoyer les données de télémétrie à la solution. L’application cliente ajoute des propriétés au message pour identifier le schéma du message :
 
     ```node.js
     function sendTelemetry(data, schema) {
