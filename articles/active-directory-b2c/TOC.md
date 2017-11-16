@@ -90,6 +90,7 @@
 ## Référence
 ### [Notes de publication](active-directory-b2c-developer-notes-custom.md)
 ### [Fournisseurs de session par authentification unique](active-directory-b2c-reference-sso-custom.md)
+### [Personnalisation de la langue](active-directory-b2c-language-customization-custom.md)
 ### [Définition de l’infrastructure de confiance](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Référence

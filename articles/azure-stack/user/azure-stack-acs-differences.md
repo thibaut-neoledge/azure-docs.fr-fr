@@ -3,22 +3,22 @@ title: "Stockage Azure Stack : différences et points à prendre en compte"
 description: "Découvrez les différences entre le stockage Azure Stack et le stockage Azure, ainsi que les points à prendre en compte quand vous déployez Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: jeffgilb
+manager: femila
+ms.reviwer: xiaofmao
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/08/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 1dc099fa234e217b682c88f2214fe271c916eec2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : différences et points à prendre en compte
 
@@ -33,7 +33,7 @@ Cet article récapitule les différences connues entre le stockage Azure Stack e
 | Fonctionnalité | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |Stockage Fichier|Partages de fichiers SMB sur le cloud pris en charge|Pas encore pris en charge
-|Chiffrement des données au repos|Chiffrement AES 256 bits|Pas encore pris en charge
+|Azure Storage Service Encryption pour les données au repos|Chiffrement AES 256 bits|Pas encore pris en charge
 |Type de compte de stockage|Comptes de stockage à usage général et comptes de stockage d’objets blob Azure|À usage général uniquement
 |Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant dans une zone|Stockage localement redondant
 |Stockage Premium|Entièrement pris en charge|Peut être approvisionné, mais sans limite ni garantie de performances

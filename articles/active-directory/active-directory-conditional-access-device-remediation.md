@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7ba8a79df39c135ef1831b46d38babeedfb722ba
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b013939e9b0dd473c6278a25b65b38ddeb8d4656
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Problèmes d’accès aux ressources sur un appareil Windows
 
@@ -158,5 +158,5 @@ Si votre appareil n’est pas joint au domaine et exécute Windows 8.1, vous pou
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Accès conditionnel Azure Active Directory](active-directory-conditional-access.md)
+[Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
