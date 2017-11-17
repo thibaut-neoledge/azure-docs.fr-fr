@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -99,10 +99,10 @@ Temps approximatif d’accomplissement : 15 minutes
 | Étape | les ressources |
 | --- | --- |
 | Accédez au portail de gestion Azure AD | [Portail de gestion Azure AD - Marque de société](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Chargez les ressources correspondant à la page de connexion (bannière, petit logo, étiquettes, etc.). Éventuellement, si vous avez AD FS, alignez les mêmes ressources sur les pages de connexion AD FS | [Ajout de votre société à vos pages de connexion et du panneau d’accès : Éléments personnalisables](active-directory-add-company-branding.md) |
+| Chargez les ressources correspondant à la page de connexion (bannière, petit logo, étiquettes, etc.). Éventuellement, si vous avez AD FS, alignez les mêmes ressources sur les pages de connexion AD FS | [Ajout de votre société à vos pages de connexion et du panneau d’accès : Éléments personnalisables](customize-branding.md) |
 | Patientez quelques minutes pour que les modifications entrent en vigueur |  |
 | Connectez-vous avec les informations d’identification utilisateur POC à https://myapps.microsoft.com |  |
-| Vérifiez l’apparence dans le navigateur | [Ajout de votre société à vos pages de connexion et du panneau d’accès](active-directory-add-company-branding.md) |
+| Vérifiez l’apparence dans le navigateur | [Ajout de votre société à vos pages de connexion et du panneau d’accès](customize-branding.md) |
 | Si vous le souhaitez, vérifiez l’apparence sur d’autres appareils |  |
 
 ### <a name="considerations"></a>Considérations
@@ -379,8 +379,8 @@ Temps approximatif d’accomplissement : 15 minutes
 
 | Conditions préalables | les ressources |
 | --- | --- |
-| Activez la gestion des mots de passe en libre-service dans votre locataire. | [Réinitialisation de mot de passe Azure Active Directory pour les administrateurs informatiques](active-directory-passwords.md) |
-| Activez l’écriture différée de mot de passe pour gérer les mots de passe en local. Cela nécessite des versions spécifiques d’Azure AD Connect | [Configuration requise pour l’écriture différée de mot de passe](active-directory-passwords-writeback.md) |
+| Activez la gestion des mots de passe en libre-service dans votre locataire. | [Réinitialisation de mot de passe Azure Active Directory pour les administrateurs informatiques](active-directory-passwords-update-your-own-password.md) |
+| Activez l’écriture différée de mot de passe pour gérer les mots de passe en local. Cela nécessite des versions spécifiques d’Azure AD Connect | [Configuration requise pour la réécriture du mot de passe](active-directory-passwords-writeback.md) |
 | Identifiez les utilisateurs POC qui se serviront de cette fonctionnalité et vérifiez qu’ils sont bien membres d’un groupe de sécurité. Les utilisateurs doivent être des non-administrateurs pour présenter pleinement cette fonctionnalité | [Personnalisation : Gestion du mot de passe Azure AD : Limiter l’accès à la réinitialisation des mots de passe](active-directory-passwords-writeback.md) |
 
 

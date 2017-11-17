@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Dépannage : l’élément « Active Directory » est manquant ou non disponible
 De nombreuses instructions relatives à l’utilisation des fonctionnalités et des services d’Azure Active Directory commencent par « Accédez au portail de gestion Azure et cliquez sur **Active Directory**. » Mais que faire si l’élément de menu ou l’extension Active Directory n’apparaît pas ou si elle est marquée comme **non disponible**? Cette rubrique d’aide répond à cette question. Elle décrit les conditions dans lesquelles **Active Directory** n’apparaît pas ou n’est pas disponible et explique comment procéder.
@@ -43,7 +43,7 @@ L’élément Active Directory s’affiche dans le menu de navigation gauche lo
 
 Pour créer un espace de noms de contrôle d’accès ou un fournisseur Multi-Factor Authentication, cliquez sur **+ New** > **App Services** > **Active Directory**.
 
-Pour obtenir des droits d’administration d’un répertoire, demandez à un administrateur d’attribuer un rôle d’administrateur à votre compte. Pour plus de détails, consultez [Attribution de rôles d’administrateur](active-directory-assign-admin-roles.md)
+Pour obtenir des droits d’administration d’un répertoire, demandez à un administrateur d’attribuer un rôle d’administrateur à votre compte. Pour plus de détails, consultez [Attribution de rôles d’administrateur](active-directory-assign-admin-roles-azure-portal.md)
 
 ## <a name="active-directory-is-not-available"></a>Active Directory n’est pas disponible
 Lorsque vous cliquez sur **+ New** > **App Services**, un élément **Active Directory** s’affiche. Plus précisément, l’élément Active Directory s’affiche lorsqu’une des fonctionnalités Active Directory, comme le répertoire, le contrôle d’accès ou le fournisseur Multi-Factor Auth, est disponible pour l’utilisateur actuel.

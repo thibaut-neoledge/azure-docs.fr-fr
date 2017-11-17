@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: bfedbbf8b26e1b129584a6a644e64a15635f5723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -29,7 +29,7 @@ Cette foire aux questions (FAQ) sur la collaboration interentreprises (B2B) Azur
 Non. Les fonctionnalités d’Azure AD B2B Collaboration ne sont disponibles que sur le [Portail Azure](https://portal.azure.com) et dans le [volet d’accès](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Peut-on personnaliser sa page de connexion afin qu’elle soit plus intuitive pour les utilisateurs invités B2B Collaboration ?
-Absolument ! Consultez notre [billet de blog sur cette fonctionnalité](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Pour plus d’informations sur la personnalisation de la page de connexion d’une organisation, consultez la page [Ajouter la personnalisation de l’entreprise aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md).
+Absolument ! Consultez notre [billet de blog sur cette fonctionnalité](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Pour plus d’informations sur la personnalisation de la page de connexion d’une organisation, consultez la page [Ajouter la personnalisation de l’entreprise aux pages de connexion et du volet d’accès](customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Les utilisateurs de B2B Collaboration peuvent-ils accéder à SharePoint Online et OneDrive ?
 Oui. La fonctionnalité de recherche d’utilisateurs invités existants avec le sélecteur de personnes dans SharePoint Online est cependant **désactivée** par défaut. Pour activer l’option de recherche d’utilisateurs invités, définissez **ShowPeoplePickerSuggestionsForGuestUsers** sur **Activé**. Vous pouvez activer ce paramètre au niveau du client ou bien de la collection de sites. Vous pouvez modifier ce paramètre à l’aide des applets de commande Set-SPOTenant et Set-SPOSite. Grâce à ces applets de commande, les membres peuvent rechercher parmi tous les utilisateurs invités existants du répertoire. Les modifications apportées à l’étendue du client n’affectent pas les sites SharePoint Online déjà configurés.

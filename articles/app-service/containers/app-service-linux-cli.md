@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 28dfa62c3408c43d3919a9657339bb8d25f6dcdf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gérer les applications Web App for Containers à l’aide d’Azure CLI
 
 À l’aide des commandes présentées dans cet article, vous pouvez créer et gérer une application Web App for Containers à l’aide d’Azure CLI 2.0.
 Vous pouvez commencer à utiliser la nouvelle version de la CLI de deux manières :
 
-* [Installation d’Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) sur votre ordinateur.
+* [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre ordinateur.
 * Utilisation d’[Azure Cloud Shell (version préliminaire)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Créer un plan App Service Linux
@@ -34,7 +34,7 @@ Vous pouvez commencer à utiliser la nouvelle version de la CLI de deux manière
 Pour créer un plan App Service Linux, vous pouvez utiliser la commande suivante :
 
 ```azurecli-interactive
-az appservice plan create -n appname -g rgname --islinux -l "South Central US" --sku S1 --number-of-workers 1
+az appservice plan create -n appname -g rgname --is-linux -l "South Central US" --sku S1 --number-of-workers 1
 ```
 
 ## <a name="create-a-custom-docker-container-web-app"></a>Créer une application web de conteneur Docker personnalisé
@@ -104,7 +104,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu’est-ce qu’Azure App Service sur Linux ?](app-service-linux-intro.md)
-* [Installation d’Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (version préliminaire)](../../cloud-shell/overview.md)
 * [Configurer des environnements intermédiaires dans Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Déploiement continu avec Web App pour conteneurs](app-service-linux-ci-cd.md)

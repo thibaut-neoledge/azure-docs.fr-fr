@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6987ad8f36de55ac49785b41bb193721aa78321b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
@@ -55,7 +55,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 
 - Prend en charge la connexion de l’utilisateur dans toutes les applications basées sur un navigateur web et dans les applications clientes Microsoft Office qui utilisent [l’authentification moderne](https://aka.ms/modernauthga).
 - Les noms d’utilisateur de connexion peuvent être soit un nom d’utilisateur local par défaut (`userPrincipalName`), soit un autre attribut configuré dans Azure AD Connect (appelé `Alternate ID`).
-- La fonctionnalité fonctionne de façon transparente avec les fonctionnalités [d’accès conditionnel](../active-directory-conditional-access.md) telles que l’authentification multifacteur (MFA) pour aider à sécuriser vos utilisateurs.
+- La fonctionnalité fonctionne de façon transparente avec les fonctionnalités [d’accès conditionnel](../active-directory-conditional-access-azure-portal.md) telles que l’authentification multifacteur (MFA) pour aider à sécuriser vos utilisateurs.
 - Elle est intégrée à la [gestion des mots de passe libre-service](../active-directory-passwords-overview.md) sur le cloud, y compris la réécriture des mots de passe dans l’annuaire Active Directory local et la protection par mot de passe en interdisant l’emploi de mots de passe courants.
 - Les environnements à plusieurs forêts sont pris en charge s’il existe des approbations de forêts entre les forêts AD et si le routage du suffixe de leurs noms est configuré correctement.
 - Cette fonctionnalité est gratuite et il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.
@@ -67,7 +67,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
-- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [**Limitations actuelles**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Forum aux questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.

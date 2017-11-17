@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 31af39eef3889bebd18baa2be297c433cc733ed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e0533db1bb907b0c9a09cdeb7aabbf120d506f
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Créer une application web Java et MySQL dans Azure
 
@@ -397,7 +397,7 @@ Lorsque vous actualisez l’application, une colonne **Heure de création** est 
 
 Pendant l’exécution de votre application Java dans Azure App Service, vous pouvez acheminer les journaux de la console directement vers votre terminal. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
-Pour démarrer la diffusion de journaux, utilisez la commande [az webapp log tail](/cli/azure/appservice/web/log#tail) dans Cloud Shell.
+Pour démarrer la diffusion de journaux, utilisez la commande [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) dans Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

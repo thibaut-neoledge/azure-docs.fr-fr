@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: e0b58142a2ed17d2cd4749b33e9e80ff1a01662a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -38,7 +38,7 @@ Vérifiez que les prérequis suivants sont remplis :
 ### <a name="on-the-azure-active-directory-admin-center"></a>Dans le Centre d’administration Azure Active Directory
 
 1. Créez un compte d’administrateur général « cloud uniquement » dans votre locataire Azure AD. De cette façon, vous pouvez gérer la configuration de votre locataire si vos services locaux venaient à échouer ou ne plus être disponibles. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette étape est essentielle si vous voulez éviter de vous retrouver en dehors de votre locataire.
-2. Ajoutez un ou plusieurs [noms de domaine personnalisés](../active-directory-add-domain.md) à votre locataire Azure AD. Vos utilisateurs se connectent à l’aide de l’un de ces noms de domaine.
+2. Ajoutez un ou plusieurs [noms de domaine personnalisés](../active-directory-domains-add-azure-portal.md) à votre locataire Azure AD. Vos utilisateurs se connectent à l’aide de l’un de ces noms de domaine.
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 

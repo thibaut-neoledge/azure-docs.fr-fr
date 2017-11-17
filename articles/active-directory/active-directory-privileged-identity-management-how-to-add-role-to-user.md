@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1ed4fab00d5304a25d28149e2ce9adcc3168fd
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management : comment ajouter ou supprimer un rôle d’utilisateur
-Avec Azure Active Directory (AD), un administrateur général (ou un administrateur d’entreprise) peut mettre à jour les utilisateurs auxquels des rôles sont **définitivement** affectés dans Azure AD. Cette opération s’effectue avec les applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`. Il peut également utiliser le portail Azure Classic comme décrit dans [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles.md).
+Avec Azure Active Directory (AD), un administrateur général (ou un administrateur d’entreprise) peut mettre à jour les utilisateurs auxquels des rôles sont **définitivement** affectés dans Azure AD. Cette opération s’effectue avec les applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`. Il peut également utiliser le portail Azure Classic comme décrit dans [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 L’application Azure AD Privileged Identity Management permet aux administrateurs de rôle privilégié de rendre les affectations de rôle permanentes. En outre, les administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles d’administrateur. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé.
 

@@ -11,7 +11,6 @@ Le stockage est limité par l’espace disque ou le *nombre maximum* d’index o
 | Nombre maximal d’indexeurs |3 |5 |50 |200 |200 |Aucun indexeur pris en charge |
 | Nombre maximal de sources de données |3 |5 |50 |200 |200 |Aucun indexeur pris en charge |
 | Nombre maximal de documents |10 000 |1 million |15 millions par partition ou 180 millions par service |60 millions par partition ou 720 millions par service |120 millions par partition ou 1,4 milliard par service |1 million par index ou 200 millions par partition |
-| Nombre de requêtes par seconde (QPS) estimé |N/A |~3 par réplica |~15 par réplica |~60 par réplica |~60 par réplica |Moins de 60 par réplica |
 
 <sup>1</sup> Les fonctionnalités de niveau Gratuit et d’évaluation ne sont pas fournies avec des Contrats de niveau de service (SLA). Pour tous les niveaux facturables, les SLA entrent en vigueur lorsque vous approvisionnez une redondance suffisante pour votre service. Un SLA de requête (lecture) requiert au moins deux réplicas. Un SLA de requête et d’indexation (lecture-écriture) nécessite au moins trois réplicas. Le nombre de partitions n’est pas pris en compte dans les SLA. 
 

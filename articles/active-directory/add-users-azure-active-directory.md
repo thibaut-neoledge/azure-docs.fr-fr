@@ -15,11 +15,11 @@ ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3df0324cae65418f35743b6543753c405dee01d0
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 0e46ff82c4177de6b33e5df8714318bff83fbb34
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory
 Cet article explique comment ajouter, un à la fois, de nouveaux utilisateurs de votre organisation à Azure Active Directory (Azure AD) à l’aide du portail Azure ou en synchronisant vos données de compte d’utilisateur Windows Server AD local. 
@@ -31,7 +31,7 @@ Cet article explique comment ajouter, un à la fois, de nouveaux utilisateurs de
    ![Sélection de la commande Ajouter](./media/add-users-azure-active-directory/add-user.png)
 4. Entrez les détails de l’utilisateur, dont son **nom** et son **nom d’utilisateur**. La partie du nom de domaine du nom d’utilisateur doit être le nom de domaine initial par défaut, « [nom de domaine].onmicrosoft.com », ou un [nom de domaine personnalisé](add-custom-domain.md) vérifié, non fédéré, comme « contoso.com ».
 5. Copiez ou notez d’une autre façon le mot de passe généré de sorte à pouvoir le fournir à l’utilisateur une fois ce processus terminé.
-6. Si vous le souhaitez, vous pouvez ouvrir et renseigner les informations dans **Profil**, **Groupes** ou **Rôle d’annuaire** pour l’utilisateur. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md).
+6. Si vous le souhaitez, vous pouvez ouvrir et renseigner les informations dans **Profil**, **Groupes** ou **Rôle d’annuaire** pour l’utilisateur. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles-azure-portal.md).
 7. Dans **Utilisateur**, sélectionnez **Créer**.
 8. Distribuez de manière sécurisée le mot de passe généré au nouvel utilisateur afin qu’il puisse se connecter.
 

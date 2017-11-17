@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure Active Directory (AD) offre plusieurs moyens de sécuriser votre applicati
 * Autoriser uniquement les appareils inscrits sur Intune inscrit pour accéder aux services spécifiques
 * Restriction des plages IP et emplacements utilisateur
 
-Pour plus d’informations sur toutes les fonctionnalités de l’accès conditionnel, consultez [Accès conditionnel dans le portail classique Azure](../active-directory-conditional-access.md). 
+Pour plus d’informations sur toutes les fonctionnalités de l’accès conditionnel, consultez [Accès conditionnel dans le portail classique Azure](../active-directory-conditional-access-azure-portal.md). 
 
 Dans cet article, nous nous concentrons sur ce que l’accès conditionnel permet aux développeurs de générer des applications pour Azure AD.  Il suppose des connaissances [d’applications uniques](active-directory-integrating-applications.md) et [mutualisées](active-directory-devhowto-multi-tenant-overview.md) et [des modèles courants d’authentification](active-directory-authentication-scenarios.md).
 
@@ -48,7 +48,7 @@ Plus précisément, les scénarios suivants requièrent un code pour gérer des 
 * Applications à page unique en utilisant ADAL.js
 * Les applications appelant une ressource
 
-Les stratégies d’accès conditionnel peuvent être appliquées à l’application, mais peuvent également être appliquées à une API web à laquelle votre application a accès. Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Bien démarré avec l’accès conditionnel Azure Active Directory](../active-directory-conditional-access-azuread-connected-apps.md).
+Les stratégies d’accès conditionnel peuvent être appliquées à l’application, mais peuvent également être appliquées à une API web à laquelle votre application a accès. Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Bien démarré avec l’accès conditionnel Azure Active Directory](../active-directory-conditional-access-azure-portal-get-started.md).
 
 Selon le scénario, un client d’entreprise peut appliquer et supprimer des stratégies d’accès conditionnel à tout moment.  Afin que votre application continue à fonctionner correctement lorsqu’une nouvelle stratégie est appliquée, vous devez mettre en œuvre la gestion de « défi ». Les exemples suivants illustrent la gestion des défis. 
 
@@ -218,7 +218,7 @@ Pour tester ce scénario, consultez notre [exemple de code Pour le compte de SPA
 
 ## <a name="see-also"></a>Voir aussi
 
-* Vous pouvez en savoir plus sur les fonctionnalités, consultez [Accès conditionnel dans Azure AD](../active-directory-conditional-access.md).
+* Vous pouvez en savoir plus sur les fonctionnalités, consultez [Accès conditionnel dans Azure AD](../active-directory-conditional-access-azure-portal.md).
 * Pour obtenir plus d’exemples de code Azure AD, consultez [Référentiel Github d’exemples de code](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Pour plus d’informations sur les kits SDK ADAL et l’accès à la documentation de référence, consultez [guide des bibliothèques](active-directory-authentication-libraries.md).
 * Pour en savoir plus sur les scénarios multi-locataire, consultez [comment connecter les utilisateurs à l’aide du modèle multi-locataire](active-directory-devhowto-multi-tenant-overview.md).

@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -51,7 +51,7 @@ Dans Azure Policy, nous offrons quelques stratégies intégrées qui sont dispon
 
 Vous pouvez affecter l’une de ces stratégies par le biais du portail Azure, de PowerShell ou d’Azure CLI.
 
-Pour plus d’informations sur les structures des définitions de stratégie, consultez l’article [Structure des définitions de stratégie](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+Pour plus d’informations sur les structures des définitions de stratégie, consultez l’article [Structure des définitions de stratégie](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Affectation de rôle
 
@@ -68,7 +68,7 @@ Les paramètres sont définis/créés lors de la création d’une définition d
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Pour plus d’informations sur les paramètres de stratégie, consultez [Vue d’ensemble des stratégies de ressources - Paramètres](../azure-resource-manager/resource-manager-policy.md#parameters).
+Pour plus d’informations sur les paramètres de stratégie, consultez [Vue d’ensemble des stratégies de ressources - Paramètres](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Définition d’initiative
 Une définition d’initiative est une collection de définitions de stratégie qui sont spécialement conçues pour atteindre un objectif global particulier. Les définitions d’initiative simplifient la gestion et l’affectation des définitions de stratégie. Elles simplifient ces procédures en regroupant un ensemble de stratégies en un seul élément. Par exemple, vous pouvez créer une initiative intitulée **Activer la surveillance dans Azure Security Center**, avec comme objectif de surveiller toutes les recommandations de sécurité disponibles dans votre centre Azure Security Center.

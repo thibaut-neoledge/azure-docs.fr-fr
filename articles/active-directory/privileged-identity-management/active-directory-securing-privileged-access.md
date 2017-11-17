@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Sécurisation de l’accès privilégié dans Azure AD
 La sécurisation de l’accès privilégié est une première étape essentielle pour protéger les ressources d’entreprise dans une organisation moderne. Les comptes privilégiés sont ceux qui administrent et gèrent des systèmes informatiques. Les pirates informatiques ciblent ces comptes pour accéder aux données et aux systèmes d’une organisation. Pour sécuriser l’accès privilégié, vous devez isoler les comptes et les systèmes contre les risques d’exposition à un utilisateur malveillant.
@@ -66,7 +66,7 @@ Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les c
 * Activation [d’Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Activation [d’Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Activation [d’Azure AD Identity Protection](../active-directory-identityprotection.md)
-* Activation des [contrôles d’accès conditionnel](../active-directory-conditional-access.md)
+* Activation des [contrôles d’accès conditionnel](../active-directory-conditional-access-azure-portal.md)
 
 Pour plus d’informations sur la création d’une feuille de route de sécurité complète, consultez la section concernant les « responsabilités du client et la feuille de route » du document [Microsoft Cloud Security pour Enterprise Architects](http://aka.ms/securecustomer) . Pour plus d’informations sur l’aide que peuvent apporter les services Microsoft sur ces différents points, contactez votre représentant Microsoft ou visitez notre [page de solutions de cyber-sécurité](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 

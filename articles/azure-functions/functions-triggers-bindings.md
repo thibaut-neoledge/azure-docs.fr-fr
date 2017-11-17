@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 Azure Functions vous permet d’écrire du code en réponse aux événements dans Azure et d’autres services, via des *déclencheurs* et *liaisons*. Cet article est une vue d’ensemble conceptuelle des déclencheurs et pour tous les langages de programmation pris en charge. Les fonctionnalités communes à toutes les liaisons sont décrites ici.
@@ -243,7 +243,7 @@ Par exemple, un déclencheur de file d’attente Stockage Azure prend en charge 
 
 Les détails des propriétés de métadonnées pour chaque déclencheur sont décrits dans la rubrique de référence correspondante. La documentation est également disponible dans l’onglet **Intégrer** du portail, dans la section **Documentation** située sous la zone de configuration de liaison.  
 
-Par exemple, étant donné que les déclencheurs d’objet blob agissent avec un peu de retard, vous pouvez utiliser un déclencheur de file d’attente pour exécuter votre fonction (voir [Déclencheur Stockage Blob](functions-bindings-storage-blob.md#storage-blob-trigger)). Le message de file d’attente contiendra le nom de fichier du blob à déclencher. À l’aide de la propriété de métadonnées `queueTrigger`, vous pouvez spécifier ce comportement partout dans votre configuration, plutôt que dans votre code.
+Par exemple, étant donné que les déclencheurs d’objet blob agissent avec un peu de retard, vous pouvez utiliser un déclencheur de file d’attente pour exécuter votre fonction (voir [Déclencheur Stockage Blob](functions-bindings-storage-blob.md#blob-storage-trigger)). Le message de file d’attente contiendra le nom de fichier du blob à déclencher. À l’aide de la propriété de métadonnées `queueTrigger`, vous pouvez spécifier ce comportement partout dans votre configuration, plutôt que dans votre code.
 
 ```json
   "bindings": [

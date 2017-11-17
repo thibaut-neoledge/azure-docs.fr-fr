@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 4edac05325ad12596d982d113df0db7461124b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00f756fdbd059b917ac7d28f24b1a0ec22594a9
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation
 Les services de synchronisation Azure Active Directory Connect (synchronisation Azure AD Connect) sont un composant clé d’Azure AD Connect. Ils se chargent de toutes les opérations liées à la synchronisation des données d’identité entre votre environnement local et Azure AD. Le logiciel Azure AD Connect Sync est le successeur de DirSync, de Microsoft Azure AD Sync et de Forefront Identity Manager, avec le connecteur Azure Active Directory configuré.
 
 Cette rubrique présente le composant **Azure AD Connect Sync** (également appelé **moteur de synchronisation**) et répertorie les liens vers toutes les autres rubriques qui lui sont associées. Pour consulter les liens vers Azure AD Connect, voir [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-Le service de synchronisation se compose de deux composants, le composant local **Azure AD Connect sync** et le composant côté service dans Azure AD, appelé **service de synchronisation Azure AD Connect**. Le service est courant pour DirSync, Azure AD Sync et Azure AD Connect.
+Le service de synchronisation se compose de deux composants, le composant local **Azure AD Connect sync** et le composant côté service dans Azure AD, appelé **service de synchronisation Azure AD Connect**. 
 
 ## <a name="azure-ad-connect-sync-topics"></a>Rubriques de synchronisation Azure AD Connect
 | Rubrique | Sujet qu’elle aborde et quand la consulter |

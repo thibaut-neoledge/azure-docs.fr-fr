@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Intégration avec Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -67,7 +67,7 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 **Détection de connexion anormale**  Azure AD traite plus d'un milliard de connexions par jour, tout en utilisant des algorithmes d'apprentissage automatique pour détecter des activités suspectes et signaler tout problème éventuel aux administrateurs informatiques.  En prenant en charge la connexion à Azure AD, votre application bénéficie de cette protection. En savoir plus sur [l’affichage des rapports d'accès Azure Active Directory](../active-directory-view-access-usage-reports.md).
 
-**Accès conditionnel.**  Outre l'authentification multifacteur, les administrateurs peuvent exiger que les utilisateurs remplissent certaines conditions avant qu’ils puissent se connecter à votre application.  Les conditions qui peuvent être définies incluent la plage d'adresses IP d’un périphérique client, l'appartenance à des groupes spécifiques et l'état du périphérique utilisé pour l'accès.  En savoir plus sur [l’accès conditionnel d’Azure Active Directory](../active-directory-conditional-access.md).
+**Accès conditionnel.**  Outre l'authentification multifacteur, les administrateurs peuvent exiger que les utilisateurs remplissent certaines conditions avant qu’ils puissent se connecter à votre application.  Les conditions qui peuvent être définies incluent la plage d'adresses IP d’un périphérique client, l'appartenance à des groupes spécifiques et l'état du périphérique utilisé pour l'accès.  En savoir plus sur [l’accès conditionnel d’Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Développement facile :
 **Protocoles standard de l’industrie.**  Microsoft s'engage à prendre en charge les normes industrielles.  Azure AD prend en charge les protocoles d'authentification SAML 2.0, OpenID Connect 1.0, OAuth 2.0, et WS-Federation 1.2  L'API Graph est conforme à OData 4.0.  Si votre application prend déjà en charge les protocoles SAML 2.0 ou OpenID Connect 1.0 pour la connexion fédérée, l’ajout de la prise en charge par Azure AD peut être facile.  En savoir plus sur les [protocoles d'authentification pris en charge par Azure AD](active-directory-authentication-protocols.md).

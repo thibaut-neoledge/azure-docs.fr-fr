@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac5c39eac34221992803f3b27db241263f828b36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de l’écriture différée des appareils
 > [!NOTE]
@@ -30,7 +30,7 @@ La documentation suivante fournit des informations sur l’activation de la fonc
 
 * Activer l’accès conditionnel basé sur les appareils pour les applications protégées ADFS (2012 R2 ou version ultérieure) (approbations de la partie de confiance).
 
-Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux applications est accordé uniquement aux appareils de confiance. Pour plus d’informations sur l’accès conditionnel, consultez [Gestion des risques avec accès conditionnel](../active-directory-conditional-access.md) et [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux applications est accordé uniquement aux appareils de confiance. Pour plus d’informations sur l’accès conditionnel, consultez [Gestion des risques avec accès conditionnel](../active-directory-conditional-access-azure-portal.md) et [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
 > <li>Les appareils doivent se trouver dans la même forêt que les utilisateurs. Étant donné que les appareils doivent être réécrits dans une seule forêt, cette fonctionnalité ne prend pas en charge un déploiement à plusieurs forêts d’utilisateurs pour l’instant.</li>
@@ -141,7 +141,7 @@ Vérifiez la configuration dans Active Directory :
 ![Résoudre les problèmes, vérifier les autorisations de la configuration de l’inscription des appareils](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
 ## <a name="additional-information"></a>Informations supplémentaires
-* [Gestion des risques avec accès conditionnel](../active-directory-conditional-access.md)
+* [Gestion des risques avec accès conditionnel](../active-directory-conditional-access-azure-portal.md)
 * [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

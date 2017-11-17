@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 93645aa5765d533b45fe2266f061ad61c0bf45d7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 5bf687afa8f42292a3b21b19a572c76926fef1cd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Contrôle du trafic des applications web Azure avec Azure Traffic Manager
 > [!NOTE]
@@ -49,7 +49,7 @@ Lorsque vous utilisez Azure Traffic Manager avec Azure, tenez compte des points 
 * Pour les déploiements dans une même région qui utilisent Web Apps conjointement avec un autre service cloud Azure, vous pouvez combiner les deux types de point de terminaison pour autoriser les scénarios hybrides.
 * Vous pouvez spécifier un seul point de terminaison d’application web par région dans un profil. Lorsque vous sélectionnez une application web comme point de terminaison pour une région, les autres applications web de cette région ne peuvent plus être sélectionnées pour ce profil.
 * Le point de terminaison d’application web, que vous spécifiez dans un profil Azure Traffic Manager, s’affiche à la section **Noms de domaine** de la page Configurer pour l’application web dans le profil, mais il n’est pas configurable ici.
-* Lorsque vous avez ajouté une application web à un profil, l’**URL du site** dans le tableau de bord de l’application web sur le portail affiche l’URL du domaine personnalisé de l’application web (s’il est défini). Sinon, l’URL du profil Traffic Manager (par exemple, `contoso.trafficmgr.com`) s’affiche. Le nom de domaine direct de l’application web et l’URL de Traffic Manager sont tous deux affichés dans la page Configurer de l’application web, à la section **Noms de domaine**.
+* Lorsque vous avez ajouté une application web à un profil, l’**URL du site** dans le tableau de bord de l’application web sur le portail affiche l’URL du domaine personnalisé de l’application web (s’il est défini). Sinon, l’URL du profil Traffic Manager (par exemple, `contoso.trafficmanager.net`) s’affiche. Le nom de domaine direct de l’application web et l’URL de Traffic Manager sont tous deux affichés dans la page Configurer de l’application web, à la section **Noms de domaine**.
 * Vos noms de domaines personnalisés fonctionnent comme prévu, mais en plus de les ajouter à vos applications web, vous devez configurer votre carte DNS pour qu’elle pointe vers l’URL de Traffic Manager. Pour plus d’informations sur la configuration d’un domaine personnalisé pour une application web Azure, consultez [Configuration d’un nom de domaine personnalisé pour un site web Azure](app-service-web-tutorial-custom-domain.md).
 * Vous ne pouvez ajouter que des applications web en mode standard ou Premium à un profil Azure Traffic Manager.
 

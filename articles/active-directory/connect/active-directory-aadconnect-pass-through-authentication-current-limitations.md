@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4a33df43ca218545d6c684103a64f2cd1460913b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : limitations actuelles
 
@@ -38,7 +38,7 @@ Les scénarios suivants sont entièrement pris en charge :
 
 Les scénarios suivants ne sont _pas_ pris en charge :
 
-- L’utilisateur se connecte aux applications clientes Office héritées : Office 2010 et Office 2013 _sans_ authentification moderne. Nous recommandons aux entreprises de basculer si possible vers l’authentification moderne. L’authentification moderne permet non seulement de prendre en charge l’authentification directe, mais également de sécuriser les comptes d’utilisateur à l’aide des fonctionnalités [d’accès conditionnel](../active-directory-conditional-access.md), comme l’authentification multifacteur.
+- L’utilisateur se connecte aux applications clientes Office héritées : Office 2010 et Office 2013 _sans_ authentification moderne. Nous recommandons aux entreprises de basculer si possible vers l’authentification moderne. L’authentification moderne permet non seulement de prendre en charge l’authentification directe, mais également de sécuriser les comptes d’utilisateur à l’aide des fonctionnalités [d’accès conditionnel](../active-directory-conditional-access-azure-portal.md), comme l’authentification multifacteur.
 - Connexions des utilisateurs à des applications clientes Skype Entreprise, y compris Skype Entreprise 2016.
 - L’utilisateur se connecte dans PowerShell v1.0. Il est recommandé d’utiliser à la place PowerShell v2.0.
 - Azure AD Domain Services.

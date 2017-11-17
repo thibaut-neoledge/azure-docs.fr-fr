@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notifications de rapports Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Quels rapports génèrent les notifications par courrier électronique
@@ -47,5 +47,5 @@ Oui, pour désactiver les notifications liées à des connexions anormales dans 
 ## <a name="whats-next"></a>Étapes suivantes
 * Curieux de savoir quels rapports de sécurité, d'audit et d'activité sont disponibles ? Découvrez [Rapports de sécurité, d'audit et d'activité d'Azure AD](active-directory-view-access-usage-reports.md)
 * [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
-* [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
+* [Ajout d’une marque de société aux pages de connexion et du volet d’accès](customize-branding.md)
 

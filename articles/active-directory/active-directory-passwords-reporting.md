@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e4524704c6db0d21388ea407870c65d4f69a6323
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -31,7 +31,7 @@ Après le déploiement, de nombreuses organisations souhaitent savoir comment ou
 Les questions suivantes peuvent trouvent réponse dans des rapports qui existent dans le [portail Azure] (https://portal.azure.com/).
 
 > [!NOTE]
-> Vous devez être [un administrateur global](active-directory-assign-admin-roles.md) et vous abonner pour que ces données soient collectées pour votre organisation, en consultant l’onglet Rapports ou Journaux d’audit au moins une fois. Sans cela, les données ne sont pas collectées pour votre entreprise
+> Vous devez être [un administrateur global](active-directory-assign-admin-roles-azure-portal.md) et vous abonner pour que ces données soient collectées pour votre organisation, en consultant l’onglet Rapports ou Journaux d’audit au moins une fois. Sans cela, les données ne sont pas collectées pour votre entreprise
 
 * Combien de personnes se sont inscrites pour la réinitialisation des mots de passe ?
 * Qui s’est inscrit pour la réinitialisation des mots de passe ?

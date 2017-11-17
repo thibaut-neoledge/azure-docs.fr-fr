@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Principes de conception Azure AD Connect
 L’objectif de cette rubrique est de décrire les principes qui doivent présider à la conception de l’implémentation d’Azure AD Connect. Il s’agit d’une exploration approfondie de certains aspects. Ces concepts sont également décrits brièvement dans d’autres rubriques.
@@ -191,7 +191,7 @@ John est un utilisateur de contoso.com. Vous souhaitez que John utilise l’UPN 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Domaines locaux non routables et UPN pour Azure AD
 Certaines organisations ont des domaines non routables, comme contoso.local, ou de simples domaines à étiquette unique, comme contoso. Dans Azure AD, vous n’êtes pas en mesure de vérifier un domaine non routable. Azure AD Connect peut uniquement se synchroniser sur un domaine vérifié dans Azure AD. Lorsque vous créez un répertoire Azure AD, il crée un domaine routable qui devient le domaine par défaut de votre Azure AD, par exemple contoso.onmicrosoft.com. Par conséquent, il devient nécessaire de vérifier tous les autres domaines routables dans un scénario de ce type, si vous ne souhaitez pas effectuer de synchronisation avec le domaine par défaut onmicrosoft.com.
 
-Pour plus d’informations sur l’ajout et la vérification de domaines, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../active-directory-add-domain.md) .
+Pour plus d’informations sur l’ajout et la vérification de domaines, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../active-directory-domains-add-azure-portal.md) .
 
 Azure AD Connect détecte si vous exécutez un environnement de domaine non routable et vous avertit en temps utile si vous tentez de poursuivre la configuration rapide. Si votre domaine n’est pas routable, il est probable que les UPN des utilisateurs aient également des suffixes non routables. Par exemple, si votre domaine est contoso.local, Azure AD Connect vous propose d’utiliser des paramètres personnalisés plutôt que la configuration rapide. Avec les paramètres personnalisés, vous êtes en mesure de spécifier l’attribut à utiliser comme UPN pour la connexion à Azure une fois les utilisateurs synchronisés avec Azure AD.
 
