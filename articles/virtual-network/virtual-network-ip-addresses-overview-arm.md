@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -145,29 +145,22 @@ Les adresses IP privées sont créées avec une adresse IPv4 et IPv6. Les adress
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 
-Une adresse IP privée est allouée à partir de la plage d’adresses du sous-réseau auquel la ressource est attachée. La plage d’adresses du sous-réseau lui-même fait partie de la plage d’adresses du réseau virtuel.
+Une adresse IP privée est allouée à partir de la plage d’adresses du sous-réseau de la machine virtuelle dans lequel la ressource est déployée. Il existe deux méthodes d’allocation d’adresses IP :
 
-Il existe deux méthodes d’allocation d’adresses IP : *dynamique* ou *statique*. La méthode d’allocation par défaut est *dynamique*, où l’adresse IP est allouée automatiquement à partir du sous-réseau de la ressource (à l’aide de DHCP). Cette adresse IP peut changer lorsque vous arrêtez et démarrez la ressource.
-
-Vous pouvez définir la méthode d’allocation *statique* pour vous assurer que l’adresse IP ne change pas. Lorsque vous spécifiez *statique*, vous devez aussi renseigner une adresse IP valide qui fait partie du sous-réseau de la ressource.
-
-Les adresses IP privées statiques sont couramment utilisées pour :
-
-* les machines virtuelles qui agissent en tant que contrôleurs de domaine ou serveurs DNS ;
-* les ressources qui nécessitent des règles de pare-feu utilisant des adresses IP ;
-* des ressources auxquelles d’autres applications/ressources accèdent via une adresse IP.
+- **Dynamique**: Azure réserve les quatre premières adresses dans chaque plage d’adresses de sous-réseau sans les assigner. Azure assigne la prochaine adresse disponible à une ressource de la plage d’adresses du sous-réseau. Par exemple, si la plage d’adresses du sous-réseau est 10.0.0.0/16, et que les adresses 10.0.0.0.4 à 10.0.0.14 (celles de .0 à .3 sont réservées), Azure assigne alors l’adresse 10.0.0.15 à la ressource. La méthode d’allocation par défaut est dynamique. Une fois assignées, les adresses IP dynamiques ne sont libérées que si l’interface réseau est supprimée, assignée à un sous-réseau différent au sein du même réseau virtuel ou bien si la méthode d’allocation devient statique et qu’une adresse IP différente est spécifiée. Par défaut, Azure assigne l’adresse dynamique assignée précédente à l’adresse statique lorsque vous modifiez la méthode d’allocation.
+- **Statique** : Vous sélectionnez et assignez une adresse de la plage d’adresses du sous-réseau. L’adresse que vous assignez peut correspondre à n’importe quelle adresse qui se trouve au sein de la plage d’adresses de sous-réseau n’étant pas une de ses quatre premières adresses, et qui n’est pas déjà assignée à une autre ressource du sous-réseau. Les adresses statiques ne sont libérées que si l’interface réseau est supprimée. Si vous changez la méthode d’allocation en statique, Azure assigne l’adresse IP statique précédemment assignée en tant qu’adresse dynamique, même si ce n’est pas la prochaine adresse disponible dans la plage d’adresses du sous-réseau. L’adresse change aussi si l’interface réseau est assignée à un autre sous-réseau dans le même réseau virtuel. Pour l’assigner à un autre sous-réseau, vous devez d’abord modifier la méthode d’allocation statique en dynamique. Une fois que l’interface réseau est assignée à un autre sous-réseau, vous pouvez redéfinir la méthode d’allocation en statique, et assigner une adresse IP de la nouvelle plage d’adresses du sous-réseau.
 
 ### <a name="virtual-machines"></a>Machines virtuelles
 
-Une adresse IP privée est assignée à l’**interface réseau** d’une machine virtuelle [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si la machine virtuelle possède plusieurs interfaces réseau, une adresse IP privée est assignée à chacune d’elles. Vous pouvez spécifier la méthode d’allocation dynamique ou statique pour une interface réseau.
+Une ou plusieurs adresses IP privées sont assignées à une ou plusieurs **interfaces réseau** d’une machine virtuelle [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez spécifier la méthode d’allocation dynamique ou statique pour chaque adresse IP privée.
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>Résolution de nom d’hôte DNS interne (pour les machines virtuelles)
 
 Toutes les machines virtuelles Azure sont configurées avec des [serveurs DNS gérés par Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) par défaut, sauf si vous configurez explicitement des serveurs DNS personnalisés. Ces serveurs DNS assurent la résolution de noms interne pour les machines virtuelles qui résident dans le même réseau virtuel.
 
-Lorsque vous créez une machine virtuelle, un mappage du nom d’hôte à son adresse IP privée est ajouté aux serveurs DNS gérés par Azure. Dans le cas d’une machine virtuelle dotée de plusieurs interfaces réseau, le nom d’hôte est mappé sur l’adresse IP privée de l’interface réseau principale.
+Lorsque vous créez une machine virtuelle, un mappage du nom d’hôte à son adresse IP privée est ajouté aux serveurs DNS gérés par Azure. Dans le cas d’une machine virtuelle dotée de plusieurs interfaces réseau ou de plusieurs configurations IP pour une interface réseau, le nom d’hôte est mappé sur l’adresse IP privée de la configuration IP principale de l’interface réseau principale.
 
-Les machines virtuelles configurées avec des serveurs DNS gérés par Azure peuvent résoudre les noms d’hôtes de toutes les machines virtuelles figurant au sein du même réseau virtuel pour les adresses IP privées.
+Les machines virtuelles configurées avec des serveurs DNS gérés par Azure peuvent résoudre les noms d’hôtes de toutes les machines virtuelles figurant au sein du même réseau virtuel pour les adresses IP privées. Pour résoudre les noms d’hôte de machines virtuelles dans des réseaux virtuels connectés, vous devez utiliser un serveur DNS personnalisé.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Équilibreurs de charge internes (ILB) et passerelles d’application
 

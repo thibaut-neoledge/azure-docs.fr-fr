@@ -15,7 +15,7 @@
   items:
     - name: Créer un cluster de machines virtuelles avec des modules Terraform
       href: terraform-create-vm-cluster-module.md
-    - name: Créer un cluster de machines virtuelles avec Cloud Shell
+    - name: Créer un cluster de machines virtuelles avec Terraform et HCL
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Provisionner des groupes de machines virtuelles identiques avec infrastructure
       href: terraform-create-vm-scaleset-network-disks-hcl.md

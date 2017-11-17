@@ -34,32 +34,21 @@
 #### [Utiliser une tâche pour installer .NET sur un rôle de service cloud](cloud-services-dotnet-install-dotnet.md)
 
 ### Configurer le Bureau à distance
-#### [Portail Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Portail classique](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Portail](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Déployer
-### Créer et déployer un service cloud dans le portail
-#### [Portail Azure](cloud-services-how-to-create-deploy-portal.md)
-#### [Portail classique](cloud-services-how-to-create-deploy.md)
+### [Créer et déployer un service cloud dans le portail](cloud-services-how-to-create-deploy-portal.md)
 ### [Créer un conteneur de service cloud vide dans PowerShell](cloud-services-powershell-create-cloud-container.md)
-### Configuration d’un nom de domaine personnalisé
-#### [Portail](cloud-services-custom-domain-name-portal.md)
-#### [Portail classique](cloud-services-custom-domain-name.md)
+### [Configurer un nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md)
 ### [Effectuer un déploiement intermédiaire d’un service cloud (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Se connecter à un contrôleur de domaine personnalisé](cloud-services-connect-to-custom-domain.md)
 
 ## Gérer le service
-### Tâches de gestion courantes
-#### [Portail Azure](cloud-services-how-to-manage-portal.md)
-#### [Portail classique](cloud-services-how-to-manage.md)
-### Configurer le service cloud
-#### [Portail Azure](cloud-services-how-to-configure-portal.md)
-#### [Portail classique](cloud-services-how-to-configure.md)
+### [Tâches de gestion courantes](cloud-services-how-to-manage-portal.md)
+### [Configurer le service cloud](cloud-services-how-to-configure-portal.md)
 ### [Gérer un service cloud à l’aide d’Azure Automation](automation-manage-cloud-services.md)
-### Configurer la mise à l’échelle automatique
-#### [Portail Azure](cloud-services-how-to-scale-portal.md)
-#### [Portail classique](cloud-services-how-to-scale.md)
+### [Configurer la mise à l’échelle automatique](cloud-services-how-to-scale-portal.md)
 ### [Gérer les ressources Azure avec Python](cloud-services-python-how-to-use-service-management.md)
 
 ### [Correctifs du SE invité](cloud-services-guestos-msrc-releases.md)
@@ -71,9 +60,7 @@
 
 ## Gérer des certificats
 ### [Services cloud et certificats de gestion](cloud-services-certs-create.md)
-### Configuration du chiffrement SSL 
-#### [Portail](cloud-services-configure-ssl-certificate-portal.md)
-#### [Portail classique](cloud-services-configure-ssl-certificate.md)
+### [Configuration du chiffrement SSL](cloud-services-configure-ssl-certificate-portal.md)
 
 ## Surveiller
 ### [Surveiller le service cloud](cloud-services-how-to-monitor.md)
