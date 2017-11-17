@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation de la préversion d’Azure Databricks
+metadata:
+  title: Documentation Azure Databricks- Didacticiels | Microsoft Docs
+  description: Apprenez à utiliser Databricks dans Microsoft Azure.
+  services: azure-databricks
+  author: nitinme
+  manager: cgronlun
+  ms.service: azure-databricks
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/15/2017
+  ms.author: nitinme
+abstract:
+  description: 'Azure Databricks est une plateforme d’analyse basée sur Apache Spark et optimisée pour la plateforme de services cloud Microsoft Azure. Conçu avec les créateurs d’Apache Spark, Databricks est intégré dans Azure pour offrir une configuration en un clic, des workflows simplifiés et un espace de travail interactif permettant aux scientifiques des données, ingénieurs des données et aux analystes d’entreprise de collaborer. Apprenez à utiliser Azure Databricks à l’aide du guide de démarrage rapide et d’autres liens fournis ici.'
+sections:
+  - title: "Démarrages en 5\_minutes"
+    items:
+      - type: paragraph
+        text: 'Apprenez à créer un espace de travail Azure Databricks et un cluster Spark puis à exécuter des travaux avec :'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/azure-databricks/media/index/portal.svg
+            text: Portail Azure
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+  - title: Didacticiels pas à pas
+    items:
+      - type: paragraph
+        text: 'Apprenez à utiliser Azure Databricks :'
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Prise en main d’Azure Databricks</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-blob-storage" target="_blank">Importer des données à partir du Stockage Azure</a>'
+          - hmtl: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store" target="_blank">Import data from Azure Data Lake Store</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Utiliser des blocs-notes</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Exécuter les travaux Spark</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Utiliser des sources de données Spark</a>'

@@ -1,9 +1,8 @@
 # [Vue d'ensemble](search-what-is-azure-search.md)
-## [Présentation de Stockage Azure](search-what-is-azure-search.md)
+## [Présentation d’Azure Storage](search-what-is-azure-search.md)
 
 # Prise en main
 
-## [Choisir une référence (SKU)](search-sku-tier.md)
 ## [Création d’un service](search-create-service-portal.md)
 ## [Création d'un index](search-what-is-an-index.md)
 ### [Portail Azure](search-create-index-portal.md)
@@ -20,22 +19,25 @@
 
 # Didacticiels
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [Synonymes .NET (préversion)](search-synonyms-tutorial-sdk.md)
-## [Portail](search-get-started-portal.md)
+## [Développer dans .NET](search-howto-dotnet-sdk.md)
+## [Version préliminaire des synonymes dans .NET](search-synonyms-tutorial-sdk.md)
+## [Indexeur de données SQL dans .NET](search-indexer-tutorial.md)
+## [Procédure pas à pas dans le portail](search-get-started-portal.md)
 ## [Recherche de données semi-structurées](search-semi-structured-data.md)
-## [Node.JS](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Explorer l’API REST](search-fiddler.md)
 
 # Procédures
 
 ## Planifier et concevoir
+### [Choisir une référence (SKU)](search-sku-tier.md)
 ### [Limites du service](search-limits-quotas-capacity.md)
 ### [Évolutivité du service](search-capacity-planning.md)
 ### [Modèles de conception pour les architectures multi-locataires](search-modeling-multitenant-saas-applications.md)
 ## Développement
 ### [Versions d’API](search-api-versions.md)
-### [Mettre à niveau le kit SDK](search-dotnet-sdk-migration.md)
+### [Développer dans Node.js](search-get-started-nodejs.md)
+### [Développer dans Java](search-get-started-java.md)
+### [Mettre à niveau le kit de développement logiciel (SDK)](search-dotnet-sdk-migration.md)
 ### [Mettre à niveau l’API REST](search-api-migration.md)
 ### [Modéliser les types de données complexes](search-howto-complex-data-types.md)
 ### [Gérer des mises à jour simultanées](search-howto-concurrency.md)
@@ -77,17 +79,17 @@
 ### [Score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Navigation à facettes](search-faceted-navigation.md)
-### [Synonymes (préversion)](search-synonyms.md)
+### [Version préliminaire des synonymes](search-synonyms.md)
 ### [moreLikeThis (préversion)](search-more-like-this.md)
 
-# Informations de référence
+# Référence
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (Management)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [.NET Management](/rest/api/searchmanagement)
-## [REST Service (préversion)](search-api-2016-09-01-preview.md)
+## [REST Service (version préliminaire)](search-api-2016-09-01-preview.md)
 
 # Ressources
 

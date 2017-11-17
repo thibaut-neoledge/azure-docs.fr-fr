@@ -17,6 +17,7 @@
 #### [Azure AD avec service Batch](batch-aad-auth.md)
 #### [Azure AD avec gestion de lots](batch-aad-auth-management.md)
 ### [Machines virtuelles nécessitant beaucoup de ressources système](batch-pool-compute-intensive-sizes.md)
+### [Charges de travail de conteneur](batch-docker-container-workloads.md)
 ### [Tâches de nœud simultanées](batch-parallel-node-tasks.md)
 ### [Nombre des tâches par état](batch-get-task-counts.md)
 ### [Créer un pool avec une image personnalisée](batch-custom-images.md)

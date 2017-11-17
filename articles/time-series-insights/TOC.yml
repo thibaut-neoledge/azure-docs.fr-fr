@@ -1,0 +1,76 @@
+- name: Azure Time Series Insights
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: À propos de Time Series Insights
+      href: time-series-insights-overview.md
+- name: Démarrages rapides
+  items:
+    - name: Explorer Time Series Insights
+      href: time-series-quickstart.md
+- name: Concepts
+  items:
+    - name: Planifier votre environnement
+      href: time-series-insights-environment-planning.md
+    - name: Visualiser les données dans l’Explorateur
+      href: time-series-insights-explorer.md
+    - name: Résoudre la limitation
+      href: time-series-insights-environment-mitigate-latency.md
+    - name: Diagnostiquer et résoudre les problèmes
+      href: time-series-insights-diagnose-and-solve-problems.md
+    - name: Développement
+      items:
+        - name: Authentifier et autoriser
+          href: time-series-insights-authentication-and-authorization.md
+        - name: 'Interroger des données à l’aide de C#'
+          href: time-series-insights-query-data-csharp.md
+        - name: 'Gérer des données de référence dans C#'
+          href: time-series-insights-manage-reference-data-csharp.md
+        - name: Partager un affichage personnalisé
+          href: time-series-insights-parameterized-urls.md
+- name: Procédures
+  items:
+    - name: Créer un environnement
+      href: time-series-insights-get-started.md
+    - name: Accorder l’accès aux données
+      href: time-series-insights-data-access.md
+    - name: Connexion à Event Hub
+      href: time-series-insights-how-to-add-an-event-source-eventhub.md
+    - name: Connexion à IoT Hub
+      href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Créer un jeu de données de référence
+      href: time-series-insights-add-reference-data-set.md
+    - name: Envoyer des événements
+      href: time-series-insights-send-events.md
+    - name: Mettre à l’échelle votre environnement
+      href: time-series-insights-how-to-scale-your-environment.md
+- name: Référence
+  items:
+    - name: API de requête
+      href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
+    - name: Syntaxe de requête
+      href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+- name: Ressources
+  items:
+    - name: Services connexes
+      items:
+        - name: Azure IoT Suite
+          href: /azure/iot-suite/
+        - name: Hubs d'événements Azure
+          href: /azure/event-hubs/
+        - name: Azure Stream Analytics
+          href: /azure/stream-analytics/
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Disponibilité des régions
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights'
+    - name: Dépassement de capacité de la pile
+      href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
+    - name: Options de support
+      href: 'https://azure.microsoft.com/support/options/'

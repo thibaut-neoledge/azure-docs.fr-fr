@@ -125,7 +125,7 @@
           href: ps-template.md
         - name: Se connecter à une machine virtuelle
           href: connect-logon.md
-        - name: Utiliser le gestionnaire de licences AHUB
+        - name: Utiliser des licences Azure Hybrid Benefit
           href: hybrid-use-benefit-licensing.md
         - name: "Utiliser les droits d’hébergement multilocataire de Windows\_10"
           href: windows-desktop-multitenant-hosting-deployment.md
@@ -141,6 +141,17 @@
           href: policy.md
         - name: Créer un coffre de clés
           href: key-vault-setup.md
+    - name: Protéger les machines virtuelles
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Sauvegarder une machine virtuelle unique
+          items:
+            - name: Portail Azure
+              href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: "Azure\_PowerShell"
+              href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Sauvegarder plusieurs machines virtuelles
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Gérer les machines virtuelles
       items:
         - name: Tâches PowerShell courantes
@@ -167,6 +178,8 @@
           href: scheduled-events.md
         - name: Surveiller des métadonnées
           href: instance-metadata-service.md
+        - name: Activer la virtualisation imbriquée
+          href: nested-virtualization.md
     - name: Utiliser des images
       items:
         - name: Trouver et utiliser des images

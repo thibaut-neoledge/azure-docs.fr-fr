@@ -72,8 +72,7 @@
 
 ## [Gérer les groupes et les membres](active-directory-manage-groups.md)
 ### Gérer les groupes
-#### [portail Azure](active-directory-groups-create-azure-portal.md)
-#### [Portail classique](active-directory-accessmanagement-manage-groups.md)
+#### [Portail Azure](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Sélectionner les membres du groupe](active-directory-groups-members-azure-portal.md)
 ### [Gérer les propriétaires de groupe](active-directory-accessmanagement-managing-group-owners.md)
@@ -94,7 +93,6 @@
 #### [Applets de commande](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Créer des règles avancées
 #### [Portail Azure](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Portail classique](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [Configurer des groupes libre-service](active-directory-accessmanagement-self-service-group-management.md)
 ### [Résolution des problèmes](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +133,7 @@
 #### [S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
 ### [Fonctionnement SSPR](active-directory-passwords-how-it-works.md)
 ### [Guide de déploiement SSPR](active-directory-passwords-best-practices.md)
+### [SSPR et Windows 10](active-directory-passwords-login.md)
 ### [Stratégies SSPR](active-directory-passwords-policy.md)
 ### [Personnalisation SSPR](active-directory-passwords-customize.md)
 ### [Spécifications des données SSPR](active-directory-passwords-data.md)
@@ -209,8 +208,8 @@
 #### Utiliser le portail Classic
 ##### [Télécharger des connecteurs](application-proxy-enable-classic-portal.md)
 ##### [Publiez des applications](active-directory-application-proxy-publish.md)
-##### [Utiliser les connecteurs](active-directory-application-proxy-connectors.md)
-##### [Accès conditionnel](active-directory-application-proxy-conditional-access.md)
+##### [Utiliser les connecteurs](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Accès conditionnel](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Gérer les applications d’entreprise
 #### [Affecter des utilisateurs](active-directory-coreapps-assign-user-azure-portal.md)
@@ -222,6 +221,7 @@
 #### [Gérer l’authentification unique pour les applications d’entreprise](active-directory-enterprise-apps-manage-sso.md)
 #### [Signature de certificat avancée pour les applications SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Masquer une application tierce à partir de l’expérience utilisateur](active-directory-coreapps-hide-third-party-app.md)
+### [Configurer l’accélération automatique de la connexion à l’aide de la stratégie HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Gérer l’accès aux applications](active-directory-managing-access-to-apps.md)
 #### [Accès libre-service](active-directory-self-service-application-access.md)
@@ -248,9 +248,8 @@
 ## Gérer votre répertoire
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Noms de domaine personnalisés
-#### [Vue d'ensemble](active-directory-add-domain-concepts.md)
+#### [Vue d'ensemble](active-directory-domains-manage-azure-portal.md)
 #### [Gérer les noms de domaine](active-directory-domains-manage-azure-portal.md)
-##### [Portail classique](active-directory-add-manage-domain-names.md)
 ### [Administration de votre annuaire](active-directory-administer.md)
 ### [Plusieurs répertoires](active-directory-licensing-directory-independence.md)
 ### [Inscription libre-service](active-directory-self-service-signup.md)

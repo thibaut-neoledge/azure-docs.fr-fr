@@ -106,7 +106,8 @@
 
 ## [Diffuser en direct](media-services-manage-channels-overview.md)
 ### [Encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portail](media-services-portal-live-passthrough-get-started.md)
+#### [Encodeurs locaux recommandés](media-services-recommended-encoders.md)
+#### [Portail Azure](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Streaming en direct à l’aide d’un encodeur cloud](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portail Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Encodeur Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Traiter des opérations de longue durée](media-services-dotnet-long-operations.md)
 ### [Spécification d’ingestion en direct au format MP4 fragmenté](media-services-fmp4-live-ingest-overview.md)
+
+## [Contenu de l’extrait](media-services-azure-media-clipper-overview.md)
+### [Prise en main d'Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [Charger des ressources dans Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [Configurer des raccourcis clavier personnalisés](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Envoyer des travaux de découpage](media-services-azure-media-clipper-submit-job.md)
+### [Portail Azure](media-services-azure-media-clipper-portal.md)
 
 ## [Protéger](media-services-content-protection-overview.md)
 ### [Configurer la protection du contenu dans le portail Azure](media-services-portal-protect-content.md)

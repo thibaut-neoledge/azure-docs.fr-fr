@@ -89,8 +89,10 @@
           href: app-insights-how-do-i.md
     - name: Configuration
       items:
-        - name: "Microsoft\_Azure"
+        - name: Azure
           items:
+            - name: Ajouter la surveillance continue
+              href: app-insights-vsts-continuous-monitoring.md
             - name: Profileur
               href: app-insights-profiler.md
             - name: Activer le profileur
@@ -129,7 +131,7 @@
               href: app-insights-java-filter-telemetry.md
         - name: Alertes
           items:
-            - name: Disponibilité
+            - name: Availability
               href: app-insights-monitor-web-app-availability.md
             - name: Alertes de métrique
               href: app-insights-alerts.md

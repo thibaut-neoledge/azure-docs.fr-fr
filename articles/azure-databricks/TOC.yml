@@ -1,0 +1,25 @@
+- name: Documentation Azure Databricks
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: Qu’est-ce qu’Azure Databricks ?
+      href: what-is-azure-databricks.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Créer un espace de travail Databricks
+      href: quickstart-create-databricks-workspace-portal.md
+- name: Ressources
+  items:
+    - name: Documentation Databricks
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Dépassement de capacité de la pile
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: Disponibilité des régions
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Options de support
+      href: 'https://azure.microsoft.com/support/options/'

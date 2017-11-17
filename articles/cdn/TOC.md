@@ -11,7 +11,7 @@
 ### [Stockage](cdn-create-a-storage-account-with-cdn.md)
 ### [Partage de ressources cross-origin](cdn-cors.md)
 ### [Ajouter un domaine personnalisé à votre point de terminaison CDN](cdn-map-content-to-custom-domain.md)
-### [Activer le protocole HTTPS pour un domaine personnalisé](cdn-custom-ssl.md)
+### [Configurer le protocole HTTPS pour un domaine personnalisé](cdn-custom-ssl.md)
 ## Optimiser le contenu
 ### [Vue d’ensemble de l’optimisation](cdn-optimization-overview.md)
 ####[Optimisation des fichiers volumineux](cdn-large-file-optimization.md)

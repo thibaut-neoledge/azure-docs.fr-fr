@@ -14,6 +14,9 @@
 ## [Stockage persistant dans PowerShell](persisting-shell-storage-powershell.md)
 ## [Utilisation de la fenêtre](using-the-shell-window.md)
 
+# Exemples
+## [Déployer des ressources Windows Azure avec Terraform dans un interpréteur de commandes Bash](example-terraform-bash.md)
+
 # [Tarification](pricing.md)
 
 # [Dépannage](troubleshooting.md)
