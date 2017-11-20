@@ -12,23 +12,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 11/14/2017
 ms.author: yurid
-ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72a3e1eafb6f4150d8410fdd5a7a6095909c052d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-security-center-data-security"></a>Sécurité des données du Centre de sécurité Azure
 Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Security Center collecte et traite des données de sécurité, notamment des informations de configuration, des métadonnées, des journaux d’événements et des fichiers de vidage sur incident. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
 
 Cet article explique comment les données sont gérées et protégées dans le Centre de sécurité Azure.
-
->[!NOTE] 
->Depuis début juin 2017, Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour plus d’informations, consultez l’article [Migration de plateforme Azure Security Center](security-center-platform-migration.md). Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
->
-
 
 ## <a name="data-sources"></a>Sources de données
 Pour assurer une visibilité sur l’état de la sécurité, identifier les vulnérabilités, recommander des mesures d’atténuation et détecter les menaces actives, Azure Security Center analyse les données provenant des sources suivantes :
@@ -70,7 +65,7 @@ Les artefacts des ordinateurs sont stockés de manière centralisée dans la mê
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Gestion de la collecte de données à partir de machines virtuelles
 
-Lorsque vous activez Security Center dans Azure, la collecte de données est activée pour chacun de vos abonnements Azure. Vous pouvez également activer la collecte de données pour vos abonnements dans la section « Stratégie de sécurité » d’Azure Security Center. Lorsque la collecte de données est activée, Azure Security Center approvisionne Microsoft Monitoring Agent sur toutes les machines virtuelles Azure prises en charge existantes et sur toutes celles nouvellement créées. Microsoft Monitoring Agent analyse diverses configurations de sécurité et crée des événements sous la forme de traces de [Suivi d’événements pour Windows (ETW)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). En outre, le système d’exploitation déclenche des événements du Journal des événements au cours de l’exécution de la machine. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté et ID de locataire. Microsoft Monitoring Agent lit les entrées du journal des événements et les traces ETW, puis les copie dans vos espaces de travail à des fins d’analyse. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans vos espaces de travail.
+Lorsque vous activez Security Center dans Azure, la collecte de données est activée pour chacun de vos abonnements Azure. Vous pouvez également activer la collecte de données pour vos abonnements dans la section « Stratégie de sécurité » d’Azure Security Center. Lorsque la collecte de données est activée, Azure Security Center approvisionne Microsoft Monitoring Agent sur toutes les machines virtuelles Azure prises en charge existantes et sur toutes celles nouvellement créées. Microsoft Monitoring Agent analyse diverses configurations de sécurité et crée des événements sous la forme de traces de [Suivi d’événements pour Windows (ETW)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). En outre, le système d’exploitation déclenche des événements du Journal des événements au cours de l’exécution de la machine. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté et ID de locataire. Microsoft Monitoring Agent lit les entrées du journal des événements et les traces ETW, puis les copie dans vos espaces de travail à des fins d’analyse. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans votre espace de travail, active les événements de création de processus et l’audit de la ligne de commande.
 
 Si vous utilisez Azure Security Center gratuitement, vous pouvez également désactiver la collecte de données à partir des machines virtuelles dans la stratégie de sécurité. La collecte de données est obligatoire pour les abonnements du niveau Standard. La collecte des artefacts et des captures instantanées des disques de machine virtuelle reste activée, même si la collecte de données est désactivée.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 Integration Runtime (IR) est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -85,7 +85,7 @@ Si vous souhaitez intégrer vos données en toute sécurité dans un environneme
 ### <a name="compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle
 Le runtime d’intégration auto-hébergé doit être installé sur un ordinateur local ou une machine virtuelle à l’intérieur d’un réseau privé. Actuellement, nous prenons uniquement en charge l’exécution du runtime d’intégration auto-hébergé sur un système d’exploitation Windows.  
 
-Pour obtenir un runtime d’intégration hautement disponible et évolutif, vous pouvez augmenter la taille des instances du runtime d’intégration auto-hébergé en associant l’instance logique avec plusieurs ordinateurs locaux en mode actif/actif.  Pour en savoir plus, consultez la rubrique « Comment créer et configurer le runtime d’intégration auto-hébergé » sous Procédures.
+Pour obtenir un runtime d’intégration hautement disponible et évolutif, vous pouvez augmenter la taille des instances du runtime d’intégration auto-hébergé en associant l’instance logique avec plusieurs ordinateurs locaux en mode actif/actif.  Pour en savoir plus, consultez l’article « Comment créer et configurer le runtime d’intégration auto-hébergé » sous Procédures.
 
 ## <a name="azure-ssis-integration-runtime"></a>Runtime d’intégration Azure SSIS
 Pour effectuer une opération lift-and-shift sur la charge de travail SSIS existante, vous pouvez créer un runtime d’intégration Azure SSIS pour exécuter les packages SSIS en mode natif.
@@ -96,7 +96,7 @@ Le runtime d’intégration Azure SSIS peut être configuré dans un réseau pu
 ### <a name="compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle
 Le runtime d’intégration Azure SSIS est un cluster entièrement géré de machines virtuelles Azure qui est chargé d’exécuter vos packages SSIS. Vous pouvez demander à votre propre serveur Azure SQL Database ou Managed Instance (préversion privée) d’héberger le catalogue de projets/packages SSIS (SSISDB) qui y sera attaché. Vous pouvez monter en puissance le calcul en spécifiant la taille du nœud et augmenter la taille des instances en spécifiant le nombre de nœuds du cluster. Vous pouvez maîtriser le coût d’exécution de votre runtime d’intégration Azure SSIS en l’arrêtant et en le démarrant comme bon vous semble.
 
-Pour en savoir plus, consultez la rubrique « Comment créer et configurer le runtime d’intégration Azure SSIS » sous Procédures.  Une fois votre runtime d’intégration créé, vous pouvez déployer et gérer vos packages SSIS existants, sans changement ou presque, à l’aide des outils SQL Server Data Tools (SSDT) et SQL Server Management Studio (SSMS), comme si vous utilisez SSIS en local.
+Pour en savoir plus, consultez l’article « Comment créer et configurer le runtime d’intégration Azure SSIS » sous Procédures.  Une fois votre runtime d’intégration créé, vous pouvez déployer et gérer vos packages SSIS existants, sans changement ou presque, à l’aide des outils SQL Server Data Tools (SSDT) et SQL Server Management Studio (SSMS), comme si vous utilisez SSIS en local.
 
 Pour plus d’informations sur le runtime Azure-SSIS, voir les articles suivants : 
 
@@ -123,7 +123,7 @@ Le schéma suivant représente deux activités de copie :
 ![Runtimes d’intégration à utiliser](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Emplacement du runtime d’intégration
-L’emplacement de Data Factory contient les métadonnées de la fabrique de données. C’est également à cet endroit que le pipeline est déclenché. Actuellement, les emplacements de Data Factory pris en charge se trouvent dans les régions suivantes : Est des États-Unis et Est des États-Unis 2. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul. Ce comportement se réalise grâce au runtime d’intégration, qui est disponible dans plusieurs régions du monde pour garantir la conformité des données et l’efficacité, et réduire les frais de sortie de réseau.
+L’emplacement de Data Factory contient les métadonnées de la fabrique de données. C’est également à cet endroit que le pipeline est déclenché. Actuellement, les emplacements de Data Factory pris en charge se trouvent dans les régions suivantes : Est des États-Unis, Est des États-Unis 2 et Europe de l'Ouest. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul. Ce comportement se réalise grâce au runtime d’intégration, qui est disponible dans plusieurs régions du monde pour garantir la conformité des données et l’efficacité, et réduire les frais de sortie de réseau.
 
 L’emplacement du runtime d’intégration définit l’emplacement de son calcul principal, mais aussi l’emplacement où le déplacement des données, la répartition des activités et l’exécution des packages SSIS sont effectués. L’emplacement du runtime d’intégration peut être différent de l’emplacement de la fabrique de données à laquelle il appartient. Le schéma suivant représente les paramètres d’emplacement de Data Factory et de ses runtimes d’intégration :
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: billmath
-ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eff198a522470e1145c97758a54fc9b8f294287f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
 Les **paramètres personnalisés** Azure AD Connect sont utilisés lorsque vous souhaitez davantage d’options d’installation. Ils sont utiles si vous disposez de plusieurs forêts ou si vous voulez configurer des fonctionnalités facultatives que l’installation rapide ne propose pas. Ils sont utilisés dans tous les cas où l’option d’[**installation rapide**](active-directory-aadconnect-get-started-express.md) ne convient pas à votre déploiement ou à votre topologie.
@@ -91,9 +91,9 @@ Après avoir saisi le nom de la forêt et cliqué sur **Ajouter un répertoire**
 Cette page permet d’examiner les domaines UPN présents dans les services de domaine AD locaux et qui ont été vérifiés dans Azure AD. Cette page vous permet également de configurer l’attribut à utiliser pour userPrincipalName.
 
 ![Domaines non vérifiés](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
-Passez en revue chaque domaine marqué **Non ajouté** et **Non vérifié**. Assurez-vous que les domaines que vous utilisez ont été vérifiés dans Azure AD. Cliquez sur le symbole d’actualisation dès que vous avez vérifié vos domaines. Pour plus d’informations, consultez [Ajouter et vérifier le domaine](../active-directory-add-domain.md)
+Passez en revue chaque domaine marqué **Non ajouté** et **Non vérifié**. Assurez-vous que les domaines que vous utilisez ont été vérifiés dans Azure AD. Cliquez sur le symbole d’actualisation dès que vous avez vérifié vos domaines. Pour plus d’informations, consultez [Ajouter et vérifier le domaine](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName** : cet attribut est utilisé par les utilisateurs lorsqu’ils se connectent à Azure AD et Office 365. Les domaines utilisés, également nommés « Suffixe UPN » doivent être vérifiés dans Azure AD avant la synchronisation des utilisateurs. Microsoft recommande de conserver la valeur d’attribut userPrincipalName par défaut. Si cet attribut ne peut pas être acheminé ni vérifié, vous pouvez sélectionner un autre attribut. Par exemple, vous pouvez choisir une adresse de messagerie électronique comme attribut contenant l’ID de connexion. Tout attribut utilisé à la place de l’élément userPrincipalName est qualifié d’ **ID secondaire**. La valeur de l’attribut ID secondaire doit suivre la norme RFC822. Un ID secondaire peut être utilisé avec la fédération et la synchronisation de mots de passe.
+**UserPrincipalName** : cet attribut est utilisé par les utilisateurs lorsqu’ils se connectent à Azure AD et Office 365. Les domaines utilisés, également nommés « Suffixe UPN » doivent être vérifiés dans Azure AD avant la synchronisation des utilisateurs. Microsoft recommande de conserver la valeur d’attribut userPrincipalName par défaut. Si cet attribut ne peut pas être acheminé ni vérifié, vous pouvez sélectionner un autre attribut. Par exemple, vous pouvez choisir une adresse de messagerie électronique comme attribut contenant l’ID de connexion. Tout attribut utilisé à la place de l’élément userPrincipalName est qualifié d’ **ID secondaire**. La valeur de l’attribut ID secondaire doit suivre la norme RFC822. Un ID secondaire peut être utilisé avec la fédération et la synchronisation de mots de passe. L’attribut ne doit pas être défini dans Active Directory en tant que valeurs multiples, même s’il ne possède qu’une seule valeur.
 
 >[!NOTE]
 > Lorsque vous activez l’authentification directe, vous devez disposer d’au moins un domaine vérifié pour pouvoir continuer l’assistant.
@@ -169,7 +169,7 @@ Cet écran vous permet de sélectionner des fonctionnalités facultatives pour v
 | Dossiers publics de messagerie Exchange | La fonctionnalité Dossiers publics de messagerie Exchange vous permet de synchroniser les objets Dossier public à extension messagerie de votre Active Directory local avec Azure AD. |
 | Application Azure AD et filtrage des attributs |En activant le filtrage des attributs et l’application Azure AD, vous pouvez adapter l’ensemble des attributs synchronisés. Cette option ajoute deux autres pages de configuration dans l’Assistant. Pour en savoir plus, voir [Application Azure AD et filtrage des attributs](#azure-ad-app-and-attribute-filtering). |
 | Synchronisation de mot de passe |Si vous avez sélectionné la fédération comme solution de connexion, vous pouvez activer cette option. La synchronisation de mot de passe peut ensuite servir d’option de sauvegarde. Pour en savoir plus, voir [Synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Si vous avez sélectionné l’authentification directe, cette option peut également être activée pour assurer la prise en charge pour les clients hérités et servir d’option de sauvegarde. Pour en savoir plus, voir [Synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md).|
-| Écriture différée du mot de passe |Lorsque vous activez l’écriture différée du mot de passe, les modifications de mot de passe provenant d’Azure AD sont réécrites dans votre répertoire local. Pour en savoir plus, voir [Prise en main de la gestion de mot de passe](../active-directory-passwords-getting-started.md). |
+| Réécriture du mot de passe |Lorsque vous activez l’écriture différée du mot de passe, les modifications de mot de passe provenant d’Azure AD sont réécrites dans votre répertoire local. Pour en savoir plus, voir [Prise en main de la gestion de mot de passe](../active-directory-passwords-getting-started.md). |
 | Écriture différée de groupe |Si vous utilisez la fonctionnalité **Groupes dans Office 365** , ces groupes peuvent être représentés dans votre annuaire Active Directory local. Cette option n’est disponible que si Exchange est présent dans votre annuaire Active Directory local. Pour en savoir plus, voir [Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Écriture différée des appareils |Permet d’écrire de façon différée des objets d’appareil dans Azure AD, au sein de l’annuaire Active Directory local, dans le cadre de scénarios à accès conditionnel. Pour en savoir plus, voir [Azure AD Connect : Activation de l’écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md). |
 | Synchronisation des attributs des extensions d’annuaire |Si vous activez la synchronisation des attributs des extensions de répertoire, les attributs spécifiés seront synchronisés avec Azure AD. Pour en savoir plus, voir [Extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md). |
@@ -295,7 +295,7 @@ Cette opération permet de configurer la relation de fédération entre AD FS et
 ![Domaine Azure AD](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Vérification du domaine Azure AD sélectionné pour la fédération
-Lorsque vous sélectionnez le domaine à fédérer, Azure AD Connect vous fournit les informations nécessaires pour vérifier un domaine non vérifié. Pour savoir comment utiliser ces informations, voir [Ajouter et vérifier le domaine](../active-directory-add-domain.md) .
+Lorsque vous sélectionnez le domaine à fédérer, Azure AD Connect vous fournit les informations nécessaires pour vérifier un domaine non vérifié. Pour savoir comment utiliser ces informations, voir [Ajouter et vérifier le domaine](../active-directory-domains-add-azure-portal.md) .
 
 ![Domaine Azure AD](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3be12abaaedf5b0d66a484cbee48fe3df77f63fe
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1d26fb8caacdd775b62d704a4b474e68e2f5a3ec
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
@@ -224,7 +224,10 @@ Un coffre Recovery Services est une entité de stockage en ligne dans Azure qui
 Les coffres de sauvegarde, qui sont basés sur Azure Service Manager, constituaient la première version des coffres. Les coffres Recovery Services, qui ajoutent les fonctionnalités du modèle Azure Resource Manager, en constituent la seconde version. Pour une description complète des différences de fonctionnalités, consultez [l’article de présentation du coffre Recovery Services](backup-azure-recovery-services-vault-overview.md). Vous ne pouvez plus vous servir du portail pour créer des coffres de sauvegarde, mais ils sont toujours pris en charge. Vous devez utiliser le portail Azure pour gérer vos coffres de sauvegarde.
 
 > [!IMPORTANT]
-> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> À compter du **15 octobre 2017**, vous ne pourrez plus vous servir de PowerShell pour créer des coffres de sauvegarde. <br/> D’ici le **1er novembre 2017**, les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
+> Vous pouvez mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> À compter du **30 novembre 2017**, vous ne pourrez plus vous servir de PowerShell pour créer des coffres de sauvegarde. <br/>
+D’ici au 30 novembre 2017 :
+- tous les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
+- Vous ne pourrez plus accéder aux données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 
 
 

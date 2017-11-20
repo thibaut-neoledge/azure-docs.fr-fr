@@ -3,6 +3,7 @@
 | **Microsoft Azure** |[Stockage Blob Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[Azure Data Lake Store](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓  |
+| &nbsp; |[Azure Database pour MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓  |✓  |
 | &nbsp; |[Stockage Fichier Azure](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[Base de données SQL Azure](../articles/data-factory/connector-azure-sql-database.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓  |✓  |✓  |✓   |
@@ -27,11 +28,11 @@
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓  |✓  |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |✓  |✓  |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |✓  |✓  |
-| **Autres** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓  |✓  |
-| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ | |✓  |✓  |
+| **Autres** |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓  |✓  |✓  |
+| &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) |✓ | | |✓  |
 | &nbsp; |[HTTP générique](../articles/data-factory/connector-http.md) |✓ | |✓  |✓  |
 | &nbsp; |[OData générique](../articles/data-factory/connector-odata.md) |✓ | |✓  |✓  |
 | &nbsp; |[ODBC générique](../articles/data-factory/connector-odbc.md) |✓ |✓  | |✓  |
-| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ | |✓  |✓  |
+| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Table web (table HTML)](../articles/data-factory/connector-web-table.md) |✓ | |✓  |✓   |

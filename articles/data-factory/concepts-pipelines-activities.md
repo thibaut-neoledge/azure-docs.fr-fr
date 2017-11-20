@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: 6dcc5c55fae5e2494526c492a1453747b4d6e179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b5552bbb3a56a95e616a79bf9adeabe68d01216
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,11 +75,12 @@ Activité de contrôle | Description
 [WebActivity](control-flow-web-activity.md) | L’activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder. 
 [Activité de recherche](control-flow-lookup-activity.md) | L’activité de recherche peut être utilisée pour lire ou rechercher un enregistrement, un nom de table ou une valeur à partir de n’importe quelle source externe. Cette sortie peut être référencée par des activités complémentaires. 
 [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md) | L’activité d’obtention des métadonnées peut être utilisée pour récupérer les métadonnées de n’importe quelle donnée dans Azure Data Factory. 
-Activité Exécuter jusqu’à | Implémente une boucle Exécuter jusqu’à semblable à la structure Do-Until des langages de programmation.
-Activité Condition si | L’activité Condition Si peut être utilisée pour créer une branche en fonction de l’évaluation d’une condition par la valeur true ou false. 
+[Activité jusqu’à](control-flow-until-activity.md) | Implémente une boucle Exécuter jusqu’à semblable à la structure Do-Until des langages de programmation. Elle exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true. Vous pouvez spécifier une valeur de délai d’attente pour l’activité Until dans Data Factory.
+[Activité IfCondition](control-flow-if-condition-activity.md) | L’activité IfCondition peut être utilisée pour créer une branche en fonction de l’évaluation d’une condition par la valeur true ou false. L’activité IfCondition fournit les mêmes fonctionnalités qu’une instruction «if » dans les langages de programmation. La condition évalue un ensemble d’activités si l’expression retourne `true` et un autre ensemble d’activités si elle retourne `false`.
+[Activité d’attente](control-flow-wait-activity.md) | Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant la période spécifiée avant de poursuivre l’exécution des activités suivantes. 
 
 ## <a name="pipeline-json"></a>Pipeline JSON
-Examinons de plus près la définition d’un pipeline au format JSON. La structure générique d'un pipeline se présente comme suit :
+Voici comment un pipeline est défini au format JSON : 
 
 ```json
 {
@@ -175,7 +176,7 @@ retry | Nombre maximal de nouvelles tentatives | Entier  | Non. La valeur par d�
 retryIntervalInSeconds | Délai en secondes entre chaque nouvelle tentative | Entier  | Non. La valeur par défaut est de 20 secondes
 
 ### <a name="control-activity"></a>Activité de contrôle
-Les activités de contrôle ont la structure de niveau supérieur suivante.
+Les activités de contrôle ont la structure de niveau supérieur suivante :
 
 ```json
 {
@@ -358,7 +359,7 @@ Vous pouvez enchaîner deux activités à l’aide de la [dépendance des activi
 ## <a name="scheduling-pipelines"></a>Planification des pipelines
 Les pipelines sont planifiés par des déclencheurs. Il existe différents types de déclencheurs (déclencheur planificateur, qui permet aux pipelines d’être déclenchés selon une planification de durée chronométrée, mais aussi déclencheur manuel, qui déclenche les pipelines à la demande). Pour plus d’informations sur les déclencheurs, consultez l’article [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md). 
 
-Pour que votre déclencheur lance l’exécution d’un pipeline, vous devez inclure une référence à ce pipeline spécifique dans la définition du déclencheur. Les pipelines et les déclencheurs ont une relation n-m . Plusieurs déclencheurs peuvent lancer un même pipeline et un même déclencheur peut lancer plusieurs pipelines. Une fois que le déclencheur est défini, vous devez le démarrer pour qu’il commence à déclencher le pipeline. Pour plus d’informations sur les déclencheurs, consultez l’article [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md). 
+Pour que votre déclencheur lance l’exécution d’un pipeline, vous devez inclure une référence à ce pipeline spécifique dans la définition du déclencheur. Les pipelines et les déclencheurs ont une relation n-m. Plusieurs déclencheurs peuvent lancer un même pipeline et un même déclencheur peut lancer plusieurs pipelines. Une fois que le déclencheur est défini, vous devez le démarrer pour qu’il commence à déclencher le pipeline. Pour plus d’informations sur les déclencheurs, consultez l’article [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md). 
 
 Imaginons, par exemple, un déclencheur de planificateur, « Déclencheur A », que je souhaite supprimer de mon pipeline « MyCopyPipeline ». Vous définissez le déclencheur comme indiqué dans l’exemple suivant :
 

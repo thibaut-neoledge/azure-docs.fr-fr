@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/07/2017
-ms.author: darosa;sethm
-ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/10/2017
+ms.author: sethm
+ms.openlocfilehash: 613bb074063e436cdbd54fe5aee9c49109a2d8f2
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
@@ -60,12 +60,11 @@ Si vous avez du code s’exécutant dans la messagerie Standard et que vous souh
 
 ## <a name="get-started-with-premium-messaging"></a>Prise en main de Premium Messaging
 
-La prise en main de Premium Messaging est immédiate ; le processus est similaire à celui de la messagerie Standard. Commencez par [créer un espace de noms](service-bus-create-namespace-portal.md). Veillez à sélectionner **Premium** sous **Niveau de tarification**.
+La prise en main de Premium Messaging est immédiate ; le processus est similaire à celui de la messagerie Standard. Commencez par [créer un espace de noms](service-bus-create-namespace-portal.md) dans le [portail Azure](https://portal.azure.com). Veillez à sélectionner **Premium** sous **Choisir votre niveau tarifaire**.
 
 ![create-premium-namespace][create-premium-namespace]
 
 Vous pouvez également créer des [espaces de noms Premium à l’aide de modèles Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -74,7 +73,7 @@ Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suiva
 * [Introducing Azure Service Bus Premium Messaging (Présentation de la messagerie Azure Service Bus Premium (billet de blog))](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium Messaging (Présentation de la messagerie Azure Service Bus Premium (Channel9))](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus messaging: flexible data delivery in the cloud (Messagerie Service Bus : service flexible de distribution de données dans le cloud)](service-bus-messaging-overview.md)
-* [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
 <!--Image references-->
 

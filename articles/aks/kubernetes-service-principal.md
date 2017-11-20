@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a532c8f69bfb19d26538aafe7c74f062dee06d9f
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 6c61d99f1d023ac643455faae10ef284f1f5bb14
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Principaux de service avec Azure Container Service (AKS)
 
@@ -30,17 +30,17 @@ Cet article indique les différentes options de configuration d’un principal d
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les étapes détaillées dans ce document supposent que vous ayez créé un cluster AKS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [démarrage rapide d’AKS](./kubernetes-walkthrough.md).
+Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [démarrage rapide d’AKS](./kubernetes-walkthrough.md).
 
 Pour créer un principal de service Azure AD, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si vous n’avez pas les privilèges nécessaires, vous devriez demander à votre administrateur Azure AD ou administrateur d’abonnement de vous attribuer les privilèges nécessaires, de ou créer un principal de service pour le cluster Kubernetes au préalable.
 
-Vous devez également avoir la version 2.0.20 de l’interface de ligne de commande Azure installée et configurée. Exécutez az--version pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI](/cli/azure/install-azure-cli).
+Vous devez également avoir installé et configuré Azure CLI version 2.0.21 ou ultérieure. Pour déterminer la version, exécutez la commande az--version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-sp-with-aks-cluster"></a>Créer un Service Pack avec cluster AKS
 
 Lors du déploiement d’un cluster AKS avec la commande `az aks create`, vous avez la possibilité de générer automatiquement un principal de service.
 
-Dans l’exemple suivant, un cluster AKS est créé, et puisqu’un principal de service existant n’est pas spécifié, un principal de service est créé pour le cluster. Pour effectuer cette opération, votre compte doit disposer des droits nécessaires pour la création d’un principal de service. 
+Dans l’exemple suivant, un cluster AKS est créé, et puisqu’un principal de service existant n’est pas spécifié, un principal de service est créé pour le cluster. Pour effectuer cette opération, votre compte doit disposer des droits nécessaires pour la création d’un principal de service.
 
 ```azurecli
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys

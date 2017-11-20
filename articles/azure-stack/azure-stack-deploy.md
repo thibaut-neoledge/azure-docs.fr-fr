@@ -3,8 +3,8 @@ title: "Prérequis pour le déploiement du Kit de développement Azure Stack | M
 description: "Examinez la configuration du matériel et de l’environnement requise pour le Kit de développement Azure Stack (opérateur cloud)."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prérequis pour le déploiement Azure Stack
 
@@ -40,7 +40,7 @@ Avant de déployer le [Kit de développement](azure-stack-poc.md) Azure Stack, a
 
 \*Vous aurez besoin d’une plus grande capacité que cette capacité recommandée si vous prévoyez d’ajouter de nombreux [éléments de la Place de marché](azure-stack-download-azure-marketplace-item.md) Azure.
 
-**Configuration des lecteurs de disque de données :** tous les lecteurs de données doivent être de même type (soit SAS, soit SATA) et avoir la même capacité. Si vous utilisez des lecteurs de disque SAS, vous devez les joindre par le biais d’un chemin d’accès unique (aucune prise en charge de MPIO ou des chemins d’accès multiples n’est fournie).
+**Configuration des lecteurs de disque de données :** tous les lecteurs de données doivent être de même type (SAS, SATA ou NVMe) et avoir la même capacité. Si vous utilisez des lecteurs de disque SAS, vous devez les joindre par le biais d’un chemin d’accès unique (aucune prise en charge de MPIO ou des chemins d’accès multiples n’est fournie).
 
 **Options de configuration HBA**
 
@@ -56,6 +56,7 @@ Avant de déployer le [Kit de développement](azure-stack-poc.md) Azure Stack, a
 * SSD RAID (si le type de support n’est pas spécifié ou connu\*)
 * DISQUE SSD SATA + DISQUE DUR SATA
 * DISQUE SSD SAS + DISQUE DUR SAS
+* NVMe
 
 \*Les contrôleurs RAID sans fonctionnalité Pass Through ne peuvent pas reconnaître le type de support. Ces contrôleurs marqueront à la fois les disques durs et les disques SSD comme Non spécifiés. Dans ce cas, le disque SSD servira de stockage persistant et non de périphériques de mise en cache. Vous pouvez alors déployer le Kit de développement sur ces disques SSD.
 

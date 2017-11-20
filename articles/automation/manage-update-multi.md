@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f97b28d1588e959728163f7ab16d2550a79f610e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gérer les mises à jour pour plusieurs machines virtuelles Azure
+# <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
-La gestion des mises à jour vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles Azure.
-Dans votre compte [Azure Automation](automation-offering-get-started.md), vous pouvez rapidement intégrer des machines virtuelles, évaluer l’état des mises à jour disponibles, planifier l’installation des mises à jour requises et passer en revue les résultats de déploiement pour vérifier que les mises à jour ont été appliquées avec succès sur toutes les machines virtuelles dans lesquelles la gestion des mises à jour est activée.
+La gestion des mises à jour vous permet de gérer les mises à jour et les correctifs pour vos ordinateurs Windows et Linux.
+Dans votre compte [Azure Automation](automation-offering-get-started.md), vous pouvez rapidement intégrer des machines, évaluer l’état des mises à jour disponibles, planifier l’installation des mises à jour requises et passer en revue les résultats de déploiement pour vérifier que les mises à jour ont été appliquées avec succès sur toutes les machines virtuelles dans lesquelles la gestion des mises à jour est activée.
 
 ## <a name="prerequisites"></a>Composants requis
 

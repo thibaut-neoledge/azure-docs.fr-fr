@@ -1,5 +1,5 @@
 ---
-title: "Interroger votre index de Recherche Azure │ Microsoft Docs"
+title: "Requêtes dans Recherche Azure | Documents Microsoft"
 description: "Créez une requête de recherche dans Azure Search et utilisez des paramètres de recherche pour filtrer et trier les résultats de recherche."
 services: search
 manager: jhubbard
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 04/26/2017
+ms.date: 11/13/2017
 ms.author: ashmaka
-ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: b1a96c2299e415db89f881fa72b150d50bb3c69c
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="query-your-azure-search-index"></a>Interroger votre index Azure Search
+# <a name="queries-in-azure-search"></a>Requêtes dans Recherche Azure
 > [!div class="op_single_selector"]
 > * [Vue d'ensemble](search-query-overview.md)
 > * [Portail](search-explorer.md)

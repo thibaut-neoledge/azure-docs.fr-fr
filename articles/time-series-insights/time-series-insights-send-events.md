@@ -1,55 +1,63 @@
 ---
-title: "Envoyer des événements à votre environnement Azure Time Series Insights | Microsoft Docs"
-description: "Ce didacticiel décrit les étapes à suivre pour envoyer des événements à votre environnement Time Series Insights"
-keywords: 
-services: tsi
-documentationcenter: 
+title: "Guide pratique pour envoyer des événements dans un environnement Azure Time Series Insights | Microsoft Docs"
+description: "Ce didacticiel explique comment créer et configurer un hub d’événements et exécuter un exemple d’application pour envoyer (push) des événements à afficher dans Azure Time Series Insights."
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envoyer des événements à un environnement Time Series Insights à l’aide d’un concentrateur d’événements
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envoyer des événements à un environnement Time Series Insights à l’aide d’un hub d’événements
+Ce didacticiel explique comment créer et configurer un hub d’événements et exécuter un exemple d’application pour envoyer (push) des événements. Si vous disposez d’un hub d’événements existant qui a déjà des événements au format JSON, ignorez ce didacticiel et affichez votre environnement dans [time series insights](https://insights.timeseries.azure.com).
 
-Ce didacticiel explique comment créer et configurer le concentrateur d’événements et exécuter un exemple d’application pour envoyer des événements. Si vous disposez d’un concentrateur d’événements existant qui a déjà des événements au format JSON, ignorez ce didacticiel et affichez votre environnement dans [time series insights](https://insights.timeseries.azure.com).
+## <a name="configure-an-event-hub"></a>Configurer un hub d’événements
+1. Pour créer un hub d’événements, suivez les instructions de la [documentation](../event-hubs/event-hubs-create.md) sur les hubs d’événements.
 
-## <a name="configure-an-event-hub"></a>Configurer un concentrateur d’événements
-1. Pour créer un concentrateur d’événements, suivez les instructions de la [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) relative aux concentrateurs d’événements.
+2. Recherchez **hub d’événements** dans la barre de recherche. Cliquez sur **Hubs d’événements** dans la liste retournée.
 
-2. Veillez à créer un groupe de consommateurs qui sera utilisé exclusivement par votre source d’événement Time Series Insights.
+3. Sélectionnez votre hub d’événements en cliquant sur son nom.
 
-  > [!IMPORTANT]
-  > Assurez-vous que ce groupe de consommateurs n’est pas utilisé par un autre service (par exemple, une tâche Stream Analytics ou un autre environnement Time Series Insights). Si le groupe de consommateurs est utilisé par d’autres services, l’opération de lecture est affectée pour cet environnement et les autres services. Si vous utilisez le groupe de consommateurs « $Default », ceci peut entraîner une réutilisation potentielle par d’autres lecteurs.
+4. Sous Entités dans la fenêtre de configuration du milieu, cliquez à nouveau sur **Hubs d’événements**.
 
-  ![Sélectionnez le groupe de consommateurs du concentrateur d’événements](media/send-events/consumer-group.png)
+5. Sélectionnez le nom du hub d'événements pour le configurer.
 
-3. Dans le concentrateur d’événements, créez la stratégie « MySendPolicy » utilisée pour envoyer des événements dans l’exemple csharp.
+  ![Sélectionnez le groupe de consommateurs du hub d’événements](media/send-events/consumer-group.png)
+
+6. Sous **Entités**, sélectionnez **Groupes de consommateurs**.
+ 
+7. Veillez à créer un groupe de consommateurs qui sera utilisé exclusivement par votre source d’événement Time Series Insights.
+
+   > [!IMPORTANT]
+   > Assurez-vous que ce groupe de consommateurs n’est pas utilisé par un autre service (par exemple, une tâche Stream Analytics ou un autre environnement Time Series Insights). Si le groupe de consommateurs est utilisé par d’autres services, l’opération de lecture est affectée pour cet environnement et les autres services. Si vous utilisez le groupe de consommateurs « $Default », ceci peut entraîner une réutilisation potentielle par d’autres lecteurs.
+
+8. Sous le titre **Paramètres**, sélectionnez **Stratégies d’accès partagé**.
+
+9. Dans le hub d’événements, créez **MySendPolicy** utilisé pour envoyer des événements dans l’exemple csharp.
 
   ![Sélectionnez des stratégies d’accès partagé et cliquez sur le bouton Ajouter](media/send-events/shared-access-policy.png)  
 
   ![Ajoutez une stratégie d’accès partagé](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Créer la source d’événement Time Series Insights
-1. Si vous n’avez créé aucune source d’événement, suivez [ces instructions](time-series-insights-add-event-source.md) pour créer une source d’événement.
+1. Si vous n’avez créé aucune source d’événement, suivez [ces instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) pour créer une source d’événement.
 
-2. Spécifiez « deviceTimestamp » comme nom de la propriété timestamp. Cette propriété définit l’horodatage réel dans l’exemple csharp. Le nom de la propriété timestamp est sensible à la casse et les valeurs doivent être au format __aaaa-MM-jjTHH:mm:ss.FFFFFFFK__ lors de l’envoi au format JSON au concentrateur d’événements. Si la propriété n’existe pas dans l’événement, le système utilise l’heure à laquelle l’événement a été placé dans la file d’attente du concentrateur d’événements.
+2. Spécifiez **deviceTimestamp** comme nom de la propriété timestamp. Cette propriété définit l’horodatage réel dans l’exemple C#. Le nom de la propriété timestamp est sensible à la casse et les valeurs doivent être au format __aaaa-MM-jjTHH:mm:ss.FFFFFFFK__ lors de l’envoi au format JSON au hub d’événements. Si la propriété n’existe pas dans l’événement, le système utilise l’heure à laquelle l’événement a été placé dans la file d’attente du hub d’événements.
 
   ![Créez la source d’événement](media/send-events/event-source-1.png)
 
 ## <a name="sample-code-to-push-events"></a>Exemple de code pour envoyer des événements
-1. Accédez à la stratégie de concentrateur d’événements « MySendPolicy » et copiez la chaîne de connexion avec la clé de stratégie.
+1. Accédez à la stratégie de hub d’événements nommée **MySendPolicy**. Copiez la **chaîne de connexion** avec la clé de stratégie.
 
   ![Copiez la chaîne de connexion MySendPolicy](media/send-events/sample-code-connection-string.png)
 
@@ -163,6 +171,7 @@ Un tableau JSON avec deux objets JSON. Chaque objet JSON sera converti en un év
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+
 ### <a name="sample-3"></a>Exemple 3
 
 #### <a name="input"></a>Entrée
@@ -235,5 +244,4 @@ Un objet JSON avec un tableau JSON imbriqué contenant deux objets JSON. Cette e
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-* Afficher votre environnement dans le [Portail Time Series Insights](https://insights.timeseries.azure.com)
+Affichez votre environnement dans [l’explorateur Time Series Insights](https://insights.timeseries.azure.com).

@@ -1,5 +1,5 @@
 ---
-title: "Fonctionnalités de Bash dans Azure Cloud Shell (préversion) | Microsoft Docs"
+title: "Fonctionnalités de Bash dans Azure Cloud Shell | Microsoft Docs"
 description: "Vue d’ensemble des fonctionnalités de Bash dans Azure Cloud Shell"
 services: Azure
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 23faadc38fde75d4c83361465fdacc76d42d7523
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: f473d45e396c646c8911f4d026aff0f7b97c167e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Fonctionnalités et outils pour Bash dans Azure Cloud Shell
 
@@ -61,9 +61,9 @@ Les fichiers en dehors de `$Home` et de l’état de la machine ne sont pas cons
 |Bases de données              |Client MySQL<br> Client PostgreSQL<br> [Utilitaire sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Autres                  |Client iPython<br> [CLI Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> |
 
-## <a name="language-support"></a>Support multilingue
+## <a name="language-support"></a>Prise en charge des langages
 
-|language   |Version   |
+|Langage   |Version   |
 |---|---|
 |.NET       |2.0.0       |
 |Go         |1.7        |

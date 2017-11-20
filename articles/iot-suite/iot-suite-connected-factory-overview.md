@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7fbb47390b6b1d918cbef0770ce1822591341866
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3b56c91accfb6fe6358032e1dd329a931abfc3c1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Prise en main de la solution préconfigurée d’usine connectée
 
@@ -54,7 +54,7 @@ Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 > [!NOTE]
 > Si vous rencontrez des problèmes lors du déploiement de la solution préconfigurée, consultez les articles [Autorisations sur le site azureiotsuite.com][lnk-permissions] et le [FAQ sur l’usine connectée](iot-suite-faq-cf.md). Si les problèmes persistent, créez un ticket de service sur le [Portail][lnk-portal].
 
-Certains détails de votre solution semblent-ils faire défaut ? Faites-nous part de vos suggestions concernant les fonctionnalités sur [UserVoice](https://feedback.azure.com/forums/321918-azure-iot).
+Certains détails de votre solution semblent-ils faire défaut ? Soumettez vos suggestions concernant les fonctionnalités sur [UserVoice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
@@ -302,5 +302,5 @@ Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-permissions]: iot-suite-v1-permissions.md
+[lnk-faq]: iot-suite-v1-faq.md

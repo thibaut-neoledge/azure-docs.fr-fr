@@ -1,6 +1,6 @@
 ---
-title: "Création d’un index Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
-description: "Qu’est-ce qu’un index dans Azure Search et comment l’utiliser ?"
+title: Index dans le service Recherche Azure | Microsoft Docs
+description: "En savoir plus sur les concepts d’index et leur utilisation dans Recherche Azure."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -10,15 +10,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 11/08/2017
 ms.author: ashmaka
-ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-an-azure-search-index"></a>Création d'un index Azure Search
+# <a name="indexes-in-azure-search"></a>Index dans Recherche Azure
 > [!div class="op_single_selector"]
 > * [Vue d'ensemble](search-what-is-an-index.md)
 > * [Portail](search-create-index-portal.md)
@@ -27,8 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="what-is-an-index"></a>Qu’est-ce qu’un index ?
-Un *index* est une banque permanente de *documents* et d’autres éléments utilisés par un service Azure Search. Un document correspond à une unité de données pouvant faire l’objet d’une recherche dans votre index. Par exemple, un détaillant de commerce électronique peut posséder un document pour chaque article qu’il vend, un organisme d’information peut posséder un document par article, etc. Pour comparer avec des éléments de base de données plus familiers, d’un point de vue conceptuel, un *index* est similaire à une *table*, et les *documents* équivalent plus ou moins aux *lignes* d’une table.
+Dans Recherche Azure, un *index* est une banque permanente de *documents* et d’autres éléments utilisés par un service Recherche Azure. Un document correspond à une unité de données pouvant faire l’objet d’une recherche dans votre index. Par exemple, un détaillant de commerce électronique peut posséder un document pour chaque article qu’il vend, un organisme d’information peut posséder un document par article, et ainsi de suite. Pour comparer avec des éléments de base de données plus familiers, d’un point de vue conceptuel, un *index* est similaire à une *table*, et les *documents* équivalent plus ou moins aux *lignes* d’une table.
 
 Lorsque vous ajoutez/chargez des documents et soumettez des requêtes de recherche à Azure Search, vous envoyez vos demandes à un index spécifique dans votre service de recherche.
 

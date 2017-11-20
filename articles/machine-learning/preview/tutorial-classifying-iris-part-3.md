@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/2/2017
-ms.openlocfilehash: b6cdd135d2d264c8b4ede1592c686cdeea3d0a59
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.date: 11/14/2017
+ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classification d’Iris, partie 3 : déployer un modèle
 Les services Azure Machine Learning (version préliminaire) constituent une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux scientifiques des données professionnels. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -30,7 +30,7 @@ Ce didacticiel est le troisième d’une série de trois. Dans cette partie du d
 > * Exécuter le service web en temps réel.
 > * Examiner les données d’objet blob de sortie. 
 
- Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/iris_flower_data_set) intemporel. Les captures d’écran sont spécifiques à Windows, mais l’expérience Mac OS est presque identique.
+ Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/iris_flower_data_set) intemporel. Les captures d’écran sont spécifiques à Windows, mais l’expérience Mac OS est presque identique.
 
 ## <a name="prerequisites"></a>Composants requis
 Effectuer les deux premières parties de cette série de didacticiels :
@@ -119,8 +119,7 @@ Pour déployer le service web, ainsi que le fichier de modèle, vous avez égale
 
 Vous pouvez à présent préparer votre environnement pour opérationnaliser le modèle.
 
->[!NOTE]
->Le déploiement de modèles vous demande de disposer d’un accès propriétaire à un abonnement Azure.
+
 
 ## <a name="prepare-to-operationalize-locally"></a>Préparer l’opérationnalisation locale
 Utilisez le déploiement _en mode local_ pour effectuer une exécution dans des conteneurs Docker sur votre ordinateur local.
@@ -162,7 +161,9 @@ Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteu
 
    La troisième ligne de la sortie affiche **"registrationState": "Registering"**. Attendez quelques instants et répétez la commande **show**, jusqu’à ce que la sortie affiche **"registrationState": "Registered"**.
 
-3. Créez l’environnement. Vous devez exécuter cette étape une fois par environnement. Par exemple, exécutez-la une fois pour l’environnement de développement et une fois pour l’environnement de production. Utilisez le _mode local_ pour ce premier environnement. Vous pouvez essayer le commutateur `-c` ou `--cluster` dans la commande suivante pour configurer un environnement en _mode cluster_ ultérieurement :
+3. Créez l’environnement. Vous devez exécuter cette étape une fois par environnement. Par exemple, exécutez-la une fois pour l’environnement de développement et une fois pour l’environnement de production. Utilisez le _mode local_ pour ce premier environnement. Vous pouvez essayer le commutateur `-c` ou `--cluster` dans la commande suivante pour configurer un environnement en _mode cluster_ ultérieurement.
+
+Notez que pour la commande de configuration suivante, vous devez disposer d’un accès collaborateur à l’abonnement. Si vous n’en avez pas, il vous faudra au moins un accès collaborateur au groupe de ressources dans lequel vous déployez. Pour ce faire, vous devez spécifier le nom de groupe de ressources dans le cadre de la commande d’installation à l’aide de l’indicateur `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
