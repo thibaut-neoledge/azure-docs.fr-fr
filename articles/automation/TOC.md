@@ -32,6 +32,7 @@
 ### [Paramètres d'entrée de Runbook](automation-runbook-input-parameters.md)
 ### [Gestion des erreurs dans les runbooks graphiques](automation-runbook-graphical-error-handling.md)
 ### [Suivre une tâche de Runbook](automation-runbook-execution.md)
+### [Créer une tâche Watcher](automation-watchers-tutorial.md)
 ### [Paramètres du Runbook](automation-runbook-settings.md)
 ### [Gestion des données Azure Automation](automation-managing-data.md)
 ### [Appeler un runbook Azure Automation à partir d’une alerte Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
