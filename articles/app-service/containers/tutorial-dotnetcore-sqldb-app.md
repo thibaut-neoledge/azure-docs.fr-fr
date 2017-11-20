@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 424d46f31717e28bb341f6a96201a32efc1eb5a9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Créer une application web .NET Core et SQL Database dans Azure App Service sur Linux
 
@@ -162,7 +162,7 @@ Dans cette étape, vous déployez votre application .NET Core connectée à SQL 
 
 ### <a name="create-a-web-app"></a>Créer une application web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-dotnetcore-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Configurer une variable d’environnement
 
