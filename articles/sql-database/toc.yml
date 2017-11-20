@@ -370,6 +370,8 @@
           items:
             - name: Déployer l’application fournie en exemple
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Clients d’approvisionnement
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Surveiller les performances de la base de données
               href: saas-multitenantdb-performance-monitoring.md
             - name: Exécuter des requêtes ad hoc

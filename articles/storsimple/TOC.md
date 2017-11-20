@@ -1,7 +1,8 @@
 # Baie virtuelle StorSimple
 
 ## Vue d'ensemble
-### [Quelle est la solution ?](storsimple-ova-overview.md)
+### [Quelle est la solution ?](storsimple-ova-overview.md)
+### [Disponibilité des régions](storsimple-regions.md)
 
 ## Prise en main
 ### Planification
@@ -59,6 +60,7 @@
 ### [Quelle est la solution ?](storsimple-overview.md)
 ### [Carte d’apprentissage StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Sécurité](storsimple-8000-security.md)
+### [Disponibilité des régions](storsimple-regions.md)
 ### [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md)
 
 ## Prise en main

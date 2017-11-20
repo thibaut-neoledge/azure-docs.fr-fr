@@ -25,11 +25,8 @@
 ###### [Données simulés](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Utiliser des capteurs réels](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implémenter la mise à jour du microprogramme](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Se connecter à votre passerelle Intel NUC
-##### [Données simulés](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Utiliser le capteur réel](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Procédure
+### Procédures
 #### Connecter un appareil simulé
 ##### [C sur Windows](iot-suite-v1-connecting-devices.md)
 ##### [C sur Linux](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Présentation de la solution d’usine connectée](iot-suite-connected-factory-overview.md)
 ### [Procédure pas à pas de la solution d’usine connectée](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Procédure
+# Procédures
 ## Surveillance à distance
 ### [Effectuer la surveillance avancée](iot-suite-remote-monitoring-monitor.md)
 ### [Utiliser les règles pour détecter les problèmes](iot-suite-remote-monitoring-automate.md)
