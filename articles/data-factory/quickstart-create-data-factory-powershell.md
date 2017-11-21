@@ -1,6 +1,6 @@
 ---
-title: "Créer une fabrique de données Azure à l’aide de PowerShell | Microsoft Docs"
-description: "Créez une fabrique de données Azure pour copier les données d’un emplacement dans un stockage Blob Azure vers un autre emplacement du même stockage Blob."
+title: "Copier des données dans le stockage Blob à l’aide d’Azure Data Factory | Microsoft Docs"
+description: "Créez une fabrique de données Azure pour copier les données d’un dossier vers un autre dans un stockage Blob Azure vers un autre emplacement du même stockage Blob."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 63e4c654409651f6655da1bed6ab2f544cf024dd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="create-an-azure-data-factory-and-pipeline-using-powershell"></a>Créer une fabrique de données Azure et un pipeline à l’aide de PowerShell
+# <a name="create-an-azure-data-factory-using-powershell"></a>Créer une fabrique de données Azure à l’aide de PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 - Préversion](quickstart-create-data-factory-powershell.md)
 
-Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer une fabrique de données Azure. Le pipeline créé dans cette fabrique de données copie les données d’un emplacement vers un autre emplacement dans un stockage Blob Azure. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, consultez l’article [Didacticiel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
+Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données copie les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, consultez l’article [Didacticiel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
 
 Cet article ne fournit pas de présentation détaillée du service Data Factory. Pour une présentation du service Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
 
@@ -44,11 +44,11 @@ Dans ce guide de démarrage rapide, vous utilisez un compte Stockage Azure à us
 Dans ce guide de démarrage rapide, vous spécifiez le nom et la clé de votre compte Stockage Azure. La procédure suivante détaille les étapes à suivre pour obtenir le nom et la clé de votre compte de stockage. 
 
 1. Lancez un navigateur web et accédez au [portail Azure](https://portal.azure.com). Connectez-vous en utilisant un nom d’utilisateur et un mot de passe Azure. 
-2. Cliquez sur **Plus de services >** dans le menu de gauche, filtrez en utilisant le mot clé **Stockage**, puis sélectionnez **comptes de stockage**.
+2. Cliquez sur **Plus de services >** dans le menu de gauche, filtrez en utilisant le mot clé **Stockage**, puis sélectionnez **Comptes de stockage**.
 
-    ![Recherche du compte de stockage](media/quickstart-create-data-factory-powershell/search-storage-account.png)
+    ![Rechercher le compte de stockage](media/quickstart-create-data-factory-powershell/search-storage-account.png)
 3. Dans la liste des comptes de stockage, appliquez un filtre pour votre compte de stockage (si nécessaire), puis sélectionnez **votre compte de stockage**. 
-4. Dans la page **compte de stockage**, sélectionnez **Clés d’accès** dans le menu.
+4. Dans la page **Compte de stockage**, sélectionnez **Clés d’accès** dans le menu.
 
     ![Obtenir le nom et la clé du compte de stockage](media/quickstart-create-data-factory-powershell/storage-account-name-key.png)
 5. Copiez les valeurs des champs **Nom du compte de stockage** et **key1** dans le presse-papiers. Collez-les dans un bloc-notes ou tout autre éditeur et enregistrez-le.  
@@ -123,7 +123,7 @@ Lancez **PowerShell** sur votre ordinateur. Gardez Azure PowerShell ouvert jusqu
     ```
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
-1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez dans les commandes PowerShell plus tard. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) entre des guillemets doubles, puis exécutez la commande. 
+1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) entre des guillemets doubles, puis exécutez la commande. 
    
      ```powershell
     $resourceGroupName = "<Specify a name for the Azure resource group>";
@@ -138,13 +138,13 @@ Lancez **PowerShell** sur votre ordinateur. Gardez Azure PowerShell ouvert jusqu
     ```powershell
     $location = "East US"
     ```
-4. Pour créer le groupe de ressources Azure, utilisez la commande suivante : 
+4. Pour créer le groupe de ressources Azure, exécutez la commande suivante : 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
-    Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Affectez une valeur différente à la variable `$resourceGroupName` et essayez de nouveau. Si vous souhaitez partager le groupe de ressources, passez à l’étape suivante. 
-5. Pour créer une fabrique de données, exécutez l’applet de commande suivante **Set-AzureRmDataFactoryV2** : 
+    Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Affectez une valeur différente à la variable `$resourceGroupName` et essayez de nouveau. Si vous souhaitez partager le groupe de ressources avec d’autres, passez à l’étape suivante. 
+5. Pour créer la fabrique de données, exécutez l’applet de commande **Set-AzureRmDataFactoryV2** suivante : 
     
     ```powershell       
     Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
