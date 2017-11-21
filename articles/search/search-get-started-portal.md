@@ -1,5 +1,5 @@
 ---
-title: "Tutorial : Créer votre premier index Recherche Azure dans le portail | Microsoft Docs"
+title: "Index, requêtes et filtres dans les pages du portail Recherche Azure | Microsoft Docs"
 description: "Dans le Portail Azure, utilisez les exemples de données prédéfinis pour générer un index. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage."
 services: search
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Tutorial : Créer votre premier index Recherche Azure dans le portail
+# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Créer, interroger et filtrer un index Recherche Azure dans le portail
 
 Dans le Portail Azure, partez d’un exemple de jeu de données prédéfini pour générer rapidement un index à l’aide de l’Assistant **Importer des données**. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**.  
 
-Cette présentation dénuée de code est destinée à vous familiariser avec les données prédéfinies pour vous permettre d’écrire immédiatement des requêtes intéressantes. Bien que les outils du portail ne puissent pas se substituer au code, ils se révèlent utiles pour les tâches suivantes :
+Cette présentation dénuée de code est destinée à vous familiariser avec les données prédéfinies pour vous permettre d’écrire immédiatement des requêtes intéressantes. Bien que les outils du portail ne puissent pas se substituer au code, ils se révèlent utiles pour les tâches suivantes :
 
 + Acquisition d’une expérience pratique en un minimum de temps
 + Création d’un prototype d’index avant l’écriture du code dans l’Assistant **Importer des données**
@@ -128,7 +128,7 @@ Vous disposez maintenant d’un index de recherche prêt à être interrogé. **
 
 **`search=seattle`**
 
-+ Le paramètre `search` permet d’entrer une recherche par mot clé pour une recherche en texte intégral et, dans ce cas précis, renvoie les entrées du Comté de King, dans l’État de Washington, dont le document contient le terme *Seattle* dans l’un des champs utilisables dans une recherche. 
++ Le paramètre **recherche** permet d’entrer une recherche par mot clé pour une recherche en texte intégral et, dans ce cas précis, renvoie les entrées du Comté de King, dans l’État de Washington, dont le document contient le terme *Seattle* dans l’un des champs utilisables dans une recherche. 
 
 + **L’Explorateur de recherche** renvoie les résultats au format JSON, qui est particulièrement détaillé et difficile à lire si les documents présentent une structure dense. Selon les documents dont vous disposez, vous devrez peut-être écrire du code destiné à manipuler les résultats de la recherche pour en extraire les éléments importants. 
 
@@ -136,35 +136,48 @@ Vous disposez maintenant d’un index de recherche prêt à être interrogé. **
 
 **`search=seattle&$count=true&$top=100`**
 
-+ Le symbole `&` permet d’ajouter des paramètres de recherche, qui peuvent être spécifiés dans n’importe quel ordre. 
++ Le symbole **&** permet d’ajouter des paramètres de recherche, qui peuvent être spécifiés dans n’importe quel ordre. 
 
-+  Le paramètre `$count=true` récupère une valeur indiquant le nombre total de documents renvoyés. Vous pouvez vérifier les requêtes de filtre en surveillant les modifications signalées par `$count=true`. 
++  Le paramètre **$count=true** récupère une valeur indiquant le nombre total de documents renvoyés. Vous pouvez vérifier les requêtes de filtre en surveillant les modifications signalées par **$count=true**. 
 
-+ La chaîne `$top=100` renvoie les 100 documents les mieux classés du nombre total de documents. Par défaut, le service Recherche Azure renvoie les 50 meilleures correspondances. Vous pouvez augmenter ou diminuer ce nombre par le biais du paramètre `$top`.
++ La chaîne **$top=100** renvoie les 100 documents les mieux classés du nombre total de documents. Par défaut, le service Recherche Azure renvoie les 50 meilleures correspondances. Vous pouvez augmenter ou diminuer ce nombre par le biais du paramètre **$top**.
 
-**`search=*&facet=city&$top=2`**
 
-+ `search=*` est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de toutes les villes dans l’index.
+## <a name="filter-query"></a>Filtrer la requête
 
-+  Le paramètre `facet` renvoie une structure de navigation que vous pouvez transmettre à un contrôle d’interface utilisateur. Il renvoie des catégories ainsi qu’un nombre. Dans ce cas précis, les catégories reposent sur le nombre de villes. Le service Recherche Azure ne propose aucune fonction d’agrégation, mais vous pouvez bénéficier d’une fonction quasiment comparable par le biais du paramètre `facet`, qui renvoie un nombre de documents dans chaque catégorie.
-
-+ `$top=2` renvoie deux documents, illustrant ainsi la possibilité d’utiliser `top` pour réduire ou augmenter les résultats.
-
-**`search=seattle&facet=beds`**
-
-+ Cette requête définit une facette correspondant au nombre de chambres dans une recherche de texte portant sur *Seattle*. `"beds"` peut être spécifié en tant que facette, car ce champ est désigné comme récupérable, filtrable et à choix multiples dans l’index, et les valeurs qu’il contient (valeur numérique de 1 à 5) sont adaptées à un classement des entrées en différents groupes (entrées comportant 3 chambres, entrées comportant 4 chambres, etc.). 
-
-+ Seuls les champs filtrables peuvent être désignés comme étant à facettes. Les résultats ne peuvent renvoyer que les champs récupérables.
+Les filtres sont inclus dans les demandes de recherche lorsque vous ajoutez le paramètre **$filter**. 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ Le paramètre `filter` renvoie les résultats correspondant aux critères que vous avez spécifiés. Dans ce cas précis, la recherche renvoie les entrées présentant un nombre de chambres supérieur à 3. 
++ Le paramètre **$filter** renvoie les résultats correspondant aux critères que vous avez spécifiés. Dans ce cas précis, la recherche renvoie les entrées présentant un nombre de chambres supérieur à 3. 
 
 + La syntaxe de filtre est une construction OData. Pour plus d’informations, consultez l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
 
+## <a name="facet-query"></a> « Facetter » la requête
+
+Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez utiliser le paramètre de facette pour retourner un nombre agrégé des documents qui correspondent à la valeur de facette que vous fournissez. 
+
+**`search=*&facet=city&$top=2`**
+
++ **search=*** est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de toutes les villes dans l’index.
+
++  **facet** renvoie une structure de navigation que vous pouvez transmettre à un contrôle d’interface utilisateur. Il renvoie des catégories ainsi qu’un nombre. Dans ce cas précis, les catégories reposent sur le nombre de villes. Le service Recherche Azure ne propose aucune fonction d’agrégation, mais vous pouvez bénéficier d’une fonction quasiment comparable par le biais du paramètre `facet`, qui renvoie un nombre de documents dans chaque catégorie.
+
++ **$top=2** renvoie deux documents, illustrant ainsi la possibilité d’utiliser `top` pour réduire ou augmenter les résultats.
+
+**`search=seattle&facet=beds`**
+
++ Cette requête définit une facette correspondant au nombre de chambres dans une recherche de texte portant sur *Seattle*. Le terme *beds* peut être spécifié en tant que facette, car ce champ est désigné comme récupérable, filtrable et à choix multiples dans l’index, et les valeurs qu’il contient (valeurs numériques de 1 à 5) sont adaptées à un classement des entrées en différents groupes (entrées comportant 3 chambres, entrées comportant 4 chambres, etc.). 
+
++ Seuls les champs filtrables peuvent être désignés comme étant à facettes. Les résultats ne peuvent renvoyer que les champs récupérables.
+
+## <a name="highlight-query"></a> Ajouter la mise en surbrillance
+
+La mise en surbrillance des correspondances fait référence au formatage du texte qui correspond au mot clé, lorsque des correspondances sont trouvées dans un champ spécifique. Si votre terme de recherche est profondément enfoui dans une description, vous pouvez définir une mise en surbrillance des correspondances pour le localiser plus facilement. 
+
 **`search=granite countertops&highlight=description`**
 
-+ La mise en surbrillance des correspondances fait référence au formatage du texte qui correspond au mot clé, lorsque des correspondances sont trouvées dans un champ spécifique. Si votre terme de recherche est profondément enfoui dans une description, vous pouvez définir une mise en surbrillance des correspondances pour le localiser plus facilement. Dans ce cas précis, l’expression mise en forme `"granite countertops"` est plus facile à identifier dans le champ de description.
++ Dans cet exemple, l’expression mise en forme *granite countertops* est plus facile à repérer dans le champ de description.
 
 **`search=mice&highlight=description`**
 
@@ -172,23 +185,29 @@ Vous disposez maintenant d’un index de recherche prêt à être interrogé. **
 
 + Le service Recherche Azure prend en charge 56 analyseurs Lucene et Microsoft. Par défaut, le service Recherche Azure utilise l’analyseur Lucene standard. 
 
+## <a name="fuzzy-search"></a> Utiliser la recherche partielle
+
+Dans une recherche classique, aucune correspondance n’est renvoyée pour les mots mal orthographiés, comme *samamish* pour le plateau Samammish dans la région de Seattle. Pour gérer les fautes d’orthographe, vous pouvez utiliser une recherche partielle, décrite dans l’exemple suivant.
+
 **`search=samamish`**
 
-+ Dans une recherche classique, aucune correspondance n’est renvoyée pour les mots mal orthographiés, comme « samamish » pour le plateau Samammish dans la région de Seattle. Pour gérer les fautes d’orthographe, vous pouvez utiliser une recherche partielle, décrite dans l’exemple suivant.
++ Cet exemple orthographie mal une localité de la région de Seattle.
 
 **`search=samamish~&queryType=full`**
 
-+ La recherche partielle est activée lorsque vous spécifiez le symbole `~` et que vous utilisez l’analyseur de requêtes complètes, qui interprète et traite correctement la syntaxe `~`. 
++ La recherche partielle est activée lorsque vous spécifiez le symbole **~** et que vous utilisez l’analyseur de requêtes complètes, qui interprète et traite correctement la syntaxe **~**. 
 
-+ La recherche partielle est disponible lorsque vous optez pour l’analyseur de requêtes complètes en définissant `queryType=full`. Pour plus d’informations sur les scénarios de requête autorisés par l’analyseur de requêtes complètes, consultez l’article [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Syntaxe de requête Lucene dans le service Recherche Azure).
++ La recherche partielle est disponible lorsque vous optez pour l’analyseur de requêtes complètes en définissant **queryType=full**. Pour plus d’informations sur les scénarios de requête autorisés par l’analyseur de requêtes complètes, consultez l’article [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Syntaxe de requête Lucene dans le service Recherche Azure).
 
-+ Lorsque l’élément `queryType` n’est pas spécifié, l’analyseur de requêtes simples par défaut est utilisé. L’analyseur de requêtes simples fonctionne plus rapidement, mais si vous avez besoin d’utiliser des recherches partielles, des expressions régulières, des recherches de proximité ou d’autres types de requêtes avancées, vous devrez recourir à la syntaxe complète. 
++ Lorsque l’élément **queryType** n’est pas spécifié, l’analyseur de requêtes simples par défaut est utilisé. L’analyseur de requêtes simples fonctionne plus rapidement, mais si vous avez besoin d’utiliser des recherches partielles, des expressions régulières, des recherches de proximité ou d’autres types de requêtes avancées, vous devrez recourir à la syntaxe complète. 
+
+## <a name="geo-search"></a> Essayez la recherche géospatiale
+
+La recherche géographique est prise en charge par le biais du [type de données edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) sur un champ contenant des coordonnées. La recherche géographique est un type de filtre, spécifié dans l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData). 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ La recherche géographique est prise en charge par le biais du [type de données edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) sur un champ contenant des coordonnées. La recherche géographique est un type de filtre, spécifié dans l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData). 
-
-+ L’exemple de requête ci-dessus filtre tous les résultats sur la base de données positionnelles et renvoie les résultats situés à moins de 5 kilomètres d’un point donné (spécifié sous la forme de coordonnées de latitude et de longitude). L’ajout du paramètre `$count` vous permet de connaître le nombre de résultats renvoyés lorsque vous modifiez la distance ou les coordonnées. 
++ L’exemple de requête ci-dessus filtre tous les résultats sur la base de données positionnelles et renvoie les résultats situés à moins de 5 kilomètres d’un point donné (spécifié sous la forme de coordonnées de latitude et de longitude). L’ajout du paramètre **$count** vous permet de connaître le nombre de résultats renvoyés lorsque vous modifiez la distance ou les coordonnées. 
 
 + La recherche géographique est utile si votre application de recherche dispose d’une fonctionnalité « rechercher à proximité » ou qu’elle utilise la navigation dans les cartes. Toutefois, cette fonction de recherche n’est pas disponible en texte intégral. Si vos utilisateurs ont besoin de rechercher des villes ou des pays par leur nom, ajoutez des champs contenant les noms de ville ou de pays, en plus des coordonnées.
 
